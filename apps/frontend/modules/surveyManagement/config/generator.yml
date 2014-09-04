@@ -1,0 +1,30 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           LtSurvey
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          lt_survey
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+        organization_id:        { attributes: { with_add_new_link: true } }
+        cities_list:            { attributes: { with_add_new_link: true } }
+        survey_contact_id:      { attributes: { with_add_new_link: true } }
+        special_criterias_list: { attributes: { with_add_new_link: true } }
+      list:    
+        title: List Of Surveys
+        display: [organization,year, survey_name]
+        max_per_page: 20
+      filter:  
+        class: false
+      form:    
+        class: SurveyManagementForm
+      edit:    ~
+      new:     ~

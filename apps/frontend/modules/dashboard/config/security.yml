@@ -1,0 +1,4 @@
+## YAML Template.
+---
+index:
+  credentials: [[superuser, client admin, client user]]

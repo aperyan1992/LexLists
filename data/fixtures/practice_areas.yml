@@ -1,0 +1,2298 @@
+## YAML Template.
+---
+
+LtMainPracticeArea:
+<?php
+$main_practice_areas_chambers_uk = array(
+    0 => array("name" => "ADMINISTRATIVE & PUBLIC LAW", "short_code" => "ADMIN PUBLIC"),
+    1 => array("name" => "AGRICULTURE & RURAL AFFAIRS", "short_code" => "AGRICUL"),
+    2 => array("name" => "ASSET FINANCE", "short_code" => "ASSET FIN"),
+    3 => array("name" => "AVIATION", "short_code" => "AVIATION"),
+    4 => array("name" => "BANKING & FINANCE", "short_code" => "BANKING FIN"),
+    5 => array("name" => "BANKING LITIGATION", "short_code" => "BANKING LIT"),
+    6 => array("name" => "CAPITAL MARKETS: AIM", "short_code" => "CAPITAL MKTS:AIM"),
+    7 => array("name" => "CAPITAL MARKETS: DEBT & EQUITY", "short_code" => "CAPITAL MKTS:DEBT & EQUITY"),
+    8 => array("name" => "CAPITAL MARKETS: STRUCTURED FINANCE, SECURITISATION & DERIVATIVES", "short_code" => "CAPITAL MKTS:STRUC FIN"),
+    9 => array("name" => "CHARITIES", "short_code" => "CHARITIES"),
+    10 => array("name" => "CIVIL LIBERTIES & HUMAN RIGHTS", "short_code" => "CIVIL LIBERTIES"),
+    11 => array("name" => "CLINICAL NEGLIGENCE", "short_code" => "CLINICAL NEGL"),
+    12 => array("name" => "COMMERCIAL CONTRACTS", "short_code" => "COMML CONTRACTS"),
+    13 => array("name" => "COMMODITIES", "short_code" => "COMMODITIES"),
+    14 => array("name" => "COMPETITION/EUROPEAN LAW", "short_code" => "COMPETITION"),
+    15 => array("name" => "CONSTRUCTION", "short_code" => "CONSTRUCTION"),
+    16 => array("name" => "CONSUMER FINANCE", "short_code" => "CONSUMER FIN"),
+    17 => array("name" => "CORPORATE CRIME & INVESTIGATIONS", "short_code" => "CORP CRIME"),
+    18 => array("name" => "CORPORATE/M&A", "short_code" => "CORP M&A"),
+    19 => array("name" => "COURT OF PROTECTION", "short_code" => "COURT PROT"),
+    20 => array("name" => "CRIME", "short_code" => "CRIME"),
+    21 => array("name" => "DATA PROTECTION", "short_code" => "DATA PROT"),
+    22 => array("name" => "DEFAMATION/REPUTATION MANAGEMENT", "short_code" => "DEFAMATION"),
+    23 => array("name" => "EDUCATION", "short_code" => "EDUC"),
+    24 => array("name" => "EMPLOYEE SHARE SCHEMES & INCENTIVES", "short_code" => "EE SHARE"),
+    25 => array("name" => "EMPLOYMENT", "short_code" => "EMPLOYMENT"),
+    26 => array("name" => "EMPLOYMENT: EMPLOYEE & TRADE UNION", "short_code" => "EMPLOYMENT: EE & UNION"),
+    27 => array("name" => "ENERGY & NATURAL RESOURCES", "short_code" => "ENERGY NAT RES"),
+    28 => array("name" => "ENERGY & NATURAL RESOURCES:MINING", "short_code" => "ENERGY NAT RES MINING"),
+    29 => array("name" => "ENVIRONMENT", "short_code" => "ENVIRONMENT"),
+    30 => array("name" => "ENVIRONMENT: CLAIMANT", "short_code" => "ENVIRONMENT:CLAIMANT"),
+    31 => array("name" => "ENVIRONMENT: CLIMATE CHANGE", "short_code" => "ENVIRONMENT:CLIMATE"),
+    32 => array("name" => "FAMILY / MATRIMONIAL", "short_code" => "FAMILY"),
+    33 => array("name" => "FINANCIAL SERVICES", "short_code" => "FIN SERV"),
+    34 => array("name" => "FRANCHISING", "short_code" => "FRANCHISING"),
+    35 => array("name" => "FRAUD: CIVIL", "short_code" => "FRAUD:CIVIL"),
+    36 => array("name" => "FRAUD: CRIMINAL", "short_code" => "FRAUD:CRIMINAL"),
+    37 => array("name" => "HEALTH & SAFETY", "short_code" => "HLTH SAFTY"),
+    38 => array("name" => "HEALTHCARE", "short_code" => "HEALTHCARE"),
+    39 => array("name" => "HEALTHCARE:MENTAL HEALTH:PATIENTS", "short_code" => "HEALTHCARE:MENTAL:PATIENTS"),
+    40 => array("name" => "HEALTHCARE:MENTAL HEALTH:PROVIDERS", "short_code" => "HEALTHCARE:MENTAL:PROVIDERS"),
+    41 => array("name" => "HOTELS & LEISURE", "short_code" => "HOTELS"),
+    42 => array("name" => "IMMIGRATION:BUSINESS", "short_code" => "IMMIGRATION:BUS"),
+    43 => array("name" => "IMMIGRATION:PERSONAL", "short_code" => "IMMIGRATION:PERSONAL"),
+    44 => array("name" => "INFORMATION TECHNOLOGY", "short_code" => "INFO TECH"),
+    45 => array("name" => "INSURANCE:CONTENTIOUS CLAIMS & REINSURANCE", "short_code" => "INSUR:CONTENTIOUS"),
+    46 => array("name" => "INSURANCE: NON-CONTENTIOUS", "short_code" => "INSUR NON-CONTENTIOUS"),
+    47 => array("name" => "INTELLECTUAL PROPERTY", "short_code" => "IP"),
+    48 => array("name" => "INTERNATIONAL ARBITRATION", "short_code" => "INTL ARB"),
+    49 => array("name" => "INVESTMENT FUNDS", "short_code" => "INVSTMT FUNDS"),
+    50 => array("name" => "LICENSING", "short_code" => "LICENSING"),
+    51 => array("name" => "LIFE SCIENCES", "short_code" => "LIFE SCI"),
+    52 => array("name" => "LITIGATION", "short_code" => "LITIGATION"),
+    53 => array("name" => "LOCAL GOVERNMENT", "short_code" => "LOCAL GOVT"),
+    54 => array("name" => "MEDIA & ENTERTAINMENT", "short_code" => "MEDIA ENT"),
+    55 => array("name" => "MEDIATORS", "short_code" => "MEDIATORS"),
+    56 => array("name" => "OUTSOURCING", "short_code" => "OUTSOURCING"),
+    57 => array("name" => "PARLIAMENTARY & PUBLIC AFFAIRS", "short_code" => "PARLIMENTARY"),
+    58 => array("name" => "PARTNERSHIP", "short_code" => "PARTNERSHIP"),
+    59 => array("name" => "PARTNERSHIP:MEDICAL", "short_code" => "PARTNERSHIP:MEDICAL"),
+    60 => array("name" => "PENSIONS", "short_code" => "PENSIONS"),
+    61 => array("name" => "PENSIONS LITIGATION", "short_code" => "PENSIONS LIT"),
+    62 => array("name" => "PERSONAL INJURY:MAINLY CLAIMANT", "short_code" => "PI:CLAIMANT"),
+    63 => array("name" => "PERSONAL INJURY:MAINLY CLAIMANT: INDUSTRIAL DISEASE", "short_code" => "PI:CLAIMANT:INDUS"),
+    64 => array("name" => "PERSONAL INJURY:MAINLY DEFENDANT", "short_code" => "PI:DEFENDANT"),
+    65 => array("name" => "PLANNING", "short_code" => "PLANNING"),
+    66 => array("name" => "PFI/PPP", "short_code" => "PFI/PPP"),
+    67 => array("name" => "POLICE LAW: MAINLY CLAIMANT", "short_code" => "POLICE:CLAIMANT"),
+    68 => array("name" => "POLICE LAW: MAINLY DEFENDANT", "short_code" => "POLICE:DEFENDANT"),
+    69 => array("name" => "PRIVATE CLIENT", "short_code" => "PRIV CLIENT"),
+    70 => array("name" => "PRIVATE CLIENT: CONTENTIOUS TRUSTS", "short_code" => "PRIV CLIENT:CONT TRUSTS"),
+    71 => array("name" => "PRIVATE EQUITY", "short_code" => "PRIVATE EQUITY"),
+    72 => array("name" => "PRODUCT LIABILITY", "short_code" => "PRODUCT LIAB"),
+    73 => array("name" => "PROFESSIONAL DISCIPLINE", "short_code" => "PROF DISCIPLINE"),
+    74 => array("name" => "PROFESSIONAL NEGLIGENCE", "short_code" => "PROF NEGL"),
+    75 => array("name" => "PROJECTS", "short_code" => "PROJECTS"),
+    76 => array("name" => "PUBLIC INTERNATIONAL LAW", "short_code" => "PUBLIC INTL LAW"),
+    77 => array("name" => "PUBLIC PROCUREMENT", "short_code" => "PUBLIC PROCUREMENT"),
+    78 => array("name" => "REAL ESTATE", "short_code" => "REAL ESTATE"),
+    79 => array("name" => "REAL ESTATE FINANCE", "short_code" => "RE FINANCE"),
+    80 => array("name" => "REAL ESTATE LITIGATION", "short_code" => "RE LITIG"),
+    81 => array("name" => "RESTRUCTURING/INSOLVENCY", "short_code" => "RESTRUCTURING"),
+    82 => array("name" => "RESTRUCTURING/INSOLVENCY:PERSONAL INSOLVENCY", "short_code" => "RESTRUCTURING:PERSONAL"),
+    83 => array("name" => "RETAIL", "short_code" => "RETAIL"),
+    84 => array("name" => "SHIPPING", "short_code" => "SHIPPING"),
+    85 => array("name" => "SOCIAL HOUSING", "short_code" => "SOC HOUSING"),
+    86 => array("name" => "SOCIAL HOUSING:FINANCE", "short_code" => "SOC HOUSING:FINANCE"),
+    87 => array("name" => "SOCIAL HOUSING:TENANTS", "short_code" => "SOC HOUSING:TENANTS"),
+    88 => array("name" => "SPORT", "short_code" => "SPORT"),
+    89 => array("name" => "SPORT: HORSE RACING & EQUESTRIAN", "short_code" => "SPORT:HORSE"),
+    90 => array("name" => "TAX", "short_code" => "TAX"),
+    91 => array("name" => "TAX:CONTENTIOUS", "short_code" => "TAX:CONTENTIOUS"),
+    92 => array("name" => "TAX:CONTENTIOUS: FRAUD", "short_code" => "TAX:CONTENTIOUS:FRAUD"),
+    93 => array("name" => "TELECOMMUNICATIONS", "short_code" => "TELECOMMS"),
+    94 => array("name" => "TRANSPORT:LOGISTICS", "short_code" => "TRANSPORT:LOGISTICS"),
+    95 => array("name" => "TRANSPORT:RAIL", "short_code" => "TRANSPORT:RAIL"),
+    96 => array("name" => "TRANSPORT:ROAD:REGULATORY", "short_code" => "TRANSPORT:ROAD"),
+    97 => array("name" => "TRAVEL", "short_code" => "TRAVEL"),
+);
+$j = 0;
+for($i = 0; $i < count($main_practice_areas_chambers_uk); $i++) :
+?>
+  LtMainPracticeArea_<?php echo ($j + 1) ?>:
+    name: '<?php echo $main_practice_areas_chambers_uk[$i]["name"] ?>'
+    short_code: '<?php echo $main_practice_areas_chambers_uk[$i]["short_code"] ?>'
+<?php
+$j++;
+endfor;
+?>
+
+<?php
+$main_practice_areas_chambers_europe = array(
+    0 => array("name" => "ARBITRATION - INTERNATIONAL", "short_code" => "ARBITRATION INTL"),
+    1 => array("name" => "BANKING & FINANCE", "short_code" => "BANKING & FIN"),
+    2 => array("name" => "CAPITAL MARKETS", "short_code" => "CAP MARKETS"),
+    3 => array("name" => "COMPETITION/EUROPEAN LAW", "short_code" => "COMPETITION"),
+    4 => array("name" => "CORPORATE/M&A", "short_code" => "CORP M&A"),
+    5 => array("name" => "DISPUTE RESOLUTION", "short_code" => "DISPUTE RESOL"),
+    6 => array("name" => "EMPLOYMENT", "short_code" => "EMPLOYMENT"),
+    7 => array("name" => "INTELLECTUAL PROPERTY", "short_code" => "IP"),
+    8 => array("name" => "INTERNATIONAL TRADE/WTO", "short_code" => "INTL TRADE"),
+    9 => array("name" => "LIFE SCIENCES", "short_code" => "LIFE SCI"),    
+    10 => array("name" => "PROJECTS & ENERGY", "short_code" => "PROJS ENERGY"),
+    11 => array("name" => "RESTRUCTURING/INSOLVENCY", "short_code" => "RESTRUC"),
+    12 => array("name" => "TAX", "short_code" => "TAX"),
+    13 => array("name" => "TECHNOLOGY & COMMUNICATIONS", "short_code" => "TECH COMMS"),
+);
+$j = 98;
+for($i = 0; $i < count($main_practice_areas_chambers_europe); $i++) :
+?>
+  LtMainPracticeArea_<?php echo ($j + 1) ?>:
+    name: '<?php echo $main_practice_areas_chambers_europe[$i]["name"] ?>'
+    short_code: '<?php echo $main_practice_areas_chambers_europe[$i]["short_code"] ?>'
+<?php
+$j++;
+endfor;
+?>
+
+<?php
+$main_practice_areas_legal500_uk_london_individual = array(
+    0 => array("name" => "CORPORATE & COMMERCIAL", "short_code" => "CORPORATE & COMMERCIAL"),
+    1 => array("name" => "CRIME, FRAUD & LICENSING", "short_code" => "CRIME, FRAUD & LICENSING"),
+    2 => array("name" => "DISPUTE RESOLUTION", "short_code" => "DISPUTE RESOLUTION"),
+    3 => array("name" => "FINANCE", "short_code" => "FINANCE"),
+    4 => array("name" => "HUMAN RESOURCES", "short_code" => "HUMAN RESOURCES"),
+    5 => array("name" => "INSURANCE", "short_code" => "INSURANCE"),
+    6 => array("name" => "PATMA", "short_code" => "PATMA"),
+    7 => array("name" => "PRIVATE CLIENT", "short_code" => "PRIVATE CLIENT"),
+    8 => array("name" => "PROJECTS & ENERGY", "short_code" => "PROJECTS & ENERGY"),
+    9 => array("name" => "PUBLIC SECTOR", "short_code" => "PUBLIC SECTOR"),
+    10 => array("name" => "REAL ESTATE", "short_code" => "REAL ESTATE"),
+    11 => array("name" => "TMT (TECHNOLOGY, MEDIA, TELECOMS)", "short_code" => "TMT (TECHNOLOGY, MEDIA, TELECOMS)"),
+    12 => array("name" => "TRANSPORT", "short_code" => "TRANSPORT"),    
+    13 => array("name" => "ANY", "short_code" => "ANY"),
+);
+$j = 112;
+for($i = 0; $i < count($main_practice_areas_legal500_uk_london_individual); $i++) :
+?>
+  LtMainPracticeArea_<?php echo ($j + 1) ?>:
+    name: '<?php echo $main_practice_areas_legal500_uk_london_individual[$i]["name"] ?>'
+    short_code: '<?php echo $main_practice_areas_legal500_uk_london_individual[$i]["short_code"] ?>'
+<?php
+$j++;
+endfor;
+?>
+
+LtPracticeArea:
+<?php
+$practice_areas_chambers_uk = array(
+    array(
+        "main_practice_area_id" => 1,
+        "name"                  => "Administrative & Public Law (general)",
+        "short_code"            => "Administrative & Public Law (general)",
+    ),
+    array(
+        "main_practice_area_id" => 1,
+        "name"                  => "Commercial & Regulated Industries",
+        "short_code"            => "Commercial & Regulated Industries",
+    ),
+    array(
+        "main_practice_area_id" => 1,
+        "name"                  => "Public Sector Law & Governance",
+        "short_code"            => "Public Sector Law & Governance",
+    ),
+    array(
+        "main_practice_area_id" => 1,
+        "name"                  => "Traditional Claimant",
+        "short_code"            => "Traditional Claimant",
+    ),
+    array(
+        "main_practice_area_id" => 2,
+        "name"                  => "Agriculture & Rural Affairs (general)",
+        "short_code"            => "Agriculture & Rural Affairs (general)",
+    ),
+    array(
+        "main_practice_area_id" => 3,
+        "name"                  => "Asset Finance (general)",
+        "short_code"            => "Asset Finance (general)",
+    ),
+    array(
+        "main_practice_area_id" => 4,
+        "name"                  => "Aviation (general)",
+        "short_code"            => "Aviation (general)",
+    ),
+    array(
+        "main_practice_area_id" => 4,
+        "name"                  => "Commercial",
+        "short_code"            => "Commercial",
+    ),
+    array(
+        "main_practice_area_id" => 4,
+        "name"                  => "Dispute Resolution",
+        "short_code"            => "Dispute Resolution",
+    ),
+    array(
+        "main_practice_area_id" => 4,
+        "name"                  => "Insurance",
+        "short_code"            => "Insurance",
+    ),
+    array(
+        "main_practice_area_id" => 4,
+        "name"                  => "Regulatory",
+        "short_code"            => "Regulatory",
+    ),
+    array(
+        "main_practice_area_id" => 4,
+        "name"                  => "Claimant",
+        "short_code"            => "Claimant",
+    ),
+    array(
+        "main_practice_area_id" => 5,
+        "name"                  => "Banking & Finance (general)",
+        "short_code"            => "Banking & Finance (general)",
+    ),
+    array(
+        "main_practice_area_id" => 5,
+        "name"                  => "Islamic Finance",
+        "short_code"            => "Islamic Finance",
+    ),
+    array(
+        "main_practice_area_id" => 5,
+        "name"                  => "Borrowers",
+        "short_code"            => "Borrowers",
+    ),
+    array(
+        "main_practice_area_id" => 5,
+        "name"                  => "Lenders",
+        "short_code"            => "Lenders",
+    ),
+    array(
+        "main_practice_area_id" => 5,
+        "name"                  => "Sponsors",
+        "short_code"            => "Sponsors",
+    ),
+    array(
+        "main_practice_area_id" => 6,
+        "name"                  => "Banking Litigation (general)",
+        "short_code"            => "Banking Litigation (general)",
+    ),
+    array(
+        "main_practice_area_id" => 6,
+        "name"                  => "Conflict Free - London",
+        "short_code"            => "Conflict Free - London",
+    ),
+    array(
+        "main_practice_area_id" => 7,
+        "name"                  => "Capital Markets: AIM",
+        "short_code"            => "Capital Markets: AIM",
+    ),
+    array(
+        "main_practice_area_id" => 8,
+        "name"                  => "Capital Markets: Debt & Equity (general)",
+        "short_code"            => "Capital Markets: Debt & Equity (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 8,
+        "name"                  => "Debt",
+        "short_code"            => "Debt",
+    ),
+    array(
+
+        "main_practice_area_id" => 8,
+        "name"                  => "Equity",
+        "short_code"            => "Equity",
+    ),
+    array(
+
+        "main_practice_area_id" => 8,
+        "name"                  => "High-Yield Products",
+        "short_code"            => "High-Yield Products",
+    ),
+    array(
+
+        "main_practice_area_id" => 9,
+        "name"                  => "Capital Markets: Structured Finance, Securitisation & Derivatives (general)",
+        "short_code"            => "Capital Markets: Structured Finance, Securitisation & Derivatives (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 9,
+        "name"                  => "Securitisation",
+        "short_code"            => "Securitisation",
+    ),
+    array(
+
+        "main_practice_area_id" => 9,
+        "name"                  => "Structured Finance & Derivatives",
+        "short_code"            => "Structured Finance & Derivatives",
+    ),
+    array(
+
+        "main_practice_area_id" => 10,
+        "name"                  => "Charities (general)",
+        "short_code"            => "Charities (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 11,
+        "name"                  => "Civil Liberties & Human Rights (general)",
+        "short_code"            => "Civil Liberties & Human Rights (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 11,
+        "name"                  => "Prison Law",
+        "short_code"            => "Prison Law",
+    ),
+    array(
+
+        "main_practice_area_id" => 12,
+        "name"                  => "Clinical Negligence (general)",
+        "short_code"            => "Clinical Negligence (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 12,
+        "name"                  => "Mainly Claimant",
+        "short_code"            => "Mainly Claimant",
+    ),
+    array(
+
+        "main_practice_area_id" => 12,
+        "name"                  => "Mainly Defendant",
+        "short_code"            => "Mainly Defendant",
+    ),
+    array(
+
+        "main_practice_area_id" => 13,
+        "name"                  => "Commercial Contracts (general)",
+        "short_code"            => "Commercial Contracts (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 14,
+        "name"                  => "Commodities (general)",
+        "short_code"            => "Commodities (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 14,
+        "name"                  => "Physicals",
+        "short_code"            => "Physicals",
+    ),
+    array(
+
+        "main_practice_area_id" => 14,
+        "name"                  => "Trade Finance",
+        "short_code"            => "Trade Finance",
+    ),
+    array(
+
+        "main_practice_area_id" => 14,
+        "name"                  => "Derivatives & Energy Trading",
+        "short_code"            => "Derivatives & Energy Trading",
+    ),
+    array(
+
+        "main_practice_area_id" => 15,
+        "name"                  => "Competition/European Law (general)",
+        "short_code"            => "Competition/European Law (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 16,
+        "name"                  => "Construction (general)",
+        "short_code"            => "Construction (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 16,
+        "name"                  => "International Arbitration",
+        "short_code"            => "International Arbitration",
+    ),
+    array(
+
+        "main_practice_area_id" => 16,
+        "name"                  => "Purchaser",
+        "short_code"            => "Purchaser",
+    ),
+    array(
+
+        "main_practice_area_id" => 16,
+        "name"                  => "Supplier",
+        "short_code"            => "Supplier",
+    ),
+    array(
+
+        "main_practice_area_id" => 17,
+        "name"                  => "Consumer Finance (general)",
+        "short_code"            => "Consumer Finance (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 18,
+        "name"                  => "Corporate Crime & Investigations (general)",
+        "short_code"            => "Corporate Crime & Investigations (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 18,
+        "name"                  => "Cartel Investigations",
+        "short_code"            => "Cartel Investigations",
+    ),
+    array(
+
+        "main_practice_area_id" => 19,
+        "name"                  => "Corporate/M&A (general)",
+        "short_code"            => "Corporate/M&A (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 19,
+        "name"                  => "High-end Capability",
+        "short_code"            => "High-end Capability",
+    ),
+    array(
+
+        "main_practice_area_id" => 19,
+        "name"                  => "Mid-Market",
+        "short_code"            => "Mid-Market",
+    ),
+    array(
+
+        "main_practice_area_id" => 19,
+        "name"                  => "Lower Mid-Market",
+        "short_code"            => "Lower Mid-Market",
+    ),
+    array(
+
+        "main_practice_area_id" => 20,
+        "name"                  => "Court of Protection (general)",
+        "short_code"            => "Court of Protection (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 21,
+        "name"                  => "Crime (general)",
+        "short_code"            => "Crime (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 21,
+        "name"                  => "Extradition",
+        "short_code"            => "Extradition",
+    ),
+    array(
+
+        "main_practice_area_id" => 22,
+        "name"                  => "Data Protection (general)",
+        "short_code"            => "Data Protection (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 23,
+        "name"                  => "Defamation/Reputation Managment (general)",
+        "short_code"            => "Defamation/Reputation Managment (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 24,
+        "name"                  => "Education (general)",
+        "short_code"            => "Education (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 24,
+        "name"                  => "Individuals",
+        "short_code"            => "Individuals",
+    ),
+    array(
+
+        "main_practice_area_id" => 24,
+        "name"                  => "Institutions:Higher & Further Education",
+        "short_code"            => "Institutions:Higher & Further Education",
+    ),
+    array(
+
+        "main_practice_area_id" => 24,
+        "name"                  => "Institutions:Schools",
+        "short_code"            => "Institutions:Schools",
+    ),
+    array(
+
+        "main_practice_area_id" => 25,
+        "name"                  => "Employee Share Schemes & Incentives (general)",
+        "short_code"            => "Employee Share Schemes & Incentives (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 26,
+        "name"                  => "Employment (general)",
+        "short_code"            => "Employment (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 26,
+        "name"                  => "Employer",
+        "short_code"            => "Employer",
+    ),
+    array(
+
+        "main_practice_area_id" => 26,
+        "name"                  => "Employer: Mainly Transactional",
+        "short_code"            => "Employer: Mainly Transactional",
+    ),
+    array(
+
+        "main_practice_area_id" => 26,
+        "name"                  => "Senior Executive",
+        "short_code"            => "Senior Executive",
+    ),
+    array(
+
+        "main_practice_area_id" => 27,
+        "name"                  => "Employment: Employee & Trade Union (general)",
+        "short_code"            => "Employment: Employee & Trade Union (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 28,
+        "name"                  => "Energy & Natural Resources (general)",
+        "short_code"            => "Energy & Natural Resources (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 28,
+        "name"                  => "Disputes",
+        "short_code"            => "Disputes",
+    ),
+    array(
+
+        "main_practice_area_id" => 28,
+        "name"                  => "Oil & Gas",
+        "short_code"            => "Oil & Gas",
+    ),
+    array(
+
+        "main_practice_area_id" => 28,
+        "name"                  => "Power",
+        "short_code"            => "Power",
+    ),
+    array(
+
+        "main_practice_area_id" => 28,
+        "name"                  => "Renewables & Alternative Energy",
+        "short_code"            => "Renewables & Alternative Energy",
+    ),
+    array(
+
+        "main_practice_area_id" => 28,
+        "name"                  => "Water",
+        "short_code"            => "Water",
+    ),
+    array(
+
+        "main_practice_area_id" => 29,
+        "name"                  => "Energy & Natural Resources:Mining (general)",
+        "short_code"            => "Energy & Natural Resources:Mining (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 29,
+        "name"                  => "Domestic",
+        "short_code"            => "Domestic",
+    ),
+    array(
+
+        "main_practice_area_id" => 29,
+        "name"                  => "International",
+        "short_code"            => "International",
+    ),
+    array(
+
+        "main_practice_area_id" => 30,
+        "name"                  => "Environment (general)",
+        "short_code"            => "Environment (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 31,
+        "name"                  => "Environment:Claimant",
+        "short_code"            => "Environment:Claimant",
+    ),
+    array(
+
+        "main_practice_area_id" => 32,
+        "name"                  => "Environment:Climate Change",
+        "short_code"            => "Environment:Climate Change",
+    ),
+    array(
+
+        "main_practice_area_id" => 33,
+        "name"                  => "Family/Matrimonial (general)",
+        "short_code"            => "Family/Matrimonial (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 33,
+        "name"                  => "Children:Public Law Matters",
+        "short_code"            => "Children:Public Law Matters",
+    ),
+    array(
+
+        "main_practice_area_id" => 33,
+        "name"                  => "Children:Cross-Border Disputes",
+        "short_code"            => "Children:Cross-Border Disputes",
+    ),
+    array(
+
+        "main_practice_area_id" => 34,
+        "name"                  => "Financial Services (general)",
+        "short_code"            => "Financial Services (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 34,
+        "name"                  => "Contentious Regulatory",
+        "short_code"            => "Contentious Regulatory",
+    ),
+    array(
+
+        "main_practice_area_id" => 34,
+        "name"                  => "Non-contentious Regulatory",
+        "short_code"            => "Non-contentious Regulatory",
+    ),
+    
+    array(
+
+        "main_practice_area_id" => 35,
+        "name"                  => "Franchising (general)",
+        "short_code"            => "Franchising (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 36,
+        "name"                  => "Fraud:Civil",
+        "short_code"            => "Fraud:Civil",
+    ),
+    array(
+
+        "main_practice_area_id" => 37,
+        "name"                  => "Criminal",
+        "short_code"            => "Criminal",
+    ),
+    array(
+
+        "main_practice_area_id" => 38,
+        "name"                  => "Health & Safety (general)",
+        "short_code"            => "Health & Safety (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 39,
+        "name"                  => "Healthcare (general)",
+        "short_code"            => "Healthcare (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 39,
+        "name"                  => "Transactional",
+        "short_code"            => "Transactional",
+    ),
+    array(
+
+        "main_practice_area_id" => 39,
+        "name"                  => "Non-transactional",
+        "short_code"            => "Non-transactional",
+    ),
+    array(
+
+        "main_practice_area_id" => 40,
+        "name"                  => "Healthcare:Mental Health:Patients",
+        "short_code"            => "Healthcare:Mental Health:Patients",
+    ),
+    array(
+
+        "main_practice_area_id" => 41,
+        "name"                  => "Healthcare:Mental Health:Providers",
+        "short_code"            => "Healthcare:Mental Health:Providers",
+    ),
+    array(
+
+        "main_practice_area_id" => 42,
+        "name"                  => "Hotels & Leisure (general)",
+        "short_code"            => "Hotels & Leisure (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 43,
+        "name"                  => "Immigration:Business",
+        "short_code"            => "Immigration:Business",
+    ),
+    array(
+
+        "main_practice_area_id" => 44,
+        "name"                  => "Immigration:Personal",
+        "short_code"            => "Immigration:Personal",
+    ),
+    array(
+
+        "main_practice_area_id" => 45,
+        "name"                  => "Information Technology (general)",
+        "short_code"            => "Information Technology (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 46,
+        "name"                  => "Insurance: Contentious Claims",
+        "short_code"            => "Insurance: Contentious Claims",
+    ),
+    array(
+
+        "main_practice_area_id" => 46,
+        "name"                  => "Insurance: Reinsurance",
+        "short_code"            => "Insurance: Reinsurance",
+    ),
+    array(
+
+        "main_practice_area_id" => 46,
+        "name"                  => "Insurance: Mainly Policyholders",
+        "short_code"            => "Insurance: Mainly Policyholders",
+    ),
+    array(
+
+        "main_practice_area_id" => 47,
+        "name"                  => "Insurance: Non-contentious (general)",
+        "short_code"            => "Insurance: Non-contentious (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 48,
+        "name"                  => "Intellectual Property (general)",
+        "short_code"            => "Intellectual Property (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 48,
+        "name"                  => "Patent Litigation",
+        "short_code"            => "Patent Litigation",
+    ),
+    array(
+
+        "main_practice_area_id" => 48,
+        "name"                  => "Transactional",
+        "short_code"            => "Transactional",
+    ),
+    array(
+
+        "main_practice_area_id" => 48,
+        "name"                  => "Law Firms with Patent & Trademark Attorneys",
+        "short_code"            => "Law Firms with Patent & Trademark Attorneys",
+    ),
+    array(
+
+        "main_practice_area_id" => 49,
+        "name"                  => "International Arbitration (general)",
+        "short_code"            => "International Arbitration (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 50,
+        "name"                  => "Investment Funds (general)",
+        "short_code"            => "Investment Funds (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 50,
+        "name"                  => "Hedge Funds",
+        "short_code"            => "Hedge Funds",
+    ),
+    array(
+
+        "main_practice_area_id" => 50,
+        "name"                  => "Private Equity",
+        "short_code"            => "Private Equity",
+    ),
+    array(
+
+        "main_practice_area_id" => 50,
+        "name"                  => "Real Estate",
+        "short_code"            => "Real Estate",
+    ),
+    array(
+
+        "main_practice_area_id" => 50,
+        "name"                  => "Closed-ended Listed Funds",
+        "short_code"            => "Closed-ended Listed Funds",
+    ),
+    array(
+
+        "main_practice_area_id" => 50,
+        "name"                  => "Open-ended Funds",
+        "short_code"            => "Open-ended Funds",
+    ),
+    array(
+
+        "main_practice_area_id" => 51,
+        "name"                  => "Licensing (general)",
+        "short_code"            => "Licensing (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 51,
+        "name"                  => "Licensing:Gambling",
+        "short_code"            => "Licensing:Gambling",
+    ),
+    array(
+
+        "main_practice_area_id" => 51,
+        "name"                  => "Licensing:Liquor",
+        "short_code"            => "Licensing:Liquor",
+    ),
+    array(
+
+        "main_practice_area_id" => 52,
+        "name"                  => "Life Sciences (general)",
+        "short_code"            => "Life Sciences (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 52,
+        "name"                  => "IP/Patent Litigation",
+        "short_code"            => "IP/Patent Litigation",
+    ),
+    array(
+
+        "main_practice_area_id" => 52,
+        "name"                  => "Product Liability",
+        "short_code"            => "Product Liability",
+    ),
+    array(
+
+        "main_practice_area_id" => 52,
+        "name"                  => "Regulatory",
+        "short_code"            => "Regulatory",
+    ),
+    array(
+
+        "main_practice_area_id" => 52,
+        "name"                  => "Transactional",
+        "short_code"            => "Transactional",
+    ),
+    array(
+
+        "main_practice_area_id" => 53,
+        "name"                  => "Litigation (general)",
+        "short_code"            => "Litigation (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 54,
+        "name"                  => "Local Government (general)",
+        "short_code"            => "Local Government (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 55,
+        "name"                  => "Media & Entertainment (general)",
+        "short_code"            => "Media & Entertainment (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 55,
+        "name"                  => "Advertising & Marketing",
+        "short_code"            => "Advertising & Marketing",
+    ),
+    array(
+
+        "main_practice_area_id" => 55,
+        "name"                  => "Gaming, Social Media & Interactive Content",
+        "short_code"            => "Gaming, Social Media & Interactive Content",
+    ),
+    array(
+
+        "main_practice_area_id" => 55,
+        "name"                  => "Film & Television",
+        "short_code"            => "Film & Television",
+    ),
+    array(
+
+        "main_practice_area_id" => 55,
+        "name"                  => "Music",
+        "short_code"            => "Music",
+    ),
+    array(
+
+        "main_practice_area_id" => 55,
+        "name"                  => "Publishing",
+        "short_code"            => "Publishing",
+    ),
+    array(
+
+        "main_practice_area_id" => 55,
+        "name"                  => "Theatre",
+        "short_code"            => "Theatre",
+    ),
+    array(
+
+        "main_practice_area_id" => 56,
+        "name"                  => "Mediators (general)",
+        "short_code"            => "Mediators (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 57,
+        "name"                  => "Outsourcing (general)",
+        "short_code"            => "Outsourcing (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 58,
+        "name"                  => "Parliamentary & Public Affairs (general)",
+        "short_code"            => "Parliamentary & Public Affairs (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 58,
+        "name"                  => "Electoral Law",
+        "short_code"            => "Electoral Law",
+    ),
+    array(
+
+        "main_practice_area_id" => 58,
+        "name"                  => "Parliamentary Agency",
+        "short_code"            => "Parliamentary Agency",
+    ),
+    array(
+
+        "main_practice_area_id" => 58,
+        "name"                  => "Public Affairs",
+        "short_code"            => "Public Affairs",
+    ),
+    array(
+
+        "main_practice_area_id" => 59,
+        "name"                  => "Partnership (general)",
+        "short_code"            => "Partnership (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 59,
+        "name"                  => "Contentious",
+        "short_code"            => "Contentious",
+    ),
+    array(
+
+        "main_practice_area_id" => 59,
+        "name"                  => "Non-contentious",
+        "short_code"            => "Non-contentious",
+    ),
+    array(
+
+        "main_practice_area_id" => 59,
+        "name"                  => "Large International Structures",
+        "short_code"            => "Large International Structures",
+    ),
+    array(
+
+        "main_practice_area_id" => 60,
+        "name"                  => "Partnership:Medical (general)",
+        "short_code"            => "Partnership:Medical (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 61,
+        "name"                  => "Pensions  (general)",
+        "short_code"            => "Pensions  (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 62,
+        "name"                  => "Pensions Litigation (general)",
+        "short_code"            => "Pensions Litigation (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 63,
+        "name"                  => "Personal Injury: Mainly Claimant (general)",
+        "short_code"            => "Personal Injury: Mainly Claimant (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 64,
+        "name"                  => "Personal Injury:Mainly Claimant:Industrial Disease (general)",
+        "short_code"            => "Personal Injury:Mainly Claimant:Industrial Disease (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 65,
+        "name"                  => "Personal Injury:Mainly Defendant (general)",
+        "short_code"            => "Personal Injury:Mainly Defendant (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 66,
+        "name"                  => "Planning (general)",
+        "short_code"            => "Planning (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 67,
+        "name"                  => "PFI/PPP  (general)",
+        "short_code"            => "PFI/PPP  (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 68,
+        "name"                  => "Police Law: Mainly Claimant (general)",
+        "short_code"            => "Police Law: Mainly Claimant (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 69,
+        "name"                  => "Police Law: Mainly Defendant",
+        "short_code"            => "Police Law: Mainly Defendant",
+    ),
+    array(
+
+        "main_practice_area_id" => 70,
+        "name"                  => "Private Client (general)",
+        "short_code"            => "Private Client (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 70,
+        "name"                  => "Art, Collectables & Auctions",
+        "short_code"            => "Art, Collectables & Auctions",
+    ),
+    array(
+
+        "main_practice_area_id" => 71,
+        "name"                  => "Private Client: Contentious Trusts (general)",
+        "short_code"            => "Private Client: Contentious Trusts (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 72,
+        "name"                  => "Private Equity (general)",
+        "short_code"            => "Private Equity (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 72,
+        "name"                  => "Buyouts:High-end Capability",
+        "short_code"            => "Buyouts:High-end Capability",
+    ),
+    array(
+
+        "main_practice_area_id" => 72,
+        "name"                  => "Buyouts: Mid-market",
+        "short_code"            => "Buyouts: Mid-market",
+    ),
+    array(
+
+        "main_practice_area_id" => 72,
+        "name"                  => "Venture Capital Investment",
+        "short_code"            => "Venture Capital Investment",
+    ),
+    array(
+
+        "main_practice_area_id" => 73,
+        "name"                  => "Product Liability (general)",
+        "short_code"            => "Product Liability (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 73,
+        "name"                  => "Food",
+        "short_code"            => "Food",
+    ),
+    array(
+
+        "main_practice_area_id" => 73,
+        "name"                  => "Mainly Claimant",
+        "short_code"            => "Mainly Claimant",
+    ),
+    array(
+
+        "main_practice_area_id" => 73,
+        "name"                  => "Mainly Defendant",
+        "short_code"            => "Mainly Defendant",
+    ),
+    array(
+
+        "main_practice_area_id" => 74,
+        "name"                  => "Professional Discipline (general)",
+        "short_code"            => "Professional Discipline (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 75,
+        "name"                  => "Professional Negligence (general)",
+        "short_code"            => "Professional Negligence (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 75,
+        "name"                  => "Financial",
+        "short_code"            => "Financial",
+    ),
+    array(
+
+        "main_practice_area_id" => 75,
+        "name"                  => "Insurance",
+        "short_code"            => "Insurance",
+    ),
+    array(
+
+        "main_practice_area_id" => 75,
+        "name"                  => "Legal",
+        "short_code"            => "Legal",
+    ),
+    array(
+
+        "main_practice_area_id" => 75,
+        "name"                  => "Technology & Construction",
+        "short_code"            => "Technology & Construction",
+    ),
+    array(
+
+        "main_practice_area_id" => 76,
+        "name"                  => "Projects  (general)",
+        "short_code"            => "Projects  (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 77,
+        "name"                  => "Public International Law (general)",
+        "short_code"            => "Public International Law (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 78,
+        "name"                  => "Public Procurement (general)",
+        "short_code"            => "Public Procurement (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 79,
+        "name"                  => "Real Estate (general)",
+        "short_code"            => "Real Estate (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 79,
+        "name"                  => "Big-Ticket",
+        "short_code"            => "Big-Ticket",
+    ),
+    array(
+
+        "main_practice_area_id" => 79,
+        "name"                  => "Mainly Mid-Market",
+        "short_code"            => "Mainly Mid-Market",
+    ),
+    array(
+
+        "main_practice_area_id" => 79,
+        "name"                  => "Lower Mid-Market",
+        "short_code"            => "Lower Mid-Market",
+    ),
+    array(
+
+        "main_practice_area_id" => 80,
+        "name"                  => "Real Estate Finance (general)",
+        "short_code"            => "Real Estate Finance (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 81,
+        "name"                  => "Real Estate Litigation (general)",
+        "short_code"            => "Real Estate Litigation (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 82,
+        "name"                  => "Restructuring/Insolvency (general)",
+        "short_code"            => "Restructuring/Insolvency (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 83,
+        "name"                  => "Restructuring/Insolvency:Personal Insolvency (general)",
+        "short_code"            => "Restructuring/Insolvency:Personal Insolvency (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 84,
+        "name"                  => "Retail  (general)",
+        "short_code"            => "Retail  (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 84,
+        "name"                  => "Corporate & Competition",
+        "short_code"            => "Corporate & Competition",
+    ),
+    array(
+
+        "main_practice_area_id" => 85,
+        "name"                  => "Shipping  (general)",
+        "short_code"            => "Shipping  (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 86,
+        "name"                  => "Social Housing (general)",
+        "short_code"            => "Social Housing (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 87,
+        "name"                  => "Social Housing: Finance (general)",
+        "short_code"            => "Social Housing: Finance (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 88,
+        "name"                  => "Social Housing:Tenants (general)",
+        "short_code"            => "Social Housing:Tenants (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 89,
+        "name"                  => "Sport  (general)",
+        "short_code"            => "Sport  (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 90,
+        "name"                  => "Sport: Horse Racing & Equestrian",
+        "short_code"            => "Sport: Horse Racing & Equestrian",
+    ),
+    array(
+
+        "main_practice_area_id" => 91,
+        "name"                  => "Tax (general)",
+        "short_code"            => "Tax (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 91,
+        "name"                  => "Indirect Tax",
+        "short_code"            => "Indirect Tax",
+    ),
+    array(
+
+        "main_practice_area_id" => 92,
+        "name"                  => "Tax:Contentious",
+        "short_code"            => "Tax:Contentious",
+    ),
+    array(
+
+        "main_practice_area_id" => 93,
+        "name"                  => "Tax:Contentious:Fraud",
+        "short_code"            => "Tax:Contentious:Fraud",
+    ),
+    array(
+
+        "main_practice_area_id" => 94,
+        "name"                  => "Telecommunications (general)",
+        "short_code"            => "Telecommunications (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 94,
+        "name"                  => "Transactional",
+        "short_code"            => "Transactional",
+    ),
+    array(
+
+        "main_practice_area_id" => 94,
+        "name"                  => "Non-transactional",
+        "short_code"            => "Non-transactional",
+    ),
+    array(
+
+        "main_practice_area_id" => 95,
+        "name"                  => "Transport:Logistics  (general)",
+        "short_code"            => "Transport:Logistics  (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 96,
+        "name"                  => "Transport:Rail (general)",
+        "short_code"            => "Transport:Rail (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 96,
+        "name"                  => "Franchising",
+        "short_code"            => "Franchising",
+    ),
+    array(
+
+        "main_practice_area_id" => 96,
+        "name"                  => "Planning & Authorisation",
+        "short_code"            => "Planning & Authorisation",
+    ),
+    array(
+
+        "main_practice_area_id" => 96,
+        "name"                  => "Projects & Infrastructure",
+        "short_code"            => "Projects & Infrastructure",
+    ),
+    array(
+
+        "main_practice_area_id" => 96,
+        "name"                  => "Rolling Stock",
+        "short_code"            => "Rolling Stock",
+    ),
+    array(
+
+        "main_practice_area_id" => 97,
+        "name"                  => "Transport:Road:Regulatory (general)",
+        "short_code"            => "Transport:Road:Regulatory (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 98,
+        "name"                  => "Travel  (general)",
+        "short_code"            => "Travel  (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 98,
+        "name"                  => "International Personal Injury",
+        "short_code"            => "International Personal Injury",
+    ),
+    array(
+
+        "main_practice_area_id" => 98,
+        "name"                  => "Regulatory & Commercial",
+        "short_code"            => "Regulatory & Commercial",
+    ),
+);
+$j = 1;
+for($i = 0; $i < count($practice_areas_chambers_uk); $i++) :
+?>
+  LtPracticeArea_<?php echo $j ?>:
+    main_practice_area_id: '<?php echo $practice_areas_chambers_uk[$i]["main_practice_area_id"] ?>'
+    name: '<?php echo $practice_areas_chambers_uk[$i]["name"] ?>'
+    short_code: '<?php echo $practice_areas_chambers_uk[$i]["short_code"] ?>'
+<?php
+$j++;
+endfor;
+?>
+
+<?php
+$practice_areas_chambers_europe = array(
+    array(
+
+        "main_practice_area_id" => 99,
+        "name"                  => "Arbitration - International (general)",
+        "short_code"            => "Arbitration - International (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 99,
+        "name"                  => "Most In Demand Arbitrators",
+        "short_code"            => "Most In Demand Arbitrators",
+    ),
+    array(
+
+        "main_practice_area_id" => 100,
+        "name"                  => "Banking & Finance (general)",
+        "short_code"            => "Banking & Finance (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 100,
+        "name"                  => "Central & Eastern Europe",
+        "short_code"            => "Central & Eastern Europe",
+    ),
+    array(
+
+        "main_practice_area_id" => 101,
+        "name"                  => "Capital Markets (general)",
+        "short_code"            => "Capital Markets (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 101,
+        "name"                  => "Debt",
+        "short_code"            => "Debt",
+    ),
+    array(
+
+        "main_practice_area_id" => 101,
+        "name"                  => "Equity",
+        "short_code"            => "Equity",
+    ),
+    array(
+
+        "main_practice_area_id" => 101,
+        "name"                  => "Structured Finance",
+        "short_code"            => "Structured Finance",
+    ),
+    array(
+
+        "main_practice_area_id" => 102,
+        "name"                  => "Competition/European Law (general)",
+        "short_code"            => "Competition/European Law (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 103,
+        "name"                  => "Corporate/M&A (general)",
+        "short_code"            => "Corporate/M&A (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 103,
+        "name"                  => "Central & Eastern Europe",
+        "short_code"            => "Central & Eastern Europe",
+    ),
+    array(
+
+        "main_practice_area_id" => 104,
+        "name"                  => "Dispute Resolution (general)",
+        "short_code"            => "Dispute Resolution (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 105,
+        "name"                  => "Employment (general)",
+        "short_code"            => "Employment (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 106,
+        "name"                  => "Intellectual Property (general)",
+        "short_code"            => "Intellectual Property (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 107,
+        "name"                  => "International Trade/WTO (general)",
+        "short_code"            => "International Trade/WTO (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 108,
+        "name"                  => "Life Sciences (general)",
+        "short_code"            => "Life Sciences (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 109,
+        "name"                  => "Projects & Energy (general)",
+        "short_code"            => "Projects & Energy (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 109,
+        "name"                  => "Central & Eastern Europe",
+        "short_code"            => "Central & Eastern Europe",
+    ),
+    array(
+
+        "main_practice_area_id" => 110,
+        "name"                  => "Restructuring/Insolvency (general)",
+        "short_code"            => "Restructuring/Insolvency (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 111,
+        "name"                  => "Tax (general)",
+        "short_code"            => "Tax (general)",
+    ),
+    array(
+
+        "main_practice_area_id" => 112,
+        "name"                  => "Technology & Communications (general)",
+        "short_code"            => "Technology & Communications (general)",
+    ),
+    
+);
+$j = 202;
+for($i = 0; $i < count($practice_areas_chambers_europe); $i++) :
+?>
+  LtPracticeArea_<?php echo $j ?>:
+    main_practice_area_id: '<?php echo $practice_areas_chambers_europe[$i]["main_practice_area_id"] ?>'
+    name: '<?php echo $practice_areas_chambers_europe[$i]["name"] ?>'
+    short_code: '<?php echo $practice_areas_chambers_europe[$i]["short_code"] ?>'
+<?php
+$j++;
+endfor;
+?>
+
+<?php
+$practice_areas_legal500_uk_london_individual = array(
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "Commercial contracts",
+        "short_code"                       => "Commercial contracts",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "Corporate tax",
+        "short_code"                       => "Corporate tax",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "Customs and Excise",
+        "short_code"                       => "Customs and Excise",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "EU & competition",
+        "short_code"                       => "EU & competition",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "EU & competition-Trade",
+        "short_code"                       => "EU & competition-Trade",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "EU & competition-WTO",
+        "short_code"                       => "EU & competition-WTO",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "EU & competition-Anti-dumping",
+        "short_code"                       => "EU & competition-Anti-dumping",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "EU & competition-Customs",
+        "short_code"                       => "EU & competition-Customs",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "Equity capital markets",
+        "short_code"                       => "Equity capital markets",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "Financial services",
+        "short_code"                       => "Financial services",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "Financial services-Contentious",
+        "short_code"                       => "Financial services-Contentious",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "Financial services-Non-contentious/Regulatory",
+        "short_code"                       => "Financial services-Non-contentious/Regulatory",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "Flotations: small & mid-cap",
+        "short_code"                       => "Flotations: small & mid-cap",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "Investment funds",
+        "short_code"                       => "Investment funds",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "Investment funds-Hedge funds",
+        "short_code"                       => "Investment funds-Hedge funds",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "Investment funds-Listed funds",
+        "short_code"                       => "Investment funds-Listed funds",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "Investment funds-Retail funds",
+        "short_code"                       => "Investment funds-Retail funds",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "Investment funds-Private funds",
+        "short_code"                       => "Investment funds-Private funds",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "Mergers and acquisitions",
+        "short_code"                       => "Mergers and acquisitions",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "Partnership",
+        "short_code"                       => "Partnership",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "Private equity: transactions",
+        "short_code"                       => "Private equity: transactions",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "VAT & indirect tax",
+        "short_code"                       => "VAT & indirect tax",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 113,
+        "name"                             => "Venture capital",
+        "short_code"                       => "Venture capital",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 114,
+        "name"                             => "Corporate crime (including fraud, bribery & corruption)",
+        "short_code"                       => "Corporate crime (including fraud, bribery & corruption)",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 114,
+        "name"                             => "Crime: general",
+        "short_code"                       => "Crime: general",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 114,
+        "name"                             => "Fraud: civil",
+        "short_code"                       => "Fraud: civil",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 114,
+        "name"                             => "Fraud: white-collar crime",
+        "short_code"                       => "Fraud: white-collar crime",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 114,
+        "name"                             => "Gaming & betting",
+        "short_code"                       => "Gaming & betting",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 114,
+        "name"                             => "Licensing",
+        "short_code"                       => "Licensing",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 115,
+        "name"                             => "Banking litigation: investment and retail",
+        "short_code"                       => "Banking litigation: investment and retail",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 115,
+        "name"                             => "Commercial litigation",
+        "short_code"                       => "Commercial litigation",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 115,
+        "name"                             => "Competition litigation",
+        "short_code"                       => "Competition litigation",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 115,
+        "name"                             => "Debt recovery",
+        "short_code"                       => "Debt recovery",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 115,
+        "name"                             => "Defamation & privacy",
+        "short_code"                       => "Defamation & privacy",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 115,
+        "name"                             => "International arbitration",
+        "short_code"                       => "International arbitration",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 115,
+        "name"                             => "Mediators (commercial)",
+        "short_code"                       => "Mediators (commercial)",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 115,
+        "name"                             => "Professional discipline",
+        "short_code"                       => "Professional discipline",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 115,
+        "name"                             => "Public international law",
+        "short_code"                       => "Public international law",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 115,
+        "name"                             => "Tax litigation & investigations",
+        "short_code"                       => "Tax litigation & investigations",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 116,
+        "name"                             => "Acquisition finance",
+        "short_code"                       => "Acquisition finance",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 116,
+        "name"                             => "Asset based lending",
+        "short_code"                       => "Asset based lending",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 116,
+        "name"                             => "Asset finance & leasing",
+        "short_code"                       => "Asset finance & leasing",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 116,
+        "name"                             => "Bank lending: investment grade debt & syndicated loans",
+        "short_code"                       => "Bank lending: investment grade debt & syndicated loans",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 116,
+        "name"                             => "Commodities: derivatives",
+        "short_code"                       => "Commodities: derivatives",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 116,
+        "name"                             => "Commodities: physicals",
+        "short_code"                       => "Commodities: physicals",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 116,
+        "name"                             => "Corporate restructuring and insolvency",
+        "short_code"                       => "Corporate restructuring and insolvency",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 116,
+        "name"                             => "Debt capital markets",
+        "short_code"                       => "Debt capital markets",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 116,
+        "name"                             => "Derivatives & structured products",
+        "short_code"                       => "Derivatives & structured products",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 116,
+        "name"                             => "Emerging markets",
+        "short_code"                       => "Emerging markets",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 116,
+        "name"                             => "High yield",
+        "short_code"                       => "High yield",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 116,
+        "name"                             => "Islamic finance",
+        "short_code"                       => "Islamic finance",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 116,
+        "name"                             => "Securitisation",
+        "short_code"                       => "Securitisation",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 116,
+        "name"                             => "Trade finance",
+        "short_code"                       => "Trade finance",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 117,
+        "name"                             => "Employee share schemes",
+        "short_code"                       => "Employee share schemes",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 117,
+        "name"                             => "Employment: employers & senior executives",
+        "short_code"                       => "Employment: employers & senior executives",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 117,
+        "name"                             => "Employment: employees/unions",
+        "short_code"                       => "Employment: employees/unions",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 117,
+        "name"                             => "Health & safety",
+        "short_code"                       => "Health & safety",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 117,
+        "name"                             => "Immigration",
+        "short_code"                       => "Immigration",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 117,
+        "name"                             => "Pensions",
+        "short_code"                       => "Pensions",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 117,
+        "name"                             => "Pensions-Contentious",
+        "short_code"                       => "Pensions-Contentious",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 117,
+        "name"                             => "Pensions-Non-contentious",
+        "short_code"                       => "Pensions-Non-contentious",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 118,
+        "name"                             => "Clinical negligence: claimant",
+        "short_code"                       => "Clinical negligence: claimant",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 118,
+        "name"                             => "Clinical negligence: defendant",
+        "short_code"                       => "Clinical negligence: defendant",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 118,
+        "name"                             => "Insurance: corporate and regulatory",
+        "short_code"                       => "Insurance: corporate and regulatory",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 118,
+        "name"                             => "Insurance: insolvency and restructuring",
+        "short_code"                       => "Insurance: insolvency and restructuring",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 118,
+        "name"                             => "Insurance and reinsurance litigation",
+        "short_code"                       => "Insurance and reinsurance litigation",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 118,
+        "name"                             => "Insurance litigation: for policyholders",
+        "short_code"                       => "Insurance litigation: for policyholders",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 118,
+        "name"                             => "Personal injury: claimant",
+        "short_code"                       => "Personal injury: claimant",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 118,
+        "name"                             => "Personal injury: defendant",
+        "short_code"                       => "Personal injury: defendant",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 118,
+        "name"                             => "Product liability: claimant",
+        "short_code"                       => "Product liability: claimant",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 118,
+        "name"                             => "Product liability: defendant",
+        "short_code"                       => "Product liability: defendant",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 118,
+        "name"                             => "Professional negligence",
+        "short_code"                       => "Professional negligence",
+    ),    
+    array(
+        
+        "individual_main_practice_area_id" => 119,
+        "name"                             => "Patent attorneys",
+        "short_code"                       => "Patent attorneys",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 119,
+        "name"                             => "Trade mark attorneys",
+        "short_code"                       => "Trade mark attorneys",
+    ),    
+    array(
+        
+        "individual_main_practice_area_id" => 120,
+        "name"                             => "Agriculture and estates",
+        "short_code"                       => "Agriculture and estates",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 120,
+        "name"                             => "Art and cultural property",
+        "short_code"                       => "Art and cultural property",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 120,
+        "name"                             => "Charities and not-for-profit",
+        "short_code"                       => "Charities and not-for-profit",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 120,
+        "name"                             => "Contentious trusts and probate",
+        "short_code"                       => "Contentious trusts and probate",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 120,
+        "name"                             => "Court of Protection",
+        "short_code"                       => "Court of Protection",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 120,
+        "name"                             => "Family",
+        "short_code"                       => "Family",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 120,
+        "name"                             => "Mediators (family)*",
+        "short_code"                       => "Mediators (family)*",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 120,
+        "name"                             => "Personal tax, trusts and probate",
+        "short_code"                       => "Personal tax, trusts and probate",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 121,
+        "name"                             => "Infrastructure (including PFI and PPP)",
+        "short_code"                       => "Infrastructure (including PFI and PPP)",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 121,
+        "name"                             => "Mining and minerals",
+        "short_code"                       => "Mining and minerals",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 121,
+        "name"                             => "Oil and gas",
+        "short_code"                       => "Oil and gas",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 121,
+        "name"                             => "Power (including electricity, nuclear and renewables)",
+        "short_code"                       => "Power (including electricity, nuclear and renewables)",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 121,
+        "name"                             => "Water",
+        "short_code"                       => "Water",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 122,
+        "name"                             => "Administrative and public law",
+        "short_code"                       => "Administrative and public law",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 122,
+        "name"                             => "Civil liberties and human rights",
+        "short_code"                       => "Civil liberties and human rights",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 122,
+        "name"                             => "Education: individuals",
+        "short_code"                       => "Education: individuals",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 122,
+        "name"                             => "Education: institutions",
+        "short_code"                       => "Education: institutions",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 122,
+        "name"                             => "Education: schools",
+        "short_code"                       => "Education: schools",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 122,
+        "name"                             => "Electoral",
+        "short_code"                       => "Electoral",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 122,
+        "name"                             => "Healthcare",
+        "short_code"                       => "Healthcare",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 122,
+        "name"                             => "Infrastructure (parliamentary)",
+        "short_code"                       => "Infrastructure (parliamentary)",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 122,
+        "name"                             => "Local government",
+        "short_code"                       => "Local government",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 122,
+        "name"                             => "Public affairs",
+        "short_code"                       => "Public affairs",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 123,
+        "name"                             => "Commercial property",
+        "short_code"                       => "Commercial property",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 123,
+        "name"                             => "Commercial property-Development",
+        "short_code"                       => "Commercial property-Development",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 123,
+        "name"                             => "Commercial property-Hotels & Leisure",
+        "short_code"                       => "Commercial property-Hotels & Leisure",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 123,
+        "name"                             => "Commercial property-Investment",
+        "short_code"                       => "Commercial property-Investment",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 123,
+        "name"                             => "Commercial property-Retail",
+        "short_code"                       => "Commercial property-Retail",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 123,
+        "name"                             => "Commercial property-High-end Residential",
+        "short_code"                       => "Commercial property-High-end Residential",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 123,
+        "name"                             => "Construction",
+        "short_code"                       => "Construction",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 123,
+        "name"                             => "Construction-Contentious",
+        "short_code"                       => "Construction-Contentious",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 123,
+        "name"                             => "Construction-Non-contentious",
+        "short_code"                       => "Construction-Non-contentious",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 123,
+        "name"                             => "Environment",
+        "short_code"                       => "Environment",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 123,
+        "name"                             => "Planning",
+        "short_code"                       => "Planning",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 123,
+        "name"                             => "Property finance",
+        "short_code"                       => "Property finance",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 123,
+        "name"                             => "Property litigation",
+        "short_code"                       => "Property litigation",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 123,
+        "name"                             => "Social housing: finance",
+        "short_code"                       => "Social housing: finance",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 123,
+        "name"                             => "Social housing: local authorities and registered providers",
+        "short_code"                       => "Social housing: local authorities and registered providers",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 123,
+        "name"                             => "Social housing: tenant",
+        "short_code"                       => "Social housing: tenant",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 124,
+        "name"                             => "Brand management",
+        "short_code"                       => "Brand management",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 124,
+        "name"                             => "Data protection",
+        "short_code"                       => "Data protection",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 124,
+        "name"                             => "Franchising",
+        "short_code"                       => "Franchising",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 124,
+        "name"                             => "IT and telecoms",
+        "short_code"                       => "IT and telecoms",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 124,
+        "name"                             => "Intellectual property",
+        "short_code"                       => "Intellectual property",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 124,
+        "name"                             => "Intellectual property-PATMA",
+        "short_code"                       => "Intellectual property-PATMA",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 124,
+        "name"                             => "Media and entertainment",
+        "short_code"                       => "Media and entertainment",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 124,
+        "name"                             => "Media finance",
+        "short_code"                       => "Media finance",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 124,
+        "name"                             => "Pharmaceuticals and biotechnology",
+        "short_code"                       => "Pharmaceuticals and biotechnology",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 124,
+        "name"                             => "Sport",
+        "short_code"                       => "Sport",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 125,
+        "name"                             => "Aviation",
+        "short_code"                       => "Aviation",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 125,
+        "name"                             => "Rail",
+        "short_code"                       => "Rail",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 125,
+        "name"                             => "Shipping",
+        "short_code"                       => "Shipping",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 125,
+        "name"                             => "Travel",
+        "short_code"                       => "Travel",
+    ),
+    array(
+        
+        "individual_main_practice_area_id" => 126,
+        "name"                             => "Any",
+        "short_code"                       => "Any",
+    ),
+);
+$j = 223;
+for($i = 0; $i < count($practice_areas_legal500_uk_london_individual); $i++) :
+?>
+  LtPracticeArea_<?php echo $j ?>:
+    main_practice_area_id: '<?php echo $practice_areas_legal500_uk_london_individual[$i]["individual_main_practice_area_id"] ?>'
+    name: '<?php echo $practice_areas_legal500_uk_london_individual[$i]["name"] ?>'
+    short_code: '<?php echo $practice_areas_legal500_uk_london_individual[$i]["short_code"] ?>'
+<?php
+$j++;
+endfor;
+?>

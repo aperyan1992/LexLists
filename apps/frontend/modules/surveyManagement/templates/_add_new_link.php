@@ -1,0 +1,1 @@
+<a href="#" id="add_<?php echo $field_name ?>_link" class="add_new_item_link custom_link">Add New</a>

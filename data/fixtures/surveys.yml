@@ -1,0 +1,448 @@
+## YAML Template.
+---
+
+LtSpecialCriteria:
+  LtSpecialCriteria_1:
+    name: 'Women'
+  LtSpecialCriteria_2:
+    name: 'Age'
+  LtSpecialCriteria_3:
+    name: 'Minority'
+  LtSpecialCriteria_4:
+    name: 'Pro bono'
+  LtSpecialCriteria_5:
+    name: 'Years in Practice'
+  LtSpecialCriteria_6:
+    name: 'Poor & Disadvantaged'
+
+LtState:
+<?php
+$states_array = array(
+    0 => array("name" => "Alabama", "short_code" => "AL"),
+    1 => array("name" => "Alaska", "short_code" => "AK"),
+    2 => array("name" => "Arizona", "short_code" => "AZ"),
+    3 => array("name" => "Arkansas", "short_code" => "AR"),
+    4 => array("name" => "California", "short_code" => "CA"),
+    5 => array("name" => "Colorado", "short_code" => "CO"),
+    6 => array("name" => "Connecticut", "short_code" => "CT"),
+    7 => array("name" => "Delaware", "short_code" => "DE"),
+    8 => array("name" => "Florida", "short_code" => "FL"),
+    9 => array("name" => "Georgia", "short_code" => "GA"),    
+    10 => array("name" => "Hawaii", "short_code" => "HI"),
+    11 => array("name" => "Idaho", "short_code" => "ID"),
+    12 => array("name" => "Illinois", "short_code" => "IL"),
+    13 => array("name" => "Indiana", "short_code" => "IN"),
+    14 => array("name" => "Iowa", "short_code" => "IA"),
+    15 => array("name" => "Kansas", "short_code" => "KS"),
+    16 => array("name" => "Kentucky", "short_code" => "KY"),
+    17 => array("name" => "Louisiana", "short_code" => "LA"),
+    18 => array("name" => "Maine", "short_code" => "ME"),
+    19 => array("name" => "Maryland", "short_code" => "MD"),
+    20 => array("name" => "Massachusetts", "short_code" => "MA"),
+    21 => array("name" => "Michigan", "short_code" => "MI"),
+    22 => array("name" => "Minnesota", "short_code" => "MN"),
+    23 => array("name" => "Mississippi", "short_code" => "MS"),
+    24 => array("name" => "Missouri", "short_code" => "MO"),
+    25 => array("name" => "Montana", "short_code" => "MT"),
+    26 => array("name" => "Nebraska", "short_code" => "NE"),
+    27 => array("name" => "Nevada", "short_code" => "NV"),
+    28 => array("name" => "New Hampshire", "short_code" => "NH"),
+    29 => array("name" => "New Jersey", "short_code" => "NJ"),
+    30 => array("name" => "New Mexico", "short_code" => "NM"),
+    31 => array("name" => "New York", "short_code" => "NY"),
+    32 => array("name" => "North Carolina", "short_code" => "NC"),
+    33 => array("name" => "North Dakota", "short_code" => "ND"),
+    34 => array("name" => "Ohio", "short_code" => "OH"),
+    35 => array("name" => "Oklahoma", "short_code" => "OK"),
+    36 => array("name" => "Oregon", "short_code" => "OR"),
+    37 => array("name" => "Pennsylvania", "short_code" => "PA"),
+    38 => array("name" => "Rhode Island", "short_code" => "RI"),
+    39 => array("name" => "South Carolina", "short_code" => "SC"),
+    40 => array("name" => "South Dakota", "short_code" => "SD"),
+    41 => array("name" => "Tennessee", "short_code" => "TN"),
+    42 => array("name" => "Texas", "short_code" => "TX"),
+    43 => array("name" => "Utah", "short_code" => "UT"),
+    44 => array("name" => "Vermont", "short_code" => "VT"),
+    45 => array("name" => "Virginia", "short_code" => "VA"),
+    46 => array("name" => "Washington", "short_code" => "WA"),
+    47 => array("name" => "West Virginia", "short_code" => "WV"),
+    48 => array("name" => "Wisconsin", "short_code" => "WI"),
+    49 => array("name" => "Wyoming", "short_code" => "WY"),
+    50 => array("name" => "American Samoa", "short_code" => "AS"),
+    51 => array("name" => "District of Columbia", "short_code" => "DC"),
+    52 => array("name" => "Federated States of Micronesia", "short_code" => "FM"),
+    53 => array("name" => "Guam", "short_code" => "GU"),
+    54 => array("name" => "Marshall Islands", "short_code" => "MH"),
+    55 => array("name" => "Northern Mariana Islands", "short_code" => "MP"),
+    56 => array("name" => "Palau", "short_code" => "PW"),
+    57 => array("name" => "Puerto Rico", "short_code" => "PR"),
+    58 => array("name" => "Virgin Islands", "short_code" => "VI"),
+);
+for($i = 0; $i < count($states_array); $i++) :
+?>
+  LtState_<?php echo ($i + 1) ?>:
+    name: '<?php echo $states_array[$i]['name']; ?>'
+    short_code: '<?php echo $states_array[$i]['short_code']; ?>'
+<?php
+endfor;
+?>
+
+LtCountry:
+<?php
+$countries_array = array(
+    'Afghanistan',
+    'Albania',
+    'Algeria',
+    'Andorra',
+    'Angola',
+    'Antigua and Barbuda',
+    'Argentina',
+    'Armenia',
+    'Aruba',
+    'Australia',
+    'Austria',
+    'Azerbaijan',
+    'Bahamas, The',
+    'Bahrain',
+    'Bangladesh',
+    'Barbados',
+    'Belarus',
+    'Belgium',
+    'Belize',
+    'Benin',
+    'Bhutan',
+    'Bolivia',
+    'Bosnia and Herzegovina',
+    'Botswana',
+    'Brazil',
+    'Brunei',
+    'Bulgaria',
+    'Burkina Faso',
+    'Burma',
+    'Burundi',
+    'Cambodia',
+    'Cameroon',
+    'Canada',
+    'Cape Verde',
+    'Central African Republic',
+    'Chad',
+    'Chile',
+    'China',
+    'Colombia',
+    'Comoros',
+    'Congo, Democratic Republic of the',
+    'Congo, Republic of the',
+    'Costa Rica',
+    "Cote d'Ivoire",
+    'Croatia',
+    'Cuba',
+    'Curacao',
+    'Cyprus',
+    'Czech Republic',
+    'Denmark',
+    'Djibouti',
+    'Dominica',
+    'Dominican Republic',
+    'East Timor (see Timor-Leste)',
+    'Ecuador',
+    'Egypt',
+    'El Salvador',
+    'Equatorial Guinea',
+    'Eritrea',
+    'Estonia',
+    'Ethiopia',
+    'Fiji',
+    'Finland',
+    'Former Yugoslav Republic of Macedonia',
+    'France',
+    'Gabon',
+    'Gambia, The',
+    'Georgia',
+    'Germany',
+    'Ghana',
+    'Greece',
+    'Grenada',
+    'Guatemala',
+    'Guinea',
+    'Guinea-Bissau',
+    'Guyana',
+    'Haiti',
+    'Holy See',
+    'Honduras',
+    'Hong Kong',
+    'Hungary',
+    'Iceland',
+    'India',
+    'Indonesia',
+    'Iran',
+    'Iraq',
+    'Ireland',
+    'Israel',
+    'Italy',
+    'Jamaica',
+    'Japan',
+    'Jordan',
+    'Kazakhstan',
+    'Kenya',
+    'Kiribati',
+    'Korea, North',
+    'Korea, South',
+    'Kosovo',
+    'Kuwait',
+    'Kyrgyzstan',
+    'Laos',
+    'Latvia',
+    'Lebanon',
+    'Lesotho',
+    'Liberia',
+    'Libya',
+    'Liechtenstein',
+    'Lithuania',
+    'Luxembourg',
+    'Macau',
+    'Madagascar',
+    'Malawi',
+    'Malaysia',
+    'Maldives',
+    'Mali',
+    'Malta',
+    'Marshall Islands',
+    'Mauritania',
+    'Mauritius',
+    'Mexico',
+    'Micronesia',
+    'Moldova',
+    'Monaco',
+    'Mongolia',
+    'Montenegro',
+    'Morocco',
+    'Mozambique',
+    'Namibia',
+    'Nauru',
+    'Nepal',
+    'Netherlands',
+    'Netherlands Antilles',
+    'New Zealand',
+    'Nicaragua',
+    'Niger',
+    'Nigeria',
+    'North Korea',
+    'Norway',
+    'Oman',
+    'Pakistan',
+    'Palau',
+    'Palestinian Territories',
+    'Panama',
+    'Papua New Guinea',
+    'Paraguay',
+    'Peru',
+    'Philippines',
+    'Poland',
+    'Portugal',
+    'Qatar',
+    'Romania',
+    'Russia',
+    'Rwanda',
+    'Saint Kitts and Nevis',
+    'Saint Lucia',
+    'Saint Vincent and the Grenadines',
+    'Samoa',   
+    'San Marino',
+    'Sao Tome and Principe',
+    'Saudi Arabia',
+    'Senegal',
+    'Serbia',
+    'Seychelles',
+    'Sierra Leone',
+    'Singapore',
+    'Sint Maarten',
+    'Slovakia',
+    'Slovenia',
+    'Solomon Islands',
+    'Somalia',
+    'South Africa',
+    'South Korea',
+    'South Sudan',
+    'Spain ',
+    'Sri Lanka',
+    'Sudan',
+    'Suriname',
+    'Swaziland ',
+    'Sweden',
+    'Switzerland',
+    'Syria',
+    'Taiwan',
+    'Tajikistan',
+    'Tanzania',
+    'Thailand ',
+    'Timor-Leste',
+    'Togo',
+    'Tonga',
+    'Trinidad and Tobago',
+    'Tunisia',
+    'Turkey',
+    'Turkmenistan',
+    'Tuvalu',
+    'Uganda',
+    'Ukraine',
+    'United Arab Emirates',
+    'United Kingdom',
+    'United States of America',
+    'Uruguay',
+    'Uzbekistan',
+    'Vanuatu',
+    'Venezuela',
+    'Vietnam',
+    'Yemen',
+    'Zambia',
+    'Zimbabwe',
+);
+for($i = 0; $i < count($countries_array); $i++) :
+?>
+  LtCountry_<?php echo ($i + 1) ?>:
+    name: '<?php echo $countries_array[$i] ?>'
+<?php
+endfor;
+?>
+
+LtRegion:
+<?php
+$regions_array = array(
+    'US (All States)',
+    'US Northeast',
+    'US South',
+    'US Midwest',
+    'US West',
+    'Global (the world)',
+    'Africa',
+    'Asia',
+    'Australia',
+    'Europe',
+    'North America',
+    'South America',
+);
+for($i = 0; $i < count($regions_array); $i++) :
+?>
+  LtRegion_<?php echo ($i + 1) ?>:
+    name: '<?php echo $regions_array[$i] ?>'
+<?php
+endfor;
+?>
+
+# TEST DATA #
+LtOrganization:
+<?php
+for($i = 0; $i < 50; $i++) :
+?>
+  LtOrganization_<?php echo ($i + 1) ?>:
+    name: 'test organization <?php echo ($i + 1) ?>'
+<?php
+endfor;
+?>
+
+LtCity:
+<?php
+for($i = 0; $i < 50; $i++) :
+?>
+  LtCity_<?php echo ($i + 1) ?>:
+    name: 'test city <?php echo ($i + 1) ?>'
+<?php
+endfor;
+?>
+
+LtSurveyContact:
+<?php
+for($i = 0; $i < 3; $i++) :
+?>
+  LtSurveyContact_<?php echo ($i + 1) ?>:
+    first_name: 'first name <?php echo ($i + 1) ?>'
+    last_name: 'last name <?php echo ($i + 1) ?>'
+    email_address: 'test<?php echo ($i + 1) ?>@gmail.com'
+    phone_number: '12345<?php echo ($i + 1) ?>'
+<?php
+endfor;
+?>
+
+LtSurvey:
+<?php
+for($i = 0; $i < 50; $i++) :
+$year = rand(2012, 2042);
+?>
+  LtSurvey_<?php echo ($i + 1) ?>:
+    organization_id: '<?php echo rand(1, 50) ?>'
+    organization_url: 'test organization url <?php echo ($i + 1) ?>'
+    survey_name: 'test survey name <?php echo ($i + 1) ?>'
+    year: '<?php echo $year ?>'
+    survey_url: 'test survey url <?php echo ($i + 1) ?>'
+    frequency: '<?php echo rand(1, 5) ?>'
+    submission_deadline: '<?php echo date("Y-m-d", strtotime($year . "-" . rand(1, 12) . "-" . rand(1, 27))) ?>'
+    survey_region_id: '<?php echo rand(1, count($regions_array)) ?>'
+    survey_description: 'test description <?php echo ($i + 1) ?>'
+    candidate_type: '<?php echo rand(1, 6) ?>'
+    eligibility_criteria: 'test eligibility criteria <?php echo ($i + 1) ?>'
+    selection_methodology: 'test selection methodology <?php echo ($i + 1) ?>'
+    self_nomination: '<?php echo rand(0, 1) ?>'
+    fees: '<?php echo rand(0, 1) ?>'
+    pay_for_play: '<?php echo rand(0, 1) ?>'
+    survey_contact_id: '<?php echo rand(1, 3) ?>'
+    survey_notes: 'test survey notes <?php echo ($i + 1) ?>'
+    staff_notes: 'test staff notes <?php echo ($i + 1) ?>'
+<?php
+endfor;
+?>
+
+LtSurveyCity:
+<?php
+for($i = 0; $i < 50; $i++) :
+?>
+  LtSurveyCity_<?php echo ($i + 1) ?>:
+    survey_id: '<?php echo ($i + 1) ?>'
+    city_id: '<?php echo rand(1, 50) ?>'
+<?php
+endfor;
+?>
+
+LtSurveyState:
+<?php
+for($i = 0; $i < 50; $i++) :
+?>
+  LtSurveyState_<?php echo ($i + 1) ?>:
+    survey_id: '<?php echo ($i + 1) ?>'
+    state_id: '<?php echo rand(1, count($states_array)) ?>'
+<?php
+endfor;
+?>
+
+LtSurveyCountry:
+<?php
+for($i = 0; $i < 50; $i++) :
+?>
+  LtSurveyCountry_<?php echo ($i + 1) ?>:
+    survey_id: '<?php echo ($i + 1) ?>'
+    country_id: '<?php echo rand(1, count($countries_array)) ?>'
+<?php
+endfor;
+?>
+
+LtSurveySpecialCriteria:
+<?php
+for($i = 0; $i < 50; $i++) :
+?>
+  LtSurveySpecialCriteria_<?php echo ($i + 1) ?>:
+    survey_id: '<?php echo ($i + 1) ?>'
+    special_criteria_id: '<?php echo rand(1, 6) ?>'
+<?php
+endfor;
+?>
+
+LtSurveyPracticeArea:
+<?php
+for($i = 0; $i < 50; $i++) :
+?>
+  LtSurveyPracticeArea_<?php echo ($i + 1) ?>:
+    survey_id: '<?php echo ($i + 1) ?>'
+    practice_area_id: '<?php echo rand(1, 349) ?>'
+<?php
+endfor;
+?>
+# END OF TEST DATA #

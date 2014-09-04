@@ -1,0 +1,8 @@
+## YAML Template.
+---
+
+basicUser:
+  credentials: [client user]
+
+default:
+  credentials: [client admin]

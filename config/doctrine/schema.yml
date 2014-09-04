@@ -1,0 +1,498 @@
+sfGuardUser:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+  columns:
+    phone_number:
+      type: string(100)
+      notnull: false
+    client_id:
+      type: integer
+      notnull: false
+      default: NULL
+    is_client_admin:
+      type: boolean
+      default: false
+    is_visible:
+      type: boolean
+      default: true
+  relations:
+    Client:
+      class: LtClient
+      local: client_id
+      foreign: id
+      onDelete: CASCADE
+
+LtClient:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+  tableName: clients
+  actAs: [Timestampable]
+
+  columns:
+    name:
+      type: string(255)
+      notnull: true
+      unique: true
+    is_enabled:
+      type: boolean
+      default: true
+      
+LtSurvey:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+  tableName: surveys
+  actAs: [Timestampable]
+
+  columns:
+    organization_id:
+      type: integer
+      notnull: false
+      default: null
+    organization_url:
+      type: string(255)
+    survey_name:
+      type: string(255)
+    year:
+      type: integer
+      notnull: false
+      default: null
+    survey_url:
+      type: string(255)
+    frequency:
+      type: integer
+    submission_deadline:
+      type: date
+      notnull: false
+      default: null
+    survey_region_id:
+      type: integer
+      notnull: false
+      default: null
+    survey_description:
+      type: string(5000)
+    candidate_type:
+      type: integer
+    eligibility_criteria:
+      type: string(5000)
+    nomination:
+      type: string(5000)
+    selection_methodology:
+      type: string(5000)
+    self_nomination:
+      type: boolean
+      notnull: false
+      default: null
+    fees:
+      type: boolean
+      notnull: false
+      default: null
+    pay_for_play:
+      type: boolean
+      notnull: false
+      default: null
+    survey_contact_id:
+      type: integer
+      notnull: false
+      default: null
+    survey_notes:
+      type: string(5000)
+    staff_notes:
+      type: string(5000)
+  relations:
+    Contact:
+      class: LtSurveyContact
+      local: survey_contact_id
+      foreign: id
+      onDelete: CASCADE
+    Organization:
+      class: LtOrganization
+      local: organization_id
+      foreign: id
+      onDelete: CASCADE  
+    Cities:
+      class: LtCity
+      local: survey_id
+      foreign: city_id
+      refClass: LtSurveyCity
+      foreignAlias: SurveyCities
+    Region:
+      class: LtRegion
+      local: survey_region_id
+      foreign: id
+      onDelete: CASCADE
+    States:
+      class: LtState
+      local: survey_id
+      foreign: state_id
+      refClass: LtSurveyState
+      foreignAlias: SurveyStates
+    Countries:
+      class: LtCountry
+      local: survey_id
+      foreign: country_id
+      refClass: LtSurveyCountry
+      foreignAlias: SurveyCountries
+    SpecialCriterias:
+      class: LtSpecialCriteria
+      local: survey_id
+      foreign: special_criteria_id
+      refClass: LtSurveySpecialCriteria
+      foreignAlias: SurveySpecialCriterias
+    PracticeAreas:
+      class: LtPracticeArea
+      local: survey_id
+      foreign: practice_area_id
+      refClass: LtSurveyPracticeArea
+      foreignAlias: SurveyPracticeAreas
+      
+LtSurveyContact:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+  tableName: survey_contacts
+  actAs: [Timestampable]
+
+  columns:
+    first_name:
+      type: string(255)
+    last_name:
+      type: string(255)
+    email_address:
+      type: string(255)
+    phone_number:
+      type: string(255)
+      
+LtOrganization:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+  tableName: organizations
+  actAs: [Timestampable]
+
+  columns:
+    name:
+      type: string(255)
+  
+LtMainPracticeArea:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+  tableName: main_practice_areas
+  actAs: [Timestampable]
+
+  columns:
+    name:
+      type: string(255)
+    short_code:
+      type: string(255)
+      
+LtPracticeArea:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+  tableName: practice_areas
+  actAs: [Timestampable]
+  
+  columns:
+    main_practice_area_id:
+      type: integer
+      notnull: false
+      default: null
+    name:
+      type: string(500)
+    short_code:
+      type: string(500)
+  relations:
+    MainPracticeArea:
+      class: LtMainPracticeArea
+      local: main_practice_area_id
+      foreign: id
+      onDelete: CASCADE
+      
+LtSurveyPracticeArea:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+    symfony:
+      form:   false
+      filter: false
+  tableName: survey_practice_areas
+  actAs: [Timestampable]
+
+  columns:
+    survey_id:
+      type: integer
+      primary: true
+    practice_area_id:
+      type: integer
+      primary: true
+  relations:
+    Survey:
+      class: LtSurvey
+      local: survey_id
+      onDelete: CASCADE
+    PracticeArea:
+      class: LtPracticeArea
+      local: practice_area_id
+      onDelete: CASCADE
+      
+LtSpecialCriteria:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+  tableName: special_criterias
+  actAs: [Timestampable]
+
+  columns:
+    name:
+      type: string(255)
+      
+LtSurveySpecialCriteria:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+    symfony:
+      form:   false
+      filter: false
+  tableName: survey_special_criterias
+  actAs: [Timestampable]
+
+  columns:
+    survey_id:
+      type: integer
+      primary: true
+    special_criteria_id:
+      type: integer
+      primary: true
+  relations:
+    Survey:
+      class: LtSurvey
+      local: survey_id
+      onDelete: CASCADE
+    SpecialCriteria:
+      class: LtSpecialCriteria
+      local: special_criteria_id
+      onDelete: CASCADE
+      
+LtCity:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+  tableName: cities
+  actAs: [Timestampable]
+
+  columns:
+    name:
+      type: string(255)
+      
+LtSurveyCity:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+    symfony:
+      form:   false
+      filter: false
+  tableName: survey_cities
+  actAs: [Timestampable]
+
+  columns:
+    survey_id:
+      type: integer
+      primary: true
+    city_id:
+      type: integer
+      primary: true
+  relations:
+    Survey:
+      class: LtSurvey
+      local: survey_id
+      onDelete: CASCADE
+    City:
+      class: LtCity
+      local: city_id
+      onDelete: CASCADE
+      
+LtRegion:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+  tableName: regions
+  actAs: [Timestampable]
+
+  columns:
+    name:
+      type: string(255)
+      
+LtState:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+  tableName: states
+  actAs: [Timestampable]
+
+  columns:
+    name:
+      type: string(255)
+    short_code:
+      type: string(10)
+      
+LtSurveyState:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+    symfony:
+      form:   false
+      filter: false
+  tableName: survey_states
+  actAs: [Timestampable]
+
+  columns:
+    survey_id:
+      type: integer
+      primary: true
+    state_id:
+      type: integer
+      primary: true
+  relations:
+    Survey:
+      class: LtSurvey
+      local: survey_id
+      onDelete: CASCADE
+    State:
+      class: LtState
+      local: state_id
+      onDelete: CASCADE
+      
+LtCountry:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+  tableName: countries
+  actAs: [Timestampable]
+
+  columns:
+    name:
+      type: string(255)
+      
+LtSurveyCountry:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+    symfony:
+      form:   false
+      filter: false
+  tableName: survey_countries
+  actAs: [Timestampable]
+
+  columns:
+    survey_id:
+      type: integer
+      primary: true
+    country_id:
+      type: integer
+      primary: true
+  relations:
+    Survey:
+      class: LtSurvey
+      local: survey_id
+      onDelete: CASCADE
+    Country:
+      class: LtCountry
+      local: country_id
+      onDelete: CASCADE
+      
+LtMySurvey:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+    symfony:
+      form:   false
+      filter: false
+  tableName: my_surveys
+  actAs: [Timestampable]
+
+  columns:
+    survey_id:
+      type: integer
+    user_id:
+      type: integer
+    my_status:
+      type: integer
+      default: null
+    owner_id:
+      type: integer
+      notnull: false
+      default: null
+    is_updated:
+      type: boolean
+      default: false
+    is_deadline_past:
+      type: boolean
+      default: false
+    share_with:
+      type: boolean
+      default: false
+  relations:
+    Survey:
+      class: LtSurvey
+      local: survey_id
+      foreign: id
+      onDelete: CASCADE
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      onDelete: CASCADE
+    Owner:
+      class: sfGuardUser
+      local: owner_id
+      foreign: id
+      onDelete: CASCADE
+      
+LtMySurveyNote:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+  tableName: my_survey_notes
+  actAs: [Timestampable]
+
+  columns:
+    survey_id:
+      type: integer
+    note:
+      type: string(255)
+    user_id:
+      type: integer
+  relations:
+    Survey:
+      class: LtSurvey
+      local: survey_id
+      foreign: id
+      onDelete: CASCADE
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      onDelete: CASCADE

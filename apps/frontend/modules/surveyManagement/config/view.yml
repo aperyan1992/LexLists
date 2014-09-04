@@ -1,0 +1,9 @@
+## YAML Template.
+---
+editSuccess:
+  stylesheets: [select2.css]
+  javascripts: [select2.min.js, admin_panel_action_buttons.js, survey_management.js, survey_management_popups.js]
+  
+newSuccess:
+  stylesheets: [select2.css]
+  javascripts: [select2.min.js, admin_panel_action_buttons.js, survey_management.js, survey_management_popups.js]

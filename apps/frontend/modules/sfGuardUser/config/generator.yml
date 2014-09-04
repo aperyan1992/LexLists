@@ -1,0 +1,49 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           sfGuardUser
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          sf_guard_user
+    with_doctrine_route:   true
+
+    config:
+      fields:
+        client_name: { is_real: true }
+        first_name: { attributes: { class: required } }
+        last_name: { attributes: { class: required } }
+        email_address: { attributes: { class: required } }
+        password: { attributes: { class: required } }
+        password_again: { attributes: { class: required } }
+        
+
+      list:
+        title:   List Of Users
+        display: [email_address, client_name, last_login]
+        max_per_page: 20
+        table_method: doSelectJoinClient
+        
+      filter:
+        class: false
+
+      form:
+        class: sfGuardUserAdminForm
+        display: [client_id, first_name, last_name, email_address, password, password_again, is_active, groups_list]
+        fields:
+          client_id:        { label: "Client Account" }
+          first_name:       { label: "First Name" }
+          last_name:        { label: "Last Name" }
+          email_address:    { label: "Email Address" }
+          password:         { label: "Password" }
+          password_again:   { label: "Password (again)" }
+          is_active:        { label: "Is Active" }
+          groups_list:      { label: "Group" }
+
+      edit:
+        title: Editing User "%%username%%"
+
+      new:
+        title: New User

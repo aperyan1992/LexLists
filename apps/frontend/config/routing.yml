@@ -1,0 +1,59 @@
+lt_survey:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                LtSurvey
+    module:               surveyManagement
+    prefix_path:          /surveyManagement
+    column:               id
+    with_wildcard_routes: true
+
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+lt_client:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                LtClient
+    module:               client
+    prefix_path:          /client
+    column:               id
+    with_wildcard_routes: true
+    
+sf_guard_user2:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sfGuardUser
+    module:               clientAdminUserManagement
+    prefix_path:          /user_management
+    column:               id
+    with_wildcard_routes: true
+
+# default rules
+homepage:
+  url:   /
+  param: { module: dashboard, action: index }
+  
+my_list:
+  url:   /my_list
+  param: { module: mySurvey, action: index }
+  
+print_survey:
+  url:   /print
+  param: { module: dashboard, action: printSurvey }
+    
+help_page:
+  url: /help
+  param: { module: staticPages, action: help }
+  
+basic_user:
+  url: /change_password
+  param: { module: clientAdminUserManagement, action: basicUser }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

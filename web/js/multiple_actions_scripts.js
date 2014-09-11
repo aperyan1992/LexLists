@@ -145,7 +145,7 @@ function multipleSaveSurveyToMyList(survey_ids) {
         async: false,
         success: function(data) {
             if(data.status === 'success') {
-                openConfirmWithCustomMessagePopupWindow('dialog_save_to_my_list_alert', 'This awards are added successfully to your "My Lists" section.');
+                openConfirmWithCustomMessagePopupWindow('dialog_save_to_my_list_alert', 'Awards have been saved under the "My Lists" section.');
             
                 status = true;
             }            

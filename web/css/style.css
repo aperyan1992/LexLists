@@ -3513,7 +3513,9 @@ table.dataTable td.datatable_td_align_center_checkboxes {
     width: 196px;
     height: 90px;
     overflow-y: auto;
+/*
     border: 1px solid #666666;
+*/
     padding: 10px;
     font-family: Arial;
     font-size: 16px;
@@ -4001,7 +4003,7 @@ fieldset.disp-block{
 
 /************ Filters ********************/
 .other_filters_block h3, .deadline h3{
-    border: 1px solid #666;
+    /*border: 1px solid #666;*/
     padding: 5px;
     position: relative;
     cursor: pointer;    

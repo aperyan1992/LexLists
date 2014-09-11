@@ -133,7 +133,7 @@ function saveSurveyToMyList(survey_id) {
             if (data.status === 'exists') {
                 openErrorPopupWindow('dialog_error_alert', 'This award already exists in your "My Lists" section.');                
             } else {
-                openConfirmWithCustomMessagePopupWindow('dialog_save_to_my_list_alert', 'This award is added successfully to your "My Lists" section.');
+                openConfirmWithCustomMessagePopupWindow('dialog_save_to_my_list_alert', 'Award has been saved under the "My Lists" section.');
             }            
         },
         error: function() {

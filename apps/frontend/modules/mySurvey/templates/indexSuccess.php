@@ -209,3 +209,4 @@
 
 <?php include_partial("mySurvey/my_lists_survey_details_popup"); ?>
 <?php include_partial("mySurvey/survey_email_popup"); ?>
+<?php include_partial("mySurvey/survey_set_alert_popup"); ?>

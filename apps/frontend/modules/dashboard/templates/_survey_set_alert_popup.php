@@ -1,27 +1,27 @@
-<div id="dialog_form_survey_email" class="popup1" title="Email award">
+<div id="dialog_form_survey__set_alert" class="popup1" title="Set an Alert">
     <form>
         <table style="">
             <tr>
                 <th>
-                    <label for="to_dialog_form_survey_email" title="To.">To: </label>
+                    <label for="to_dialog_form_survey_set_alert" title="To.">To: </label>
                 </th>
-                <td>
-                    <input type="text" name="to" id="to_dialog_form_survey_email" class="text ui-widget-content ui-corner-all" disabled />
+                <td>                    
+                    <input type="text" name="to" id="to_dialog_form_survey_set_alert" class="text ui-widget-content ui-corner-all" disabled />
                     <div class="additional_checkbox_block">
                         <input type="checkbox" name="to_me" id="to_me_dialog_form_survey_email" checked /><span class="to_me_label">me</span>
-                    </div>
+                    </div>                    
                 </td>
             </tr>
             <tr>
                 <th class="top_vertical_align">
                     <label for="message_dialog_form_survey_email" title="Message (optional).">Message: </label>
                 </th>
-                <td>
+                <td>                    
                     <textarea placeholder="Enter your message (optional)" name="message" id="message_dialog_form_survey_email" class="text ui-widget-content ui-corner-all" rows="4"></textarea>
                 </td>
             </tr>
             <tr>
-                <th colspan="2"><hr/></td>
+                <th colspan="2"><hr/></th>
             </tr>
             <tr>
                 <th align="right">Year:</th>

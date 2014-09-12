@@ -2442,7 +2442,9 @@ div.tooltip p {
 }
 
 .additional_checkbox_block {
-    margin-top: 3px;
+    width: 50px;
+    position: absolute;
+    margin: -40px 0 0 40px;
 }
 
 .to_me_label {
@@ -4031,4 +4033,214 @@ fieldset.disp-block{
 .tab-content {
     overflow: hidden;
 }
+
+
 /******************************************/
+
+.popup1 form label[for="to_dialog_form_survey_set_alert"] {
+    margin-left: 10px;
+}
+
+.popup1 form label[for="textarea_title"] {
+    width: 40px;
+    float: left;
+    margin-top: 6px;
+}
+
+.popup1 form label[for="text_link"] {
+    width: 40px;
+    float: right;
+    margin: 5px 0 0 15px;
+}
+
+#to_dialog_form_survey_set_alert {
+    width: 250px;
+}
+
+.popup1 form label[for="select_data"] {
+
+}
+
+.popup1 form .select_day {
+    width: 60px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    float: left;
+    margin: -10px 5px 0 0;
+}
+
+.popup1 form .select_month {
+    width: 150px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    float: left;
+    margin: -10px 15px 0 0;
+}
+
+.popup1 form label[for="before_submission"] {
+    float: left;
+}
+
+.popup1 form table tr:nth-child(2) {
+    height: 60px;
+
+}
+
+.popup1 form table tr {
+    display: block;
+    float: left;
+    width: 590px;
+    /*border: 1px solid;*/
+}
+
+.popup1 form table td:nth-child(2) {
+    padding-left: 140px!important;
+
+}
+
+.popup1 form table .checkbox_update {
+    margin-left: 200px;
+}
+
+.popup1 form label[for="checkbox_title"] {
+    float: right;
+    margin: 3px 0 0 14px;
+}
+
+.popup1 form .close_button {
+    margin: 0 0 0 435px;
+    position: relative;
+    top: -7px;
+
+}
+
+.popup1 form .close_button input{
+    background-color: orange;
+    border: 1px solid orange;
+    border-radius: 5px;
+    width: 60px;
+    color: white;
+    font-size: 12px;
+
+}
+
+.popup1 form .setalert_button {
+    margin: 0 0 0 510px;
+    position: relative;
+    top: -29px;
+
+}
+
+.popup1 form .setalert_button input{
+    font-size: 12px;
+    border: 1px solid gray;
+}
+
+.popup1 form table .row_line {
+    width: 588px;
+    border-top: 1px solid;
+    margin-left: -10px;
+}
+
+.table_values {
+    margin-top: 15px;
+    width: 588px;
+    display: block;
+    margin-bottom: 50px !important;
+
+}
+
+.table_values .value1, .table_values .value2 {
+     border-right: 0 !important;
+}
+
+.table_values .value1, .table_values .value2, .table_values .value3 {
+    width: 194px;
+    float: left;
+    border: 1px solid;
+    text-align: center;
+    display: block;
+    height: 50px;
+}
+
+.table_values .value1 p, .table_values .value2 p{
+    padding-top: 5px;
+    color: orangered;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.table_values .value1 span, .table_values .value2 span{
+
+}
+
+.table_values .value3 span{
+
+}
+
+.table_values .list_values {
+    float: left;
+    width: 584px;
+    border: 1px solid;
+    border-top: 0;
+}
+
+.table_values .list_values p{
+    text-align: center;
+    font-size: 12px;
+}
+
+.table_values .add_remove {
+    width: 588px;
+    float: left;
+    border: 1px solid;
+    margin-left: -2px;
+    border-radius: 0 0 8px 8px ;
+
+}
+
+.table_values .add_remove p{
+    margin: 20px 0 0 20px;
+
+}
+
+.table_values .add_remove div{
+    float: right;
+    border: 1px solid rgb(236, 156, 36);
+    margin: -30px 10px 10px 0;
+    width: 53px;
+    border-radius: 15px;
+    padding: 5px 4px 4px 7px;
+}
+
+.table_values .add_remove div span{
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgb(236, 156, 36);
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    margin-left: 4px;
+    color: rgb(236, 156, 36);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

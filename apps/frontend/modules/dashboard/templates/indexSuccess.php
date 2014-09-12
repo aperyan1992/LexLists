@@ -204,3 +204,4 @@
 
 <?php include_partial("dashboard/survey_details_popup"); ?>
 <?php include_partial("dashboard/survey_email_popup"); ?>
+<?php include_partial("dashboard/survey_set_alert_popup"); ?>

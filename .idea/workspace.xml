@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3c90b3c3-7a99-41ce-8881-2a70beb6ec21" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/send_email.js" afterPath="$PROJECT_DIR$/web/js/send_email.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/set_alert.js" afterPath="$PROJECT_DIR$/web/js/set_alert.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -32,7 +31,7 @@
       <file leaf-file-name="send_email.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/send_email.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="46" selection-start="3160" selection-end="3160" vertical-scroll-proportion="0.0" vertical-offset="1785" max-vertical-offset="2970">
+            <state line="119" column="46" selection-start="3160" selection-end="3160" vertical-scroll-proportion="0.0" vertical-offset="1605" max-vertical-offset="2940">
               <folding />
             </state>
           </provider>
@@ -41,25 +40,25 @@
       <file leaf-file-name="set_alert.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="74" selection-start="1286" selection-end="1286" vertical-scroll-proportion="0.0" vertical-offset="24" max-vertical-offset="930">
+            <state line="36" column="9" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.0" vertical-offset="174" max-vertical-offset="855">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4068" column="16" selection-start="119798" selection-end="119798" vertical-scroll-proportion="-0.70658684" vertical-offset="61492" max-vertical-offset="67470">
+            <state line="4419" column="0" selection-start="126571" selection-end="126571" vertical-scroll-proportion="0.0" vertical-offset="65767" max-vertical-offset="67500">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_survey_set_alert_popup.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="_survey_set_alert_popup.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="308" column="23" selection-start="11895" selection-end="11895" vertical-scroll-proportion="-31.875" vertical-offset="3855" max-vertical-offset="5430">
+            <state line="2" column="0" selection-start="78" selection-end="80" vertical-scroll-proportion="0.048622366" vertical-offset="0" max-vertical-offset="5445">
               <folding />
             </state>
           </provider>
@@ -101,9 +100,9 @@
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_email_popup.php" />
         <option value="$PROJECT_DIR$/web/js/send_email.js" />
+        <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php" />
         <option value="$PROJECT_DIR$/web/js/set_alert.js" />
-        <option value="$PROJECT_DIR$/web/css/style.css" />
       </list>
     </option>
   </component>
@@ -746,13 +745,6 @@
         <state line="208" column="85" selection-start="11843" selection-end="11861" vertical-scroll-proportion="0.0" vertical-offset="3120" max-vertical-offset="13575" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/send_email.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="46" selection-start="3160" selection-end="3160" vertical-scroll-proportion="0.0" vertical-offset="2128" max-vertical-offset="2940">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/block.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state line="198" column="22" selection-start="4044" selection-end="4044" vertical-scroll-proportion="0.33281973" vertical-offset="2754" max-vertical-offset="3405">
@@ -789,23 +781,30 @@
         <state line="115" column="28" selection-start="5680" selection-end="5680" vertical-scroll-proportion="2.1029413" vertical-offset="438" max-vertical-offset="1995" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
+    <entry file="file://$PROJECT_DIR$/web/js/send_email.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="74" selection-start="1286" selection-end="1286" vertical-scroll-proportion="0.0" vertical-offset="24" max-vertical-offset="930">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="308" column="23" selection-start="11895" selection-end="11895" vertical-scroll-proportion="-31.875" vertical-offset="3855" max-vertical-offset="5430">
+        <state line="119" column="46" selection-start="3160" selection-end="3160" vertical-scroll-proportion="0.0" vertical-offset="2128" max-vertical-offset="2940">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4068" column="16" selection-start="119798" selection-end="119798" vertical-scroll-proportion="-0.70658684" vertical-offset="61492" max-vertical-offset="67470">
+        <state line="4419" column="0" selection-start="126571" selection-end="126571" vertical-scroll-proportion="0.0" vertical-offset="65767" max-vertical-offset="67500">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="9" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.0" vertical-offset="174" max-vertical-offset="855">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="78" selection-end="80" vertical-scroll-proportion="0.048622366" vertical-offset="0" max-vertical-offset="5445">
           <folding />
         </state>
       </provider>

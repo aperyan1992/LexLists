@@ -35,11 +35,8 @@ $(document).ready(function() {
         if ($(this).hasClass("set_an_alert_class")) {
             $(this).parents('ul.menu-dropdown').slideToggle();
         }
-
         return false;
     });
-
-
     $('.change').on("click", function(){
         //$(".change_values").fadeIn();
         $('.change_values').css('display','block');
@@ -51,8 +48,6 @@ $(document).ready(function() {
     $('.close_button'). on("click", function(){
 
         $('.change_values').css('display','none');
-
-
     });
 
 

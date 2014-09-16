@@ -118,6 +118,7 @@ function sendEmailToAnotherUser(survey_ids, email_address, message) {
  * Initialization of "Survey Email" popup window
  */
 function initSurveyEmailPopupWindow(element) {
+
     var to_email_address = $("#to_dialog_form_survey_email"),
         to_me_flag       = $("#to_me_dialog_form_survey_email"),
         message          = $("#message_dialog_form_survey_email"),

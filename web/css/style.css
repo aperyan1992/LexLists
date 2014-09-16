@@ -4008,7 +4008,7 @@ fieldset.disp-block{
     /*border: 1px solid #666;*/
     padding: 5px;
     position: relative;
-    cursor: pointer;    
+    cursor: move;
 }
 .other_filters_block .org-body, .deadline .org-body{
     border-top: 0;
@@ -4053,17 +4053,21 @@ fieldset.disp-block{
     margin: 5px 0 0 15px;
 }
 
+.popup1 form label[for="text_link"] a {
+    color: #FE6801;
+}
+
+.popup1 form label[for="text_link"] a:hover {
+    text-decoration: none;
+}
+
 #to_dialog_form_survey_set_alert {
     width: 250px;
 }
 
-.popup1 form label[for="select_data"] {
-
-}
-
 .popup1 form .select_day {
     width: 60px;
-    border: 1px solid grey;
+    border: 1px solid #b4b4b4;
     border-radius: 4px;
     float: left;
     margin: -10px 5px 0 0;
@@ -4071,7 +4075,7 @@ fieldset.disp-block{
 
 .popup1 form .select_month {
     width: 150px;
-    border: 1px solid grey;
+    border: 1px solid #b4b4b4;
     border-radius: 4px;
     float: left;
     margin: -10px 15px 0 0;
@@ -4083,14 +4087,12 @@ fieldset.disp-block{
 
 .popup1 form table tr:nth-child(2) {
     height: 60px;
-
 }
 
 .popup1 form table tr {
     display: block;
     float: left;
     width: 590px;
-    /*border: 1px solid;*/
 }
 
 .popup1 form table td:nth-child(2) {
@@ -4107,16 +4109,16 @@ fieldset.disp-block{
     margin: 3px 0 0 14px;
 }
 
-.popup1 form .close_button {
+.popup1 form .close_btn {
     margin: 0 0 0 435px;
     position: relative;
     top: -7px;
 
 }
 
-.popup1 form .close_button input{
-    background-color: orange;
-    border: 1px solid orange;
+.popup1 form .close_btn input,.popup1 form .setalert_button input {
+    background-color: #FC9D5D;
+    border: 1px solid #FC9D5D;
     border-radius: 5px;
     width: 60px;
     color: white;
@@ -4128,26 +4130,25 @@ fieldset.disp-block{
     margin: 0 0 0 510px;
     position: relative;
     top: -29px;
-
-}
-
-.popup1 form .setalert_button input{
-    font-size: 12px;
-    border: 1px solid gray;
+    background-color: #f2f2f2;
 }
 
 .popup1 form table .row_line {
-    width: 588px;
-    border-top: 1px solid;
-    margin-left: -10px;
+    width: 600px;
+    border-top: 1px solid #4A4A4A;
+    margin-left: -16px;
+    margin-top: -14px;
 }
 
 .table_values {
-    margin-top: 15px;
     width: 588px;
     display: block;
     margin-bottom: 50px !important;
 
+}
+
+.table_values div:first-child {
+    border-color: #D9D2B9;
 }
 
 .table_values .value1, .table_values .value2 {
@@ -4157,78 +4158,323 @@ fieldset.disp-block{
 .table_values .value1, .table_values .value2, .table_values .value3 {
     width: 194px;
     float: left;
-    border: 1px solid;
+    border: 1px solid #D9D2B9;
     text-align: center;
     display: block;
-    height: 50px;
+    height: 40px;
+    background-image: url("../css/images/ui-bg_gloss-wave_100_ece8da_500x100.png");
+    background-size: 194px 50px;
 }
 
 .table_values .value1 p, .table_values .value2 p{
     padding-top: 5px;
-    color: orangered;
+    color: #FE6801;
     font-size: 14px;
     font-weight: bold;
-}
-
-.table_values .value1 span, .table_values .value2 span{
-
-}
-
-.table_values .value3 span{
-
 }
 
 .table_values .list_values {
     float: left;
     width: 584px;
-    border: 1px solid;
+    border: 1px solid #e6e6e6;
     border-top: 0;
 }
 
-.table_values .list_values p{
+.table_values .list_values>p{
     text-align: center;
     font-size: 12px;
+    color: #666666;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.list_values .tabel_listvalues {
+    display: block;
+    width: 586px;
+}
+
+.list_values .tabel_listvalues tr{
+    width: 586px;
+}
+
+.list_values .tabel_listvalues tr td:first-child{
+    width: 236px;
+
+}
+
+.list_values .tabel_listvalues tr td:nth-child(2){
+    width: 236px;
+
+}
+
+.list_values .tabel_listvalues tr td:last-child{
+    width: 72px;
+
+}
+
+.list_values .tabel_listvalues tr td p{
+    color: #504138;
+    margin: 0;
+    text-align: center;
+}
+
+.list_values .tabel_listvalues tr td span {
+    cursor: pointer;
+
+}
+
+.list_values .tabel_listvalues tr td span:hover {
+    text-decoration: underline;
 }
 
 .table_values .add_remove {
     width: 588px;
+    height: 35px;
     float: left;
-    border: 1px solid;
+    border: 1px solid #D9D2B9;
     margin-left: -2px;
-    border-radius: 0 0 8px 8px ;
+    border-radius: 0 0 8px 8px;
+    background-image: url("../css/images/ui-bg_gloss-wave_100_ece8da_500x100.png");
+    background-size: 588px 40px;
 
 }
 
 .table_values .add_remove p{
-    margin: 20px 0 0 20px;
+    margin: 10px 0 5px 6px;
+    color: #666666;
 
 }
 
 .table_values .add_remove div{
     float: right;
-    border: 1px solid rgb(236, 156, 36);
-    margin: -30px 10px 10px 0;
-    width: 53px;
-    border-radius: 15px;
+    margin: -27px 10px 10px 0;
+    width: 40px;
+    border-radius: 11px;
     padding: 5px 4px 4px 7px;
+    background-color: #F8D6B9;
 }
 
 .table_values .add_remove div span{
-    width: 16px;
-    height: 16px;
-    border: 1px solid rgb(236, 156, 36);
-    border-radius: 20px;
+    width: 14px;
+    height: 14px;
     cursor: pointer;
     display: inline-block;
     text-align: center;
-    margin-left: 4px;
-    color: rgb(236, 156, 36);
+    margin-left: 5px;
+    margin-right: 4px;
 }
 
+.table_values .add_remove div span:first-child{
+    background-image: url("../css/images/ui-icons_8DC262_256x240.png");
+    display: block;
+    background-position: 111px -193px;
+    float: left;
+    margin: 0 0 0 0;
+}
 
+.table_values .add_remove div span:nth-child(2) {
+    border: 1px solid #F8C7A2;
+    width: 0;
+    height: 20px;
+    position: absolute;
+    margin: -4px 0 0 4px;
+    border-radius: 0;
+}
 
+.table_values .add_remove div span:last-child {
+    background-image: url("../css/images/ui-icons_8DC262_256x240.png");
+    display: block;
+    background-position: 143px -193px;
+    margin: 0 0 0 10px;
+    float: left;
+}
 
+.table_values .arrows {
+    width: 10px;
+    height: 20px;
+    margin: -12px 0 0 10px;
+}
 
+.table_values .value1 .arrows, .table_values .value2 .arrows {
+    margin: -22px 0 0 10px;
+}
+
+.table_values .value3 .arrows {
+    margin: 11px 0 0 10px;
+}
+
+.table_values .arrows .up_arrow {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-image: url("../css/images/ui-icons_8DC262_256x240.png");
+    background-position: -3px -4px;
+    cursor: pointer;
+}
+
+.table_values .arrows .down_arrow {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-image: url("../css/images/ui-icons_8DC262_256x240.png");
+    background-position: -68px -4px;
+    cursor: pointer;
+}
+
+.table_values .line {
+    width: 600px;
+    height: 0;
+    border-top: 1px solid #E2DDC9;
+    margin: 15px 0 0 -5px;
+}
+
+.change_values {
+    width: 610px;
+    height: auto;
+    border: 1px solid #b4b4b4;
+    display: none;
+    position: absolute;
+    top: 67px;
+    left: 0;
+    border-radius: 6px;
+    background-color: #ffffff;
+    margin-left: 0;
+    z-index: 10;
+    overflow: hidden;
+
+}
+
+.change_values .change_alert {
+    background-image: url("../css/images/ui-bg_gloss-wave_100_ece8da_500x100.png");
+    background-size: 598px 30px;
+    width: 598px;
+    border: 1px solid #b4b4b4;
+    margin: 5px;
+    border-radius: 6px;
+    height: 30px;
+    position: relative;
+
+}
+
+.change_values .change_alert p {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 6px 0 0 15px;
+    float: left;
+
+}
+
+.change_values .close_button {
+    display: block;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    border: 1px solid #fc9d5d;
+    background: #fc9d5d;
+    right: 6px;
+    top: 5px;
+    position: absolute;
+    border-radius: 5px;
+}
+
+.change_values .close_img {
+    /*background-image: url("../css/images/ui-icons_8DC262_256x240.png");*/
+    /*background-position: -34px -194px;*/
+    /*width: 12px;*/
+    /*height: 12px;*/
+    /*position: absolute;*/
+    /*margin: 3px;*/
+
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 0 0 0 5px;
+    font-size: 12px;
+
+}
+
+.change_values label[for="to_dialog_form_survey_set_alert"] {
+    margin-left: 10px;
+    margin-top: -30px;
+}
+
+.change_values .additional_checkbox_block{
+    margin: -25px 0 0 55px;
+}
+
+.change_values table .alert_textarea {
+    margin: 20px 0 0 -380px;
+}
+
+.change_values #to_dialog_form_survey_set_alert {
+    width: 300px;
+    height: 50px;
+    position: relative;
+}
+
+.change_values .select_day {
+    width: 60px;
+    border: 1px solid #b4b4b4;
+    border-radius: 4px;
+    float: left;
+    margin: 15px 5px 0 0;
+}
+
+.change_values .select_month {
+    width: 150px;
+    border: 1px solid #b4b4b4;
+    border-radius: 4px;
+    float: left;
+    margin: 15px 15px 0 0;
+}
+
+.change_values table .checkbox_update {
+    margin-left: 240px;
+}
+
+.change_values .checkbox_update input {
+    float: left;
+    margin-top: 2px;
+}
+
+.change_values label[for="checkbox_title"] {
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+.change_values table .row_line {
+    width: 600px;
+    height: 0;
+    border-top: 1px solid #E2DDC9;
+    margin: 15px 0 10px -5px;
+}
+
+.change_values table .ok_btn {
+    float: right;
+    margin: 0 0 20px 10px;
+}
+
+.change_values table .cancel_btn {
+    float: right;
+    margin: 0 10px 20px 10px;
+}
+
+.change_values table .ok_btn input {
+    background-color: #FC9D5D;
+    border: 1px solid #FC9D5D;
+    border-radius: 5px;
+    width: 40px;
+    color: white;
+    font-size: 12px;
+}
+
+.change_values table .cancel_btn input {
+    background-color: #FC9D5D;
+    border: 1px solid #FC9D5D;
+    border-radius: 5px;
+    width: 60px;
+    color: white;
+    font-size: 12px;
+}
 
 
 

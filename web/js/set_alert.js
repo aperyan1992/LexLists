@@ -29,16 +29,31 @@ $(document).ready(function() {
             error: function() {
                 openErrorPopupWindow("dialog_error_alert", "Error !!!");
             }
-        });
+        });*/
         
         // Close menu if exists
-        if ($(this).hasClass("my_list_email_send")) {
+        if ($(this).hasClass("set_an_alert_class")) {
             $(this).parents('ul.menu-dropdown').slideToggle();
-        }*/
+        }
 
         return false;
     });
 
+
+    $('.change').on("click", function(){
+        //$(".change_values").fadeIn();
+        $('.change_values').css('display','block');
+        $('#to_me_dialog_form_survey_email').attr("disabled", 'disabled');
+        initSurveyEmailPopupWindow("change_values");
+
+    });
+
+    $('.close_button'). on("click", function(){
+
+        $('.change_values').css('display','none');
+
+
+    });
 
 
 });

@@ -29,7 +29,7 @@ $(document).ready(function() {
                 openErrorPopupWindow("dialog_error_alert", "Error !!!");
             }
         });
-        
+
         // Close menu if exists
         if ($(this).hasClass("my_list_email_send")) {
             $(this).parents('ul.menu-dropdown').slideToggle();
@@ -118,7 +118,6 @@ function sendEmailToAnotherUser(survey_ids, email_address, message) {
  * Initialization of "Survey Email" popup window
  */
 function initSurveyEmailPopupWindow(element) {
-
     var to_email_address = $("#to_dialog_form_survey_email"),
         to_me_flag       = $("#to_me_dialog_form_survey_email"),
         message          = $("#message_dialog_form_survey_email"),
@@ -130,12 +129,12 @@ function initSurveyEmailPopupWindow(element) {
         width: 615,
         modal: true,
         open: function() {
-            // Set survey info into popup table
+            // Set survey info into popup table 
             for (var item in $("#" + element).data()) {
                 $("#dialog_email_" + item).html($(this).data(item));
             }
         },
-   /*     buttons: {
+        buttons: {
             "Cancel": function() {
                 text_fields.val("");
                 to_me_flag.prop("checked", true);
@@ -161,7 +160,7 @@ function initSurveyEmailPopupWindow(element) {
                     openErrorPopupWindow("dialog_error_alert", "Email address is empty or invalid.");
                 }
             }
-        },*/
+        },
         close: function() {
             text_fields.val("");
             to_me_flag.prop("checked", true);

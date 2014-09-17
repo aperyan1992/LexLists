@@ -2,6 +2,6 @@
 ---
 indexSuccess:
   javascripts: [select2.min.js, date_formating.js, set_alert.js,my_survey_scripts.js, send_email.js, survey_details_script.js, filters_scripts.js]
-  stylesheets:    [select2.css, report_fix.css]
+  stylesheets:    [select2.css, select2-bootstrap.css, report_fix.css]
   metas:
     title: LexLists-My Lists

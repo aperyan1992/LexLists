@@ -4143,7 +4143,7 @@ fieldset.disp-block{
 .table_values {
     width: 588px;
     display: block;
-    margin-bottom: 50px !important;
+    margin-bottom: 20px !important;
 
 }
 
@@ -4296,7 +4296,7 @@ fieldset.disp-block{
 }
 
 .table_values .value1 .arrows, .table_values .value2 .arrows {
-    margin: -22px 0 0 10px;
+    margin: -32px 0 0 10px;
 }
 
 .table_values .value3 .arrows {

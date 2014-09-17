@@ -48,4 +48,29 @@ class LtSurveyContactTable extends Doctrine_Table {
     return $survey_contacts_array;
   }
 
+    /**
+     * Get syrvey emails
+     *
+     * @return array
+     */
+    public function getSurveyEmails() {
+        $q = $this->createQuery('u');
+
+        $result = $q->orderBy('u.first_name');
+
+        $survey_contacts = $result->execute();
+        $arrEmails = array();
+        if ($survey_contacts->getFirst()) {
+            foreach ($survey_contacts as $survey_contact) {
+                if ($survey_contact->getEmailAddress() != '') {
+                    $email_address = $survey_contact->getEmailAddress();
+                    $arrEmails[] = $email_address;
+                }
+
+            }
+        }
+
+        return $arrEmails;
+    }
+
 }

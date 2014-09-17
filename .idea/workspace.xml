@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c90b3c3-7a99-41ce-8881-2a70beb6ec21" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/model/doctrine/LtSurveyContactTable.class.php" afterPath="$PROJECT_DIR$/lib/model/doctrine/LtSurveyContactTable.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/select2.css" afterPath="$PROJECT_DIR$/web/css/select2.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/send_email.js" afterPath="$PROJECT_DIR$/web/js/send_email.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/set_alert.js" afterPath="$PROJECT_DIR$/web/js/set_alert.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/config/view.yml" afterPath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/config/view.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="LexLists-master.iws" />
@@ -31,7 +36,7 @@
       <file leaf-file-name="send_email.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/send_email.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="46" selection-start="3160" selection-end="3160" vertical-scroll-proportion="0.0" vertical-offset="1605" max-vertical-offset="2940">
+            <state line="27" column="31" selection-start="717" selection-end="717" vertical-scroll-proportion="0.0" vertical-offset="40" max-vertical-offset="2925">
               <folding />
             </state>
           </provider>
@@ -40,7 +45,7 @@
       <file leaf-file-name="set_alert.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="9" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.0" vertical-offset="174" max-vertical-offset="855">
+            <state line="38" column="13" selection-start="1283" selection-end="1283" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1665">
               <folding />
             </state>
           </provider>
@@ -49,7 +54,38 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4419" column="0" selection-start="126571" selection-end="126571" vertical-scroll-proportion="0.0" vertical-offset="65767" max-vertical-offset="67500">
+            <state line="4145" column="21" selection-start="121136" selection-end="121136" vertical-scroll-proportion="0.0" vertical-offset="62127" max-vertical-offset="67500">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="actions.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="870" column="42" selection-start="42351" selection-end="42361" vertical-scroll-proportion="-6.8039217" vertical-offset="12703" max-vertical-offset="13905">
+              <folding>
+                <marker date="1410944533380" expanded="true" signature="38445:38602" placeholder="INSERT INTO ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="survey_management_popups.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/survey_management_popups.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="64" selection-start="2580" selection-end="2596" vertical-scroll-proportion="0.0" vertical-offset="585" max-vertical-offset="4695">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="actions.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/surveyManagement/actions/actions.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="355" column="24" selection-start="16324" selection-end="16324" vertical-scroll-proportion="-15.375" vertical-offset="4956" max-vertical-offset="5565">
               <folding />
             </state>
           </provider>
@@ -58,7 +94,19 @@
       <file leaf-file-name="_survey_set_alert_popup.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="78" selection-end="80" vertical-scroll-proportion="0.048622366" vertical-offset="0" max-vertical-offset="5445">
+            <state line="94" column="53" selection-start="3374" selection-end="3374" vertical-scroll-proportion="0.7069272" vertical-offset="1012" max-vertical-offset="4695">
+              <folding>
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LtSurveyContactTable.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/model/doctrine/LtSurveyContactTable.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="35" selection-start="1372" selection-end="1387" vertical-scroll-proportion="-8.625" vertical-offset="618" max-vertical-offset="1230">
               <folding />
             </state>
           </provider>
@@ -96,13 +144,15 @@
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/indexSuccess.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/config/view.yml" />
-        <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/config/view.yml" />
-        <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_email_popup.php" />
         <option value="$PROJECT_DIR$/web/js/send_email.js" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/config/view.yml" />
+        <option value="$PROJECT_DIR$/web/css/select2.css" />
+        <option value="$PROJECT_DIR$/lib/model/doctrine/LtSurveyContactTable.class.php" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
+        <option value="$PROJECT_DIR$/web/js/set_alert.js" />
         <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php" />
-        <option value="$PROJECT_DIR$/web/js/set_alert.js" />
       </list>
     </option>
   </component>
@@ -110,8 +160,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="64" />
     <option name="y" value="-4" />
-    <option name="width" value="1217" />
-    <option name="height" value="805" />
+    <option name="width" value="1857" />
+    <option name="height" value="1085" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -218,81 +268,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sfDoctrineGuardPlugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sfDoctrineGuardPlugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sfDoctrineGuardPlugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -411,6 +391,62 @@
               <option name="myItemId" value="mySurvey" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mySurvey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="actions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -438,7 +474,37 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mySurvey" />
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="actions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -449,6 +515,22 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="219" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="229" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="234" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1143" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="219" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="229" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="234" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1143" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -500,23 +582,24 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1217" height="805" extended-state="6" />
+    <frame x="64" y="-4" width="1857" height="1085" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21316873" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1773585" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299595" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299595" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -540,61 +623,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cache/frontend/prod/config/config_databases.yml.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="21" selection-start="236" selection-end="236" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="255" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cache/frontend/prod/config/config_factories.yml.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="17" selection-start="5258" selection-end="5258" vertical-scroll-proportion="0.0" vertical-offset="2115" max-vertical-offset="2340" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/databases.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="20" selection-start="288" selection-end="288" vertical-scroll-proportion="0.22022839" vertical-offset="0" max-vertical-offset="613" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/sql/schema.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="111" selection-start="5346" selection-end="5346" vertical-scroll-proportion="0.35958904" vertical-offset="0" max-vertical-offset="876" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/databases.yml.dist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="289" selection-end="289" vertical-scroll-proportion="0.15974441" vertical-offset="0" max-vertical-offset="939" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/frontend_dev.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="597" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="285" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/config/factories.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="22" selection-start="1389" selection-end="1389" vertical-scroll-proportion="0.516129" vertical-offset="449" max-vertical-offset="1410" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/lib/myUser.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="961" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/sfGuardAuth/templates/_signin_form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="948" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="961" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/sfGuardAuth/actions/actions.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="961" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/sfGuardUser/actions/actions.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.5368197" vertical-offset="1440" max-vertical-offset="4095" />
@@ -608,11 +636,6 @@
     <entry file="file://$PROJECT_DIR$/lib/vendor/symfony/lib/config/sfConfig.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="18" selection-start="590" selection-end="590" vertical-scroll-proportion="0.22411953" vertical-offset="0" max-vertical-offset="1380" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/config/frontendConfiguration.class.php">
@@ -660,11 +683,6 @@
         <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="5880" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/config/view.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="119" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/alert_popup_scripts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="112" column="52" selection-start="2867" selection-end="2886" vertical-scroll-proportion="0.0" vertical-offset="1680" max-vertical-offset="7770" />
@@ -680,11 +698,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/survey_details_script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="93" selection-start="4418" selection-end="4418" vertical-scroll-proportion="0.0" vertical-offset="1731" max-vertical-offset="5250" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/multiple_actions_scripts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="147" column="97" selection-start="4427" selection-end="4427" vertical-scroll-proportion="0.0" vertical-offset="2205" max-vertical-offset="2460" />
@@ -693,16 +706,6 @@
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/config/view.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="69" selection-start="93" selection-end="105" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/config/view.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="64" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="345" column="17" selection-start="16044" selection-end="16044" vertical-scroll-proportion="0.7065972" vertical-offset="4768" max-vertical-offset="7200" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php">
@@ -738,11 +741,6 @@
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_set_alert_popup.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="21" selection-start="1190" selection-end="1190" vertical-scroll-proportion="-0.21664888" vertical-offset="503" max-vertical-offset="1440" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="208" column="85" selection-start="11843" selection-end="11861" vertical-scroll-proportion="0.0" vertical-offset="3120" max-vertical-offset="13575" />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/block.rnc">
@@ -781,31 +779,159 @@
         <state line="115" column="28" selection-start="5680" selection-end="5680" vertical-scroll-proportion="2.1029413" vertical-offset="438" max-vertical-offset="1995" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/send_email.js">
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/client/config/view.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="46" selection-start="3160" selection-end="3160" vertical-scroll-proportion="0.0" vertical-offset="2128" max-vertical-offset="2940">
+        <state line="3" column="16" selection-start="51" selection-end="51" vertical-scroll-proportion="0.070754714" vertical-offset="0" max-vertical-offset="636">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/style.css">
+    <entry file="file://$PROJECT_DIR$/web/js/select2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4419" column="0" selection-start="126571" selection-end="126571" vertical-scroll-proportion="0.0" vertical-offset="65767" max-vertical-offset="67500">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.1556982" vertical-offset="720" max-vertical-offset="52710">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/select2.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="140" column="10" selection-start="7354" selection-end="7354" vertical-scroll-proportion="-7.5216694" vertical-offset="6786" max-vertical-offset="8550">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/config/view.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="36" selection-start="391" selection-end="391" vertical-scroll-proportion="0.3301887" vertical-offset="0" max-vertical-offset="636">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/select2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="612" column="28" selection-start="17038" selection-end="17038" vertical-scroll-proportion="0.0" vertical-offset="8353" max-vertical-offset="10650">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/config/view.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="20" selection-start="283" selection-end="283" vertical-scroll-proportion="0.14150943" vertical-offset="0" max-vertical-offset="636">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Core.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1087" column="27" selection-start="34166" selection-end="34166" vertical-scroll-proportion="-0.042689435" vertical-offset="16075" max-vertical-offset="18240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="42" selection-start="1004" selection-end="1009" vertical-scroll-proportion="0.39413682" vertical-offset="313" max-vertical-offset="975">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/model/doctrine/LtSurveyContactTable.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="35" selection-start="1372" selection-end="1387" vertical-scroll-proportion="-8.625" vertical-offset="618" max-vertical-offset="1230">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/my_survey_scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="379" column="60" selection-start="11837" selection-end="11848" vertical-scroll-proportion="-2.6938436" vertical-offset="7274" max-vertical-offset="8010">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/survey_details_script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="158" column="31" selection-start="5150" selection-end="5155" vertical-scroll-proportion="-0.79153097" vertical-offset="2856" max-vertical-offset="5250">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/survey_management.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/survey_management_popups.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="64" selection-start="2580" selection-end="2596" vertical-scroll-proportion="0.0" vertical-offset="585" max-vertical-offset="4695">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/surveyManagement/actions/actions.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="355" column="24" selection-start="16324" selection-end="16324" vertical-scroll-proportion="-15.375" vertical-offset="4956" max-vertical-offset="5565">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="181" column="26" selection-start="9384" selection-end="9389" vertical-scroll-proportion="0.33272728" vertical-offset="2532" max-vertical-offset="7200">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="870" column="42" selection-start="42351" selection-end="42361" vertical-scroll-proportion="-6.8039217" vertical-offset="12703" max-vertical-offset="13905">
+          <folding>
+            <marker date="1410944533380" expanded="true" signature="38445:38602" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/date_formating.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="131" column="196" selection-start="7118" selection-end="7118" vertical-scroll-proportion="2.3643928" vertical-offset="364" max-vertical-offset="1875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/send_email.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="31" selection-start="717" selection-end="717" vertical-scroll-proportion="0.0" vertical-offset="40" max-vertical-offset="2925">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="9" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.0" vertical-offset="174" max-vertical-offset="855">
+        <state line="38" column="13" selection-start="1283" selection-end="1283" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1665">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4145" column="21" selection-start="121136" selection-end="121136" vertical-scroll-proportion="0.0" vertical-offset="62127" max-vertical-offset="67500">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="78" selection-end="80" vertical-scroll-proportion="0.048622366" vertical-offset="0" max-vertical-offset="5445">
-          <folding />
+        <state line="94" column="53" selection-start="3374" selection-end="3374" vertical-scroll-proportion="0.7069272" vertical-offset="1012" max-vertical-offset="4695">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

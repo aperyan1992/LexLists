@@ -853,6 +853,28 @@ class mySurveyActions extends sfActions {
         
         $this->forward404();
     }
+
+    /**
+     * Get all emails
+     *
+     * @param sfWebRequest $request     Request object
+     *
+     * @return array                    JSON array with response message
+     */
+    public function executeGetAllEmails(sfWebRequest $request)
+    {
+        if ($request->isXmlHttpRequest()) {
+            $arrEmails = Doctrine_Core::getTable("LtSurveyContact")->getSurveyEmails();
+            if($arrEmails)
+            {
+                return $this->renderText(
+                    json_encode($arrEmails)
+                );
+            }
+        }
+        //$this->forward404();
+    }
+
     
     /**
      * Set "Updated/Deadline Past" flag for my survey by click on bubble

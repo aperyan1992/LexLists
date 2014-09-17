@@ -1,7 +1,4 @@
-<div id="dialog_form_survey__set_alert" class="popup1" title="Set an Alert">
-
-
-
+<div id="dialog_form_survey__set_alert" class="popup1" title="Set Alert">
 
     <form>
         <table style="">
@@ -15,7 +12,7 @@
                     </td>
                 <td >
                     <label for="textarea_title" title="">Cc: </label>
-                    <input type="text" name="to" id="to_dialog_form_survey_set_alert" class="text ui-widget-content ui-corner-all" disabled />
+                    <input type="text" name="to" id="to_dialog_form_survey_set_alert2" style="width: 300px !important;"/>
                     <label for="text_link" title=""><a href="#">Add</a> </label>
                 </td>
                 </tr>
@@ -25,62 +22,17 @@
                 <td>
                     <label for="select_data">When:</label>
                     <select class="select_day">
-                        <option></option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
-                        <option>11</option>
-                        <option>12</option>
-                        <option>13</option>
-                        <option>14</option>
-                        <option>15</option>
-                        <option>16</option>
-                        <option>17</option>
-                        <option>18</option>
-                        <option>19</option>
-                        <option>20</option>
-                        <option>21</option>
-                        <option>22</option>
-                        <option>23</option>
-                        <option>24</option>
-                        <option>25</option>
-                        <option>26</option>
-                        <option>27</option>
-                        <option>28</option>
-                        <option>29</option>
-                        <option>30</option>
-                        <option>31</option>
+                        <?php for($i=1;$i<31;$i++)
+                            {
+                                echo '<option>'.$i.'</option>';
+                            }
+                        ?>
                     </select>
 
                     <select class="select_month">
-                        <option></option>
-                        <option>January</option>
-                        <option>February</option>
-                        <option>March</option>
-                        <option>April</option>
-                        <option>May</option>
-                        <option>June</option>
-                        <option>July</option>
-                        <option>August</option>
-                        <option>September</option>
-                        <option>October</option>
-                        <option>November</option>
-                        <option>December</option>
+                        <option>Day(s)</option>
+                        <option>Week(s)</option>
+                        <option>Month(s)</option>
                     </select>
                     <label for="before_submission">before submission deadline</label>
                 </td>
@@ -98,7 +50,7 @@
             <tr>
                 <td>
                     <div class="close_btn">
-                        <input type="button" value="Close">
+                        <input type="button" value="Cancel">
                     </div>
                     <div class="setalert_button">
                         <input type="button" value="Set Alert">
@@ -106,9 +58,7 @@
                 </td>
             </tr>
 
-            <tr>
-               <td> <div class="row_line"></div></td>
-            </tr>
+
 
         </table>
     </form>
@@ -136,13 +86,14 @@
                     </div>
                 </div>
             </div>
+
             <div class="list_values">
 <!--                <p> No alerts have been set </p>-->
                 <table class="tabel_listvalues" >
                     <tbody>
                     <tr>
-                        <td><p>No alerts have been set No alerts have been set </p></td>
-                        <td><p>No alerts have been set No alerts have been set</p></td>
+                        <td><p>No alerts set</p></td>
+                        <td><p></p></td>
                         <td><center><span class="change">Change</span> <br> <span class="remove">Remove</span></center></td>
                     </tr>
                     </tbody>
@@ -157,7 +108,6 @@
                 </div>
             </div>
             <div style="clear: both"></div>
-            <div class="line"></div>
         </div>
 
 

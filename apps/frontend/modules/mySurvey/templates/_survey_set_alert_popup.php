@@ -1,6 +1,6 @@
 <div id="dialog_form_survey__set_alert" class="popup1" title="Set Alert">
 
-    <form>
+    <form id="set_alert_form">
         <table style="">
 
                 <tr>
@@ -12,7 +12,7 @@
                     </td>
                 <td >
                     <label for="textarea_title" title="">Cc: </label>
-                    <input type="text" name="to" id="to_dialog_form_survey_set_alert2" style="width: 300px !important;"/>
+                    <input type="text" id="to_dialog_form_survey_set_alert2" style="width: 300px !important;"/>
                     <label for="text_link" title=""><a href="#">Add</a> </label>
                 </td>
                 </tr>
@@ -21,7 +21,7 @@
             <tr>
                 <td>
                     <label for="select_data">When:</label>
-                    <select class="select_day">
+                    <select name="time-frame" class="select_day">
                         <?php for($i=1;$i<31;$i++)
                             {
                                 echo '<option>'.$i.'</option>';
@@ -29,7 +29,7 @@
                         ?>
                     </select>
 
-                    <select class="select_month">
+                    <select name="time-frame-type" class="select_month">
                         <option>Day(s)</option>
                         <option>Week(s)</option>
                         <option>Month(s)</option>
@@ -41,25 +41,22 @@
             <tr>
                 <td>
                     <div class="checkbox_update">
-                        <input type="checkbox" name=""  />
+                        <input type="checkbox" name="updated"  />
                         <label for="checkbox_title">Anytime the record is updated</label>
                     </div>
                 </td>
             </tr>
 
             <tr>
-                <td>
+                <td style="float:right;margin-bottom: 10px">
                     <div class="close_btn">
                         <input type="button" value="Cancel">
                     </div>
                     <div class="setalert_button">
-                        <input type="button" value="Set Alert">
+                        <input type="submit" value="Set Alert">
                     </div>
                 </td>
             </tr>
-
-
-
         </table>
     </form>
 
@@ -87,9 +84,9 @@
                 </div>
             </div>
 
-            <div class="list_values">
+            <div class="list_alerts">
 <!--                <p> No alerts have been set </p>-->
-                <table class="tabel_listvalues" >
+               <!-- <table class="tabel_listvalues" >
                     <tbody>
                     <tr>
                         <td><p>No alerts set</p></td>
@@ -97,10 +94,10 @@
                         <td><center><span class="change">Change</span> <br> <span class="remove">Remove</span></center></td>
                     </tr>
                     </tbody>
-                </table>
+                </table>-->
             </div>
             <div class="add_remove">
-                <p><span>0</span> of <span>0</span> entries</p>
+                <p><span class="pagecount"></span> of <span class="pagecountof">0</span> entries</p>
                 <div>
                     <span></span>
                     <span></span>

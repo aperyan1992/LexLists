@@ -875,7 +875,135 @@ class mySurveyActions extends sfActions {
         //$this->forward404();
     }
 
-    
+    /**
+     * Save Survey alert details
+     *
+     *  @param sfWebRequest $request     Request object
+     *
+     * @return array                    JSON array with response message
+     */
+    public function executeSaveAlertDetails(sfWebRequest $request)
+    {
+        if($request->isXmlHttpRequest())
+        {
+            $details = $request->getParameter('details');
+            $arrDetails['cc_email'] = '';
+            foreach($details as $detail)
+            {
+                if(!isset($detail['name']))
+                {
+                    foreach($detail['cc_emails'] as $value)
+                    {
+                        $arrDetails['cc_email'] .= $value.', ';
+                    }
+                    $arrDetails['cc_email'] = substr($arrDetails['cc_email'], 0, -2);
+                }
+                else
+                {
+                    $arrDetails[$detail['name']] = $detail['value'];
+                }
+            }
+            if(isset($arrDetails['to_me']) && $arrDetails['to_me']=='on')
+            {
+                $arrDetails['to_me'] = 1;
+            }
+            else{
+                $arrDetails['to_me'] = 0;
+            }
+            if(isset($arrDetails['updated']))
+            {
+                $query = 'INSERT INTO `survey_alerts` (`survey_id`, `user_id`, `time-frame`, `time-frame-type`, `cc_email`, `email_me`, `created_at`) VALUES';
+                $query .= " ('".$arrDetails['survey_id']."', '{$this->getUser()->getGuardUser()->getId()}','".$arrDetails['time-frame']."' , '".$arrDetails['time-frame-type']."', '".$arrDetails['cc_email']."', '".$arrDetails['to_me']."', NOW())";
+            }
+            else
+            {
+                $query = 'INSERT INTO `survey_alerts` (`survey_id`, `user_id`, `time-frame`, `time-frame-type`, `cc_email`, `email_me`) VALUES';
+                $query .= " ('".$arrDetails['survey_id']."', '{$this->getUser()->getGuardUser()->getId()}','".$arrDetails['time-frame']."' , '".$arrDetails['time-frame-type']."', '".$arrDetails['cc_email']."', '".$arrDetails['to_me']."')";
+
+            }
+            // execute query
+            if(Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query))
+            {
+                return $this->renderText(
+                    json_encode(
+                        $arrDetails
+                    )
+                );
+            }
+        }
+        $this->forward404();
+    }
+
+    /**
+     * Get all Alerts for survey
+     *
+     * @param sfWebRequest $request     Request object
+     *
+     * @return array                    JSON array with response message
+     */
+
+    public function executeGetAllAlerts(sfWebRequest $request)
+    {
+        if($request->isXmlHttpRequest())
+        {
+            $survey_id = $request->getParameter('survey_id');
+            if($survey_id)
+            {
+                $query = 'SELECT * FROM survey_alerts WHERE user_id="'.$this->getUser()->getGuardUser()->getId().'" AND survey_id="'.$survey_id.'"';
+
+                $alerts = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+
+                if(!empty($alerts))
+                {
+                    return $this->renderText(
+                        json_encode(
+                            $alerts
+                        )
+                    );
+                }
+                else
+                {
+                    return $this->renderText(
+                        json_encode(
+                            'error'
+                        )
+                    );
+                }
+            }
+        }
+
+    }
+
+    /**
+     * Remove Survey Alert
+     *
+     * @param sfWebRequest $request     Request object
+     *
+     * @return array                    JSON array with response message
+     */
+
+    public function executeRemoveSurveyAlert(sfWebRequest $request)
+    {
+        if ($request->isXmlHttpRequest()) {
+            $alert_id = $request->getParameter("alert_id", FALSE);
+            if ($alert_id) {
+
+                $query = 'DELETE FROM survey_alerts WHERE id ='.$alert_id;
+                $alerts = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query);
+                if($alerts)
+                {
+                    return $this->renderText(
+                            json_encode(
+                                array(
+                                    "status" => "success"
+                                )
+                            )
+                        );
+                }
+
+            }
+        }
+    }
     /**
      * Set "Updated/Deadline Past" flag for my survey by click on bubble
      * 

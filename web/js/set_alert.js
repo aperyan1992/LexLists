@@ -12,9 +12,12 @@ $(document).ready(function() {
      */
     $(document).on("click", ".set_an_alert_class", function() {
         var survey_id = $(this).attr("s_id");
-
+        $('.list_alerts').empty();
         $("#dialog_form_survey__set_alert").dialog("open");
-
+        $(document).on('click','.removealert',function(){
+            var alert_id =  $(this).attr('s_id');
+            remove_survey_alert(alert_id, survey_id);
+        });
         // Get email list
         $.ajax({
             url: "/frontend_dev.php/mySurvey/GetAllEmails",
@@ -22,7 +25,6 @@ $(document).ready(function() {
             dataType: "json",
             success: function(data) {
                 var arrEmails = new Array();
-               // console.log(data);
                 for(var i = 0;i< data.length;i++)
                 {
                     arrEmails.push({id:i,text:data[i]})
@@ -38,14 +40,28 @@ $(document).ready(function() {
                 openErrorPopupWindow("dialog_error_alert", "Error !!!");
             }
         });
+        get_survey_alerts(survey_id);
         
         // Close menu if exists
         if ($(this).hasClass("set_an_alert_class")) {
             $(this).parents('ul.menu-dropdown').slideToggle();
         }
+        $('#set_alert_form').on('submit', function(){
+            event.preventDefault();
+            var cc_emails = new Array();
+            $('.select2-search-choice div').each(function(){
+                cc_emails.push($(this).text());
+            });
+            //cc_emails = cc_emails.serialize();
+            var data_for_ajax = $( this ).serializeArray();
+            data_for_ajax = $.merge(data_for_ajax,[{'cc_emails':cc_emails},{'name':'survey_id', 'value':survey_id}]);
+            save_alert_details(data_for_ajax, survey_id)
+
+        });
+
         return false;
     });
-    $('.change').on("click", function(){
+    $(document).on('click','.changealert',function(){
         //$(".change_values").fadeIn();
         $('.change_values').css('display','block');
         $('#to_me_dialog_form_survey_email').attr("disabled", 'disabled');
@@ -53,14 +69,100 @@ $(document).ready(function() {
 
     });
 
+
     $('.close_button'). on("click", function(){
 
         $('.change_values').css('display','none');
     });
 
 
+
 });
 
+function remove_survey_alert(alert_id, survey_id)
+{
+    $.ajax({
+        url: "/frontend_dev.php/mySurvey/RemoveSurveyAlert",
+        type: "POST",
+        data:{
+            alert_id:alert_id
+        },
+        dataType: "json",
+        beforeSend: function() {
+            // Show blocker
+            $("#display_blocker").show();
+        },
+        success: function(data) {
+            get_survey_alerts(survey_id);
+        },
+        error: function() {
+            openErrorPopupWindow("dialog_error_alert", "Error !!!");
+        }
+    });
+}
+function get_survey_alerts(survey_id)
+{
+    $('.list_alerts').empty();
+    $.ajax({
+        url: "/frontend_dev.php/mySurvey/GetAllAlerts",
+        type: "POST",
+        data:{
+            survey_id:survey_id
+        },
+        dataType: "json",
+        beforeSend: function() {
+            // Show blocker
+            $("#display_blocker").show();
+        },
+        success: function(data) {
+            if(data!='error')
+            {
+                $(data).each(function(){
+                    $('.list_alerts').append('<div style="border: 2px solid #D9D2B9;padding-bottom: 5px; border-top:none;"><div class="alert_value1">'+this['cc_email']+'</div><div class="alert_value1">'+this['time-frame']+' '+this['time-frame-type']+'</div><div class="alert_value1"><div class="changealert" s_id='+this['id']+'>Change</div><div class="removealert" s_id='+this['id']+'>Remove</div></div></div>');
+                });
+                $('.pagecount').text(data.length);
+                $('.pagecountof').text(data.length);
+            }
+            else
+            {
+                $('.list_alerts').append('<div>No Alert Set</div>');
+            }
+            $("#display_blocker").hide();
+
+        },
+        error: function() {
+            openErrorPopupWindow("dialog_error_alert", "Error !!!");
+        }
+    });
+}
+function save_alert_details(data_for_send, survey_id)
+{
+    $.ajax({
+        url: "/frontend_dev.php/mySurvey/SaveAlertDetails",
+        type: "POST",
+        data: {
+            details: data_for_send
+        },
+        dataType: "json",
+        beforeSend: function() {
+            // Show blocker
+            $("#display_blocker").show();
+        },
+        success: function(data) {
+            // Hide blocker
+            get_survey_alerts(survey_id);
+            $("#display_blocker").hide();
+            return true;
+        },
+        error: function() {
+            openErrorPopupWindow("dialog_error_alert", "Alert saving failed. Try again.");
+
+            // Hide blocker
+            $("#display_blocker").hide();
+            return false;
+        }
+    });
+}
 function initSurveySetAlertPopupWindow(element) {
 
     $("#" + element).dialog({

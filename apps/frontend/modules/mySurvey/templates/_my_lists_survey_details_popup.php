@@ -58,7 +58,7 @@
                 <td id="dialog_contact_person"></td>
             </tr>
             <tr>
-                <th colspan="2"><hr/></td>
+                <td colspan="2"><hr/></td>
             </tr>
             <tr>
                 <th>

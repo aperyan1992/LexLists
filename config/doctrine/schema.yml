@@ -352,7 +352,36 @@ LtState:
       type: string(255)
     short_code:
       type: string(10)
-      
+
+LtSurveyAlerts:
+  options:
+    type: InnoDB
+    collate: utf8_general_ci
+    charset: utf8
+  tableName: survey_alerts
+  actAs: [Timestampable]
+
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    survey_id:
+      type: integer
+    user_id:
+      type: integer
+    time-frame:
+      type: integer
+    time-frame-type:
+      type: string(10)
+    cc_email:
+      type: clob(65532)
+    email_me:
+      type: integer
+    created_at:
+      type: timestamp
+
+
 LtSurveyState:
   options:
     type: InnoDB

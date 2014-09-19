@@ -4110,9 +4110,9 @@ fieldset.disp-block{
 }
 
 .popup1 form .close_btn {
-    margin: 0 0 0 435px;
     position: relative;
-    top: -7px;
+    float:left;
+    margin-right:10px;
 
 }
 
@@ -4127,10 +4127,9 @@ fieldset.disp-block{
 }
 
 .popup1 form .setalert_button {
-    margin: 0 0 0 510px;
     position: relative;
-    top: -29px;
     background-color: #f2f2f2;
+    float:right;
 }
 
 .popup1 form table .row_line {
@@ -4156,14 +4155,23 @@ fieldset.disp-block{
 }
 
 .table_values .value1, .table_values .value2, .table_values .value3 {
-    width: 194px;
+    width: 193px;
+    hight:100px;
     float: left;
     border: 1px solid #D9D2B9;
     text-align: center;
-    display: block;
+    display: inline-block;
     height: 40px;
     background-image: url("../css/images/ui-bg_gloss-wave_100_ece8da_500x100.png");
     background-size: 194px 50px;
+}
+
+.alert_value1
+{
+    position: relative;
+    width: 194px;
+    display: inline-block;
+    text-align: center;
 }
 
 .table_values .value1 p, .table_values .value2 p{
@@ -4476,6 +4484,13 @@ fieldset.disp-block{
     width: 60px;
     color: white;
     font-size: 12px;
+}
+.changealert, .removealert{
+    cursor:pointer;
+}
+.changealert
+{
+    color:#FE6801;
 }
 
 

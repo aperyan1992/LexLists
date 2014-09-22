@@ -58,20 +58,53 @@ $(document).ready(function() {
             save_alert_details(data_for_ajax, survey_id)
 
         });
+        $('.ok_btn').on('click', function(){
+            var data_for_send = $('#change_alert').serializeArray();
+            send_changed_alert(data_for_send, survey_id);
+
+        })
 
         return false;
     });
     $(document).on('click','.changealert',function(){
         //$(".change_values").fadeIn();
         $('.change_values').css('display','block');
-        $('#to_me_dialog_form_survey_email').attr("disabled", 'disabled');
+        //$('#to_me_dialog_form_survey_email').attr("disabled", 'disabled');
         initSurveySetAlertPopupWindow("change_values");
+
+        console.log($(this).parent().parent().find('.alert_emails').text());
+
+        // data = $(this).parent().parent().find('.alert_emails').text();
+        // var arrEmails = new Array();
+        // arrEmails = $(this).parent().parent().find('.alert_emails').text().split(',');
+
+        $('#change_alert_emails').val($(this).parent().parent().find('.alert_emails').text());
+        $('#to_me_change_alert').prop('checked', false);
+        if($(this).attr('email_me')=='1')
+        {
+            $('#to_me_change_alert').prop('checked', true);
+        }
+        var strTimeFrames =  $(this).parent().parent().find('.timeframe_alert').text().split(" ");
+        $('.select_day_change').val(strTimeFrames[0]);
+        $('.select_month_change').val(strTimeFrames[1]);
+        $('#change_alert_id').val($(this).attr('s_id'));
+
+
+
+
+
+        /*
+        $('#change_alert_emails').select2({
+            createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
+            multiple: true,
+            data: arrEmails
+        });
+        */
 
     });
 
 
-    $('.close_button'). on("click", function(){
-
+    $('.close_button, .cancel_btn'). on("click", function(){
         $('.change_values').css('display','none');
     });
 
@@ -79,6 +112,31 @@ $(document).ready(function() {
 
 });
 
+function send_changed_alert(data, survey_id)
+{
+    $.ajax({
+        url: "/frontend_dev.php/mySurvey/changeAlert",
+        type: "POST",
+        data:{
+            details:data
+        },
+        dataType: "json",
+        beforeSend: function() {
+            // Show blocker
+            $("#display_blocker").show();
+        },
+        success: function(data) {
+            get_survey_alerts(survey_id);
+            $('.change_values').css('display','none');
+            $("#display_blocker").hide();
+
+
+        },
+        error: function() {
+            openErrorPopupWindow("dialog_error_alert", "Error !!!");
+        }
+    });
+}
 function remove_survey_alert(alert_id, survey_id)
 {
     $.ajax({
@@ -117,8 +175,9 @@ function get_survey_alerts(survey_id)
         success: function(data) {
             if(data!='error')
             {
+
                 $(data).each(function(){
-                    $('.list_alerts').append('<div style="border: 2px solid #D9D2B9;padding-bottom: 5px; border-top:none;"><div class="alert_value1">'+this['cc_email']+'</div><div class="alert_value1">'+this['time-frame']+' '+this['time-frame-type']+'</div><div class="alert_value1"><div class="changealert" s_id='+this['id']+'>Change</div><div class="removealert" s_id='+this['id']+'>Remove</div></div></div>');
+                    $('.list_alerts').append('<div style="border: 2px solid #D9D2B9;padding-bottom: 5px; border-top:none;"><div class="alert_value1 alert_emails">'+this['cc_email']+'</div><div class="alert_value1 timeframe_alert">'+this['time-frame']+' '+this['time-frame-type']+'</div><div class="alert_value1"><div class="changealert" created='+this['created_at']+' email_me='+this['email_me']+' s_id='+this['id']+'>Change</div><div class="removealert" s_id='+this['id']+'>Remove</div></div></div>');
                 });
                 $('.pagecount').text(data.length);
                 $('.pagecountof').text(data.length);
@@ -206,5 +265,8 @@ function initSurveySetAlertPopupWindow(element) {
         close: function() {
             $(this).dialog("close");
         }
+    });
+    $('.close_btn').on('click', function(){
+        $("#" + element).dialog("close");
     });
 }

@@ -1004,6 +1004,51 @@ class mySurveyActions extends sfActions {
             }
         }
     }
+
+    /**
+     * Change Survey Alert
+     *
+     * @param sfWebRequest $request     Request object
+     *
+     * @return array                    JSON array with response message
+     */
+    public  function executeChangeAlert(sfWebRequest $request)
+    {
+        if ($request->isXmlHttpRequest()) {
+            $details = $request->getParameter('details');
+            if ($details) {
+                foreach($details as $detail)
+                {
+                    $arrDetails[$detail['name']] = $detail['value'];
+                }
+                if(isset($arrDetails['to_me']) && $arrDetails['to_me']=='on')
+                {
+                    $arrDetails['to_me'] = 1;
+                }
+                else{
+                    $arrDetails['to_me'] = 0;
+                }
+                if(isset($arrDetails['updated']))
+                {
+                    $query = 'UPDATE survey_alerts SET `time-frame`="'.$arrDetails['time-frame'].'", `time-frame-type`="'.$arrDetails['time-frame-type'].'", `cc_email`="'.$arrDetails['to'].'", `email_me`="'.$arrDetails['to_me'].'", `created_at`=NOW()  WHERE id="'.$arrDetails['alert_id'].'"';
+                }
+                else
+                {
+                    $query = 'UPDATE survey_alerts SET `time-frame`="'.$arrDetails['time-frame'].'", `time-frame-type`="'.$arrDetails['time-frame-type'].'", `cc_email`="'.$arrDetails['to'].'", `email_me`="'.$arrDetails['to_me'].'"  WHERE id="'.$arrDetails['alert_id'].'"';
+
+                }
+                // execute query
+                if(Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query))
+                {
+                    return $this->renderText(
+                        json_encode(
+                            $arrDetails
+                        )
+                    );
+                }
+            }
+        }
+    }
     /**
      * Set "Updated/Deadline Past" flag for my survey by click on bubble
      * 

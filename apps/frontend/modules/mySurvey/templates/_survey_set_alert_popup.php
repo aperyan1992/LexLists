@@ -119,80 +119,38 @@
         </div>
 
         <table>
-
+            <form id="change_alert">
+                <input id="change_alert_id" type="hidden" name="alert_id"/>
             <tr>
                 <td>
                     <label for="to_dialog_form_survey_set_alert" title="Notify">Notify </label>
                     <div class="additional_checkbox_block">
-                        <input type="checkbox" name="to_me" id="to_me_dialog_form_survey_email" checked /><span class="to_me_label">Me</span>
+
+                        <input type="checkbox" name="to_me" id="to_me_change_alert" checked /><span class="to_me_label">Me</span>
                     </div>
                 </td>
                 <td >
                     <div class="alert_textarea">
-                        <input type="text" name="to" id="to_dialog_form_survey_set_alert" class="text ui-widget-content ui-corner-all" disabled />
+                        <textarea name="to" id="change_alert_emails" class="text ui-widget-content ui-corner-all"></textarea>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <select class="select_day">
-                        <option></option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
-                        <option>11</option>
-                        <option>12</option>
-                        <option>13</option>
-                        <option>14</option>
-                        <option>15</option>
-                        <option>16</option>
-                        <option>17</option>
-                        <option>18</option>
-                        <option>19</option>
-                        <option>20</option>
-                        <option>21</option>
-                        <option>22</option>
-                        <option>23</option>
-                        <option>24</option>
-                        <option>25</option>
-                        <option>26</option>
-                        <option>27</option>
-                        <option>28</option>
-                        <option>29</option>
-                        <option>30</option>
-                        <option>31</option>
+
+                    <label for="select_data">When:</label>
+                    <select name="time-frame" class="select_day_change">
+                        <?php for($i=1;$i<31;$i++)
+                        {
+                            echo '<option>'.$i.'</option>';
+                        }
+                        ?>
                     </select>
 
-
-                    <select class="select_month">
-                        <option></option>
-                        <option>January</option>
-                        <option>February</option>
-                        <option>March</option>
-                        <option>April</option>
-                        <option>May</option>
-                        <option>June</option>
-                        <option>July</option>
-                        <option>August</option>
-                        <option>September</option>
-                        <option>October</option>
-                        <option>November</option>
-                        <option>December</option>
+                    <select name="time-frame-type" class="select_month_change">
+                        <option>Day(s)</option>
+                        <option>Week(s)</option>
+                        <option>Month(s)</option>
                     </select>
                     <div class="checkbox_update">
                         <input type="checkbox" name=""  />
@@ -215,6 +173,7 @@
                     </div>
                 </td>
             </tr>
+        </form>
 
         </table>
 

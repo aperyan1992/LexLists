@@ -6,7 +6,7 @@
                     <label for="to_dialog_form_survey_set_alert" title="To.">To: </label>
                 </th>
                 <td>                    
-                    <input type="text" name="to" id="to_dialog_form_survey_set_alert" class="text ui-widget-content ui-corner-all" disabled />
+                    <input type="text" name="to" id="change_alert_email" class="text ui-widget-content ui-corner-all" />
                     <div class="additional_checkbox_block">
                         <input type="checkbox" name="to_me" id="to_me_dialog_form_survey_email" checked /><span class="to_me_label">me</span>
                     </div>                    

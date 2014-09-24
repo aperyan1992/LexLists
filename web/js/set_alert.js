@@ -67,18 +67,15 @@ $(document).ready(function() {
         return false;
     });
     $(document).on('click','.changealert',function(){
-        //$(".change_values").fadeIn();
         $('.change_values').css('display','block');
-        //$('#to_me_dialog_form_survey_email').attr("disabled", 'disabled');
         initSurveySetAlertPopupWindow("change_values");
 
-        console.log($(this).parent().parent().find('.alert_emails').text());
-
-        // data = $(this).parent().parent().find('.alert_emails').text();
-        // var arrEmails = new Array();
-        // arrEmails = $(this).parent().parent().find('.alert_emails').text().split(',');
-
         $('#change_alert_emails').val($(this).parent().parent().find('.alert_emails').text());
+        $('.checkbox_update input').prop('checked', true);
+        if($(this).attr('created_at')=='0000-00-00 00:00:00')
+        {
+            $('.checkbox_update input').prop('checked', false);
+        }
         $('#to_me_change_alert').prop('checked', false);
         if($(this).attr('email_me')=='1')
         {
@@ -88,18 +85,6 @@ $(document).ready(function() {
         $('.select_day_change').val(strTimeFrames[0]);
         $('.select_month_change').val(strTimeFrames[1]);
         $('#change_alert_id').val($(this).attr('s_id'));
-
-
-
-
-
-        /*
-        $('#change_alert_emails').select2({
-            createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
-            multiple: true,
-            data: arrEmails
-        });
-        */
 
     });
 
@@ -177,10 +162,16 @@ function get_survey_alerts(survey_id)
             {
 
                 $(data).each(function(){
-                    $('.list_alerts').append('<div style="border: 2px solid #D9D2B9;padding-bottom: 5px; border-top:none;"><div class="alert_value1 alert_emails">'+this['cc_email']+'</div><div class="alert_value1 timeframe_alert">'+this['time-frame']+' '+this['time-frame-type']+'</div><div class="alert_value1"><div class="changealert" created='+this['created_at']+' email_me='+this['email_me']+' s_id='+this['id']+'>Change</div><div class="removealert" s_id='+this['id']+'>Remove</div></div></div>');
+                    if(this['created_at']=='0000-00-00 00:00:00')
+                    {
+                        var timeframe = this['time-frame']+' '+this['time-frame-type']+' before submission deadline';
+                    }
+                    else
+                    {
+                        var timeframe = 'Anytime the record is updated';
+                    }
+                    $('.list_alerts').append('<div style="border: 2px solid #D9D2B9;padding-bottom: 5px; border-top:none;"><div class="alert_value1 alert_emails">'+this['cc_email']+'</div><div class="alert_value1 timeframe_alert">'+timeframe+'</div><div class="alert_value1"><div class="changealert" created='+this['created_at']+' email_me='+this['email_me']+' created_at='+this['created_at']+' s_id='+this['id']+'>Change</div><div class="removealert" s_id='+this['id']+'>Remove</div></div></div>');
                 });
-                $('.pagecount').text(data.length);
-                $('.pagecountof').text(data.length);
             }
             else
             {

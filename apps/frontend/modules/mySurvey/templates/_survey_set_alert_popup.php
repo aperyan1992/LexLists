@@ -97,12 +97,12 @@
                 </table>-->
             </div>
             <div class="add_remove">
-                <p><span class="pagecount"></span> of <span class="pagecountof">0</span> entries</p>
+               <!-- <p><span class="pagecount"></span> of <span class="pagecountof">0</span> entries</p>
                 <div>
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </div>-->
             </div>
             <div style="clear: both"></div>
         </div>
@@ -165,11 +165,11 @@
 
             <tr>
                 <td>
+                    <div class="ok_btn">
+                        <input type="button" value="OK">
+                    </div>
                     <div class="cancel_btn">
                         <input type="button" value="Cancel">
-                    </div>
-                    <div class="ok_btn">
-                        <input type="button" value="Ok">
                     </div>
                 </td>
             </tr>

@@ -4111,7 +4111,7 @@ fieldset.disp-block{
 
 .popup1 form .close_btn {
     position: relative;
-    float:left;
+    float:right;
     margin-right:10px;
 
 }
@@ -4155,7 +4155,7 @@ fieldset.disp-block{
 }
 
 .table_values .value1, .table_values .value2, .table_values .value3 {
-    width: 193px;
+    width: 194px;
     hight:100px;
     float: left;
     border: 1px solid #D9D2B9;
@@ -4169,13 +4169,13 @@ fieldset.disp-block{
 .alert_value1
 {
     position: relative;
-    width: 194px;
+    width: 193px;
     display: inline-block;
     text-align: center;
 }
 
 .table_values .value1 p, .table_values .value2 p{
-    padding-top: 5px;
+    padding-top: 2px;
     color: #FE6801;
     font-size: 14px;
     font-weight: bold;
@@ -4234,13 +4234,14 @@ fieldset.disp-block{
 .list_values .tabel_listvalues tr td span:hover {
     text-decoration: underline;
 }
-
+#select2-drop-mask{
+    display:none !important;
+}
 .table_values .add_remove {
-    width: 588px;
+    width: 99.7%;
     height: 35px;
     float: left;
     border: 1px solid #D9D2B9;
-    margin-left: -2px;
     border-radius: 0 0 8px 8px;
     background-image: url("../css/images/ui-bg_gloss-wave_100_ece8da_500x100.png");
     background-size: 588px 40px;
@@ -4271,7 +4272,15 @@ fieldset.disp-block{
     margin-left: 5px;
     margin-right: 4px;
 }
-
+.set_alert_form_table .firsttdalert{
+    width:70px;
+}
+.set_alert_form_table td:nth-child(2) {
+    padding-left: 100px!important;
+}
+.table_values .value1,.value2, .value3{
+    height: 20px !Important;
+}
 .table_values .add_remove div span:first-child{
     background-image: url("../css/images/ui-icons_8DC262_256x240.png");
     display: block;
@@ -4304,11 +4313,11 @@ fieldset.disp-block{
 }
 
 .table_values .value1 .arrows, .table_values .value2 .arrows {
-    margin: -32px 0 0 10px;
+    margin: -36px 0 0 10px;
 }
 
 .table_values .value3 .arrows {
-    margin: 11px 0 0 10px;
+    margin: 2px 0 0 10px;
 }
 
 .table_values .arrows .up_arrow {
@@ -4495,14 +4504,68 @@ fieldset.disp-block{
 
 
 
+.content {
+    width: 585px;
+    float: left;
+    display: block;
+}
 
+.content .area {
+    width: 585px;
+    display: block;
+    margin-bottom: 15px;
+    float: left;
 
+}
 
+.area .right_block {
+    width: 75%;
+    float: right;
+    display: inline-block;
 
+}
 
+.area .left_block {
+    width: 25%;
+    float: left;
+    display: inline-block;
+}
 
+.select_day {
+    width: 60px;
+    border: 1px solid #b4b4b4;
+    border-radius: 4px;
+    float: left;
+    margin: -10px 5px 0 0;
+}
 
+.select_month {
+    width: 150px;
+    border: 1px solid #b4b4b4;
+    border-radius: 4px;
+    float: left;
+    margin: -10px 15px 0 0;
+}
 
+.close_btn {
+    position: relative;
+    float:right;
+    margin-right:10px;
 
+}
 
+.close_btn input, .setalert_button input {
+    background-color: #FC9D5D;
+    border: 1px solid #FC9D5D;
+    border-radius: 5px;
+    width: 60px;
+    color: white;
+    font-size: 12px;
 
+}
+
+.setalert_button {
+    position: relative;
+    background-color: #f2f2f2;
+    float:right;
+}

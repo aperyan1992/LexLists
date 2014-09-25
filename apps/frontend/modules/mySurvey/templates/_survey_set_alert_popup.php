@@ -1,111 +1,115 @@
 <div id="dialog_form_survey__set_alert" class="popup1" title="Set Alert">
 
-    <form id="set_alert_form">
-        <table style="">
+    <div class="content">
+        <form id="set_alert_form">
+        <div class="area">
+             <div class="left_block">
+                 <p> To: </p>
+             </div>
 
-                <tr>
-                    <td>
-                    <label for="to_dialog_form_survey_set_alert" title="To.">To: </label>
-                    <div class="additional_checkbox_block">
-                        <input type="checkbox" name="to_me" id="to_me_dialog_form_survey_email" checked /><span class="to_me_label">Me</span>
-                    </div>
-                    </td>
-                <td >
-                    <label for="textarea_title" title="">Cc: </label>
-                    <input type="text" id="to_dialog_form_survey_set_alert2" style="width: 300px !important;"/>
-                    <label for="text_link" title=""><a href="#">Add</a> </label>
-                </td>
-                </tr>
-
-
-            <tr>
-                <td>
-                    <label for="select_data">When:</label>
-                    <select name="time-frame" class="select_day">
-                        <?php for($i=1;$i<31;$i++)
-                            {
-                                echo '<option>'.$i.'</option>';
-                            }
-                        ?>
-                    </select>
-
-                    <select name="time-frame-type" class="select_month">
-                        <option>Day(s)</option>
-                        <option>Week(s)</option>
-                        <option>Month(s)</option>
-                    </select>
-                    <label for="before_submission">before submission deadline</label>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <div class="checkbox_update">
-                        <input type="checkbox" name="updated"  />
-                        <label for="checkbox_title">Anytime the record is updated</label>
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <td style="float:right;margin-bottom: 10px">
-                    <div class="close_btn">
-                        <input type="button" value="Cancel">
-                    </div>
-                    <div class="setalert_button">
-                        <input type="submit" value="Set Alert">
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </form>
-
-        <div class="table_values">
-            <div>
-                <div class="value1">
-                    <p>Notify</p>
-                    <div class="arrows">
-                        <span class="up_arrow"></span>
-                        <span class="down_arrow"></span>
-                    </div>
-                </div>
-                <div class="value2">
-                    <p>When</p>
-                    <div class="arrows">
-                        <span class="up_arrow"></span>
-                        <span class="down_arrow"></span>
-                    </div>
-                </div>
-                <div class="value3">
-                    <div class="arrows">
-                        <span class="up_arrow"></span>
-                        <span class="down_arrow"></span>
-                    </div>
-                </div>
+            <div class="right_block">
+                 <input type="checkbox" name="to_me" id="to_me_dialog_form_survey_email" checked /><span class="to_me_label">Me</span>
             </div>
-
-            <div class="list_alerts">
-<!--                <p> No alerts have been set </p>-->
-               <!-- <table class="tabel_listvalues" >
-                    <tbody>
-                    <tr>
-                        <td><p>No alerts set</p></td>
-                        <td><p></p></td>
-                        <td><center><span class="change">Change</span> <br> <span class="remove">Remove</span></center></td>
-                    </tr>
-                    </tbody>
-                </table>-->
-            </div>
-            <div class="add_remove">
-               <!-- <p><span class="pagecount"></span> of <span class="pagecountof">0</span> entries</p>
-                <div>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>-->
-            </div>
-            <div style="clear: both"></div>
         </div>
+        <div class="area">
+             <div class="left_block">
+                 <span>CC:</span>
+            </div>
+
+            <div class="right_block">
+                <textarea type="text" id="to_dialog_form_survey_set_alert2" style="width: 400px !important;"></textarea>
+                <span><a style="color: #ff6801;font-weight: 700;margin-left: 5px;" href="#" id="addemailcc">Add</a> </span>
+            </div>
+        </div>
+        <div class="area">
+            <div class="left_block">
+                <span>When:</span>
+            </div>
+
+            <div class="right_block">
+                <select name="time-frame" class="select_day">
+                    <?php for($i=1;$i<31;$i++)
+                    {
+                        echo '<option>'.$i.'</option>';
+                    }
+                    ?>
+                </select>
+
+                <select name="time-frame-type" class="select_month">
+                    <option>Day(s)</option>
+                    <option>Week(s)</option>
+                    <option>Month(s)</option>
+                </select>
+                <span>before submission deadline</span>
+            </div>
+        </div>
+        <div class="area">
+            <div class="left_block">
+
+            </div>
+
+            <div class="right_block">
+                <input type="checkbox" name="updated"  />
+                <span>Anytime the record is updated</span>
+            </div>
+
+        </div>
+        <div class="area">
+            <div class="left_block">
+
+            </div>
+
+            <div class="right_block">
+
+                <div class="setalert_button">
+                    <input type="submit" value="Set Alert">
+                </div>
+                <div class="close_btn">
+                    <input type="button" value="Cancel">
+                </div>
+
+            </div>
+
+        </div>
+            <div class="table_values" style="float:left;width:585px">
+                <div>
+                    <div class="value1">
+                        <p>Notify</p>
+                        <div class="arrows">
+                            <span class="up_arrow"></span>
+                            <span class="down_arrow"></span>
+                        </div>
+                    </div>
+                    <div class="value2">
+                        <p>When</p>
+                        <div class="arrows">
+                            <span class="up_arrow"></span>
+                            <span class="down_arrow"></span>
+                        </div>
+                    </div>
+                    <div class="value3" style="width: 193px;">
+                        <div class="arrows">
+                            <span class="up_arrow"></span>
+                            <span class="down_arrow"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list_alerts" style="float:left;width: 99.7%;border:1px solid #D9D2B9;border-bottom: none;border-top:none;">
+
+                </div>
+                <div class="add_remove">
+
+                </div>
+                <div style="clear: both"></div>
+            </div>
+
+        </form>
+
+    </div>
+
+
+
 
 
 

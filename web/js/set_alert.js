@@ -12,12 +12,10 @@ $(document).ready(function() {
      */
     $(document).on("click", ".set_an_alert_class", function() {
         var survey_id = $(this).attr("s_id");
+        window.survey_id = $(this).attr("s_id");
+        get_survey_alerts(window.survey_id);
         $('.list_alerts').empty();
         $("#dialog_form_survey__set_alert").dialog("open");
-        $(document).on('click','.removealert',function(){
-            var alert_id =  $(this).attr('s_id');
-            remove_survey_alert(alert_id, survey_id);
-        });
         // Get email list
         $.ajax({
             url: "/frontend_dev.php/mySurvey/GetAllEmails",
@@ -32,39 +30,67 @@ $(document).ready(function() {
                 }
 
                 $('#to_dialog_form_survey_set_alert2').select2({
-                    createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
+                createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
                     multiple: true,
+                    allowClear:true,
                     data: arrEmails
-                });            },
+                });
+            },
             error: function() {
                 openErrorPopupWindow("dialog_error_alert", "Error !!!");
             }
         });
-        get_survey_alerts(survey_id);
-        
+
+
         // Close menu if exists
         if ($(this).hasClass("set_an_alert_class")) {
             $(this).parents('ul.menu-dropdown').slideToggle();
         }
-        $('#set_alert_form').on('submit', function(){
-            event.preventDefault();
-            var cc_emails = new Array();
-            $('.select2-search-choice div').each(function(){
-                cc_emails.push($(this).text());
-            });
-            //cc_emails = cc_emails.serialize();
-            var data_for_ajax = $( this ).serializeArray();
-            data_for_ajax = $.merge(data_for_ajax,[{'cc_emails':cc_emails},{'name':'survey_id', 'value':survey_id}]);
-            save_alert_details(data_for_ajax, survey_id)
-
-        });
-        $('.ok_btn').on('click', function(){
-            var data_for_send = $('#change_alert').serializeArray();
-            send_changed_alert(data_for_send, survey_id);
-
-        })
 
         return false;
+    });
+    $('.ok_btn').on('click', function(){
+        var data_for_send = $('#change_alert').serializeArray();
+        send_changed_alert(data_for_send, window.survey_id);
+
+    })
+    $('#addemailcc').on('click', function(){
+        var neweamil = $('.select2-match').text();
+        $('.select2-match').remove();
+        $('.select2-input').val('');
+        $('.select2-drop').hide();
+        if(neweamil!='')
+        {
+           // $('ul li:last-child').prev('<p>inch vor uzum es</p>')
+            if(!$('.select2-search-choice').length)
+            {
+                $('.select2-choices').prepend('<li class="select2-search-choice">    <div>'+neweamil+'</div>    <a href="#" class="removeccemail select2-search-choice-close" tabindex="-1"></a></li>');
+            }
+            else
+            $('.select2-container ul li:nth-last-child(2)').after('<li class="select2-search-choice">    <div>'+neweamil+'</div>    <a href="#" class="removeccemail select2-search-choice-close" tabindex="-1"></a></li>')
+
+        }
+    });
+    $(document).on('click','.removeccemail',function(){
+        $(this).parent().fadeOut(300, function(){
+            this.remove();
+        });
+    })
+    $(document).on('click','.removealert',function(){
+        var alert_id =  $(this).attr('s_id');
+        remove_survey_alert(alert_id, window.survey_id);
+    });
+    $('#set_alert_form').on('submit', function(){
+        event.preventDefault();
+        var cc_emails = new Array();
+        $('.select2-search-choice div').each(function(){
+            cc_emails.push($(this).text());
+        });
+        //cc_emails = cc_emails.serialize();
+        var data_for_ajax = $( this ).serializeArray();
+        data_for_ajax = $.merge(data_for_ajax,[{'cc_emails':cc_emails},{'name':'survey_id', 'value':survey_id}]);
+        save_alert_details(data_for_ajax, window.survey_id)
+
     });
     $(document).on('click','.changealert',function(){
         $('.change_values').css('display','block');
@@ -97,8 +123,11 @@ $(document).ready(function() {
 
 });
 
+
+
 function send_changed_alert(data, survey_id)
 {
+
     $.ajax({
         url: "/frontend_dev.php/mySurvey/changeAlert",
         type: "POST",
@@ -124,6 +153,7 @@ function send_changed_alert(data, survey_id)
 }
 function remove_survey_alert(alert_id, survey_id)
 {
+
     $.ajax({
         url: "/frontend_dev.php/mySurvey/RemoveSurveyAlert",
         type: "POST",
@@ -131,13 +161,11 @@ function remove_survey_alert(alert_id, survey_id)
             alert_id:alert_id
         },
         dataType: "json",
-        beforeSend: function() {
-            // Show blocker
-            $("#display_blocker").show();
-        },
         success: function(data) {
-            get_survey_alerts(survey_id);
-        },
+                    get_survey_alerts(survey_id);
+
+                },
+
         error: function() {
             openErrorPopupWindow("dialog_error_alert", "Error !!!");
         }
@@ -145,6 +173,8 @@ function remove_survey_alert(alert_id, survey_id)
 }
 function get_survey_alerts(survey_id)
 {
+
+
     $('.list_alerts').empty();
     $.ajax({
         url: "/frontend_dev.php/mySurvey/GetAllAlerts",
@@ -160,7 +190,7 @@ function get_survey_alerts(survey_id)
         success: function(data) {
             if(data!='error')
             {
-
+                console.log(data);
                 $(data).each(function(){
                     if(this['created_at']=='0000-00-00 00:00:00')
                     {
@@ -170,13 +200,14 @@ function get_survey_alerts(survey_id)
                     {
                         var timeframe = 'Anytime the record is updated';
                     }
-                    $('.list_alerts').append('<div style="border: 2px solid #D9D2B9;padding-bottom: 5px; border-top:none;"><div class="alert_value1 alert_emails">'+this['cc_email']+'</div><div class="alert_value1 timeframe_alert">'+timeframe+'</div><div class="alert_value1"><div class="changealert" created='+this['created_at']+' email_me='+this['email_me']+' created_at='+this['created_at']+' s_id='+this['id']+'>Change</div><div class="removealert" s_id='+this['id']+'>Remove</div></div></div>');
+                    $('.list_alerts').append('<div style="float: left;width: 100%;border-bottom: 1px solid #D9D2B9;padding-bottom: 5px; border-top:none;"><div class="alert_value1 alert_emails">'+this['cc_email']+'</div><div class="alert_value1 timeframe_alert">'+timeframe+'</div><div class="alert_value1"><div class="changealert" created='+this['created_at']+' email_me='+this['email_me']+' created_at='+this['created_at']+' s_id='+this['id']+'>Change</div><div class="removealert" s_id='+this['id']+'>Remove</div></div></div>');
                 });
             }
             else
             {
-                $('.list_alerts').append('<div>No Alert Set</div>');
+                $('.list_alerts').append('<div style="text-align: center;font-weight: bold;float:left;width: 100%; border: 1px solid #D9D2B9;">No Alert Set</div>');
             }
+
             $("#display_blocker").hide();
 
         },
@@ -187,6 +218,7 @@ function get_survey_alerts(survey_id)
 }
 function save_alert_details(data_for_send, survey_id)
 {
+
     $.ajax({
         url: "/frontend_dev.php/mySurvey/SaveAlertDetails",
         type: "POST",

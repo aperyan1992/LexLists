@@ -22,6 +22,10 @@
 <div id="dialog_delete_file_cofirm_alert" style="display: none;" title="LexLists Warning">
     <div class="warning_message">Are you sure you want to remove this file?</div>
 </div>
+<div id="dialog_delete_alert_cofirm_alert" style="display: none;" title="LexLists Warning">
+    <div class="warning_message">This alert will be removed.</div>
+</div>
+
 
 <div id="dialog_admin_delete_matter_cofirm_alert" style="display: none;" title="LexLists Warning">
     <div class="warning_message">This matter will be deleted forever and you won’t be able to restore it. Are you sure that you would like to delete it?</div>

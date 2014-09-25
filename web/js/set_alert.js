@@ -78,7 +78,8 @@ $(document).ready(function() {
     })
     $(document).on('click','.removealert',function(){
         var alert_id =  $(this).attr('s_id');
-        remove_survey_alert(alert_id, window.survey_id);
+        initDeleteAlertPopupWindow('dialog_delete_alert_cofirm_alert',alert_id);
+        $("#dialog_delete_alert_cofirm_alert").dialog("open");
     });
     $('#set_alert_form').on('submit', function(){
         event.preventDefault();
@@ -291,5 +292,27 @@ function initSurveySetAlertPopupWindow(element) {
     });
     $('.close_btn').on('click', function(){
         $("#" + element).dialog("close");
+    });
+}
+
+/**
+ * Initialization of "Confirm" popup window in deleting an alert
+ */
+function initDeleteAlertPopupWindow(element, alert_id) {
+    $("#" + element).dialog({
+        autoOpen: false,
+        height: 200,
+        width: 500,
+        modal: true,
+        buttons: {
+            "Cancel": function() {
+                $(this).dialog("close");
+                return false;
+            },
+            "OK": function() {
+                $(this).dialog("close");
+                remove_survey_alert(alert_id, window.survey_id);
+            }
+        }
     });
 }

@@ -201,7 +201,11 @@ function get_survey_alerts(survey_id)
                     {
                         var timeframe = 'Anytime the record is updated';
                     }
-                    $('.list_alerts').append('<div style="float: left;width: 100%;border-bottom: 1px solid #D9D2B9;padding-bottom: 5px; border-top:none;"><div class="alert_value1 alert_emails">'+this['cc_email']+'</div><div class="alert_value1 timeframe_alert">'+timeframe+'</div><div class="alert_value1"><div class="changealert" created='+this['created_at']+' email_me='+this['email_me']+' created_at='+this['created_at']+' s_id='+this['id']+'>Change</div><div class="removealert" s_id='+this['id']+'>Remove</div></div></div>');
+                    $('.list_alerts').append('<div style="float: left;width: 100%;border-bottom: 1px solid #D9D2B9;padding-bottom: 5px; border-top:none;"><div class="alert_value1 alert_emails">'
+                        +this['cc_email']+'</div><div style="width: 288px" class="alert_value1 timeframe_alert">'
+                        +timeframe+'</div><div style="width: 100px" class="alert_value1"><div class="changealert" created='
+                        +this['created_at']+' email_me='+this['email_me']+' created_at='+this['created_at']+' s_id='+this['id']+'>Change</div><div class="removealert" s_id='
+                        +this['id']+'>Remove</div></div></div>');
                 });
             }
             else

@@ -4,7 +4,7 @@
         <form id="set_alert_form">
         <div class="area">
              <div class="left_block">
-                 <p> To: </p>
+                 <span> To: </span>
              </div>
 
             <div class="right_block">
@@ -28,6 +28,7 @@
 
             <div class="right_block">
                 <select name="time-frame" class="select_day">
+                    <option></option>
                     <?php for($i=1;$i<31;$i++)
                     {
                         echo '<option>'.$i.'</option>';
@@ -36,6 +37,7 @@
                 </select>
 
                 <select name="time-frame-type" class="select_month">
+                    <option></option>
                     <option>Day(s)</option>
                     <option>Week(s)</option>
                     <option>Month(s)</option>
@@ -87,7 +89,7 @@
                             <span class="down_arrow"></span>
                         </div>
                     </div>
-                    <div class="value3" style="width: 193px;">
+                    <div class="value3">
                         <div class="arrows">
                             <span class="up_arrow"></span>
                             <span class="down_arrow"></span>

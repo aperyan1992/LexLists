@@ -14,6 +14,7 @@ $(document).ready(function() {
         var survey_id = $(this).attr("s_id");
         window.survey_id = $(this).attr("s_id");
         get_survey_alerts(window.survey_id);
+        $('#set_alert_form')[0].reset();
         $('.list_alerts').empty();
         $("#dialog_form_survey__set_alert").dialog("open");
         // Get email list
@@ -28,7 +29,6 @@ $(document).ready(function() {
                     arrEmails.push({id:i,text:data[i]})
 
                 }
-
                 $('#to_dialog_form_survey_set_alert2').select2({
                 createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
                     multiple: true,
@@ -59,6 +59,7 @@ $(document).ready(function() {
         $('.select2-match').remove();
         $('.select2-input').val('');
         $('.select2-drop').hide();
+        $('.select2-input').attr('style','width:50px');
         if(neweamil!='')
         {
            // $('ul li:last-child').prev('<p>inch vor uzum es</p>')

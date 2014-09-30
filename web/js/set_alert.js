@@ -29,6 +29,7 @@ $(document).ready(function() {
                     arrEmails.push({id:i,text:data[i]})
 
                 }
+                window.arrEmails = arrEmails;
                 $('#to_dialog_form_survey_set_alert2').select2({
                 createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
                     multiple: true,
@@ -53,16 +54,15 @@ $(document).ready(function() {
         var data_for_send = $('#change_alert').serializeArray();
         send_changed_alert(data_for_send, window.survey_id);
 
-    })
+    });
     $('#addemailcc').on('click', function(){
         var neweamil = $('.select2-match').text();
         $('.select2-match').remove();
         $('.select2-input').val('');
-        $('.select2-drop').hide();
+        $("#to_dialog_form_survey_set_alert2").select2('close');
         $('.select2-input').attr('style','width:50px');
         if(neweamil!='')
         {
-           // $('ul li:last-child').prev('<p>inch vor uzum es</p>')
             if(!$('.select2-search-choice').length)
             {
                 $('.select2-choices').prepend('<li class="select2-search-choice">    <div>'+neweamil+'</div>    <a href="#" class="removeccemail select2-search-choice-close" tabindex="-1"></a></li>');

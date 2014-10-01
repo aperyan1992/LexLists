@@ -3,27 +3,31 @@
     <div class="content">
         <form id="set_alert_form">
         <div class="area">
-             <div class="left_block">
+             <div class="left_block tooltip2">
                  <span> To: </span>
+                 <span class="toolclass">
+                Send the alert to me.
+            </span>
              </div>
 
             <div class="right_block">
                  <input type="checkbox" name="to_me" id="to_me_dialog_form_survey_email" checked /><span class="to_me_label">Me</span>
             </div>
         </div>
-        <div class="area">
-             <div class="left_block">
+        <div class="area ">
+             <div class="left_block tooltip2">
+                 <span class="toolclass">Others to include in the alert.</span>
                  <span>CC:</span>
             </div>
 
             <div class="right_block">
                 <textarea type="text" id="to_dialog_form_survey_set_alert2" style="width: 400px !important;"></textarea>
-                <span><a style="color: #ff6801;font-weight: 700;margin-left: 5px;" href="#" id="addemailcc">Add</a> </span>
+                <span class="tooltip2 addemailclass"><span class="toolclass"><strong>If the user is not already available from the pull-down, type-in the email and then press Add</span></strong><a style="color: #ff6801;font-weight: 700;margin-left: 5px;" href="#" id="addemailcc">Add</a> </span>
             </div>
         </div>
         <div class="area">
-            <div class="left_block">
-                <span>When:</span>
+            <div class="left_block tooltip2">
+                <span class="toolclass">Set the time you want to receive the alert with respect to the submission deadline. Pick a number and then the time-frame from the pull-downs.</span>                <span>When:</span>
             </div>
 
             <div class="right_block">
@@ -50,11 +54,11 @@
 
             </div>
 
-            <div class="right_block">
+            <div class="right_block tooltip2">
+                <span class="toolclass"><strong>Notify me whenever this record is updated.</strong></span>
                 <input type="checkbox" name="updated"  />
                 <span>Anytime the record is updated</span>
             </div>
-
         </div>
         <div class="area">
             <div class="left_block">

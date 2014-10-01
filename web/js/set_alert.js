@@ -6,7 +6,7 @@ $(document).ready(function() {
      *  Init popups
      */
     initSurveySetAlertPopupWindow("dialog_form_survey__set_alert");
-
+    initSaveAlertValidationPopup('dialog_save_alert_validation');
     /**
      * Send email message
      */
@@ -84,14 +84,26 @@ $(document).ready(function() {
     });
     $('#set_alert_form').on('submit', function(){
         event.preventDefault();
-        var cc_emails = new Array();
-        $('.select2-search-choice div').each(function(){
-            cc_emails.push($(this).text());
-        });
-        //cc_emails = cc_emails.serialize();
-        var data_for_ajax = $( this ).serializeArray();
-        data_for_ajax = $.merge(data_for_ajax,[{'cc_emails':cc_emails},{'name':'survey_id', 'value':survey_id}]);
-        save_alert_details(data_for_ajax, window.survey_id)
+        var check=true;
+        if($('.select_day').val().length==0 || $('.select_month').val().length==0)
+        {
+            if(!$("input[name='updated']").is(":checked"))
+            {
+                $('#dialog_save_alert_validation').dialog('open');
+                check=false;
+            }
+        }
+        if(check)
+        {
+            var cc_emails = new Array();
+            $('.select2-search-choice div').each(function(){
+                cc_emails.push($(this).text());
+            });
+            //cc_emails = cc_emails.serialize();
+            var data_for_ajax = $( this ).serializeArray();
+            data_for_ajax = $.merge(data_for_ajax,[{'cc_emails':cc_emails},{'name':'survey_id', 'value':survey_id}]);
+            save_alert_details(data_for_ajax, window.survey_id)
+        }
 
     });
     $(document).on('click','.changealert',function(){
@@ -317,6 +329,20 @@ function initDeleteAlertPopupWindow(element, alert_id) {
             "OK": function() {
                 $(this).dialog("close");
                 remove_survey_alert(alert_id, window.survey_id);
+            }
+        }
+    });
+}
+
+function initSaveAlertValidationPopup(element) {
+    $("#" + element).dialog({
+        autoOpen: false,
+        height: 300,
+        width: 500,
+        modal: true,
+        buttons: {
+            "OK": function() {
+               $(this).dialog('close');
             }
         }
     });

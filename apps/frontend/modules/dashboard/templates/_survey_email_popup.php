@@ -9,7 +9,7 @@
                     <input type="text" name="to" id="to_dialog_form_survey_email" class="text ui-widget-content ui-corner-all" disabled />
                     <div class="additional_checkbox_block">
                         <input type="checkbox" name="to_me" id="to_me_dialog_form_survey_email" checked /><span class="to_me_label">me</span>
-                    </div>                    
+                    </div>
                 </td>
             </tr>
             <tr>
@@ -21,7 +21,7 @@
                 </td>
             </tr>
             <tr>
-                <th colspan="2"><hr/></td>
+                <td colspan="2"><hr/></td>
             </tr>
             <tr>
                 <th align="right">Year:</th>

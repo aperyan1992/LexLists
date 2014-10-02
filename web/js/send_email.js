@@ -23,6 +23,29 @@ $(document).ready(function() {
             },
             dataType: "json",
             success: function(data) {
+                $.ajax({
+                    url: "/frontend_dev.php/mySurvey/GetAllEmails",
+                    type: "POST",
+                    dataType: "json",
+                    success: function(data) {
+                        var arrEmails = new Array();
+                        for(var i = 0;i< data.length;i++)
+                        {
+                            arrEmails.push({id:i,text:data[i]})
+
+                        }
+                        window.arrEmails = arrEmails;
+                        $('#to_dialog_form_survey_email').select2({
+                            createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
+                            multiple: true,
+                            allowClear:true,
+                            data: arrEmails
+                        });
+                    },
+                    error: function() {
+                        openErrorPopupWindow("dialog_error_alert", "Error !!!");
+                    }
+                });
                 $("#dialog_form_survey_email").data(data).dialog("open");
             },
             error: function() {
@@ -34,7 +57,6 @@ $(document).ready(function() {
         if ($(this).hasClass("my_list_email_send")) {
             $(this).parents('ul.menu-dropdown').slideToggle();
         }
-
         return false;
     });
 
@@ -44,9 +66,72 @@ $(document).ready(function() {
     $(document).on("change", "#to_me_dialog_form_survey_email", function() {
         var checked_status = $(this).is(":checked");
 
-        $("#to_dialog_form_survey_email").prop("disabled", checked_status).focus();
+        //$("#to_dialog_form_survey_email").prop("disabled", checked_status).focus();
     });
     /********************************/
+
+    $('#addemailcc2').on('click', function(){
+        var neweamil = $('.select2-match').text();
+        $('.select2-match').remove();
+        $('.select2-input').val('');
+        $("#to_dialog_form_survey_email").select2('close');
+        $('.select2-input').attr('style','width:50px');
+        if(neweamil!='')
+        {
+            if(!$('.select2-search-choice').length)
+            {
+                $('.select2-choices').prepend('<li class="select2-search-choice">    <div>'+neweamil+'</div>    <a href="#" class="removeccemail select2-search-choice-close" tabindex="-1"></a></li>');
+            }
+            else
+                $('.select2-container ul li:nth-last-child(2)').after('<li class="select2-search-choice">    <div>'+neweamil+'</div>    <a href="#" class="removeccemail select2-search-choice-close" tabindex="-1"></a></li>')
+
+        }
+    });
+    $(document).on('click','.removeccemail',function(){
+        $(this).parent().fadeOut(300, function(){
+            this.remove();
+        });
+    });
+    $(document).on('click','.removealert',function(){
+        var alert_id =  $(this).attr('s_id');
+        initDeleteAlertPopupWindow('dialog_delete_alert_cofirm_alert',alert_id);
+        $("#dialog_delete_alert_cofirm_alert").dialog("open");
+    });
+
+
+
+    $('.ui-button-text').on('submit', function(){
+        event.preventDefault();
+        var check=true;
+        var cc_emails = new Array();
+        $('.select2-search-choice div').each(function(){
+            cc_emails.push($(this).text());
+        });
+        if($('.select_day').val().length==0 || $('.select_month').val().length==0)
+        {
+            if(!$("input[name='updated']").is(":checked"))
+            {
+                $('#dialog_save_alert_validation').dialog('open');
+                check=false;
+            }
+        }
+        if( cc_emails.length==0 && !$(".tomemail").is(":checked"))
+        {
+
+            $('#dialog_save_alert_validation2').dialog('open');
+            check=false;
+        }
+
+        if(check)
+        {
+            //cc_emails = cc_emails.serialize();
+            var data_for_ajax = $( this ).serializeArray();
+            data_for_ajax = $.merge(data_for_ajax,[{'cc_emails':cc_emails},{'name':'survey_id', 'value':survey_id}]);
+            save_alert_details(data_for_ajax, window.survey_id)
+        }
+
+    });
+
 
 });
 
@@ -144,22 +229,31 @@ function initSurveyEmailPopupWindow(element) {
                 var bValid = true;
 
                 // Validation of email address if "me" checkbox is unchecked
-                if(!to_me_flag.is(":checked")) {
+               /* if(!to_me_flag.is(":checked")) {
                     bValid = bValid && checkLength(to_email_address);
                     bValid = bValid && checkRegexp(to_email_address, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
                 }
-
-                if (bValid) {
-                    // Send email message
-                    sendEmailToAnotherUser([$(this).data("survey_id")], to_email_address.val(), message.val());
-
-                    text_fields.val("");
-                    to_me_flag.prop("checked", true);
-                    $(this).dialog("close");
-                } else {
-                    openErrorPopupWindow("dialog_error_alert", "Email address is empty or invalid.");
+*/
+                var cc_emails = new Array();
+                $('.select2-search-choice div').each(function(){
+                    cc_emails.push($(this).text());
+                });
+                if( cc_emails.length==0 && !$(".timemail").is(":checked"))
+                {
+                    bValid = false;
                 }
-            }
+                if (bValid) {
+                        // Send email message
+                        sendEmailToAnotherUser([$(this).data("survey_id")], to_email_address.val(), message.val());
+
+                        text_fields.val("");
+                        to_me_flag.prop("checked", true);
+                        $(this).dialog("close");
+                    } else {
+                        openErrorPopupWindow("dialog_error_alert", "Warning! You must have at least one recipient to send an email.");
+                    }
+                }
+
         },
         close: function() {
             text_fields.val("");

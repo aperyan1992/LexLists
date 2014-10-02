@@ -11,7 +11,7 @@
              </div>
 
             <div class="right_block">
-                 <input type="checkbox" name="to_me" id="to_me_dialog_form_survey_email" checked /><span class="to_me_label">Me</span>
+                 <input type="checkbox" class="tomemail" name="to_me" id="to_me_dialog_form_survey_email" checked /><span class="to_me_label">Me</span>
             </div>
         </div>
         <div class="area ">
@@ -109,16 +109,8 @@
                 </div>
                 <div style="clear: both"></div>
             </div>
-
         </form>
-
     </div>
-
-
-
-
-
-
     <div class="change_values">
 
         <div class="change_alert">
@@ -127,7 +119,6 @@
                 <span class="close_img"> X </span>
             </div>
         </div>
-
         <table>
             <form id="change_alert">
                 <input id="change_alert_id" type="hidden" name="alert_id"/>
@@ -186,12 +177,7 @@
         </form>
 
         </table>
-
-
     </div>
-
-
-
 <!--            <tr>-->
 <!--                <th class="top_vertical_align">-->
 <!--                    <label for="message_dialog_form_survey_email" title="Message (optional).">Message: </label>-->

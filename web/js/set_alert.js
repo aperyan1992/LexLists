@@ -7,6 +7,7 @@ $(document).ready(function() {
      */
     initSurveySetAlertPopupWindow("dialog_form_survey__set_alert");
     initSaveAlertValidationPopup('dialog_save_alert_validation');
+    initSaveAlertValidationPopup('dialog_save_alert_validation2');
     /**
      * Send email message
      */
@@ -76,7 +77,7 @@ $(document).ready(function() {
         $(this).parent().fadeOut(300, function(){
             this.remove();
         });
-    })
+    });
     $(document).on('click','.removealert',function(){
         var alert_id =  $(this).attr('s_id');
         initDeleteAlertPopupWindow('dialog_delete_alert_cofirm_alert',alert_id);
@@ -85,6 +86,10 @@ $(document).ready(function() {
     $('#set_alert_form').on('submit', function(){
         event.preventDefault();
         var check=true;
+        var cc_emails = new Array();
+        $('.select2-search-choice div').each(function(){
+            cc_emails.push($(this).text());
+        });
         if($('.select_day').val().length==0 || $('.select_month').val().length==0)
         {
             if(!$("input[name='updated']").is(":checked"))
@@ -93,12 +98,15 @@ $(document).ready(function() {
                 check=false;
             }
         }
+        if( cc_emails.length==0 && !$(".tomemail").is(":checked"))
+        {
+
+            $('#dialog_save_alert_validation2').dialog('open');
+                check=false;
+        }
+
         if(check)
         {
-            var cc_emails = new Array();
-            $('.select2-search-choice div').each(function(){
-                cc_emails.push($(this).text());
-            });
             //cc_emails = cc_emails.serialize();
             var data_for_ajax = $( this ).serializeArray();
             data_for_ajax = $.merge(data_for_ajax,[{'cc_emails':cc_emails},{'name':'survey_id', 'value':survey_id}]);

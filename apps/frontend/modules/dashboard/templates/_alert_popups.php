@@ -28,6 +28,9 @@
 <div id="dialog_save_alert_validation" style="display: none;" title="LexLists Warning">
     <div class="warning_message">Warning! You must indicate when you want to be alerted. Select the time before the submission deadline or anytime the record is updated.</div>
 </div>
+<div id="dialog_save_alert_validation2" style="display: none;" title="LexLists Warning">
+    <div class="warning_message">Warning! You must have at least one recipient to set an alert.</div>
+</div>
 
 
 <div id="dialog_admin_delete_matter_cofirm_alert" style="display: none;" title="LexLists Warning">

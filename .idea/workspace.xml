@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3c90b3c3-7a99-41ce-8881-2a70beb6ec21" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/doctrine/schema.yml" afterPath="$PROJECT_DIR$/config/doctrine/schema.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="LexLists-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,7 +82,7 @@
       <file leaf-file-name="schema.yml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/doctrine/schema.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="384" column="0" selection-start="7308" selection-end="7308" vertical-scroll-proportion="0.516184" vertical-offset="5457" max-vertical-offset="8025">
+            <state line="374" column="22" selection-start="7143" selection-end="7143" vertical-scroll-proportion="0.49063033" vertical-offset="5322" max-vertical-offset="7965">
               <folding />
             </state>
           </provider>
@@ -785,7 +784,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/doctrine/schema.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="384" column="0" selection-start="7308" selection-end="7308" vertical-scroll-proportion="0.516184" vertical-offset="5457" max-vertical-offset="8025">
+        <state line="374" column="22" selection-start="7143" selection-end="7143" vertical-scroll-proportion="0.49063033" vertical-offset="5322" max-vertical-offset="7965">
           <folding />
         </state>
       </provider>

@@ -359,11 +359,7 @@ LtSurveyAlerts:
     collate: utf8_general_ci
     charset: utf8
   tableName: survey_alerts
-  actAs: Timestampable:
-         created:
-           name: created_at
-           type: timestamp
-
+  actAs: [Timestampable]
 
   columns:
     id:
@@ -374,9 +370,9 @@ LtSurveyAlerts:
       type: integer
     user_id:
       type: integer
-    time-frame:
+    `time-frame`:
       type: integer
-    time-frame-type:
+    `time-frame-type`:
       type: string(10)
     cc_email:
       type: clob(65532)

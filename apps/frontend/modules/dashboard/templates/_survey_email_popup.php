@@ -5,18 +5,22 @@
                 <th>
                     <label for="to_dialog_form_survey_email" title="To.">To: </label>
                 </th>
-                <td>                    
-                    <input type="text" name="to" id="to_dialog_form_survey_email" class="text ui-widget-content ui-corner-all" disabled />
-                    <div class="additional_checkbox_block">
-                        <input type="checkbox" name="to_me" id="to_me_dialog_form_survey_email" checked /><span class="to_me_label">me</span>
-                    </div>
+                <td>
+                    <input type="checkbox" name="to_me" id="to_me_dialog_form_survey_email" class="timemail" checked /><span class="to_me_label">me</span>
                 </td>
             </tr>
+                <tr>
+                    <th><label>Cc:</label></th>
+                    <td>
+                        <input style="width: 330px" type="text" name="to" id="to_dialog_form_survey_email" class="text ui-widget-content ui-corner-all"/>
+                        <a style="color: #ff6801;font-weight: 700;margin-left: 1px;" href="#" id="addemailcc2">Add</a>
+                    </td>
+                </tr>
             <tr>
                 <th class="top_vertical_align">
                     <label for="message_dialog_form_survey_email" title="Message (optional).">Message: </label>
                 </th>
-                <td>                    
+                <td>
                     <textarea placeholder="Enter your message (optional)" name="message" id="message_dialog_form_survey_email" class="text ui-widget-content ui-corner-all" rows="4"></textarea>
                 </td>
             </tr>

@@ -19,10 +19,10 @@ $(document).ready(function() {
             url: "/dashboard/getSurveyInfo",
             type: "POST",
             data: {
-                survey_id: $(this).attr("s_id")
+                survey_id: survey_id
             },
             dataType: "json",
-            success: function(data) {
+            success: function(data1) {
                 $.ajax({
                     url: "/frontend_dev.php/mySurvey/GetAllEmails",
                     type: "POST",
@@ -46,7 +46,8 @@ $(document).ready(function() {
                         openErrorPopupWindow("dialog_error_alert", "Error !!!");
                     }
                 });
-                $("#dialog_form_survey_email").data(data).dialog("open");
+                console.log($("#dialog_form_survey_email").data(data1));
+                $("#dialog_form_survey_email").data(data1).dialog("open");
             },
             error: function() {
                 openErrorPopupWindow("dialog_error_alert", "Error !!!");
@@ -72,18 +73,25 @@ $(document).ready(function() {
 
     $('#addemailcc2').on('click', function(){
         var neweamil = $('.select2-match').text();
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
         $('.select2-match').remove();
         $('.select2-input').val('');
         $("#to_dialog_form_survey_email").select2('close');
         $('.select2-input').attr('style','width:50px');
         if(neweamil!='')
         {
+            if(!emailReg.test(neweamil)) {
+                openErrorPopupWindow("dialog_error_alert", "Email address is not valid, please enter valid email address !");
+            }
+            else
+            {
             if(!$('.select2-search-choice').length)
             {
                 $('.select2-choices').prepend('<li class="select2-search-choice">    <div>'+neweamil+'</div>    <a href="#" class="removeccemail select2-search-choice-close" tabindex="-1"></a></li>');
             }
             else
                 $('.select2-container ul li:nth-last-child(2)').after('<li class="select2-search-choice">    <div>'+neweamil+'</div>    <a href="#" class="removeccemail select2-search-choice-close" tabindex="-1"></a></li>')
+            }
 
         }
     });

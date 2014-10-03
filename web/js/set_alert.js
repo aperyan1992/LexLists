@@ -58,18 +58,25 @@ $(document).ready(function() {
     });
     $('#addemailcc').on('click', function(){
         var neweamil = $('.select2-match').text();
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
         $('.select2-match').remove();
         $('.select2-input').val('');
         $("#to_dialog_form_survey_set_alert2").select2('close');
         $('.select2-input').attr('style','width:50px');
         if(neweamil!='')
         {
+            if(!emailReg.test(neweamil)) {
+                openErrorPopupWindow("dialog_error_alert", "Email address is not valid, please enter valid email address !");
+            }
+            else
+            {
             if(!$('.select2-search-choice').length)
             {
                 $('.select2-choices').prepend('<li class="select2-search-choice">    <div>'+neweamil+'</div>    <a href="#" class="removeccemail select2-search-choice-close" tabindex="-1"></a></li>');
             }
             else
             $('.select2-container ul li:nth-last-child(2)').after('<li class="select2-search-choice">    <div>'+neweamil+'</div>    <a href="#" class="removeccemail select2-search-choice-close" tabindex="-1"></a></li>')
+            }
 
         }
     });
@@ -272,12 +279,13 @@ function save_alert_details(data_for_send, survey_id)
     });
 }
 function initSurveySetAlertPopupWindow(element) {
-
+    var myPos = { my: "center top", at: "center top+150", of: window };
     $("#" + element).dialog({
         autoOpen: false,
         height: 'auto',
         width: 615,
         modal: true,
+        position:myPos,
         open: function() {
             // Set survey info into popup table
             for (var item in $("#" + element).data()) {

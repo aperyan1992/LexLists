@@ -1,7 +1,9 @@
 ## YAML Template.
 ---
 indexSuccess:
-  javascripts: [date_formating.js, dashboard_scripts.js, set_alert.js, send_email.js, survey_details_script.js, multiple_actions_scripts.js, filters_scripts.js]
-  stylesheets:    [report_fix.css]
+  javascripts: [date_formating.js, dashboard_scripts.js, select2.min.js, set_alert.js, send_email.js, survey_details_script.js, multiple_actions_scripts.js, filters_scripts.js]
+  stylesheets:    [select2.css, select2-bootstrap.css,report_fix.css]
   metas:
     title: LexLists-Dashboard
+
+

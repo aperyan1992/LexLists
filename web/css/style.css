@@ -1715,7 +1715,7 @@ form label {
     margin-right: 15px;
 }
 #message_dialog_form_survey_email{
-    max-width: 324px;
+    max-width: 298px;
 }
 
 form input[type="submit"], form input[type="button"] {
@@ -2433,7 +2433,7 @@ div.tooltip p {
 }
 
 #message_dialog_form_survey_email {
-    width: 92%;
+    width: 298px;
     margin-bottom: 0;
 }
 
@@ -4090,7 +4090,7 @@ fieldset.disp-block{
 }
 
 .popup1 form table tr:nth-child(2) {
-    height: 60px;
+    height: auto;
 }
 
 .popup1 form table tr {

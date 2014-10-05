@@ -370,16 +370,15 @@ LtSurveyAlerts:
       type: integer
     user_id:
       type: integer
-    time-frame:
+    `time-frame`:
       type: integer
-    time-frame-type:
+    `time-frame-type`:
       type: string(10)
     cc_email:
       type: clob(65532)
     email_me:
       type: integer
-    created_at:
-      type: timestamp
+
 
 
 LtSurveyState:

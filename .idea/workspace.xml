@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c90b3c3-7a99-41ce-8881-2a70beb6ec21" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_set_alert_popup.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_set_alert_popup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/send_email.js" afterPath="$PROJECT_DIR$/web/js/send_email.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/set_alert.js" afterPath="$PROJECT_DIR$/web/js/set_alert.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/config/view.yml" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/config/view.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/doctrine/schema.yml" afterPath="$PROJECT_DIR$/config/doctrine/schema.yml" />
     </list>
     <ignored path="LexLists-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,16 +65,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="set_alert.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="set_alert.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="288" column="26" selection-start="9802" selection-end="9802" vertical-scroll-proportion="0.59386283" vertical-offset="3961" max-vertical-offset="5535">
+            <state line="288" column="26" selection-start="9802" selection-end="9802" vertical-scroll-proportion="-7.0" vertical-offset="3961" max-vertical-offset="5535">
               <folding>
                 <marker date="1412338303080" expanded="true" signature="7707:7801" placeholder="..." />
                 <marker date="1412338303080" expanded="true" signature="7905:7917" placeholder="..." />
                 <marker date="1412338303080" expanded="true" signature="8012:8024" placeholder="..." />
                 <marker date="1412338303080" expanded="true" signature="8441:8528" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="schema.yml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/doctrine/schema.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="374" column="22" selection-start="7143" selection-end="7143" vertical-scroll-proportion="0.49063033" vertical-offset="5322" max-vertical-offset="7965">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -103,15 +106,6 @@
                 <element signature="n#style#0;n#a#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#0;n#tr#18;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="indexSuccess.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="42" selection-start="4156" selection-end="4156" vertical-scroll-proportion="-1.9607843" vertical-offset="965" max-vertical-offset="3180">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -168,7 +162,6 @@
         <option value="$PROJECT_DIR$/web/css/select2.css" />
         <option value="$PROJECT_DIR$/lib/model/doctrine/LtSurveyContactTable.class.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/indexSuccess.php" />
-        <option value="$PROJECT_DIR$/config/doctrine/schema.yml" />
         <option value="$PROJECT_DIR$/lib/model/doctrine/base/BaseLtSurveyAlerts.class.php" />
         <option value="$PROJECT_DIR$/lib/model/doctrine/LtSurveyAlerts.class.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_my_lists_survey_details_popup.php" />
@@ -190,6 +183,7 @@
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_set_alert_popup.php" />
         <option value="$PROJECT_DIR$/web/js/send_email.js" />
         <option value="$PROJECT_DIR$/web/js/set_alert.js" />
+        <option value="$PROJECT_DIR$/config/doctrine/schema.yml" />
       </list>
     </option>
   </component>
@@ -319,6 +313,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doctrine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="apps" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -404,8 +430,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1857" height="1085" extended-state="7" />
-    <editor active="false" />
+    <frame x="64" y="-4" width="1857" height="1085" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -413,7 +439,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31295338" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2498621" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2283508" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2283508" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299595" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -534,11 +560,6 @@
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/indexSuccess.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="205" column="10" selection-start="15354" selection-end="15354" vertical-scroll-proportion="-30.083334" vertical-offset="2353" max-vertical-offset="3255" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/doctrine/schema.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="376" column="13" selection-start="7176" selection-end="7176" vertical-scroll-proportion="-10.555555" vertical-offset="5355" max-vertical-offset="7980" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/model/doctrine/LtMySurveyNoteTable.class.php">
@@ -751,13 +772,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="288" column="26" selection-start="9802" selection-end="9802" vertical-scroll-proportion="0.59386283" vertical-offset="3961" max-vertical-offset="5535">
+        <state line="288" column="26" selection-start="9802" selection-end="9802" vertical-scroll-proportion="-7.0" vertical-offset="3961" max-vertical-offset="5535">
           <folding>
             <marker date="1412338303080" expanded="true" signature="7707:7801" placeholder="..." />
             <marker date="1412338303080" expanded="true" signature="7905:7917" placeholder="..." />
             <marker date="1412338303080" expanded="true" signature="8012:8024" placeholder="..." />
             <marker date="1412338303080" expanded="true" signature="8441:8528" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/doctrine/schema.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="374" column="22" selection-start="7143" selection-end="7143" vertical-scroll-proportion="0.49063033" vertical-offset="5322" max-vertical-offset="7965">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -66,7 +66,7 @@ $(document).ready(function() {
         if(neweamil!='')
         {
             if(!emailReg.test(neweamil)) {
-                openErrorPopupWindow("dialog_error_alert", "Email address is not valid, please enter valid email address !");
+                openErrorPopupWindow("dialog_error_alert", "Email address is not valid, please enter a valid email address!");
             }
             else
             {

@@ -52,6 +52,12 @@
                                                         <li><a class="custom_link correct_custom_link last_menu_link" href="<?php echo url_for("@lt_survey"); ?>">Manage Surveys</a></li>
                                                     </ul>
                                                 </li>
+                                                <li>
+                                                    <a class="custom_main_link correct_custom_link last_menu_link disable" href="#">Data</a>
+                                                    <ul>
+                                                        <li><a class="custom_link correct_custom_link last_menu_link" href="<?php echo url_for("dataload/index"); ?>">Data upload(csv)</a></li>
+                                                    </ul>
+                                                </li>
                                             <?php elseif($sf_user->hasCredential("client admin")) : ?>
                                                 <?php $sf_user->setAttribute('clientAdminUserManagement.filters', array("client_id" => $sf_user->getGuardUser()->getClientId()), 'admin_module'); ?>
                                                 <li>

@@ -48,18 +48,25 @@ class dataloadActions extends sfActions
                 {
                     $newregoins[$regoin['name']] = $regoin['id'];
                 }
-                echo '<pre>';
-               // var_dump($csvdata);die;
+
+                $query = 'Select `id`, `name` FROM `countries`';
+                $countries = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                foreach($countries as $countrie)
+                {
+                    $newcountries[$countrie['name']] = $countrie['id'];
+                }
+              //  echo '<pre>';
+              //  var_dump($csvdata);die;
                 foreach($csvdata as $key=>$data)
                 {
-
                     if(isset($newregoins[$data[10]]))
                     {
                         $fianlresult[$key]['survey_region_id'] = $newregoins[$data[10]];
                     }
                     else{
-                        $fianlresult[$key]['survey_region_id'] = null;
+                        $fianlresult[$key]['survey_region_id'] = 1;
                     }
+
                     if(isset($data[22]))
                     {
                         $fianlresult[$key]['organization_url'] = $data[10];
@@ -67,13 +74,17 @@ class dataloadActions extends sfActions
                     else{
                         $fianlresult[$key]['organization_url'] = null;
                     }
+
                     if(isset($data[2]))
                     {
                         $fianlresult[$key]['survey_name'] = $data[2];
+                        $contact['name'] = $data[2];
                     }
                     else{
                         $fianlresult[$key]['survey_name'] = null;
+                        $contact['name'] = null;
                     }
+
                     if(isset($data[3]))
                     {
                         $fianlresult[$key]['year'] = (int)preg_replace('/\D/', '', $data[3]);
@@ -81,6 +92,7 @@ class dataloadActions extends sfActions
                     else{
                         $fianlresult[$key]['year'] = null;
                     }
+
                     if(isset($data[21]))
                     {
                         $fianlresult[$key]['survey_url'] = $data[21];
@@ -88,6 +100,7 @@ class dataloadActions extends sfActions
                     else{
                         $fianlresult[$key]['survey_url'] = null;
                     }
+
                     if(isset($data[14]))
                     {
                         $fianlresult[$key]['frequency'] = $data[14];
@@ -95,13 +108,15 @@ class dataloadActions extends sfActions
                     else{
                         $fianlresult[$key]['frequency'] = null;
                     }
-                    if(isset($data[5]))
+
+                    if(!empty($data[5]))
                     {
-                        $fianlresult[$key]['submission_deadline'] = $data[5];
+                        $fianlresult[$key]['submission_deadline'] = date('Y-m-d',strtotime($data[5]));
                     }
                     else{
                         $fianlresult[$key]['submission_deadline'] = null;
                     }
+
                     if(isset($data[4]))
                     {
                         $fianlresult[$key]['survey_description'] = $data[4];
@@ -109,6 +124,7 @@ class dataloadActions extends sfActions
                     else{
                         $fianlresult[$key]['survey_description'] = null;
                     }
+
                     if(isset($data[18]))
                     {
                         $fianlresult[$key]['candidate_type'] = $data[18];
@@ -116,6 +132,7 @@ class dataloadActions extends sfActions
                     else{
                         $fianlresult[$key]['candidate_type'] = null;
                     }
+
                     if(isset($data[19]))
                     {
                         $fianlresult[$key]['eligibility_criteria'] = $data[19];
@@ -123,6 +140,7 @@ class dataloadActions extends sfActions
                     else{
                         $fianlresult[$key]['eligibility_criteria'] = null;
                     }
+
                     if(isset($data[12]))
                     {
                         $fianlresult[$key]['nomination'] = $data[12];
@@ -130,6 +148,7 @@ class dataloadActions extends sfActions
                     else{
                         $fianlresult[$key]['nomination'] = null;
                     }
+
                     if(isset($data[13]))
                     {
                         $fianlresult[$key]['selection_methodology'] = $data[13];
@@ -137,6 +156,7 @@ class dataloadActions extends sfActions
                     else{
                         $fianlresult[$key]['selection_methodology'] = null;
                     }
+
                     if(isset($data[23]))
                     {
                         $fianlresult[$key]['survey_notes'] = $data[23];
@@ -145,8 +165,32 @@ class dataloadActions extends sfActions
                         $fianlresult[$key]['survey_notes'] = null;
                     }
 
-                    //var_dump($data);echo '<hr>';
-                  /*  if(isset($data[1]))
+
+                    if(isset($data[16]))
+                    {
+                        $contact['email'] = $data[16];
+                    }
+                    else{
+                        $contact['email'] = null;
+                    }
+
+                    if(isset($data[17]))
+                    {
+                        $contact['phone'] = $data[17];
+                    }
+                    else{
+                        $contact['phone'] = null;
+                    }
+                    $query = 'INSERT INTO `survey_contacts` (`first_name`,`email_address`, `phone_number`) VALUES';
+                    $query .= " ('".$contact['name']."','".$contact['email']."','".$contact['phone']."')";
+                    $result = Doctrine_Manager::getInstance()->getCurrentConnection();
+
+                    if($result->execute($query))
+                    {
+                        $lastid = $result->lastInsertId();
+                        $fianlresult[$key]['survey_contact_id'] = $lastid;
+                    }
+                    if(isset($data[1]))
                     {
                         $query = 'INSERT INTO `organizations` (`name`) VALUES';
                         $query .= " ('".$data[1]."')";
@@ -156,14 +200,37 @@ class dataloadActions extends sfActions
                             $lastid = $result->lastInsertId();
                             $fianlresult[$key]['organization_id'] = $lastid;
                         }
-                    }*/
+                    }
+
+
                 }
-                echo "<pre>";
-                print_r($fianlresult);
+              //  die();
+                $finalquerystring = 'INSERT INTO `surveys` (';
+                foreach($fianlresult[2] as $key=>$value)
+                {
+                    //var_dump($key);
+                    $finalquerystring.='`'.$key.'`,';
+                }
+
+                $finalquerystring = rtrim($finalquerystring, ",");
+                $finalquerystring.=') VALUES (';
+                foreach($fianlresult as $final)
+                {
+                    foreach($final as $key=>$value)
+                    {
+                        $finalquerystring.='"'.$value.'",';
+                    }
+                    $finalquerystring = rtrim($finalquerystring, ",");
+                    $finalquerystring.='),(';
+                }
+                $finalquerystring = rtrim($finalquerystring, ",(");
+                if(Doctrine_Manager::getInstance()->getCurrentConnection()->execute($finalquerystring))
+                   $this->result = true;
+                             //print_r($fianlresult);
 
             }
         } else {
-            echo "Invalid file";
-        };die;
+            $this->result = false;
+        }
     }
 }

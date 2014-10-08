@@ -106,7 +106,7 @@ class dashboardActions extends sfActions {
                     $survey_name_link = "<a href='#' class='custom_link details_link' s_id='" . $survey->getId() . "'>" . $survey_name . "</a>";
 
                     // Set candidate type
-                    $candidate_type = (!is_null($survey->getCandidateType()) && $survey->getCandidateType() != "") ? LtSurvey::$candidate_types_array[$survey->getCandidateType()] : "- - -";
+                    $candidate_type = (!is_null($survey->getCandidateType()) && $survey->getCandidateType() != "" && $survey->getCandidateType() != "0") ? LtSurvey::$candidate_types_array[$survey->getCandidateType()] : "- - -";
 
                     // Set practice area
                     $practice_areas = "- - -";

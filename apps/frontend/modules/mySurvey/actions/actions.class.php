@@ -122,7 +122,7 @@ class mySurveyActions extends sfActions {
                             . "</div>";
 
                     // Set candidate type
-                    $candidate_type = (!is_null($survey->getSurvey()->getCandidateType()) && $survey->getSurvey()->getCandidateType() != "") ? LtSurvey::$candidate_types_array[$survey->getSurvey()->getCandidateType()] : "- - -";
+                    $candidate_type = (!is_null($survey->getSurvey()->getCandidateType()) && $survey->getSurvey()->getCandidateType() != "" && $survey->getSurvey()->getCandidateType() != "0") ? LtSurvey::$candidate_types_array[$survey->getSurvey()->getCandidateType()] : "- - -";
 
                     // Set practice area
                     $practice_areas = "- - -";

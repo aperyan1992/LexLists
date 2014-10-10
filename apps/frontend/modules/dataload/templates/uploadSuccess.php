@@ -8,10 +8,9 @@
  */
 ?>
 <?php if($result)
-{?>
-<h2>
-    The CSV data has been successfully uploaded.
-</h2><?php }else{ ?>
+{
+    echo html_entity_decode($result);
+}else{ ?>
 <h2>
 There is an error in the CSV file .
 </h2>

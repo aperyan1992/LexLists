@@ -49,6 +49,13 @@ class dataloadActions extends sfActions
                     $newregoins[$regoin['name']] = $regoin['id'];
                 }
 
+                $query = 'Select `id`, `name` FROM `organizations`';
+                $organizationarray = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                foreach($organizationarray as $organization)
+                {
+                    $neworganizationarray[$organization['name']] = $organization['id'];
+                }
+
                 $query = 'Select `id`, `name` FROM `countries`';
                 $countries = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
                 foreach($countries as $countrie)
@@ -64,7 +71,7 @@ class dataloadActions extends sfActions
                         $fianlresult[$key]['survey_region_id'] = $newregoins[$data[10]];
                     }
                     else{
-                        $fianlresult[$key]['survey_region_id'] = 1;
+                        $fianlresult[$key]['survey_region_id'] = 13;
                     }
 
                     if(isset($data[22]))
@@ -181,52 +188,113 @@ class dataloadActions extends sfActions
                     else{
                         $contact['phone'] = null;
                     }
-                    $query = 'INSERT INTO `survey_contacts` (`first_name`,`email_address`, `phone_number`) VALUES';
-                    $query .= " ('".$contact['name']."','".$contact['email']."','".$contact['phone']."')";
-                    $result = Doctrine_Manager::getInstance()->getCurrentConnection();
 
-                    if($result->execute($query))
+
+                    if(isset($data[1]) && !empty($neworganizationarray[$data[1]]))
                     {
-                        $lastid = $result->lastInsertId();
-                        $fianlresult[$key]['survey_contact_id'] = $lastid;
+                        //var_dump($neworganizationarray[$data[1]]);echo '<hr>';
+                        $checkingquery = 'SELECT * FROM `surveys` WHERE survey_name="'.$contact['name'].'" AND organization_id="'.$neworganizationarray[$data[1]].'"';
+                        $resultupdate = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($checkingquery)->fetch();
+                        if($resultupdate)
+                        {
+                            $update = true;
+                        }
+                        else{
+                            $update = false;
+                        }
                     }
-                    if(isset($data[1]))
+                    else
                     {
-                        $query = 'INSERT INTO `organizations` (`name`) VALUES';
-                        $query .= " ('".$data[1]."')";
+                        $update = false;
+                    }
+                    if($update)
+                    {
+                        $query = 'UPDATE `survey_contacts` SET `first_name`="'.$contact['name'].'",`email_address`="'.$contact['email'].'", `phone_number`="'.$contact['phone'].'"';
+                        $query .= ' WHERE id="'.$resultupdate['survey_contact_id'].'"';
                         $result = Doctrine_Manager::getInstance()->getCurrentConnection();
+
+                        if($result->execute($query))
+                        {
+                            $fianlresult[$key]['survey_contact_id'] = $resultupdate['survey_contact_id'];
+                        }
+                    }
+                    else{
+                        $query = 'INSERT INTO `survey_contacts` (`first_name`,`email_address`, `phone_number`) VALUES';
+                        $query .= " ('".$contact['name']."','".$contact['email']."','".$contact['phone']."')";
+                        $result = Doctrine_Manager::getInstance()->getCurrentConnection();
+
                         if($result->execute($query))
                         {
                             $lastid = $result->lastInsertId();
-                            $fianlresult[$key]['organization_id'] = $lastid;
+                            $fianlresult[$key]['survey_contact_id'] = $lastid;
                         }
                     }
 
 
-                }
-              //  die();
-                $finalquerystring = 'INSERT INTO `surveys` (';
-                foreach($fianlresult[2] as $key=>$value)
-                {
-                    //var_dump($key);
-                    $finalquerystring.='`'.$key.'`,';
-                }
-
-                $finalquerystring = rtrim($finalquerystring, ",");
-                $finalquerystring.=') VALUES (';
-                foreach($fianlresult as $final)
-                {
-                    foreach($final as $key=>$value)
+                    if(isset($data[1]))
                     {
-                        $finalquerystring.='"'.$value.'",';
+                        if(!$update)
+                        {
+                            if(!empty($neworganizationarray[$data[1]]))
+                            {
+                                $fianlresult[$key]['organization_id'] = $neworganizationarray[$data[1]];
+                            }
+                            else
+                            {
+                                $query = 'INSERT INTO `organizations` (`name`) VALUES';
+                                $query .= " ('".$data[1]."')";
+                                $result = Doctrine_Manager::getInstance()->getCurrentConnection();
+                                if($result->execute($query))
+                                {
+                                    $lastid = $result->lastInsertId();
+                                    $fianlresult[$key]['organization_id'] = $lastid;
+                                }
+                            }
+                        }
                     }
-                    $finalquerystring = rtrim($finalquerystring, ",");
-                    $finalquerystring.='),(';
+                    if($update)
+                    {
+                        $query = 'UPDATE `surveys` SET ';
+                        foreach($fianlresult[$key] as $k=>$value)
+                        {
+                            $query .=  '`'.$k.'`="'.$value.'", ';
+                        }
+                        $query = rtrim($query, ", ");
+                        $query .= ' WHERE id="'.$resultupdate['id'].'"';
+                        $result = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query);
+                        if($result)
+                        {
+                            unset($fianlresult[$key]);
+                        }
+                    }
                 }
-                $finalquerystring = rtrim($finalquerystring, ",(");
-                if(Doctrine_Manager::getInstance()->getCurrentConnection()->execute($finalquerystring))
-                   $this->result = true;
-                             //print_r($fianlresult);
+              //  var_dump(count($fianlresult));die;
+                if(!empty($fianlresult))
+                {
+                    $finalquerystring = 'INSERT INTO `surveys` (';
+                    foreach($fianlresult[2] as $key=>$value)
+                    {
+                        $finalquerystring.='`'.$key.'`,';
+                    }
+
+                    $finalquerystring = rtrim($finalquerystring, ",");
+                    $finalquerystring.=') VALUES (';
+                    foreach($fianlresult as $final)
+                    {
+                        foreach($final as $key=>$value)
+                        {
+                            $finalquerystring.='"'.$value.'",';
+                        }
+                        $finalquerystring = rtrim($finalquerystring, ",");
+                        $finalquerystring.='),(';
+                    }
+                    $finalquerystring = rtrim($finalquerystring, ",(");
+                    if(Doctrine_Manager::getInstance()->getCurrentConnection()->execute($finalquerystring))
+                       $this->result = '<h2> The CSV data has been successfully uploaded.</h2>';
+                }
+                else{
+                    $this->result = '<h2> There is no updates to be loaded</h2>';
+                }
 
             }
         } else {

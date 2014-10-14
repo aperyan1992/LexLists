@@ -22,7 +22,7 @@ generator:
 
       list:
         title:   List Of Users
-        display: [email_address, client_name, last_login]
+        display: [email_address,first_name, last_name, client_name, is_active, last_login]
         max_per_page: 20
         table_method: doSelectJoinClient
         

@@ -47,6 +47,26 @@ function checkLength(o, n, min, max) {
 }
 
 /**
+ * Check valid password
+ */
+function checkValidPassword(password, username) {
+
+    if($(password).val().indexOf($(username).val())<1)
+    {
+            var regex = /(?=^.{8,25}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?\/&gt;.&lt;,])(?!.*\s).*$/i;
+            if(regex.test($(password).val()))
+            {
+                return true;
+            }
+    }
+    updateTips(password, "Password must be at least eight characters long and does not contain the user name, does not contain a complete word. Must contains one Uppercase, one lowercase letters, a Numbers and a symbol");
+    password.focus();
+    $('.error_list').css('float','right');
+      return false;
+
+}
+
+/**
  * Validation of field
  */
 function checkRegexpAndUniqueEmailAddress(url, o, regexp, n, is_new_object) {
@@ -242,15 +262,18 @@ function validateUserForm(url, list_url, is_new_object) {
         bValid = bValid && checkRegexpAndUniqueEmailAddress( url, email_address, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "Email Address is invalid.", is_new_object );
 
         if(password.val().length != 0 || password_again.val().length != 0) {
-            bValid = bValid && checkLength( password, "password", 1, 128 );
-            bValid = bValid && checkLength( password_again, "password again", 1, 128 );
+          //  bValid = bValid && checkLength( password, "password", 1, 128 );
+            //bValid = bValid && checkLength( password_again, "password again", 1, 128 );
+            bValid = bValid && checkValidPassword( password, first_name );
             bValid = bValid && checkSamePassword( password, password_again );
         }
     } else {
         bValid = bValid && checkRegexpAndUniqueEmailAddress( url, email_address, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "Email Address is invalid.", false );
 
-        bValid = bValid && checkLength( password, "password", 1, 128 );
-        bValid = bValid && checkLength( password_again, "password again", 1, 128 );
+       // bValid = bValid && checkLength( password, "password", 1, 128 );
+        //bValid = bValid && checkLength( password_again, "password again", 1, 128 );
+        bValid = bValid && checkValidPassword( password, first_name );
+
         bValid = bValid && checkSamePassword( password, password_again );
     }
 
@@ -327,11 +350,10 @@ $(document).ready(function() {
     /**
      *  Click on "Save" button
      */
-    $(document).on("click", ".save_button", function() {
+    $(document).on("click", ".save_button", function(erer) {
         var form_name = $(this).attr("form_name");
         var list_url = $('.cancel_admin_panel').attr("list_url");
         var is_new_object = $("#is_new_object").val();
-        
         switch (form_name) {
             case "client" :
                 var additional_modules = new Array();

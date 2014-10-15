@@ -27,7 +27,7 @@ generator:
         table_method: doSelectJoinClient
         
       filter:
-        class: false
+        class: clientAdminUserManagementFormFilter
 
       form:
         class: sfGuardUserAdminForm

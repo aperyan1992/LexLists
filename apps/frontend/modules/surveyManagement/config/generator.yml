@@ -23,7 +23,7 @@ generator:
         display: [organization,year, survey_name]
         max_per_page: 20
       filter:  
-        class: false
+        class: LtSurveyFormFilter
       form:    
         class: SurveyManagementForm
       edit:    ~

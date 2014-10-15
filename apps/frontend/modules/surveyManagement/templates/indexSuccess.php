@@ -13,7 +13,9 @@
     <div id="sf_admin_header">
         <?php include_partial('surveyManagement/list_header', array('pager' => $pager)) ?>
     </div>
-
+    <div id="sf_admin_bar" style="display: block">
+        <?php include_partial('surveyManagement/filters', array('form' => $filters, 'configuration' => $configuration)) ?>
+    </div>
 
     <div id="sf_admin_content">
         <form id="admin_form_batch_actions" action="<?php echo url_for('lt_survey_collection', array('action' => 'batch')) ?>" method="post">
@@ -29,3 +31,15 @@
         <?php include_partial('surveyManagement/list_footer', array('pager' => $pager)) ?>
     </div>
 </div>
+<style>
+    .sf_admin_form_row
+    {
+        display:none;
+    }
+    .sf_admin_filter_field_organization_id, .sf_admin_filter_field_survey_name, .sf_admin_filter_field_year {
+        display:block !important;
+    }
+    .sf_admin_list table {
+        width: 56% !important;
+    }
+</style>

@@ -1,6 +1,8 @@
 <?php use_helper('I18N', 'Date') ?>
 <?php include_partial('sfGuardUser/assets') ?>
-
+<div id="sf_admin_bar" style="display: block">
+    <?php include_partial('sfGuardUser/filters', array('form' => $filters, 'configuration' => $configuration)) ?>
+</div>
 <div id="sf_admin_container">
     <h3><?php echo __('MANAGE USERS', array(), 'messages') ?></h3>
 
@@ -13,6 +15,8 @@
     <div id="sf_admin_header">
         <?php include_partial('sfGuardUser/list_header', array('pager' => $pager)) ?>
     </div>
+
+
 
     <div id="sf_admin_content">
         <form id="admin_form_batch_actions" action="<?php echo url_for('sf_guard_user_collection', array('action' => 'batch')) ?>" method="post">

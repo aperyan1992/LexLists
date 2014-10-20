@@ -271,8 +271,9 @@ class dataloadActions extends sfActions
               //  var_dump(count($fianlresult));die;
                 if(!empty($fianlresult) && !empty(array_keys($fianlresult)[0]))
                 {
+                    $arraykey = array_keys($fianlresult)[0];
                     $finalquerystring = 'INSERT INTO `surveys` (';
-                    foreach($fianlresult[array_keys($fianlresult)[0]] as $key=>$value)
+                    foreach($fianlresult[$arraykey] as $key=>$value)
                     {
                         $finalquerystring.='`'.$key.'`,';
                     }

@@ -42,30 +42,31 @@ class dataloadActions extends sfActions
                     $csvdata[] = $data;
                 }
                 unset($csvdata[0], $csvdata[1]);
-                $query = 'Select `id`, `name` FROM `regions`';
-                $regoins = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
-                foreach($regoins as $regoin)
-                {
-                    $newregoins[$regoin['name']] = $regoin['id'];
-                }
 
-                $query = 'Select `id`, `name` FROM `organizations`';
-                $organizationarray = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
-                foreach($organizationarray as $organization)
-                {
-                    $neworganizationarray[$organization['name']] = $organization['id'];
-                }
-
-                $query = 'Select `id`, `name` FROM `countries`';
-                $countries = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
-                foreach($countries as $countrie)
-                {
-                    $newcountries[$countrie['name']] = $countrie['id'];
-                }
-              //  echo '<pre>';
-              //  var_dump($csvdata);die;
                 foreach($csvdata as $key=>$data)
                 {
+                    $query = 'Select `id`, `name` FROM `regions`';
+                    $regoins = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                    foreach($regoins as $regoin)
+                    {
+                        $newregoins[$regoin['name']] = $regoin['id'];
+                    }
+
+                    $query = 'Select `id`, `name` FROM `organizations`';
+                    $organizationarray = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                    foreach($organizationarray as $organization)
+                    {
+                        $neworganizationarray[$organization['name']] = $organization['id'];
+                    }
+
+                    $query = 'Select `id`, `name` FROM `countries`';
+                    $countries = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                    foreach($countries as $countrie)
+                    {
+                        $newcountries[$countrie['name']] = $countrie['id'];
+                    }
+
+
                     if(isset($newregoins[$data[10]]))
                     {
                         $fianlresult[$key]['survey_region_id'] = $newregoins[$data[10]];

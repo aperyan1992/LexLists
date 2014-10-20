@@ -269,11 +269,11 @@ class dataloadActions extends sfActions
                     }
                 }
               //  var_dump(count($fianlresult));die;
-                if(!empty($fianlresult) && !empty(array_keys($fianlresult)[0]))
+                if(!empty($fianlresult))
                 {
-                    $arraykey = array_keys($fianlresult)[0];
+                    $arraykey = array_keys($fianlresult);
                     $finalquerystring = 'INSERT INTO `surveys` (';
-                    foreach($fianlresult[$arraykey] as $key=>$value)
+                    foreach($fianlresult[$arraykey[0]] as $key=>$value)
                     {
                         $finalquerystring.='`'.$key.'`,';
                     }

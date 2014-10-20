@@ -320,6 +320,7 @@ $regions_array = array(
     'Europe',
     'North America',
     'South America',
+    '',
 );
 for($i = 0; $i < count($regions_array); $i++) :
 ?>

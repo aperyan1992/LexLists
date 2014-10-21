@@ -59,7 +59,7 @@ function checkValidPassword(password, username) {
                 return true;
             }
     }
-    updateTips(password, "Password must be at least eight characters long and does not contain the user name, does not contain a complete word. Must contains one Uppercase, one lowercase letters, a Numbers and a symbol");
+    updateTips(password, "Password must be at least 8 characters long and not contain the user name or any other complete word. It must have at least one uppercase letter, one lowercase letter, one number and a symbol (ex. @$#%^&*()+_|} )");
     password.focus();
     $('.error_list').css('float','right');
       return false;

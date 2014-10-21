@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c90b3c3-7a99-41ce-8881-2a70beb6ec21" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/admin_panel_action_buttons.js" afterPath="$PROJECT_DIR$/web/js/admin_panel_action_buttons.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/sfGuardUser/templates/indexSuccess.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/sfGuardUser/templates/indexSuccess.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/fixtures/surveys.yml" afterPath="$PROJECT_DIR$/data/fixtures/surveys.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/surveyManagement/templates/indexSuccess.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/surveyManagement/templates/indexSuccess.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="LexLists-master.iws" />
@@ -27,26 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="actions.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php">
+      <file leaf-file-name="generator.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/sfGuardUser/config/generator.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="67" selection-start="2009" selection-end="2009" vertical-scroll-proportion="-18.208334" vertical-offset="268" max-vertical-offset="4575">
-              <folding>
-                <marker date="1413795797382" expanded="true" signature="1624:1658" placeholder="Select `id`,..." />
-                <marker date="1413795797382" expanded="true" signature="1972:2012" placeholder="Select `id`,..." />
-                <marker date="1413795797382" expanded="true" signature="2374:2410" placeholder="Select `id`,..." />
-                <marker date="1413795797382" expanded="true" signature="8522:8605" placeholder="INSERT INTO ..." />
-                <marker date="1413795797382" expanded="true" signature="9549:9592" placeholder="INSERT INTO ..." />
-                <marker date="1413795797382" expanded="true" signature="11045:11068" placeholder="INSERT INTO ..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="databases.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/databases.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+            <state line="26" column="40" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
               <folding />
             </state>
           </provider>
@@ -55,52 +40,7 @@
       <file leaf-file-name="indexSuccess.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/surveyManagement/templates/indexSuccess.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="1449" selection-end="1736" vertical-scroll-proportion="-13.958333" vertical-offset="160" max-vertical-offset="750">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="schema.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/doctrine/schema.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="5400" max-vertical-offset="7965">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="schema.sql" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/sql/schema.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="66" selection-start="2321" selection-end="2321" vertical-scroll-proportion="-1.16" vertical-offset="62" max-vertical-offset="915">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clients_and_users_and_groups.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/fixtures/clients_and_users_and_groups.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fixtures.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/fixtures/fixtures.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="practice_areas.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/fixtures/practice_areas.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="182" column="64" selection-start="11923" selection-end="11925" vertical-scroll-proportion="-10.962963" vertical-offset="2434" max-vertical-offset="34545">
+            <state line="50" column="57" selection-start="1869" selection-end="1870" vertical-scroll-proportion="-17.166666" vertical-offset="338" max-vertical-offset="1260">
               <folding />
             </state>
           </provider>
@@ -115,10 +55,64 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="filters.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/config/filters.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="factories.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/config/factories.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="796" max-vertical-offset="1410">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="indexSuccess.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/sfGuardUser/templates/indexSuccess.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="21" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.84745765" vertical-offset="190" max-vertical-offset="825">
+            <state line="45" column="22" selection-start="1645" selection-end="1645" vertical-scroll-proportion="0.6053812" vertical-offset="135" max-vertical-offset="1245">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/sfGuardUser/config/view.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="security.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/sfGuardUser/config/security.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/config/settings.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="241" max-vertical-offset="855">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_panel_action_buttons.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/admin_panel_action_buttons.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="79" column="25" selection-start="2279" selection-end="2279" vertical-scroll-proportion="0.0" vertical-offset="232" max-vertical-offset="8325">
               <folding />
             </state>
           </provider>
@@ -179,14 +173,14 @@
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dataload/templates/uploadSuccess.php" />
-        <option value="$PROJECT_DIR$/web/js/admin_panel_action_buttons.js" />
         <option value="$PROJECT_DIR$/lib/vendor/symfony/lib/helper/PartialHelper.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/sfGuardUser/config/generator.yml" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/surveyManagement/config/generator.yml" />
         <option value="$PROJECT_DIR$/web/css/style.css" />
-        <option value="$PROJECT_DIR$/apps/frontend/modules/surveyManagement/templates/indexSuccess.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/data/fixtures/surveys.yml" />
+        <option value="$PROJECT_DIR$/web/js/admin_panel_action_buttons.js" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/surveyManagement/templates/indexSuccess.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/sfGuardUser/templates/indexSuccess.php" />
       </list>
     </option>
@@ -240,6 +234,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -492,10 +518,6 @@
               <option name="myItemId" value="sfGuardUser" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -522,60 +544,8 @@
               <option name="myItemId" value="sfGuardUser" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataload" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataload" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="actions" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -700,7 +670,11 @@
       <created>1413795803534</created>
       <updated>1413795803534</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="commit">
+      <created>1413797544469</created>
+      <updated>1413797544469</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -711,7 +685,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31295338" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31295338" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2498621" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30998346" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -748,18 +722,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/vendor/symfony/lib/view/sfPartialView.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="3" selection-start="1201" selection-end="1201" vertical-scroll-proportion="0.63901347" vertical-offset="90" max-vertical-offset="2475" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/vendor/symfony/lib/helper/PartialHelper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="214" column="0" selection-start="6183" selection-end="6183" vertical-scroll-proportion="0.45515695" vertical-offset="2714" max-vertical-offset="5910">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/sfGuardUser/actions/actions.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="30.0" vertical-offset="720" max-vertical-offset="4095" />
@@ -862,26 +824,9 @@
         <state line="10" column="24" selection-start="227" selection-end="245" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="330" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/sfGuardUser/config/view.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="916" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/sfGuardUser/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="916" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/surveyManagement/config/generator.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="33" selection-start="868" selection-end="868" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/config/filters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="894">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/config/frontendConfiguration.class.php">
@@ -905,13 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/sfGuardUser/config/generator.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="40" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/clientAdminUserManagement/lib/clientAdminUserManagementGeneratorConfiguration.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="592">
@@ -929,13 +867,6 @@
     <entry file="file://$PROJECT_DIR$/web/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1668" column="0" selection-start="69707" selection-end="69748" vertical-scroll-proportion="0.0" vertical-offset="24727" max-vertical-offset="69255">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/config/settings.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="916">
           <folding />
         </state>
       </provider>
@@ -993,12 +924,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="54" column="67" selection-start="2009" selection-end="2009" vertical-scroll-proportion="-18.208334" vertical-offset="268" max-vertical-offset="4575">
           <folding>
-            <marker date="1413795797382" expanded="true" signature="1624:1658" placeholder="Select `id`,..." />
-            <marker date="1413795797382" expanded="true" signature="1972:2012" placeholder="Select `id`,..." />
-            <marker date="1413795797382" expanded="true" signature="2374:2410" placeholder="Select `id`,..." />
-            <marker date="1413795797382" expanded="true" signature="8522:8605" placeholder="INSERT INTO ..." />
-            <marker date="1413795797382" expanded="true" signature="9549:9592" placeholder="INSERT INTO ..." />
-            <marker date="1413795797382" expanded="true" signature="11045:11068" placeholder="INSERT INTO ..." />
+            <marker date="1413795797382" expanded="true" signature="-1:-1" placeholder="Select `id`,..." />
+            <marker date="1413795797382" expanded="true" signature="-1:-1" placeholder="Select `id`,..." />
+            <marker date="1413795797382" expanded="true" signature="-1:-1" placeholder="Select `id`,..." />
+            <marker date="1413795797382" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1413795797382" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1413795797382" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>
@@ -1052,16 +983,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/admin_panel_action_buttons.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="25" selection-start="2279" selection-end="2279" vertical-scroll-proportion="0.0" vertical-offset="232" max-vertical-offset="8325">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/sfGuardUser/config/view.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="916">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/sfGuardUser/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="916">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/config/settings.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="916">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/config/filters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="894">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/config/factories.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="796" max-vertical-offset="1410">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/sfGuardUser/config/generator.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="40" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/surveyManagement/templates/indexSuccess.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="1449" selection-end="1736" vertical-scroll-proportion="-13.958333" vertical-offset="160" max-vertical-offset="750">
+        <state line="50" column="57" selection-start="1869" selection-end="1870" vertical-scroll-proportion="-17.166666" vertical-offset="338" max-vertical-offset="1260">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/sfGuardUser/templates/indexSuccess.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="21" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.84745765" vertical-offset="190" max-vertical-offset="825">
+        <state line="45" column="22" selection-start="1645" selection-end="1645" vertical-scroll-proportion="0.6053812" vertical-offset="135" max-vertical-offset="1245">
           <folding />
         </state>
       </provider>

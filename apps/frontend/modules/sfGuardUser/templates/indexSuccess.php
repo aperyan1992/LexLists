@@ -43,7 +43,35 @@
     .sf_admin_form_row td, tfoot td {
         border:none;
     }
-    .sf_admin_filter{
-        float: right;
+    .sf_admin_filter table{
+        width: 77%;
+        /*float: right;*/
+    }
+    .sf_admin_filter_field_last_name{float:left; display:inline-block !important; }
+    .sf_admin_filter_field_username {float:right; display:inline-block !important; }
+    .sf_admin_filter_field_client_id{float:left}
+    tfoot > tr > td{
+        text-align: center !important;
+    }
+    tfoot > tr > td > a{
+        color:#ff6801 !important;
+        margin-right: 15px;
+    }
+    tfoot > tr > td > input{
+        background-color: #ff6801 ;
+        color:#FFF !important;
+        border:1px solid #ff6801;
+        padding:3px;
+    }
+    #sf_admin_container .sf_admin_form_row {
+        clear: left; !important;
+    }
+    #sf_admin_container td, #sf_admin_container th {
+     border-bottom: none !important;
+     border-top:none !important;
+    }
+    #sf_admin_container tr {
+        border-left: none !important;
+        border-right: none !important;
     }
 </style>

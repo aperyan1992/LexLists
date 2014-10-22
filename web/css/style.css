@@ -194,7 +194,7 @@ body {
 /* headings */
 h1 { font-size: 20px; line-height: 27px; }
 h2 { font-size: 16px; line-height: 24px; }
-h3 { font-size: 14px; line-height: 22px; }
+h3 { font-size: 13px; line-height: 22px; }
 h4 { font-size: 13px; line-height: 20px; }
 h5 { font-size: 13px; line-height: 18px; font-style: italic; }
 h6 { font-size: 12px; line-height: 18px; font-style: italic; }
@@ -3571,7 +3571,7 @@ fieldset.disp-block{
     border-bottom: 0;
     width: auto;
     margin-bottom: 0;    
-    font-size: 14px;
+    font-size: 13px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: bold;
     color: #333333;
@@ -3581,7 +3581,7 @@ fieldset.disp-block{
 }
 
 #display_form span {
-    font-size: 14px;
+    font-size: 13px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #666666;
     text-rendering: optimizelegibility;

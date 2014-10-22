@@ -423,10 +423,23 @@ class dashboardActions extends sfActions {
                     if ($survey->getContact()->getPhoneNumber() !== "") {
                         $phone_number = $survey->getContact()->getPhoneNumber();
                     }
+                    if($survey->getContact()->getLastName())
+                    {
+                        $surLastname = $survey->getContact()->getLastName().', ';
+                    }
+                    else{
+                        $surLastname = '';
+                    }
+                    if($survey->getContact()->getFirstName())
+                    {
+                        $surFirstname = $survey->getContact()->getFirstName();
+                    }
+                    else{
+                        $surFirstname = '';
 
-                    $contact_person = $survey->getContact()->getLastName() .
-                            ", " .
-                            $survey->getContact()->getFirstName() .
+                    }
+                    $contact_person = $surLastname .
+                             $surFirstname .
                             " (" .
                             $survey->getContact()->getEmailAddress() .
                             ") " .

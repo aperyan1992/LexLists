@@ -28,6 +28,7 @@ class dataloadActions extends sfActions
     {
         $allowedExts = array("gif", "jpeg", "jpg", "png", "xls", 'csv');
         $temp = explode(".", $_FILES["file"]["name"]);
+        $updated = false;
         $extension = end($temp);
 //        var_dump($_FILES["file"]["type"]);
         if ($_FILES["file"]["type"] == "text/csv"
@@ -199,6 +200,7 @@ class dataloadActions extends sfActions
                         if($resultupdate)
                         {
                             $update = true;
+                            $updated = true;
                         }
                         else{
                             $update = false;
@@ -292,9 +294,14 @@ class dataloadActions extends sfActions
                     }
                     $finalquerystring = rtrim($finalquerystring, ",(");
                     if(Doctrine_Manager::getInstance()->getCurrentConnection()->execute($finalquerystring))
-                       $this->result = '<h2> The CSV data has been successfully uploaded.</h2>';
+                       $this->result = '<h2> The CSV data has been successfully uploaded(updated).</h2>';
                 }
                 else{
+                    if($updated)
+                    {
+                        $this->result = '<h2> The CSV data has been successfully updated</h2>';
+                    }
+                    else
                     $this->result = '<h2> There is no updates to be loaded</h2>';
                 }
 

@@ -3528,8 +3528,9 @@ table.dataTable td.datatable_td_align_center_checkboxes {
     color: #000;
 }
 .org-body input, .search-block input{
-    margin-right: 10px;
-    margin-bottom: 7px;
+    /*margin-right: 10px;*/
+    /*margin-bottom: 7px;*/
+    margin: 0 5px 0 0 !important;
 }
 .left-sidebar h3{
     line-height: 18px;
@@ -4609,4 +4610,8 @@ fieldset.disp-block{
 }
 .select2-drop{
     z-index:1500 !important;
+}
+
+.dialog_contact {
+    vertical-align: 0 !important;
 }

@@ -336,6 +336,7 @@ $.fn.dataTableExt.afnFiltering.push(
                     last_date   = dateFormat(new Date(begin_date.getFullYear(), begin_date.getMonth() + 3, 0), "dd-mmm-yyyy");
 
                     break;
+
                 case "this_year" :
                     var current_year = current_date_object.getFullYear();
                     first_date       = dateFormat(new Date( current_year, 0, 1 ), "dd-mmm-yyyy");
@@ -348,6 +349,18 @@ $.fn.dataTableExt.afnFiltering.push(
                     last_date     = dateFormat(new Date( next_year + 1, 0, 0 ), "dd-mmm-yyyy");
 
                     break;
+
+                case "next_quarter" :
+                    var next_quarter    = Math.floor((current_date_object.getMonth() / 3));
+                    var begin_date = new Date(current_date_object.getFullYear(), next_quarter * 3, 1);
+
+                    //first_date  = dateFormat(begin_date, "dd-mmm-yyyy");
+                    first_date   = dateFormat(new Date(begin_date.getFullYear(), begin_date.getMonth() + 3, 0), "dd-mmm-yyyy");
+                    last_date   = dateFormat(new Date(begin_date.getFullYear(), begin_date.getMonth() + 6, 0), "dd-mmm-yyyy");
+
+                    break;
+
+
             }
             
             if(aData[11] !== '- - -' && new Date(Date.fromString(aData[11])).getTime() >= new Date(Date.fromString(first_date)).getTime() && new Date(Date.fromString(aData[11])).getTime() <= new Date(Date.fromString(last_date)).getTime()) {

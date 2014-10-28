@@ -2,13 +2,13 @@
     <div class="row">
         <div class="left-sidebar">
             <div class="filters_header">
-                <h3 title="Select from the fields below to refine and better focus the results.">Filter By</h3> / 
+                <h3 title="Select from the fields below to refine and better focus the results.">Filter By</h3> /
                 <a href="#" id="clear_filters" class="custom_link">Clear Filters</a>
             </div>  
-          
+
             <div class="other_filters_block">
               <div class="year">
-                  <h3 class="custom_color" title="The year of the survey or award.">Year <i class="filter_arrow"></i></h3>
+                  <h3 class="custom_color" title="The year of the survey or award.">Year<i class="filter_arrow"></i></h3>
                   <div class="org-body test_smaller">
                       <form action="" name="">
                           <?php echo $sf_data->getRaw('survey_year_checkboxes') ?>
@@ -68,6 +68,7 @@
                     <form action="" name="">
                         <input checkbox_type="submission_deadline" type="checkbox" class="deadline_checkbox" col_num="11" value="this_month" name="deadline_checkbox" id="this_month" /><span>This month</span><br />
                         <input checkbox_type="submission_deadline" type="checkbox" class="deadline_checkbox" col_num="11" value="this_quarter" name="deadline_checkbox" id="this_quarter" /><span>This quarter</span><br />
+                        <input checkbox_type="submission_deadline" type="checkbox" class="deadline_checkbox" col_num="11" value="next_quarter" name="deadline_checkbox" id="next_quarter" /><span>Next quarter</span><br />
                         <input checkbox_type="submission_deadline" type="checkbox" class="deadline_checkbox" col_num="11" value="this_year" name="deadline_checkbox" id="this_year" /><span>This year</span><br />
                         <input checkbox_type="submission_deadline" type="checkbox" class="deadline_checkbox" col_num="11" value="next_year" name="deadline_checkbox" id="next_year" /><span>Next year</span><br />
                     </form>

@@ -194,7 +194,6 @@ class dataloadActions extends sfActions
 
                     if(isset($data[1]) && !empty($neworganizationarray[$data[1]]))
                     {
-                        //var_dump($neworganizationarray[$data[1]]);echo '<hr>';
                         $checkingquery = 'SELECT * FROM `surveys` WHERE survey_name="'.$contact['name'].'" AND organization_id="'.$neworganizationarray[$data[1]].'"';
                         $resultupdate = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($checkingquery)->fetch();
                         if($resultupdate)
@@ -269,9 +268,10 @@ class dataloadActions extends sfActions
                         {
                             unset($fianlresult[$key]);
                         }
+
+
                     }
                 }
-              //  var_dump(count($fianlresult));die;
                 if(!empty($fianlresult))
                 {
                     $arraykey = array_keys($fianlresult);

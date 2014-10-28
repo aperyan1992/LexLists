@@ -54,7 +54,7 @@
                 <td id="dialog_frequency"></td>
             </tr>
             <tr>
-                <th align="right">Contact Person:</th>
+                <th align="right" class="dialog_contact">Contact Person:</th>
                 <td id="dialog_contact_person"></td>
             </tr>
             <tr>

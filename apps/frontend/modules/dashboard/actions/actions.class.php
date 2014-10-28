@@ -23,25 +23,39 @@ class dashboardActions extends sfActions {
             $this->survey_year_checkboxes .= '<input checkbox_type="year" type="checkbox" class="year_checkbox" col_num="1" value="' . $year . '" id="' . $year . '" /><span>' . $year . '</span><br />';
         }
 
+
+
         // Get survey organizations
         $this->survey_organizations = Doctrine_Core::getTable('LtSurvey')->getSurveyOrganizations();
         $this->survey_organization_checkboxes = "";
         foreach ($this->survey_organizations as $organization) {
             $organization_name = $organization->getOrganization()->getName();
+            $allOrganizations[]=$organization_name;
+            //$this->survey_organizations_checkboxes .= '<input checkbox_type="organization" type="checkbox" class="organization_checkbox" col_num="2" value="' . $organization_name . '" id="' . $organization_name . '" /><span>' . $organization_name . '</span><br />';
+        }
+        sort($allOrganizations);//sorting A-Z
 
-            $this->survey_organizations_checkboxes .= '<input checkbox_type="organization" type="checkbox" class="organization_checkbox" col_num="2" value="' . $organization_name . '" id="' . $organization_name . '" /><span>' . $organization_name . '</span><br />';
+        foreach($allOrganizations as $oganizations_name){
+            $this->survey_organizations_checkboxes .= '<input checkbox_type="organization" type="checkbox" class="organization_checkbox" col_num="2" value="' . $oganizations_name . '" id="' . $oganizations_name . '" /><span>' . $oganizations_name . '</span><br />';
         }
 
         // Get survey candidate types
         $this->survey_candidate_types = Doctrine_Core::getTable('LtSurvey')->getSurveysCandidateTypes();
         $this->survey_candidate_types_checkboxes = "";
+
         foreach ((array) $this->survey_candidate_types as $candidate_type) {
             $c_type = "- - -";
             if (array_key_exists($candidate_type, LtSurvey::$candidate_types_array)) {
                 $c_type = LtSurvey::$candidate_types_array[$candidate_type];
-            }
 
-            $this->survey_candidate_types_checkboxes .= '<input checkbox_type="candidate_type" type="checkbox" class="candidate_type_checkbox" col_num="4" value="' . $c_type . '" id="' . $c_type . '" /><span>' . $c_type . '</span><br />';
+            }
+            $allC_type[]=$c_type;
+            //$this->survey_candidate_types_checkboxes .= '<input checkbox_type="candidate_type" type="checkbox" class="candidate_type_checkbox" col_num="4" value="' . $c_type . '" id="' . $c_type . '" /><span>' . $c_type . '</span><br />';
+        }
+        sort($allC_type);
+        foreach($allC_type as $c_types){
+            $this->survey_candidate_types_checkboxes .= '<input checkbox_type="candidate_type" type="checkbox" class="candidate_type_checkbox" col_num="4" value="' . $c_types . '" id="' . $c_types . '" /><span>' . $c_types . '</span><br />';
+
         }
 
         // Get survey practice areas
@@ -49,17 +63,26 @@ class dashboardActions extends sfActions {
         $this->survey_practice_areas_checkboxes = "";
         foreach ($this->survey_practice_areas as $practice_area) {
             $practice_area_name = $practice_area->getShortCode();
-
-            $this->survey_practice_areas_checkboxes .= '<input checkbox_type="practice_area" type="checkbox" class="practice_area_checkbox" col_num="5" value="' . $practice_area_name . '" id="' . $practice_area_name . '" /><span>' . $practice_area_name . '</span><br />';
+            $allPractice_area_name[]=$practice_area_name;
+            //$this->survey_practice_areas_checkboxes .= '<input checkbox_type="practice_area" type="checkbox" class="practice_area_checkbox" col_num="5" value="' . $practice_area_name . '" id="' . $practice_area_name . '" /><span>' . $practice_area_name . '</span><br />';
         }
+        sort($allPractice_area_name);
+        foreach($allPractice_area_name as $practice_area_names){
+            $this->survey_practice_areas_checkboxes .= '<input checkbox_type="practice_area" type="checkbox" class="practice_area_checkbox" col_num="5" value="' . $practice_area_names . '" id="' . $practice_area_names . '" /><span>' . $practice_area_names . '</span><br />';
 
+        }
         // Get survey regions
         $this->survey_regions = Doctrine_Core::getTable('LtSurvey')->getSurveyRegions();
         $this->survey_regions_checkboxes = "";
         foreach ($this->survey_regions as $region) {
             $region_name = $region->getRegion()->getName();
+            $allRegion_name[]=$region_name;
+            //$this->survey_regions_checkboxes .= '<input checkbox_type="region" type="checkbox" class="region_checkbox" col_num="7" value="' . $region_name . '" id="' . $region_name . '" /><span>' . $region_name . '</span><br />';
+        }
+        sort($allRegion_name);
+        foreach($allRegion_name as $region_names){
+            $this->survey_regions_checkboxes .= '<input checkbox_type="region" type="checkbox" class="region_checkbox" col_num="7" value="' . $region_names . '" id="' . $region_names . '" /><span>' . $region_names . '</span><br />';
 
-            $this->survey_regions_checkboxes .= '<input checkbox_type="region" type="checkbox" class="region_checkbox" col_num="7" value="' . $region_name . '" id="' . $region_name . '" /><span>' . $region_name . '</span><br />';
         }
 
         // Get survey special criterias
@@ -67,8 +90,13 @@ class dashboardActions extends sfActions {
         $this->survey_special_criterias_checkboxes = "";
         foreach ($this->survey_special_criterias as $special_criteria) {
             $s_criteria = $special_criteria->getName();
+            $allS_criteria[]=$s_criteria;
+            //$this->survey_special_criterias_checkboxes .= '<input checkbox_type="special_criteria" type="checkbox" class="special_criteria_checkbox" col_num="6" value="' . $s_criteria . '" id="' . $s_criteria . '" /><span>' . $s_criteria . '</span><br />';
+        }
+        sort($allS_criteria);
+        foreach($allS_criteria as $s_criterias){
+            $this->survey_special_criterias_checkboxes .= '<input checkbox_type="special_criteria" type="checkbox" class="special_criteria_checkbox" col_num="6" value="' . $s_criterias . '" id="' . $s_criterias . '" /><span>' . $s_criterias . '</span><br />';
 
-            $this->survey_special_criterias_checkboxes .= '<input checkbox_type="special_criteria" type="checkbox" class="special_criteria_checkbox" col_num="6" value="' . $s_criteria . '" id="' . $s_criteria . '" /><span>' . $s_criteria . '</span><br />';
         }
     }
 

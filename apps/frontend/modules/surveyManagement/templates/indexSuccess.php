@@ -1,3 +1,4 @@
+
 <?php use_helper('I18N', 'Date') ?>
 <?php include_partial('surveyManagement/assets') ?>
 
@@ -45,7 +46,7 @@
         border:none;
     }
     .sf_admin_filter table{
-        width: 77%;
+        width: 85%;
         /*float: right;*/
     }
     .sf_admin_filter_field_organization_id{float:left; display:inline-block !important; }
@@ -75,5 +76,12 @@
         border-left: none !important;
         border-right: none !important;
     }
+    #lt_survey_filters_year {
+        margin-left: 50px;
+    }
+    #lt_survey_filters_year_is_empty {
+        margin-left: 50px !important;
+    }
+
 
 </style>

@@ -30,7 +30,6 @@ class dataloadActions extends sfActions
         $temp = explode(".", $_FILES["file"]["name"]);
         $updated = false;
         $extension = end($temp);
-//        var_dump($_FILES["file"]["type"]);
         if ($_FILES["file"]["type"] == "text/csv"
             && ($_FILES["file"]["size"] < 20000000)
             && in_array($extension, $allowedExts)) {
@@ -38,7 +37,7 @@ class dataloadActions extends sfActions
                 echo "Error: " . $_FILES["file"]["error"] . "<br>";
             } else {
                 $handle = fopen($_FILES["file"]["tmp_name"], "r");
-                while(($data = fgetcsv($handle, 1000, ","))!==FALSE)
+                while(($data = fgetcsv($handle, 1000, "|"))!==FALSE)
                 {
                     $csvdata[] = $data;
                 }
@@ -209,10 +208,16 @@ class dataloadActions extends sfActions
                     {
                         $update = false;
                     }
+
+                    $now = new DateTime();
+
                     if($update)
                     {
-                        $query = 'UPDATE `survey_contacts` SET `first_name`="'.$contact['name'].'",`email_address`="'.$contact['email'].'", `phone_number`="'.$contact['phone'].'"';
+
+
+                        $query = 'UPDATE `survey_contacts` SET `first_name`="'.$contact['name'].'",`email_address`="'.$contact['email'].'", `phone_number`="'.$contact['phone'].'" ,`updated_at`="'.$now->format('Y-m-d H:i:s').'"   ';
                         $query .= ' WHERE id="'.$resultupdate['survey_contact_id'].'"';
+
                         $result = Doctrine_Manager::getInstance()->getCurrentConnection();
 
                         if($result->execute($query))
@@ -221,8 +226,10 @@ class dataloadActions extends sfActions
                         }
                     }
                     else{
-                        $query = 'INSERT INTO `survey_contacts` (`first_name`,`email_address`, `phone_number`) VALUES';
-                        $query .= " ('".$contact['name']."','".$contact['email']."','".$contact['phone']."')";
+
+                        $query = 'INSERT INTO `survey_contacts` (`first_name`,`email_address`, `phone_number`,`created_at`,`updated_at`) VALUES';
+                        $query .= " ('".$contact['name']."','".$contact['email']."','".$contact['phone']."','".$now->format('Y-m-d H:i:s')."','".$now->format('Y-m-d H:i:s')." ')";
+
                         $result = Doctrine_Manager::getInstance()->getCurrentConnection();
 
                         if($result->execute($query))
@@ -256,12 +263,15 @@ class dataloadActions extends sfActions
                     }
                     if($update)
                     {
+                        $now = new DateTime();
+
                         $query = 'UPDATE `surveys` SET ';
                         foreach($fianlresult[$key] as $k=>$value)
                         {
                             $query .=  '`'.$k.'`="'.$value.'", ';
                         }
-                        $query = rtrim($query, ", ");
+                        $query.='`updated_at`="'.$now->format('Y-m-d H:i:s').'"';
+                        //$query = rtrim($query, ", ");
                         $query .= ' WHERE id="'.$resultupdate['id'].'"';
                         $result = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query);
                         if($result)
@@ -274,6 +284,8 @@ class dataloadActions extends sfActions
                 }
                 if(!empty($fianlresult))
                 {
+                    $now = new DateTime();
+
                     $arraykey = array_keys($fianlresult);
                     $finalquerystring = 'INSERT INTO `surveys` (';
                     foreach($fianlresult[$arraykey[0]] as $key=>$value)
@@ -281,8 +293,11 @@ class dataloadActions extends sfActions
                         $finalquerystring.='`'.$key.'`,';
                     }
 
+                    $finalquerystring.='`created_at`,`updated_at`';
                     $finalquerystring = rtrim($finalquerystring, ",");
+
                     $finalquerystring.=') VALUES (';
+
                     foreach($fianlresult as $final)
                     {
                         foreach($final as $key=>$value)
@@ -290,9 +305,15 @@ class dataloadActions extends sfActions
                             $finalquerystring.='"'.$value.'",';
                         }
                         $finalquerystring = rtrim($finalquerystring, ",");
+
+                        $finalquerystring.=',"'.$now->format('Y-m-d H:i:s').'","'.$now->format('Y-m-d H:i:s').'"';
+
+
                         $finalquerystring.='),(';
                     }
+
                     $finalquerystring = rtrim($finalquerystring, ",(");
+
                     if(Doctrine_Manager::getInstance()->getCurrentConnection()->execute($finalquerystring))
                        $this->result = '<h2> The CSV data has been successfully uploaded(updated).</h2>';
                 }

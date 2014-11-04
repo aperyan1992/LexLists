@@ -44,7 +44,7 @@
         border:none;
     }
     .sf_admin_filter table{
-        width: 77%;
+        width: 85%;
         /*float: right;*/
     }
     .sf_admin_filter_field_last_name{float:left; display:inline-block !important; }
@@ -74,4 +74,9 @@
         border-left: none !important;
         border-right: none !important;
     }
+
+    #sf_guard_user_filters_client_id {
+        margin-left: 30px;
+    }
+
 </style>

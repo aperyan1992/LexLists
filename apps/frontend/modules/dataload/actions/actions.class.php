@@ -278,8 +278,6 @@ class dataloadActions extends sfActions
                         {
                             unset($fianlresult[$key]);
                         }
-
-
                     }
                 }
                 if(!empty($fianlresult))

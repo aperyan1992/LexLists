@@ -46,7 +46,7 @@
         border:none;
     }
     .sf_admin_filter table{
-        width: 85%;
+        width: 77%;
         /*float: right;*/
     }
     .sf_admin_filter_field_organization_id{float:left; display:inline-block !important; }
@@ -76,8 +76,14 @@
         border-left: none !important;
         border-right: none !important;
     }
+
+    #lt_survey_filters_year, #lt_survey_filters_survey_name {
+        margin-bottom: 10px !important;
+    }
+
     #lt_survey_filters_year {
         margin-left: 50px;
+        width: 188px !important;
     }
     #lt_survey_filters_year_is_empty {
         margin-left: 50px !important;

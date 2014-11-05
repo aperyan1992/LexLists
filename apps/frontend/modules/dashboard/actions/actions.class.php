@@ -16,6 +16,7 @@ class dashboardActions extends sfActions {
      * @param sfRequest $request A request object
      */
     public function executeIndex(sfWebRequest $request) {
+
         // Get surveys years
         $this->surveys_years = Doctrine_Core::getTable('LtSurvey')->getSurveysYears();
         $this->survey_year_checkboxes = "";
@@ -118,6 +119,7 @@ class dashboardActions extends sfActions {
                 $aa_data_array = array("aaData" => array());
 
                 foreach ($surveys as $survey) {
+
                     // Set survey checkbox
                     $survey_checkbox = "<input type='checkbox' class='table_checkbox' s_id='" . $survey->getId() . "' />";
 
@@ -466,12 +468,13 @@ class dashboardActions extends sfActions {
                         $surFirstname = '';
 
                     }
-                    $contact_person = $surLastname .
+                    $contact_person = trim($surLastname .
                              $surFirstname .
                             " (" .
                             $survey->getContact()->getEmailAddress() .
                             ") " .
-                            $phone_number;
+                            trim($phone_number, "ﾠ"), "ﾠ");
+
                 }
 
                 // Get survey ID

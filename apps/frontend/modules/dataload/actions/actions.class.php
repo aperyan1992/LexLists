@@ -45,6 +45,7 @@ class dataloadActions extends sfActions
 
                 foreach($csvdata as $key=>$data)
                 {
+
                     $query = 'Select `id`, `name` FROM `regions`';
                     $regoins = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
                     foreach($regoins as $regoin)
@@ -85,8 +86,9 @@ class dataloadActions extends sfActions
 
                     if(isset($data[2]))
                     {
+
                         $fianlresult[$key]['survey_name'] = $data[2];
-                        $contact['name'] = $data[2];
+                        //$contact['name'] = $data[2];
                     }
                     else{
                         $fianlresult[$key]['survey_name'] = null;

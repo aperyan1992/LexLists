@@ -503,13 +503,13 @@ class mySurveyActions extends sfActions {
                             $phone_number = $survey->getSurvey()->getContact()->getPhoneNumber();
                         }
 
-                        $contact_person = $survey->getSurvey()->getContact()->getLastName() .
+                        $contact_person = ltrim(ltrim(trim($survey->getSurvey()->getContact()->getLastName() .
                                 ", " .
                                 $survey->getSurvey()->getContact()->getFirstName() .
                                 " (" .
                                 $survey->getSurvey()->getContact()->getEmailAddress() .
                                 ") " .
-                                $phone_number;
+                                trim($phone_number,"ﾠ"), "ﾠ"),','), ' ');
                     }
 
                     // Get survey ID

@@ -2,13 +2,197 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ff16ca9-f95a-440f-a391-4abfd5c9a103" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/ae_fonts_2.0/COPYING" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/ae_fonts_2.0/ChangeLog" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/ae_fonts_2.0/README" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/tcpdfHelper.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/tcpdf_import.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/tcpdf_include.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/tcpdf_parser.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/aealarabiya.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/aealarabiya.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/aefurat.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/aefurat.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusans.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusans.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansb.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansb.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansbi.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansbi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusanscondensed.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusanscondensed.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusanscondensedb.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusanscondensedb.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusanscondensedbi.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusanscondensedbi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusanscondensedi.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusanscondensedi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansextralight.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansextralight.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansi.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansmono.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansmono.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansmonob.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansmonob.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansmonobi.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansmonobi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansmonoi.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansmonoi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserif.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserif.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifb.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifb.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifbi.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifbi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifcondensed.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifcondensed.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifcondensedb.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifcondensedb.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifcondensedbi.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifcondensedbi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifcondensedi.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifcondensedi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifi.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freemono.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freemono.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freemonob.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freemonob.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freemonobi.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freemonobi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freemonoi.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freemonoi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freesans.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freesans.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freesansb.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freesansb.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freesansbi.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freesansbi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freesansi.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freesansi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freeserif.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freeserif.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freeserifb.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freeserifb.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freeserifbi.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freeserifbi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freeserifi.ctg.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freeserifi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfacourier.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfacourierb.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfacourierbi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfacourieri.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfahelvetica.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfahelveticab.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfahelveticabi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfahelveticai.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfasymbol.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfatimes.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfatimesb.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfatimesbi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfatimesi.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfazapfdingbats.z" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/include/sRGB.icc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/tools/.htaccess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavu-fonts-ttf-2.34/AUTHORS" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freefont-20120503/AUTHORS" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavu-fonts-ttf-2.34/BUGS" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freefont-20120503/COPYING" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freefont-20120503/CREDITS" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freefont-20120503/ChangeLog" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freefont-20120503/INSTALL" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavu-fonts-ttf-2.34/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavu-fonts-ttf-2.34/NEWS" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavu-fonts-ttf-2.34/README" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freefont-20120503/README" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freefont-20120503/TROUBLESHOOTING" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freefont-20120503/USAGE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/aealarabiya.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/aefurat.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/cid0cs.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/cid0ct.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/cid0jp.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/cid0kr.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/tools/convert_fonts_examples.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/courier.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/courierb.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/courierbi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/courieri.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/include/barcodes/datamatrix.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusans.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansb.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansbi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusanscondensed.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusanscondensedb.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusanscondensedbi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusanscondensedi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansextralight.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansmono.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansmonob.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansmonobi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavusansmonoi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserif.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifb.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifbi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifcondensed.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifcondensedb.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifcondensedbi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifcondensedi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavuserifi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freemono.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freemonob.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freemonobi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freemonoi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freesans.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freesansb.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freesansbi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freesansi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freeserif.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freeserifb.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freeserifbi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freeserifi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/helvetica.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/helveticab.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/helveticabi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/helveticai.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/hysmyeongjostdmedium.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/kozgopromedium.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/kozminproregular.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavu-fonts-ttf-2.34/langcover.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/msungstdlight.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/include/barcodes/pdf417.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfacourier.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfacourierb.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfacourierbi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfacourieri.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfahelvetica.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfahelveticab.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfahelveticabi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfahelveticai.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfasymbol.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfatimes.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfatimesb.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfatimesbi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfatimesi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/pdfazapfdingbats.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/include/barcodes/qrcode.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavu-fonts-ttf-2.34/status.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/stsongstdlight.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/symbol.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/tools/tcpdf_addfont.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/tcpdf_autoconfig.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/include/tcpdf_colors.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/include/tcpdf_filters.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/include/tcpdf_font_data.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/include/tcpdf_fonts.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/include/tcpdf_images.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/include/tcpdf_static.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/times.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/timesb.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/timesbi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/timesi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/uni2cid_ac15.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/uni2cid_ag15.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/uni2cid_aj16.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/uni2cid_ak12.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/dejavu-fonts-ttf-2.34/unicover.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/fonts/zapfdingbats.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="lex.local.iws" />
@@ -36,26 +220,6 @@
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="540" column="29" selection-start="24875" selection-end="24875" vertical-scroll-proportion="0.8149406" vertical-offset="7620" max-vertical-offset="11190">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="example_001.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/frontend/lib/helper/examples/example_001.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="24" selection-start="3307" selection-end="3328" vertical-scroll-proportion="-4.54902" vertical-offset="1133" max-vertical-offset="1695">
-              <folding>
-                <element signature="e#6#69#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LtSurveyTable.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/model/doctrine/LtSurveyTable.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="191" column="8" selection-start="5826" selection-end="5826" vertical-scroll-proportion="-10.083333" vertical-offset="2623" max-vertical-offset="3225">
               <folding />
             </state>
           </provider>
@@ -413,6 +577,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="tools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -523,13 +717,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/vendor/symfony/lib/helper/PartialHelper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="161" column="31" selection-start="4483" selection-end="4483" vertical-scroll-proportion="0.0" vertical-offset="2415" max-vertical-offset="6000">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/vendor/symfony/lib/exception/sfException.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="27" selection-start="2252" selection-end="2252" vertical-scroll-proportion="0.0" vertical-offset="1395" max-vertical-offset="6780" />
@@ -772,13 +959,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/model/doctrine/LtSurveyTable.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="191" column="8" selection-start="5826" selection-end="5826" vertical-scroll-proportion="-10.083333" vertical-offset="2623" max-vertical-offset="3225">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_or_print.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="126" column="117" selection-start="5559" selection-end="5616" vertical-scroll-proportion="-3.5294118" vertical-offset="1710" max-vertical-offset="2355">
@@ -794,6 +974,20 @@
           <folding>
             <element signature="e#6#69#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/model/doctrine/LtSurveyTable.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="191" column="8" selection-start="5826" selection-end="5826" vertical-scroll-proportion="0.40199336" vertical-offset="2623" max-vertical-offset="3225">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/lib/helper/config/tcpdf_config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.0465117" vertical-offset="630" max-vertical-offset="3090">
+          <folding />
         </state>
       </provider>
     </entry>

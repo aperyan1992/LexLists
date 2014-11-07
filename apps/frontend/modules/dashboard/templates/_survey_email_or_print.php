@@ -5,6 +5,7 @@
 <?php endif; ?>
 
 <h3>Lex<span style="color: #ff6801 !important;">Lists</span></h3>
+
 <?php foreach ($surveys as $survey) : ?>
     <table>
         <tr>
@@ -15,6 +16,7 @@
             <th align="left">Submission Deadline:</th>
             <td><?php echo (!is_null($survey->getSubmissionDeadline()) && $survey->getSubmissionDeadline() != "") ? $survey->getSubmissionDeadline() : "- - -"; ?></td>
         </tr>
+
         <tr>
             <th align="left">Type:</th>
             <td><?php echo ($survey->getCandidateType() != 0) ? LtSurvey::$candidate_types_array[$survey->getCandidateType()] : "- - -"; ?></td>
@@ -32,7 +34,6 @@
 
                     $special_criterias = implode(", ", $special_criteria_array);
                 }
-
                 echo $special_criterias;
                 ?>
             </td>
@@ -54,7 +55,6 @@
 
                     $practice_areas = implode(", ", $practice_area_array);
                 }
-
                 echo $practice_areas;
                 ?>
             </td>
@@ -106,7 +106,6 @@
 
                     $geographic_area = $region . "; " . $cities . "; ". $states . "; " . $countries . ";";
                 }
-
                 echo $geographic_area;
                 ?>
             </td>
@@ -125,7 +124,7 @@
         </tr>
         <tr>
             <th align="left">Frequency:</th>
-            <td><?php echo ($survey->getFrequency() != 0) ? LtSurvey::$frequency_types_array[$survey->getFrequency()] : "- - -"; ?></td>
+            <td><?php echo ($survey->getFrequency() != 0) ? LtSurvey::$frequency_types_array[$survey->getFrequency()]  : "- - -"; ?></td>
         </tr>
         <tr>
             <th align="left">Contact Person:</th>
@@ -145,6 +144,7 @@
         </tr>
     </table>
 <?php endforeach; ?>
+
 
 <br/><br/>
 <b>LexLists: Discover Awards!</b>

@@ -546,7 +546,7 @@ class dashboardActions extends sfActions {
 
         $pdf->writeHTML($html, true, false, true, false, '');
 
-        $pdf->Output('one.pdf', 'I');die;
+        $pdf->Output('LexLists.pdf', 'I');die;
 
         //$this->forward404();
     }

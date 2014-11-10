@@ -318,6 +318,7 @@ class dashboardActions extends sfActions {
 
         // Get request parameters
         $survey_ids = $request->getParameter("surveys_for_print", FALSE);
+        //print_r($survey_ids);
         $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
 
@@ -345,139 +346,353 @@ class dashboardActions extends sfActions {
 
         $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
 
-        if ($survey_ids) {
-            // Check if surveys exists
-            $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds($survey_ids);
-            foreach($surveys as $survey)
+        $html = '';
+
+        if (count($survey_ids)>1) {
+            $c = count($survey_ids);
+
+            foreach($survey_ids as $key =>$survey_id)
             {
-                if(!is_null($survey->getSurveyName()) && $survey->getSurveyName() != ""){
-                    $survey_name = $survey->getSurveyName();
-                }else{
-                    $survey_name = "- - -";
-                }
-
-                if(!is_null($survey->getSubmissionDeadline()) && $survey->getSubmissionDeadline() != ""){
-                    $survey_submission_deadline = $survey->getSubmissionDeadline();
-                }else{
-                    $survey_submission_deadline = "- - -";
-                }
-
-                if($survey->getCandidateType() != 0){
-                    $survey_type = LtSurvey::$candidate_types_array[$survey->getCandidateType()];
-                }else{
-                    $survey_type = "- - -";
-                }
-
-
-                $special_criterias = "- - -";
-                if ($survey->getLtSurveySpecialCriteria()->getFirst()) {
-                    $special_criteria_array = array();
-                    foreach ($survey->getLtSurveySpecialCriteria() as $special_criteria) {
-                        $special_criteria_array[] = $special_criteria->getSpecialCriteria()->getName();
+                // Check if surveys exists
+                $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds($survey_id);
+                foreach($surveys as $survey)
+                {
+                    if(!is_null($survey->getSurveyName()) && $survey->getSurveyName() != ""){
+                        $survey_name = $survey->getSurveyName();
+                    }else{
+                        $survey_name = "- - -";
                     }
 
-                    $special_criterias = implode(", ", $special_criteria_array);
-                }
-                if(!is_null($survey->getEligibilityCriteria()) && $survey->getEligibilityCriteria() != ""){
-                    $survey_eligibility = $survey->getEligibilityCriteria();
-                }else{
-                    $survey_eligibility = "- - -";
-                }
-
-                $practice_areas = "- - -";
-                if ($survey->getLtSurveyPracticeArea()->getFirst()) {
-                    $practice_area_array = array();
-                    foreach ($survey->getLtSurveyPracticeArea() as $practice_area) {
-                        $practice_area_array[] = $practice_area->getPracticeArea()->getShortCode();
+                    if(!is_null($survey->getSubmissionDeadline()) && $survey->getSubmissionDeadline() != ""){
+                        $survey_submission_deadline = $survey->getSubmissionDeadline();
+                    }else{
+                        $survey_submission_deadline = "- - -";
                     }
 
-                    $practice_areas = implode(", ", $practice_area_array);
-                }
-
-                $geographic_area = "- - -";
-                if($survey->getRegion() || $survey->getLtSurveyCity()->getFirst() || $survey->getLtSurveyState()->getFirst() || $survey->getLtSurveyCountry()->getFirst()) {
-                    // Get region
-                    $region = "- - -";
-                    if($survey->getRegion()) {
-                        $region = $survey->getRegion()->getName();
+                    if($survey->getCandidateType() != 0){
+                        $survey_type = LtSurvey::$candidate_types_array[$survey->getCandidateType()];
+                    }else{
+                        $survey_type = "- - -";
                     }
 
-                    // Get cities
-                    $cities = "- - -";
-                    if ($survey->getLtSurveyCity()->getFirst()) {
-                        $cities_array = array();
-                        foreach ($survey->getLtSurveyCity() as $city) {
-                            $cities_array[] = $city->getCity()->getName();
+
+                    $special_criterias = "- - -";
+                    if ($survey->getLtSurveySpecialCriteria()->getFirst()) {
+                        $special_criteria_array = array();
+                        foreach ($survey->getLtSurveySpecialCriteria() as $special_criteria) {
+                            $special_criteria_array[] = $special_criteria->getSpecialCriteria()->getName();
                         }
 
-                        $cities = implode(", ", $cities_array);
+                        $special_criterias = implode(", ", $special_criteria_array);
+                    }
+                    if(!is_null($survey->getEligibilityCriteria()) && $survey->getEligibilityCriteria() != ""){
+                        $survey_eligibility = $survey->getEligibilityCriteria();
+                    }else{
+                        $survey_eligibility = "- - -";
                     }
 
-                    // Get countries
-                    $countries = "- - -";
-                    if($survey->getLtSurveyCountry()->getFirst()) {
-                        $countries_array = array();
-                        foreach ($survey->getLtSurveyCountry() as $country) {
-                            $countries_array[] = $country->getCountry()->getName();
+                    $practice_areas = "- - -";
+                    if ($survey->getLtSurveyPracticeArea()->getFirst()) {
+                        $practice_area_array = array();
+                        foreach ($survey->getLtSurveyPracticeArea() as $practice_area) {
+                            $practice_area_array[] = $practice_area->getPracticeArea()->getShortCode();
                         }
 
-                        $countries = implode(", ", $countries_array);
+                        $practice_areas = implode(", ", $practice_area_array);
                     }
 
-                    // Get states
-                    $states = "- - -";
-                    if($survey->getLtSurveyState()->getFirst()) {
-                        $states_array = array();
-                        foreach ($survey->getLtSurveyState() as $state) {
-                            $states_array[] = $state->getState()->getName();
+                    $geographic_area = "- - -";
+                    if($survey->getRegion() || $survey->getLtSurveyCity()->getFirst() || $survey->getLtSurveyState()->getFirst() || $survey->getLtSurveyCountry()->getFirst()) {
+                        // Get region
+                        $region = "- - -";
+                        if($survey->getRegion()) {
+                            $region = $survey->getRegion()->getName();
                         }
 
-                        $states = implode(", ", $states_array);
+                        // Get cities
+                        $cities = "- - -";
+                        if ($survey->getLtSurveyCity()->getFirst()) {
+                            $cities_array = array();
+                            foreach ($survey->getLtSurveyCity() as $city) {
+                                $cities_array[] = $city->getCity()->getName();
+                            }
+
+                            $cities = implode(", ", $cities_array);
+                        }
+
+                        // Get countries
+                        $countries = "- - -";
+                        if($survey->getLtSurveyCountry()->getFirst()) {
+                            $countries_array = array();
+                            foreach ($survey->getLtSurveyCountry() as $country) {
+                                $countries_array[] = $country->getCountry()->getName();
+                            }
+
+                            $countries = implode(", ", $countries_array);
+                        }
+
+                        // Get states
+                        $states = "- - -";
+                        if($survey->getLtSurveyState()->getFirst()) {
+                            $states_array = array();
+                            foreach ($survey->getLtSurveyState() as $state) {
+                                $states_array[] = $state->getState()->getName();
+                            }
+
+                            $states = implode(", ", $states_array);
+                        }
+
+                        $geographic_area = $region . "; " . $cities . "; ". $states . "; " . $countries . ";";
+                    }
+                    if(!is_null($survey->getSurveyDescription()) && $survey->getSurveyDescription() != ""){
+                        $survey_description = $survey->getSurveyDescription();
+                    }else{
+                        $survey_description = "- - -";
                     }
 
-                    $geographic_area = $region . "; " . $cities . "; ". $states . "; " . $countries . ";";
-                }
-                if(!is_null($survey->getSurveyDescription()) && $survey->getSurveyDescription() != ""){
-                    $survey_description = $survey->getSurveyDescription();
-                }else{
-                    $survey_description = "- - -";
+                    if(!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != ""){
+                        $survey_methodology = $survey->getSelectionMethodology();
+                    }else{
+                        $survey_methodology = "- - -";
+                    }
+
+                    if(!is_null($survey->getNomination()) && $survey->getNomination() != ""){
+                        $survey_how_to_apply = $survey->getNominationWithLinks();
+                    }else{
+                        $survey_how_to_apply = "- - -";
+                    }
+
+                    if($survey->getFrequency() != 0){
+                        $survey_frequency = LtSurvey::$frequency_types_array[$survey->getFrequency()];
+                    }else{
+                        $survey_frequency = "- - -";
+                    }
+                    $survey_contact_person = ltrim(ltrim($survey->getContact()->getLastName() .
+                        ", " .
+                        $survey->getContact()->getFirstName() .
+                        " (" .
+                        $survey->getContact()->getEmailAddress() .
+                        ")", ','), ' ');
+
                 }
 
-                if(!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != ""){
-                    $survey_methodology = $survey->getSelectionMethodology();
-                }else{
-                    $survey_methodology = "- - -";
-                }
 
-                if(!is_null($survey->getNomination()) && $survey->getNomination() != ""){
-                    $survey_how_to_apply = $survey->getNominationWithLinks();
-                }else{
-                    $survey_how_to_apply = "- - -";
-                }
+    //            if ($surveys->getFirst()) {
+    //                $this->setLayout(false);
+    //
+    //                return $this->renderPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => false));
+    //            }
 
-                if($survey->getFrequency() != 0){
-                    $survey_frequency = LtSurvey::$frequency_types_array[$survey->getFrequency()];
-                }else{
-                    $survey_frequency = "- - -";
-                }
-                $survey_contact_person = ltrim(ltrim($survey->getContact()->getLastName() .
-                    ", " .
-                    $survey->getContact()->getFirstName() .
-                    " (" .
-                    $survey->getContact()->getEmailAddress() .
-                    ")", ','), ' ');
 
+                if (($key+1) == $c)
+                {
+                    $last = '<br pagebreak="false" />';
+                }else{
+                    $last = '<br pagebreak="true" />';
+                }
+        $html .= '
+        <h3>Lex<span style="color:#ff6801;">Lists</span></h3>
+        <table>
+            <tr>
+                <td width="150" style="text-align: right;">Award:</td>
+                <td width="10">&nbsp;</td>
+                <td width="460">'.$survey_name.'</td>
+            </tr>
+            <tr>
+                <td width="150" style="text-align: right;">Submission Deadline:</td>
+                <td width="10">&nbsp;</td>
+                <td width="460">'.$survey_submission_deadline.'</td>
+            </tr>
+            <tr>
+                <td width="150" style="text-align: right;">Type:</td>
+                <td width="10">&nbsp;</td>
+                <td width="460">'.$survey_type.'</td>
+            </tr>
+            <tr>
+                <td width="150" style="text-align: right;">Special Criteria(s):</td>
+                <td width="10">&nbsp;</td>
+                <td width="460">'.$special_criterias.'</td>
+            </tr>
+            <tr>
+                <td width="150" style="text-align: right;">Eligibility:</td>
+                <td width="10">&nbsp;</td>
+                <td width="460">'.$survey_eligibility.'</td>
+            </tr>
+            <tr>
+                <td width="150" style="text-align: right;">Practice Area(s):</td>
+                <td width="10">&nbsp;</td>
+                <td width="460">'.$practice_areas.'</td>
+            </tr>
+            <tr>
+                <td width="150" style="text-align: right;">Geographic Area:</td>
+                <td width="10">&nbsp;</td>
+                <td width="460">'.$geographic_area.'</td>
+            </tr>
+            <tr>
+                <td width="150" style="text-align: right;">Description:</td>
+                <td width="10">&nbsp;</td>
+                <td width="460">'.$survey_description.'</td>
+            </tr>
+            <tr>
+                <td width="150" style="text-align: right;">Methodology:</td>
+                <td width="10">&nbsp;</td>
+                <td width="460">'.$survey_methodology.'</td>
+            </tr>
+            <tr>
+                <td width="150" style="text-align: right;">How to Apply:</td>
+                <td width="10">&nbsp;</td>
+                <td width="460">'.$survey_how_to_apply.'</td>
+            </tr>
+            <tr>
+                <td width="150" style="text-align: right;">Frequency:</td>
+                <td width="10">&nbsp;</td>
+                <td width="460">'.$survey_frequency.'</td>
+            </tr>
+            <tr>
+                <td width="150" style="text-align: right;">Contact Person:</td>
+                <td width="10">&nbsp;</td>
+                <td width="460">'.$survey_contact_person.'</td>
+            </tr>
+
+        </table>
+        '.$last.'
+        ';
             }
-
-
-//            if ($surveys->getFirst()) {
-//                $this->setLayout(false);
-//
-//                return $this->renderPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => false));
-//            }
         }
+        else{
+            if ($survey_ids) {
+                // Check if surveys exists
+                $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds($survey_ids);
+                foreach($surveys as $survey)
+                {
+                    if(!is_null($survey->getSurveyName()) && $survey->getSurveyName() != ""){
+                        $survey_name = $survey->getSurveyName();
+                    }else{
+                        $survey_name = "- - -";
+                    }
 
-        $html = '
+                    if(!is_null($survey->getSubmissionDeadline()) && $survey->getSubmissionDeadline() != ""){
+                        $survey_submission_deadline = $survey->getSubmissionDeadline();
+                    }else{
+                        $survey_submission_deadline = "- - -";
+                    }
+
+                    if($survey->getCandidateType() != 0){
+                        $survey_type = LtSurvey::$candidate_types_array[$survey->getCandidateType()];
+                    }else{
+                        $survey_type = "- - -";
+                    }
+
+
+                    $special_criterias = "- - -";
+                    if ($survey->getLtSurveySpecialCriteria()->getFirst()) {
+                        $special_criteria_array = array();
+                        foreach ($survey->getLtSurveySpecialCriteria() as $special_criteria) {
+                            $special_criteria_array[] = $special_criteria->getSpecialCriteria()->getName();
+                        }
+
+                        $special_criterias = implode(", ", $special_criteria_array);
+                    }
+                    if(!is_null($survey->getEligibilityCriteria()) && $survey->getEligibilityCriteria() != ""){
+                        $survey_eligibility = $survey->getEligibilityCriteria();
+                    }else{
+                        $survey_eligibility = "- - -";
+                    }
+
+                    $practice_areas = "- - -";
+                    if ($survey->getLtSurveyPracticeArea()->getFirst()) {
+                        $practice_area_array = array();
+                        foreach ($survey->getLtSurveyPracticeArea() as $practice_area) {
+                            $practice_area_array[] = $practice_area->getPracticeArea()->getShortCode();
+                        }
+
+                        $practice_areas = implode(", ", $practice_area_array);
+                    }
+
+                    $geographic_area = "- - -";
+                    if($survey->getRegion() || $survey->getLtSurveyCity()->getFirst() || $survey->getLtSurveyState()->getFirst() || $survey->getLtSurveyCountry()->getFirst()) {
+                        // Get region
+                        $region = "- - -";
+                        if($survey->getRegion()) {
+                            $region = $survey->getRegion()->getName();
+                        }
+
+                        // Get cities
+                        $cities = "- - -";
+                        if ($survey->getLtSurveyCity()->getFirst()) {
+                            $cities_array = array();
+                            foreach ($survey->getLtSurveyCity() as $city) {
+                                $cities_array[] = $city->getCity()->getName();
+                            }
+
+                            $cities = implode(", ", $cities_array);
+                        }
+
+                        // Get countries
+                        $countries = "- - -";
+                        if($survey->getLtSurveyCountry()->getFirst()) {
+                            $countries_array = array();
+                            foreach ($survey->getLtSurveyCountry() as $country) {
+                                $countries_array[] = $country->getCountry()->getName();
+                            }
+
+                            $countries = implode(", ", $countries_array);
+                        }
+
+                        // Get states
+                        $states = "- - -";
+                        if($survey->getLtSurveyState()->getFirst()) {
+                            $states_array = array();
+                            foreach ($survey->getLtSurveyState() as $state) {
+                                $states_array[] = $state->getState()->getName();
+                            }
+
+                            $states = implode(", ", $states_array);
+                        }
+
+                        $geographic_area = $region . "; " . $cities . "; ". $states . "; " . $countries . ";";
+                    }
+                    if(!is_null($survey->getSurveyDescription()) && $survey->getSurveyDescription() != ""){
+                        $survey_description = $survey->getSurveyDescription();
+                    }else{
+                        $survey_description = "- - -";
+                    }
+
+                    if(!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != ""){
+                        $survey_methodology = $survey->getSelectionMethodology();
+                    }else{
+                        $survey_methodology = "- - -";
+                    }
+
+                    if(!is_null($survey->getNomination()) && $survey->getNomination() != ""){
+                        $survey_how_to_apply = $survey->getNominationWithLinks();
+                    }else{
+                        $survey_how_to_apply = "- - -";
+                    }
+
+                    if($survey->getFrequency() != 0){
+                        $survey_frequency = LtSurvey::$frequency_types_array[$survey->getFrequency()];
+                    }else{
+                        $survey_frequency = "- - -";
+                    }
+                    $survey_contact_person = ltrim(ltrim($survey->getContact()->getLastName() .
+                        ", " .
+                        $survey->getContact()->getFirstName() .
+                        " (" .
+                        $survey->getContact()->getEmailAddress() .
+                        ")", ','), ' ');
+
+                }
+
+
+                //            if ($surveys->getFirst()) {
+                //                $this->setLayout(false);
+                //
+                //                return $this->renderPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => false));
+                //            }
+
+
+                $html = '
         <h3>Lex<span style="color:#ff6801;">Lists</span></h3>
         <table>
             <tr>
@@ -543,7 +758,8 @@ class dashboardActions extends sfActions {
 
         </table>
         ';
-
+            }
+        }
         $pdf->writeHTML($html, true, false, true, false, '');
 
         $pdf->Output('LexLists.pdf', 'I');die;

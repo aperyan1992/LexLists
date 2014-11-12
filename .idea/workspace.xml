@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ff16ca9-f95a-440f-a391-4abfd5c9a103" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/lib/helper/include/download.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/download.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/upload/download.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -29,7 +32,26 @@
       <file leaf-file-name="actions.class.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="809" column="54" selection-start="37107" selection-end="37107" vertical-scroll-proportion="0.516129" vertical-offset="11831" max-vertical-offset="14430">
+            <state line="835" column="7" selection-start="37896" selection-end="37896" vertical-scroll-proportion="0.6530249" vertical-offset="12158" max-vertical-offset="15510">
+              <folding>
+                <marker date="1415801515260" expanded="true" signature="16752:16767" placeholder="..." />
+                <marker date="1415801515260" expanded="true" signature="16785:16815" placeholder="..." />
+                <marker date="1415801515260" expanded="true" signature="33565:33580" placeholder="..." />
+                <marker date="1415801515260" expanded="true" signature="33598:33628" placeholder="..." />
+                <marker date="1415801515260" expanded="true" signature="37490:37525" placeholder="..." />
+                <marker date="1415801515260" expanded="true" signature="37585:37602" placeholder="..." />
+                <marker date="1415801515260" expanded="true" signature="37603:37813" placeholder="..." />
+                <marker date="1415801515260" expanded="true" signature="37603:37813" placeholder="..." />
+                <marker date="1415801515260" expanded="true" signature="37603:37813" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tcpdf_config.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/lib/helper/config/tcpdf_config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="121" column="23" selection-start="3421" selection-end="3421" vertical-scroll-proportion="0.0" vertical-offset="1815" max-vertical-offset="3495">
               <folding />
             </state>
           </provider>
@@ -38,12 +60,8 @@
       <file leaf-file-name="actions.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="685" column="45" selection-start="34078" selection-end="34078" vertical-scroll-proportion="-195.94118" vertical-offset="282" max-vertical-offset="16500">
-              <folding>
-                <marker date="1415359773351" expanded="true" signature="38547:38704" placeholder="INSERT INTO ..." />
-                <marker date="1415359773351" expanded="true" signature="43795:43925" placeholder="INSERT INTO ..." />
-                <marker date="1415359773351" expanded="true" signature="44246:44362" placeholder="INSERT INTO ..." />
-              </folding>
+            <state line="685" column="45" selection-start="34078" selection-end="34078" vertical-scroll-proportion="0.0" vertical-offset="282" max-vertical-offset="16500">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -75,6 +93,7 @@
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_or_print.php" />
         <option value="$PROJECT_DIR$/apps/frontend/lib/helper/examples/example_001.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
+        <option value="$PROJECT_DIR$/apps/frontend/lib/helper/config/tcpdf_config.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" />
       </list>
     </option>
@@ -252,11 +271,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mySurvey" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
+              <option name="myItemId" value="dashboard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -282,37 +297,45 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mySurvey" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mySurvey" />
+              <option name="myItemId" value="dashboard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="actions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="actions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="upload" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -327,10 +350,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps/frontend/lib/helper/include" />
+      <recent name="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions" />
+      <recent name="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/upload" />
       <recent name="$PROJECT_DIR$/apps/frontend/lib/helper" />
       <recent name="$PROJECT_DIR$/apps/frontend/lib/tcpdf" />
-      <recent name="$PROJECT_DIR$/apps/frontend/lib" />
-      <recent name="$PROJECT_DIR$/lib/vendor/symfony/lib/helper" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/apps/frontend/lib/helper" />
@@ -390,7 +414,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977098" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23272438" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24305004" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -398,11 +422,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2070626" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -419,19 +443,11 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_or_print.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2355" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="25" selection-start="920" selection-end="920" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5100" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/surveyManagement/templates/indexSuccess.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="82" column="37" selection-start="2822" selection-end="2822" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1380" />
@@ -594,9 +610,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/lib/helper/tcpdfHelper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7649" column="31" selection-start="271811" selection-end="271811" vertical-scroll-proportion="-20.490196" vertical-offset="112700" max-vertical-offset="367680">
-          <folding />
-        </state>
+        <state line="7649" column="31" selection-start="271811" selection-end="271811" vertical-scroll-proportion="-20.490196" vertical-offset="112700" max-vertical-offset="367680" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php">
@@ -656,13 +670,6 @@
         <state line="191" column="8" selection-start="5826" selection-end="5826" vertical-scroll-proportion="0.40199336" vertical-offset="2623" max-vertical-offset="3225" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/lib/helper/config/tcpdf_config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.0465117" vertical-offset="630" max-vertical-offset="3090">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="42" selection-start="1004" selection-end="1009" vertical-scroll-proportion="0.0" vertical-offset="349" max-vertical-offset="975" />
@@ -675,19 +682,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="685" column="45" selection-start="34078" selection-end="34078" vertical-scroll-proportion="-195.94118" vertical-offset="282" max-vertical-offset="16500">
-          <folding>
-            <marker date="1415359773351" expanded="true" signature="38547:38704" placeholder="INSERT INTO ..." />
-            <marker date="1415359773351" expanded="true" signature="43795:43925" placeholder="INSERT INTO ..." />
-            <marker date="1415359773351" expanded="true" signature="44246:44362" placeholder="INSERT INTO ..." />
-          </folding>
+        <state line="685" column="45" selection-start="34078" selection-end="34078" vertical-scroll-proportion="0.0" vertical-offset="282" max-vertical-offset="16500">
+          <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/lib/helper/config/tcpdf_config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="121" column="23" selection-start="3421" selection-end="3421" vertical-scroll-proportion="0.0" vertical-offset="1815" max-vertical-offset="3495">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_0.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="667" column="15" selection-start="19155" selection-end="19155" vertical-scroll-proportion="0.3474427" vertical-offset="9808" max-vertical-offset="20880" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/lib/helper/include/tcpdf_images.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="162" column="8" selection-start="6160" selection-end="6160" vertical-scroll-proportion="0.33106962" vertical-offset="1755" max-vertical-offset="4935" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="809" column="54" selection-start="37107" selection-end="37107" vertical-scroll-proportion="0.516129" vertical-offset="11831" max-vertical-offset="14430">
-          <folding />
+        <state line="835" column="7" selection-start="37896" selection-end="37896" vertical-scroll-proportion="0.6530249" vertical-offset="12158" max-vertical-offset="15510">
+          <folding>
+            <marker date="1415801515260" expanded="true" signature="16752:16767" placeholder="..." />
+            <marker date="1415801515260" expanded="true" signature="16785:16815" placeholder="..." />
+            <marker date="1415801515260" expanded="true" signature="33565:33580" placeholder="..." />
+            <marker date="1415801515260" expanded="true" signature="33598:33628" placeholder="..." />
+            <marker date="1415801515260" expanded="true" signature="37490:37525" placeholder="..." />
+            <marker date="1415801515260" expanded="true" signature="37585:37602" placeholder="..." />
+            <marker date="1415801515260" expanded="true" signature="37603:37813" placeholder="..." />
+            <marker date="1415801515260" expanded="true" signature="37603:37813" placeholder="..." />
+            <marker date="1415801515260" expanded="true" signature="37603:37813" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

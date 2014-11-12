@@ -320,6 +320,8 @@ class dashboardActions extends sfActions {
         $survey_ids = $request->getParameter("surveys_for_print", FALSE);
         //print_r($survey_ids);
         $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        $pdf->SetPrintHeader(false);
+        $pdf->SetPrintFooter(false);
 
 
 // set default header data
@@ -333,14 +335,18 @@ class dashboardActions extends sfActions {
         $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
 // set margins
-        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+        $pdf->SetMargins(PDF_MARGIN_LEFT, /*PDF_MARGIN_TOP,*/'', PDF_MARGIN_RIGHT);
+        $pdf->SetTopMargin(16);
+        $pdf->SetLeftMargin(40);
+        $pdf->SetRightMargin(40);
         $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
-        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+        //$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
         $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
         $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
         $pdf->setFontSubsetting(true);
 
-        //$pdf->SetFont('dejavusans', '', 14, '', true);
+        $pdf->SetFont('dejavusans', '', 12, '', true);
+
 
         $pdf->AddPage();
 
@@ -348,7 +354,22 @@ class dashboardActions extends sfActions {
 
         $html = '';
 
+
+        $pdf->SetLeftMargin(20);
+
+        $html1 = '<h3 style="font-size: 5mm;">Lex<span style="color:#ff6801; font-size: 5mm;">Lists</span></h3>';
+
+        $pdf->writeHTML($html1, true, false, true, false, '');
+
+        $pdf->SetLeftMargin(40);
+
+        $pdf->SetPrintFooter(true);
+
+
         if (count($survey_ids)>1) {
+
+            $pdf->SetFooterMargin(20);
+
             $c = count($survey_ids);
 
             foreach($survey_ids as $key =>$survey_id)
@@ -474,7 +495,16 @@ class dashboardActions extends sfActions {
                         $survey->getContact()->getEmailAddress() .
                         ")", ','), ' ');
 
+
+                    $survey_first_name = $survey->getContact()->getFirstName();
+                    $survey_last_name = $survey->getContact()->getLastName();
+//                    $survey_first_name = "First Name";
+//                    $survey_last_name = "Last Name";
+                    $survey_client_name = "Client Name";
+
+
                 }
+
 
 
     //            if ($surveys->getFirst()) {
@@ -486,80 +516,89 @@ class dashboardActions extends sfActions {
 
                 if (($key+1) == $c)
                 {
+                    $pdf->SetFooterMargin(45);
                     $last = '<br pagebreak="false" />';
                 }else{
+                    //$pdf->SetFooterMargin(20);
                     $last = '<br pagebreak="true" />';
                 }
-        $html .= '
-        <h3>Lex<span style="color:#ff6801;">Lists</span></h3>
-        <table>
+
+
+        $html = '
+         <div style="line-height: 70%;">
+            <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;">'.$survey_first_name.'&nbsp;'.$survey_last_name.'</h2>
+            <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;"><i>'.$survey_client_name.'</i></h2>
+            <br>
+            <p style="text-align: center; font-size: 3.5mm;">'.$survey_submission_deadline.'</p>
+        </div>
+
+        <div style="border-top: 1px solid black;"></div>
+        <br>
+
+        <table style=" font-size: 3mm;">
             <tr>
-                <td width="150" style="text-align: right;">Award:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$survey_name.'</td>
+                <td width="130" style="text-align: right;">Award:</td>
+                <td width="330">'.$survey_name.'</td>
             </tr>
             <tr>
-                <td width="150" style="text-align: right;">Submission Deadline:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$survey_submission_deadline.'</td>
+                <td width="130" style="text-align: right;">Submission Deadline:</td>
+                <td width="330">'.$survey_submission_deadline.'</td>
             </tr>
             <tr>
-                <td width="150" style="text-align: right;">Type:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$survey_type.'</td>
+                <td width="130" style="text-align: right;">Type:</td>
+                <td width="330">'.$survey_type.'</td>
             </tr>
             <tr>
-                <td width="150" style="text-align: right;">Special Criteria(s):</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$special_criterias.'</td>
+                <td width="130" style="text-align: right;">Special Criteria(s):</td>
+                <td width="330">'.$special_criterias.'</td>
             </tr>
             <tr>
-                <td width="150" style="text-align: right;">Eligibility:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$survey_eligibility.'</td>
+                <td width="130" style="text-align: right;">Eligibility:</td>
+                <td width="330">'.$survey_eligibility.'</td>
             </tr>
             <tr>
-                <td width="150" style="text-align: right;">Practice Area(s):</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$practice_areas.'</td>
+                <td width="130" style="text-align: right;">Practice Area(s):</td>
+                <td width="330">'.$practice_areas.'</td>
             </tr>
             <tr>
-                <td width="150" style="text-align: right;">Geographic Area:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$geographic_area.'</td>
+                <td width="130" style="text-align: right;">Geographic Area:</td>
+                <td width="330">'.$geographic_area.'</td>
             </tr>
             <tr>
-                <td width="150" style="text-align: right;">Description:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$survey_description.'</td>
+                <td width="130" style="text-align: right;">Description:</td>
+                <td width="330">'.$survey_description.'</td>
             </tr>
             <tr>
-                <td width="150" style="text-align: right;">Methodology:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$survey_methodology.'</td>
+                <td width="130" style="text-align: right;">Methodology:</td>
+                <td width="330">'.$survey_methodology.'</td>
             </tr>
             <tr>
-                <td width="150" style="text-align: right;">How to Apply:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$survey_how_to_apply.'</td>
+                <td width="130" style="text-align: right;">How to Apply:</td>
+                <td width="330">'.$survey_how_to_apply.'</td>
             </tr>
             <tr>
-                <td width="150" style="text-align: right;">Frequency:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$survey_frequency.'</td>
+                <td width="130" style="text-align: right;">Frequency:</td>
+                <td width="330">'.$survey_frequency.'</td>
             </tr>
             <tr>
-                <td width="150" style="text-align: right;">Contact Person:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$survey_contact_person.'</td>
+                <td width="130" style="text-align: right;">Contact Person:</td>
+                <td width="330">'.$survey_contact_person.'</td>
             </tr>
 
         </table>
+        <br>
+        <div style="border-top: 1px solid black;"></div>
         '.$last.'
         ';
+
+
+                $pdf->writeHTML($html, true, false, true, false, '');
             }
+
         }
+
         else{
+            $pdf->SetFooterMargin(45);
             if ($survey_ids) {
                 // Check if surveys exists
                 $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds($survey_ids);
@@ -682,6 +721,12 @@ class dashboardActions extends sfActions {
                         $survey->getContact()->getEmailAddress() .
                         ")", ','), ' ');
 
+                    $survey_first_name = $survey->getContact()->getFirstName();
+                    $survey_last_name = $survey->getContact()->getLastName();
+//                    $survey_first_name = "First Name";
+//                    $survey_last_name = "Last Name";
+                    $survey_client_name = "Client Name";
+
                 }
 
 
@@ -691,78 +736,105 @@ class dashboardActions extends sfActions {
                 //                return $this->renderPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => false));
                 //            }
 
+                /*$pdf->SetLeftMargin(20);
 
-                $html = '
-        <h3>Lex<span style="color:#ff6801;">Lists</span></h3>
-        <table>
-            <tr>
-                <td width="150" style="text-align: right;">Award:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$survey_name.'</td>
-            </tr>
-            <tr>
-                <td width="150" style="text-align: right;">Submission Deadline:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$survey_submission_deadline.'</td>
-            </tr>
-            <tr>
-                <td width="150" style="text-align: right;">Type:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$survey_type.'</td>
-            </tr>
-            <tr>
-                <td width="150" style="text-align: right;">Special Criteria(s):</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$special_criterias.'</td>
-            </tr>
-            <tr>
-                <td width="150" style="text-align: right;">Eligibility:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$survey_eligibility.'</td>
-            </tr>
-            <tr>
-                <td width="150" style="text-align: right;">Practice Area(s):</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$practice_areas.'</td>
-            </tr>
-            <tr>
-                <td width="150" style="text-align: right;">Geographic Area:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$geographic_area.'</td>
-            </tr>
-            <tr>
-                <td width="150" style="text-align: right;">Description:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$survey_description.'</td>
-            </tr>
-            <tr>
-                <td width="150" style="text-align: right;">Methodology:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$survey_methodology.'</td>
-            </tr>
-            <tr>
-                <td width="150" style="text-align: right;">How to Apply:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$survey_how_to_apply.'</td>
-            </tr>
-            <tr>
-                <td width="150" style="text-align: right;">Frequency:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$survey_frequency.'</td>
-            </tr>
-            <tr>
-                <td width="150" style="text-align: right;">Contact Person:</td>
-                <td width="10">&nbsp;</td>
-                <td width="460">'.$survey_contact_person.'</td>
-            </tr>
+                $html = '<h3 style="font-size: 5mm;">Lex<span style="color:#ff6801; font-size: 5mm;">Lists</span></h3>';
 
-        </table>
-        ';
+                $pdf->writeHTML($html, true, false, true, false, '');
+
+                $pdf->SetLeftMargin(40);*/
+
+
+
+                $html ='
+                    <div style="line-height: 70%;">
+                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;">'.$survey_first_name.'&nbsp;'.$survey_last_name.'</h2>
+                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;"><i>'.$survey_client_name.'</i></h2>
+                        <br>
+                        <p style="text-align: center; font-size: 3.5mm;">'.$survey_submission_deadline.'</p>
+                    </div>
+
+                    <div style="border-top: 1px solid black;"></div>
+                    <br>
+
+                    <table style=" font-size: 3mm;">
+                        <tr>
+                            <td width="130" style="text-align: right;">Award:</td>
+                            <td width="330">'.$survey_name.'</td>
+                        </tr>
+                        <tr>
+                            <td width="130" style="text-align: right;">Submission Deadline:</td>
+                            <td width="330">'.$survey_submission_deadline.'</td>
+                        </tr>
+                        <tr>
+                            <td width="130" style="text-align: right;">Type:</td>
+                            <td width="330">'.$survey_type.'</td>
+                        </tr>
+                        <tr>
+                            <td width="130" style="text-align: right;">Special Criteria(s):</td>
+                            <td width="330">'.$special_criterias.'</td>
+                        </tr>
+                        <tr>
+                            <td width="130" style="text-align: right;">Eligibility:</td>
+                            <td width="330">'.$survey_eligibility.'</td>
+                        </tr>
+                        <tr>
+                            <td width="130" style="text-align: right;">Practice Area(s):</td>
+                            <td width="330">'.$practice_areas.'</td>
+                        </tr>
+                        <tr>
+                            <td width="130" style="text-align: right;">Geographic Area:</td>
+                            <td width="330">'.$geographic_area.'</td>
+                        </tr>
+                        <tr>
+                            <td width="130" style="text-align: right;">Description:</td>
+                            <td width="330">'.$survey_description.'</td>
+                        </tr>
+                        <tr>
+                            <td width="130" style="text-align: right;">Methodology:</td>
+                            <td width="330">'.$survey_methodology.'</td>
+                        </tr>
+                        <tr>
+                            <td width="130" style="text-align: right;">How to Apply:</td>
+                            <td width="330">'.$survey_how_to_apply.'</td>
+                        </tr>
+                        <tr>
+                            <td width="130" style="text-align: right;">Frequency:</td>
+                            <td width="330">'.$survey_frequency.'</td>
+                        </tr>
+                        <tr>
+                            <td width="130" style="text-align: right;">Contact Person:</td>
+                            <td width="330">'.$survey_contact_person.'</td>
+                        </tr>
+
+                    </table>
+                    <br>
+                    <div style="border-top: 1px solid black;"></div>
+                ';
+                $pdf->writeHTML($html, true, false, true, false, '');
             }
-        }
-        $pdf->writeHTML($html, true, false, true, false, '');
 
-        $pdf->Output('LexLists.pdf', 'I');die;
+        }
+
+
+
+
+
+        $pdf->Text(19, 255, '');
+        $pdf->SetLeftMargin(20);
+        $pdf->SetRightMargin(30);
+
+        $html = '
+            <p style="font-size: 3.6mm;font-weight: bold;">LexLists.com: Discover Awards!</p>
+
+            <p style="font-size: 2.7mm;">Sharing or using this output in any way outside its intended use is a violation of the License Terms & Agreement.
+                Copyright 2012-2015 LexLists by LexSource. All Rights Reserved.
+            </p>
+        ';
+
+        $pdf->writeHTML($html, true, false, true, false, '');
+       
+        $pdf->Output("LexLists-Client_Name-$survey_last_name-$survey_submission_deadline.pdf", 'I');die;
 
         //$this->forward404();
     }

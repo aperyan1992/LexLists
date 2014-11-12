@@ -525,7 +525,7 @@ class dashboardActions extends sfActions {
 
 
         $html = '
-         <div style="line-height: 70%;">
+         <div style="line-height: 100%;">
             <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;">'.$survey_first_name.'&nbsp;'.$survey_last_name.'</h2>
             <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;"><i>'.$survey_client_name.'</i></h2>
             <br>
@@ -747,7 +747,7 @@ class dashboardActions extends sfActions {
 
 
                 $html ='
-                    <div style="line-height: 70%;">
+                    <div style="line-height: 100%;">
                         <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;">'.$survey_first_name.'&nbsp;'.$survey_last_name.'</h2>
                         <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;"><i>'.$survey_client_name.'</i></h2>
                         <br>
@@ -833,7 +833,7 @@ class dashboardActions extends sfActions {
         ';
 
         $pdf->writeHTML($html, true, false, true, false, '');
-       
+
         $pdf->Output("LexLists-Client_Name-$survey_last_name-$survey_submission_deadline.pdf", 'I');die;
 
         //$this->forward404();

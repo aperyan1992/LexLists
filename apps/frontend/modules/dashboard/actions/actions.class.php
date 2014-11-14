@@ -314,11 +314,19 @@ class dashboardActions extends sfActions {
      */
     public function executePrintSurvey(sfWebRequest $request) {
 
+        $date = date("d-M-Y");
+
         $session_user_id = $_SESSION['symfony/user/sfUser/attributes']['sfGuardSecurityUser']['user_id'];
 
-        $query = 'SELECT c.name FROM  `clients` AS c JOIN  `sf_guard_user` AS sgu ON sgu.`client_id` = c.`id` WHERE sgu.`client_id` = '. $session_user_id .'';
-        $client_name = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
-        $survey_client_name = $client_name['name'];
+//        $query = 'SELECT c.name FROM  `clients` AS c JOIN  `sf_guard_user` AS sgu ON sgu.`client_id` = c.`id` WHERE sgu.`client_id` = '. $session_user_id .'';
+//        $client_name = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
+//        $survey_client_name = $client_name['name'];
+
+        $query = 'SELECT `first_name`, `last_name` FROM `sf_guard_user` WHERE `id` = '.$session_user_id.'';
+        $first_name = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
+        $survey_first_name = $first_name['first_name'];
+        $survey_last_name = $first_name['last_name'];
+
         $this->getContext()->getConfiguration()->loadHelpers('tcpdf_include','tcpdf');
 
         // Get request parameters
@@ -355,13 +363,12 @@ class dashboardActions extends sfActions {
             {
                 $pdf->SetLeftMargin(20);
 
-                $html1 = '<h3 style="font-size: 5mm;">Lex<span style="color:#ff6801; font-size: 5mm;">Lists</span></h3>';
+                $html1 = '<h3 style="font-size: 5mm; line-height: 100%;">Lex<span style="color:#ff6801; font-size: 5mm;">Lists</span></h3>';
 
                 $pdf->writeHTML($html1, true, false, true, false, '');
-
                 $pdf->SetLeftMargin(40);
+                //$pdf->Text(100, 10, 'aaaaaaa');
 
-                $pdf->SetPrintFooter(true);
 
                 // Check if surveys exists
                 $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds($survey_id);
@@ -481,12 +488,14 @@ class dashboardActions extends sfActions {
                         " (" .
                         $survey->getContact()->getEmailAddress() .
                         ")", ','), ' ');
-
-                    $survey_first_name = $survey->getContact()->getFirstName();
-                    $survey_last_name = $survey->getContact()->getLastName();
-
-
                 }
+
+              /*  if(($key+1) == $c)
+                {
+                    $last = '<br pagebreak="false"/>';
+                }else{
+                    $last = '<br pagebreak="true"/>';
+                }*/
 
                 //            if ($surveys->getFirst()) {
                 //                $this->setLayout(false);
@@ -494,16 +503,22 @@ class dashboardActions extends sfActions {
                 //                return $this->renderPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => false));
                 //            }
 
-                $html = '
-                    <div style="line-height: 100%;">
-                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;">'.$survey_first_name.'&nbsp;'.$survey_last_name.'</h2>
-                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;"><i>'.$survey_client_name.'</i></h2>
-                        <br>
-                        <p style="text-align: center; font-size: 3.5mm;">'.$survey_submission_deadline.'</p>
-                    </div>
+                $html4 = '
+                       <div style="line-height: 100%;">
+                           <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;">'.$survey_first_name.'</h2>
+                           <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;"><i>'.$survey_first_name.' &nbsp; '.$survey_last_name.'</i></h2>
+                           <br>
+                           <p style="text-align: center; font-size: 3.5mm;">'.$date.'</p>
+                       </div>';
+
+
+                $pdf->writeHTML($html4, true, false, true, false, '');
+                $pdf->Text(100, 63, '');
+
+                $html ='
+
 
                     <div style="border-top: 1px solid black;"></div>
-                    <br>
 
                     <table style=" font-size: 3mm;">
                         <tr>
@@ -557,6 +572,7 @@ class dashboardActions extends sfActions {
                     </table>
                     <br>
                     <div style="border-top: 1px solid black;"></div>
+
                 ';
                 $pdf->writeHTML($html, true, false, true, false, '');
 
@@ -580,12 +596,11 @@ class dashboardActions extends sfActions {
             $pdf->SetLeftMargin(20);
 
             $html1 = '<h3 style="font-size: 5mm;">Lex<span style="color:#ff6801; font-size: 5mm;">Lists</span></h3>';
-
+            $pdf->Text(100, 12, '');
             $pdf->writeHTML($html1, true, false, true, false, '');
 
             $pdf->SetLeftMargin(40);
 
-            $pdf->SetPrintFooter(true);
 
             if ($survey_ids) {
                 // Check if surveys exists
@@ -705,10 +720,6 @@ class dashboardActions extends sfActions {
                         " (" .
                         $survey->getContact()->getEmailAddress() .
                         ")", ','), ' ');
-
-                    $survey_first_name = $survey->getContact()->getFirstName();
-                    $survey_last_name = $survey->getContact()->getLastName();
-
                 }
 
                 //            if ($surveys->getFirst()) {
@@ -719,14 +730,17 @@ class dashboardActions extends sfActions {
 
                 $html ='
                     <div style="line-height: 100%;">
-                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;">'.$survey_first_name.'&nbsp;'.$survey_last_name.'</h2>
-                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;"><i>'.$survey_client_name.'</i></h2>
+                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;">'.$survey_first_name.'</h2>
+                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;"><i>'.$survey_first_name.' &nbsp; '.$survey_last_name.'</i></h2>
                         <br>
-                        <p style="text-align: center; font-size: 3.5mm;">'.$survey_submission_deadline.'</p>
-                    </div>
+                        <p style="text-align: center; font-size: 3.5mm;">'.$date.'</p>
+                    </div>';
 
+
+                $pdf->writeHTML($html, true, false, true, false, '');
+                $pdf->Text(100, 60, '');
+                $html ='
                     <div style="border-top: 1px solid black;"></div>
-                    <br>
 
                     <table style=" font-size: 3mm;">
                         <tr>
@@ -799,7 +813,7 @@ class dashboardActions extends sfActions {
             }
         }
 
-        $pdf->Output("LexLists-$survey_client_name-$survey_last_name-$survey_submission_deadline.pdf", 'I');die;
+        $pdf->Output("LexLists-$survey_first_name-$survey_last_name-$date.pdf", 'I');die;
 
         //$this->forward404();
     }

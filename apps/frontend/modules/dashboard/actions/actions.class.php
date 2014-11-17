@@ -318,14 +318,14 @@ class dashboardActions extends sfActions {
 
         $session_user_id = $_SESSION['symfony/user/sfUser/attributes']['sfGuardSecurityUser']['user_id'];
 
-//        $query = 'SELECT c.name FROM  `clients` AS c JOIN  `sf_guard_user` AS sgu ON sgu.`client_id` = c.`id` WHERE sgu.`client_id` = '. $session_user_id .'';
-//        $client_name = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
-//        $survey_client_name = $client_name['name'];
+        $query1 = 'SELECT c.`name` FROM `clients` AS c JOIN `sf_guard_user` AS sgu ON sgu.`client_id` = c.`id` WHERE sgu.`id` = '. $session_user_id.'';
+        $name1 = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query1)->fetch();
+        $survey_client_name = $name1['name'];
 
         $query = 'SELECT `first_name`, `last_name` FROM `sf_guard_user` WHERE `id` = '.$session_user_id.'';
-        $first_name = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
-        $survey_first_name = $first_name['first_name'];
-        $survey_last_name = $first_name['last_name'];
+        $name = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
+        $survey_first_name = $name['first_name'];
+        $survey_last_name = $name['last_name'];
 
         $this->getContext()->getConfiguration()->loadHelpers('tcpdf_include','tcpdf');
 
@@ -335,7 +335,7 @@ class dashboardActions extends sfActions {
         $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
         $pdf->SetPrintHeader(false);
         $pdf->SetPrintFooter(false);
-        $pdf->setFooterData(array(0,64,0), array(0,64,128));
+        //$pdf->setFooterData(array(0,0,0), array(255,255,255));
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
         $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
@@ -352,6 +352,7 @@ class dashboardActions extends sfActions {
         $pdf->AddPage();
         $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
         $pdf->SetFooterMargin(45);
+        $pdf->startPageGroup();
 
         $html = '';
 
@@ -505,7 +506,7 @@ class dashboardActions extends sfActions {
 
                 $html4 = '
                        <div style="line-height: 100%;">
-                           <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;">'.$survey_first_name.'</h2>
+                           <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;">'.$survey_client_name.'</h2>
                            <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;"><i>'.$survey_first_name.' &nbsp; '.$survey_last_name.'</i></h2>
                            <br>
                            <p style="text-align: center; font-size: 3.5mm;">'.$date.'</p>
@@ -574,6 +575,16 @@ class dashboardActions extends sfActions {
                     <div style="border-top: 1px solid black;"></div>
 
                 ';
+                $pdf->writeHTML($html, true, false, true, false, '');
+
+
+                $page_number = $pdf->PageNo();
+                $pages = $pdf->getAliasNbPages();
+
+                $pdf->Text(150, 250, '');
+                $pdf->SetLeftMargin(160);
+                $pdf->SetRightMargin(-30);
+                $html = '<p style="font-size: 2.5mm; letter-spacing: 1mm;">'.$page_number.'/'.$pages.'</p>';
                 $pdf->writeHTML($html, true, false, true, false, '');
 
                 $pdf->Text(19, 255, '');
@@ -730,7 +741,7 @@ class dashboardActions extends sfActions {
 
                 $html ='
                     <div style="line-height: 100%;">
-                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;">'.$survey_first_name.'</h2>
+                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;">'.$survey_client_name.'</h2>
                         <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;"><i>'.$survey_first_name.' &nbsp; '.$survey_last_name.'</i></h2>
                         <br>
                         <p style="text-align: center; font-size: 3.5mm;">'.$date.'</p>
@@ -796,6 +807,12 @@ class dashboardActions extends sfActions {
                     <div style="border-top: 1px solid black;"></div>
                 ';
 
+                $pdf->writeHTML($html, true, false, true, false, '');
+
+                $pdf->Text(150, 250, '');
+                $pdf->SetLeftMargin(160);
+                $pdf->SetRightMargin(-30);
+                $html = '<p style="font-size: 2.5mm; letter-spacing: 1mm;">1/1</p>';
                 $pdf->writeHTML($html, true, false, true, false, '');
 
                 $pdf->Text(19, 255, '');

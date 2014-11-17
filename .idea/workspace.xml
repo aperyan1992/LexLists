@@ -29,20 +29,25 @@
       <file leaf-file-name="actions.class.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="515" column="34" selection-start="24981" selection-end="24981" vertical-scroll-proportion="0.62308997" vertical-offset="7358" max-vertical-offset="15195">
+            <state line="319" column="0" selection-start="15345" selection-end="15345" vertical-scroll-proportion="0.049235992" vertical-offset="4756" max-vertical-offset="15450">
               <folding>
-                <marker date="1415974134597" expanded="true" signature="15688:15773" placeholder="SELECT `firs..." />
-                <marker date="1415974134597" expanded="true" signature="17626:17660" placeholder="..." />
-                <marker date="1415974134597" expanded="true" signature="17678:17708" placeholder="..." />
-                <marker date="1415974134597" expanded="false" signature="28189:28224" placeholder="..." />
-                <marker date="1415974134597" expanded="false" signature="28292:28309" placeholder="..." />
-                <marker date="1415974134597" expanded="true" signature="28310:28515" placeholder="..." />
-                <marker date="1415974134597" expanded="false" signature="28719:28734" placeholder="..." />
-                <marker date="1415974134597" expanded="false" signature="28752:28782" placeholder="..." />
-                <marker date="1415974134597" expanded="false" signature="39040:39075" placeholder="..." />
-                <marker date="1415974134597" expanded="false" signature="39143:39160" placeholder="..." />
-                <marker date="1415974134597" expanded="true" signature="39161:39362" placeholder="..." />
-                <marker date="1415974134597" expanded="true" signature="39161:39362" placeholder="..." />
+                <marker date="1416216976025" expanded="true" signature="15365:15436" placeholder="SELECT c.`na..." />
+                <marker date="1416216976025" expanded="true" signature="15365:15493" placeholder="SELECT c.`na..." />
+                <marker date="1416216976025" expanded="true" signature="15664:15749" placeholder="SELECT `firs..." />
+                <marker date="1416216976025" expanded="false" signature="17620:17654" placeholder="..." />
+                <marker date="1416216976025" expanded="false" signature="17672:17702" placeholder="..." />
+                <marker date="1416216976025" expanded="true" signature="28590:28625" placeholder="..." />
+                <marker date="1416216976025" expanded="true" signature="28693:28710" placeholder="..." />
+                <marker date="1416216976025" expanded="true" signature="28711:28916" placeholder="..." />
+                <marker date="1416216976025" expanded="true" signature="28711:28916" placeholder="..." />
+                <marker date="1416216976025" expanded="false" signature="29120:29135" placeholder="..." />
+                <marker date="1416216976025" expanded="false" signature="29153:29183" placeholder="..." />
+                <marker date="1416216976025" expanded="true" signature="39423:39461" placeholder="..." />
+                <marker date="1416216976025" expanded="true" signature="39725:39760" placeholder="..." />
+                <marker date="1416216976025" expanded="true" signature="39828:39845" placeholder="..." />
+                <marker date="1416216976025" expanded="true" signature="39846:40047" placeholder="..." />
+                <marker date="1416216976025" expanded="true" signature="39846:40047" placeholder="..." />
+                <marker date="1416216976025" expanded="true" signature="39846:40047" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -67,7 +72,7 @@
       <file leaf-file-name="actions.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/client/actions/actions.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="41" selection-start="1477" selection-end="1519" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="2325">
+            <state line="39" column="41" selection-start="1477" selection-end="1519" vertical-scroll-proportion="0.0" vertical-offset="585" max-vertical-offset="2325">
               <folding />
             </state>
           </provider>
@@ -108,10 +113,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-4" />
-    <option name="width" value="1303" />
-    <option name="height" value="773" />
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1301" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -139,6 +144,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -393,7 +399,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -458,7 +463,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1303" height="773" extended-state="7" />
+    <frame x="65" y="24" width="1301" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977098" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -466,7 +471,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977098" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24702145" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25496426" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -499,7 +504,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php</url>
-          <line>827</line>
+          <line>844</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -774,20 +779,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="515" column="34" selection-start="24981" selection-end="24981" vertical-scroll-proportion="0.62308997" vertical-offset="7358" max-vertical-offset="15195">
+        <state line="319" column="0" selection-start="15345" selection-end="15345" vertical-scroll-proportion="0.049235992" vertical-offset="4756" max-vertical-offset="15450">
           <folding>
-            <marker date="1415974134597" expanded="true" signature="15688:15773" placeholder="SELECT `firs..." />
-            <marker date="1415974134597" expanded="true" signature="17626:17660" placeholder="..." />
-            <marker date="1415974134597" expanded="true" signature="17678:17708" placeholder="..." />
-            <marker date="1415974134597" expanded="false" signature="28189:28224" placeholder="..." />
-            <marker date="1415974134597" expanded="false" signature="28292:28309" placeholder="..." />
-            <marker date="1415974134597" expanded="true" signature="28310:28515" placeholder="..." />
-            <marker date="1415974134597" expanded="false" signature="28719:28734" placeholder="..." />
-            <marker date="1415974134597" expanded="false" signature="28752:28782" placeholder="..." />
-            <marker date="1415974134597" expanded="false" signature="39040:39075" placeholder="..." />
-            <marker date="1415974134597" expanded="false" signature="39143:39160" placeholder="..." />
-            <marker date="1415974134597" expanded="true" signature="39161:39362" placeholder="..." />
-            <marker date="1415974134597" expanded="true" signature="39161:39362" placeholder="..." />
+            <marker date="1416216976025" expanded="true" signature="15365:15436" placeholder="SELECT c.`na..." />
+            <marker date="1416216976025" expanded="true" signature="15365:15493" placeholder="SELECT c.`na..." />
+            <marker date="1416216976025" expanded="true" signature="15664:15749" placeholder="SELECT `firs..." />
+            <marker date="1416216976025" expanded="false" signature="17620:17654" placeholder="..." />
+            <marker date="1416216976025" expanded="false" signature="17672:17702" placeholder="..." />
+            <marker date="1416216976025" expanded="true" signature="28590:28625" placeholder="..." />
+            <marker date="1416216976025" expanded="true" signature="28693:28710" placeholder="..." />
+            <marker date="1416216976025" expanded="true" signature="28711:28916" placeholder="..." />
+            <marker date="1416216976025" expanded="true" signature="28711:28916" placeholder="..." />
+            <marker date="1416216976025" expanded="false" signature="29120:29135" placeholder="..." />
+            <marker date="1416216976025" expanded="false" signature="29153:29183" placeholder="..." />
+            <marker date="1416216976025" expanded="true" signature="39423:39461" placeholder="..." />
+            <marker date="1416216976025" expanded="true" signature="39725:39760" placeholder="..." />
+            <marker date="1416216976025" expanded="true" signature="39828:39845" placeholder="..." />
+            <marker date="1416216976025" expanded="true" signature="39846:40047" placeholder="..." />
+            <marker date="1416216976025" expanded="true" signature="39846:40047" placeholder="..." />
+            <marker date="1416216976025" expanded="true" signature="39846:40047" placeholder="..." />
           </folding>
         </state>
       </provider>

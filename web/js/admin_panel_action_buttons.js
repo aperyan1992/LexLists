@@ -50,10 +50,10 @@ function checkLength(o, n, min, max) {
  * Check valid password
  */
 function checkValidPassword(password, username) {
-
     if($(password).val().indexOf($(username).val())<1)
     {
-            var regex = /(?=^.{8,25}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?\/&gt;.&lt;,])(?!.*\s).*$/i;
+            var regex = /^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$#%^&*()+_|}]).*$/;
+            //var regex = /(?=^.{8,25}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?\/&gt;.&lt;,])(?!.*\s).*$/i;
             if(regex.test($(password).val()))
             {
                 return true;

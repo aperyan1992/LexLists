@@ -353,10 +353,7 @@ class dashboardActions extends sfActions {
         $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
         $pdf->SetFooterMargin(45);
         $pdf->startPageGroup();
-
         $pdf->SetLeftMargin(105);
-
-
 
         if (count($survey_ids)>1)
         {
@@ -371,20 +368,8 @@ class dashboardActions extends sfActions {
                 $last_footer = false;
             }
 
-           /* $pdf->SetLeftMargin(105);
-            $pdf->Text(100, 20, '');
-            $html ='
-                    <div style="line-height: 70%;">
-                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm;">Awards (Full Listing)</h2>
-                        <p style="text-align: center; font-size: 3.5mm;">'.$date.'</p>
-                    </div>';
-            $pdf->writeHTML($html, true, false, true, false, '');*/
-
             foreach($survey_ids as $key =>$survey_id)
             {
-
-
-
                 // Check if surveys exists
                 $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds($survey_id);
                 foreach($surveys as $survey)
@@ -503,21 +488,6 @@ class dashboardActions extends sfActions {
                         " (" .
                         $survey->getContact()->getEmailAddress() .
                         ")", ','), ' ');
-
-                }
-
-                if(($key %2) == 0)
-                {
-                    $last = '<br pagebreak="false"/>';
-                }
-                else
-                {
-                    $last = '<br pagebreak="true"/>';
-                }
-
-                if(($key+1) == $c)
-                {
-                    $last = '<br pagebreak="false"/>';
                 }
 
                 //            if ($surveys->getFirst()) {
@@ -531,53 +501,43 @@ class dashboardActions extends sfActions {
                     $foot = false;
                     $pdf->SetLeftMargin(20);
                     $html1 = '<h3 style="font-size: 5mm; line-height: 100%;">Lex<span style="color:#ff6801; font-size: 5mm;">Lists</span></h3>';
-
                     $pdf->writeHTML($html1, true, false, true, false, '');
-                   // $pdf->SetLeftMargin(40);
 
-
-                $pdf->Text(150, 9, '');
-                $pdf->SetLeftMargin(155);
-                $pdf->SetRightMargin(0);
-                $html4 = '
+                    $pdf->Text(150, 9, '');
+                    $pdf->SetLeftMargin(155);
+                    $pdf->SetRightMargin(0);
+                    $html4 = '
                        <div style="line-height: 70%;">
                            <h2 style="text-align: center; font-family: Georgia, serif; font-size: 5mm;">'.$survey_client_name.'</h2>
                            <h2 style="text-align: center; font-family: Georgia, serif; font-size: 5mm; font-weight: normal;"><i>'.$survey_first_name.'&nbsp;'.$survey_last_name.'</i></h2>
 
                        </div>';
 
-                $pdf->writeHTML($html4, true, false, true, false, '');
+                    $pdf->writeHTML($html4, true, false, true, false, '');
 
-                if($first_survey == true)
-                {
-                    $first_survey = false;
-                    $pdf->SetLeftMargin(105);
-                    $pdf->Text(100, 20, '');
-                    $html ='
-                        <div style="line-height: 70%;">
-                            <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm;">Awards (Full Listing)</h2>
-                            <p style="text-align: center; font-size: 3.5mm; font-weight: normal;">'.$date.'</p>
-                        </div>';
-                    $pdf->writeHTML($html, true, false, true, false, '');
-                }
+                    if($first_survey == true)
+                    {
+                        $first_survey = false;
+                        $pdf->SetLeftMargin(105);
+                        $pdf->Text(100, 20, '');
+                        $html ='
+                            <div style="line-height: 70%;">
+                                <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm;">Awards (Full Listing)</h2>
+                                <p style="text-align: center; font-size: 3.5mm; font-weight: normal;">'.$date.'</p>
+                            </div>';
+                        $pdf->writeHTML($html, true, false, true, false, '');
+                    }
 
-                $pdf->SetLeftMargin(15);
-                $pdf->SetRightMargin(15);
+                    $pdf->SetLeftMargin(15);
+                    $pdf->SetRightMargin(15);
 
-
-                        $top = 1;
-
-                }
-
-                else
-                {
+                    $top = 1;
+                }else{
                     $foot = true;
                     $top = 0;
                 }
 
                 $html_t ='
-
-
                     <div style="border-top: 1px solid black; "></div>
 
                     <table style=" font-size: 2.7mm;">
@@ -630,41 +590,40 @@ class dashboardActions extends sfActions {
                             <td width="510">'.$survey_contact_person.'</td>
                         </tr>
                     </table>
+
                     <table style="padding-top: 1mm;">
                     <tr>
                     <td></td>
                     </tr>
                     </table>
-
                 ';
 
                 $pdf->writeHTML($html_t, true, false, true, false, '');
 
-               if($foot == true)
-               {
+                if($foot == true)
+                {
 
-                   $page_number = $pdf->PageNo();
-                   $pages = $pdf->getAliasNbPages();
+                    $page_number = $pdf->PageNo();
+                    $pages = $pdf->getAliasNbPages();
 
-                   $pdf->Text(150, 250, '');
-                   $pdf->SetLeftMargin(180);
-                   $pdf->SetRightMargin(-30);
-                   $html = '<p style="font-size: 2.5mm; letter-spacing: 1mm;">'.$page_number.'/'.$pages.'</p>';
-                   $pdf->writeHTML($html, true, false, true, false, '');
+                    $pdf->Text(150, 250, '');
+                    $pdf->SetLeftMargin(180);
+                    $pdf->SetRightMargin(-30);
+                    $html = '<p style="font-size: 2.5mm; letter-spacing: 1mm;">'.$page_number.'/'.$pages.'</p>';
+                    $pdf->writeHTML($html, true, false, true, false, '');
 
-                   $pdf->Text(19, 255, '');
-                   $pdf->SetLeftMargin(15);
-                   $pdf->SetRightMargin(15);
-                   $html5 = '
-                   <p style="font-size: 3.6mm;font-weight: bold;">LexLists.com: Discover Awards!</p>
+                    $pdf->Text(19, 255, '');
+                    $pdf->SetLeftMargin(15);
+                    $pdf->SetRightMargin(15);
+                    $html5 = '
+                    <p style="font-size: 3.6mm;font-weight: bold;">LexLists.com: Discover Awards!</p>
 
-                   <p style="font-size: 2.7mm;">Sharing or using this output in any way outside its intended use is a violation of the License Terms & Agreement.
-                       Copyright 2012-2015 LexLists by LexSource. All Rights Reserved.</p>
-                   ';
+                    <p style="font-size: 2.7mm;">Sharing or using this output in any way outside its intended use is a violation of the License Terms & Agreement.
+                    Copyright 2012-2015 LexLists by LexSource. All Rights Reserved.</p>
+                    ';
 
-
-                   $pdf->writeHTML($html5, true, false, true, false, '');
-               }
+                    $pdf->writeHTML($html5, true, false, true, false, '');
+                }
 
             }
             if($last_footer == true)
@@ -688,12 +647,8 @@ class dashboardActions extends sfActions {
                        Copyright 2012-2015 LexLists by LexSource. All Rights Reserved.</p>
                    ';
 
-
                 $pdf->writeHTML($html5, true, false, true, false, '');
             }
-
-
-
         }
 
         else{
@@ -704,7 +659,6 @@ class dashboardActions extends sfActions {
             $pdf->writeHTML($html1, true, false, true, false, '');
 
             $pdf->SetLeftMargin(40);
-
 
             if ($survey_ids) {
                 // Check if surveys exists
@@ -841,8 +795,6 @@ class dashboardActions extends sfActions {
                         <h2 style="text-align: center; font-family: Georgia, serif; font-size: 5mm; font-weight: normal;"><i>'.$survey_first_name.'&nbsp;'.$survey_last_name.'</i></h2>
                     </div>';
 
-              /*  <br>
-                        <p style="text-align: center; font-size: 3.5mm;">'.$date.'</p>*/
                 $pdf->writeHTML($html, true, false, true, false, '');
 
                 $pdf->SetLeftMargin(105);
@@ -853,7 +805,6 @@ class dashboardActions extends sfActions {
                         <p style="text-align: center; font-size: 3.5mm;">'.$date.'</p>
                     </div>';
                 $pdf->writeHTML($html, true, false, true, false, '');
-
 
                 $pdf->SetLeftMargin(15);
                 $pdf->SetRightMargin(15);
@@ -911,7 +862,6 @@ class dashboardActions extends sfActions {
                             <td width="520">'.$survey_contact_person.'</td>
                         </tr>
                     </table>
-
                 ';
 
                 $pdf->writeHTML($html, true, false, true, false, '');

@@ -335,7 +335,7 @@ class dashboardActions extends sfActions {
         $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
         $pdf->SetPrintHeader(false);
         $pdf->SetPrintFooter(false);
-        //$pdf->setFooterData(array(0,0,0), array(255,255,255));
+        $pdf->setFooterData(array(0,0,0), array(255,255,255));
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
         $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
@@ -354,21 +354,35 @@ class dashboardActions extends sfActions {
         $pdf->SetFooterMargin(45);
         $pdf->startPageGroup();
 
-        $html = '';
+        $pdf->SetLeftMargin(105);
+
+
 
         if (count($survey_ids)>1)
         {
+            $top = 0;
+            $first_survey = true;
             $c = count($survey_ids);
+
+            if(($c %2) != 0)
+            {
+                $last_footer = true;
+            }else{
+                $last_footer = false;
+            }
+
+           /* $pdf->SetLeftMargin(105);
+            $pdf->Text(100, 20, '');
+            $html ='
+                    <div style="line-height: 70%;">
+                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm;">Awards (Full Listing)</h2>
+                        <p style="text-align: center; font-size: 3.5mm;">'.$date.'</p>
+                    </div>';
+            $pdf->writeHTML($html, true, false, true, false, '');*/
 
             foreach($survey_ids as $key =>$survey_id)
             {
-                $pdf->SetLeftMargin(20);
 
-                $html1 = '<h3 style="font-size: 5mm; line-height: 100%;">Lex<span style="color:#ff6801; font-size: 5mm;">Lists</span></h3>';
-
-                $pdf->writeHTML($html1, true, false, true, false, '');
-                $pdf->SetLeftMargin(40);
-                //$pdf->Text(100, 10, 'aaaaaaa');
 
 
                 // Check if surveys exists
@@ -489,14 +503,22 @@ class dashboardActions extends sfActions {
                         " (" .
                         $survey->getContact()->getEmailAddress() .
                         ")", ','), ' ');
+
                 }
 
-              /*  if(($key+1) == $c)
+                if(($key %2) == 0)
                 {
                     $last = '<br pagebreak="false"/>';
-                }else{
+                }
+                else
+                {
                     $last = '<br pagebreak="true"/>';
-                }*/
+                }
+
+                if(($key+1) == $c)
+                {
+                    $last = '<br pagebreak="false"/>';
+                }
 
                 //            if ($surveys->getFirst()) {
                 //                $this->setLayout(false);
@@ -504,103 +526,174 @@ class dashboardActions extends sfActions {
                 //                return $this->renderPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => false));
                 //            }
 
+                if($top == 0)
+                {
+                    $foot = false;
+                    $pdf->SetLeftMargin(20);
+                    $html1 = '<h3 style="font-size: 5mm; line-height: 100%;">Lex<span style="color:#ff6801; font-size: 5mm;">Lists</span></h3>';
+
+                    $pdf->writeHTML($html1, true, false, true, false, '');
+                   // $pdf->SetLeftMargin(40);
+
+
+                $pdf->Text(150, 9, '');
+                $pdf->SetLeftMargin(155);
+                $pdf->SetRightMargin(0);
                 $html4 = '
-                       <div style="line-height: 100%;">
-                           <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;">'.$survey_client_name.'</h2>
-                           <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;"><i>'.$survey_first_name.' &nbsp; '.$survey_last_name.'</i></h2>
-                           <br>
-                           <p style="text-align: center; font-size: 3.5mm;">'.$date.'</p>
+                       <div style="line-height: 70%;">
+                           <h2 style="text-align: center; font-family: Georgia, serif; font-size: 5mm;">'.$survey_client_name.'</h2>
+                           <h2 style="text-align: center; font-family: Georgia, serif; font-size: 5mm; font-weight: normal;"><i>'.$survey_first_name.' &nbsp; '.$survey_last_name.'</i></h2>
+
                        </div>';
 
-
                 $pdf->writeHTML($html4, true, false, true, false, '');
-                $pdf->Text(100, 63, '');
 
-                $html ='
+                if($first_survey == true)
+                {
+                    $first_survey = false;
+                    $pdf->SetLeftMargin(105);
+                    $pdf->Text(100, 20, '');
+                    $html ='
+                        <div style="line-height: 70%;">
+                            <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm;">Awards (Full Listing)</h2>
+                            <p style="text-align: center; font-size: 3.5mm; font-weight: normal;">'.$date.'</p>
+                        </div>';
+                    $pdf->writeHTML($html, true, false, true, false, '');
+                }
+
+                $pdf->SetLeftMargin(15);
+                $pdf->SetRightMargin(15);
 
 
-                    <div style="border-top: 1px solid black;"></div>
+                        $top = 1;
 
-                    <table style=" font-size: 3mm;">
+                }
+
+                else
+                {
+                    $foot = true;
+                    $top = 0;
+                }
+
+                $html_t ='
+
+
+                    <div style="border-top: 1px solid black; "></div>
+
+                    <table style=" font-size: 2.7mm;">
                         <tr>
-                            <td width="130" style="text-align: right;">Award:</td>
-                            <td width="330">'.$survey_name.'</td>
+                            <td width="115" style="text-align: right;">Award:</td>
+                            <td width="510">'.$survey_name.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Submission Deadline:</td>
-                            <td width="330">'.$survey_submission_deadline.'</td>
+                            <td width="115" style="text-align: right;">Submission Deadline:</td>
+                            <td width="510">'.$survey_submission_deadline.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Type:</td>
-                            <td width="330">'.$survey_type.'</td>
+                            <td width="115" style="text-align: right;">Type:</td>
+                            <td width="510">'.$survey_type.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Special Criteria(s):</td>
-                            <td width="330">'.$special_criterias.'</td>
+                            <td width="115" style="text-align: right;">Special Criteria(s):</td>
+                            <td width="510">'.$special_criterias.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Eligibility:</td>
-                            <td width="330">'.$survey_eligibility.'</td>
+                            <td width="115" style="text-align: right;">Eligibility:</td>
+                            <td width="510">'.$survey_eligibility.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Practice Area(s):</td>
-                            <td width="330">'.$practice_areas.'</td>
+                            <td width="115" style="text-align: right;">Practice Area(s):</td>
+                            <td width="510">'.$practice_areas.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Geographic Area:</td>
-                            <td width="330">'.$geographic_area.'</td>
+                            <td width="115" style="text-align: right;">Geographic Area:</td>
+                            <td width="510">'.$geographic_area.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Description:</td>
-                            <td width="330">'.$survey_description.'</td>
+                            <td width="115" style="text-align: right;">Description:</td>
+                            <td width="510">'.$survey_description.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Methodology:</td>
-                            <td width="330">'.$survey_methodology.'</td>
+                            <td width="115" style="text-align: right;">Methodology:</td>
+                            <td width="510">'.$survey_methodology.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">How to Apply:</td>
-                            <td width="330">'.$survey_how_to_apply.'</td>
+                            <td width="115" style="text-align: right;">How to Apply:</td>
+                            <td width="510">'.$survey_how_to_apply.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Frequency:</td>
-                            <td width="330">'.$survey_frequency.'</td>
+                            <td width="115" style="text-align: right;">Frequency:</td>
+                            <td width="510">'.$survey_frequency.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Contact Person:</td>
-                            <td width="330">'.$survey_contact_person.'</td>
+                            <td width="115" style="text-align: right;">Contact Person:</td>
+                            <td width="510">'.$survey_contact_person.'</td>
                         </tr>
                     </table>
-                    <br>
-                    <div style="border-top: 1px solid black;"></div>
+                    <table style="padding-top: 1mm;">
+                    <tr>
+                    <td></td>
+                    </tr>
+                    </table>
 
                 ';
-                $pdf->writeHTML($html, true, false, true, false, '');
+
+                $pdf->writeHTML($html_t, true, false, true, false, '');
+
+               if($foot == true)
+               {
+
+                   $page_number = $pdf->PageNo();
+                   $pages = $pdf->getAliasNbPages();
+
+                   $pdf->Text(150, 250, '');
+                   $pdf->SetLeftMargin(180);
+                   $pdf->SetRightMargin(-30);
+                   $html = '<p style="font-size: 2.5mm; letter-spacing: 1mm;">'.$page_number.'/'.$pages.'</p>';
+                   $pdf->writeHTML($html, true, false, true, false, '');
+
+                   $pdf->Text(19, 255, '');
+                   $pdf->SetLeftMargin(15);
+                   $pdf->SetRightMargin(15);
+                   $html5 = '
+                   <p style="font-size: 3.6mm;font-weight: bold;">LexLists.com: Discover Awards!</p>
+
+                   <p style="font-size: 2.7mm;">Sharing or using this output in any way outside its intended use is a violation of the License Terms & Agreement.
+                       Copyright 2012-2015 LexLists by LexSource. All Rights Reserved.</p>
+                   ';
 
 
+                   $pdf->writeHTML($html5, true, false, true, false, '');
+               }
+
+            }
+            if($last_footer == true)
+            {
                 $page_number = $pdf->PageNo();
                 $pages = $pdf->getAliasNbPages();
 
                 $pdf->Text(150, 250, '');
-                $pdf->SetLeftMargin(160);
+                $pdf->SetLeftMargin(180);
                 $pdf->SetRightMargin(-30);
                 $html = '<p style="font-size: 2.5mm; letter-spacing: 1mm;">'.$page_number.'/'.$pages.'</p>';
                 $pdf->writeHTML($html, true, false, true, false, '');
 
                 $pdf->Text(19, 255, '');
-                $pdf->SetLeftMargin(20);
-                $pdf->SetRightMargin(30);
-
+                $pdf->SetLeftMargin(15);
+                $pdf->SetRightMargin(15);
                 $html5 = '
-                    <p style="font-size: 3.6mm;font-weight: bold;">LexLists.com: Discover Awards!</p>
+                   <p style="font-size: 3.6mm;font-weight: bold;">LexLists.com: Discover Awards!</p>
 
-                    <p style="font-size: 2.7mm;">Sharing or using this output in any way outside its intended use is a violation of the License Terms & Agreement.
-                        Copyright 2012-2015 LexLists by LexSource. All Rights Reserved.</p>
-                ';
+                   <p style="font-size: 2.7mm;">Sharing or using this output in any way outside its intended use is a violation of the License Terms & Agreement.
+                       Copyright 2012-2015 LexLists by LexSource. All Rights Reserved.</p>
+                   ';
+
 
                 $pdf->writeHTML($html5, true, false, true, false, '');
-
             }
+
+
+
         }
 
         else{
@@ -739,85 +832,99 @@ class dashboardActions extends sfActions {
                 //                return $this->renderPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => false));
                 //            }
 
+                $pdf->Text(150, 9, '');
+                $pdf->SetLeftMargin(155);
+                $pdf->SetRightMargin(0);
                 $html ='
-                    <div style="line-height: 100%;">
-                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;">'.$survey_client_name.'</h2>
-                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 6mm;"><i>'.$survey_first_name.' &nbsp; '.$survey_last_name.'</i></h2>
-                        <br>
-                        <p style="text-align: center; font-size: 3.5mm;">'.$date.'</p>
+                    <div style="line-height: 70%;">
+                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 5mm;">'.$survey_client_name.'</h2>
+                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 5mm; font-weight: normal;"><i>'.$survey_first_name.'&nbsp;'.$survey_last_name.'</i></h2>
                     </div>';
 
-
+              /*  <br>
+                        <p style="text-align: center; font-size: 3.5mm;">'.$date.'</p>*/
                 $pdf->writeHTML($html, true, false, true, false, '');
-                $pdf->Text(100, 60, '');
+
+                $pdf->SetLeftMargin(105);
+                $pdf->Text(100, 20, '');
+                $html ='
+                    <div style="line-height: 70%;">
+                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm;">Awards (Full Listing)</h2>
+                        <p style="text-align: center; font-size: 3.5mm;">'.$date.'</p>
+                    </div>';
+                $pdf->writeHTML($html, true, false, true, false, '');
+
+
+                $pdf->SetLeftMargin(15);
+                $pdf->SetRightMargin(15);
+                $pdf->Text(70, 37, '');
                 $html ='
                     <div style="border-top: 1px solid black;"></div>
 
-                    <table style=" font-size: 3mm;">
+                    <table style=" font-size: 2.7mm;">
                         <tr>
-                            <td width="130" style="text-align: right;">Award:</td>
-                            <td width="330">'.$survey_name.'</td>
+                            <td width="105" style="text-align: right;">Award:</td>
+                            <td width="520">'.$survey_name.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Submission Deadline:</td>
-                            <td width="330">'.$survey_submission_deadline.'</td>
+                            <td width="105" style="text-align: right;">Submission Deadline:</td>
+                            <td width="520">'.$survey_submission_deadline.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Type:</td>
-                            <td width="330">'.$survey_type.'</td>
+                            <td width="105" style="text-align: right;">Type:</td>
+                            <td width="520">'.$survey_type.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Special Criteria(s):</td>
-                            <td width="330">'.$special_criterias.'</td>
+                            <td width="105" style="text-align: right;">Special Criteria(s):</td>
+                            <td width="520">'.$special_criterias.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Eligibility:</td>
-                            <td width="330">'.$survey_eligibility.'</td>
+                            <td width="105" style="text-align: right;">Eligibility:</td>
+                            <td width="520">'.$survey_eligibility.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Practice Area(s):</td>
-                            <td width="330">'.$practice_areas.'</td>
+                            <td width="105" style="text-align: right;">Practice Area(s):</td>
+                            <td width="520">'.$practice_areas.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Geographic Area:</td>
-                            <td width="330">'.$geographic_area.'</td>
+                            <td width="105" style="text-align: right;">Geographic Area:</td>
+                            <td width="520">'.$geographic_area.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Description:</td>
-                            <td width="330">'.$survey_description.'</td>
+                            <td width="105" style="text-align: right;">Description:</td>
+                            <td width="520">'.$survey_description.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Methodology:</td>
-                            <td width="330">'.$survey_methodology.'</td>
+                            <td width="105" style="text-align: right;">Methodology:</td>
+                            <td width="520">'.$survey_methodology.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">How to Apply:</td>
-                            <td width="330">'.$survey_how_to_apply.'</td>
+                            <td width="105" style="text-align: right;">How to Apply:</td>
+                            <td width="520">'.$survey_how_to_apply.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Frequency:</td>
-                            <td width="330">'.$survey_frequency.'</td>
+                            <td width="105" style="text-align: right;">Frequency:</td>
+                            <td width="520">'.$survey_frequency.'</td>
                         </tr>
                         <tr>
-                            <td width="130" style="text-align: right;">Contact Person:</td>
-                            <td width="330">'.$survey_contact_person.'</td>
+                            <td width="105" style="text-align: right;">Contact Person:</td>
+                            <td width="520">'.$survey_contact_person.'</td>
                         </tr>
                     </table>
-                    <br>
-                    <div style="border-top: 1px solid black;"></div>
+
                 ';
 
                 $pdf->writeHTML($html, true, false, true, false, '');
 
                 $pdf->Text(150, 250, '');
-                $pdf->SetLeftMargin(160);
-                $pdf->SetRightMargin(-30);
+                $pdf->SetLeftMargin(180);
+                //$pdf->SetRightMargin(-30);
                 $html = '<p style="font-size: 2.5mm; letter-spacing: 1mm;">1/1</p>';
                 $pdf->writeHTML($html, true, false, true, false, '');
 
                 $pdf->Text(19, 255, '');
-                $pdf->SetLeftMargin(20);
-                $pdf->SetRightMargin(30);
+                $pdf->SetLeftMargin(15);
+                $pdf->SetRightMargin(15);
 
                 $html = '
                     <p style="font-size: 3.6mm;font-weight: bold;">LexLists.com: Discover Awards!</p>

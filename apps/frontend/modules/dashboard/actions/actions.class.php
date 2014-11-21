@@ -542,7 +542,7 @@ class dashboardActions extends sfActions {
                 $html4 = '
                        <div style="line-height: 70%;">
                            <h2 style="text-align: center; font-family: Georgia, serif; font-size: 5mm;">'.$survey_client_name.'</h2>
-                           <h2 style="text-align: center; font-family: Georgia, serif; font-size: 5mm; font-weight: normal;"><i>'.$survey_first_name.' &nbsp; '.$survey_last_name.'</i></h2>
+                           <h2 style="text-align: center; font-family: Georgia, serif; font-size: 5mm; font-weight: normal;"><i>'.$survey_first_name.'&nbsp;'.$survey_last_name.'</i></h2>
 
                        </div>';
 

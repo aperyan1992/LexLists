@@ -124,7 +124,7 @@ class dashboardActions extends sfActions {
                     $survey_checkbox = "<input type='checkbox' class='table_checkbox' s_id='" . $survey->getId() . "' />";
 
                     // Set year
-                    $year = (!is_null($survey->getYear()) && $survey->getYear() != "" && $survey->getYear() != 0) ? $survey->getYear() : "- - -";
+                    $year = (!is_null($survey->getYear()) && $survey->getYear() != "" && $survey->getYear() != 0) ? $survey-> getYear() : "- - -";
 
                     // Set organization
                     $organization = (!is_null($survey->getOrganizationId()) && $survey->getOrganizationId() != "") ? $survey->getOrganization()->getName() : "- - -";
@@ -503,13 +503,13 @@ class dashboardActions extends sfActions {
                     $html1 = '<h3 style="font-size: 5mm; line-height: 100%;">Lex<span style="color:#ff6801; font-size: 5mm;">Lists</span></h3>';
                     $pdf->writeHTML($html1, true, false, true, false, '');
 
-                    $pdf->Text(150, 9, '');
+                    $pdf->Text(150, 10, '');
                     $pdf->SetLeftMargin(155);
                     $pdf->SetRightMargin(0);
                     $html4 = '
                        <div style="line-height: 70%;">
-                           <h2 style="text-align: center; font-family: Georgia, serif; font-size: 5mm;">'.$survey_client_name.'</h2>
-                           <h2 style="text-align: center; font-family: Georgia, serif; font-size: 5mm; font-weight: normal;"><i>'.$survey_first_name.'&nbsp;'.$survey_last_name.'</i></h2>
+                           <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm;">'.$survey_client_name.'</h2>
+                           <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;"><i>'.$survey_first_name.'&nbsp;'.$survey_last_name.'</i></h2>
 
                        </div>';
 
@@ -523,7 +523,7 @@ class dashboardActions extends sfActions {
                         $html ='
                             <div style="line-height: 70%;">
                                 <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm;">Awards (Full Listing)</h2>
-                                <p style="text-align: center; font-size: 3.5mm; font-weight: normal;">'.$date.'</p>
+                                <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;">'.$date.'</h2>
                             </div>';
                         $pdf->writeHTML($html, true, false, true, false, '');
                     }
@@ -791,8 +791,8 @@ class dashboardActions extends sfActions {
                 $pdf->SetRightMargin(0);
                 $html ='
                     <div style="line-height: 70%;">
-                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 5mm;">'.$survey_client_name.'</h2>
-                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 5mm; font-weight: normal;"><i>'.$survey_first_name.'&nbsp;'.$survey_last_name.'</i></h2>
+                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm;">'.$survey_client_name.'</h2>
+                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;"><i>'.$survey_first_name.'&nbsp;'.$survey_last_name.'</i></h2>
                     </div>';
 
                 $pdf->writeHTML($html, true, false, true, false, '');
@@ -802,7 +802,7 @@ class dashboardActions extends sfActions {
                 $html ='
                     <div style="line-height: 70%;">
                         <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm;">Awards (Full Listing)</h2>
-                        <p style="text-align: center; font-size: 3.5mm;">'.$date.'</p>
+                        <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;">'.$date.'</h2>
                     </div>';
                 $pdf->writeHTML($html, true, false, true, false, '');
 

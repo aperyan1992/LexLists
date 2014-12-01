@@ -65,3 +65,11 @@
     <div class="warning_message">You are about to remove this award from MyList. Unless you have assigned it to another Owner, any Notes you may have added will be lost forever. Are you sure you want to proceed?</div>
     <input type="hidden" id="admin_remove_my_survey_info" ms_id="" tr_number="" is_updated="" is_past_due="" />
 </div>
+
+<div class="dialog_for_map" style="display: none;" title="LexLists Map Filter">
+    <div class="region_title" style=" height: 20px;  top:0; left: 0;">
+        <p style="color: #433f38; font-weight: 700;"></p>
+    </div>
+    <div id="vmap" style="width: 600px; height: 400px;"></div>
+    <button class="region_selected" id="region_selected">OK</button>
+</div>

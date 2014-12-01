@@ -13,6 +13,23 @@
     font-style: normal;
 }
 
+#region_selected {
+    width: 40px;
+    height: 25px;
+    border: 1px solid #fc9d5d;
+    border-radius: 6px;
+    background: #fc9d5d;
+    font-weight: bold;
+    color: #ffffff;
+    float: right;
+    margin-top: 10px;
+}
+
+#region_selected:hover {
+    background-color: #FF6801;
+    border: 1px solid #FF6801;
+}
+
 /**
  * All Genericons
  */
@@ -3609,6 +3626,11 @@ fieldset.disp-block{
 
 .custom_color {
     color: #666666;
+}
+
+.jsmap .custom_color {
+    margin-left: 5px;
+    cursor: pointer;
 }
 
 .custom_h3 {

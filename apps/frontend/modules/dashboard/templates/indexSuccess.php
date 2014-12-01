@@ -74,7 +74,9 @@
                     </form>
                 </div>
             </div>
-            
+            <div class="jsmap">
+                <h3 class="custom_color jsmapclick" title="A way to filter by Regions on the map">Map<i class="filter_arrow"></i></h3>
+            </div>
         </div>
 
         <div class="main-report-column">
@@ -200,7 +202,6 @@
         </div>
     </div>
 </section>
-
 <input type="hidden" value="0" id="change_data_table" />
 
 <?php include_partial("dashboard/survey_details_popup"); ?>

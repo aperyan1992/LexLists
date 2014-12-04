@@ -12,15 +12,22 @@ $(document).ajaxStop(function() {
 
 $(document).ready(function() {
     var region_name = '';
+    var region_name_us = '';
+
 
 
     function initMapPopupWindow(element) {
-        var myPos = { my: "center top", at: "center top+150", of: window };
+        $('.eurasia').hide();
+        $('#vmap').hide();
+        $('#vmap1').hide();
+
+
+        var myPos = { my: "center top", at: "center top+20", of: window };
 
         $("." + element).dialog({
             autoOpen: false,
             height: 'auto',
-            width: 615,
+            width: 815,
             modal: true,
             position:myPos,
             open: function() {
@@ -34,66 +41,182 @@ $(document).ready(function() {
         });
     }
     initMapPopupWindow("dialog_for_map");
-    $('#vmap').vectorMap({
+
+    $('#vmap1').vectorMap({
         map: 'usa_en',
-        backgroundColor: 'lightgray',
-        color: '#FFF',
-        hoverColor: '#999999',
+        backgroundColor: null,
+        color: '#57A0C1',
+        hoverOpacity: 0.7,
         selectedColor: '#666666',
         enableZoom: true,
         showTooltip: true,
         selectedRegion: 'MO'
     });
+
+    $('#vmap').vectorMap({
+        map: 'world_en',
+        backgroundColor: null,
+        color: '#ffffff',
+        hoverOpacity: 0.7,
+        selectedColor: '#666666',
+        enableZoom: true,
+        showTooltip: true,
+        values: sample_data,
+        scaleColors: ['#57A0C1'],
+        normalizeFunction: 'polynomial'
+    });
+
+
+    $('#jqvmap2_gl, #jqvmap2_pf, #jqvmap2_fk, #jqvmap2_cu, #jqvmap2_gf, #jqvmap2_so, #jqvmap2_tm, #jqvmap2_kp, #jqvmap2_re, #jqvmap2_nc').css({'fill': '#57A0C1'});
+
+
     $('.jsmapclick').click(function(){
+        $('#vmap').show();
+        $('#vmap1').hide();
+
         $('.dialog_for_map').dialog("open");
 
     });
 
+    $('.jsmapclick_us').click(function(){
+        $('#vmap1').show();
+        $('#vmap').hide();
+
+        $('.dialog_for_map').dialog("open");
+
+    });
+
+    //north america
+    $('#jqvmap2_gl, #jqvmap2_ca, #jqvmap2_us, #jqvmap2_mx, #jqvmap2_gt, #jqvmap2_bz, #jqvmap2_sv, #jqvmap2_hn, #jqvmap2_ni, #jqvmap2_cr, #jqvmap2_pa, #jqvmap2_bs, #jqvmap2_jm, #jqvmap2_cu, #jqvmap2_ht, #jqvmap2_do, #jqvmap2_tt, #jqvmap2_gd, #jqvmap2_bb, #jqvmap2_lc, #jqvmap2_dm, #jqvmap2_ag, #jqvmap2_kn').click(function(){
+        $('#jqvmap2_gl, #jqvmap2_ca, #jqvmap2_us, #jqvmap2_mx, #jqvmap2_gt, #jqvmap2_bz, #jqvmap2_sv, #jqvmap2_hn, #jqvmap2_ni, #jqvmap2_cr, #jqvmap2_pa, #jqvmap2_bs, #jqvmap2_jm, #jqvmap2_cu, #jqvmap2_ht, #jqvmap2_do, #jqvmap2_tt, #jqvmap2_gd, #jqvmap2_bb, #jqvmap2_lc, #jqvmap2_dm, #jqvmap2_ag, #jqvmap2_kn').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#ffa767"});
+
+        $('.eurasia').hide();
+
+        $('#jqvmap2_fk, #jqvmap2_co, #jqvmap2_ve, #jqvmap2_ec, #jqvmap2_gy, #jqvmap2_sr, #jqvmap2_gf, #jqvmap2_br, #jqvmap2_pe, #jqvmap2_bo, #jqvmap2_py, #jqvmap2_uy, #jqvmap2_ar, #jqvmap2_cl').css({"stroke":"#828282", "stroke-width": "2px", "fill": "#57A0C2"});
+        $('#jqvmap2_km, #jqvmap2_sc, #jqvmap2_mu, #jqvmap2_re, #jqvmap2_eg, #jqvmap2_ly, #jqvmap2_tn, #jqvmap2_dz, #jqvmap2_ma, #jqvmap2_mr, #jqvmap2_ml, #jqvmap2_ne, #jqvmap2_td, #jqvmap2_sd, #jqvmap2_er, #jqvmap2_dj, #jqvmap2_so, #jqvmap2_et, #jqvmap2_ke, #jqvmap2_cf, #jqvmap2_cm, #jqvmap2_gq, #jqvmap2_st, #jqvmap2_ga, #jqvmap2_cg, #jqvmap2_ao, #jqvmap2_cd, #jqvmap2_rw, #jqvmap2_bi, #jqvmap2_tz, #jqvmap2_zm, #jqvmap2_zw, #jqvmap2_mw, #jqvmap2_mz, #jqvmap2_na, #jqvmap2_bw, #jqvmap2_za, #jqvmap2_ls, #jqvmap2_sz, #jqvmap2_mg, #jqvmap2_cv, #jqvmap2_gm, #jqvmap2_sn, #jqvmap2_gw, #jqvmap2_gn, #jqvmap2_sl, #jqvmap2_lr, #jqvmap2_ci, #jqvmap2_bf, #jqvmap2_gh, #jqvmap2_tg, #jqvmap2_bj, #jqvmap2_ng, #jqvmap2_ug').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2"});
+        $('#jqvmap2_mv, #jqvmap2_is, #jqvmap2_no, #jqvmap2_ie, #jqvmap2_gb, #jqvmap2_se, #jqvmap2_fi, #jqvmap2_ee, #jqvmap2_lv, #jqvmap2_lt, #jqvmap2_by, #jqvmap2_ua, #jqvmap2_md, #jqvmap2_ro, #jqvmap2_hu, #jqvmap2_dk, #jqvmap2_de, #jqvmap2_nl, #jqvmap2_be, #jqvmap2_fr, #jqvmap2_it, #jqvmap2_es, #jqvmap2_pt, #jqvmap2_mt, #jqvmap2_cy, #jqvmap2_gr, #jqvmap2_tr, #jqvmap2_sy, #jqvmap2_sa, #jqvmap2_in, #jqvmap2_ru, #jqvmap2_pl, #jqvmap2_cz, #jqvmap2_sk, #jqvmap2_at #jqvmap2_ch, #jqvmap2_si, #jqvmap2_hr, #jqvmap2_ba, #jqvmap2_rs, #jqvmap2_bg, #jqvmap2_mk, #jqvmap2_al, #jqvmap2_lb, #jqvmap2_il, #jqvmap2_jo, #jqvmap2_iq, #jqvmap2_kw, #jqvmap2_qa, #jqvmap2_ae, #jqvmap2_om, #jqvmap2_ye, #jqvmap2_ir, #jqvmap2_ch, #jqvmap2_at, #jqvmap2_ge, #jqvmap2_am, #jqvmap2_az, #jqvmap2_kz, #jqvmap2_mn, #jqvmap2_cn, #jqvmap2_kp, #jqvmap2_kg, #jqvmap2_uz, #jqvmap2_tj, #jqvmap2_tm, #jqvmap2_af, #jqvmap2_pk, #jqvmap2_np, #jqvmap2_bt, #jqvmap2_bd, #jqvmap2_mm, #jqvmap2_th, #jqvmap2_jp, #jqvmap2_kr, #jqvmap2_tw, #jqvmap2_la, #jqvmap2_vn, #jqvmap2_kh, #jqvmap2_lk, #jqvmap2_id, #jqvmap2_my, #jqvmap2_bn, #jqvmap2_ph, #jqvmap2_tl').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2 "});
+        $('#jqvmap2_au, #jqvmap2_pg, #jqvmap2_sb, #jqvmap2_vu, #jqvmap2_pf, #jqvmap2_fj, #jqvmap2_nc, #jqvmap2_nz').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2 "});
+
+        region_name = "North America";
+        $('.region_title p').html("North America");
+    });
+
+    //south america
+    $('#jqvmap2_fk, #jqvmap2_co, #jqvmap2_ve, #jqvmap2_ec, #jqvmap2_gy, #jqvmap2_sr, #jqvmap2_gf, #jqvmap2_br, #jqvmap2_pe, #jqvmap2_bo, #jqvmap2_py, #jqvmap2_uy, #jqvmap2_ar, #jqvmap2_cl').click(function(){
+        $('#jqvmap2_fk, #jqvmap2_co, #jqvmap2_ve, #jqvmap2_ec, #jqvmap2_gy, #jqvmap2_sr, #jqvmap2_gf, #jqvmap2_br, #jqvmap2_pe, #jqvmap2_bo, #jqvmap2_py, #jqvmap2_uy, #jqvmap2_ar, #jqvmap2_cl').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#ffa767"});
+
+        $('.eurasia').hide();
+
+        $('#jqvmap2_gl, #jqvmap2_ca, #jqvmap2_us, #jqvmap2_mx, #jqvmap2_gt, #jqvmap2_bz, #jqvmap2_sv, #jqvmap2_hn, #jqvmap2_ni, #jqvmap2_cr, #jqvmap2_pa, #jqvmap2_bs, #jqvmap2_jm, #jqvmap2_cu, #jqvmap2_ht, #jqvmap2_do, #jqvmap2_tt, #jqvmap2_gd, #jqvmap2_bb, #jqvmap2_lc, #jqvmap2_dm, #jqvmap2_ag, #jqvmap2_kn').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2"});
+        $('#jqvmap2_km, #jqvmap2_sc, #jqvmap2_mu, #jqvmap2_re, #jqvmap2_eg, #jqvmap2_ly, #jqvmap2_tn, #jqvmap2_dz, #jqvmap2_ma, #jqvmap2_mr, #jqvmap2_ml, #jqvmap2_ne, #jqvmap2_td, #jqvmap2_sd, #jqvmap2_er, #jqvmap2_dj, #jqvmap2_so, #jqvmap2_et, #jqvmap2_ke, #jqvmap2_cf, #jqvmap2_cm, #jqvmap2_gq, #jqvmap2_st, #jqvmap2_ga, #jqvmap2_cg, #jqvmap2_ao, #jqvmap2_cd, #jqvmap2_rw, #jqvmap2_bi, #jqvmap2_tz, #jqvmap2_zm, #jqvmap2_zw, #jqvmap2_mw, #jqvmap2_mz, #jqvmap2_na, #jqvmap2_bw, #jqvmap2_za, #jqvmap2_ls, #jqvmap2_sz, #jqvmap2_mg, #jqvmap2_cv, #jqvmap2_gm, #jqvmap2_sn, #jqvmap2_gw, #jqvmap2_gn, #jqvmap2_sl, #jqvmap2_lr, #jqvmap2_ci, #jqvmap2_bf, #jqvmap2_gh, #jqvmap2_tg, #jqvmap2_bj, #jqvmap2_ng, #jqvmap2_ug').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2"});
+        $('#jqvmap2_mv, #jqvmap2_is, #jqvmap2_no, #jqvmap2_ie, #jqvmap2_gb, #jqvmap2_se, #jqvmap2_fi, #jqvmap2_ee, #jqvmap2_lv, #jqvmap2_lt, #jqvmap2_by, #jqvmap2_ua, #jqvmap2_md, #jqvmap2_ro, #jqvmap2_hu, #jqvmap2_dk, #jqvmap2_de, #jqvmap2_nl, #jqvmap2_be, #jqvmap2_fr, #jqvmap2_it, #jqvmap2_es, #jqvmap2_pt, #jqvmap2_mt, #jqvmap2_cy, #jqvmap2_gr, #jqvmap2_tr, #jqvmap2_sy, #jqvmap2_sa, #jqvmap2_in, #jqvmap2_ru, #jqvmap2_pl, #jqvmap2_cz, #jqvmap2_sk, #jqvmap2_at #jqvmap2_ch, #jqvmap2_si, #jqvmap2_hr, #jqvmap2_ba, #jqvmap2_rs, #jqvmap2_bg, #jqvmap2_mk, #jqvmap2_al, #jqvmap2_lb, #jqvmap2_il, #jqvmap2_jo, #jqvmap2_iq, #jqvmap2_kw, #jqvmap2_qa, #jqvmap2_ae, #jqvmap2_om, #jqvmap2_ye, #jqvmap2_ir, #jqvmap2_ch, #jqvmap2_at, #jqvmap2_ge, #jqvmap2_am, #jqvmap2_az, #jqvmap2_kz, #jqvmap2_mn, #jqvmap2_cn, #jqvmap2_kp, #jqvmap2_kg, #jqvmap2_uz, #jqvmap2_tj, #jqvmap2_tm, #jqvmap2_af, #jqvmap2_pk, #jqvmap2_np, #jqvmap2_bt, #jqvmap2_bd, #jqvmap2_mm, #jqvmap2_th, #jqvmap2_jp, #jqvmap2_kr, #jqvmap2_tw, #jqvmap2_la, #jqvmap2_vn, #jqvmap2_kh, #jqvmap2_lk, #jqvmap2_id, #jqvmap2_my, #jqvmap2_bn, #jqvmap2_ph, #jqvmap2_tl').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2 "});
+        $('#jqvmap2_au, #jqvmap2_pg, #jqvmap2_sb, #jqvmap2_vu, #jqvmap2_pf, #jqvmap2_fj, #jqvmap2_nc, #jqvmap2_nz').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2 "});
+
+        region_name = "South America";
+        $('.region_title p').html("South America");
+    });
+
+    //africa
+    $('#jqvmap2_km, #jqvmap2_sc, #jqvmap2_mu, #jqvmap2_re, #jqvmap2_eg, #jqvmap2_ly, #jqvmap2_tn, #jqvmap2_dz, #jqvmap2_ma, #jqvmap2_mr, #jqvmap2_ml, #jqvmap2_ne, #jqvmap2_td, #jqvmap2_sd, #jqvmap2_er, #jqvmap2_dj, #jqvmap2_so, #jqvmap2_et, #jqvmap2_ke, #jqvmap2_cf, #jqvmap2_cm, #jqvmap2_gq, #jqvmap2_st, #jqvmap2_ga, #jqvmap2_cg, #jqvmap2_ao, #jqvmap2_cd, #jqvmap2_rw, #jqvmap2_bi, #jqvmap2_tz, #jqvmap2_zm, #jqvmap2_zw, #jqvmap2_mw, #jqvmap2_mz, #jqvmap2_na, #jqvmap2_bw, #jqvmap2_za, #jqvmap2_ls, #jqvmap2_sz, #jqvmap2_mg, #jqvmap2_cv, #jqvmap2_gm, #jqvmap2_sn, #jqvmap2_gw, #jqvmap2_gn, #jqvmap2_sl, #jqvmap2_lr, #jqvmap2_ci, #jqvmap2_bf, #jqvmap2_gh, #jqvmap2_tg, #jqvmap2_bj, #jqvmap2_ng, #jqvmap2_ug').click(function(){
+        $('#jqvmap2_km, #jqvmap2_sc, #jqvmap2_mu, #jqvmap2_re, #jqvmap2_eg, #jqvmap2_ly, #jqvmap2_tn, #jqvmap2_dz, #jqvmap2_ma, #jqvmap2_mr, #jqvmap2_ml, #jqvmap2_ne, #jqvmap2_td, #jqvmap2_sd, #jqvmap2_er, #jqvmap2_dj, #jqvmap2_so, #jqvmap2_et, #jqvmap2_ke, #jqvmap2_cf, #jqvmap2_cm, #jqvmap2_gq, #jqvmap2_st, #jqvmap2_ga, #jqvmap2_cg, #jqvmap2_ao, #jqvmap2_cd, #jqvmap2_rw, #jqvmap2_bi, #jqvmap2_tz, #jqvmap2_zm, #jqvmap2_zw, #jqvmap2_mw, #jqvmap2_mz, #jqvmap2_na, #jqvmap2_bw, #jqvmap2_za, #jqvmap2_ls, #jqvmap2_sz, #jqvmap2_mg, #jqvmap2_cv, #jqvmap2_gm, #jqvmap2_sn, #jqvmap2_gw, #jqvmap2_gn, #jqvmap2_sl, #jqvmap2_lr, #jqvmap2_ci, #jqvmap2_bf, #jqvmap2_gh, #jqvmap2_tg, #jqvmap2_bj, #jqvmap2_ng, #jqvmap2_ug').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#ffa767"});
+
+        $('.eurasia').hide();
+
+        $('#jqvmap2_gl, #jqvmap2_ca, #jqvmap2_us, #jqvmap2_mx, #jqvmap2_gt, #jqvmap2_bz, #jqvmap2_sv, #jqvmap2_hn, #jqvmap2_ni, #jqvmap2_cr, #jqvmap2_pa, #jqvmap2_bs, #jqvmap2_jm, #jqvmap2_cu, #jqvmap2_ht, #jqvmap2_do, #jqvmap2_tt, #jqvmap2_gd, #jqvmap2_bb, #jqvmap2_lc, #jqvmap2_dm, #jqvmap2_ag, #jqvmap2_kn').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2"});
+        $('#jqvmap2_fk, #jqvmap2_co, #jqvmap2_ve, #jqvmap2_ec, #jqvmap2_gy, #jqvmap2_sr, #jqvmap2_gf, #jqvmap2_br, #jqvmap2_pe, #jqvmap2_bo, #jqvmap2_py, #jqvmap2_uy, #jqvmap2_ar, #jqvmap2_cl').css({"stroke":"#828282", "stroke-width": "2px", "fill": "#57A0C2"});
+        $('#jqvmap2_mv, #jqvmap2_is, #jqvmap2_no, #jqvmap2_ie, #jqvmap2_gb, #jqvmap2_se, #jqvmap2_fi, #jqvmap2_ee, #jqvmap2_lv, #jqvmap2_lt, #jqvmap2_by, #jqvmap2_ua, #jqvmap2_md, #jqvmap2_ro, #jqvmap2_hu, #jqvmap2_dk, #jqvmap2_de, #jqvmap2_nl, #jqvmap2_be, #jqvmap2_fr, #jqvmap2_it, #jqvmap2_es, #jqvmap2_pt, #jqvmap2_mt, #jqvmap2_cy, #jqvmap2_gr, #jqvmap2_tr, #jqvmap2_sy, #jqvmap2_sa, #jqvmap2_in, #jqvmap2_ru, #jqvmap2_pl, #jqvmap2_cz, #jqvmap2_sk, #jqvmap2_at #jqvmap2_ch, #jqvmap2_si, #jqvmap2_hr, #jqvmap2_ba, #jqvmap2_rs, #jqvmap2_bg, #jqvmap2_mk, #jqvmap2_al, #jqvmap2_lb, #jqvmap2_il, #jqvmap2_jo, #jqvmap2_iq, #jqvmap2_kw, #jqvmap2_qa, #jqvmap2_ae, #jqvmap2_om, #jqvmap2_ye, #jqvmap2_ir, #jqvmap2_ch, #jqvmap2_at, #jqvmap2_ge, #jqvmap2_am, #jqvmap2_az, #jqvmap2_kz, #jqvmap2_mn, #jqvmap2_cn, #jqvmap2_kp, #jqvmap2_kg, #jqvmap2_uz, #jqvmap2_tj, #jqvmap2_tm, #jqvmap2_af, #jqvmap2_pk, #jqvmap2_np, #jqvmap2_bt, #jqvmap2_bd, #jqvmap2_mm, #jqvmap2_th, #jqvmap2_jp, #jqvmap2_kr, #jqvmap2_tw, #jqvmap2_la, #jqvmap2_vn, #jqvmap2_kh, #jqvmap2_lk, #jqvmap2_id, #jqvmap2_my, #jqvmap2_bn, #jqvmap2_ph, #jqvmap2_tl').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2 "});
+        $('#jqvmap2_au, #jqvmap2_pg, #jqvmap2_sb, #jqvmap2_vu, #jqvmap2_pf, #jqvmap2_fj, #jqvmap2_nc, #jqvmap2_nz').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2 "});
+
+        region_name = "Africa";
+        $('.region_title p').html("Africa");
+    });
+
+    //eurasia
+    $('#jqvmap2_mv, #jqvmap2_is, #jqvmap2_no, #jqvmap2_ie, #jqvmap2_gb, #jqvmap2_se, #jqvmap2_fi, #jqvmap2_ee, #jqvmap2_lv, #jqvmap2_lt, #jqvmap2_by, #jqvmap2_ua, #jqvmap2_md, #jqvmap2_ro, #jqvmap2_hu, #jqvmap2_dk, #jqvmap2_de, #jqvmap2_nl, #jqvmap2_be, #jqvmap2_fr, #jqvmap2_it, #jqvmap2_es, #jqvmap2_pt, #jqvmap2_mt, #jqvmap2_cy, #jqvmap2_gr, #jqvmap2_tr, #jqvmap2_sy, #jqvmap2_sa, #jqvmap2_in, #jqvmap2_ru, #jqvmap2_pl, #jqvmap2_cz, #jqvmap2_sk, #jqvmap2_at #jqvmap2_ch, #jqvmap2_si, #jqvmap2_hr, #jqvmap2_ba, #jqvmap2_rs, #jqvmap2_bg, #jqvmap2_mk, #jqvmap2_al, #jqvmap2_lb, #jqvmap2_il, #jqvmap2_jo, #jqvmap2_iq, #jqvmap2_kw, #jqvmap2_qa, #jqvmap2_ae, #jqvmap2_om, #jqvmap2_ye, #jqvmap2_ir, #jqvmap2_ch, #jqvmap2_at, #jqvmap2_ge, #jqvmap2_am, #jqvmap2_az, #jqvmap2_kz, #jqvmap2_mn, #jqvmap2_cn, #jqvmap2_kp, #jqvmap2_kg, #jqvmap2_uz, #jqvmap2_tj, #jqvmap2_tm, #jqvmap2_af, #jqvmap2_pk, #jqvmap2_np, #jqvmap2_bt, #jqvmap2_bd, #jqvmap2_mm, #jqvmap2_th, #jqvmap2_jp, #jqvmap2_kr, #jqvmap2_tw, #jqvmap2_la, #jqvmap2_vn, #jqvmap2_kh, #jqvmap2_lk, #jqvmap2_id, #jqvmap2_my, #jqvmap2_bn, #jqvmap2_ph, #jqvmap2_tl').click(function(){
+        $('#jqvmap2_mv, #jqvmap2_is, #jqvmap2_no, #jqvmap2_ie, #jqvmap2_gb, #jqvmap2_se, #jqvmap2_fi, #jqvmap2_ee, #jqvmap2_lv, #jqvmap2_lt, #jqvmap2_by, #jqvmap2_ua, #jqvmap2_md, #jqvmap2_ro, #jqvmap2_hu, #jqvmap2_dk, #jqvmap2_de, #jqvmap2_nl, #jqvmap2_be, #jqvmap2_fr, #jqvmap2_it, #jqvmap2_es, #jqvmap2_pt, #jqvmap2_mt, #jqvmap2_cy, #jqvmap2_gr, #jqvmap2_tr, #jqvmap2_sy, #jqvmap2_sa, #jqvmap2_in, #jqvmap2_ru, #jqvmap2_pl, #jqvmap2_cz, #jqvmap2_sk, #jqvmap2_at #jqvmap2_ch, #jqvmap2_si, #jqvmap2_hr, #jqvmap2_ba, #jqvmap2_rs, #jqvmap2_bg, #jqvmap2_mk, #jqvmap2_al, #jqvmap2_lb, #jqvmap2_il, #jqvmap2_jo, #jqvmap2_iq, #jqvmap2_kw, #jqvmap2_qa, #jqvmap2_ae, #jqvmap2_om, #jqvmap2_ye, #jqvmap2_ir, #jqvmap2_ch, #jqvmap2_at, #jqvmap2_ge, #jqvmap2_am, #jqvmap2_az, #jqvmap2_kz, #jqvmap2_mn, #jqvmap2_cn, #jqvmap2_kp, #jqvmap2_kg, #jqvmap2_uz, #jqvmap2_tj, #jqvmap2_tm, #jqvmap2_af, #jqvmap2_pk, #jqvmap2_np, #jqvmap2_bt, #jqvmap2_bd, #jqvmap2_mm, #jqvmap2_th, #jqvmap2_jp, #jqvmap2_kr, #jqvmap2_tw, #jqvmap2_la, #jqvmap2_vn, #jqvmap2_kh, #jqvmap2_lk, #jqvmap2_id, #jqvmap2_my, #jqvmap2_bn, #jqvmap2_ph, #jqvmap2_tl').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#ffa767 "});
+
+        $('.region_title p').html('');
+
+        $('#jqvmap2_fk, #jqvmap2_co, #jqvmap2_ve, #jqvmap2_ec, #jqvmap2_gy, #jqvmap2_sr, #jqvmap2_gf, #jqvmap2_br, #jqvmap2_pe, #jqvmap2_bo, #jqvmap2_py, #jqvmap2_uy, #jqvmap2_ar, #jqvmap2_cl').css({"stroke":"#828282", "stroke-width": "2px", "fill": "#57A0C2"});
+        $('#jqvmap2_gl, #jqvmap2_ca, #jqvmap2_us, #jqvmap2_mx, #jqvmap2_gt, #jqvmap2_bz, #jqvmap2_sv, #jqvmap2_hn, #jqvmap2_ni, #jqvmap2_cr, #jqvmap2_pa, #jqvmap2_bs, #jqvmap2_jm, #jqvmap2_cu, #jqvmap2_ht, #jqvmap2_do, #jqvmap2_tt, #jqvmap2_gd, #jqvmap2_bb, #jqvmap2_lc, #jqvmap2_dm, #jqvmap2_ag, #jqvmap2_kn').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2"});
+        $('#jqvmap2_km, #jqvmap2_sc, #jqvmap2_mu, #jqvmap2_re, #jqvmap2_eg, #jqvmap2_ly, #jqvmap2_tn, #jqvmap2_dz, #jqvmap2_ma, #jqvmap2_mr, #jqvmap2_ml, #jqvmap2_ne, #jqvmap2_td, #jqvmap2_sd, #jqvmap2_er, #jqvmap2_dj, #jqvmap2_so, #jqvmap2_et, #jqvmap2_ke, #jqvmap2_cf, #jqvmap2_cm, #jqvmap2_gq, #jqvmap2_st, #jqvmap2_ga, #jqvmap2_cg, #jqvmap2_ao, #jqvmap2_cd, #jqvmap2_rw, #jqvmap2_bi, #jqvmap2_tz, #jqvmap2_zm, #jqvmap2_zw, #jqvmap2_mw, #jqvmap2_mz, #jqvmap2_na, #jqvmap2_bw, #jqvmap2_za, #jqvmap2_ls, #jqvmap2_sz, #jqvmap2_mg, #jqvmap2_cv, #jqvmap2_gm, #jqvmap2_sn, #jqvmap2_gw, #jqvmap2_gn, #jqvmap2_sl, #jqvmap2_lr, #jqvmap2_ci, #jqvmap2_bf, #jqvmap2_gh, #jqvmap2_tg, #jqvmap2_bj, #jqvmap2_ng, #jqvmap2_ug').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2"});
+        $('#jqvmap2_au, #jqvmap2_pg, #jqvmap2_sb, #jqvmap2_vu, #jqvmap2_pf, #jqvmap2_fj, #jqvmap2_nc, #jqvmap2_nz').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2 "});
+
+        $('.eurasia').show();
+
+        $(".eurasia").on('change', function(){
+            region_name = $('input[name="eurasia"]:checked').val();
+            $('.region_title p').html($('input[name="eurasia"]:checked').val());
+        });
+
+
+    });
+
+    //australia
+    $('#jqvmap2_au, #jqvmap2_pg, #jqvmap2_sb, #jqvmap2_vu, #jqvmap2_pf, #jqvmap2_fj, #jqvmap2_nc, #jqvmap2_nz').click(function(){
+        $('#jqvmap2_au, #jqvmap2_pg, #jqvmap2_sb, #jqvmap2_vu, #jqvmap2_pf, #jqvmap2_fj, #jqvmap2_nc, #jqvmap2_nz').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#ffa767 "});
+
+        $('.eurasia').hide();
+
+        $('#jqvmap2_fk, #jqvmap2_co, #jqvmap2_ve, #jqvmap2_ec, #jqvmap2_gy, #jqvmap2_sr, #jqvmap2_gf, #jqvmap2_br, #jqvmap2_pe, #jqvmap2_bo, #jqvmap2_py, #jqvmap2_uy, #jqvmap2_ar, #jqvmap2_cl').css({"stroke":"#828282", "stroke-width": "2px", "fill": "#57A0C2"});
+        $('#jqvmap2_gl, #jqvmap2_ca, #jqvmap2_us, #jqvmap2_mx, #jqvmap2_gt, #jqvmap2_bz, #jqvmap2_sv, #jqvmap2_hn, #jqvmap2_ni, #jqvmap2_cr, #jqvmap2_pa, #jqvmap2_bs, #jqvmap2_jm, #jqvmap2_cu, #jqvmap2_ht, #jqvmap2_do, #jqvmap2_tt, #jqvmap2_gd, #jqvmap2_bb, #jqvmap2_lc, #jqvmap2_dm, #jqvmap2_ag, #jqvmap2_kn').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2"});
+        $('#jqvmap2_km, #jqvmap2_sc, #jqvmap2_mu, #jqvmap2_re, #jqvmap2_eg, #jqvmap2_ly, #jqvmap2_tn, #jqvmap2_dz, #jqvmap2_ma, #jqvmap2_mr, #jqvmap2_ml, #jqvmap2_ne, #jqvmap2_td, #jqvmap2_sd, #jqvmap2_er, #jqvmap2_dj, #jqvmap2_so, #jqvmap2_et, #jqvmap2_ke, #jqvmap2_cf, #jqvmap2_cm, #jqvmap2_gq, #jqvmap2_st, #jqvmap2_ga, #jqvmap2_cg, #jqvmap2_ao, #jqvmap2_cd, #jqvmap2_rw, #jqvmap2_bi, #jqvmap2_tz, #jqvmap2_zm, #jqvmap2_zw, #jqvmap2_mw, #jqvmap2_mz, #jqvmap2_na, #jqvmap2_bw, #jqvmap2_za, #jqvmap2_ls, #jqvmap2_sz, #jqvmap2_mg, #jqvmap2_cv, #jqvmap2_gm, #jqvmap2_sn, #jqvmap2_gw, #jqvmap2_gn, #jqvmap2_sl, #jqvmap2_lr, #jqvmap2_ci, #jqvmap2_bf, #jqvmap2_gh, #jqvmap2_tg, #jqvmap2_bj, #jqvmap2_ng, #jqvmap2_ug').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2"});
+        $('#jqvmap2_mv, #jqvmap2_is, #jqvmap2_no, #jqvmap2_ie, #jqvmap2_gb, #jqvmap2_se, #jqvmap2_fi, #jqvmap2_ee, #jqvmap2_lv, #jqvmap2_lt, #jqvmap2_by, #jqvmap2_ua, #jqvmap2_md, #jqvmap2_ro, #jqvmap2_hu, #jqvmap2_dk, #jqvmap2_de, #jqvmap2_nl, #jqvmap2_be, #jqvmap2_fr, #jqvmap2_it, #jqvmap2_es, #jqvmap2_pt, #jqvmap2_mt, #jqvmap2_cy, #jqvmap2_gr, #jqvmap2_tr, #jqvmap2_sy, #jqvmap2_sa, #jqvmap2_in, #jqvmap2_ru, #jqvmap2_pl, #jqvmap2_cz, #jqvmap2_sk, #jqvmap2_at #jqvmap2_ch, #jqvmap2_si, #jqvmap2_hr, #jqvmap2_ba, #jqvmap2_rs, #jqvmap2_bg, #jqvmap2_mk, #jqvmap2_al, #jqvmap2_lb, #jqvmap2_il, #jqvmap2_jo, #jqvmap2_iq, #jqvmap2_kw, #jqvmap2_qa, #jqvmap2_ae, #jqvmap2_om, #jqvmap2_ye, #jqvmap2_ir, #jqvmap2_ch, #jqvmap2_at, #jqvmap2_ge, #jqvmap2_am, #jqvmap2_az, #jqvmap2_kz, #jqvmap2_mn, #jqvmap2_cn, #jqvmap2_kp, #jqvmap2_kg, #jqvmap2_uz, #jqvmap2_tj, #jqvmap2_tm, #jqvmap2_af, #jqvmap2_pk, #jqvmap2_np, #jqvmap2_bt, #jqvmap2_bd, #jqvmap2_mm, #jqvmap2_th, #jqvmap2_jp, #jqvmap2_kr, #jqvmap2_tw, #jqvmap2_la, #jqvmap2_vn, #jqvmap2_kh, #jqvmap2_lk, #jqvmap2_id, #jqvmap2_my, #jqvmap2_bn, #jqvmap2_ph, #jqvmap2_tl').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2 "});
+
+        region_name = "Australia";
+        $('.region_title p').html("Australia");
+    });
+
+
+
+
+
+
     //west
     $('#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az').click(function(){
-        $('#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az').css({"stroke":"#d95901", "stroke-width": "4px", "fill": "#ffa767"});
+        $('#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az').css({"stroke":"#666666", "stroke-width": "1px", "fill": "#ffa767"});
 
-        $('#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi ').css({"stroke":"#818181", "stroke-width": "4px", "fill": "white"});
-        $('#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me').css({"stroke":"#818181", "stroke-width": "4px", "fill": "white"});
-        $('#jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc').css({"stroke":"#818181", "stroke-width": "4px", "fill": "white"});
+        $('#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi ').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+        $('#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+        $('#jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
 
-        region_name = "West";
+        region_name_us = "West";
         $('.region_title p').html("US West");
     });
 
     //midwest
     $('#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi ').click(function(){
-        $('#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi ').css({"stroke":"#d95901", "stroke-width": "4px", "fill": "#ffa767"});
+        $('#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi ').css({"stroke":"#666666", "stroke-width": "1px", "fill": "#ffa767"});
 
-        $('#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az').css({"stroke":"#818181", "stroke-width": "4px", "fill": "white"});
-        $('#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me').css({"stroke":"#818181", "stroke-width": "4px", "fill": "white"});
-        $('#jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc').css({"stroke":"#818181", "stroke-width": "4px", "fill": "white"});
+        $('#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+        $('#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+        $('#jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
 
-        region_name = "Midwest";
+        region_name_us = "Midwest";
         $('.region_title p').html("US Midwest");
     });
 
     //north-east
     $('#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me').click(function(){
-        $('#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me').css({"stroke":"#d95901", "stroke-width": "4px", "fill": "#ffa767"});
+        $('#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me').css({"stroke":"#666666", "stroke-width": "1px", "fill": "#ffa767"});
 
-        $('#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi ').css({"stroke":"#818181", "stroke-width": "4px", "fill": "white"});
-        $('#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az').css({"stroke":"#818181", "stroke-width": "4px", "fill": "white"});
-        $('#jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc').css({"stroke":"#818181", "stroke-width": "4px", "fill": "white"});
+        $('#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi ').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+        $('#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+        $('#jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
 
-        region_name = "Northeast";
+        region_name_us = "Northeast";
         $('.region_title p').html("US Northeast");
     });
 
     //south
     $('#jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc').click(function(){
-        $('#jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc').css({"stroke":"#d95901", "stroke-width": "4px", "fill": "#ffa767"});
+        $('#jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc').css({"stroke":"#666666", "stroke-width": "1px", "fill": "#ffa767"});
 
-        $('#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi ').css({"stroke":"#818181", "stroke-width": "4px", "fill": "white"});
-        $('#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me').css({"stroke":"#818181", "stroke-width": "4px", "fill": "white"});
-        $('#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az').css({"stroke":"#818181", "stroke-width": "4px", "fill": "white"});
+        $('#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi ').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+        $('#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+        $('#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
 
-        region_name = "South";
+        region_name_us = "South";
         $('.region_title p').html("US South");
     });
 
@@ -141,11 +264,36 @@ $(document).ready(function() {
     });
 
     $("#region_selected").on("click", function() {
+        var region;
         $('.region_checkbox').prop('checked',false);
-        if(!$('input[value="US '+region_name+'"]').is(":checked"))
+        if(region_name!='')
         {
-            $('input[value="US '+region_name+'"]').click();
+            region = region_name;
+            $('input[value="'+region+'"]').click();
+            $('#jqvmap2_gl, #jqvmap2_ca, #jqvmap2_us, #jqvmap2_mx, #jqvmap2_gt, #jqvmap2_bz, #jqvmap2_sv, #jqvmap2_hn, #jqvmap2_ni, #jqvmap2_cr, #jqvmap2_pa, #jqvmap2_bs, #jqvmap2_jm, #jqvmap2_cu, #jqvmap2_ht, #jqvmap2_do, #jqvmap2_tt, #jqvmap2_gd, #jqvmap2_bb, #jqvmap2_lc, #jqvmap2_dm, #jqvmap2_ag, #jqvmap2_kn').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+            $('#jqvmap2_fk, #jqvmap2_co, #jqvmap2_ve, #jqvmap2_ec, #jqvmap2_gy, #jqvmap2_sr, #jqvmap2_gf, #jqvmap2_br, #jqvmap2_pe, #jqvmap2_bo, #jqvmap2_py, #jqvmap2_uy, #jqvmap2_ar, #jqvmap2_cl').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+            $('#jqvmap2_km, #jqvmap2_sc, #jqvmap2_mu, #jqvmap2_re, #jqvmap2_eg, #jqvmap2_ly, #jqvmap2_tn, #jqvmap2_dz, #jqvmap2_ma, #jqvmap2_mr, #jqvmap2_ml, #jqvmap2_ne, #jqvmap2_td, #jqvmap2_sd, #jqvmap2_er, #jqvmap2_dj, #jqvmap2_so, #jqvmap2_et, #jqvmap2_ke, #jqvmap2_cf, #jqvmap2_cm, #jqvmap2_gq, #jqvmap2_st, #jqvmap2_ga, #jqvmap2_cg, #jqvmap2_ao, #jqvmap2_cd, #jqvmap2_rw, #jqvmap2_bi, #jqvmap2_tz, #jqvmap2_zm, #jqvmap2_zw, #jqvmap2_mw, #jqvmap2_mz, #jqvmap2_na, #jqvmap2_bw, #jqvmap2_za, #jqvmap2_ls, #jqvmap2_sz, #jqvmap2_mg, #jqvmap2_cv, #jqvmap2_gm, #jqvmap2_sn, #jqvmap2_gw, #jqvmap2_gn, #jqvmap2_sl, #jqvmap2_lr, #jqvmap2_ci, #jqvmap2_bf, #jqvmap2_gh, #jqvmap2_tg, #jqvmap2_bj, #jqvmap2_ng, #jqvmap2_ug').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+            $('#jqvmap2_mv, #jqvmap2_is, #jqvmap2_no, #jqvmap2_ie, #jqvmap2_gb, #jqvmap2_se, #jqvmap2_fi, #jqvmap2_ee, #jqvmap2_lv, #jqvmap2_lt, #jqvmap2_by, #jqvmap2_ua, #jqvmap2_md, #jqvmap2_ro, #jqvmap2_hu, #jqvmap2_dk, #jqvmap2_de, #jqvmap2_nl, #jqvmap2_be, #jqvmap2_fr, #jqvmap2_it, #jqvmap2_es, #jqvmap2_pt, #jqvmap2_mt, #jqvmap2_cy, #jqvmap2_gr, #jqvmap2_tr, #jqvmap2_sy, #jqvmap2_sa, #jqvmap2_in, #jqvmap2_ru, #jqvmap2_pl, #jqvmap2_cz, #jqvmap2_sk, #jqvmap2_at #jqvmap2_ch, #jqvmap2_si, #jqvmap2_hr, #jqvmap2_ba, #jqvmap2_rs, #jqvmap2_bg, #jqvmap2_mk, #jqvmap2_al, #jqvmap2_lb, #jqvmap2_il, #jqvmap2_jo, #jqvmap2_iq, #jqvmap2_kw, #jqvmap2_qa, #jqvmap2_ae, #jqvmap2_om, #jqvmap2_ye, #jqvmap2_ir, #jqvmap2_ch, #jqvmap2_at, #jqvmap2_ge, #jqvmap2_am, #jqvmap2_az, #jqvmap2_kz, #jqvmap2_mn, #jqvmap2_cn, #jqvmap2_kp, #jqvmap2_kg, #jqvmap2_uz, #jqvmap2_tj, #jqvmap2_tm, #jqvmap2_af, #jqvmap2_pk, #jqvmap2_np, #jqvmap2_bt, #jqvmap2_bd, #jqvmap2_mm, #jqvmap2_th, #jqvmap2_jp, #jqvmap2_kr, #jqvmap2_tw, #jqvmap2_la, #jqvmap2_vn, #jqvmap2_kh, #jqvmap2_lk, #jqvmap2_id, #jqvmap2_my, #jqvmap2_bn, #jqvmap2_ph, #jqvmap2_tl').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+            $('#jqvmap2_au, #jqvmap2_pg, #jqvmap2_sb, #jqvmap2_vu, #jqvmap2_pf, #jqvmap2_fj, #jqvmap2_nc, #jqvmap2_nz').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
         }
+        if(region_name_us!='')
+        {
+            region = region_name_us;
+            $('input[value="US '+region+'"]').click();
+
+            $('#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+            $('#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi ').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+            $('#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+            $('#jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+
+        }
+        $('.eurasia').hide();
+        $('#vmap').hide();
+        $('#vmap1').hide();
+        region_name = '';
+        region_name_us = '';
+        $('.region_title p').html('');
+
         $('.dialog_for_map').dialog("close");
 
     });

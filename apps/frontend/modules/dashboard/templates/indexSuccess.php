@@ -75,7 +75,8 @@
                 </div>
             </div>
             <div class="jsmap">
-                <h3 class="custom_color jsmapclick" title="A way to filter by Regions on the map">Map<i class="filter_arrow"></i></h3>
+                <h3 class="custom_color jsmapclick" title="A way to filter by Regions on the map">Map-World<i class="filter_arrow"></i></h3>
+                <h3 class="custom_color jsmapclick_us" title="A way to filter by States on the map">Map-States<i class="filter_arrow"></i></h3>
             </div>
         </div>
 

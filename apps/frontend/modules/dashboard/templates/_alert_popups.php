@@ -68,8 +68,15 @@
 
 <div class="dialog_for_map" style="display: none;" title="LexLists Map Filter">
     <div class="region_title" style=" height: 20px;  top:0; left: 0;">
-        <p style="color: #433f38; font-weight: 700;"></p>
+        <p style="color: #433f38; height: 20px; font-weight: 700;"></p>
     </div>
-    <div id="vmap" style="width: 600px; height: 400px;"></div>
+    <div id="vmap" style="width: 800px; height: 500px;"></div>
+    <div id="vmap1" style="width: 800px; height: 500px;"></div>
+
+
+    <input class="eurasia" style="float: left;" type="radio" name="eurasia" value="Europe"><p class="eurasia" style="float: left; margin-right: 30px; margin-left: 5px; margin-top: 2px; color: #433f38; font-weight: 700;">Europe</p>
+    <input class="eurasia" style="float: left;" type="radio" name="eurasia" value="Asia"><p class="eurasia" style="float: left; margin-left: 5px; margin-top: 2px; color: #433f38; font-weight: 700;">Asia</p>
+
+
     <button class="region_selected" id="region_selected">OK</button>
 </div>

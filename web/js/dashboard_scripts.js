@@ -11,16 +11,22 @@ $(document).ajaxStop(function() {
 });
 
 $(document).ready(function() {
+
     var region_name = '';
     var region_name_us = '';
 
+    $('.region_title p').html('');
+
+    $('#container').hide();
+    $('#container_us').hide();
+
+    $('#us_west').hide();
+    $('#us_south').hide();
+    $('#midwest').hide();
+    $('#northeast').hide();
 
 
     function initMapPopupWindow(element) {
-        $('.eurasia').hide();
-        $('#vmap').hide();
-        $('#vmap1').hide();
-
 
         var myPos = { my: "center top", at: "center top+20", of: window };
 
@@ -42,7 +48,162 @@ $(document).ready(function() {
     }
     initMapPopupWindow("dialog_for_map");
 
-    $('#vmap1').vectorMap({
+
+
+    $('.jsmapclick').click(function(){
+
+        $('#container').show();
+
+        $(function () {
+
+
+            // Prepare demo data
+            var data = [
+                {
+                    "hc-key": "eu",
+                    "value": 0
+                },
+                {
+                    "hc-key": "oc",
+                    "value": 1
+                },
+                {
+                    "hc-key": "af",
+                    "value": 2
+                },
+                {
+                    "hc-key": "as",
+                    "value": 3
+                },
+                {
+                    "hc-key": "na",
+                    "value": 4
+                },
+                {
+                    "hc-key": "sa",
+                    "value": 5
+                }
+            ];
+
+            // Initiate the chart
+            $('#container').highcharts('Map', {
+
+                title : {
+                    text : ''
+                },
+
+                mapNavigation: {
+                    enabled: true,
+                    buttonOptions: {
+                        verticalAlign: 'bottom'
+                    }
+                },
+
+                colorAxis: {
+                    min: 0
+                },
+
+                series : [{
+                    data : data,
+                    mapData: Highcharts.maps['custom/world-continents'],
+                    joinBy: 'hc-key',
+                    /*name: 'Region',*/
+                    states: {
+                        hover: {
+
+                            color: '#ffa767'
+                        }
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}'
+                    }
+                }]
+            });
+        });
+
+        $('.dialog_for_map').dialog("open");
+
+        $('.highcharts-legend').hide();
+
+        $('.highcharts-name-north-america, .highcharts-name-south-america, .highcharts-name-europe, .highcharts-name-asia, .highcharts-name-africa, .highcharts-name-australia').css({"fill": "#57A0C2"});
+
+        $('.highcharts-name-north-america').click(function(){
+            $('.highcharts-name-north-america').css({"fill": "#ffa767"});
+
+            $('.highcharts-name-south-america').css({"fill": "#57A0C2"});
+            $('.highcharts-name-europe').css({"fill": "#57A0C2"});
+            $('.highcharts-name-asia').css({"fill": "#57A0C2"});
+            $('.highcharts-name-africa').css({"fill": "#57A0C2"});
+            $('.highcharts-name-australia').css({"fill": "#57A0C2"});
+
+            region_name = "North America";
+        });
+
+        $('.highcharts-name-south-america').click(function(){
+            $('.highcharts-name-south-america').css({"fill": "#ffa767"});
+
+            $('.highcharts-name-north-america').css({"fill": "#57A0C2"});
+            $('.highcharts-name-europe').css({"fill": "#57A0C2"});
+            $('.highcharts-name-asia').css({"fill": "#57A0C2"});
+            $('.highcharts-name-africa').css({"fill": "#57A0C2"});
+            $('.highcharts-name-australia').css({"fill": "#57A0C2"});
+
+            region_name = "South America";
+        });
+
+        $('.highcharts-name-europe').click(function(){
+            $('.highcharts-name-europe').css({"fill": "#ffa767"});
+
+            $('.highcharts-name-north-america').css({"fill": "#57A0C2"});
+            $('.highcharts-name-south-america').css({"fill": "#57A0C2"});
+            $('.highcharts-name-asia').css({"fill": "#57A0C2"});
+            $('.highcharts-name-africa').css({"fill": "#57A0C2"});
+            $('.highcharts-name-australia').css({"fill": "#57A0C2"});
+
+            region_name = "Europe";
+        });
+
+        $('.highcharts-name-asia').click(function(){
+            $('.highcharts-name-asia').css({"fill": "#ffa767"});
+
+            $('.highcharts-name-north-america').css({"fill": "#57A0C2"});
+            $('.highcharts-name-south-america').css({"fill": "#57A0C2"});
+            $('.highcharts-name-europe').css({"fill": "#57A0C2"});
+            $('.highcharts-name-africa').css({"fill": "#57A0C2"});
+            $('.highcharts-name-australia').css({"fill": "#57A0C2"});
+
+            region_name = "Asia";
+        });
+
+        $('.highcharts-name-africa').click(function(){
+            $('.highcharts-name-africa').css({"fill": "#ffa767"});
+
+            $('.highcharts-name-north-america').css({"fill": "#57A0C2"});
+            $('.highcharts-name-south-america').css({"fill": "#57A0C2"});
+            $('.highcharts-name-europe').css({"fill": "#57A0C2"});
+            $('.highcharts-name-asia').css({"fill": "#57A0C2"});
+            $('.highcharts-name-australia').css({"fill": "#57A0C2"});
+
+            region_name = "Africa";
+        });
+
+        $('.highcharts-name-australia').click(function(){
+            $('.highcharts-name-australia').css({"fill": "#ffa767"});
+
+            $('.highcharts-name-north-america').css({"fill": "#57A0C2"});
+            $('.highcharts-name-south-america').css({"fill": "#57A0C2"});
+            $('.highcharts-name-europe').css({"fill": "#57A0C2"});
+            $('.highcharts-name-asia').css({"fill": "#57A0C2"});
+            $('.highcharts-name-africa').css({"fill": "#57A0C2"});
+
+            region_name = "Australia";
+        });
+
+
+    });
+
+    jQuery('#container_us').vectorMap({
         map: 'usa_en',
         backgroundColor: null,
         color: '#57A0C1',
@@ -53,173 +214,134 @@ $(document).ready(function() {
         selectedRegion: 'MO'
     });
 
-    $('#vmap').vectorMap({
-        map: 'world_en',
-        backgroundColor: null,
-        color: '#ffffff',
-        hoverOpacity: 0.7,
-        selectedColor: '#666666',
-        enableZoom: true,
-        showTooltip: true,
-        values: sample_data,
-        scaleColors: ['#57A0C1'],
-        normalizeFunction: 'polynomial'
-    });
+
+var west_ids = "#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az";
+var south_ids = "#jqvmap1_dc, #jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc";
+var midwest_ids = "#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi";
+var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me";
 
 
-    $('#jqvmap2_gl, #jqvmap2_pf, #jqvmap2_fk, #jqvmap2_cu, #jqvmap2_gf, #jqvmap2_so, #jqvmap2_tm, #jqvmap2_kp, #jqvmap2_re, #jqvmap2_nc').css({'fill': '#57A0C1'});
+//west
+    $(west_ids).click(function(e){
+        $(west_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+        $('#us_west').show();
+        var isCtrlPressed_west = e.ctrlKey;
+        if(isCtrlPressed_west)
+        {
+            $(west_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+            $('#us_west').show();
+            region_name_us += " " + "West";
+            $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US West");
+        }
+        else
+        {
+            $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+            $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+            $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+            region_name_us = "West";
 
+            $('.region_title p').html("US West");
 
-    $('.jsmapclick').click(function(){
-        $('#vmap').show();
-        $('#vmap1').hide();
+            $('#us_west').show();
+            $('#us_south').hide();
+            $('#midwest').hide();
+            $('#northeast').hide();
+        }
 
-        $('.dialog_for_map').dialog("open");
-
-    });
-
-    $('.jsmapclick_us').click(function(){
-        $('#vmap1').show();
-        $('#vmap').hide();
-
-        $('.dialog_for_map').dialog("open");
-
-    });
-
-    //north america
-    $('#jqvmap2_gl, #jqvmap2_ca, #jqvmap2_us, #jqvmap2_mx, #jqvmap2_gt, #jqvmap2_bz, #jqvmap2_sv, #jqvmap2_hn, #jqvmap2_ni, #jqvmap2_cr, #jqvmap2_pa, #jqvmap2_bs, #jqvmap2_jm, #jqvmap2_cu, #jqvmap2_ht, #jqvmap2_do, #jqvmap2_tt, #jqvmap2_gd, #jqvmap2_bb, #jqvmap2_lc, #jqvmap2_dm, #jqvmap2_ag, #jqvmap2_kn').click(function(){
-        $('#jqvmap2_gl, #jqvmap2_ca, #jqvmap2_us, #jqvmap2_mx, #jqvmap2_gt, #jqvmap2_bz, #jqvmap2_sv, #jqvmap2_hn, #jqvmap2_ni, #jqvmap2_cr, #jqvmap2_pa, #jqvmap2_bs, #jqvmap2_jm, #jqvmap2_cu, #jqvmap2_ht, #jqvmap2_do, #jqvmap2_tt, #jqvmap2_gd, #jqvmap2_bb, #jqvmap2_lc, #jqvmap2_dm, #jqvmap2_ag, #jqvmap2_kn').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#ffa767"});
-
-        $('.eurasia').hide();
-
-        $('#jqvmap2_fk, #jqvmap2_co, #jqvmap2_ve, #jqvmap2_ec, #jqvmap2_gy, #jqvmap2_sr, #jqvmap2_gf, #jqvmap2_br, #jqvmap2_pe, #jqvmap2_bo, #jqvmap2_py, #jqvmap2_uy, #jqvmap2_ar, #jqvmap2_cl').css({"stroke":"#828282", "stroke-width": "2px", "fill": "#57A0C2"});
-        $('#jqvmap2_km, #jqvmap2_sc, #jqvmap2_mu, #jqvmap2_re, #jqvmap2_eg, #jqvmap2_ly, #jqvmap2_tn, #jqvmap2_dz, #jqvmap2_ma, #jqvmap2_mr, #jqvmap2_ml, #jqvmap2_ne, #jqvmap2_td, #jqvmap2_sd, #jqvmap2_er, #jqvmap2_dj, #jqvmap2_so, #jqvmap2_et, #jqvmap2_ke, #jqvmap2_cf, #jqvmap2_cm, #jqvmap2_gq, #jqvmap2_st, #jqvmap2_ga, #jqvmap2_cg, #jqvmap2_ao, #jqvmap2_cd, #jqvmap2_rw, #jqvmap2_bi, #jqvmap2_tz, #jqvmap2_zm, #jqvmap2_zw, #jqvmap2_mw, #jqvmap2_mz, #jqvmap2_na, #jqvmap2_bw, #jqvmap2_za, #jqvmap2_ls, #jqvmap2_sz, #jqvmap2_mg, #jqvmap2_cv, #jqvmap2_gm, #jqvmap2_sn, #jqvmap2_gw, #jqvmap2_gn, #jqvmap2_sl, #jqvmap2_lr, #jqvmap2_ci, #jqvmap2_bf, #jqvmap2_gh, #jqvmap2_tg, #jqvmap2_bj, #jqvmap2_ng, #jqvmap2_ug').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2"});
-        $('#jqvmap2_mv, #jqvmap2_is, #jqvmap2_no, #jqvmap2_ie, #jqvmap2_gb, #jqvmap2_se, #jqvmap2_fi, #jqvmap2_ee, #jqvmap2_lv, #jqvmap2_lt, #jqvmap2_by, #jqvmap2_ua, #jqvmap2_md, #jqvmap2_ro, #jqvmap2_hu, #jqvmap2_dk, #jqvmap2_de, #jqvmap2_nl, #jqvmap2_be, #jqvmap2_fr, #jqvmap2_it, #jqvmap2_es, #jqvmap2_pt, #jqvmap2_mt, #jqvmap2_cy, #jqvmap2_gr, #jqvmap2_tr, #jqvmap2_sy, #jqvmap2_sa, #jqvmap2_in, #jqvmap2_ru, #jqvmap2_pl, #jqvmap2_cz, #jqvmap2_sk, #jqvmap2_at #jqvmap2_ch, #jqvmap2_si, #jqvmap2_hr, #jqvmap2_ba, #jqvmap2_rs, #jqvmap2_bg, #jqvmap2_mk, #jqvmap2_al, #jqvmap2_lb, #jqvmap2_il, #jqvmap2_jo, #jqvmap2_iq, #jqvmap2_kw, #jqvmap2_qa, #jqvmap2_ae, #jqvmap2_om, #jqvmap2_ye, #jqvmap2_ir, #jqvmap2_ch, #jqvmap2_at, #jqvmap2_ge, #jqvmap2_am, #jqvmap2_az, #jqvmap2_kz, #jqvmap2_mn, #jqvmap2_cn, #jqvmap2_kp, #jqvmap2_kg, #jqvmap2_uz, #jqvmap2_tj, #jqvmap2_tm, #jqvmap2_af, #jqvmap2_pk, #jqvmap2_np, #jqvmap2_bt, #jqvmap2_bd, #jqvmap2_mm, #jqvmap2_th, #jqvmap2_jp, #jqvmap2_kr, #jqvmap2_tw, #jqvmap2_la, #jqvmap2_vn, #jqvmap2_kh, #jqvmap2_lk, #jqvmap2_id, #jqvmap2_my, #jqvmap2_bn, #jqvmap2_ph, #jqvmap2_tl').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2 "});
-        $('#jqvmap2_au, #jqvmap2_pg, #jqvmap2_sb, #jqvmap2_vu, #jqvmap2_pf, #jqvmap2_fj, #jqvmap2_nc, #jqvmap2_nz').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2 "});
-
-        region_name = "North America";
-        $('.region_title p').html("North America");
-    });
-
-    //south america
-    $('#jqvmap2_fk, #jqvmap2_co, #jqvmap2_ve, #jqvmap2_ec, #jqvmap2_gy, #jqvmap2_sr, #jqvmap2_gf, #jqvmap2_br, #jqvmap2_pe, #jqvmap2_bo, #jqvmap2_py, #jqvmap2_uy, #jqvmap2_ar, #jqvmap2_cl').click(function(){
-        $('#jqvmap2_fk, #jqvmap2_co, #jqvmap2_ve, #jqvmap2_ec, #jqvmap2_gy, #jqvmap2_sr, #jqvmap2_gf, #jqvmap2_br, #jqvmap2_pe, #jqvmap2_bo, #jqvmap2_py, #jqvmap2_uy, #jqvmap2_ar, #jqvmap2_cl').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#ffa767"});
-
-        $('.eurasia').hide();
-
-        $('#jqvmap2_gl, #jqvmap2_ca, #jqvmap2_us, #jqvmap2_mx, #jqvmap2_gt, #jqvmap2_bz, #jqvmap2_sv, #jqvmap2_hn, #jqvmap2_ni, #jqvmap2_cr, #jqvmap2_pa, #jqvmap2_bs, #jqvmap2_jm, #jqvmap2_cu, #jqvmap2_ht, #jqvmap2_do, #jqvmap2_tt, #jqvmap2_gd, #jqvmap2_bb, #jqvmap2_lc, #jqvmap2_dm, #jqvmap2_ag, #jqvmap2_kn').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2"});
-        $('#jqvmap2_km, #jqvmap2_sc, #jqvmap2_mu, #jqvmap2_re, #jqvmap2_eg, #jqvmap2_ly, #jqvmap2_tn, #jqvmap2_dz, #jqvmap2_ma, #jqvmap2_mr, #jqvmap2_ml, #jqvmap2_ne, #jqvmap2_td, #jqvmap2_sd, #jqvmap2_er, #jqvmap2_dj, #jqvmap2_so, #jqvmap2_et, #jqvmap2_ke, #jqvmap2_cf, #jqvmap2_cm, #jqvmap2_gq, #jqvmap2_st, #jqvmap2_ga, #jqvmap2_cg, #jqvmap2_ao, #jqvmap2_cd, #jqvmap2_rw, #jqvmap2_bi, #jqvmap2_tz, #jqvmap2_zm, #jqvmap2_zw, #jqvmap2_mw, #jqvmap2_mz, #jqvmap2_na, #jqvmap2_bw, #jqvmap2_za, #jqvmap2_ls, #jqvmap2_sz, #jqvmap2_mg, #jqvmap2_cv, #jqvmap2_gm, #jqvmap2_sn, #jqvmap2_gw, #jqvmap2_gn, #jqvmap2_sl, #jqvmap2_lr, #jqvmap2_ci, #jqvmap2_bf, #jqvmap2_gh, #jqvmap2_tg, #jqvmap2_bj, #jqvmap2_ng, #jqvmap2_ug').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2"});
-        $('#jqvmap2_mv, #jqvmap2_is, #jqvmap2_no, #jqvmap2_ie, #jqvmap2_gb, #jqvmap2_se, #jqvmap2_fi, #jqvmap2_ee, #jqvmap2_lv, #jqvmap2_lt, #jqvmap2_by, #jqvmap2_ua, #jqvmap2_md, #jqvmap2_ro, #jqvmap2_hu, #jqvmap2_dk, #jqvmap2_de, #jqvmap2_nl, #jqvmap2_be, #jqvmap2_fr, #jqvmap2_it, #jqvmap2_es, #jqvmap2_pt, #jqvmap2_mt, #jqvmap2_cy, #jqvmap2_gr, #jqvmap2_tr, #jqvmap2_sy, #jqvmap2_sa, #jqvmap2_in, #jqvmap2_ru, #jqvmap2_pl, #jqvmap2_cz, #jqvmap2_sk, #jqvmap2_at #jqvmap2_ch, #jqvmap2_si, #jqvmap2_hr, #jqvmap2_ba, #jqvmap2_rs, #jqvmap2_bg, #jqvmap2_mk, #jqvmap2_al, #jqvmap2_lb, #jqvmap2_il, #jqvmap2_jo, #jqvmap2_iq, #jqvmap2_kw, #jqvmap2_qa, #jqvmap2_ae, #jqvmap2_om, #jqvmap2_ye, #jqvmap2_ir, #jqvmap2_ch, #jqvmap2_at, #jqvmap2_ge, #jqvmap2_am, #jqvmap2_az, #jqvmap2_kz, #jqvmap2_mn, #jqvmap2_cn, #jqvmap2_kp, #jqvmap2_kg, #jqvmap2_uz, #jqvmap2_tj, #jqvmap2_tm, #jqvmap2_af, #jqvmap2_pk, #jqvmap2_np, #jqvmap2_bt, #jqvmap2_bd, #jqvmap2_mm, #jqvmap2_th, #jqvmap2_jp, #jqvmap2_kr, #jqvmap2_tw, #jqvmap2_la, #jqvmap2_vn, #jqvmap2_kh, #jqvmap2_lk, #jqvmap2_id, #jqvmap2_my, #jqvmap2_bn, #jqvmap2_ph, #jqvmap2_tl').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2 "});
-        $('#jqvmap2_au, #jqvmap2_pg, #jqvmap2_sb, #jqvmap2_vu, #jqvmap2_pf, #jqvmap2_fj, #jqvmap2_nc, #jqvmap2_nz').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2 "});
-
-        region_name = "South America";
-        $('.region_title p').html("South America");
-    });
-
-    //africa
-    $('#jqvmap2_km, #jqvmap2_sc, #jqvmap2_mu, #jqvmap2_re, #jqvmap2_eg, #jqvmap2_ly, #jqvmap2_tn, #jqvmap2_dz, #jqvmap2_ma, #jqvmap2_mr, #jqvmap2_ml, #jqvmap2_ne, #jqvmap2_td, #jqvmap2_sd, #jqvmap2_er, #jqvmap2_dj, #jqvmap2_so, #jqvmap2_et, #jqvmap2_ke, #jqvmap2_cf, #jqvmap2_cm, #jqvmap2_gq, #jqvmap2_st, #jqvmap2_ga, #jqvmap2_cg, #jqvmap2_ao, #jqvmap2_cd, #jqvmap2_rw, #jqvmap2_bi, #jqvmap2_tz, #jqvmap2_zm, #jqvmap2_zw, #jqvmap2_mw, #jqvmap2_mz, #jqvmap2_na, #jqvmap2_bw, #jqvmap2_za, #jqvmap2_ls, #jqvmap2_sz, #jqvmap2_mg, #jqvmap2_cv, #jqvmap2_gm, #jqvmap2_sn, #jqvmap2_gw, #jqvmap2_gn, #jqvmap2_sl, #jqvmap2_lr, #jqvmap2_ci, #jqvmap2_bf, #jqvmap2_gh, #jqvmap2_tg, #jqvmap2_bj, #jqvmap2_ng, #jqvmap2_ug').click(function(){
-        $('#jqvmap2_km, #jqvmap2_sc, #jqvmap2_mu, #jqvmap2_re, #jqvmap2_eg, #jqvmap2_ly, #jqvmap2_tn, #jqvmap2_dz, #jqvmap2_ma, #jqvmap2_mr, #jqvmap2_ml, #jqvmap2_ne, #jqvmap2_td, #jqvmap2_sd, #jqvmap2_er, #jqvmap2_dj, #jqvmap2_so, #jqvmap2_et, #jqvmap2_ke, #jqvmap2_cf, #jqvmap2_cm, #jqvmap2_gq, #jqvmap2_st, #jqvmap2_ga, #jqvmap2_cg, #jqvmap2_ao, #jqvmap2_cd, #jqvmap2_rw, #jqvmap2_bi, #jqvmap2_tz, #jqvmap2_zm, #jqvmap2_zw, #jqvmap2_mw, #jqvmap2_mz, #jqvmap2_na, #jqvmap2_bw, #jqvmap2_za, #jqvmap2_ls, #jqvmap2_sz, #jqvmap2_mg, #jqvmap2_cv, #jqvmap2_gm, #jqvmap2_sn, #jqvmap2_gw, #jqvmap2_gn, #jqvmap2_sl, #jqvmap2_lr, #jqvmap2_ci, #jqvmap2_bf, #jqvmap2_gh, #jqvmap2_tg, #jqvmap2_bj, #jqvmap2_ng, #jqvmap2_ug').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#ffa767"});
-
-        $('.eurasia').hide();
-
-        $('#jqvmap2_gl, #jqvmap2_ca, #jqvmap2_us, #jqvmap2_mx, #jqvmap2_gt, #jqvmap2_bz, #jqvmap2_sv, #jqvmap2_hn, #jqvmap2_ni, #jqvmap2_cr, #jqvmap2_pa, #jqvmap2_bs, #jqvmap2_jm, #jqvmap2_cu, #jqvmap2_ht, #jqvmap2_do, #jqvmap2_tt, #jqvmap2_gd, #jqvmap2_bb, #jqvmap2_lc, #jqvmap2_dm, #jqvmap2_ag, #jqvmap2_kn').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2"});
-        $('#jqvmap2_fk, #jqvmap2_co, #jqvmap2_ve, #jqvmap2_ec, #jqvmap2_gy, #jqvmap2_sr, #jqvmap2_gf, #jqvmap2_br, #jqvmap2_pe, #jqvmap2_bo, #jqvmap2_py, #jqvmap2_uy, #jqvmap2_ar, #jqvmap2_cl').css({"stroke":"#828282", "stroke-width": "2px", "fill": "#57A0C2"});
-        $('#jqvmap2_mv, #jqvmap2_is, #jqvmap2_no, #jqvmap2_ie, #jqvmap2_gb, #jqvmap2_se, #jqvmap2_fi, #jqvmap2_ee, #jqvmap2_lv, #jqvmap2_lt, #jqvmap2_by, #jqvmap2_ua, #jqvmap2_md, #jqvmap2_ro, #jqvmap2_hu, #jqvmap2_dk, #jqvmap2_de, #jqvmap2_nl, #jqvmap2_be, #jqvmap2_fr, #jqvmap2_it, #jqvmap2_es, #jqvmap2_pt, #jqvmap2_mt, #jqvmap2_cy, #jqvmap2_gr, #jqvmap2_tr, #jqvmap2_sy, #jqvmap2_sa, #jqvmap2_in, #jqvmap2_ru, #jqvmap2_pl, #jqvmap2_cz, #jqvmap2_sk, #jqvmap2_at #jqvmap2_ch, #jqvmap2_si, #jqvmap2_hr, #jqvmap2_ba, #jqvmap2_rs, #jqvmap2_bg, #jqvmap2_mk, #jqvmap2_al, #jqvmap2_lb, #jqvmap2_il, #jqvmap2_jo, #jqvmap2_iq, #jqvmap2_kw, #jqvmap2_qa, #jqvmap2_ae, #jqvmap2_om, #jqvmap2_ye, #jqvmap2_ir, #jqvmap2_ch, #jqvmap2_at, #jqvmap2_ge, #jqvmap2_am, #jqvmap2_az, #jqvmap2_kz, #jqvmap2_mn, #jqvmap2_cn, #jqvmap2_kp, #jqvmap2_kg, #jqvmap2_uz, #jqvmap2_tj, #jqvmap2_tm, #jqvmap2_af, #jqvmap2_pk, #jqvmap2_np, #jqvmap2_bt, #jqvmap2_bd, #jqvmap2_mm, #jqvmap2_th, #jqvmap2_jp, #jqvmap2_kr, #jqvmap2_tw, #jqvmap2_la, #jqvmap2_vn, #jqvmap2_kh, #jqvmap2_lk, #jqvmap2_id, #jqvmap2_my, #jqvmap2_bn, #jqvmap2_ph, #jqvmap2_tl').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2 "});
-        $('#jqvmap2_au, #jqvmap2_pg, #jqvmap2_sb, #jqvmap2_vu, #jqvmap2_pf, #jqvmap2_fj, #jqvmap2_nc, #jqvmap2_nz').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2 "});
-
-        region_name = "Africa";
-        $('.region_title p').html("Africa");
-    });
-
-    //eurasia
-    $('#jqvmap2_mv, #jqvmap2_is, #jqvmap2_no, #jqvmap2_ie, #jqvmap2_gb, #jqvmap2_se, #jqvmap2_fi, #jqvmap2_ee, #jqvmap2_lv, #jqvmap2_lt, #jqvmap2_by, #jqvmap2_ua, #jqvmap2_md, #jqvmap2_ro, #jqvmap2_hu, #jqvmap2_dk, #jqvmap2_de, #jqvmap2_nl, #jqvmap2_be, #jqvmap2_fr, #jqvmap2_it, #jqvmap2_es, #jqvmap2_pt, #jqvmap2_mt, #jqvmap2_cy, #jqvmap2_gr, #jqvmap2_tr, #jqvmap2_sy, #jqvmap2_sa, #jqvmap2_in, #jqvmap2_ru, #jqvmap2_pl, #jqvmap2_cz, #jqvmap2_sk, #jqvmap2_at #jqvmap2_ch, #jqvmap2_si, #jqvmap2_hr, #jqvmap2_ba, #jqvmap2_rs, #jqvmap2_bg, #jqvmap2_mk, #jqvmap2_al, #jqvmap2_lb, #jqvmap2_il, #jqvmap2_jo, #jqvmap2_iq, #jqvmap2_kw, #jqvmap2_qa, #jqvmap2_ae, #jqvmap2_om, #jqvmap2_ye, #jqvmap2_ir, #jqvmap2_ch, #jqvmap2_at, #jqvmap2_ge, #jqvmap2_am, #jqvmap2_az, #jqvmap2_kz, #jqvmap2_mn, #jqvmap2_cn, #jqvmap2_kp, #jqvmap2_kg, #jqvmap2_uz, #jqvmap2_tj, #jqvmap2_tm, #jqvmap2_af, #jqvmap2_pk, #jqvmap2_np, #jqvmap2_bt, #jqvmap2_bd, #jqvmap2_mm, #jqvmap2_th, #jqvmap2_jp, #jqvmap2_kr, #jqvmap2_tw, #jqvmap2_la, #jqvmap2_vn, #jqvmap2_kh, #jqvmap2_lk, #jqvmap2_id, #jqvmap2_my, #jqvmap2_bn, #jqvmap2_ph, #jqvmap2_tl').click(function(){
-        $('#jqvmap2_mv, #jqvmap2_is, #jqvmap2_no, #jqvmap2_ie, #jqvmap2_gb, #jqvmap2_se, #jqvmap2_fi, #jqvmap2_ee, #jqvmap2_lv, #jqvmap2_lt, #jqvmap2_by, #jqvmap2_ua, #jqvmap2_md, #jqvmap2_ro, #jqvmap2_hu, #jqvmap2_dk, #jqvmap2_de, #jqvmap2_nl, #jqvmap2_be, #jqvmap2_fr, #jqvmap2_it, #jqvmap2_es, #jqvmap2_pt, #jqvmap2_mt, #jqvmap2_cy, #jqvmap2_gr, #jqvmap2_tr, #jqvmap2_sy, #jqvmap2_sa, #jqvmap2_in, #jqvmap2_ru, #jqvmap2_pl, #jqvmap2_cz, #jqvmap2_sk, #jqvmap2_at #jqvmap2_ch, #jqvmap2_si, #jqvmap2_hr, #jqvmap2_ba, #jqvmap2_rs, #jqvmap2_bg, #jqvmap2_mk, #jqvmap2_al, #jqvmap2_lb, #jqvmap2_il, #jqvmap2_jo, #jqvmap2_iq, #jqvmap2_kw, #jqvmap2_qa, #jqvmap2_ae, #jqvmap2_om, #jqvmap2_ye, #jqvmap2_ir, #jqvmap2_ch, #jqvmap2_at, #jqvmap2_ge, #jqvmap2_am, #jqvmap2_az, #jqvmap2_kz, #jqvmap2_mn, #jqvmap2_cn, #jqvmap2_kp, #jqvmap2_kg, #jqvmap2_uz, #jqvmap2_tj, #jqvmap2_tm, #jqvmap2_af, #jqvmap2_pk, #jqvmap2_np, #jqvmap2_bt, #jqvmap2_bd, #jqvmap2_mm, #jqvmap2_th, #jqvmap2_jp, #jqvmap2_kr, #jqvmap2_tw, #jqvmap2_la, #jqvmap2_vn, #jqvmap2_kh, #jqvmap2_lk, #jqvmap2_id, #jqvmap2_my, #jqvmap2_bn, #jqvmap2_ph, #jqvmap2_tl').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#ffa767 "});
-
-        $('.region_title p').html('');
-
-        $('#jqvmap2_fk, #jqvmap2_co, #jqvmap2_ve, #jqvmap2_ec, #jqvmap2_gy, #jqvmap2_sr, #jqvmap2_gf, #jqvmap2_br, #jqvmap2_pe, #jqvmap2_bo, #jqvmap2_py, #jqvmap2_uy, #jqvmap2_ar, #jqvmap2_cl').css({"stroke":"#828282", "stroke-width": "2px", "fill": "#57A0C2"});
-        $('#jqvmap2_gl, #jqvmap2_ca, #jqvmap2_us, #jqvmap2_mx, #jqvmap2_gt, #jqvmap2_bz, #jqvmap2_sv, #jqvmap2_hn, #jqvmap2_ni, #jqvmap2_cr, #jqvmap2_pa, #jqvmap2_bs, #jqvmap2_jm, #jqvmap2_cu, #jqvmap2_ht, #jqvmap2_do, #jqvmap2_tt, #jqvmap2_gd, #jqvmap2_bb, #jqvmap2_lc, #jqvmap2_dm, #jqvmap2_ag, #jqvmap2_kn').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2"});
-        $('#jqvmap2_km, #jqvmap2_sc, #jqvmap2_mu, #jqvmap2_re, #jqvmap2_eg, #jqvmap2_ly, #jqvmap2_tn, #jqvmap2_dz, #jqvmap2_ma, #jqvmap2_mr, #jqvmap2_ml, #jqvmap2_ne, #jqvmap2_td, #jqvmap2_sd, #jqvmap2_er, #jqvmap2_dj, #jqvmap2_so, #jqvmap2_et, #jqvmap2_ke, #jqvmap2_cf, #jqvmap2_cm, #jqvmap2_gq, #jqvmap2_st, #jqvmap2_ga, #jqvmap2_cg, #jqvmap2_ao, #jqvmap2_cd, #jqvmap2_rw, #jqvmap2_bi, #jqvmap2_tz, #jqvmap2_zm, #jqvmap2_zw, #jqvmap2_mw, #jqvmap2_mz, #jqvmap2_na, #jqvmap2_bw, #jqvmap2_za, #jqvmap2_ls, #jqvmap2_sz, #jqvmap2_mg, #jqvmap2_cv, #jqvmap2_gm, #jqvmap2_sn, #jqvmap2_gw, #jqvmap2_gn, #jqvmap2_sl, #jqvmap2_lr, #jqvmap2_ci, #jqvmap2_bf, #jqvmap2_gh, #jqvmap2_tg, #jqvmap2_bj, #jqvmap2_ng, #jqvmap2_ug').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2"});
-        $('#jqvmap2_au, #jqvmap2_pg, #jqvmap2_sb, #jqvmap2_vu, #jqvmap2_pf, #jqvmap2_fj, #jqvmap2_nc, #jqvmap2_nz').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2 "});
-
-        $('.eurasia').show();
-
-        $(".eurasia").on('change', function(){
-            region_name = $('input[name="eurasia"]:checked').val();
-            $('.region_title p').html($('input[name="eurasia"]:checked').val());
-        });
-
-
-    });
-
-    //australia
-    $('#jqvmap2_au, #jqvmap2_pg, #jqvmap2_sb, #jqvmap2_vu, #jqvmap2_pf, #jqvmap2_fj, #jqvmap2_nc, #jqvmap2_nz').click(function(){
-        $('#jqvmap2_au, #jqvmap2_pg, #jqvmap2_sb, #jqvmap2_vu, #jqvmap2_pf, #jqvmap2_fj, #jqvmap2_nc, #jqvmap2_nz').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#ffa767 "});
-
-        $('.eurasia').hide();
-
-        $('#jqvmap2_fk, #jqvmap2_co, #jqvmap2_ve, #jqvmap2_ec, #jqvmap2_gy, #jqvmap2_sr, #jqvmap2_gf, #jqvmap2_br, #jqvmap2_pe, #jqvmap2_bo, #jqvmap2_py, #jqvmap2_uy, #jqvmap2_ar, #jqvmap2_cl').css({"stroke":"#828282", "stroke-width": "2px", "fill": "#57A0C2"});
-        $('#jqvmap2_gl, #jqvmap2_ca, #jqvmap2_us, #jqvmap2_mx, #jqvmap2_gt, #jqvmap2_bz, #jqvmap2_sv, #jqvmap2_hn, #jqvmap2_ni, #jqvmap2_cr, #jqvmap2_pa, #jqvmap2_bs, #jqvmap2_jm, #jqvmap2_cu, #jqvmap2_ht, #jqvmap2_do, #jqvmap2_tt, #jqvmap2_gd, #jqvmap2_bb, #jqvmap2_lc, #jqvmap2_dm, #jqvmap2_ag, #jqvmap2_kn').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2"});
-        $('#jqvmap2_km, #jqvmap2_sc, #jqvmap2_mu, #jqvmap2_re, #jqvmap2_eg, #jqvmap2_ly, #jqvmap2_tn, #jqvmap2_dz, #jqvmap2_ma, #jqvmap2_mr, #jqvmap2_ml, #jqvmap2_ne, #jqvmap2_td, #jqvmap2_sd, #jqvmap2_er, #jqvmap2_dj, #jqvmap2_so, #jqvmap2_et, #jqvmap2_ke, #jqvmap2_cf, #jqvmap2_cm, #jqvmap2_gq, #jqvmap2_st, #jqvmap2_ga, #jqvmap2_cg, #jqvmap2_ao, #jqvmap2_cd, #jqvmap2_rw, #jqvmap2_bi, #jqvmap2_tz, #jqvmap2_zm, #jqvmap2_zw, #jqvmap2_mw, #jqvmap2_mz, #jqvmap2_na, #jqvmap2_bw, #jqvmap2_za, #jqvmap2_ls, #jqvmap2_sz, #jqvmap2_mg, #jqvmap2_cv, #jqvmap2_gm, #jqvmap2_sn, #jqvmap2_gw, #jqvmap2_gn, #jqvmap2_sl, #jqvmap2_lr, #jqvmap2_ci, #jqvmap2_bf, #jqvmap2_gh, #jqvmap2_tg, #jqvmap2_bj, #jqvmap2_ng, #jqvmap2_ug').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2"});
-        $('#jqvmap2_mv, #jqvmap2_is, #jqvmap2_no, #jqvmap2_ie, #jqvmap2_gb, #jqvmap2_se, #jqvmap2_fi, #jqvmap2_ee, #jqvmap2_lv, #jqvmap2_lt, #jqvmap2_by, #jqvmap2_ua, #jqvmap2_md, #jqvmap2_ro, #jqvmap2_hu, #jqvmap2_dk, #jqvmap2_de, #jqvmap2_nl, #jqvmap2_be, #jqvmap2_fr, #jqvmap2_it, #jqvmap2_es, #jqvmap2_pt, #jqvmap2_mt, #jqvmap2_cy, #jqvmap2_gr, #jqvmap2_tr, #jqvmap2_sy, #jqvmap2_sa, #jqvmap2_in, #jqvmap2_ru, #jqvmap2_pl, #jqvmap2_cz, #jqvmap2_sk, #jqvmap2_at #jqvmap2_ch, #jqvmap2_si, #jqvmap2_hr, #jqvmap2_ba, #jqvmap2_rs, #jqvmap2_bg, #jqvmap2_mk, #jqvmap2_al, #jqvmap2_lb, #jqvmap2_il, #jqvmap2_jo, #jqvmap2_iq, #jqvmap2_kw, #jqvmap2_qa, #jqvmap2_ae, #jqvmap2_om, #jqvmap2_ye, #jqvmap2_ir, #jqvmap2_ch, #jqvmap2_at, #jqvmap2_ge, #jqvmap2_am, #jqvmap2_az, #jqvmap2_kz, #jqvmap2_mn, #jqvmap2_cn, #jqvmap2_kp, #jqvmap2_kg, #jqvmap2_uz, #jqvmap2_tj, #jqvmap2_tm, #jqvmap2_af, #jqvmap2_pk, #jqvmap2_np, #jqvmap2_bt, #jqvmap2_bd, #jqvmap2_mm, #jqvmap2_th, #jqvmap2_jp, #jqvmap2_kr, #jqvmap2_tw, #jqvmap2_la, #jqvmap2_vn, #jqvmap2_kh, #jqvmap2_lk, #jqvmap2_id, #jqvmap2_my, #jqvmap2_bn, #jqvmap2_ph, #jqvmap2_tl').css({"stroke":"#666666", "stroke-width": "2px", "fill": "#57A0C2 "});
-
-        region_name = "Australia";
-        $('.region_title p').html("Australia");
-    });
-
-
-
-
-
-
-    //west
-    $('#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az').click(function(){
-        $('#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az').css({"stroke":"#666666", "stroke-width": "1px", "fill": "#ffa767"});
-
-        $('#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi ').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-        $('#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-        $('#jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-
-        region_name_us = "West";
-        $('.region_title p').html("US West");
     });
 
     //midwest
-    $('#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi ').click(function(){
-        $('#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi ').css({"stroke":"#666666", "stroke-width": "1px", "fill": "#ffa767"});
+    $(midwest_ids).click(function(e){
+        $(midwest_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+        $('#midwest').show();
+        var isCtrlPressed_midwest = e.ctrlKey;
+        if(isCtrlPressed_midwest)
+        {
+            $(midwest_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+            $('#midwest').show();
+            region_name_us += " " + "Midwest";
+            $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US Midwest");
+        }
+        else
+        {
+            $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+            $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+            $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+            region_name_us = "Midwest";
+            $('.region_title p').html("US Midwest");
 
-        $('#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-        $('#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-        $('#jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+            $('#us_west').hide();
+            $('#us_south').hide();
+            $('#midwest').show();
+            $('#northeast').hide();
+        }
 
-        region_name_us = "Midwest";
-        $('.region_title p').html("US Midwest");
     });
 
     //north-east
-    $('#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me').click(function(){
-        $('#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me').css({"stroke":"#666666", "stroke-width": "1px", "fill": "#ffa767"});
+    $(northeast_ids).click(function(e){
+        $(northeast_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+        $('#northeast').show();
+        var isCtrlPressed_northeast = e.ctrlKey;
+        if(isCtrlPressed_northeast)
+        {
+            $(northeast_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+            $('#northeast').show();
+            region_name_us += " " + "Northeast";
+            $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US Northeast");
+        }
+        else
+        {
+            $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+            $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+            $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+            region_name_us = "Northeast";
+            $('.region_title p').html("US Northeast");
 
-        $('#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi ').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-        $('#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-        $('#jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+            $('#us_west').hide();
+            $('#us_south').hide();
+            $('#midwest').hide();
+            $('#northeast').show();
+        }
 
-        region_name_us = "Northeast";
-        $('.region_title p').html("US Northeast");
     });
 
     //south
-    $('#jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc').click(function(){
-        $('#jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc').css({"stroke":"#666666", "stroke-width": "1px", "fill": "#ffa767"});
+    $(south_ids).click(function(e){
+        $(south_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+        $('#us_south').show();
+        var isCtrlPressed_south = e.ctrlKey;
+        if(isCtrlPressed_south)
+        {
+            $(south_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+            $('#us_south').show();
+            region_name_us += " " + "South";
+            $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US South");
+        }
+        else
+        {
+            $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+            $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+            $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+            region_name_us = "South";
+            $('.region_title p').html("US South");
 
-        $('#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi ').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-        $('#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-        $('#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+            $('#us_west').hide();
+            $('#us_south').show();
+            $('#midwest').hide();
+            $('#northeast').hide();
 
-        region_name_us = "South";
-        $('.region_title p').html("US South");
+        }
+
     });
 
+
+    $('.jsmapclick_us').click(function(){
+
+        $('#container_us').show();
+        $('.dialog_for_map').dialog("open");
+
+    });
 
     var report_data_table = $("#report_surveys").dataTable({
         "sDom": '<"H"flr>t<"F"ip>',
@@ -270,29 +392,37 @@ $(document).ready(function() {
         {
             region = region_name;
             $('input[value="'+region+'"]').click();
-            $('#jqvmap2_gl, #jqvmap2_ca, #jqvmap2_us, #jqvmap2_mx, #jqvmap2_gt, #jqvmap2_bz, #jqvmap2_sv, #jqvmap2_hn, #jqvmap2_ni, #jqvmap2_cr, #jqvmap2_pa, #jqvmap2_bs, #jqvmap2_jm, #jqvmap2_cu, #jqvmap2_ht, #jqvmap2_do, #jqvmap2_tt, #jqvmap2_gd, #jqvmap2_bb, #jqvmap2_lc, #jqvmap2_dm, #jqvmap2_ag, #jqvmap2_kn').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-            $('#jqvmap2_fk, #jqvmap2_co, #jqvmap2_ve, #jqvmap2_ec, #jqvmap2_gy, #jqvmap2_sr, #jqvmap2_gf, #jqvmap2_br, #jqvmap2_pe, #jqvmap2_bo, #jqvmap2_py, #jqvmap2_uy, #jqvmap2_ar, #jqvmap2_cl').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-            $('#jqvmap2_km, #jqvmap2_sc, #jqvmap2_mu, #jqvmap2_re, #jqvmap2_eg, #jqvmap2_ly, #jqvmap2_tn, #jqvmap2_dz, #jqvmap2_ma, #jqvmap2_mr, #jqvmap2_ml, #jqvmap2_ne, #jqvmap2_td, #jqvmap2_sd, #jqvmap2_er, #jqvmap2_dj, #jqvmap2_so, #jqvmap2_et, #jqvmap2_ke, #jqvmap2_cf, #jqvmap2_cm, #jqvmap2_gq, #jqvmap2_st, #jqvmap2_ga, #jqvmap2_cg, #jqvmap2_ao, #jqvmap2_cd, #jqvmap2_rw, #jqvmap2_bi, #jqvmap2_tz, #jqvmap2_zm, #jqvmap2_zw, #jqvmap2_mw, #jqvmap2_mz, #jqvmap2_na, #jqvmap2_bw, #jqvmap2_za, #jqvmap2_ls, #jqvmap2_sz, #jqvmap2_mg, #jqvmap2_cv, #jqvmap2_gm, #jqvmap2_sn, #jqvmap2_gw, #jqvmap2_gn, #jqvmap2_sl, #jqvmap2_lr, #jqvmap2_ci, #jqvmap2_bf, #jqvmap2_gh, #jqvmap2_tg, #jqvmap2_bj, #jqvmap2_ng, #jqvmap2_ug').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-            $('#jqvmap2_mv, #jqvmap2_is, #jqvmap2_no, #jqvmap2_ie, #jqvmap2_gb, #jqvmap2_se, #jqvmap2_fi, #jqvmap2_ee, #jqvmap2_lv, #jqvmap2_lt, #jqvmap2_by, #jqvmap2_ua, #jqvmap2_md, #jqvmap2_ro, #jqvmap2_hu, #jqvmap2_dk, #jqvmap2_de, #jqvmap2_nl, #jqvmap2_be, #jqvmap2_fr, #jqvmap2_it, #jqvmap2_es, #jqvmap2_pt, #jqvmap2_mt, #jqvmap2_cy, #jqvmap2_gr, #jqvmap2_tr, #jqvmap2_sy, #jqvmap2_sa, #jqvmap2_in, #jqvmap2_ru, #jqvmap2_pl, #jqvmap2_cz, #jqvmap2_sk, #jqvmap2_at #jqvmap2_ch, #jqvmap2_si, #jqvmap2_hr, #jqvmap2_ba, #jqvmap2_rs, #jqvmap2_bg, #jqvmap2_mk, #jqvmap2_al, #jqvmap2_lb, #jqvmap2_il, #jqvmap2_jo, #jqvmap2_iq, #jqvmap2_kw, #jqvmap2_qa, #jqvmap2_ae, #jqvmap2_om, #jqvmap2_ye, #jqvmap2_ir, #jqvmap2_ch, #jqvmap2_at, #jqvmap2_ge, #jqvmap2_am, #jqvmap2_az, #jqvmap2_kz, #jqvmap2_mn, #jqvmap2_cn, #jqvmap2_kp, #jqvmap2_kg, #jqvmap2_uz, #jqvmap2_tj, #jqvmap2_tm, #jqvmap2_af, #jqvmap2_pk, #jqvmap2_np, #jqvmap2_bt, #jqvmap2_bd, #jqvmap2_mm, #jqvmap2_th, #jqvmap2_jp, #jqvmap2_kr, #jqvmap2_tw, #jqvmap2_la, #jqvmap2_vn, #jqvmap2_kh, #jqvmap2_lk, #jqvmap2_id, #jqvmap2_my, #jqvmap2_bn, #jqvmap2_ph, #jqvmap2_tl').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-            $('#jqvmap2_au, #jqvmap2_pg, #jqvmap2_sb, #jqvmap2_vu, #jqvmap2_pf, #jqvmap2_fj, #jqvmap2_nc, #jqvmap2_nz').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+
         }
         if(region_name_us!='')
         {
-            region = region_name_us;
-            $('input[value="US '+region+'"]').click();
+            var i=0;
+            var reg = region_name_us.split(" ");
+            while(region = reg[i])
+            {
+                $('input[value="US '+region+'"]').click();
+                i++;
+            }
 
-            $('#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-            $('#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi ').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-            $('#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-            $('#jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc').css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
 
+            $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+            $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+            $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+            $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+            $('.region_title p').html('');
         }
-        $('.eurasia').hide();
-        $('#vmap').hide();
-        $('#vmap1').hide();
+
         region_name = '';
         region_name_us = '';
         $('.region_title p').html('');
+
+        $('#container').hide();
+        $('#container_us').hide();
+
+        $('#us_west').hide();
+        $('#us_south').hide();
+        $('#midwest').hide();
+        $('#northeast').hide();
 
         $('.dialog_for_map').dialog("close");
 

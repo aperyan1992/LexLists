@@ -61,7 +61,7 @@
                   </div>
               </div>
             </div>
-          
+
             <div class="deadline">
                 <h3 class="custom_color" title="A way to filter by date future surveys or awards based on their submission deadline.">Deadline <i class="filter_arrow"></i></h3>
                 <div class="org-body">
@@ -76,7 +76,7 @@
             </div>
             <div class="jsmap">
                 <h3 class="custom_color jsmapclick" title="A way to filter by Regions on the map">Map-World<i class="filter_arrow"></i></h3>
-                <h3 class="custom_color jsmapclick_us" title="A way to filter by States on the map">Map-States<i class="filter_arrow"></i></h3>
+                <h3 class="custom_color jsmapclick_us" title="A way to filter by States on the map">Map-Regions<i class="filter_arrow"></i></h3>
             </div>
         </div>
 

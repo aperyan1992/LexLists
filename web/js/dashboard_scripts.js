@@ -14,6 +14,8 @@ $(document).ready(function() {
 
     var region_name = '';
     var region_name_us = '';
+    var first = 0;
+    var first_ctrl = 0;
 
     $('.region_title p').html('');
 
@@ -226,7 +228,7 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
         $(west_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
         $('#us_west').show();
         var isCtrlPressed_west = e.ctrlKey;
-        if(isCtrlPressed_west)
+        if(isCtrlPressed_west && first!=0)
         {
             $(west_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
             $('#us_west').show();
@@ -235,6 +237,7 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
         }
         else
         {
+            first++;
             $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
@@ -255,7 +258,7 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
         $(midwest_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
         $('#midwest').show();
         var isCtrlPressed_midwest = e.ctrlKey;
-        if(isCtrlPressed_midwest)
+        if(isCtrlPressed_midwest && first!=0)
         {
             $(midwest_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
             $('#midwest').show();
@@ -264,6 +267,7 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
         }
         else
         {
+            first++;
             $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
@@ -283,7 +287,7 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
         $(northeast_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
         $('#northeast').show();
         var isCtrlPressed_northeast = e.ctrlKey;
-        if(isCtrlPressed_northeast)
+        if(isCtrlPressed_northeast && first!=0)
         {
             $(northeast_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
             $('#northeast').show();
@@ -292,6 +296,7 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
         }
         else
         {
+            first++;
             $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
@@ -311,15 +316,29 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
         $(south_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
         $('#us_south').show();
         var isCtrlPressed_south = e.ctrlKey;
-        if(isCtrlPressed_south)
+        if(isCtrlPressed_south && first !=0)
         {
-            $(south_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
-            $('#us_south').show();
-            region_name_us += " " + "South";
-            $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US South");
+
+                $(south_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+                $('#us_south').show();
+                region_name_us += " " + "South";
+                $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US South");
+
+
+
         }
+       /* else if(isCtrlPressed_south && first_ctrl !=0)
+        {
+
+            first_ctrl++;
+            $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+            $('#us_south').hide();
+            region_name_us ='';
+            $('.region_title p').html('');
+        }*/
         else
         {
+            first++;
             $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
@@ -340,6 +359,8 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
 
         $('#container_us').show();
         $('.dialog_for_map').dialog("open");
+        first = 0;
+        first_ctrl = 0;
 
     });
 
@@ -414,6 +435,8 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
 
         region_name = '';
         region_name_us = '';
+        first = 0;
+        first_ctrl = 0;
         $('.region_title p').html('');
 
         $('#container').hide();
@@ -427,6 +450,29 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
         $('.dialog_for_map').dialog("close");
 
     });
+
+    $('.ui-icon-closethick').click(function(){
+
+        $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+        $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+        $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+        $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+
+        region_name = '';
+        region_name_us = '';
+        first = 0;
+        first_ctrl = 0;
+        $('.region_title p').html('');
+        
+        $('#container').hide();
+        $('#container_us').hide();
+
+        $('#us_west').hide();
+        $('#us_south').hide();
+        $('#midwest').hide();
+        $('#northeast').hide();
+    });
+
 
     $(".deadline input:checkbox").on("change", function() {      
         if($(this).is(":checked")) {

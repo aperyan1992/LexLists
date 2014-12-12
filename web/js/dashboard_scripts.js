@@ -230,10 +230,36 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
         var isCtrlPressed_west = e.ctrlKey;
         if(isCtrlPressed_west && first!=0)
         {
-            $(west_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+            /*$(west_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
             $('#us_west').show();
             region_name_us += " " + "West";
-            $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US West");
+            $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US West");*/
+
+
+            var t_reg = region_name_us.split(" ");
+            if($.inArray("West", t_reg) == -1)
+            {
+                $(west_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+                $('#us_west').show();
+                region_name_us += " " + "West";
+                $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US West");
+            }
+            else
+            {
+                $(west_ids).css({"stroke":"#818181", "stroke-width": "1px;", "fill": "#57A0C1"});
+                $('#us_west').hide();
+
+                region_name_us = region_name_us.replace("West", '');
+                $('.region_title p').html('');
+                var reg_title;
+                var title = region_name_us.split(" ");
+                var i=0;
+                while(reg_title = title[i])
+                {
+                    $('.region_title p').append("&nbsp;&nbsp;" + "US " + reg_title + "&nbsp;&nbsp;");
+                    i++;
+                }
+            }
         }
         else
         {
@@ -260,10 +286,35 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
         var isCtrlPressed_midwest = e.ctrlKey;
         if(isCtrlPressed_midwest && first!=0)
         {
-            $(midwest_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+            /*$(midwest_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
             $('#midwest').show();
             region_name_us += " " + "Midwest";
-            $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US Midwest");
+            $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US Midwest");*/
+
+            var t_reg = region_name_us.split(" ");
+            if($.inArray("Midwest", t_reg) == -1)
+            {
+                $(midwest_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+                $('#midwest').show();
+                region_name_us += " " + "Midwest";
+                $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US Midwest");
+            }
+            else
+            {
+                $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px;", "fill": "#57A0C1"});
+                $('#midwest').hide();
+
+                region_name_us = region_name_us.replace("Midwest", '');
+                $('.region_title p').html('');
+                var reg_title;
+                var title = region_name_us.split(" ");
+                var i=0;
+                while(reg_title = title[i])
+                {
+                    $('.region_title p').append("&nbsp;&nbsp;" + "US " + reg_title + "&nbsp;&nbsp;");
+                    i++;
+                }
+            }
         }
         else
         {
@@ -289,10 +340,35 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
         var isCtrlPressed_northeast = e.ctrlKey;
         if(isCtrlPressed_northeast && first!=0)
         {
-            $(northeast_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+            /*$(northeast_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
             $('#northeast').show();
             region_name_us += " " + "Northeast";
             $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US Northeast");
+*/
+            var t_reg = region_name_us.split(" ");
+            if($.inArray("Northeast", t_reg) == -1)
+            {
+                $(northeast_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+                $('#northeast').show();
+                region_name_us += " " + "Northeast";
+                $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US Northeast");
+            }
+            else
+            {
+                $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px;", "fill": "#57A0C1"});
+                $('#northeast').hide();
+
+                region_name_us = region_name_us.replace("Northeast", '');
+                $('.region_title p').html('');
+                var reg_title;
+                var title = region_name_us.split(" ");
+                var i=0;
+                while(reg_title = title[i])
+                {
+                    $('.region_title p').append("&nbsp;&nbsp;" + "US " + reg_title + "&nbsp;&nbsp;");
+                    i++;
+                }
+            }
         }
         else
         {
@@ -319,23 +395,34 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
         if(isCtrlPressed_south && first !=0)
         {
 
+            var t_reg = region_name_us.split(" ");
+            if($.inArray("South", t_reg) == -1)
+            {
                 $(south_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
                 $('#us_south').show();
                 region_name_us += " " + "South";
                 $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US South");
+            }
+            else
+            {
+                $(south_ids).css({"stroke":"#818181", "stroke-width": "1px;", "fill": "#57A0C1"});
+                $('#us_south').hide();
 
+                region_name_us = region_name_us.replace("South", " ");
+                $('.region_title p').html('');
+                var reg_title;
 
+                var title = region_name_us.split(" ");
 
+                var i=0;
+                while(reg_title = title[i])
+                {
+//                    alert(reg_title);
+                    $('.region_title p').append("&nbsp;&nbsp;" + "US " + reg_title + "&nbsp;&nbsp;");
+                    i++;
+                }
+            }
         }
-       /* else if(isCtrlPressed_south && first_ctrl !=0)
-        {
-
-            first_ctrl++;
-            $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
-            $('#us_south').hide();
-            region_name_us ='';
-            $('.region_title p').html('');
-        }*/
         else
         {
             first++;

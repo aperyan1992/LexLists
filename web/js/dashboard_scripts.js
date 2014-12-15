@@ -12,11 +12,11 @@ $(document).ajaxStop(function() {
 
 $(document).ready(function() {
 
-    var region_name = '';
-    var region_name_us = '';
+    var region_name = [];
+    var region_name_us = [];
+    var region_title = [];
     var first = 0;
     var first_ctrl = 0;
-
     $('.region_title p').html('');
 
     $('#container').hide();
@@ -230,34 +230,29 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
         var isCtrlPressed_west = e.ctrlKey;
         if(isCtrlPressed_west && first!=0)
         {
-            /*$(west_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
-            $('#us_west').show();
-            region_name_us += " " + "West";
-            $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US West");*/
-
-
-            var t_reg = region_name_us.split(" ");
-            if($.inArray("West", t_reg) == -1)
+            if($.inArray("West", region_name_us) == -1)
             {
                 $(west_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
                 $('#us_west').show();
-                region_name_us += " " + "West";
-                $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US West");
+
+                region_name_us.push("West");
+                region_title.push("&nbsp;&nbsp;&nbsp;&nbsp; US West");
+                $('.region_title p').html(region_title);
             }
             else
             {
                 $(west_ids).css({"stroke":"#818181", "stroke-width": "1px;", "fill": "#57A0C1"});
                 $('#us_west').hide();
 
-                region_name_us = region_name_us.replace("West", '');
-                $('.region_title p').html('');
-                var reg_title;
-                var title = region_name_us.split(" ");
-                var i=0;
-                while(reg_title = title[i])
-                {
-                    $('.region_title p').append("&nbsp;&nbsp;" + "US " + reg_title + "&nbsp;&nbsp;");
-                    i++;
+                var idx_name = region_name_us.indexOf("West");
+                if (idx_name != -1) {
+                    region_name_us.splice(idx_name, 1);
+                }
+
+                var idx_title = region_title.indexOf("&nbsp;&nbsp;&nbsp;&nbsp; US West");
+                if (idx_title != -1) {
+                    region_title.splice(idx_title, 1);
+                    $('.region_title p').html(region_title);
                 }
             }
         }
@@ -267,9 +262,12 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
             $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
-            region_name_us = "West";
 
-            $('.region_title p').html("US West");
+            region_name_us = [];
+            region_title = [];
+            region_name_us[0] = "West";
+            region_title[0] = "&nbsp;&nbsp;&nbsp;&nbsp; US West";
+            $('.region_title p').html(region_title);
 
             $('#us_west').show();
             $('#us_south').hide();
@@ -286,33 +284,29 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
         var isCtrlPressed_midwest = e.ctrlKey;
         if(isCtrlPressed_midwest && first!=0)
         {
-            /*$(midwest_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
-            $('#midwest').show();
-            region_name_us += " " + "Midwest";
-            $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US Midwest");*/
-
-            var t_reg = region_name_us.split(" ");
-            if($.inArray("Midwest", t_reg) == -1)
+            if($.inArray("Midwest", region_name_us) == -1)
             {
                 $(midwest_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
                 $('#midwest').show();
-                region_name_us += " " + "Midwest";
-                $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US Midwest");
+
+                region_name_us.push("Midwest");
+                region_title.push("&nbsp;&nbsp;&nbsp;&nbsp; US Midwest");
+                $('.region_title p').html(region_title);
             }
             else
             {
                 $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px;", "fill": "#57A0C1"});
                 $('#midwest').hide();
 
-                region_name_us = region_name_us.replace("Midwest", '');
-                $('.region_title p').html('');
-                var reg_title;
-                var title = region_name_us.split(" ");
-                var i=0;
-                while(reg_title = title[i])
-                {
-                    $('.region_title p').append("&nbsp;&nbsp;" + "US " + reg_title + "&nbsp;&nbsp;");
-                    i++;
+                var idx_name = region_name_us.indexOf("Midwest");
+                if (idx_name != -1) {
+                    region_name_us.splice(idx_name, 1);
+                }
+
+                var idx_title = region_title.indexOf("&nbsp;&nbsp;&nbsp;&nbsp; US Midwest");
+                if (idx_title != -1) {
+                    region_title.splice(idx_title, 1);
+                    $('.region_title p').html(region_title);
                 }
             }
         }
@@ -322,8 +316,12 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
             $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
-            region_name_us = "Midwest";
-            $('.region_title p').html("US Midwest");
+
+            region_name_us = [];
+            region_title = [];
+            region_name_us[0] = "Midwest";
+            region_title[0] = "&nbsp;&nbsp;&nbsp;&nbsp; US Midwest";
+            $('.region_title p').html(region_title);
 
             $('#us_west').hide();
             $('#us_south').hide();
@@ -340,33 +338,29 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
         var isCtrlPressed_northeast = e.ctrlKey;
         if(isCtrlPressed_northeast && first!=0)
         {
-            /*$(northeast_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
-            $('#northeast').show();
-            region_name_us += " " + "Northeast";
-            $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US Northeast");
-*/
-            var t_reg = region_name_us.split(" ");
-            if($.inArray("Northeast", t_reg) == -1)
+            if($.inArray("Northeast", region_name_us) == -1)
             {
                 $(northeast_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
                 $('#northeast').show();
-                region_name_us += " " + "Northeast";
-                $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US Northeast");
+
+                region_name_us.push("Northeast");
+                region_title.push("&nbsp;&nbsp;&nbsp;&nbsp; US Northeast");
+                $('.region_title p').html(region_title);
             }
             else
             {
                 $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px;", "fill": "#57A0C1"});
                 $('#northeast').hide();
 
-                region_name_us = region_name_us.replace("Northeast", '');
-                $('.region_title p').html('');
-                var reg_title;
-                var title = region_name_us.split(" ");
-                var i=0;
-                while(reg_title = title[i])
-                {
-                    $('.region_title p').append("&nbsp;&nbsp;" + "US " + reg_title + "&nbsp;&nbsp;");
-                    i++;
+                var idx_name = region_name_us.indexOf("Northeast");
+                if (idx_name != -1) {
+                    region_name_us.splice(idx_name, 1);
+                }
+
+                var idx_title = region_title.indexOf("&nbsp;&nbsp;&nbsp;&nbsp; US Northeast");
+                if (idx_title != -1) {
+                    region_title.splice(idx_title, 1);
+                    $('.region_title p').html(region_title);
                 }
             }
         }
@@ -376,8 +370,12 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
             $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
-            region_name_us = "Northeast";
-            $('.region_title p').html("US Northeast");
+
+            region_name_us = [];
+            region_title = [];
+            region_name_us[0] = "Northeast";
+            region_title[0] = "&nbsp;&nbsp;&nbsp;&nbsp; US Northeast";
+            $('.region_title p').html(region_title);
 
             $('#us_west').hide();
             $('#us_south').hide();
@@ -394,32 +392,29 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
         var isCtrlPressed_south = e.ctrlKey;
         if(isCtrlPressed_south && first !=0)
         {
-
-            var t_reg = region_name_us.split(" ");
-            if($.inArray("South", t_reg) == -1)
+            if($.inArray("South", region_name_us) == -1)
             {
                 $(south_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
                 $('#us_south').show();
-                region_name_us += " " + "South";
-                $('.region_title p').append("&nbsp;&nbsp;&nbsp;&nbsp;" + "US South");
+
+                region_name_us.push("South");
+                region_title.push("&nbsp;&nbsp;&nbsp;&nbsp; US South");
+                $('.region_title p').html(region_title);
             }
             else
             {
                 $(south_ids).css({"stroke":"#818181", "stroke-width": "1px;", "fill": "#57A0C1"});
                 $('#us_south').hide();
 
-                region_name_us = region_name_us.replace("South", " ");
-                $('.region_title p').html('');
-                var reg_title;
+                var idx_name = region_name_us.indexOf("South");
+                if (idx_name != -1) {
+                    region_name_us.splice(idx_name, 1);
+                }
 
-                var title = region_name_us.split(" ");
-
-                var i=0;
-                while(reg_title = title[i])
-                {
-//                    alert(reg_title);
-                    $('.region_title p').append("&nbsp;&nbsp;" + "US " + reg_title + "&nbsp;&nbsp;");
-                    i++;
+                var idx_title = region_title.indexOf("&nbsp;&nbsp;&nbsp;&nbsp; US South");
+                if (idx_title != -1) {
+                    region_title.splice(idx_title, 1);
+                    $('.region_title p').html(region_title);
                 }
             }
         }
@@ -429,14 +424,17 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
             $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
-            region_name_us = "South";
-            $('.region_title p').html("US South");
+
+            region_name_us = [];
+            region_title = [];
+            region_name_us[0] = "South";
+            region_title[0] = "&nbsp;&nbsp;&nbsp;&nbsp; US South";
+            $('.region_title p').html(region_title);
 
             $('#us_west').hide();
             $('#us_south').show();
             $('#midwest').hide();
             $('#northeast').hide();
-
         }
 
     });
@@ -505,13 +503,11 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
         if(region_name_us!='')
         {
             var i=0;
-            var reg = region_name_us.split(" ");
-            while(region = reg[i])
+            while(region_name_us[i])
             {
-                $('input[value="US '+region+'"]').click();
+                $('input[value="US '+region_name_us[i]+'"]').click();
                 i++;
             }
-
 
             $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
             $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
@@ -522,6 +518,7 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
 
         region_name = '';
         region_name_us = '';
+        region_title = '';
         first = 0;
         first_ctrl = 0;
         $('.region_title p').html('');
@@ -547,6 +544,7 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
 
         region_name = '';
         region_name_us = '';
+        region_title = '';
         first = 0;
         first_ctrl = 0;
         $('.region_title p').html('');

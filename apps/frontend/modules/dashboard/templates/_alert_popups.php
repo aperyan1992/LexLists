@@ -72,10 +72,6 @@
     <div id="container_us">
         <div class="region_title">
             <p></p>
-            <!--<p id="west">US West</p>
-            <p id="south"> US South</p>
-            <p id="midwest">US Midwest</p>
-            <p id="northeast">US Northeast</p>-->
         </div>
         <div class="us_states">
             <img src="../images/us_west.png" id="us_west">

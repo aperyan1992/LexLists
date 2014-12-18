@@ -55,6 +55,13 @@ $(document).ready(function() {
     $('.jsmapclick').click(function(){
 
         $('#container').show();
+        /*$('#container').hide();*/
+        $('#container_us').hide();
+
+        $('#us_west').hide();
+        $('#us_south').hide();
+        $('#midwest').hide();
+        $('#northeast').hide();
 
         $(function () {
 
@@ -443,7 +450,23 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
     $('.jsmapclick_us').click(function(){
 
         $('#container_us').show();
+
+        $('#container').hide();
+        /*$('#container_us').hide();*/
+
+        $('#us_west').hide();
+        $('#us_south').hide();
+        $('#midwest').hide();
+        $('#northeast').hide();
+
         $('.dialog_for_map').dialog("open");
+
+        $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+        $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+        $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+        $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+
+        
         first = 0;
         first_ctrl = 0;
 

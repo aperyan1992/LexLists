@@ -509,10 +509,11 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
                 i++;
             }
 
-            $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-            $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-            $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-            $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+            $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+            $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+            $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+            $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+
             $('.region_title p').html('');
         }
 
@@ -537,10 +538,10 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
 
     $('.ui-icon-closethick').click(function(){
 
-        $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-        $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-        $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
-        $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "57A0C1"});
+        $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+        $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+        $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+        $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
 
         region_name = '';
         region_name_us = '';

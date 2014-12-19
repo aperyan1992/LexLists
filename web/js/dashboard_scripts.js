@@ -102,7 +102,7 @@ $(document).ready(function() {
                 },
 
                 mapNavigation: {
-                    enabled: true,
+                    enabled: false,
                     buttonOptions: {
                         verticalAlign: 'bottom'
                     }
@@ -215,7 +215,7 @@ $(document).ready(function() {
     jQuery('#container_us').vectorMap({
         map: 'usa_en',
         backgroundColor: null,
-        color: '#57A0C1',
+        color: '#0468B0',
         hoverOpacity: 0.7,
         selectedColor: '#666666',
         enableZoom: true,
@@ -223,12 +223,10 @@ $(document).ready(function() {
         selectedRegion: 'MO'
     });
 
-
-var west_ids = "#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az";
-var south_ids = "#jqvmap1_dc, #jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc";
-var midwest_ids = "#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi";
-var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me";
-
+    var west_ids = "#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az";
+    var south_ids = "#jqvmap1_dc, #jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc";
+    var midwest_ids = "#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi";
+    var northeast_ids = "#jqvmap1_vt, #jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap10_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me";
 
 //west
     $(west_ids).click(function(e){
@@ -466,7 +464,12 @@ var northeast_ids = "#jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap1_vt, #jqvmap
         $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
         $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
 
-        
+        $('.region_title p').html('');
+
+        region_name = '';
+        region_name_us = '';
+        region_title = '';
+
         first = 0;
         first_ctrl = 0;
 

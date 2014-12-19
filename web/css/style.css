@@ -13,8 +13,6 @@
     font-style: normal;
 }
 
-/*////////////////////////////////////////////////////////////////////////////////////////////////////*/
-
 #container {
     width: 800px;
     height: 500px;
@@ -45,37 +43,52 @@
 }
 
 #us_west {
-    width: 332px;
-    height: 573px;
-    margin-left: 7px;
+    width: 342px;
+    height: 495px;
+    margin-left: 0px;
     position: absolute;
-    margin-top: -8px;
+    margin-top: 32px;
     z-index: -100 !important;
 }
 
 #us_south {
-    width: 477px;
-    height: 330px;
-    margin-top: 202px;
+    width: 491px;
+    height: 313px;
+    margin-top: 207px;
     margin-left: 225px;
     position: absolute;
+    z-index: -100 !important;
 }
 
 #midwest {
-    width: 356px;
-    height: 269px;
-    margin-left: 273px;
-    margin-top: 64px;
+    width: 344px;
+    height: 267px;
+    margin-left: 284px;
+    margin-top: 63px;
     position: absolute;
+    z-index: -100 !important;
 }
 
 #northeast {
-    width: 182px;
-    height: 188px;
-    margin-left: 601px;
-    margin-top: 55px;
+    width: 195px;
+    height: 197px;
+    margin-left: 596px;
+    margin-top: 50px;
     position: absolute;
+    z-index: -100 !important;
 }
+
+#all_us_map {
+    width: 778px;
+    height: 494px;
+    margin-left: 1px;
+    margin-top: 33px;
+    position: absolute;
+    left:0;
+    top:0;
+    z-index: -1000;
+
+ }
 
 .region_title {
     height: 20px;
@@ -89,11 +102,6 @@
     height: 20px;
     font-weight: 700;
 }
-
-/*////////////////////////////////////////////////////////////////////////////////////////////////////*/
-
-
-
 
 #region_selected {
     width: 40px;

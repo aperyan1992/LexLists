@@ -73,12 +73,17 @@
         <div class="region_title">
             <p></p>
         </div>
+
+            <img src="../images/all_us_map.png" id="all_us_map">
+
         <div class="us_states">
+
             <img src="../images/us_west.png" id="us_west">
             <img src="../images/us_south.png" id="us_south">
             <img src="../images/midwest.png" id="midwest">
             <img src="../images/northeast.png" id="northeast">
         </div>
+
     </div>
 
 

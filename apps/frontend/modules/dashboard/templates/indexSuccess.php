@@ -1,14 +1,14 @@
-<section id="content" class="span12 report_content">
-    <div class="row">
-        <div class="left-sidebar">
+<section id="content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 report_content" style="padding: 0">
+    <div class="row   col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding: 0; margin: 0">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; margin: 0">
             <div class="filters_header">
-                <h3 title="Select from the fields below to refine and better focus the results.">Filter By</h3> /
-                <a href="#" id="clear_filters" class="custom_link">Clear Filters</a>
+                <h3 title="Select from the fields below to refine and better focus the results." style="margin-left: 25px">Filter By</h3> /
+                <a href="#" id="clear_filters" class="custom_link" style="color: #1E8FC6!important;">Clear Filters</a>
             </div>  
 
             <div class="other_filters_block">
               <div class="year">
-                  <h3 class="custom_color" title="The year of the survey or award.">Year<i class="filter_arrow"></i></h3>
+                  <h3 class="custom_color" title="The year of the survey or award." >Year<i class="filter_arrow"></i></h3>
                   <div class="org-body test_smaller">
                       <form action="" name="">
                           <?php echo $sf_data->getRaw('survey_year_checkboxes') ?>
@@ -80,8 +80,8 @@
             </div>
         </div>
 
-        <div class="main-report-column">
-            <div class="search-block">
+        <div class="main-report-column col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding: 0">
+            <div class="search-block col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding: 0">
                 <fieldset class="disp-block">
                     <legend class="custom_color" title="Select the fields you want to display in the results.">Display</legend>
                     <form action="" name="" id="display_form" method="POST" target="_blank">
@@ -152,17 +152,17 @@
                         
                     </form>
                     <div class="display_management_links_div">
-                        <a href="#" class="display_management_links custom_link" id="default_display">Default</a>
-                        <a href="#" class="display_management_links custom_link correct_link" id="select_all_display">Select All</a>
-                        <a href="#" class="display_management_links custom_link correct_link" id="clear_all_display">Clear All</a>
+                        <a href="#" class="display_management_links custom_link" id="default_display" style="color: #36A9E1 !important;">Default</a>
+                        <a href="#" class="display_management_links custom_link correct_link" id="select_all_display" style="color: #36A9E1 !important;">Select All</a>
+                        <a href="#" class="display_management_links custom_link correct_link" id="clear_all_display" style="color: #36A9E1 !important;">Clear All</a>
                     </div>
                 </fieldset>
             </div>
             
-            <div class="main-block">
-                <div class="parent-block">
-                    <div id="report_surveys_table">
-                        <table id="report_surveys">
+            <div class="main-block col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding: 0">
+                <div class="parent-block col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding: 0">
+                    <div id="report_surveys_table" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding: 0">
+                        <table id="report_surveys" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding: 0">
                             <thead>
                                 <tr>
                                     <th style="max-width: 10px;"><input type="checkbox" id="table_checkbox_select_all" class="main_table_checkbox" /></th>
@@ -171,7 +171,7 @@
                                     <th>Award</th>
                                     <th>Candidate Type</th>
                                     <th>Practice Area/Industry</th>
-                                    <th>Special Criteria</th>                                    
+                                    <th>Special Criteria</th>
                                     <th>Region</th>                                    
                                     <th>City</th>
                                     <th>State</th>

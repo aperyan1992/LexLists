@@ -43,52 +43,127 @@
 }
 
 #us_west {
-    width: 342px;
-    height: 495px;
-    margin-left: 0px;
+    width: 291px;
+    height: 341px;
+    margin-left: 35px;
+    margin-top: 33px;
     position: absolute;
-    margin-top: 32px;
+    z-index: -100 !important;
+}
+
+#small_us_west {
+    width: 275px;
+    height: 128px;
+    margin-left: 24px;
+    margin-top: 370px;
+    position: absolute;
     z-index: -100 !important;
 }
 
 #us_south {
-    width: 491px;
-    height: 313px;
-    margin-top: 207px;
-    margin-left: 225px;
+    width: 456px;
+    height: 297px;
+    margin-top: 201px;
+    margin-left: 241px;
     position: absolute;
     z-index: -100 !important;
 }
 
 #midwest {
-    width: 344px;
-    height: 267px;
-    margin-left: 284px;
-    margin-top: 63px;
+    width: 320px;
+    height: 244px;
+    margin-left: 293px;
+    margin-top: 65px;
     position: absolute;
     z-index: -100 !important;
 }
 
 #northeast {
-    width: 195px;
-    height: 197px;
+    width: 167px;
+    height: 175px;
     margin-left: 596px;
-    margin-top: 50px;
+    margin-top: 54px;
     position: absolute;
     z-index: -100 !important;
 }
 
+#west_title {
+    position: absolute;
+    margin-left: 140px;
+    margin-top: 164px;
+    color: white;
+    text-shadow: 2px 2px #000000;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+#midwest_title {
+    position: absolute;
+    margin-left: 395px;
+    margin-top: 164px;
+    color: white;
+    text-shadow: 2px 2px #000000;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+#south_title {
+    position: absolute;
+    margin-left: 452px;
+    margin-top: 326px;
+    color: white;
+    text-shadow: 2px 2px #000000;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+#northeast_title {
+    position: absolute;
+    margin-left: 635px;
+    margin-top: 136px;
+    color: white;
+    text-shadow: 2px 2px #000000;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+#west_title:hover {
+    cursor: default;
+}
+
+#midwest_title:hover {
+    cursor: default;
+}
+
+#south_title:hover {
+    cursor: default;
+}
+
+#northeast_title:hover {
+    cursor: default;
+}
+
 #all_us_map {
-    width: 778px;
-    height: 494px;
-    margin-left: 1px;
-    margin-top: 33px;
+    width: 720px;
+    height: 450px;
+    margin-left: 36px;
+    margin-top: 34px;
     position: absolute;
     left:0;
     top:0;
     z-index: -1000;
 
  }
+#small_west {
+    width: 272px;
+    height: 127px;
+    margin-left: 24px;
+    margin-top: 371px;
+    position: absolute;
+    left:0;
+    top:0;
+    z-index: -1000;
+}
 
 .region_title {
     height: 20px;
@@ -120,6 +195,35 @@
     border: 1px solid #FF6801;
 }
 
+.color_white{
+    color: #ffffff !important;
+}
+
+.color_white:hover {
+    color: #333 !important;
+}
+
+.button_style {
+    border-top: 4px solid #36A9E1 !important;
+    border-left: 4px solid #36A9E1 !important;
+    border-right: 4px solid #1E8FC6 !important;
+    border-bottom: 4px solid #1E8FC6 !important;
+    margin-top: 10px;
+}
+
+.custom_color {
+    margin-left: 25px;
+}
+
+.custom_color:hover {
+    color: #1E8FC6;
+}
+
+.dataTable .ui-state-default {
+    color: #36A9E1 !important;
+}
+
+
 /**
  * All Genericons
  */
@@ -137,6 +241,7 @@
 	font-weight: normal;
 	font-style: normal;
 	vertical-align: top;
+    color: #36A9E1;
 }
 
 #report_surveys_wrapper th div.genericon {
@@ -1180,7 +1285,7 @@ ul.nav-tabs { margin: 0 !important; border: none; }
 }
 .nav-tabs > li > a:hover, .nav-tabs > li.active > a:hover { border-color: #d3d3d3; background: none; }
 .nav-tabs > li.active > a:hover { border-bottom-color: #fff; }
-.tab-content { border: #d3d3d3 1px solid; padding: 18px 15px 0; }
+.tab-content {/* border: #d3d3d3 1px solid; padding: 18px 15px 0; */}
 
 .tabs-top .nav-tabs > li > a:hover,
 .tabs-top .nav-tabs > li.active > a:hover,
@@ -1639,7 +1744,7 @@ blockquote div { margin: -3px 0; }
 
 .custom_link {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #81bd41 !important;
+    color: #36A9E1 !important;
     font-weight: normal;
 }
 
@@ -3470,8 +3575,8 @@ input[readonly] {
 }
 
 .btn-success {
-    border: 1px solid #fc9d5d;
-    background: #fc9d5d;
+    border: 1px solid #36A9E1;
+    background: #36A9E1;
     font-weight: bold;
     color: #ffffff;
     border-radius: 6px;
@@ -3483,8 +3588,8 @@ input[readonly] {
 .btn-success:hover,
 .btn-success:active,
 .btn-success.active {
-    border: 1px solid #ff6801;
-    background: #ff6801;
+    border: 1px solid #1E8FC6;
+    background: #1E8FC6;
     color: #ffffff;
 }
 
@@ -3653,7 +3758,7 @@ table.dataTable td.datatable_td_align_center_checkboxes {
 }
 
 .report_content .main-report-column {
-    margin-left: 257px;
+    /*margin-left: 257px;*/
 }
 
 .report_content .main-report-column .main-block {
@@ -3672,7 +3777,10 @@ table.dataTable td.datatable_td_align_center_checkboxes {
     color: #000;
 }
 fieldset.disp-block{
-    border: 1px groove threedface !important;
+    border-top: 4px solid #36A9E1 !important;
+    border-left: 4px solid #36A9E1 !important;
+    border-right: 4px solid #1E8FC6 !important;
+    border-bottom: 4px solid #1E8FC6 !important;
     padding: 10px;
 }
 .disp-block legend{
@@ -3719,7 +3827,7 @@ fieldset.disp-block{
 }
 
 .jsmap .custom_color {
-    margin-left: 5px;
+    margin-left: 25px;
     cursor: pointer;
 }
 
@@ -3738,6 +3846,12 @@ fieldset.disp-block{
 .display_management_links_div a {
     display: inline-block;
     font-size: 12px;
+    color: #36A9E1 !important;
+    font-weight: bold;
+}
+
+.display_management_links_div a:hover {
+    color: #1E8FC6 !important;
 }
 
 .correct_link {
@@ -4066,7 +4180,9 @@ fieldset.disp-block{
     background-image: -o-linear-gradient(top, #e7676d, #b7070a); /* Opera 11.10+ */
     background-image: linear-gradient(top, #e7676d, #b7070a);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#e7676d', EndColorStr='#b7070a');
-    margin-right: 5px;
+    margin-right: 0;
+    margin-top: 15px;
+    z-index: 10;
 }
 
 .bubble.green {
@@ -4123,7 +4239,7 @@ fieldset.disp-block{
 /************ Filters ********************/
 .other_filters_block h3, .deadline h3{
     /*border: 1px solid #666;*/
-    padding: 5px;
+    /*padding: 5px;*/
     position: relative;
     cursor: move;
 }
@@ -4139,7 +4255,7 @@ fieldset.disp-block{
     position: absolute;
     top: 50%;
     margin-top: -3px;
-    right: 10px;
+    right: 130px;
     background: url('../images/arrows-sprite.png') no-repeat;
     background-position: 0 -7px;
 }

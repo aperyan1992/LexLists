@@ -69,16 +69,24 @@
 <div class="dialog_for_map" style="display: none;" title="LexLists Map Filter">
 
     <div id="container"></div>
+
     <div id="container_us">
         <div class="region_title">
             <p></p>
         </div>
 
+        <p id="west_title">US West</p>
+        <p id="midwest_title">US Midwest</p>
+        <p id="south_title">US South</p>
+        <p id="northeast_title">US Northeast</p>
+
             <img src="../images/all_us_map.png" id="all_us_map">
+            <img src="../images/small_west.png" id="small_west">
 
         <div class="us_states">
 
             <img src="../images/us_west.png" id="us_west">
+            <img src="../images/small_us_west.png" id="small_us_west">
             <img src="../images/us_south.png" id="us_south">
             <img src="../images/midwest.png" id="midwest">
             <img src="../images/northeast.png" id="northeast">

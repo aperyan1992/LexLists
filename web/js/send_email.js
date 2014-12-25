@@ -46,7 +46,7 @@ $(document).ready(function() {
                         openErrorPopupWindow("dialog_error_alert", "Error !!!");
                     }
                 });
-                console.log($("#dialog_form_survey_email").data(data1));
+                console.log(data1);
                 $("#dialog_form_survey_email").data(data1).dialog("open");
             },
             error: function() {

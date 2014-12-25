@@ -16,8 +16,16 @@ $(document).ready(function() {
     var region_name_us = [];
     var region_title = [];
     var first = 0;
+    var first_m = 0;
     var first_ctrl = 0;
     $('.region_title p').html('');
+    var selected_reg_north_america = false;
+    var selected_reg_south_america = false;
+    var selected_reg_europe = false;
+    var selected_reg_asia = false;
+    var selected_reg_africa = false;
+    var selected_reg_australia = false;
+
 
     $('#container').hide();
     $('#container_us').hide();
@@ -55,10 +63,10 @@ $(document).ready(function() {
 
     $('.jsmapclick').click(function(){
 
-        $('#container').show();
-        /*$('#container').hide();*/
-        $('#container_us').hide();
+        $('.dialog_for_map').dialog("option", "title", "LexLists: World Regions" );
 
+        $('#container').show();
+        $('#container_us').hide();
         $('#us_west').hide();
         $('#small_us_west').hide();
         $('#us_south').hide();
@@ -118,6 +126,7 @@ $(document).ready(function() {
                     data : data,
                     mapData: Highcharts.maps['custom/world-continents'],
                     joinBy: 'hc-key',
+                    color: 'red',
                     /*name: 'Region',*/
                     states: {
                         hover: {
@@ -129,9 +138,11 @@ $(document).ready(function() {
                         enabled: true,
                         format: '{point.name}'
                     }
+
                 }]
             });
         });
+
 
         $('.dialog_for_map').dialog("open");
 
@@ -139,86 +150,315 @@ $(document).ready(function() {
 
         $('.highcharts-name-north-america, .highcharts-name-south-america, .highcharts-name-europe, .highcharts-name-asia, .highcharts-name-africa, .highcharts-name-australia').css({"fill": "#57A0C2"});
 
-        $('.highcharts-name-north-america').click(function(){
+        $('.highcharts-name-north-america').click(function(e){
             $('.highcharts-name-north-america').css({"fill": "#ffa767"});
+            var isCtrlPressed_north_america = e.ctrlKey;
 
-            $('.highcharts-name-south-america').css({"fill": "#57A0C2"});
-            $('.highcharts-name-europe').css({"fill": "#57A0C2"});
-            $('.highcharts-name-asia').css({"fill": "#57A0C2"});
-            $('.highcharts-name-africa').css({"fill": "#57A0C2"});
-            $('.highcharts-name-australia').css({"fill": "#57A0C2"});
+            if(selected_reg_north_america == true && !isCtrlPressed_north_america)
+            {
+                selected_reg_north_america = false;
+                $('.highcharts-name-north-america').css({"fill": "#57A0C1"});
+                var idx_name = region_name.indexOf("North America");
+                if (idx_name != -1) {
+                    region_name.splice(idx_name, 1);
+                }
+            }
+            else
+            {
+                selected_reg_north_america = true;
 
-            region_name = "North America";
+                if(isCtrlPressed_north_america && first_m!=0)
+                {selected_reg_north_america = true;
+                    if($.inArray("North America", region_name) == -1)
+                    {
+                        $('.highcharts-name-north-america').css({"fill": "#ffa767"});
+                        region_name.push("North America");
+                    }
+                    else
+                    {
+                        $('.highcharts-name-north-america').css({"fill": "#57A0C1"});
+                        var idx_name = region_name.indexOf("North America");
+                        if (idx_name != -1) {
+                            region_name.splice(idx_name, 1);
+                        }
+                    }
+                }
+                else
+                {
+                    first_m++;
+                    selected_reg_north_america = true;
+                    $('.highcharts-name-north-america').css({"fill": "#ffa767"});
+                    $('.highcharts-name-australia').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-south-america').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-europe').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-asia').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-africa').css({"fill": "#57A0C1"});
+
+                    region_name = [];
+                    region_name[0] = "North America";
+                }
+            }
         });
 
-        $('.highcharts-name-south-america').click(function(){
+        $('.highcharts-name-south-america').click(function(e){
             $('.highcharts-name-south-america').css({"fill": "#ffa767"});
+            var isCtrlPressed_south_america = e.ctrlKey;
 
-            $('.highcharts-name-north-america').css({"fill": "#57A0C2"});
-            $('.highcharts-name-europe').css({"fill": "#57A0C2"});
-            $('.highcharts-name-asia').css({"fill": "#57A0C2"});
-            $('.highcharts-name-africa').css({"fill": "#57A0C2"});
-            $('.highcharts-name-australia').css({"fill": "#57A0C2"});
+            if(selected_reg_south_america == true && !isCtrlPressed_south_america)
+            {
+                selected_reg_south_america = false;
+                $('.highcharts-name-south-america').css({"fill": "#57A0C1"});
+                var idx_name = region_name.indexOf("South America");
+                if (idx_name != -1) {
+                    region_name.splice(idx_name, 1);
+                }
+            }
+            else
+            {
+                selected_reg_south_america = true;
 
-            region_name = "South America";
+                if(isCtrlPressed_south_america && first_m!=0)
+                {
+                    selected_reg_south_america = true;
+                    if($.inArray("South America", region_name) == -1)
+                    {
+                        $('.highcharts-name-south-america').css({"fill": "#ffa767"});
+                        region_name.push("South America");
+                    }
+                    else
+                    {
+                        $('.highcharts-name-south-america').css({"fill": "#57A0C1"});
+
+                        var idx_name = region_name.indexOf("South America");
+                        if (idx_name != -1) {
+                            region_name.splice(idx_name, 1);
+                        }
+                    }
+                }
+                else
+                {
+                    first_m++;
+                    selected_reg_south_america = true;
+                    $('.highcharts-name-south-america').css({"fill": "#ffa767"});
+                    $('.highcharts-name-north-america').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-australia').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-europe').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-asia').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-africa').css({"fill": "#57A0C1"});
+
+                    region_name = [];
+                    region_name[0] = "South America";
+                }
+            }
         });
 
-        $('.highcharts-name-europe').click(function(){
+        $('.highcharts-name-europe').click(function(e){
             $('.highcharts-name-europe').css({"fill": "#ffa767"});
+            var isCtrlPressed_europe = e.ctrlKey;
+            if(selected_reg_europe == true && !isCtrlPressed_europe)
+            {
+                selected_reg_europe = false;
+                $('.highcharts-name-europe').css({"fill": "#57A0C1"});
+                var idx_name = region_name.indexOf("Europe");
+                if (idx_name != -1) {
+                    region_name.splice(idx_name, 1);
+                }
+            }
+            else
+            {
+                selected_reg_europe = true;
 
-            $('.highcharts-name-north-america').css({"fill": "#57A0C2"});
-            $('.highcharts-name-south-america').css({"fill": "#57A0C2"});
-            $('.highcharts-name-asia').css({"fill": "#57A0C2"});
-            $('.highcharts-name-africa').css({"fill": "#57A0C2"});
-            $('.highcharts-name-australia').css({"fill": "#57A0C2"});
+                if(isCtrlPressed_europe && first_m!=0)
+                {
+                    selected_reg_europe = true;
+                    if($.inArray("Europe", region_name) == -1)
+                    {
+                        $('.highcharts-name-europe').css({"fill": "#ffa767"});
+                        region_name.push("Europe");
+                    }
+                    else
+                    {
+                        $('.highcharts-name-europe').css({"fill": "#57A0C1"});
 
-            region_name = "Europe";
+                        var idx_name = region_name.indexOf("Europe");
+                        if (idx_name != -1) {
+                            region_name.splice(idx_name, 1);
+                        }
+                    }
+                }
+                else
+                {
+                    first_m++;
+                    selected_reg_europe = true;
+                    $('.highcharts-name-europe').css({"fill": "#ffa767"});
+                    $('.highcharts-name-north-america').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-south-america').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-asia').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-africa').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-australia').css({"fill": "#57A0C1"});
+
+                    region_name = [];
+                    region_name[0] = "Europe";
+                }
+            }
         });
 
-        $('.highcharts-name-asia').click(function(){
+        $('.highcharts-name-asia').click(function(e){
             $('.highcharts-name-asia').css({"fill": "#ffa767"});
+            var isCtrlPressed_asia = e.ctrlKey;
+            if(selected_reg_asia == true && !isCtrlPressed_asia)
+            {
+                selected_reg_asia = false;
+                $('.highcharts-name-asia').css({"fill": "#57A0C1"});
+                var idx_name = region_name.indexOf("Asia");
+                if (idx_name != -1) {
+                    region_name.splice(idx_name, 1);
+                }
+            }
+            else
+            {
+                selected_reg_asia = true;
 
-            $('.highcharts-name-north-america').css({"fill": "#57A0C2"});
-            $('.highcharts-name-south-america').css({"fill": "#57A0C2"});
-            $('.highcharts-name-europe').css({"fill": "#57A0C2"});
-            $('.highcharts-name-africa').css({"fill": "#57A0C2"});
-            $('.highcharts-name-australia').css({"fill": "#57A0C2"});
+                if(isCtrlPressed_asia && first_m!=0)
+                {
+                    selected_reg_asia = true;
+                    if($.inArray("Asia", region_name) == -1)
+                    {
+                        $('.highcharts-name-asia').css({"fill": "#ffa767"});
+                        region_name.push("Asia");
+                    }
+                    else
+                    {
+                        $('.highcharts-name-asia').css({"fill": "#57A0C1"});
+                        var idx_name = region_name.indexOf("Asia");
+                        if (idx_name != -1) {
+                            region_name.splice(idx_name, 1);
+                        }
+                    }
+                }
+                else
+                {
+                    first_m++;
+                    selected_reg_asia = true;
+                    $('.highcharts-name-asia').css({"fill": "#ffa767"});
+                    $('.highcharts-name-north-america').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-south-america').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-europe').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-africa').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-australia').css({"fill": "#57A0C1"});
 
-            region_name = "Asia";
+                    region_name = [];
+                    region_name[0] = "Asia";
+                }
+            }
         });
 
-        $('.highcharts-name-africa').click(function(){
+        $('.highcharts-name-africa').click(function(e){
             $('.highcharts-name-africa').css({"fill": "#ffa767"});
+            var isCtrlPressed_africa = e.ctrlKey;
+            if(selected_reg_africa == true && !isCtrlPressed_africa)
+            {
+                selected_reg_africa = false;
+                $('.highcharts-name-africa').css({"fill": "#57A0C1"});
+                var idx_name = region_name.indexOf("Africa");
+                if (idx_name != -1) {
+                    region_name.splice(idx_name, 1);
+                }
+            }
+            else
+            {
+                selected_reg_africa = true;
+                if(isCtrlPressed_africa && first_m!=0)
+                {
+                    selected_reg_africa = true;
+                    if($.inArray("Africa", region_name) == -1)
+                    {
+                        $('.highcharts-name-africa').css({"fill": "#ffa767"});
+                        region_name.push("Africa");
+                    }
+                    else
+                    {
+                        $('.highcharts-name-africa').css({"fill": "#57A0C1"});
+                        var idx_name = region_name.indexOf("Africa");
+                        if (idx_name != -1) {
+                            region_name.splice(idx_name, 1);
+                        }
+                    }
+                }
+                else
+                {
 
-            $('.highcharts-name-north-america').css({"fill": "#57A0C2"});
-            $('.highcharts-name-south-america').css({"fill": "#57A0C2"});
-            $('.highcharts-name-europe').css({"fill": "#57A0C2"});
-            $('.highcharts-name-asia').css({"fill": "#57A0C2"});
-            $('.highcharts-name-australia').css({"fill": "#57A0C2"});
+                    first_m++;
+                    selected_reg_africa = true;
+                    $('.highcharts-name-africa').css({"fill": "#ffa767"});
+                    $('.highcharts-name-north-america').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-south-america').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-europe').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-asia').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-australia').css({"fill": "#57A0C1"});
 
-            region_name = "Africa";
+                    region_name = [];
+                    region_name[0] = "Africa";
+                }
+            }
         });
 
-        $('.highcharts-name-australia').click(function(){
+        $('.highcharts-name-australia').click(function(e){
             $('.highcharts-name-australia').css({"fill": "#ffa767"});
+            var isCtrlPressed_australia = e.ctrlKey;
+            if(selected_reg_australia == true && !isCtrlPressed_australia)
+            {
+                selected_reg_australia = false;
+                $('.highcharts-name-australia').css({"fill": "#57A0C1"});
+                var idx_name = region_name.indexOf("Australia");
+                if (idx_name != -1) {
+                    region_name.splice(idx_name, 1);
+                }
+            }
+            else
+            {
+                selected_reg_australia = true;
+                if(isCtrlPressed_australia && first_m!=0)
+                {
+                    selected_reg_australia = true;
+                    if($.inArray("Australia", region_name) == -1)
+                    {
+                        $('.highcharts-name-australia').css({"fill": "#ffa767"});
+                        region_name.push("Australia");
+                    }
+                    else
+                    {
+                        $('.highcharts-name-australia').css({"fill": "#57A0C1"});
+                        var idx_name = region_name.indexOf("Australia");
+                        if (idx_name != -1) {
+                            region_name.splice(idx_name, 1);
+                        }
+                    }
+                }
+                else
+                {
 
-            $('.highcharts-name-north-america').css({"fill": "#57A0C2"});
-            $('.highcharts-name-south-america').css({"fill": "#57A0C2"});
-            $('.highcharts-name-europe').css({"fill": "#57A0C2"});
-            $('.highcharts-name-asia').css({"fill": "#57A0C2"});
-            $('.highcharts-name-africa').css({"fill": "#57A0C2"});
+                    first_m++;
+                    selected_reg_australia = true;
+                    $('.highcharts-name-australia').css({"fill": "#ffa767"});
+                    $('.highcharts-name-north-america').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-south-america').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-europe').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-asia').css({"fill": "#57A0C1"});
+                    $('.highcharts-name-africa').css({"fill": "#57A0C1"});
 
-            region_name = "Australia";
+                    region_name = [];
+                    region_name[0] = "Australia";
+                }
+            }
         });
-
-
     });
 
     jQuery('#container_us').vectorMap({
         map: 'usa_en',
         backgroundColor: null,
         color: '#0468B0',
-        hoverOpacity: 0.7,
+        hoverOpacity: 1,
         selectedColor: '#666666',
         enableZoom: true,
         showTooltip: true,
@@ -230,226 +470,332 @@ $(document).ready(function() {
     var midwest_ids = "#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi";
     var northeast_ids = "#jqvmap1_vt, #jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap10_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me";
 
+    $(west_ids).hover(
+        function() {
+        $(west_ids).css({"opacity": "0.7"});
+    }, function() {
+        $(west_ids).css({"opacity": "1"});
+    });
+
+    $(south_ids).hover(
+        function() {
+            $(south_ids).css({"opacity": "0.7"});
+        }, function() {
+            $(south_ids).css({"opacity": "1"});
+        });
+
+    $(midwest_ids).hover(
+        function() {
+            $(midwest_ids).css({"opacity": "0.7"});
+        }, function() {
+            $(midwest_ids).css({"opacity": "1"});
+        });
+
+    $(northeast_ids).hover(
+        function() {
+            $(northeast_ids).css({"opacity": "0.7"});
+        }, function() {
+            $(northeast_ids).css({"opacity": "1"});
+        });
 
 //west
     $(west_ids + ', #west_title').click(function(e){
-        $(west_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
-        $('#us_west').show();
-        $('#small_us_west').show();
         var isCtrlPressed_west = e.ctrlKey;
-        if(isCtrlPressed_west && first!=0)
+
+        if( $('#us_west').is(':visible'))
         {
-            if($.inArray("West", region_name_us) == -1)
-            {
-                $(west_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
-                $('#us_west').show();
-                $('#small_us_west').show();
+            $(west_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+            $('#us_west').hide();
+            $('#small_us_west').hide();
 
-                region_name_us.push("West");
-                region_title.push("&nbsp;&nbsp;&nbsp;&nbsp; US West");
-                $('.region_title p').html(region_title);
+            var idx_name = region_name_us.indexOf("West");
+            if (idx_name != -1) {
+                region_name_us.splice(idx_name, 1);
             }
-            else
-            {
-                $(west_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
-                $('#us_west').hide();
-                $('#small_us_west').hide();
 
-                var idx_name = region_name_us.indexOf("West");
-                if (idx_name != -1) {
-                    region_name_us.splice(idx_name, 1);
-                }
-
-                var idx_title = region_title.indexOf("&nbsp;&nbsp;&nbsp;&nbsp; US West");
-                if (idx_title != -1) {
-                    region_title.splice(idx_title, 1);
-                    $('.region_title p').html(region_title);
-                }
+            var idx_title = region_title.indexOf("&nbsp;&nbsp;&nbsp;&nbsp; US West");
+            if (idx_title != -1) {
+                region_title.splice(idx_title, 1);
+                $('.region_title p').html(region_title);
             }
         }
         else
         {
-            first++;
-            $(south_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
-            $(midwest_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
-            $(northeast_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
-
-            region_name_us = [];
-            region_title = [];
-            region_name_us[0] = "West";
-            region_title[0] = "&nbsp;&nbsp;&nbsp;&nbsp; US West";
-            $('.region_title p').html(region_title);
-
+            $(west_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
             $('#us_west').show();
             $('#small_us_west').show();
-            $('#us_south').hide();
-            $('#midwest').hide();
-            $('#northeast').hide();
-        }
 
+            if(isCtrlPressed_west && first!=0)
+            {
+                if($.inArray("West", region_name_us) == -1)
+                {
+                    $(west_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+                    $('#us_west').show();
+                    $('#small_us_west').show();
+                    region_name_us.push("West");
+                    region_title.push("&nbsp;&nbsp;&nbsp;&nbsp; US West");
+                    $('.region_title p').html(region_title);
+                }
+                else
+                {
+                    $(west_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                    $('#us_west').hide();
+                    $('#small_us_west').hide();
+
+                    var idx_name = region_name_us.indexOf("West");
+                    if (idx_name != -1) {
+                        region_name_us.splice(idx_name, 1);
+                    }
+
+                    var idx_title = region_title.indexOf("&nbsp;&nbsp;&nbsp;&nbsp; US West");
+                    if (idx_title != -1) {
+                        region_title.splice(idx_title, 1);
+                        $('.region_title p').html(region_title);
+                    }
+                }
+            }
+            else
+            {
+                first++;
+                $(south_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                $(midwest_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                $(northeast_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+
+                region_name_us = [];
+                region_title = [];
+                region_name_us[0] = "West";
+                region_title[0] = "&nbsp;&nbsp;&nbsp;&nbsp; US West";
+                $('.region_title p').html(region_title);
+
+                $('#us_west').show();
+                $('#small_us_west').show();
+                $('#us_south').hide();
+                $('#midwest').hide();
+                $('#northeast').hide();
+            }
+        }
     });
 
     //midwest
     $(midwest_ids + ', #midwest_title').click(function(e){
-        $(midwest_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
-        $('#midwest').show();
         var isCtrlPressed_midwest = e.ctrlKey;
-        if(isCtrlPressed_midwest && first!=0)
+
+        if( $('#midwest').is(':visible'))
         {
-            if($.inArray("Midwest", region_name_us) == -1)
-            {
-                $(midwest_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
-                $('#midwest').show();
+            $(midwest_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+            $('#midwest').hide();
 
-                region_name_us.push("Midwest");
-                region_title.push("&nbsp;&nbsp;&nbsp;&nbsp; US Midwest");
-                $('.region_title p').html(region_title);
+            var idx_name = region_name_us.indexOf("Midwest");
+            if (idx_name != -1) {
+                region_name_us.splice(idx_name, 1);
             }
-            else
-            {
-                $(midwest_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
-                $('#midwest').hide();
 
-                var idx_name = region_name_us.indexOf("Midwest");
-                if (idx_name != -1) {
-                    region_name_us.splice(idx_name, 1);
-                }
-
-                var idx_title = region_title.indexOf("&nbsp;&nbsp;&nbsp;&nbsp; US Midwest");
-                if (idx_title != -1) {
-                    region_title.splice(idx_title, 1);
-                    $('.region_title p').html(region_title);
-                }
+            var idx_title = region_title.indexOf("&nbsp;&nbsp;&nbsp;&nbsp; US Midwest");
+            if (idx_title != -1) {
+                region_title.splice(idx_title, 1);
+                $('.region_title p').html(region_title);
             }
         }
         else
         {
-            first++;
-            $(south_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
-            $(west_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
-            $(northeast_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
-
-            region_name_us = [];
-            region_title = [];
-            region_name_us[0] = "Midwest";
-            region_title[0] = "&nbsp;&nbsp;&nbsp;&nbsp; US Midwest";
-            $('.region_title p').html(region_title);
-
-            $('#us_west').hide();
-            $('#small_us_west').hide();
-            $('#us_south').hide();
+            $(midwest_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
             $('#midwest').show();
-            $('#northeast').hide();
-        }
 
+            if(isCtrlPressed_midwest && first!=0)
+            {
+                if($.inArray("Midwest", region_name_us) == -1)
+                {
+                    $(midwest_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+                    $('#midwest').show();
+                    region_name_us.push("Midwest");
+                    region_title.push("&nbsp;&nbsp;&nbsp;&nbsp; US Midwest");
+                    $('.region_title p').html(region_title);
+                }
+                else
+                {
+                    $(midwest_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                    $('#midwest').hide();
+
+                    var idx_name = region_name_us.indexOf("Midwest");
+                    if (idx_name != -1) {
+                        region_name_us.splice(idx_name, 1);
+                    }
+
+                    var idx_title = region_title.indexOf("&nbsp;&nbsp;&nbsp;&nbsp; US Midwest");
+                    if (idx_title != -1) {
+                        region_title.splice(idx_title, 1);
+                        $('.region_title p').html(region_title);
+                    }
+                }
+            }
+            else
+            {
+                first++;
+                $(south_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                $(west_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                $(northeast_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+
+                region_name_us = [];
+                region_title = [];
+                region_name_us[0] = "Midwest";
+                region_title[0] = "&nbsp;&nbsp;&nbsp;&nbsp; US Midwest";
+                $('.region_title p').html(region_title);
+
+                $('#us_west').hide();
+                $('#small_us_west').hide();
+                $('#us_south').hide();
+                $('#midwest').show();
+                $('#northeast').hide();
+            }
+        }
     });
 
     //north-east
     $(northeast_ids + ', #northeast_title').click(function(e){
-        $(northeast_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
-        $('#northeast').show();
         var isCtrlPressed_northeast = e.ctrlKey;
-        if(isCtrlPressed_northeast && first!=0)
+
+        if( $('#northeast').is(':visible'))
         {
-            if($.inArray("Northeast", region_name_us) == -1)
-            {
-                $(northeast_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
-                $('#northeast').show();
+            $(northeast_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+            $('#northeast').hide();
 
-                region_name_us.push("Northeast");
-                region_title.push("&nbsp;&nbsp;&nbsp;&nbsp; US Northeast");
-                $('.region_title p').html(region_title);
+            var idx_name = region_name_us.indexOf("Northeast");
+            if (idx_name != -1) {
+                region_name_us.splice(idx_name, 1);
             }
-            else
-            {
-                $(northeast_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
-                $('#northeast').hide();
 
-                var idx_name = region_name_us.indexOf("Northeast");
-                if (idx_name != -1) {
-                    region_name_us.splice(idx_name, 1);
-                }
-
-                var idx_title = region_title.indexOf("&nbsp;&nbsp;&nbsp;&nbsp; US Northeast");
-                if (idx_title != -1) {
-                    region_title.splice(idx_title, 1);
-                    $('.region_title p').html(region_title);
-                }
+            var idx_title = region_title.indexOf("&nbsp;&nbsp;&nbsp;&nbsp; US Northeast");
+            if (idx_title != -1) {
+                region_title.splice(idx_title, 1);
+                $('.region_title p').html(region_title);
             }
         }
         else
         {
-            first++;
-            $(south_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
-            $(west_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
-            $(midwest_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
-
-            region_name_us = [];
-            region_title = [];
-            region_name_us[0] = "Northeast";
-            region_title[0] = "&nbsp;&nbsp;&nbsp;&nbsp; US Northeast";
-            $('.region_title p').html(region_title);
-
-            $('#us_west').hide();
-            $('#small_us_west').hide();
-            $('#us_south').hide();
-            $('#midwest').hide();
+            $(northeast_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
             $('#northeast').show();
+
+            if(isCtrlPressed_northeast && first!=0)
+            {
+                if($.inArray("Northeast", region_name_us) == -1)
+                {
+                    $(northeast_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+                    $('#northeast').show();
+                    region_name_us.push("Northeast");
+                    region_title.push("&nbsp;&nbsp;&nbsp;&nbsp; US Northeast");
+                    $('.region_title p').html(region_title);
+                }
+                else
+                {
+                    $(northeast_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                    $('#northeast').hide();
+
+                    var idx_name = region_name_us.indexOf("Northeast");
+                    if (idx_name != -1) {
+                        region_name_us.splice(idx_name, 1);
+                    }
+
+                    var idx_title = region_title.indexOf("&nbsp;&nbsp;&nbsp;&nbsp; US Northeast");
+                    if (idx_title != -1) {
+                        region_title.splice(idx_title, 1);
+                        $('.region_title p').html(region_title);
+                    }
+                }
+            }
+            else
+            {
+                first++;
+                $(south_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                $(west_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                $(midwest_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+
+                region_name_us = [];
+                region_title = [];
+                region_name_us[0] = "Northeast";
+                region_title[0] = "&nbsp;&nbsp;&nbsp;&nbsp; US Northeast";
+                $('.region_title p').html(region_title);
+
+                $('#us_west').hide();
+                $('#small_us_west').hide();
+                $('#us_south').hide();
+                $('#midwest').hide();
+                $('#northeast').show();
+            }
         }
 
     });
 
     //south
     $(south_ids + ', #south_title').click(function(e){
-        $(south_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
-        $('#us_south').show();
         var isCtrlPressed_south = e.ctrlKey;
-        if(isCtrlPressed_south && first !=0)
+
+        if( $('#us_south').is(':visible'))
         {
-            if($.inArray("South", region_name_us) == -1)
-            {
-                $(south_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
-                $('#us_south').show();
+            $(south_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+            $('#us_south').hide();
 
-                region_name_us.push("South");
-                region_title.push("&nbsp;&nbsp;&nbsp;&nbsp; US South");
-                $('.region_title p').html(region_title);
+            var idx_name = region_name_us.indexOf("South");
+            if (idx_name != -1) {
+                region_name_us.splice(idx_name, 1);
             }
-            else
-            {
-                $(south_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
-                $('#us_south').hide();
 
-                var idx_name = region_name_us.indexOf("South");
-                if (idx_name != -1) {
-                    region_name_us.splice(idx_name, 1);
-                }
-
-                var idx_title = region_title.indexOf("&nbsp;&nbsp;&nbsp;&nbsp; US South");
-                if (idx_title != -1) {
-                    region_title.splice(idx_title, 1);
-                    $('.region_title p').html(region_title);
-                }
+            var idx_title = region_title.indexOf("&nbsp;&nbsp;&nbsp;&nbsp; US South");
+            if (idx_title != -1) {
+                region_title.splice(idx_title, 1);
+                $('.region_title p').html(region_title);
             }
         }
         else
         {
-            first++;
-            $(northeast_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
-            $(west_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
-            $(midwest_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
-
-            region_name_us = [];
-            region_title = [];
-            region_name_us[0] = "South";
-            region_title[0] = "&nbsp;&nbsp;&nbsp;&nbsp; US South";
-            $('.region_title p').html(region_title);
-
-            $('#us_west').hide();
-            $('#small_us_west').hide();
+            $(south_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
             $('#us_south').show();
-            $('#midwest').hide();
-            $('#northeast').hide();
+
+            if(isCtrlPressed_south && first !=0)
+            {
+                if($.inArray("South", region_name_us) == -1)
+                {
+                    $(south_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+                    $('#us_south').show();
+                    region_name_us.push("South");
+                    region_title.push("&nbsp;&nbsp;&nbsp;&nbsp; US South");
+                    $('.region_title p').html(region_title);
+                }
+                else
+                {
+                    $(south_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                    $('#us_south').hide();
+
+                    var idx_name = region_name_us.indexOf("South");
+                    if (idx_name != -1) {
+                        region_name_us.splice(idx_name, 1);
+                    }
+
+                    var idx_title = region_title.indexOf("&nbsp;&nbsp;&nbsp;&nbsp; US South");
+                    if (idx_title != -1) {
+                        region_title.splice(idx_title, 1);
+                        $('.region_title p').html(region_title);
+                    }
+                }
+            }
+            else
+            {
+                first++;
+                $(northeast_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                $(west_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                $(midwest_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+
+                region_name_us = [];
+                region_title = [];
+                region_name_us[0] = "South";
+                region_title[0] = "&nbsp;&nbsp;&nbsp;&nbsp; US South";
+                $('.region_title p').html(region_title);
+
+                $('#us_west').hide();
+                $('#small_us_west').hide();
+                $('#us_south').show();
+                $('#midwest').hide();
+                $('#northeast').hide();
+            }
         }
 
     });
@@ -457,10 +803,10 @@ $(document).ready(function() {
 
     $('.jsmapclick_us').click(function(){
 
-        $('#container_us').show();
+        $('.dialog_for_map').dialog( "option", "title", "LexLists: US Regions" );
 
+        $('#container_us').show();
         $('#container').hide();
-        /*$('#container_us').hide();*/
 
         $('#us_west').hide();
         $('#small_us_west').hide();
@@ -533,9 +879,12 @@ $(document).ready(function() {
         $('.region_checkbox').prop('checked',false);
         if(region_name!='')
         {
-            region = region_name;
-            $('input[value="'+region+'"]').click();
-
+            var i=0;
+            while(region_name[i])
+            {
+                $('input[value="'+region_name[i]+'"]').click();
+                i++;
+            }
         }
         if(region_name_us!='')
         {
@@ -558,6 +907,7 @@ $(document).ready(function() {
         region_name_us = '';
         region_title = '';
         first = 0;
+        first_m = 0;
         first_ctrl = 0;
         $('.region_title p').html('');
 
@@ -574,6 +924,33 @@ $(document).ready(function() {
 
     });
 
+    $('#region_cancel').click(function(){
+
+        $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+        $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+        $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+        $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+
+        region_name = '';
+        region_name_us = '';
+        region_title = '';
+        first = 0;
+        first_m = 0;
+        first_ctrl = 0;
+        $('.region_title p').html('');
+
+        $('#container').hide();
+        $('#container_us').hide();
+
+        $('#us_west').hide();
+        $('#small_us_west').hide();
+        $('#us_south').hide();
+        $('#midwest').hide();
+        $('#northeast').hide();
+
+        $('.dialog_for_map').dialog("close");
+    });
+
     $('.ui-icon-closethick').click(function(){
 
         $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
@@ -585,6 +962,7 @@ $(document).ready(function() {
         region_name_us = '';
         region_title = '';
         first = 0;
+        first_m = 0;
         first_ctrl = 0;
         $('.region_title p').html('');
         

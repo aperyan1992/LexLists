@@ -66,7 +66,7 @@
     <input type="hidden" id="admin_remove_my_survey_info" ms_id="" tr_number="" is_updated="" is_past_due="" />
 </div>
 
-<div class="dialog_for_map" style="display: none;" title="LexLists Map Filter">
+<div class="dialog_for_map" style="display: none; overflow: hidden;" title="">
 
     <div id="container"></div>
 
@@ -95,5 +95,7 @@
     </div>
 
 
-    <button class="region_selected" id="region_selected">OK</button>
+
+    <button class="region_selected" id="region_selected">Search</button>
+    <button class="region_cancel" id="region_cancel">Cancel</button>
 </div>

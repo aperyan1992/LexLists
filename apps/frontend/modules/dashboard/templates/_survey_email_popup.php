@@ -1,12 +1,13 @@
-<div id="dialog_form_survey_email" class="popup1" title="Email award">
+<div id="dialog_form_survey_email" class="popup1" title="Email Award">
     <form>
         <table style="">
             <tr>
                 <th>
                     <label for="to_dialog_form_survey_email" title="To.">To: </label>
                 </th>
+
                 <td>
-                    <input type="checkbox" name="to_me" id="to_me_dialog_form_survey_email" class="timemail" checked /><span class="to_me_label">me</span>
+                    <input type="checkbox" name="to_me" id="to_me_dialog_form_survey_email" class="timemail" checked /><span class="to_me_label" id="dialog_email_user_email"></span>
                 </td>
             </tr>
                 <tr>
@@ -16,7 +17,7 @@
                         <a style="color: #ff6801;font-weight: 700;margin-left: 1px;" href="#" id="addemailcc2">Add</a>
                     </td>
                 </tr>
-            <tr>
+            <tr style="margin-top: 10px;">
                 <th class="top_vertical_align">
                     <label for="message_dialog_form_survey_email" title="Message (optional).">Message: </label>
                 </th>

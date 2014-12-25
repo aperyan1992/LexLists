@@ -1049,6 +1049,11 @@ class dashboardActions extends sfActions {
                 // Get updated date
                 $updated_date = $survey->getUpdatedAt();
 
+                $user = $this->getUser()->getGuardUser();
+
+                // Get recipient email address
+                $recipient_email_address = $user->getEmailAddress();
+
                 return $this->renderText(
                     json_encode(
                         array(
@@ -1068,7 +1073,8 @@ class dashboardActions extends sfActions {
                             "contact_person"         => $contact_person,
                             "survey_id"              => $s_id,
                             "created_date"           => $created_date,
-                            "updated_date"           => $updated_date
+                            "updated_date"           => $updated_date,
+                            "user_email"             => $recipient_email_address
                         )
                     )
                 );

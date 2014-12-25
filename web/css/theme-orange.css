@@ -1,15 +1,15 @@
-#header { padding-top: 17px; border-top: #36A9E1 8px solid !important; }
+#header { padding-top: 17px; border-top: #ff6801 8px solid !important; }
 
-.custom_link {color: #36A9E1 !important;}
+.custom_link {color: #ff6801 !important;}
 
 .last_menu_link {
-    border-bottom: #36A9E1 1px solid !important;
+    border-bottom: #ff6801 1px solid !important;
 }
 
-#navigation nav ul ul { border: #36A9E1 1px solid; }
+#navigation nav ul ul { border: #ff6801 1px solid; }
 
 .last_menu_link {
-    border-bottom: #36A9E1 1px solid !important;
+    border-bottom: #ff6801 1px solid !important;
 }
 
 .ui-icon-closethick {
@@ -21,7 +21,7 @@
     border: 1px solid #d4ccb0 !important;
     background: #fafaf4 url(images/ui-bg_highlight-hard_100_fafaf4_1x100.png) 50% 50% repeat-x !important;
     font-weight: bold !important;
-    color: #36A9E1 !important;
+    color: #ff6801 !important;
 }
 
 #sf_admin_container ul li.sf_admin_action_new a {
@@ -29,13 +29,13 @@
 }
 
 /* Border colors */
-textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus, #header, #navigation nav > ul > li:hover > a, #navigation a:hover, #navigation nav ul li.current-menu-item > a, .nivo-caption, .caption, .caption nav, .staff dd nav a:hover, .post:hover .thumb-wrap img, a.p-item:hover dl, dl.p-item:hover, .hero-unit, blockquote, #navigation nav > ul > li:hover > a, #navigation a:hover, #navigation nav ul li.current-menu-item > a, #navigation nav ul ul > li:last-child a:hover, #navigation nav ul ul > li.current-menu-item a { border-color: #36A9E1; }
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus, #header, #navigation nav > ul > li:hover > a, #navigation a:hover, #navigation nav ul li.current-menu-item > a, .nivo-caption, .caption, .caption nav, .staff dd nav a:hover, .post:hover .thumb-wrap img, a.p-item:hover dl, dl.p-item:hover, .hero-unit, blockquote, #navigation nav > ul > li:hover > a, #navigation a:hover, #navigation nav ul li.current-menu-item > a, #navigation nav ul ul > li:last-child a:hover, #navigation nav ul ul > li.current-menu-item a { border-color: #ff6801; }
 
-.tabs-top .nav-tabs > li.active > a:hover, .tabs-top .nav-tabs > li.active > a, #navigation nav ul ul { border-top-color: #1E8FC6; }
+.tabs-top .nav-tabs > li.active > a:hover, .tabs-top .nav-tabs > li.active > a, #navigation nav ul ul { border-top-color: #ff6801; }
 
-.tabbable.tabs-left .nav-tabs .active a, .tabbable.tabs-left .nav-tabs a:hover { border-left-color: #81bd41; }
+.tabbable.tabs-left .nav-tabs .active a, .tabbable.tabs-left .nav-tabs a:hover { border-left-color: #ff6801; }
 
-#copyright, #call-to-action { border-color: #36A9E1; }
+#copyright, #call-to-action { border-color: #ff6801; }
 
 
 /* Text colors */

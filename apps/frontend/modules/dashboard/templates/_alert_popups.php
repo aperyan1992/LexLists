@@ -94,7 +94,7 @@
 
     </div>
 
-
+    <div id="container_us_states"></div>
 
     <button class="region_selected" id="region_selected">Search</button>
     <button class="region_cancel" id="region_cancel">Cancel</button>

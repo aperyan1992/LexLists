@@ -207,9 +207,10 @@ class dashboardActions extends sfActions {
 
                     // Set methodology
                     $methodology = (!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != "") ? $survey->getShortSelectionMethodology() : "- - -";
-                            
+
                     // Set email
                     $email_link = "<a href='#' class='custom_link email_link' s_id='" . $survey->getId() . "'><span class='genericon genericon-mail'></span></a>";
+
 
                     $aa_data_array['aaData'][$i] = array(
                         $survey_checkbox,
@@ -915,7 +916,7 @@ class dashboardActions extends sfActions {
                 $organization = "- - -";
                 if ((!is_null($survey->getOrganizationUrl()) && $survey->getOrganizationUrl() != "") &&
                         (!is_null($survey->getOrganizationId()) && $survey->getOrganizationId() != "")) {
-                    $organization = "<a class='custom_link' target='_blank' href='" . $survey->getOrganizationUrl() . "'>" . $survey->getOrganization()->getName() . "</a>";
+                    $organization = $survey->getOrganization()->getName();
                 }
 
                 // Get survey name

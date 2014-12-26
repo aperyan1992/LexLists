@@ -29,6 +29,7 @@ $(document).ready(function() {
 
     $('#container').hide();
     $('#container_us').hide();
+    $('#container_us_states').hide();
 
     $('#us_west').hide();
     $('#small_us_west').hide();
@@ -60,13 +61,15 @@ $(document).ready(function() {
     initMapPopupWindow("dialog_for_map");
 
 
-
+//******* start world map *******//
     $('.jsmapclick').click(function(){
 
         $('.dialog_for_map').dialog("option", "title", "LexLists: World Regions" );
 
         $('#container').show();
         $('#container_us').hide();
+        $('#container_us_states').hide();
+
         $('#us_west').hide();
         $('#small_us_west').hide();
         $('#us_south').hide();
@@ -453,6 +456,9 @@ $(document).ready(function() {
             }
         });
     });
+    //******* end world map *******//
+
+    //******* start us map *******//
 
     jQuery('#container_us').vectorMap({
         map: 'usa_en',
@@ -801,12 +807,16 @@ $(document).ready(function() {
     });
 
 
+
+
+
     $('.jsmapclick_us').click(function(){
 
         $('.dialog_for_map').dialog( "option", "title", "LexLists: US Regions" );
 
         $('#container_us').show();
         $('#container').hide();
+        $('#container_us_states').hide();
 
         $('#us_west').hide();
         $('#small_us_west').hide();
@@ -831,8 +841,51 @@ $(document).ready(function() {
         first_ctrl = 0;
 
     });
+    //*******end us map *******//
+
+    //*******start us states map *******//
+    jQuery('#container_us_states').vectorMap({
+        map: 'usa_en',
+        backgroundColor: null,
+        color: '#57A0C1',
+        hoverOpacity: 0.7,
+        enableZoom: false,
+        showTooltip: false
+    });
+
+
+    var sel = [];
+    $(document).on('click', '#container_us_states svg g path', function(){
+        if(sel[$(this).attr('id')]==true)
+        {
+            sel[$(this).attr('id')] = false;
+            $(this).css({"fill": "#57A0C1"});
+        }
+        else
+        {
+            sel[$(this).attr('id')] = true;
+            $(this).css({"fill": "#ffa767"});
+        }
+    });
+
+
+
+
+    $('.jsmapclick_us_states').click(function(){
+        $('.dialog_for_map').dialog( "option", "title", "LexLists: US States" );
+
+        $('#container_us_states').show();
+        $('#container_us').hide();
+        $('#container').hide();
+
+        $('.dialog_for_map').dialog("open");
+
+    });
+//*******end us states map *******//
+
 
     var report_data_table = $("#report_surveys").dataTable({
+        "autoWidth":true,
         "sDom": '<"H"flr>t<"F"ip>',
         "bDestroy":true,
         "bJQueryUI": true,
@@ -856,7 +909,7 @@ $(document).ready(function() {
         },
         "aoColumnDefs": [
             { "sClass": "datatable_td_align_center_checkboxes", "aTargets": [0]},
-            { "sClass": "datatable_td_align_center", "aTargets": ["_all"]},            
+            { "sClass": "datatable_td_align_center", "aTargets": ["_all"]},
             { "bVisible": false, "aTargets": [ 4,5,6,8,9,10,12,13,14 ] },
             { "bVisible": true, "aTargets": [ 0,1,2,3,7,11,15 ] },
             { "bSortable": false, "aTargets": [ 0,15 ] }
@@ -913,6 +966,7 @@ $(document).ready(function() {
 
         $('#container').hide();
         $('#container_us').hide();
+        $('#container_us_states').hide();
 
         $('#us_west').hide();
         $('#small_us_west').hide();
@@ -941,6 +995,7 @@ $(document).ready(function() {
 
         $('#container').hide();
         $('#container_us').hide();
+        $('#container_us_states').hide();
 
         $('#us_west').hide();
         $('#small_us_west').hide();
@@ -968,6 +1023,7 @@ $(document).ready(function() {
         
         $('#container').hide();
         $('#container_us').hide();
+        $('#container_us_states').hide();
 
         $('#us_west').hide();
         $('#small_us_west').hide();

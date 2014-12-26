@@ -168,7 +168,9 @@
                     <thead>
                     <tr>
                         <th style="max-width: 10px;"><input type="checkbox" id="table_checkbox_select_all" class="main_table_checkbox" /></th>
+
                         <th style="width: 60px; min-width: 60px; max-width: 60px;">Year</th>
+
                         <th>Organization</th>
                         <th>Award</th>
                         <th>Candidate Type</th>
@@ -183,7 +185,6 @@
                         <th>Eligibility</th>
                         <th>Description</th>
                         <th>Methodology</th>
-
                         <th></th>
                     </tr>
                     </thead>

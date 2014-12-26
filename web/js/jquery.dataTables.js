@@ -5436,7 +5436,7 @@
 			
 			/* If there is an 'empty' indicator row, remove it */
 			$('tbody>tr>td.'+oSettings.oClasses.sRowEmpty, oSettings.nTable).parent().remove();
-			
+
 			/* When scrolling we had to break the table up - restore it */
 			if ( oSettings.nTable != oSettings.nTHead.parentNode )
 			{
@@ -5468,6 +5468,8 @@
 			);
 			if ( oSettings.bJUI )
 			{
+
+                
 				$('th span.'+oSettings.oClasses.sSortIcon
 					+ ', td span.'+oSettings.oClasses.sSortIcon, oSettings.nTHead).remove();
 		
@@ -5478,7 +5480,7 @@
 					jqWrapper.remove();
 				} );
 			}
-			
+
 			/* Add the TR elements back into the table in their original order */
 			if ( !bRemove && oSettings.nTableReinsertBefore )
 			{

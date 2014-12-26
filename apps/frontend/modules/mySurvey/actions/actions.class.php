@@ -401,7 +401,7 @@ class mySurveyActions extends sfActions {
                     $organization = "- - -";
                     if ((!is_null($survey->getSurvey()->getOrganizationUrl()) && $survey->getSurvey()->getOrganizationUrl() != "") &&
                             (!is_null($survey->getSurvey()->getOrganizationId()) && $survey->getSurvey()->getOrganizationId() != "")) {
-                        $organization = "<a class='custom_link' target='_blank' href='" . $survey->getSurvey()->getOrganizationUrl() . "'>" . $survey->getSurvey()->getOrganization()->getName() . "</a>";
+                        $organization = $survey->getSurvey()->getOrganization()->getName();
                     }
 
                     // Get survey name

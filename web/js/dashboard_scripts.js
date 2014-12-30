@@ -14,6 +14,7 @@ $(document).ready(function() {
     $('#report_surveys tr .email_link').each(function(){
                 var email = $(this);$(this).parent().parent().find('input').parent().append(email);
             });
+            $('.email_link').show();
     $(document).click(function(){
         setTimeout(function(){
             $('#report_surveys tr .email_link').each(function(){

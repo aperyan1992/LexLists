@@ -9,15 +9,7 @@ $(document).ajaxStart(function() {
 $(document).ajaxStop(function() {
     $(".left-sidebar input:checkbox").prop("disabled", false);
 });
-$('.email_link').hide();
 $(document).ready(function() {
-    setTimeout(function(){
-            $('#report_surveys tr .email_link').each(function(){
-                var email = $(this);
-                $(this).parent().parent().find('input').parent().append(email);
-            });
-        },100);
-        $('.email_link').show();
     $(document).click(function(){
         setTimeout(function(){
             $('#report_surveys tr .email_link').each(function(){
@@ -26,6 +18,7 @@ $(document).ready(function() {
             });
         },1);
     });
+    $(document).click();
     var region_name = [];
     var region_name_us = [];
     var region_title = [];

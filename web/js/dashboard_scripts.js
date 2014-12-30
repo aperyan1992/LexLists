@@ -10,7 +10,7 @@ $(document).ajaxStop(function() {
     $(".left-sidebar input:checkbox").prop("disabled", false);
 });
 $(document).ready(function() {
-    $(document).click(function(){
+   /* $(document).click(function(){
         setTimeout(function(){
             $('#report_surveys tr .email_link').each(function(){
                 var email = $(this);
@@ -18,7 +18,7 @@ $(document).ready(function() {
             });
         },1);
     });
-     setTimeout($(document).click(),1000);
+     setTimeout($(document).click(),1000);*/
     var region_name = [];
     var region_name_us = [];
     var region_title = [];

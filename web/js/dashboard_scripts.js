@@ -11,7 +11,16 @@ $(document).ajaxStop(function() {
 });
 
 $(document).ready(function() {
-    $(document).click(function(){setTimeout(function(){$('#report_surveys tr .email_link').each(function(){ var email = $(this);$(this).parent().parent().find('input').parent().append(email);})},1)})
+    $('#report_surveys tr .email_link').each(function(){
+                var email = $(this);$(this).parent().parent().find('input').parent().append(email);
+            });
+    $(document).click(function(){
+        setTimeout(function(){
+            $('#report_surveys tr .email_link').each(function(){
+                var email = $(this);$(this).parent().parent().find('input').parent().append(email);
+            });
+        },1);
+    });
     var region_name = [];
     var region_name_us = [];
     var region_title = [];

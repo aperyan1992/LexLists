@@ -4171,6 +4171,7 @@ fieldset.disp-block{
     background-image: linear-gradient(top, #e7676d, #b7070a);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#e7676d', EndColorStr='#b7070a');
     margin-right: 5px;
+    z-index: 2;
 }
 
 .bubble.green {

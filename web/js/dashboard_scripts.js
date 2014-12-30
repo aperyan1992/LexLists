@@ -18,7 +18,7 @@ $(document).ready(function() {
             });
         },1);
     });
-    $(document).click();
+     setTimeout($(document).click(),1000);
     var region_name = [];
     var region_name_us = [];
     var region_title = [];

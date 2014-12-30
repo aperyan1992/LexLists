@@ -11,10 +11,12 @@ $(document).ajaxStop(function() {
 });
 
 $(document).ready(function() {
-    $('#report_surveys tr .email_link').each(function(){
+    setTimeout(function(){
+            $('#report_surveys tr .email_link').each(function(){
                 var email = $(this);
                 $(this).parent().parent().find('input').parent().append(email);
             });
+        },1);
     $(document).click(function(){
         setTimeout(function(){
             $('#report_surveys tr .email_link').each(function(){

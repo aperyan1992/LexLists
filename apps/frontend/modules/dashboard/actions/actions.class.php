@@ -121,7 +121,7 @@ class dashboardActions extends sfActions {
                 foreach ($surveys as $survey) {
 
                     // Set survey checkbox
-                    $survey_checkbox = "<input type='checkbox' class='table_checkbox' s_id='" . $survey->getId() . "' />";
+                    $survey_checkbox = "<input type='checkbox' class='table_checkbox' s_id='" . $survey->getId() . "' /><a href='#' class='custom_link email_link' s_id='" . $survey->getId() . "'><span class='genericon genericon-mail'></span></a>";
 
                     // Set year
                     $year = (!is_null($survey->getYear()) && $survey->getYear() != "" && $survey->getYear() != 0) ? $survey-> getYear() : "- - -";
@@ -209,7 +209,7 @@ class dashboardActions extends sfActions {
                     $methodology = (!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != "") ? $survey->getShortSelectionMethodology() : "- - -";
 
                     // Set email
-                    $email_link = "<a href='#' class='custom_link email_link' s_id='" . $survey->getId() . "'><span class='genericon genericon-mail'></span></a>";
+                    $email_link = "";
 
 
                     $aa_data_array['aaData'][$i] = array(

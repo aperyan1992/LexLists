@@ -9,14 +9,15 @@ $(document).ajaxStart(function() {
 $(document).ajaxStop(function() {
     $(".left-sidebar input:checkbox").prop("disabled", false);
 });
-
+$('.email_link').hide();
 $(document).ready(function() {
     setTimeout(function(){
             $('#report_surveys tr .email_link').each(function(){
                 var email = $(this);
                 $(this).parent().parent().find('input').parent().append(email);
             });
-        },1);
+        },100);
+        $('.email_link').show();
     $(document).click(function(){
         setTimeout(function(){
             $('#report_surveys tr .email_link').each(function(){

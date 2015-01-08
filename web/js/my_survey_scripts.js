@@ -10,7 +10,52 @@ $(document).ajaxStop(function() {
     $(".left-sidebar input:checkbox").prop("disabled", false);
 });
 
+$(window).load(function(){
+
+    setTimeout(function(){
+        $('.datatable_td_align_center .menu-drop-wrapper').each(function(){
+            var emaillink = $(this);
+            $(this).parent().parent().find('input').parent().after(emaillink);
+        });
+
+        var e_field = $('.dataTables_scrollHead  thead  tr th:last-child');
+        if($(e_field).text()=='' || $(e_field).text()==' ')
+        {
+        $('.dataTables_scrollHead  thead tr th:nth-child(1)').after(e_field);
+        }
+
+    },100);
+});
+
 $(document).ready(function() {
+    var e_field = $('.dataTables_scrollHead  thead  tr th:last-child');
+    setTimeout(function(){
+        $('.datatable_td_align_center .menu-drop-wrapper').each(function(){
+            var emaillink = $(this);
+            $(this).parent().parent().find('input').parent().after(emaillink);
+        });
+
+        if($(e_field).text()=='' || $(e_field).text()==' ')
+        {
+            $('.dataTables_scrollHead  thead tr th:nth-child(1)').after(e_field);
+        }
+
+    },100);
+    $(document).click(function(){
+        setTimeout(function(){
+            $('.datatable_td_align_center .menu-drop-wrapper').each(function(){
+                var emaillink = $(this);
+                $(this).parent().parent().find('input').parent().after(emaillink);
+            });
+        },100);
+        var e_field = $('.dataTables_scrollHead  thead  tr th:last-child');
+
+        if($(e_field).text()=='' || $(e_field).text()==' ')
+        {
+            $('.dataTables_scrollHead  thead tr th:nth-child(1)').after(e_field);
+        }
+
+    });
 
     var report_data_table = $("#report_surveys").dataTable({
         "sDom": '<"H"flr>t<"F"ip>',

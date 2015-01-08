@@ -41,8 +41,8 @@ class dataloadActions extends sfActions
                 {
                     $csvdata[] = $data;
                 }
-                unset($csvdata[0], $csvdata[1]);
 
+                unset($csvdata[0], $csvdata[1]);
                 foreach($csvdata as $key=>$data)
                 {
 
@@ -78,7 +78,7 @@ class dataloadActions extends sfActions
 
                     if(isset($data[22]))
                     {
-                        $fianlresult[$key]['organization_url'] = $data[10];
+                        $fianlresult[$key]['organization_url'] = $data[22];
                     }
                     else{
                         $fianlresult[$key]['organization_url'] = null;
@@ -88,7 +88,7 @@ class dataloadActions extends sfActions
                     {
 
                         $fianlresult[$key]['survey_name'] = $data[2];
-                        //$contact['name'] = $data[2];
+                        $contact['name'] = $data[2];
                     }
                     else{
                         $fianlresult[$key]['survey_name'] = null;
@@ -230,7 +230,7 @@ class dataloadActions extends sfActions
                     else{
 
                         $query = 'INSERT INTO `survey_contacts` (`first_name`,`email_address`, `phone_number`,`created_at`,`updated_at`) VALUES';
-                        $query .= " ('".$contact['name']."','".$contact['email']."','".$contact['phone']."','".$now->format('Y-m-d H:i:s')."','".$now->format('Y-m-d H:i:s')." ')";
+                        $query .= ' ("'.$contact['name'].'","'.$contact['email'].'","'.$contact['phone'].'","'.$now->format('Y-m-d H:i:s').'","'.$now->format('Y-m-d H:i:s').' ")';
 
                         $result = Doctrine_Manager::getInstance()->getCurrentConnection();
 
@@ -287,6 +287,7 @@ class dataloadActions extends sfActions
                     $now = new DateTime();
 
                     $arraykey = array_keys($fianlresult);
+                    //var_dump($arraykey[0]);die;
                     $finalquerystring = 'INSERT INTO `surveys` (';
                     foreach($fianlresult[$arraykey[0]] as $key=>$value)
                     {
@@ -302,7 +303,7 @@ class dataloadActions extends sfActions
                     {
                         foreach($final as $key=>$value)
                         {
-                            $finalquerystring.='"'.$value.'",';
+                            $finalquerystring.='"'.str_replace('"','\"',$value).'",';
                         }
                         $finalquerystring = rtrim($finalquerystring, ",");
 

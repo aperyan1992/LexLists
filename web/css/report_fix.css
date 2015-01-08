@@ -25,6 +25,7 @@
 
 .menu-drop-wrapper{
     position: relative;
+    display: inline-block;
 }
 
 .menu-drop-wrapper .menu-dropdown{

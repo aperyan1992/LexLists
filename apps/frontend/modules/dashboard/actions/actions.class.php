@@ -121,7 +121,7 @@ class dashboardActions extends sfActions {
                 foreach ($surveys as $survey) {
 
                     // Set survey checkbox
-                    $survey_checkbox = "<input type='checkbox' class='table_checkbox' s_id='" . $survey->getId() . "' /><a href='#' class='custom_link email_link' s_id='" . $survey->getId() . "'><span class='genericon genericon-mail'></span></a>";
+                    $survey_checkbox = "<input type='checkbox' class='table_checkbox' s_id='" . $survey->getId() . "' />";
 
                     // Set year
                     $year = (!is_null($survey->getYear()) && $survey->getYear() != "" && $survey->getYear() != 0) ? $survey-> getYear() : "- - -";
@@ -209,7 +209,7 @@ class dashboardActions extends sfActions {
                     $methodology = (!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != "") ? $survey->getShortSelectionMethodology() : "- - -";
 
                     // Set email
-                    $email_link = "";
+                    $email_link = "<a href='#' class='custom_link email_link' s_id='" . $survey->getId() . "'><span class='genericon genericon-mail'></span></a>";
 
 
                     $aa_data_array['aaData'][$i] = array(
@@ -916,7 +916,15 @@ class dashboardActions extends sfActions {
                 $organization = "- - -";
                 if ((!is_null($survey->getOrganizationUrl()) && $survey->getOrganizationUrl() != "") &&
                         (!is_null($survey->getOrganizationId()) && $survey->getOrganizationId() != "")) {
-                    $organization = $survey->getOrganization()->getName();
+                    if ($this->check_if_url_exists($survey->getOrganizationUrl()))
+                    {
+                        $organization = "<a class='custom_link' target='_blank' href='" . $survey->getOrganizationUrl() . "'>" . $survey->getOrganization()->getName() . "</a>";
+                    }
+                    else
+                    {
+                        $organization = $survey->getOrganization()->getName();
+                    }
+
                 }
 
                 // Get survey name
@@ -1083,6 +1091,14 @@ class dashboardActions extends sfActions {
         }
 
         $this->forward404();
+    }
+
+    public function check_if_url_exists($url) {
+        if (filter_var($url, FILTER_VALIDATE_URL) === FALSE) {
+            return false;
+        }
+        if (!$fp = curl_init($url)) return false;
+        return true;
     }
 
 }

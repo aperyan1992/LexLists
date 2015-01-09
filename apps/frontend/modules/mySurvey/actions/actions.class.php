@@ -863,14 +863,26 @@ class mySurveyActions extends sfActions {
      */
     public function executeGetAllEmails(sfWebRequest $request)
     {
-        if ($request->isXmlHttpRequest()) {
-            $arrEmails = Doctrine_Core::getTable("LtSurveyContact")->getSurveyEmails();
-            if($arrEmails)
+        $my_client_id =$this->getUser()->getGuardUser()->getClient_id();
+        if(!$my_client_id)
+        {
+            return $this->renderText(
+                json_encode(array())
+            );
+        }
+
+        $query = 'SELECT email_address FROM sf_guard_user WHERE client_id="'. $my_client_id .'"';
+        $arrEmails = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+        
+        if($arrEmails)
+        {
+            foreach($arrEmails as $email)
             {
-                return $this->renderText(
-                    json_encode($arrEmails)
-                );
+                $newarray[] = $email['email_address'];
             }
+            return $this->renderText(
+                json_encode($newarray)
+            );
         }
         //$this->forward404();
     }

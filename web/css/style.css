@@ -3455,6 +3455,15 @@ input[readonly] {
 #sf_admin_container table.new_edit_table tfoot {
     border: none;
 }
+#sf_admin_container table.new_edit_table td {
+    padding-bottom: 2px;
+    margin-bottom: 0em!important;
+    padding-left: 10px!important;
+}
+#sf_admin_container table.new_edit_table td input:not([type="radio"]):not([type="button"]):not([type="submit"]) {
+    height: 26px!important;
+    width: 281px!important;
+}
 
 #sf_admin_container table.new_edit_table tr:hover {
     background-color: #fff !important;
@@ -4085,7 +4094,7 @@ fieldset.disp-block{
 .admin_survey_management_textarea {
     width: 500px !important;
     height: 100px !important;
-    margin-bottom: 1em !important;
+    margin-bottom: 0em !important;
 }
 
 #sf_admin_container label {
@@ -4832,4 +4841,8 @@ fieldset.disp-block{
 
 .dialog_contact {
     vertical-align: 0 !important;
+}
+
+.datatable_td_align_center input[type=checkbox]{
+    margin-left:5px
 }

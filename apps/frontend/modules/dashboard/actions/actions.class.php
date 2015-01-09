@@ -16,7 +16,6 @@ class dashboardActions extends sfActions {
      * @param sfRequest $request A request object
      */
     public function executeIndex(sfWebRequest $request) {
-
         // Get surveys years
         $this->surveys_years = Doctrine_Core::getTable('LtSurvey')->getSurveysYears();
         $this->survey_year_checkboxes = "";
@@ -121,22 +120,22 @@ class dashboardActions extends sfActions {
                 foreach ($surveys as $survey) {
 
                     // Set survey checkbox
-                    $survey_checkbox = "<input type='checkbox' class='table_checkbox' s_id='" . $survey->getId() . "' />";
+                    $survey_checkbox = "<input type='checkbox' class='table_checkbox' style='float:left' s_id='" . $survey->getId() . "' />"."<a href='#' style='float:right' class='custom_link email_link' s_id='" . $survey->getId() . "'><span class='genericon genericon-mail'></span></a>";
 
                     // Set year
                     $year = (!is_null($survey->getYear()) && $survey->getYear() != "" && $survey->getYear() != 0) ? $survey-> getYear() : "- - -";
 
                     // Set organization
-                    $organization = (!is_null($survey->getOrganizationId()) && $survey->getOrganizationId() != "") ? $survey->getOrganization()->getName() : "- - -";
+                    $organization = (!is_null($survey->getOrganizationId()) && $survey->getOrganizationId() != "") ? $this->CheckStringLength($survey->getOrganization()->getName()) : "- - -";
 
                     // Set survey name
-                    $survey_name = (!is_null($survey->getSurveyName()) && $survey->getSurveyName() != "") ? $survey->getSurveyName() : "- - -";
+                    $survey_name = (!is_null($survey->getSurveyName()) && $survey->getSurveyName() != "") ? $this->CheckStringLength($survey->getSurveyName()) : "- - -";
 
                     // Set survey name link
-                    $survey_name_link = "<a href='#' class='custom_link details_link' s_id='" . $survey->getId() . "'>" . $survey_name . "</a>";
+                    $survey_name_link = "<a href='#' class='custom_link details_link' s_id='" . $survey->getId() . "'>" . $this->CheckStringLength($survey_name) . "</a>";
 
                     // Set candidate type
-                    $candidate_type = (!is_null($survey->getCandidateType()) && $survey->getCandidateType() != "" && $survey->getCandidateType() != "0") ? LtSurvey::$candidate_types_array[$survey->getCandidateType()] : "- - -";
+                    $candidate_type = (!is_null($survey->getCandidateType()) && $survey->getCandidateType() != "" && $survey->getCandidateType() != "0") ? $this->CheckStringLength(LtSurvey::$candidate_types_array[$survey->getCandidateType()]) : "- - -";
 
                     // Set practice area
                     $practice_areas = "- - -";
@@ -146,7 +145,7 @@ class dashboardActions extends sfActions {
                             $practice_area_array[] = $practice_area->getPracticeArea()->getShortCode();
                         }
 
-                        $practice_areas = implode(", ", $practice_area_array);
+                        $practice_areas = $this->CheckStringLength(implode(", ", $practice_area_array));
                     }
 
                     // Set special criteria
@@ -157,11 +156,11 @@ class dashboardActions extends sfActions {
                             $special_criteria_array[] = $special_criteria->getSpecialCriteria()->getName();
                         }
 
-                        $special_criterias = implode(", ", $special_criteria_array);
+                        $special_criterias = $this->CheckStringLength(implode(", ", $special_criteria_array));
                     }
 
                     // Set region
-                    $region = (!is_null($survey->getSurveyRegionId()) && $survey->getSurveyRegionId() != "") ? $survey->getRegion()->getName() : "- - -";
+                    $region = (!is_null($survey->getSurveyRegionId()) && $survey->getSurveyRegionId() != "") ? $this->CheckStringLength($survey->getRegion()->getName()) : "- - -";
 
                     // Set cities
                     $cities = "- - -";
@@ -171,7 +170,7 @@ class dashboardActions extends sfActions {
                             $cities_array[] = $city->getCity()->getName();
                         }
 
-                        $cities = implode(", ", $cities_array);
+                        $cities = $this->CheckStringLength(implode(", ", $cities_array));
                     }
                     
                     // Set states
@@ -182,7 +181,7 @@ class dashboardActions extends sfActions {
                             $states_array[] = $state->getState()->getName();
                         }
 
-                        $states = implode(", ", $states_array);
+                        $states = $this->CheckStringLength(implode(", ", $states_array));
                     }
                     
                     // Set countries
@@ -193,23 +192,23 @@ class dashboardActions extends sfActions {
                             $countries_array[] = $country->getCountry()->getName();
                         }
 
-                        $countries = implode(", ", $countries_array);
+                        $countries = $this->CheckStringLength(implode(", ", $countries_array));
                     }
                     
                     // Set submission deadline
-                    $submission_deadline = (!is_null($survey->getSubmissionDeadline()) && $survey->getSubmissionDeadline() != "") ? $survey->getSubmissionDeadline() : "- - -";
+                    $submission_deadline = (!is_null($survey->getSubmissionDeadline()) && $survey->getSubmissionDeadline() != "") ? $this->CheckStringLength($survey->getSubmissionDeadline()) : "- - -";
 
                     // Set eligibility
-                    $eligibility = (!is_null($survey->getEligibilityCriteria()) && $survey->getEligibilityCriteria() != "") ? $survey->getShortEligibilityCriteria() : "- - -";
+                    $eligibility = (!is_null($survey->getEligibilityCriteria()) && $survey->getEligibilityCriteria() != "") ? $this->CheckStringLength($survey->getShortEligibilityCriteria()) : "- - -";
                     
                     // Set description
-                    $description = (!is_null($survey->getSurveyDescription()) && $survey->getSurveyDescription() != "") ? $survey->getShortSurveyDescription() : "- - -";
+                    $description = (!is_null($survey->getSurveyDescription()) && $survey->getSurveyDescription() != "") ? $this->CheckStringLength($survey->getShortSurveyDescription()) : "- - -";
 
                     // Set methodology
-                    $methodology = (!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != "") ? $survey->getShortSelectionMethodology() : "- - -";
+                    $methodology = (!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != "") ? $this->CheckStringLength($survey->getShortSelectionMethodology()) : "- - -";
 
                     // Set email
-                    $email_link = "<a href='#' class='custom_link email_link' s_id='" . $survey->getId() . "'><span class='genericon genericon-mail'></span></a>";
+                    $email_link = null;//"<a href='#' class='custom_link email_link' s_id='" . $survey->getId() . "'><span class='genericon genericon-mail'></span></a>";
 
 
                     $aa_data_array['aaData'][$i] = array(
@@ -228,7 +227,7 @@ class dashboardActions extends sfActions {
                         $eligibility,
                         $description,
                         $methodology,
-                        $email_link,
+                        //$email_link,
                     );
 
                     $i++;
@@ -247,6 +246,19 @@ class dashboardActions extends sfActions {
         }
 
         $this->redirect404();
+    }
+
+    protected function CheckStringLength($string)
+    {
+        if (strlen($string) > 50) {
+
+            // truncate string
+            $stringCut = substr($string, 0, 50);
+
+            // make sure it ends in a word so assassinate doesn't become ass...
+            $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...';
+        }
+        return $string;
     }
 
     /**
@@ -914,11 +926,12 @@ class dashboardActions extends sfActions {
 
                 // Get organization
                 $organization = "- - -";
-                if ((!is_null($survey->getOrganizationUrl()) && $survey->getOrganizationUrl() != "") &&
+
+                if ((!is_null($survey->getSurveyUrl()) && $survey->getSurveyUrl() != "") &&
                         (!is_null($survey->getOrganizationId()) && $survey->getOrganizationId() != "")) {
-                    if ($this->check_if_url_exists($survey->getOrganizationUrl()))
+                    if ($this->check_if_url_exists($survey->getSurveyUrl()))
                     {
-                        $organization = "<a class='custom_link' target='_blank' href='" . $survey->getOrganizationUrl() . "'>" . $survey->getOrganization()->getName() . "</a>";
+                        $organization = "<a class='custom_link' target='_blank' href='" . $survey->getSurveyUrl() . "'>" . $survey->getOrganization()->getName() . "</a>";
                     }
                     else
                     {

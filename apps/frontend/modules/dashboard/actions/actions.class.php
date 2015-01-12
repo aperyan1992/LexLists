@@ -298,7 +298,7 @@ class dashboardActions extends sfActions {
 
                     $send_status = $this->getMailer()->send($message);
 
-                    // Check sending status
+                    // Check sending status//
                     $status = false;
                     if ($send_status == 1) {
                         $status = true;
@@ -927,11 +927,11 @@ class dashboardActions extends sfActions {
                 // Get organization
                 $organization = "- - -";
 
-                if ((!is_null($survey->getSurveyUrl()) && $survey->getSurveyUrl() != "") &&
+                if ((!is_null($survey->getOrganizationUrl()) && $survey->getOrganizationUrl() != "") &&
                         (!is_null($survey->getOrganizationId()) && $survey->getOrganizationId() != "")) {
-                    if ($this->check_if_url_exists($survey->getSurveyUrl()))
+                    if ($this->check_if_url_exists($survey->getOrganizationUrl()))
                     {
-                        $organization = "<a class='custom_link' target='_blank' href='" . $survey->getSurveyUrl() . "'>" . $survey->getOrganization()->getName() . "</a>";
+                        $organization = "<a class='custom_link' target='_blank' href='" . $survey->getOrganizationUrl() . "'>" . $survey->getOrganization()->getName() . "</a>";
                     }
                     else
                     {

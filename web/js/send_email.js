@@ -31,8 +31,7 @@ $(document).ready(function() {
                         var arrEmails = new Array();
                         for(var i = 0;i< data.length;i++)
                         {
-                            arrEmails.push({id:i,text:data[i]})
-
+                            arrEmails.push({id:i,text:data[i].f_name+' '+data[i].l_name+' ('+data[i].email+')'});
                         }
                         window.arrEmails = arrEmails;
                         $('#to_dialog_form_survey_email').select2({

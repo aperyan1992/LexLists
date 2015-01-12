@@ -10,52 +10,8 @@ $(document).ajaxStop(function() {
     $(".left-sidebar input:checkbox").prop("disabled", false);
 });
 
-$(window).load(function(){
-
-    setTimeout(function(){
-        $('.datatable_td_align_center .menu-drop-wrapper').each(function(){
-            var emaillink = $(this);
-            $(this).parent().parent().find('input').parent().after(emaillink);
-        });
-
-        var e_field = $('.dataTables_scrollHead  thead  tr th:last-child');
-        if($(e_field).text()=='' || $(e_field).text()==' ')
-        {
-        $('.dataTables_scrollHead  thead tr th:nth-child(1)').after(e_field);
-        }
-
-    },100);
-});
-
 $(document).ready(function() {
-    var e_field = $('.dataTables_scrollHead  thead  tr th:last-child');
-    setTimeout(function(){
-        $('.datatable_td_align_center .menu-drop-wrapper').each(function(){
-            var emaillink = $(this);
-            $(this).parent().parent().find('input').parent().after(emaillink);
-        });
 
-        if($(e_field).text()=='' || $(e_field).text()==' ')
-        {
-            $('.dataTables_scrollHead  thead tr th:nth-child(1)').after(e_field);
-        }
-
-    },100);
-    $(document).click(function(){
-        setTimeout(function(){
-            $('.datatable_td_align_center .menu-drop-wrapper').each(function(){
-                var emaillink = $(this);
-                $(this).parent().parent().find('input').parent().after(emaillink);
-            });
-        },100);
-        var e_field = $('.dataTables_scrollHead  thead  tr th:last-child');
-
-        if($(e_field).text()=='' || $(e_field).text()==' ')
-        {
-            $('.dataTables_scrollHead  thead tr th:nth-child(1)').after(e_field);
-        }
-
-    });
 
     var report_data_table = $("#report_surveys").dataTable({
         "sDom": '<"H"flr>t<"F"ip>',
@@ -83,8 +39,8 @@ $(document).ready(function() {
             { "sClass": "datatable_td_align_center_checkboxes", "aTargets": [0]},
             { "sClass": "datatable_td_align_center", "aTargets": ["_all"]},            
             { "bVisible": false, "aTargets": [ 4,5,6,8,9,10,12,14,15,16 ] },
-            { "bVisible": true, "aTargets": [ 0,1,2,3,7,11,13,17 ] },
-            { "bSortable": false, "aTargets": [ 0,17 ] }
+            { "bVisible": true, "aTargets": [ 0,1,2,3,7,11,13 ] },
+            { "bSortable": false, "aTargets": [ 0 ] }
         ]
 
     });
@@ -137,7 +93,7 @@ $(document).ready(function() {
         // Show/Hide static column
         showAndHideColumns(0, static_col_show_status, report_data_table);
         showAndHideColumns(13, static_col_show_status, report_data_table);
-        showAndHideColumns(17, static_col_show_status, report_data_table);
+        //showAndHideColumns(17, static_col_show_status, report_data_table);
 
         showAndHideColumns(column_number, show_status, report_data_table); 
     });
@@ -155,7 +111,7 @@ $(document).ready(function() {
                 // Show static column
                 showAndHideColumns(0, true, report_data_table);
                 showAndHideColumns(13, true, report_data_table);
-                showAndHideColumns(17, true, report_data_table);
+                //showAndHideColumns(17, true, report_data_table);
 
                 showAndHideColumns(column_number, true, report_data_table);
             }
@@ -170,7 +126,7 @@ $(document).ready(function() {
                 // Show static column
                 showAndHideColumns(0, true, report_data_table);
                 showAndHideColumns(13, true, report_data_table);
-                showAndHideColumns(17, true, report_data_table);
+                //showAndHideColumns(17, true, report_data_table);
 
                 showAndHideColumns(column_number, false, report_data_table);
             }
@@ -189,7 +145,7 @@ $(document).ready(function() {
                 // Show static column
                 showAndHideColumns(0, true, report_data_table);
                 showAndHideColumns(13, true, report_data_table);
-                showAndHideColumns(17, true, report_data_table);
+                //showAndHideColumns(17, true, report_data_table);
                 
                 // Show other columns
                 showAndHideColumns(column_number, true, report_data_table);
@@ -209,7 +165,7 @@ $(document).ready(function() {
                 // Hide static column
                 showAndHideColumns(0, false, report_data_table);
                 showAndHideColumns(13, false, report_data_table);
-                showAndHideColumns(17, false, report_data_table);
+                //showAndHideColumns(17, false, report_data_table);
                 
                 // Hide other columns
                 showAndHideColumns(column_number, false, report_data_table);

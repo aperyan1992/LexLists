@@ -2,6 +2,17 @@
  *  Script for "Survey Management" page
  */
 $(document).ready(function() {
+    $(".distance td").each(function(){
+        if($(this).find(".admin_survey_management_input_text"))
+        {
+            //$(this).addClass("not_padding");
+            //$(".distance td:not(.not_padding)").css({"padding-bottom" : "20px"});
+            $(this).css({"padding-bottom" : "20px"});
+
+        }
+
+
+    });
 
     /**
      *  Init popups

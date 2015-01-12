@@ -3,7 +3,7 @@
 <?php elseif ($field->isComponent()): ?>
     <?php include_component('surveyManagement', $name, array('form' => $form, 'attributes' => $attributes instanceof sfOutputEscaper ? $attributes->getRawValue() : $attributes)) ?>
 <?php else: ?>
-  <tr>
+  <tr class="distance">
       <th>            
           <?php if ($help = $form[$name]->renderHelp()): ?>
             <?php echo $form[$name]->renderLabel($label, array("title" => $form->getWidgetSchema()->getHelp($name))) ?>

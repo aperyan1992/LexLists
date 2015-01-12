@@ -205,6 +205,7 @@
 </div>
 </div>
 </section>
+
 <input type="hidden" value="0" id="change_data_table" />
 
 <?php include_partial("dashboard/survey_details_popup"); ?>

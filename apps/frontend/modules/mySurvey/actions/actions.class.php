@@ -91,18 +91,6 @@ class mySurveyActions extends sfActions {
 
                 foreach ($surveys as $survey) {
                     // Set survey checkbox
-                    $survey_checkbox = "<input type='checkbox' class='table_checkbox' />";
-
-                    // Set year
-                    $year = (!is_null($survey->getSurvey()->getYear()) && $survey->getSurvey()->getYear() != "" && $survey->getSurvey()->getYear() != 0) ? $survey->getSurvey()->getYear() : "- - -";
-
-                    // Set organization
-                    $organization = (!is_null($survey->getSurvey()->getOrganizationId()) && $survey->getSurvey()->getOrganizationId() != "") ? $survey->getSurvey()->getOrganization()->getName() : "- - -";
-
-                    // Set survey name
-                    $survey_name = (!is_null($survey->getSurvey()->getSurveyName()) && $survey->getSurvey()->getSurveyName() != "") ? $survey->getSurvey()->getSurveyName() : "- - -";
-
-                    // Set survey name link with bubbles
                     $updated_bubble = "";
                     $is_updated     = 0;
                     if ($survey->getIsUpdated()) {
@@ -111,6 +99,29 @@ class mySurveyActions extends sfActions {
                     }
                     $past_due_bubble = "";
                     $is_past_due     = 0;
+                    $survey_checkbox = '<input type="checkbox" style="float:left" class="table_checkbox" /><div style="float:right" class="menu-drop-wrapper">
+                                        <a href="#" class="menu_link">
+                    <span class="genericon genericon-menu"></span>
+                                        </a>
+                                        <ul class="menu-dropdown" >
+                                            <li><a href="#" class="set_an_alert_class" s_id="' . $survey->getSurvey()->getId() . '">Set an Alert</a></li>
+                                            <!--<li><a href="#">Send a Reminder</a></li>-->
+                                            <li><a href="#" class="my_list_email_send" s_id="' . $survey->getSurvey()->getId() . '">E-mail</a></li>
+                                            <li><a href="#" class="my_list_remove_survey" ms_id="' . $survey->getId() . '" updated="' . $is_updated . '" past_due="' . $is_past_due . '">Remove from MyList</a></li>
+                                        </ul>
+                                    </div>';
+
+                    // Set year
+                    $year = (!is_null($survey->getSurvey()->getYear()) && $survey->getSurvey()->getYear() != "" && $survey->getSurvey()->getYear() != 0) ? $survey->getSurvey()->getYear() : "- - -";
+
+                    // Set organization
+                    $organization = (!is_null($survey->getSurvey()->getOrganizationId()) && $survey->getSurvey()->getOrganizationId() != "") ? $this->CheckStringLength($survey->getSurvey()->getOrganization()->getName()) : "- - -";
+
+                    // Set survey name
+                    $survey_name = (!is_null($survey->getSurvey()->getSurveyName()) && $survey->getSurvey()->getSurveyName() != "") ? $this->CheckStringLength($survey->getSurvey()->getSurveyName()) : "- - -";
+
+                    // Set survey name link with bubbles
+
                     if ($survey->getIsDeadlinePast()) {
                         $past_due_bubble = "<span class='bubble red table_bubble' ms_id='" . $survey->getId() . "' bubble_type='past_dues' title='Submission deadline passed.'></span>";
                         $is_past_due     = 1;
@@ -118,11 +129,11 @@ class mySurveyActions extends sfActions {
                     $survey_name_link = "<div class='survey_name_wrapper'>"
                             . $updated_bubble
                             . $past_due_bubble
-                            . "<a href='#' class='custom_link details_link_for_my_lists' s_id='" . $survey->getSurvey()->getId() . "'>" . $survey_name . "</a>"
+                            . "<a href='#' class='custom_link details_link_for_my_lists' s_id='" . $survey->getSurvey()->getId() . "'>" . $this->CheckStringLength($survey_name) . "</a>"
                             . "</div>";
 
                     // Set candidate type
-                    $candidate_type = (!is_null($survey->getSurvey()->getCandidateType()) && $survey->getSurvey()->getCandidateType() != "" && $survey->getSurvey()->getCandidateType() != "0") ? LtSurvey::$candidate_types_array[$survey->getSurvey()->getCandidateType()] : "- - -";
+                    $candidate_type = (!is_null($survey->getSurvey()->getCandidateType()) && $survey->getSurvey()->getCandidateType() != "" && $survey->getSurvey()->getCandidateType() != "0") ? $this->CheckStringLength(LtSurvey::$candidate_types_array[$survey->getSurvey()->getCandidateType()]) : "- - -";
 
                     // Set practice area
                     $practice_areas = "- - -";
@@ -132,7 +143,7 @@ class mySurveyActions extends sfActions {
                             $practice_area_array[] = $practice_area->getPracticeArea()->getShortCode();
                         }
 
-                        $practice_areas = implode(", ", $practice_area_array);
+                        $practice_areas = $this->CheckStringLength(implode(", ", $practice_area_array));
                     }
 
                     // Set special criteria
@@ -143,11 +154,11 @@ class mySurveyActions extends sfActions {
                             $special_criteria_array[] = $special_criteria->getSpecialCriteria()->getName();
                         }
 
-                        $special_criterias = implode(", ", $special_criteria_array);
+                        $special_criterias = $this->CheckStringLength(implode(", ", $special_criteria_array));
                     }
 
                     // Set region
-                    $region = (!is_null($survey->getSurvey()->getSurveyRegionId()) && $survey->getSurvey()->getSurveyRegionId() != "") ? $survey->getSurvey()->getRegion()->getName() : "- - -";
+                    $region = (!is_null($survey->getSurvey()->getSurveyRegionId()) && $survey->getSurvey()->getSurveyRegionId() != "") ? $this->CheckStringLength($survey->getSurvey()->getRegion()->getName()) : "- - -";
 
                     // Set cities
                     $cities = "- - -";
@@ -157,7 +168,7 @@ class mySurveyActions extends sfActions {
                             $cities_array[] = $city->getCity()->getName();
                         }
 
-                        $cities = implode(", ", $cities_array);
+                        $cities = $this->CheckStringLength(implode(", ", $cities_array));
                     }
                     
                     // Set states
@@ -168,7 +179,7 @@ class mySurveyActions extends sfActions {
                             $states_array[] = $state->getState()->getName();
                         }
 
-                        $states = implode(", ", $states_array);
+                        $states = $this->CheckStringLength(implode(", ", $states_array));
                     }
                     
                     // Set countries
@@ -179,7 +190,7 @@ class mySurveyActions extends sfActions {
                             $countries_array[] = $country->getCountry()->getName();
                         }
 
-                        $countries = implode(", ", $countries_array);
+                        $countries = $this->CheckStringLength(implode(", ", $countries_array));
                     }
                     
                     // Set submission deadline
@@ -192,16 +203,16 @@ class mySurveyActions extends sfActions {
                     $owner = (!is_null($survey->getOwnerId()) && $survey->getOwnerId() != "") ? (ucfirst($survey->getOwner()->getLastName()) . ", " . ucfirst(substr($survey->getOwner()->getFirstName(), 0, 1)) . "." ) : "- - -";
                     
                     // Set eligibility
-                    $eligibility = (!is_null($survey->getSurvey()->getEligibilityCriteria()) && $survey->getSurvey()->getEligibilityCriteria() != "") ? $survey->getSurvey()->getShortEligibilityCriteria() : "- - -";
+                    $eligibility = (!is_null($survey->getSurvey()->getEligibilityCriteria()) && $survey->getSurvey()->getEligibilityCriteria() != "") ? $this->CheckStringLength($survey->getSurvey()->getShortEligibilityCriteria()) : "- - -";
                     
                     // Set description
-                    $description = (!is_null($survey->getSurvey()->getSurveyDescription()) && $survey->getSurvey()->getSurveyDescription() != "") ? $survey->getSurvey()->getShortSurveyDescription() : "- - -";
+                    $description = (!is_null($survey->getSurvey()->getSurveyDescription()) && $survey->getSurvey()->getSurveyDescription() != "") ? $this->CheckStringLength($survey->getSurvey()->getShortSurveyDescription()) : "- - -";
 
                     // Set methodology
-                    $methodology = (!is_null($survey->getSurvey()->getSelectionMethodology()) && $survey->getSurvey()->getSelectionMethodology() != "") ? $survey->getSurvey()->getShortSelectionMethodology() : "- - -";
+                    $methodology = (!is_null($survey->getSurvey()->getSelectionMethodology()) && $survey->getSurvey()->getSelectionMethodology() != "") ? $this->CheckStringLength($survey->getSurvey()->getShortSelectionMethodology()) : "- - -";
                                         
                     // Set email
-                    $email_link = '<div class="menu-drop-wrapper">
+                    /*$email_link = '<div class="menu-drop-wrapper">
                                         <a href="#" class="menu_link">
                                             <span class="genericon genericon-menu"></span>
                                         </a>
@@ -212,7 +223,7 @@ class mySurveyActions extends sfActions {
                                             <li><a href="#" class="my_list_remove_survey" ms_id="' . $survey->getId() . '" updated="' . $is_updated . '" past_due="' . $is_past_due . '">Remove from MyList</a></li>
                                         </ul>
                                     </div>
-                    ';
+                    ';*/
 
                     $aa_data_array['aaData'][$i] = array(
                         $survey_checkbox,
@@ -232,7 +243,7 @@ class mySurveyActions extends sfActions {
                         $eligibility,
                         $description,
                         $methodology,
-                        $email_link
+                        //$email_link
                     );
 
                     $i++;
@@ -252,7 +263,20 @@ class mySurveyActions extends sfActions {
 
         $this->redirect404();
     }
-    
+
+    protected function CheckStringLength($string)
+    {
+        if (strlen($string) > 50) {
+
+            // truncate string
+            $stringCut = substr($string, 0, 50);
+
+            // make sure it ends in a word so assassinate doesn't become ass...
+            $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...';
+        }
+        return $string;
+    }
+
     /**
      * Saving of survey to "My Lists" section 
      * 
@@ -871,14 +895,23 @@ class mySurveyActions extends sfActions {
             );
         }
 
-        $query = 'SELECT email_address FROM sf_guard_user WHERE client_id="'. $my_client_id .'"';
+        $query = 'SELECT * FROM sf_guard_user WHERE client_id="'. $my_client_id .'" ORDER BY last_name';
         $arrEmails = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
         
         if($arrEmails)
         {
+            $i = 0;
             foreach($arrEmails as $email)
             {
-                $newarray[] = $email['email_address'];
+                if(!empty($email['email_address']))
+                {
+                    $newarray[$i]['email'] = $email['email_address'];
+                    if(!empty($email['first_name']))
+                    $newarray[$i]['f_name'] = $email['first_name'];
+                    if(!empty($email['last_name']))
+                    $newarray[$i]['l_name'] = $email['last_name'];
+                    $i++;
+                }
             }
             return $this->renderText(
                 json_encode($newarray)

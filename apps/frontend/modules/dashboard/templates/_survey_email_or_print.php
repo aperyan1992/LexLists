@@ -5,11 +5,10 @@
 <?php endif; ?>
 
 <h3>Lex<span style="color: #ff6801 !important;">Lists</span></h3>
-
 <?php foreach ($surveys as $survey) : ?>
     <table>
         <tr>
-            <th align="left">Award:</th>
+            <th align="left">Award:!</th>
             <td><?php echo (!is_null($survey->getSurveyName()) && $survey->getSurveyName() != "") ? $survey->getSurveyName() : "- - -"; ?></td>
         </tr>
         <tr>

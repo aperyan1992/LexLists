@@ -2,7 +2,7 @@
  *  Script for "Survey Management" page
  */
 $(document).ready(function() {
-    $(".distance td").each(function(){
+    /*$(".distance td").each(function(){
         if($(this).find(".admin_survey_management_input_text"))
         {
             //$(this).addClass("not_padding");
@@ -12,7 +12,7 @@ $(document).ready(function() {
         }
 
 
-    });
+    });*/
 
     /**
      *  Init popups

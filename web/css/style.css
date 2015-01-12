@@ -3456,8 +3456,8 @@ input[readonly] {
     border: none;
 }
 #sf_admin_container table.new_edit_table td {
-   /* padding-bottom: 2px;
-    margin-bottom: 0em!important;*/
+    padding-bottom: 2px;
+    margin-bottom: 0em!important;
     padding-left: 10px!important;
 }
 

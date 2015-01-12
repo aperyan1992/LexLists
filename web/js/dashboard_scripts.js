@@ -10,52 +10,7 @@ $(document).ajaxStop(function() {
     $(".left-sidebar input:checkbox").prop("disabled", false);
 });
 
-$(window).load(function(){
-    /*setTimeout(function(){
-        $('#report_surveys tr .email_link').each(function(){
-            var email = $(this);
-            $(this).parent().parent().find('input').parent().after($(email).parent());
-        });
-
-        var e_field = $('.dataTables_scrollHead  thead  tr  th:last-child');
-        if($(e_field).text()=='' || $(e_field).text()==' ')
-        {
-            $('.dataTables_scrollHead  thead  th:nth-child(1)').after($(e_field).first());
-        }
-
-    },1);*/
-});
-
 $(document).ready(function() {
-/*
-    var e_field = $('.dataTables_scrollHead  thead tr th:last-child');
-    setTimeout(function(){
-        $('#report_surveys tr .email_link').each(function(){
-            var email = $(this);
-            $(this).parent().parent().find('input').parent().after($(email).parent());
-        });
-
-        if($(e_field).text()=='')
-        {
-            $('.dataTables_scrollHead  thead  th:nth-child(1)').after($(e_field).first());
-        }
-
-    },1);
-    $(document).click(function(){
-        setTimeout(function(){
-            $('#report_surveys tr .email_link').each(function(){
-                var email = $(this);
-                $(this).parent().parent().find('input').parent().after($(email).parent());
-            });
-        },1);
-
-        if($(e_field).text()=='')
-        {
-            $('.dataTables_scrollHead  thead  th:nth-child(1)').after($(e_field).first());
-        }
-        // $('.dataTable').autoWidth(true);
-
-    });*/
 
     var region_name = [];
     var region_name_us = [];
@@ -955,41 +910,10 @@ $(document).ready(function() {
         "aoColumnDefs": [
             { "sClass": "datatable_td_align_center", "aTargets": ["_all"]},
             { "bVisible": false, "aTargets": [ 4,5,6,8,9,10,12,13,14 ] },
-            { "bVisible": false, "aTargets": [ 4,5,6,8,9,10,12,13,14 ] },
             { "bVisible": true, "aTargets": [ 0,1,2,3,7,11 ] },
             { "bSortable": false, "aTargets": [ 0 ] }
         ]
     });
-
-/*    var e_field = $('.dataTables_scrollHead  thead tr th:last-child');
-    setTimeout(function(){
-        $('#report_surveys tr .email_link').each(function(){
-            var email = $(this);
-            $(this).parent().parent().find('input').parent().after($(email).parent());
-        });
-
-        if($(e_field).text()=='')
-        {
-            $('.dataTables_scrollHead  thead  th:nth-child(1)').after($(e_field).first());
-        }
-
-    },1);
-    $(document).click(function(){
-        setTimeout(function(){
-            $('#report_surveys tr .email_link').each(function(){
-                var email = $(this);
-                $(this).parent().parent().find('input').parent().after($(email).parent());
-            });
-        },1);
-
-        if($(e_field).text()=='')
-        {
-            $('.dataTables_scrollHead  thead  th:nth-child(1)').after($(e_field).first());
-        }
-        // $('.dataTable').autoWidth(true);
-
-    });*/
-
     
     /**
      *  Add tooltip for search field in dataTable

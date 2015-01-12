@@ -164,7 +164,7 @@
                         <table id="report_surveys">
                             <thead>
                                 <tr>
-                                    <th style="max-width: 10px;"><input type="checkbox" id="table_checkbox_select_all" class="main_table_checkbox" /></th>
+                                    <th style="width:54px !important;"><input type="checkbox" style="float:left;margin-left:0px" id="table_checkbox_select_all" class="main_table_checkbox" />  <span style="margin-left:5px;border-left: 1px solid #d4ccb0;width:27px;height:34px;position:absolute;">&nbsp;</span></th>
                                     <th style="width: 60px; min-width: 60px; max-width: 60px;">Year</th>
                                     <th>Organization</th>
                                     <th>Award</th>
@@ -183,7 +183,7 @@
                                     <th>Description</th>
                                     <th>Methodology</th>
                                     
-                                    <th></th>
+
                                 </tr>
                             </thead>
                             <tbody></tbody>

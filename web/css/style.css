@@ -3456,10 +3456,12 @@ input[readonly] {
     border: none;
 }
 #sf_admin_container table.new_edit_table td {
-    padding-bottom: 2px;
-    margin-bottom: 0em!important;
+   /* padding-bottom: 2px;
+    margin-bottom: 0em!important;*/
     padding-left: 10px!important;
 }
+
+
 #sf_admin_container table.new_edit_table td input:not([type="radio"]):not([type="button"]):not([type="submit"]) {
     height: 26px!important;
     width: 281px!important;
@@ -4475,9 +4477,9 @@ fieldset.disp-block{
 .list_values .tabel_listvalues tr td span:hover {
     text-decoration: underline;
 }
-#select2-drop-mask{
-    display:none !important;
-}
+/*#select2-drop-mask{*/
+    /*display:none !important;*/
+/*}*/
 .table_values .add_remove {
     width: 99.7%;
     height: 35px;
@@ -4835,9 +4837,9 @@ fieldset.disp-block{
     border-radius: 4px;
     box-shadow: 5px 5px 8px #CCC;
 }
-.select2-drop{
+/*.select2-drop{
     z-index:1500 !important;
-}
+}*/
 
 .dialog_contact {
     vertical-align: 0 !important;

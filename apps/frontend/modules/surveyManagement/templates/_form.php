@@ -13,7 +13,7 @@
                         
                         <div class="admin_buttons_div" style="width: 702px !important;">
                             <input type="button" value="Cancel" list_url="<?php echo url_for("@" . $helper->getUrlForAction('list')); ?>" class="cancel_admin_panel btn btn-success" />                          
-                            <input type="submit" value="Save" form_name="survey" class="btn btn-success save_button" />                            
+                            <input type="submit" value="Save" form_name="survey" class="btn btn-success save_button" />
                         </div>
                         
                         <?php // include_partial('surveyManagement/form_actions', array('lt_survey' => $lt_survey, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>

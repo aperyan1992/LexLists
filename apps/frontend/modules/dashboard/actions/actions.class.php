@@ -941,7 +941,22 @@ class dashboardActions extends sfActions {
                 }
 
                 // Get survey name
-                $survey_name = (!is_null($survey->getSurveyName()) && $survey->getSurveyName() != "") ? $survey->getSurveyName() : "- - -";
+                $survey_name = "- - -";
+
+                if (!is_null($survey->getSurveyUrl()) && $survey->getSurveyUrl() != "") {
+                    if ($this->check_if_url_exists($survey->getSurveyUrl()))
+                    {
+                        $survey_name = "<a class='custom_link' target='_blank' href='" . $survey->getSurveyUrl() . "'>" . $survey->getSurveyName() . "</a>";
+                    }
+                    else
+                    {
+                        $survey_name = $survey->getSurveyName();
+                    }
+
+                }
+
+                // Get survey name
+                //$survey_name = (!is_null($survey->getSurveyName()) && $survey->getSurveyName() != "") ? $survey->getSurveyName() : "- - -";
 
                 // Get submission deadline
                 $submission_deadline = (!is_null($survey->getSubmissionDeadline()) && $survey->getSubmissionDeadline() != "") ? $survey->getSubmissionDeadline() : "- - -";

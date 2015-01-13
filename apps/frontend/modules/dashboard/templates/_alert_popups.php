@@ -94,8 +94,13 @@
 
     </div>
 
-    <div id="container_us_states"></div>
+    <div id="container_us_states">
+
+    </div>
 
     <button class="region_selected" id="region_selected">Search</button>
     <button class="region_cancel" id="region_cancel">Cancel</button>
 </div>
+<script src="http://code.highcharts.com/maps/highmaps.js"></script>
+<script src="http://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="http://code.highcharts.com/mapdata/countries/us/us-all.js"></script>

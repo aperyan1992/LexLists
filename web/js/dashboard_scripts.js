@@ -37,6 +37,22 @@ $(document).ready(function() {
     $('#midwest').hide();
     $('#northeast').hide();
 
+    setTimeout(function(){
+        $('#container_us_states svg path').click(function(){
+            //alert('hi');
+            console.log($('.highcharts-key-us-tx').attr('class').substring(0, 17));
+            if(sel[$(this).attr('class')]==true)
+            {
+                sel[$(this).attr('class')] = false;
+                $(this).css({"fill": "#57A0C1"});
+            }
+            else
+            {
+                sel[$(this).attr('class')] = true;
+                $(this).css({"fill": "#ffa767"});
+            }
+        })
+    },5000);
 
     function initMapPopupWindow(element) {
 
@@ -844,13 +860,407 @@ $(document).ready(function() {
     //*******end us map *******//
 
     //*******start us states map *******//
-    jQuery('#container_us_states').vectorMap({
+
+    $('.jsmapclick_us_states').click(function(){
+        $('.dialog_for_map').dialog( "option", "title", "LexLists: US States" );
+
+        $('#container_us_states').show();
+        $('#container_us').hide();
+        $('#container').hide();
+
+        $('.dialog_for_map').dialog("open");
+
+        $('.highcharts-legend').css({'display': 'none'});
+        $('.highcharts-button').css({'display': 'none'});
+        $('.highcharts-container svg>text').css({'display': 'none'});
+        $('.highcharts-container svg rect').css({'fill': '#FAFAFA'});
+        $('.highcharts-container svg path').css({'fill': '#57A0C1'});
+        $('.highcharts-container svg path').hover(
+        function(){
+            $(this).css({'fill-opacity': '0.7'});
+        },function(){
+            $(this).css({'fill-opacity': '1'});
+        });
+
+
+
+
+    });
+
+    var sel = [];
+
+
+
+   /* $(function () {
+
+
+        // Prepare demo data
+        var data = [
+            {
+                "hc-key": "us-ma",
+                "value": 0
+            },
+            {
+                "hc-key": "us-wa",
+                "value": 1
+            },
+            {
+                "hc-key": "us-ca",
+                "value": 2
+            },
+            {
+                "hc-key": "us-or",
+                "value": 3
+            },
+            {
+                "hc-key": "us-wi",
+                "value": 4
+            },
+            {
+                "hc-key": "us-me",
+                "value": 5
+            },
+            {
+                "hc-key": "us-mi",
+                "value": 6
+            },
+            {
+                "hc-key": "us-nv",
+                "value": 7
+            },
+            {
+                "hc-key": "us-nm",
+                "value": 8
+            },
+            {
+                "hc-key": "us-co",
+                "value": 9
+            },
+            {
+                "hc-key": "us-wy",
+                "value": 10
+            },
+            {
+                "hc-key": "us-ks",
+                "value": 11
+            },
+            {
+                "hc-key": "us-ne",
+                "value": 12
+            },
+            {
+                "hc-key": "us-ok",
+                "value": 13
+            },
+            {
+                "hc-key": "us-mo",
+                "value": 14
+            },
+            {
+                "hc-key": "us-il",
+                "value": 15
+            },
+            {
+                "hc-key": "us-in",
+                "value": 16
+            },
+            {
+                "hc-key": "us-vt",
+                "value": 17
+            },
+            {
+                "hc-key": "us-az",
+                "value": 18
+            },
+            {
+                "hc-key": "us-ar",
+                "value": 19
+            },
+            {
+                "hc-key": "us-tx",
+                "value": 20
+            },
+            {
+                "hc-key": "us-ri",
+                "value": 21
+            },
+            {
+                "hc-key": "us-al",
+                "value": 22
+            },
+            {
+                "hc-key": "us-ga",
+                "value": 23
+            },
+            {
+                "hc-key": "us-ms",
+                "value": 24
+            },
+            {
+                "hc-key": "us-sc",
+                "value": 25
+            },
+            {
+                "hc-key": "us-nc",
+                "value": 26
+            },
+            {
+                "hc-key": "us-va",
+                "value": 27
+            },
+            {
+                "hc-key": "us-ia",
+                "value": 28
+            },
+            {
+                "hc-key": "us-md",
+                "value": 29
+            },
+            {
+                "hc-key": "us-de",
+                "value": 30
+            },
+            {
+                "hc-key": "us-nj",
+                "value": 31
+            },
+            {
+                "hc-key": "us-pa",
+                "value": 32
+            },
+            {
+                "hc-key": "us-ny",
+                "value": 33
+            },
+            {
+                "hc-key": "us-id",
+                "value": 34
+            },
+            {
+                "hc-key": "us-sd",
+                "value": 35
+            },
+            {
+                "hc-key": "us-ct",
+                "value": 36
+            },
+            {
+                "hc-key": "us-nh",
+                "value": 37
+            },
+            {
+                "hc-key": "us-ky",
+                "value": 38
+            },
+            {
+                "hc-key": "us-oh",
+                "value": 39
+            },
+            {
+                "hc-key": "us-tn",
+                "value": 40
+            },
+            {
+                "hc-key": "us-wv",
+                "value": 41
+            },
+            {
+                "hc-key": "us-dc",
+                "value": 42
+            },
+            {
+                "hc-key": "us-la",
+                "value": 43
+            },
+            {
+                "hc-key": "us-fl",
+                "value": 44
+            },
+            {
+                "hc-key": "us-mn",
+                "value": 45
+            },
+            {
+                "hc-key": "us-mt",
+                "value": 46
+            },
+            {
+                "hc-key": "us-nd",
+                "value": 47
+            },
+            {
+                "hc-key": "us-ut",
+                "value": 48
+            },
+            {
+                "hc-key": "us-hi",
+                "value": 49
+            },
+            {
+                "hc-key": "us-ak",
+                "value": 50
+            },
+            {
+                "value": 51
+            }
+        ];
+
+        // Initiate the chart
+        $('#container_us_states').highcharts('Map', {
+
+            title : {
+                text : 'Highmaps basic demo'
+            },
+
+            subtitle : {
+                text : 'Source map: <a href="http://code.highcharts.com/mapdata/countries/us/us-all.js">United States of America</a>'
+            },
+
+            mapNavigation: {
+                enabled: false,
+                buttonOptions: {
+                    verticalAlign: 'bottom'
+                }
+            },
+
+            colorAxis: {
+                min: 0
+            },
+
+            series : [{
+                data : data,
+                mapData: Highcharts.maps['countries/us/us-all'],
+                joinBy: ['hc-key', 'code'],
+                name: 'Random data',
+                states: {
+                    hover: {
+                        color: '#BADA55'
+                    }
+                },
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.code}'
+                }
+            }, {
+                name: 'Separators',
+                type: 'mapline',
+                data: Highcharts.geojson(Highcharts.maps['countries/us/us-all'], 'mapline'),
+                color: 'silver',
+                showInLegend: false,
+                enableMouseTracking: false
+            }]
+        });
+
+    });*/
+
+    $(function () {
+
+        $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=us-population-density.json&callback=?', function (data) {
+
+            // Make codes uppercase to match the map data
+            $.each(data, function () {
+                this.code = this.code.toUpperCase();
+            });
+
+            // Instanciate the map
+            $('#container_us_states').highcharts('Map', {
+
+
+                title : {
+                    text : ''
+                },
+
+               /* legend: {
+                    layout: 'horizontal',
+                    borderWidth: 0,
+                    backgroundColor: 'rgba(0,0,0,0.85)',
+                    floating: true,
+                    verticalAlign: 'top',
+                    y: 25
+                },
+*/
+                mapNavigation: {
+                    enabled: false
+                },
+                states: {
+                    hover: {
+
+                        color: '#ffa767',
+                        fillopacity: 0.7,
+                        halo: {
+                            fillopacity: 0.7
+                        }
+                    }
+                },
+
+              /*  colorAxis: {
+                    min: 1,
+                    type: 'logarithmic',
+                    minColor: '#EEEEFF',
+                    maxColor: '#000022',
+                    stops: [
+                        [0, '#EFEFFF'],
+                        [0.67, '#4444FF'],
+                        [1, '#000022']
+                    ]
+                },*/
+
+                series : [{
+                    /*animation: {
+                        duration: 1000
+                    },*/
+                    data : data,
+                    mapData: Highcharts.maps['countries/us/us-all'],
+                    joinBy: ['postal-code', 'code'],
+                    dataLabels: {
+                        enabled: true,
+                        color: 'white',
+                        format: '{point.code}'
+                    },
+                    name: 'Population density',
+                    tooltip: {
+                        pointFormat: '{point.code}: {point.value}/km²'
+                    },
+                    states: {
+                        hover: {
+
+                            color: '#ffa767',
+                            fillopacity: 0.7,
+                            halo: {
+                                fillopacity: 0.7
+                            }
+                        }
+                    }
+                }]
+            });
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*jQuery('#container_us_states').vectorMap({
         map: 'usa_en',
         backgroundColor: null,
         color: '#57A0C1',
         hoverOpacity: 0.7,
         enableZoom: false,
         showTooltip: false
+    });
+
+    $('#container_us_states svg g path').each(function(){
+        //$(this).attr('id').substring(8, 10);
+        $('#container_us_states svg g path').append("<p>"+ $(this).attr('id').substring(8, 10) +"</p>")
     });
 
 
@@ -880,7 +1290,7 @@ $(document).ready(function() {
 
         $('.dialog_for_map').dialog("open");
 
-    });
+    });*/
 //*******end us states map *******//
 
 
@@ -966,6 +1376,8 @@ $(document).ready(function() {
         $('#container_us').hide();
         $('#container_us_states').hide();
 
+        $('#container_us_states svg g path').css({"fill": "#57A0C1"});
+
         $('#us_west').hide();
         $('#small_us_west').hide();
         $('#us_south').hide();
@@ -995,6 +1407,8 @@ $(document).ready(function() {
         $('#container_us').hide();
         $('#container_us_states').hide();
 
+        $('#container_us_states svg g path').css({"fill": "#57A0C1"});
+
         $('#us_west').hide();
         $('#small_us_west').hide();
         $('#us_south').hide();
@@ -1022,6 +1436,8 @@ $(document).ready(function() {
         $('#container').hide();
         $('#container_us').hide();
         $('#container_us_states').hide();
+
+        $('#container_us_states svg g path').css({"fill": "#57A0C1"});
 
         $('#us_west').hide();
         $('#small_us_west').hide();

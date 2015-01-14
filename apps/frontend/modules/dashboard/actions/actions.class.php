@@ -84,6 +84,7 @@ class dashboardActions extends sfActions {
             $this->survey_regions_checkboxes .= '<input checkbox_type="region" type="checkbox" class="region_checkbox" col_num="7" value="' . $region_names . '" id="' . $region_names . '" /><span>' . $region_names . '</span><br />';
 
         }
+        $this->survey_regions_checkboxes .= '<input checkbox_type="state" type="checkbox" class="state_checkbox" col_num="7" value="Texas" id="Texas" /><span>Texas</span><br />';
 
         // Get survey special criterias
         $this->survey_special_criterias = Doctrine_Core::getTable('LtSpecialCriteria')->findAll();
@@ -129,6 +130,7 @@ class dashboardActions extends sfActions {
                     $organization = (!is_null($survey->getOrganizationId()) && $survey->getOrganizationId() != "") ? $this->CheckStringLength($survey->getOrganization()->getName()) : "- - -";
 
                     // Set survey name
+                    //$survey_name = (!is_null($survey->getSurveyName()) && $survey->getSurveyName() != "") ? $this->CheckStringLength($survey->getSurveyName()) : "- - -";
                     $survey_name = (!is_null($survey->getSurveyName()) && $survey->getSurveyName() != "") ? $this->CheckStringLength($survey->getSurveyName()) : "- - -";
 
                     // Set survey name link
@@ -273,6 +275,12 @@ class dashboardActions extends sfActions {
             // Get request parameters
             $survey_ids         = $request->getParameter("survey_ids", FALSE);
             $email_address      = $request->getParameter("email_address", FALSE);
+            $email_cc    = $request->getParameter("cc");
+            $cc = array();
+            foreach($email_cc as $ccs)
+            {
+                $cc[] = explode(")",explode("(", $ccs)[1])[0];
+            }
             $additional_message = $request->getParameter("message", FALSE);
 
             if ($survey_ids) {
@@ -292,6 +300,7 @@ class dashboardActions extends sfActions {
                     $message = Swift_Message::newInstance()
                             ->setFrom($user->getEmailAddress())
                             ->setTo($recipient_email_address)
+                            ->setCc($cc)
                             ->setSubject("LexLists E-mail")
                             ->setBody($this->getPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => $additional_message)))
                             ->setContentType("text/html");
@@ -927,8 +936,7 @@ class dashboardActions extends sfActions {
                 // Get organization
                 $organization = "- - -";
 
-                if ((!is_null($survey->getOrganizationUrl()) && $survey->getOrganizationUrl() != "") &&
-                        (!is_null($survey->getOrganizationId()) && $survey->getOrganizationId() != "")) {
+                if ((!is_null($survey->getOrganizationId()) && $survey->getOrganizationId() != "")) {
                     if ($this->check_if_url_exists($survey->getOrganizationUrl()))
                     {
                         $organization = "<a class='custom_link' target='_blank' href='" . $survey->getOrganizationUrl() . "'>" . $survey->getOrganization()->getName() . "</a>";
@@ -943,7 +951,7 @@ class dashboardActions extends sfActions {
                 // Get survey name
                 $survey_name = "- - -";
 
-                if (!is_null($survey->getSurveyUrl()) && $survey->getSurveyUrl() != "") {
+                if (!is_null($survey->getSurveyName()) && $survey->getSurveyName() != "") {
                     if ($this->check_if_url_exists($survey->getSurveyUrl()))
                     {
                         $survey_name = "<a class='custom_link' target='_blank' href='" . $survey->getSurveyUrl() . "'>" . $survey->getSurveyName() . "</a>";
@@ -954,9 +962,6 @@ class dashboardActions extends sfActions {
                     }
 
                 }
-
-                // Get survey name
-                //$survey_name = (!is_null($survey->getSurveyName()) && $survey->getSurveyName() != "") ? $survey->getSurveyName() : "- - -";
 
                 // Get submission deadline
                 $submission_deadline = (!is_null($survey->getSubmissionDeadline()) && $survey->getSubmissionDeadline() != "") ? $survey->getSubmissionDeadline() : "- - -";

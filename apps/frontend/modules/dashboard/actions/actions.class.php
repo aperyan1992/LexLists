@@ -281,7 +281,7 @@ class dashboardActions extends sfActions {
             {
                 $c = explode("(", $ccs);
                 $c = explode(")", $c[1]);
-                $cc[$c[0]] = $c[0];
+                array_push($cc, $c[0]);
             }
             $additional_message = $request->getParameter("message", FALSE);
 

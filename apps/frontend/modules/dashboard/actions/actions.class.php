@@ -275,7 +275,7 @@ class dashboardActions extends sfActions {
             // Get request parameters
             $survey_ids         = $request->getParameter("survey_ids", FALSE);
             $email_address      = $request->getParameter("email_address", FALSE);
-            $email_cc    = $request->getParameter("cc");
+            $email_cc           = $request->getParameter("cc", FALSE);
             $cc = array();
             foreach($email_cc as $ccs)
             {

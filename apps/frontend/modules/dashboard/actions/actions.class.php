@@ -281,7 +281,7 @@ class dashboardActions extends sfActions {
             {
                 $c = explode("(", $ccs);
                 $c = explode(")", $c[1]);
-                array_push($cc, $c[0]);
+                $cc[$c[0]] = $c[0];
             }
             $additional_message = $request->getParameter("message", FALSE);
 
@@ -297,7 +297,6 @@ class dashboardActions extends sfActions {
                     if ($email_address !== false && !empty($email_address)) {
                         $recipient_email_address = $email_address;
                     }
-
                     // Send email message
                     $message = Swift_Message::newInstance()
                             ->setFrom($user->getEmailAddress())

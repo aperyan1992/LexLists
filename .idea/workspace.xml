@@ -28,22 +28,22 @@
       <file leaf-file-name="actions.class.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="281" column="70" selection-start="14657" selection-end="14657" vertical-scroll-proportion="0.4128114" vertical-offset="3983" max-vertical-offset="17145">
+            <state line="282" column="40" selection-start="14668" selection-end="14668" vertical-scroll-proportion="0.4395018" vertical-offset="3983" max-vertical-offset="17175">
               <folding>
-                <marker date="1421247499978" expanded="true" signature="25679:25713" placeholder="..." />
-                <marker date="1421247499978" expanded="true" signature="25731:25761" placeholder="..." />
-                <marker date="1421247499978" expanded="false" signature="31242:31277" placeholder="..." />
-                <marker date="1421247499978" expanded="false" signature="31345:31362" placeholder="..." />
-                <marker date="1421247499978" expanded="true" signature="31363:31564" placeholder="..." />
-                <marker date="1421247499978" expanded="false" signature="32334:32369" placeholder="..." />
-                <marker date="1421247499978" expanded="false" signature="32436:32453" placeholder="..." />
-                <marker date="1421247499978" expanded="true" signature="32454:32658" placeholder="..." />
-                <marker date="1421247499978" expanded="true" signature="32864:32879" placeholder="..." />
-                <marker date="1421247499978" expanded="true" signature="32897:32927" placeholder="..." />
-                <marker date="1421247499978" expanded="false" signature="43708:43746" placeholder="..." />
-                <marker date="1421247499978" expanded="false" signature="44010:44045" placeholder="..." />
-                <marker date="1421247499978" expanded="false" signature="44113:44130" placeholder="..." />
-                <marker date="1421247499978" expanded="true" signature="44131:44332" placeholder="..." />
+                <marker date="1421247725630" expanded="true" signature="25730:25764" placeholder="..." />
+                <marker date="1421247725630" expanded="true" signature="25782:25812" placeholder="..." />
+                <marker date="1421247725630" expanded="false" signature="31293:31328" placeholder="..." />
+                <marker date="1421247725630" expanded="false" signature="31396:31413" placeholder="..." />
+                <marker date="1421247725630" expanded="true" signature="31414:31615" placeholder="..." />
+                <marker date="1421247725630" expanded="false" signature="32385:32420" placeholder="..." />
+                <marker date="1421247725630" expanded="false" signature="32487:32504" placeholder="..." />
+                <marker date="1421247725630" expanded="true" signature="32505:32709" placeholder="..." />
+                <marker date="1421247725630" expanded="true" signature="32915:32930" placeholder="..." />
+                <marker date="1421247725630" expanded="true" signature="32948:32978" placeholder="..." />
+                <marker date="1421247725630" expanded="false" signature="43759:43797" placeholder="..." />
+                <marker date="1421247725630" expanded="false" signature="44061:44096" placeholder="..." />
+                <marker date="1421247725630" expanded="false" signature="44164:44181" placeholder="..." />
+                <marker date="1421247725630" expanded="true" signature="44182:44383" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -705,7 +705,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php</url>
-          <line>951</line>
+          <line>953</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -1108,22 +1108,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="281" column="70" selection-start="14657" selection-end="14657" vertical-scroll-proportion="0.4128114" vertical-offset="3983" max-vertical-offset="17145">
+        <state line="282" column="40" selection-start="14668" selection-end="14668" vertical-scroll-proportion="0.4395018" vertical-offset="3983" max-vertical-offset="17175">
           <folding>
-            <marker date="1421247499978" expanded="true" signature="25679:25713" placeholder="..." />
-            <marker date="1421247499978" expanded="true" signature="25731:25761" placeholder="..." />
-            <marker date="1421247499978" expanded="false" signature="31242:31277" placeholder="..." />
-            <marker date="1421247499978" expanded="false" signature="31345:31362" placeholder="..." />
-            <marker date="1421247499978" expanded="true" signature="31363:31564" placeholder="..." />
-            <marker date="1421247499978" expanded="false" signature="32334:32369" placeholder="..." />
-            <marker date="1421247499978" expanded="false" signature="32436:32453" placeholder="..." />
-            <marker date="1421247499978" expanded="true" signature="32454:32658" placeholder="..." />
-            <marker date="1421247499978" expanded="true" signature="32864:32879" placeholder="..." />
-            <marker date="1421247499978" expanded="true" signature="32897:32927" placeholder="..." />
-            <marker date="1421247499978" expanded="false" signature="43708:43746" placeholder="..." />
-            <marker date="1421247499978" expanded="false" signature="44010:44045" placeholder="..." />
-            <marker date="1421247499978" expanded="false" signature="44113:44130" placeholder="..." />
-            <marker date="1421247499978" expanded="true" signature="44131:44332" placeholder="..." />
+            <marker date="1421247725630" expanded="true" signature="25730:25764" placeholder="..." />
+            <marker date="1421247725630" expanded="true" signature="25782:25812" placeholder="..." />
+            <marker date="1421247725630" expanded="false" signature="31293:31328" placeholder="..." />
+            <marker date="1421247725630" expanded="false" signature="31396:31413" placeholder="..." />
+            <marker date="1421247725630" expanded="true" signature="31414:31615" placeholder="..." />
+            <marker date="1421247725630" expanded="false" signature="32385:32420" placeholder="..." />
+            <marker date="1421247725630" expanded="false" signature="32487:32504" placeholder="..." />
+            <marker date="1421247725630" expanded="true" signature="32505:32709" placeholder="..." />
+            <marker date="1421247725630" expanded="true" signature="32915:32930" placeholder="..." />
+            <marker date="1421247725630" expanded="true" signature="32948:32978" placeholder="..." />
+            <marker date="1421247725630" expanded="false" signature="43759:43797" placeholder="..." />
+            <marker date="1421247725630" expanded="false" signature="44061:44096" placeholder="..." />
+            <marker date="1421247725630" expanded="false" signature="44164:44181" placeholder="..." />
+            <marker date="1421247725630" expanded="true" signature="44182:44383" placeholder="..." />
           </folding>
         </state>
       </provider>

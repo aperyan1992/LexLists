@@ -80,8 +80,15 @@
         <p id="south_title">US South</p>
         <p id="northeast_title">US Northeast</p>
 
-            <img src="../images/all_us_map.png" id="all_us_map">
-            <img src="../images/small_west.png" id="small_west">
+        <div id="all_us_map">
+
+        </div>
+
+        <div id="small_west">
+
+        </div>
+            <!--<img src="../images/all_us_map.png" id="all_us_map">
+            <img src="../images/small_west.png" id="small_west">-->
 
         <div class="us_states">
 

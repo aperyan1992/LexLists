@@ -179,14 +179,15 @@ function sendEmailToMe(survey_ids) {
  * @param {string}  email_address     Email address
  * @param {string}  message           Message
  */
-function sendEmailToAnotherUser(survey_ids, email_address, message) {
+function sendEmailToAnotherUser(survey_ids, email_address, message,cc) {
     $.ajax({
         url: "/dashboard/sendEmail",
         type: "POST",
         data: {
             survey_ids    : survey_ids,
             email_address : email_address,
-            message       : message
+            message       : message,
+            cc            : cc
         },
         dataType: "json",
         beforeSend: function() {
@@ -251,7 +252,7 @@ function initSurveyEmailPopupWindow(element) {
                 }
                 if (bValid) {
                         // Send email message
-                        sendEmailToAnotherUser([$(this).data("survey_id")], to_email_address.val(), message.val());
+                        sendEmailToAnotherUser([$(this).data("survey_id")], to_email_address.val(), message.val(),cc_emails);
 
                         text_fields.val("");
                         to_me_flag.prop("checked", true);

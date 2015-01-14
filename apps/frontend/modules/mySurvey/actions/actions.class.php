@@ -423,13 +423,31 @@ class mySurveyActions extends sfActions {
 
                     // Get organization
                     $organization = "- - -";
-                    if ((!is_null($survey->getSurvey()->getOrganizationUrl()) && $survey->getSurvey()->getOrganizationUrl() != "") &&
-                            (!is_null($survey->getSurvey()->getOrganizationId()) && $survey->getSurvey()->getOrganizationId() != "")) {
-                        $organization = $survey->getSurvey()->getOrganization()->getName();
+                    if ((!is_null($survey->getSurvey()->getOrganizationId()) && $survey->getSurvey()->getOrganizationId() != "")) {
+                        if ($this->check_if_url_exists($survey->getSurvey()->getOrganizationUrl()))
+                        {
+                            $organization = "<a class='custom_link' target='_blank' href='" . $survey->getSurvey()->getOrganizationUrl() . "'>" . $survey->getSurvey()->getOrganization()->getName() . "</a>";
+                        }
+                        else
+                        {
+                            $organization = $survey->getSurvey()->getOrganization()->getName();
+                        }
                     }
 
                     // Get survey name
-                    $survey_name = (!is_null($survey->getSurvey()->getSurveyName()) && $survey->getSurvey()->getSurveyName() != "") ? $survey->getSurvey()->getSurveyName() : "- - -";
+                    $survey_name = "- - -";
+
+                    if (!is_null($survey->getSurvey()->getSurveyName()) && $survey->getSurvey()->getSurveyName() != "") {
+                        if ($this->check_if_url_exists($survey->getSurvey()->getSurveyUrl()))
+                        {
+                            $survey_name = "<a class='custom_link' target='_blank' href='" . $survey->getSurvey()->getSurveyUrl() . "'>" . $survey->getSurvey()->getSurveyName() . "</a>";
+                        }
+                        else
+                        {
+                            $survey_name = $survey->getSurvey()->getSurveyName();
+                        }
+
+                    }
 
                     // Get submission deadline
                     $submission_deadline = (!is_null($survey->getSurvey()->getSubmissionDeadline()) && $survey->getSurvey()->getSubmissionDeadline() != "") ? $survey->getSurvey()->getSubmissionDeadline() : "- - -";
@@ -606,7 +624,17 @@ class mySurveyActions extends sfActions {
 
         $this->forward404();
     }
-    
+
+
+    public function check_if_url_exists($url) {
+        if (filter_var($url, FILTER_VALIDATE_URL) === FALSE) {
+            return false;
+        }
+        if (!$fp = curl_init($url)) return false;
+        return true;
+    }
+
+
     /**
      * Get notes of my survey
      * 

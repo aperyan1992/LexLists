@@ -151,17 +151,23 @@
 }
 
 #all_us_map {
+    background-image: url("../images/all_us_map.png");
+    background-repeat: no-repeat;
+    background-size: 753px 471px;
     width: 753px;
     height: 471px;
     margin-left: 18px;
     margin-top: 25px;
-    position: absolute;
     left:0;
     top:0;
+    position: absolute;
     z-index: -1000;
 
 }
 #small_west {
+    background-image: url("../images/small_west.png");
+    background-repeat: no-repeat;
+    background-size: 274px 126px;
     width: 274px;
     height: 126px;
     margin-left: 23px;

@@ -279,9 +279,16 @@ class dashboardActions extends sfActions {
             $cc = array();
             foreach($email_cc as $ccs)
             {
-                $c = explode("(", $ccs);
-                $c = explode(")", $c[1]);
-                array_push($cc, $c[0]);
+                if(strpos($ccs,'('))
+                {
+                    $c = explode("(", $ccs);
+                    $c = explode(")", $c[1]);
+                    array_push($cc, $c[0]);
+                }
+                else{
+                    array_push($cc,$ccs);
+                }
+
             }
             $additional_message = $request->getParameter("message", FALSE);
 

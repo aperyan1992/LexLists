@@ -67,18 +67,24 @@
 </div>
 
 <div class="dialog_for_map" style="display: none; overflow: hidden;" title="">
+<div>
+    <div id="container">
 
-    <div id="container"></div>
+    </div>
+    <div id="clear_filters_loading">
+       <img src='../images/ajax-loader.gif' alt='loading...' />
 
+    </div>
+</div>
     <div id="container_us">
-        <div class="region_title">
+        <!--<div class="region_title">
             <p></p>
         </div>
 
         <p id="west_title">US West</p>
         <p id="midwest_title">US Midwest</p>
         <p id="south_title">US South</p>
-        <p id="northeast_title">US Northeast</p>
+        <p id="northeast_title">US Northeast</p>-->
 
         <div id="all_us_map">
 
@@ -101,9 +107,7 @@
 
     </div>
 
-    <div id="container_us_states">
-
-    </div>
+    <div id="container_us_states"></div>
 
     <button class="region_selected" id="region_selected">Search</button>
     <button class="region_cancel" id="region_cancel">Cancel</button>

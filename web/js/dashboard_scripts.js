@@ -12,6 +12,24 @@
 
         $(document).ready(function() {
 
+           /*      function clear_filters()  {
+
+                // Clear filter checkboxes
+                $(".other_filters_block input:checkbox, .deadline input:checkbox").prop("checked", false);
+
+                // Clear hidden filters
+                $("#hidden_filters_block select").html('<option value="0"></option>');
+
+                // Reset filters
+                report_data_table.fnFilter('');
+                var colCount = report_data_table.fnGetData(0).length;
+
+                for (var i = 0; i <= colCount; i++) {
+                    report_data_table.fnFilter('', i);
+                }
+                     return true;
+            }*/
+
             var region_name = [];
             var region_name_us = [];
             var region_title = [];
@@ -810,6 +828,7 @@
 
             $('.jsmapclick_us').click(function(){
 
+
                 $('.dialog_for_map').dialog( "option", "title", "LexLists: US Regions" );
 
                 $('#container_us').show();
@@ -847,6 +866,7 @@
 
             var search_states = [];
             $('.jsmapclick_us_states').click(function(){
+
                 $('.dialog_for_map').dialog( "option", "title", "LexLists: US States" );
 
                 $('#container_us_states').show();
@@ -857,6 +877,8 @@
                 search_states = [];
                 sel = [];
                 state_idx = 0;
+
+                $('.highcharts-data-labels.highcharts-tracker').css({"opacity": '1'});
 
                 $('.highcharts-legend').css({'display': 'none'});
                 $('.highcharts-button').css({'display': 'none'});
@@ -892,7 +914,7 @@
                             sel[x] = true;
                             $(this).css({"fill": "#ffa767"});
                             search_states.push($(this).attr('class').substring(17).split(" "));
-                            console.log(search_states);
+                            //console.log(search_states);
 
                         }
                         openedmap = true;
@@ -992,6 +1014,10 @@
                     { "bSortable": false, "aTargets": [ 0 ] }
                 ]
             });
+//            var d_table_clone = $(report_data_table).clone();
+//            var d_table_clone = jQuery.extend(true, {}, report_data_table);
+            //var d_table_clone;
+            //$.extend( true, d_table_clone, report_data_table );
 
             /**
              *  Add tooltip for search field in dataTable
@@ -1003,10 +1029,19 @@
                 filterByOtherParameters(report_data_table, $(this));
             });
 
-            $("#region_selected").on("click", function() {
+            $("#region_selected").click(function() {
+                /*var clear = clear_filters();
+                if(clear)
+                {
+                    $('#clear_filters_loading').css({"display": "none"});
+                }
+*/
+
+                $('#clear_filters').click();
+
                 var region;
                 $('.region_checkbox').prop('checked',false);
-                if(region_name!='')
+                if(region_name.length !=0)
                 {
                     var i=0;
                     while(region_name[i])
@@ -1015,7 +1050,7 @@
                         i++;
                     }
                 }
-                if(region_name_us!='')
+                if(region_name_us.length !=0)
                 {
                     var i=0;
                     while(region_name_us[i])
@@ -1036,15 +1071,27 @@
                 {
                     var str = '';
                     $(search_states).each(function(val){
-                        str += $(this)[0]+'|';
+
+                        var temp_val = $(this)[0];
+                        if(temp_val.indexOf("-")!==-1)
+                        {
+                            temp_val = temp_val.replace('-', " ");
+                        }
+                        str += temp_val+'|';
+                        //console.log("--------- "+temp_val);
                     });
                     str = str.slice(0,-1);
                     filterReportDataTable(report_data_table,str,9);
-                    console.log(str);
+
                 }
-                region_name = '';
-                region_name_us = '';
-                region_title = '';
+
+                search_states = [];
+                sel = [];
+                state_idx = 0;
+
+                region_name = [];
+                region_name_us = [];
+                region_title = [];
                 first = 0;
                 first_m = 0;
                 first_ctrl = 0;
@@ -1063,7 +1110,6 @@
                 $('#northeast').hide();
 
                 $('.dialog_for_map').dialog("close");
-
             });
 
             $('#region_cancel').click(function(){

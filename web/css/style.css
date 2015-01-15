@@ -58,46 +58,46 @@
 }
 
 #us_west {
-    width: 290px;
-    height: 340px;
+    width: 308px;
+    height: 359px;
     margin-left: 35px;
-    margin-top: 35px;
+    margin-top: 46px;
     position: absolute;
     z-index: -100 !important;
 }
 
 #small_us_west {
-    width: 271px;
-    height: 125px;
+    width: 282px;
+    height: 130px;
     margin-left: 25px;
-    margin-top: 373px;;
+    margin-top: 405px;
     position: absolute;
     z-index: -100 !important;
 }
 
 #us_south {
-    width: 454px;
-    height: 294px;
-    margin-top: 204px;
-    margin-left: 242px;
+    width: 485px;
+    height: 307px;
+    margin-top: 227px;
+    margin-left: 253px;
     position: absolute;
     z-index: -100 !important;
 }
 
 #midwest {
-    width: 318px;
-    height: 240px;
-    margin-left: 294px;
-    margin-top: 67px;
+    width: 338px;
+    height: 256px;
+    margin-left: 310px;
+    margin-top: 79px;
     position: absolute;
     z-index: -100 !important;
 }
 
 #northeast {
-    width: 167px;
-    height: 175px;
-    margin-left: 597px;
-    margin-top: 53px;
+    width: 176px;
+    height: 186px;
+    margin-left: 631px;
+    margin-top: 66px;
     position: absolute;
     z-index: -100 !important;
 }
@@ -172,6 +172,22 @@
     z-index: -1000;
 
 }
+
+#all_us_map1 {
+    background-image: url("../images/all_us_map.png");
+    background-repeat: no-repeat;
+    background-size: 753px 471px;
+    width: 753px;
+    height: 471px;
+    margin-left: 18px;
+    margin-top: 25px;
+    left:0;
+    top:0;
+    position: absolute;
+    z-index: 1000;
+
+}
+
 #small_west {
     background-image: url("../images/small_west.png");
     background-repeat: no-repeat;

@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ff16ca9-f95a-440f-a391-4abfd5c9a103" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/highcharts/exporting2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/highcharts/highmaps2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/highcharts/us-all.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/dashboard_scripts.js" afterPath="$PROJECT_DIR$/web/js/dashboard_scripts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/config/view.yml" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/config/view.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="lex.local.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -147,7 +139,7 @@
       <file leaf-file-name="_alert_popups.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="51" selection-start="4375" selection-end="4552" vertical-scroll-proportion="0.319224" vertical-offset="1109" max-vertical-offset="1845">
+            <state line="82" column="0" selection-start="4378" selection-end="4378" vertical-scroll-proportion="0.21340388" vertical-offset="1109" max-vertical-offset="1845">
               <folding />
             </state>
           </provider>
@@ -1371,7 +1363,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="51" selection-start="4375" selection-end="4552" vertical-scroll-proportion="0.319224" vertical-offset="1109" max-vertical-offset="1845">
+        <state line="82" column="0" selection-start="4378" selection-end="4378" vertical-scroll-proportion="0.21340388" vertical-offset="1109" max-vertical-offset="1845">
           <folding />
         </state>
       </provider>

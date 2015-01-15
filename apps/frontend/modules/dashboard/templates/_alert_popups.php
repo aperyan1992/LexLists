@@ -79,12 +79,12 @@
     <div id="container_us">
         <!--<div class="region_title">
             <p></p>
-        </div>
+        </div>-->
 
         <p id="west_title">US West</p>
         <p id="midwest_title">US Midwest</p>
         <p id="south_title">US South</p>
-        <p id="northeast_title">US Northeast</p>-->
+        <p id="northeast_title">US Northeast</p>
 
         <div id="all_us_map">
 

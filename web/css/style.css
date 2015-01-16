@@ -13,14 +13,6 @@
     font-style: normal;
 }
 
-#clear_filters_loading {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    display: none;
-    background-color: #ff0000;
-}
-
 #container {
     width: 800px;
     height: 500px;
@@ -61,7 +53,7 @@
     width: 308px;
     height: 359px;
     margin-left: 35px;
-    margin-top: 46px;
+    margin-top: 17px;
     position: absolute;
     z-index: -100 !important;
 }
@@ -70,7 +62,7 @@
     width: 282px;
     height: 130px;
     margin-left: 25px;
-    margin-top: 405px;
+    margin-top: 375px;
     position: absolute;
     z-index: -100 !important;
 }
@@ -78,7 +70,7 @@
 #us_south {
     width: 485px;
     height: 307px;
-    margin-top: 227px;
+    margin-top: 197px;
     margin-left: 253px;
     position: absolute;
     z-index: -100 !important;
@@ -88,7 +80,7 @@
     width: 338px;
     height: 256px;
     margin-left: 310px;
-    margin-top: 79px;
+    margin-top: 49px;
     position: absolute;
     z-index: -100 !important;
 }
@@ -97,7 +89,7 @@
     width: 176px;
     height: 186px;
     margin-left: 631px;
-    margin-top: 66px;
+    margin-top: 36px;
     position: absolute;
     z-index: -100 !important;
 }
@@ -105,7 +97,7 @@
 #west_title {
     position: absolute;
     margin-left: 140px;
-    margin-top: 164px;
+    margin-top: 148px;
     color: white;
     text-shadow: 2px 2px #000000;
     font-weight: bold;
@@ -115,7 +107,7 @@
 #midwest_title {
     position: absolute;
     margin-left: 395px;
-    margin-top: 153px;
+    margin-top: 137px;
     color: white;
     text-shadow: 2px 2px #000000;
     font-weight: bold;
@@ -134,8 +126,8 @@
 
 #northeast_title {
     position: absolute;
-    margin-left: 624px;
-    margin-top: 126px;
+    margin-left: 648px;
+    margin-top: 111px;
     color: white;
     text-shadow: 2px 2px #000000;
     font-weight: bold;
@@ -4196,6 +4188,7 @@ fieldset.disp-block{
     font-family: arial;
     font-weight: bold;
     position: absolute;
+    z-index: 1;
     top: -12px;
     right: -5px;
 }

@@ -12,24 +12,6 @@
 
         $(document).ready(function() {
 
-           /*      function clear_filters()  {
-
-                // Clear filter checkboxes
-                $(".other_filters_block input:checkbox, .deadline input:checkbox").prop("checked", false);
-
-                // Clear hidden filters
-                $("#hidden_filters_block select").html('<option value="0"></option>');
-
-                // Reset filters
-                report_data_table.fnFilter('');
-                var colCount = report_data_table.fnGetData(0).length;
-
-                for (var i = 0; i <= colCount; i++) {
-                    report_data_table.fnFilter('', i);
-                }
-                     return true;
-            }*/
-
             var region_name = [];
             var region_name_us = [];
             var region_title = [];
@@ -144,6 +126,18 @@
                         colorAxis: {
                             min: 0
                         },
+                        exporting: {
+                            buttons: {
+
+                                exportButton: {
+                                    enabled: false
+                                },
+                                printButton: {
+                                    enabled: false
+                                }
+                            }
+
+                        },
 
                         series : [{
                             data : data,
@@ -170,6 +164,7 @@
                 $('.dialog_for_map').dialog("open");
 
                 $('.highcharts-legend').hide();
+                $('.highcharts-button').hide();
 
                 $('.highcharts-name-north-america, .highcharts-name-south-america, .highcharts-name-europe, .highcharts-name-asia, .highcharts-name-africa, .highcharts-name-australia').css({"fill": "#57A0C2"});
 
@@ -479,19 +474,6 @@
             //******* end world map *******//
 
             //******* start us map *******//
-/*
-
-            jQuery('#container_us').vectorMap({
-                map: 'usa_en',
-                backgroundColor: null,
-                color: '#0468B0',
-                hoverOpacity: 1,
-                selectedColor: '#666666',
-                enableZoom: true,
-                showTooltip: true,
-                selectedRegion: 'MO'
-            });
-*/
 
             var west_ids = "#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az";
             var south_ids = "#jqvmap1_dc, #jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc";
@@ -880,7 +862,7 @@
                 sel = [];
                 state_idx = 0;
 
-                $('.highcharts-data-labels.highcharts-tracker').css({"opacity": '1'});
+                $('.highcharts-data-labels.highcharts-tracker g').css({"opacity": '1'});
 
                 $('.highcharts-legend').css({'display': 'none'});
                 $('.highcharts-button').css({'display': 'none'});
@@ -1016,11 +998,6 @@
                     { "bSortable": false, "aTargets": [ 0 ] }
                 ]
             });
-//            var d_table_clone = $(report_data_table).clone();
-//            var d_table_clone = jQuery.extend(true, {}, report_data_table);
-            //var d_table_clone;
-            //$.extend( true, d_table_clone, report_data_table );
-
             /**
              *  Add tooltip for search field in dataTable
              */
@@ -1032,13 +1009,6 @@
             });
 
             $("#region_selected").click(function() {
-                /*var clear = clear_filters();
-                if(clear)
-                {
-                    $('#clear_filters_loading').css({"display": "none"});
-                }
-*/
-
                 $('#clear_filters').click();
 
                 var region;
@@ -1080,7 +1050,6 @@
                             temp_val = temp_val.replace('-', " ");
                         }
                         str += temp_val+'|';
-                        //console.log("--------- "+temp_val);
                     });
                     str = str.slice(0,-1);
                     filterReportDataTable(report_data_table,str,9);

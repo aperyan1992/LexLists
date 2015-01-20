@@ -11,7 +11,7 @@
             <h3 class="custom_color" title="The year of the survey or award.">Year<i class="filter_arrow"></i></h3>
             <div class="org-body test_smaller">
                 <form action="" name="">
-                    <?php echo $sf_data->getRaw('survey_year_checkboxes') ?>
+                    <?php echo $sf_data->getRaw('survey_year_checkboxes')?>
                 </form>
             </div>
         </div>

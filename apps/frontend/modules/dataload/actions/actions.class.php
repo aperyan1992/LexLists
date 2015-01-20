@@ -26,6 +26,23 @@ class dataloadActions extends sfActions
 
     public function executeUpload(sfWebRequest $request)
     {
+        $all_states = 'SELECT* FROM states';
+        $states_query = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($all_states)->fetchAll();
+        foreach($states_query as $state){
+            $arrStates[$state['short_code']] =$state['id'];
+        }
+
+        /*$all_cities = 'SELECT* FROM cities';
+        $cities_query = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($all_cities)->fetchAll();
+        foreach($cities_query as $city){
+            $arrCities[$city['name']] =$city['id'];
+        }*/
+
+        $query = 'SELECT MAX(`id`) FROM `surveys`';
+        $max_survey_id = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
+        $max_survey_id = $max_survey_id[0];
+        //var_dump($max_survey_id);die;
+
         $allowedExts = array("gif", "jpeg", "jpg", "png", "xls", 'csv');
         $temp = explode(".", $_FILES["file"]["name"]);
         $updated = false;
@@ -45,7 +62,8 @@ class dataloadActions extends sfActions
                 unset($csvdata[0], $csvdata[1]);
                 foreach($csvdata as $key=>$data)
                 {
-
+                   // var_dump($data);die;
+                    $data = $this->escape_character($data);
                     $query = 'Select `id`, `name` FROM `regions`';
                     $regoins = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
                     foreach($regoins as $regoin)
@@ -67,8 +85,7 @@ class dataloadActions extends sfActions
                         $newcountries[$countrie['name']] = $countrie['id'];
                     }
 
-
-                    if(isset($newregoins[$data[10]]))
+                    if(!empty($data[10]) && isset($newregoins[$data[10]]))
                     {
                         $fianlresult[$key]['survey_region_id'] = $newregoins[$data[10]];
                     }
@@ -149,6 +166,21 @@ class dataloadActions extends sfActions
                     }
                     else{
                         $fianlresult[$key]['eligibility_criteria'] = null;
+                    }
+
+                    if(isset($data[7]))
+                    {
+                        $fianlresult[$key]['city'] = $data[7];
+                    }
+                    else{
+                        $fianlresult[$key]['city'] = null;
+                    }
+                    if(isset($data[8]))
+                    {
+                        $fianlresult[$key]['state'] = $data[8];
+                    }
+                    else{
+                        $fianlresult[$key]['state'] = null;
                     }
 
                     if(isset($data[12]))
@@ -268,30 +300,45 @@ class dataloadActions extends sfActions
                         $now = new DateTime();
 
                         $query = 'UPDATE `surveys` SET ';
+                        $details = '';
                         foreach($fianlresult[$key] as $k=>$value)
                         {
-                            $query .=  '`'.$k.'`="'.$value.'", ';
+                            if($k != "state" && $k != "city")
+                            {
+                                $details .=  '`'.$k.'`="'.$value.'", ';
+                            }
                         }
-                        $query.='`updated_at`="'.$now->format('Y-m-d H:i:s').'"';
-                        //$query = rtrim($query, ", ");
-                        $query .= ' WHERE id="'.$resultupdate['id'].'"';
-                        $result = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query);
-                        if($result)
+                        if($details!='')
                         {
-                            unset($fianlresult[$key]);
-                        }
+                            $query.=$details;
+                            $query.='`updated_at`="'.$now->format('Y-m-d H:i:s').'"';
+                            //$query = rtrim($query, ", ");
+                            $query .= ' WHERE id="'.$resultupdate['id'].'"';
+                            $result = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query);
+                            if($result)
+                            {
+                                unset($fianlresult[$key]);
+                            }
+                         }
                     }
                 }
                 if(!empty($fianlresult))
                 {
                     $now = new DateTime();
+                    $i = $max_survey_id+1;
+                    $final_states_string = 'INSERT INTO `survey_states`(`survey_id`, `state_id`) VALUES (';
+                    //$final_cities_string = 'INSERT INTO `survey_cities`(`survey_id`, `city_id`) VALUES (';
+
 
                     $arraykey = array_keys($fianlresult);
                     //var_dump($arraykey[0]);die;
                     $finalquerystring = 'INSERT INTO `surveys` (';
                     foreach($fianlresult[$arraykey[0]] as $key=>$value)
                     {
-                        $finalquerystring.='`'.$key.'`,';
+                        if($key != "state" && $key != "city")
+                        {
+                            $finalquerystring.='`'.$key.'`,';
+                        }
                     }
 
                     $finalquerystring.='`created_at`,`updated_at`';
@@ -301,9 +348,34 @@ class dataloadActions extends sfActions
 
                     foreach($fianlresult as $final)
                     {
+                        if($final['state']!='' && isset($arrStates[$final['state']]))
+                        {
+                            $final_states_string .= '"'. $i .'","'. $arrStates[$final['state']] .'"),(';
+                            $valuestate = true;
+                        }
+
+                        //$cityquery = 'SELECT `id` FROM `cities` WHERE `name` = "'.$arrCities[$final['city']].'"';
+                       // $citiesqueryres = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($cityquery)->fetchAll();
+
+                        //var_dump($final['city']);
+
+                       /* if($final['city']!='' && isset($arrCities[$final['city']]))
+                        {
+
+                            if(!$citiesqueryres)
+                            {
+                                $final_cities_string .= '"'. $i .'","'. $arrCities[$final['city']] .'"),(';
+                                $valuecity = true;
+                            }
+                        }*/
+                        $i++;
                         foreach($final as $key=>$value)
                         {
-                            $finalquerystring.='"'.str_replace('"','\"',$value).'",';
+
+                            if($key != "state" && $key != "city")
+                            {
+                                $finalquerystring.='"'.$value.'",';
+                            }
                         }
                         $finalquerystring = rtrim($finalquerystring, ",");
 
@@ -311,12 +383,33 @@ class dataloadActions extends sfActions
 
 
                         $finalquerystring.='),(';
-                    }
 
+                    }
+                   // var_dump($valuecity);
+//die;
                     $finalquerystring = rtrim($finalquerystring, ",(");
+                    $final_states_string = rtrim($final_states_string, ",(");
+                   // $final_cities_string = rtrim($final_cities_string, ",(");
+                    //var_dump($final_states_string);die;
+
 
                     if(Doctrine_Manager::getInstance()->getCurrentConnection()->execute($finalquerystring))
-                       $this->result = '<h2> The CSV data has been successfully uploaded(updated).</h2>';
+                    {
+                        if(isset($valuestate))
+                        {
+                            Doctrine_Manager::getInstance()->getCurrentConnection()->execute($final_states_string);
+
+                        }
+                       /* if(isset($valuecity))
+                        {
+                            Doctrine_Manager::getInstance()->getCurrentConnection()->execute($final_cities_string);
+
+                        }*/
+                        $this->result = '<h2> The CSV data has been successfully uploaded(updated).</h2>';
+
+                    }
+
+
                 }
                 else{
                     if($updated)
@@ -331,5 +424,22 @@ class dataloadActions extends sfActions
         } else {
             $this->result = false;
         }
+    }
+
+    protected function escape_character($array)
+    {
+        $newArray = array();
+        foreach($array as $key=>$value)
+        {
+            $newArray[$key]=$this->escape2($value);
+        }
+        return $newArray;
+
+    }
+    protected function escape2($value)
+    {
+        $value = str_replace("'", "\'", $value);
+        $value = str_replace('"', '\"', $value);
+        return $value;
     }
 }

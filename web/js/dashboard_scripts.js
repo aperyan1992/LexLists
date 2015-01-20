@@ -12,6 +12,13 @@
 
         $(document).ready(function() {
 
+            //hide first empty checkbox
+            var item1 = $('.region .org-body form input')[0];
+            $(this).find(item1).css({"visibility": 'hidden'});
+            $('.region .org-body form').css({"margin-top": "-18px"});
+
+
+
             var region_name = [];
             var region_name_us = [];
             var region_title = [];

@@ -2107,6 +2107,7 @@ form input[type="submit"], form input[type="button"] {
 }
 
 .dataTables_filter label input {
+    height: 27px;
     margin-bottom: 8px !important;
     margin-top: 5px !important;
 }

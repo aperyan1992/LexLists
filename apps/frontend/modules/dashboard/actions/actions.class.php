@@ -84,7 +84,7 @@ class dashboardActions extends sfActions {
             $this->survey_regions_checkboxes .= '<input checkbox_type="region" type="checkbox" class="region_checkbox" col_num="7" value="' . $region_names . '" id="' . $region_names . '" /><span>' . $region_names . '</span><br />';
 
         }
-        $this->survey_regions_checkboxes .= '<input checkbox_type="state" type="checkbox" class="state_checkbox" col_num="7" value="Texas" id="Texas" /><span>Texas</span><br />';
+        //$this->survey_regions_checkboxes .= '<input checkbox_type="state" type="checkbox" class="state_checkbox" col_num="7" value="Texas" id="Texas" /><span>Texas</span><br />';
 
         // Get survey special criterias
         $this->survey_special_criterias = Doctrine_Core::getTable('LtSpecialCriteria')->findAll();

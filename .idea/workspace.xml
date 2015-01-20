@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ff16ca9-f95a-440f-a391-4abfd5c9a103" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_or_print.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_or_print.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/dashboard_scripts.js" afterPath="$PROJECT_DIR$/web/js/dashboard_scripts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/my_survey_scripts.js" afterPath="$PROJECT_DIR$/web/js/my_survey_scripts.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -29,20 +32,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="dashboard_scripts.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="dashboard_scripts.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/dashboard_scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1347" column="25" selection-start="60523" selection-end="60523" vertical-scroll-proportion="0.8618091" vertical-offset="19862" max-vertical-offset="26565">
+            <state line="14" column="39" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="26670">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_survey_details_popup.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_details_popup.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="24" selection-start="1370" selection-end="1370" vertical-scroll-proportion="-2.0588236" vertical-offset="465" max-vertical-offset="1125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_survey_email.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.5294118" vertical-offset="27" max-vertical-offset="1260">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_survey_email_or_print.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_or_print.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="108" column="23" selection-start="4491" selection-end="4682" vertical-scroll-proportion="0.5313531" vertical-offset="1459" max-vertical-offset="2400">
+              <folding>
+                <element signature="n#style#0;n#span#0;n#h3#1;n#!!top" expanded="true" />
+                <marker date="1421765906703" expanded="true" signature="4909:4922" placeholder="..." />
+                <marker date="1421765906703" expanded="true" signature="5161:5174" placeholder="..." />
+                <marker date="1421765906703" expanded="true" signature="5422:5435" placeholder="..." />
+                <marker date="1421765906703" expanded="true" signature="5663:5676" placeholder="..." />
+                <marker date="1421765906703" expanded="true" signature="5873:5886" placeholder="..." />
+                <marker date="1421765906703" expanded="true" signature="5940:6039" placeholder="..." />
+                <marker date="1421765906703" expanded="true" signature="6267:6292" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="my_survey_scripts.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/my_survey_scripts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="30" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8085">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="actions.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="306" column="0" selection-start="15567" selection-end="15567" vertical-scroll-proportion="0.0" vertical-offset="4253" max-vertical-offset="17265">
-              <folding />
+            <state line="395" column="37" selection-start="15948" selection-end="15949" vertical-scroll-proportion="-2.1176472" vertical-offset="5817" max-vertical-offset="6765">
+              <folding>
+                <element signature="e#6#202#0" expanded="true" />
+                <marker date="1421760843311" expanded="true" signature="1326:1357" placeholder="SELECT MAX(`..." />
+                <marker date="1421760843311" expanded="true" signature="2494:2528" placeholder="Select `id`,..." />
+                <marker date="1421760843311" expanded="true" signature="2842:2882" placeholder="Select `id`,..." />
+                <marker date="1421760843311" expanded="true" signature="3244:3280" placeholder="Select `id`,..." />
+                <marker date="1421760843311" expanded="true" signature="9988:10097" placeholder="INSERT INTO ..." />
+                <marker date="1421760843311" expanded="true" signature="11111:11154" placeholder="INSERT INTO ..." />
+                <marker date="1421760843311" expanded="true" signature="13056:13084" placeholder="INSERT INTO ..." />
+                <marker date="1421760843311" expanded="true" signature="13056:13117" placeholder="INSERT INTO ..." />
+                <marker date="1421760843311" expanded="true" signature="13166:13226" placeholder="INSERT INTO ..." />
+                <marker date="1421760843311" expanded="true" signature="13380:13403" placeholder="INSERT INTO ..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -50,7 +110,7 @@
       <file leaf-file-name="_alert_popups.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1337" column="33" selection-start="140223" selection-end="140236" vertical-scroll-proportion="0.0" vertical-offset="19691" max-vertical-offset="20355">
+            <state line="1337" column="33" selection-start="140223" selection-end="140236" vertical-scroll-proportion="-2.1176472" vertical-offset="19947" max-vertical-offset="20355">
               <folding />
             </state>
           </provider>
@@ -59,8 +119,37 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="24" selection-start="25294" selection-end="25294" vertical-scroll-proportion="0.0" vertical-offset="947" max-vertical-offset="74490">
+            <state line="2109" column="17" selection-start="79081" selection-end="79081" vertical-scroll-proportion="0.0" vertical-offset="31423" max-vertical-offset="74505">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="indexSuccess.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="13" selection-start="2004" selection-end="2004" vertical-scroll-proportion="-4.875" vertical-offset="558" max-vertical-offset="3285">
+              <folding>
+                <element signature="n#style#0;n#form#0;n#div#2;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <marker date="1421762891783" expanded="true" signature="764:1040" placeholder="..." />
+                <marker date="1421762891783" expanded="true" signature="950:1040" placeholder="..." />
+                <marker date="1421762891783" expanded="true" signature="991:1040" placeholder="..." />
+                <marker date="1421762891783" expanded="true" signature="1173:1481" placeholder="..." />
+                <marker date="1421762891783" expanded="true" signature="1391:1481" placeholder="..." />
+                <marker date="1421762891783" expanded="true" signature="1432:1481" placeholder="..." />
+                <marker date="1421762891783" expanded="true" signature="1615:1892" placeholder="..." />
+                <marker date="1421762891783" expanded="true" signature="1802:1892" placeholder="..." />
+                <marker date="1421762891783" expanded="true" signature="1843:1892" placeholder="..." />
+                <marker date="1421762891783" expanded="true" signature="2018:2275" placeholder="..." />
+                <marker date="1421762891783" expanded="true" signature="2185:2275" placeholder="..." />
+                <marker date="1421762891783" expanded="true" signature="2226:2275" placeholder="..." />
+                <marker date="1421762891783" expanded="true" signature="2404:2687" placeholder="..." />
+                <marker date="1421762891783" expanded="true" signature="2597:2687" placeholder="..." />
+                <marker date="1421762891783" expanded="true" signature="2638:2687" placeholder="..." />
+                <marker date="1421762891783" expanded="true" signature="2825:4144" placeholder="..." />
+                <marker date="1421762891783" expanded="true" signature="9954:11284" placeholder="..." />
+                <marker date="1421762891783" expanded="true" signature="11360:11733" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,6 +163,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.txt" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
@@ -106,7 +198,6 @@
         <option value="$PROJECT_DIR$/web/js/jquery.dataTables.js" />
         <option value="$PROJECT_DIR$/web/js/jqvmap/jquery.vmap.js" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_details_popup.php" />
-        <option value="$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/lib/model/doctrine/sfDoctrineGuardPlugin/sfGuardUser.class.php" />
         <option value="$PROJECT_DIR$/web/css/theme-orange.css" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php" />
@@ -115,18 +206,19 @@
         <option value="$PROJECT_DIR$/apps/frontend/modules/surveyManagement/templates/_form_field.php" />
         <option value="$PROJECT_DIR$/web/css/select2.css" />
         <option value="$PROJECT_DIR$/web/js/select2_old.js" />
-        <option value="$PROJECT_DIR$/web/js/my_survey_scripts.js" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/indexSuccess.php" />
         <option value="$PROJECT_DIR$/web/css/report_fix.css" />
         <option value="$PROJECT_DIR$/web/js/survey_management.js" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/web/js/send_email.js" />
-        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/config/view.yml" />
-        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php" />
         <option value="$PROJECT_DIR$/web/js/jqvmap/maps/jquery.vmap.usa.js" />
-        <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php" />
+        <option value="$PROJECT_DIR$/web/css/style.css" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" />
+        <option value="$PROJECT_DIR$/web/js/my_survey_scripts.js" />
         <option value="$PROJECT_DIR$/web/js/dashboard_scripts.js" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_or_print.php" />
       </list>
@@ -283,42 +375,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="highcharts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -570,6 +626,62 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="dataload" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dataload" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="actions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="dashboard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -737,6 +849,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -776,6 +889,16 @@
           <url>file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php</url>
           <line>437</line>
           <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php</url>
+          <line>315</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php</url>
+          <line>85</line>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/web/js/jqvmap/maps/jquery.vmap.usa.js</url>
@@ -884,7 +1007,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/web/js/dashboard_scripts.js</url>
-          <line>1366</line>
+          <line>1372</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -894,29 +1017,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/web/js/dashboard_scripts.js</url>
-          <line>867</line>
+          <line>873</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/web/js/dashboard_scripts.js</url>
-          <line>1222</line>
+          <line>1228</line>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="53" />
+      <option name="time" value="55" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/model/doctrine/sfDoctrineGuardPlugin/sfGuardUserTable.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="45" selection-start="958" selection-end="976" vertical-scroll-proportion="0.40214476" vertical-offset="360" max-vertical-offset="1590" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/model/doctrine/sfDoctrineGuardPlugin/sfGuardUserGroupTable.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="410" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/model/doctrine/sfDoctrineGuardPlugin/sfGuardUser.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="3" selection-start="661" selection-end="661" vertical-scroll-proportion="0.33937824" vertical-offset="274" max-vertical-offset="720" />
@@ -940,11 +1053,6 @@
     <entry file="file://$PROJECT_DIR$/lib/model/doctrine/base/BaseLtSurvey.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="46" column="43" selection-start="1942" selection-end="1954" vertical-scroll-proportion="0.0" vertical-offset="498" max-vertical-offset="4230" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_details_popup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="45" selection-start="355" selection-end="380" vertical-scroll-proportion="0.0" vertical-offset="739" max-vertical-offset="1125" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/lib/helper/tcpdfHelper.php">
@@ -1034,11 +1142,6 @@
         <state line="4" column="28" selection-start="270" selection-end="270" vertical-scroll-proportion="0.13574661" vertical-offset="0" max-vertical-offset="442" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/indexSuccess.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="166" column="55" selection-start="13229" selection-end="13229" vertical-scroll-proportion="-8.125" vertical-offset="2295" max-vertical-offset="3255" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/css/report_fix.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="13" selection-start="407" selection-end="407" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1080" />
@@ -1047,11 +1150,6 @@
     <entry file="file://$PROJECT_DIR$/web/js/survey_management.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="9" selection-start="390" selection-end="390" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1170" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/my_survey_scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="54" selection-start="894" selection-end="894" vertical-scroll-proportion="-7.6296296" vertical-offset="259" max-vertical-offset="8025" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/highcharts/us.js">
@@ -1126,11 +1224,6 @@
         <state line="128" column="73" selection-start="8388" selection-end="8418" vertical-scroll-proportion="0.0" vertical-offset="932" max-vertical-offset="9780" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="213" column="0" selection-start="13942" selection-end="13942" vertical-scroll-proportion="0.0" vertical-offset="2718" max-vertical-offset="3285" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/images/ajax-loader.gif">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1143,38 +1236,138 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="306" column="0" selection-start="15567" selection-end="15567" vertical-scroll-proportion="0.0" vertical-offset="4253" max-vertical-offset="17265">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1337" column="33" selection-start="140223" selection-end="140236" vertical-scroll-proportion="0.0" vertical-offset="19691" max-vertical-offset="20355">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="24" selection-start="25294" selection-end="25294" vertical-scroll-proportion="0.0" vertical-offset="947" max-vertical-offset="74490">
+        <state line="2109" column="17" selection-start="79081" selection-end="79081" vertical-scroll-proportion="0.0" vertical-offset="31423" max-vertical-offset="74505">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_or_print.php">
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="35" selection-start="337" selection-end="337" vertical-scroll-proportion="0.35511363" vertical-offset="25" max-vertical-offset="2340">
+        <state line="45" column="13" selection-start="2004" selection-end="2004" vertical-scroll-proportion="-4.875" vertical-offset="558" max-vertical-offset="3285">
+          <folding>
+            <element signature="n#style#0;n#form#0;n#div#2;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <marker date="1421762891783" expanded="true" signature="764:1040" placeholder="..." />
+            <marker date="1421762891783" expanded="true" signature="950:1040" placeholder="..." />
+            <marker date="1421762891783" expanded="true" signature="991:1040" placeholder="..." />
+            <marker date="1421762891783" expanded="true" signature="1173:1481" placeholder="..." />
+            <marker date="1421762891783" expanded="true" signature="1391:1481" placeholder="..." />
+            <marker date="1421762891783" expanded="true" signature="1432:1481" placeholder="..." />
+            <marker date="1421762891783" expanded="true" signature="1615:1892" placeholder="..." />
+            <marker date="1421762891783" expanded="true" signature="1802:1892" placeholder="..." />
+            <marker date="1421762891783" expanded="true" signature="1843:1892" placeholder="..." />
+            <marker date="1421762891783" expanded="true" signature="2018:2275" placeholder="..." />
+            <marker date="1421762891783" expanded="true" signature="2185:2275" placeholder="..." />
+            <marker date="1421762891783" expanded="true" signature="2226:2275" placeholder="..." />
+            <marker date="1421762891783" expanded="true" signature="2404:2687" placeholder="..." />
+            <marker date="1421762891783" expanded="true" signature="2597:2687" placeholder="..." />
+            <marker date="1421762891783" expanded="true" signature="2638:2687" placeholder="..." />
+            <marker date="1421762891783" expanded="true" signature="2825:4144" placeholder="..." />
+            <marker date="1421762891783" expanded="true" signature="9954:11284" placeholder="..." />
+            <marker date="1421762891783" expanded="true" signature="11360:11733" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="10" selection-start="4928" selection-end="4928" vertical-scroll-proportion="0.33238637" vertical-offset="1173" max-vertical-offset="17265">
+          <folding>
+            <marker date="1421764484603" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1421764484603" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1421764484603" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1421764484603" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1421764484603" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1421764484603" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1421764484603" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1421764484603" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1421764484603" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1421764484603" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1421764484603" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1421764484603" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1421764484603" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1421764484603" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/indexSuccess.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="19" selection-start="2269" selection-end="2269" vertical-scroll-proportion="-5.2083335" vertical-offset="550" max-vertical-offset="3255">
+          <folding>
+            <element signature="e#13214#13244#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/my_survey_scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="30" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8085">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/dashboard_scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1347" column="25" selection-start="60523" selection-end="60523" vertical-scroll-proportion="0.8618091" vertical-offset="19862" max-vertical-offset="26565">
+        <state line="14" column="39" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="26670">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="395" column="37" selection-start="15948" selection-end="15949" vertical-scroll-proportion="-2.1176472" vertical-offset="5817" max-vertical-offset="6765">
+          <folding>
+            <element signature="e#6#202#0" expanded="true" />
+            <marker date="1421760843311" expanded="true" signature="1326:1357" placeholder="SELECT MAX(`..." />
+            <marker date="1421760843311" expanded="true" signature="2494:2528" placeholder="Select `id`,..." />
+            <marker date="1421760843311" expanded="true" signature="2842:2882" placeholder="Select `id`,..." />
+            <marker date="1421760843311" expanded="true" signature="3244:3280" placeholder="Select `id`,..." />
+            <marker date="1421760843311" expanded="true" signature="9988:10097" placeholder="INSERT INTO ..." />
+            <marker date="1421760843311" expanded="true" signature="11111:11154" placeholder="INSERT INTO ..." />
+            <marker date="1421760843311" expanded="true" signature="13056:13084" placeholder="INSERT INTO ..." />
+            <marker date="1421760843311" expanded="true" signature="13056:13117" placeholder="INSERT INTO ..." />
+            <marker date="1421760843311" expanded="true" signature="13166:13226" placeholder="INSERT INTO ..." />
+            <marker date="1421760843311" expanded="true" signature="13380:13403" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1337" column="33" selection-start="140223" selection-end="140236" vertical-scroll-proportion="-2.1176472" vertical-offset="19947" max-vertical-offset="20355">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.5294118" vertical-offset="27" max-vertical-offset="1260">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_details_popup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="24" selection-start="1370" selection-end="1370" vertical-scroll-proportion="-2.0588236" vertical-offset="465" max-vertical-offset="1125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_or_print.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="108" column="23" selection-start="4491" selection-end="4682" vertical-scroll-proportion="0.5313531" vertical-offset="1459" max-vertical-offset="2400">
+          <folding>
+            <element signature="n#style#0;n#span#0;n#h3#1;n#!!top" expanded="true" />
+            <marker date="1421765906703" expanded="true" signature="4909:4922" placeholder="..." />
+            <marker date="1421765906703" expanded="true" signature="5161:5174" placeholder="..." />
+            <marker date="1421765906703" expanded="true" signature="5422:5435" placeholder="..." />
+            <marker date="1421765906703" expanded="true" signature="5663:5676" placeholder="..." />
+            <marker date="1421765906703" expanded="true" signature="5873:5886" placeholder="..." />
+            <marker date="1421765906703" expanded="true" signature="5940:6039" placeholder="..." />
+            <marker date="1421765906703" expanded="true" signature="6267:6292" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

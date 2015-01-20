@@ -103,6 +103,10 @@
                         $states = implode(", ", $states_array);
                     }
 
+                    /*if($region == "- - -" && $cities == "- - -" && $states == "- - -" && $countries == "- - -")
+                    {
+                        $geographic_area = "- - -";
+                    }*/
                     $geographic_area = $region . "; " . $cities . "; ". $states . "; " . $countries . ";";
                 }
                 echo $geographic_area;

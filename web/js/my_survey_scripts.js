@@ -12,6 +12,10 @@ $(document).ajaxStop(function() {
 
 $(document).ready(function() {
 
+    //hide last empty checkbox
+    var lastitem = $('.region .org-body form input')[12];
+    $(this).find(lastitem).css({"visibility": 'hidden'});
+
 
     var report_data_table = $("#report_surveys").dataTable({
         "sDom": '<"H"flr>t<"F"ip>',

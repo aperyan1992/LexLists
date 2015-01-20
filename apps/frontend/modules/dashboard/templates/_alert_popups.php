@@ -1335,6 +1335,14 @@
 
     </div>
 
+        <div class="state_line_NH" style="display: none;"></div>
+        <div class="state_line_MA" style="display: none;"></div>
+        <div class="state_line_RI" style="display: none;"></div>
+        <div class="state_line_CT" style="display: none;"></div>
+        <div class="state_line_NJ" style="display: none;"></div>
+        <div class="state_line_DE" style="display: none;"></div>
+        <div class="state_line_MD" style="display: none;"></div>
+
     <button class="region_selected" id="region_selected">Search</button>
     <button class="region_cancel" id="region_cancel">Cancel</button>
 </div>

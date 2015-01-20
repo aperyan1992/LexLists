@@ -8,7 +8,7 @@
 <?php foreach ($surveys as $survey) : ?>
     <table>
         <tr>
-            <th align="left">Award:!</th>
+            <th align="left">Award:</th>
             <td><?php echo (!is_null($survey->getSurveyName()) && $survey->getSurveyName() != "") ? $survey->getSurveyName() : "- - -"; ?></td>
         </tr>
         <tr>

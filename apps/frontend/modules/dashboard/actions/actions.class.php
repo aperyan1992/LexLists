@@ -1032,7 +1032,11 @@ class dashboardActions extends sfActions {
                         {
                             $region = "";
                         }
-                        $region .= "; ";
+                        else
+                        {
+                            $region .= "; ";
+                        }
+
                     }
 
                     // Get cities

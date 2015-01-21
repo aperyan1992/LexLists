@@ -20,10 +20,14 @@ class dashboardActions extends sfActions {
         $this->surveys_years = Doctrine_Core::getTable('LtSurvey')->getSurveysYears();
         $this->survey_year_checkboxes = "";
         foreach ((array) $this->surveys_years as $year) {
+            $allYears[]=$year;
+//            $this->survey_year_checkboxes .= '<input checkbox_type="year" type="checkbox" class="year_checkbox" col_num="1" value="' . $year . '" id="' . $year . '" /><span>' . $year . '</span><br />';
+        }
+        rsort($allYears);//sorting Z-A
+
+        foreach($allYears as $year){
             $this->survey_year_checkboxes .= '<input checkbox_type="year" type="checkbox" class="year_checkbox" col_num="1" value="' . $year . '" id="' . $year . '" /><span>' . $year . '</span><br />';
         }
-
-
 
         // Get survey organizations
         $this->survey_organizations = Doctrine_Core::getTable('LtSurvey')->getSurveyOrganizations();
@@ -66,7 +70,10 @@ class dashboardActions extends sfActions {
             $allPractice_area_name[]=$practice_area_name;
             //$this->survey_practice_areas_checkboxes .= '<input checkbox_type="practice_area" type="checkbox" class="practice_area_checkbox" col_num="5" value="' . $practice_area_name . '" id="' . $practice_area_name . '" /><span>' . $practice_area_name . '</span><br />';
         }
+       // var_dump($allPractice_area_name);die;
+        $allPractice_area_name = array_unique($allPractice_area_name);
         sort($allPractice_area_name);
+
         foreach($allPractice_area_name as $practice_area_names){
             $this->survey_practice_areas_checkboxes .= '<input checkbox_type="practice_area" type="checkbox" class="practice_area_checkbox" col_num="5" value="' . $practice_area_names . '" id="' . $practice_area_names . '" /><span>' . $practice_area_names . '</span><br />';
 
@@ -448,25 +455,27 @@ class dashboardActions extends sfActions {
                     }
 
                     $geographic_area = "- - -";
-                    if($survey->getRegion() || $survey->getLtSurveyCity()->getFirst() || $survey->getLtSurveyState()->getFirst() || $survey->getLtSurveyCountry()->getFirst()) {
+                    if($survey->getRegion()->getName() || $survey->getLtSurveyCity()->getFirst() || $survey->getLtSurveyState()->getFirst() || $survey->getLtSurveyCountry()->getFirst()) {
                         // Get region
-                        $region = "- - -";
+                        $region = "";
                         if($survey->getRegion()) {
                             $region = $survey->getRegion()->getName();
+                            $region .= "; ";
                         }
 
                         // Get cities
-                        $cities = "- - -";
+                        $cities = "";
                         if ($survey->getLtSurveyCity()->getFirst()) {
                             $cities_array = array();
                             foreach ($survey->getLtSurveyCity() as $city) {
                                 $cities_array[] = $city->getCity()->getName();
                             }
                             $cities = implode(", ", $cities_array);
+                            $cities .= "; ";
                         }
 
                         // Get countries
-                        $countries = "- - -";
+                        $countries = "";
                         if($survey->getLtSurveyCountry()->getFirst()) {
                         }
                             $countries_array = array();
@@ -474,18 +483,21 @@ class dashboardActions extends sfActions {
                                 $countries_array[] = $country->getCountry()->getName();
                             }
                             $countries = implode(", ", $countries_array);
+                            $countries .= "; ";
 
                         // Get states
-                        $states = "- - -";
+                        $states = "";
                         if($survey->getLtSurveyState()->getFirst()) {
                             $states_array = array();
                             foreach ($survey->getLtSurveyState() as $state) {
                                 $states_array[] = $state->getState()->getName();
                             }
                             $states = implode(", ", $states_array);
+                            $states .= "; ";
                         }
 
-                        $geographic_area = $region . "; " . $cities . "; ". $states . "; " . $countries . ";";
+                        $geographic_area = $region . " " . $cities . " ". $states . " " . $countries . "";
+                        $geographic_area = rtrim($geographic_area, "; ");
                     }
 
                     if(!is_null($survey->getSurveyDescription()) && $survey->getSurveyDescription() != ""){
@@ -738,44 +750,49 @@ class dashboardActions extends sfActions {
                     }
 
                     $geographic_area = "- - -";
-                    if($survey->getRegion() || $survey->getLtSurveyCity()->getFirst() || $survey->getLtSurveyState()->getFirst() || $survey->getLtSurveyCountry()->getFirst()) {
+                    if($survey->getRegion()->getName() || $survey->getLtSurveyCity()->getFirst() || $survey->getLtSurveyState()->getFirst() || $survey->getLtSurveyCountry()->getFirst()) {
                         // Get region
-                        $region = "- - -";
+                        $region = "";
                         if($survey->getRegion()) {
                             $region = $survey->getRegion()->getName();
+                            $region .= "; ";
                         }
 
                         // Get cities
-                        $cities = "- - -";
+                        $cities = "";
                         if ($survey->getLtSurveyCity()->getFirst()) {
                             $cities_array = array();
                             foreach ($survey->getLtSurveyCity() as $city) {
                                 $cities_array[] = $city->getCity()->getName();
                             }
                             $cities = implode(", ", $cities_array);
+                            $cities .= "; ";
                         }
 
                         // Get countries
-                        $countries = "- - -";
+                        $countries = "";
                         if($survey->getLtSurveyCountry()->getFirst()) {
                             $countries_array = array();
                             foreach ($survey->getLtSurveyCountry() as $country) {
                                 $countries_array[] = $country->getCountry()->getName();
                             }
                             $countries = implode(", ", $countries_array);
+                            $countries .= "; ";
                         }
 
                         // Get states
-                        $states = "- - -";
+                        $states = "";
                         if($survey->getLtSurveyState()->getFirst()) {
                             $states_array = array();
                             foreach ($survey->getLtSurveyState() as $state) {
                                 $states_array[] = $state->getState()->getName();
                             }
                             $states = implode(", ", $states_array);
+                            $states .= "; ";
                         }
 
-                        $geographic_area = $region . "; " . $cities . "; ". $states . "; " . $countries . ";";
+                        $geographic_area = $region . " " . $cities . " ". $states . " " . $countries . "";
+                        $geographic_area = rtrim($geographic_area, "; ");
                     }
 
                     if(!is_null($survey->getSurveyDescription()) && $survey->getSurveyDescription() != ""){
@@ -1004,15 +1021,16 @@ class dashboardActions extends sfActions {
 
                 // Get geographic area
                 $geographic_area = "- - -";
-                if ($survey->getRegion() || $survey->getLtSurveyCity()->getFirst() || $survey->getLtSurveyState()->getFirst() || $survey->getLtSurveyCountry()->getFirst()) {
+                if ($survey->getRegion()->getName() || $survey->getLtSurveyCity()->getFirst() || $survey->getLtSurveyState()->getFirst() || $survey->getLtSurveyCountry()->getFirst()) {
                     // Get region
-                    $region = "- - -";
+                    $region = "";
                     if ($survey->getRegion()) {
                         $region = $survey->getRegion()->getName();
+                        $region .= "; ";
                     }
 
                     // Get cities
-                    $cities = "- - -";
+                    $cities = "";
                     if ($survey->getLtSurveyCity()->getFirst()) {
                         $cities_array = array();
                         foreach ($survey->getLtSurveyCity() as $city) {
@@ -1020,10 +1038,11 @@ class dashboardActions extends sfActions {
                         }
 
                         $cities = implode(", ", $cities_array);
+                        $cities .= "; ";
                     }
 
                     // Get countries
-                    $countries = "- - -";
+                    $countries = "";
                     if ($survey->getLtSurveyCountry()->getFirst()) {
                         $countries_array = array();
                         foreach ($survey->getLtSurveyCountry() as $country) {
@@ -1031,10 +1050,11 @@ class dashboardActions extends sfActions {
                         }
 
                         $countries = implode(", ", $countries_array);
+                        $countries .= "; ";
                     }
 
                     // Get states
-                    $states = "- - -";
+                    $states = "";
                     if ($survey->getLtSurveyState()->getFirst()) {
                         $states_array = array();
                         foreach ($survey->getLtSurveyState() as $state) {
@@ -1042,9 +1062,11 @@ class dashboardActions extends sfActions {
                         }
 
                         $states = implode(", ", $states_array);
+                        $states .= "; ";
                     }
 
-                    $geographic_area = $region . "; " . $cities . "; " . $states . "; " . $countries . ";";
+                    $geographic_area = $region . " " . $cities . " " . $states . " " . $countries . "";
+                    $geographic_area = rtrim($geographic_area, "; ");
                 }
 
                 // Get description
@@ -1076,17 +1098,39 @@ class dashboardActions extends sfActions {
                     if($survey->getContact()->getFirstName())
                     {
                         $surFirstname = $survey->getContact()->getFirstName();
+
                     }
                     else{
                         $surFirstname = '';
 
                     }
-                    $contact_person = trim($surLastname .
-                             $surFirstname .
-                            " (" .
-                            $survey->getContact()->getEmailAddress() .
-                            ") " .
+
+                    $s_email = $survey->getContact()->getEmailAddress();
+
+                    if(isset($s_email) && $s_email !== '')
+                    {
+                        $survey_email = " (". $s_email .") ";
+                    }
+                    else
+                    {
+                        $survey_email = '';
+                    }
+
+                    if($surLastname == '' && $surFirstname == '' && $survey_email == '' && $phone_number == '')
+                    {
+                        $contact_person = "- - -";
+                    }
+                    else
+                    {
+                        $contact_person = trim($surLastname .
+                            $surFirstname .
+                            /*"" .*/
+                            /*$survey->getContact()->getEmailAddress() .*/
+                            $survey_email.
+                            /* "" .*/
                             trim($phone_number, "ﾠ"), "ﾠ");
+                    }
+
 
                 }
 

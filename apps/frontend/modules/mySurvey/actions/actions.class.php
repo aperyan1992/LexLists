@@ -20,18 +20,27 @@ class mySurveyActions extends sfActions {
         $this->surveys_years = Doctrine_Core::getTable('LtSurvey')->getSurveysYears();
         $this->survey_year_checkboxes = "";
         foreach ((array) $this->surveys_years as $year) {
+            $allYears[]=$year;
+            //$this->survey_year_checkboxes .= '<input checkbox_type="year" type="checkbox" class="year_checkbox" col_num="1" value="' . $year . '" id="' . $year . '" /><span>' . $year . '</span><br />';
+        }
+        rsort($allYears);//sorting Z-A
+
+        foreach($allYears as $year){
             $this->survey_year_checkboxes .= '<input checkbox_type="year" type="checkbox" class="year_checkbox" col_num="1" value="' . $year . '" id="' . $year . '" /><span>' . $year . '</span><br />';
         }
-
         // Get survey organizations
         $this->survey_organizations = Doctrine_Core::getTable('LtSurvey')->getSurveyOrganizations();
         $this->survey_organization_checkboxes = "";
         foreach ($this->survey_organizations as $organization) {
             $organization_name = $organization->getOrganization()->getName();
+            $allOrganizations[]=$organization_name;
+//            $this->survey_organizations_checkboxes .= '<input checkbox_type="organization" type="checkbox" class="organization_checkbox" col_num="2" value="' . $organization_name . '" id="' . $organization_name . '" /><span>' . $organization_name . '</span><br />';
+        }
+        sort($allOrganizations);//sorting A-Z
 
+        foreach($allOrganizations as $organization_name){
             $this->survey_organizations_checkboxes .= '<input checkbox_type="organization" type="checkbox" class="organization_checkbox" col_num="2" value="' . $organization_name . '" id="' . $organization_name . '" /><span>' . $organization_name . '</span><br />';
         }
-
         // Get survey candidate types
         $this->survey_candidate_types = Doctrine_Core::getTable('LtSurvey')->getSurveysCandidateTypes();
         $this->survey_candidate_types_checkboxes = "";
@@ -49,10 +58,15 @@ class mySurveyActions extends sfActions {
         $this->survey_practice_areas_checkboxes = "";
         foreach ($this->survey_practice_areas as $practice_area) {
             $practice_area_name = $practice_area->getShortCode();
+            $allPractice_area_name[]=$practice_area_name;
+//            $this->survey_practice_areas_checkboxes .= '<input checkbox_type="practice_area" type="checkbox" class="practice_area_checkbox" col_num="5" value="' . $practice_area_name . '" id="' . $practice_area_name . '" /><span>' . $practice_area_name . '</span><br />';
+        }
+        $allPractice_area_name = array_unique($allPractice_area_name);
+        sort($allPractice_area_name);
 
+        foreach($allPractice_area_name as $practice_area_name){
             $this->survey_practice_areas_checkboxes .= '<input checkbox_type="practice_area" type="checkbox" class="practice_area_checkbox" col_num="5" value="' . $practice_area_name . '" id="' . $practice_area_name . '" /><span>' . $practice_area_name . '</span><br />';
         }
-
         // Get survey regions
         $this->survey_regions = Doctrine_Core::getTable('LtSurvey')->getSurveyRegions();
         $this->survey_regions_checkboxes = "";
@@ -482,15 +496,16 @@ class mySurveyActions extends sfActions {
 
                     // Get geographic area
                     $geographic_area = "- - -";
-                    if ($survey->getSurvey()->getRegion() || $survey->getSurvey()->getLtSurveyCity()->getFirst() || $survey->getSurvey()->getLtSurveyState()->getFirst() || $survey->getSurvey()->getLtSurveyCountry()->getFirst()) {
+                    if ($survey->getSurvey()->getRegion()->getName() || $survey->getSurvey()->getLtSurveyCity()->getFirst() || $survey->getSurvey()->getLtSurveyState()->getFirst() || $survey->getSurvey()->getLtSurveyCountry()->getFirst()) {
                         // Get region
-                        $region = "- - -";
+                        $region = "";
                         if ($survey->getSurvey()->getRegion()) {
                             $region = $survey->getSurvey()->getRegion()->getName();
+                            $region .= "; ";
                         }
 
                         // Get cities
-                        $cities = "- - -";
+                        $cities = "";
                         if ($survey->getSurvey()->getLtSurveyCity()->getFirst()) {
                             $cities_array = array();
                             foreach ($survey->getSurvey()->getLtSurveyCity() as $city) {
@@ -498,10 +513,11 @@ class mySurveyActions extends sfActions {
                             }
 
                             $cities = implode(", ", $cities_array);
+                            $cities .= "; ";
                         }
 
                         // Get countries
-                        $countries = "- - -";
+                        $countries = "";
                         if ($survey->getSurvey()->getLtSurveyCountry()->getFirst()) {
                             $countries_array = array();
                             foreach ($survey->getSurvey()->getLtSurveyCountry() as $country) {
@@ -509,10 +525,11 @@ class mySurveyActions extends sfActions {
                             }
 
                             $countries = implode(", ", $countries_array);
+                            $countries .= "; ";
                         }
 
                         // Get states
-                        $states = "- - -";
+                        $states = "";
                         if ($survey->getSurvey()->getLtSurveyState()->getFirst()) {
                             $states_array = array();
                             foreach ($survey->getSurvey()->getLtSurveyState() as $state) {
@@ -520,9 +537,11 @@ class mySurveyActions extends sfActions {
                             }
 
                             $states = implode(", ", $states_array);
+                            $states .= "; ";
                         }
 
-                        $geographic_area = $region . "; " . $cities . "; " . $states . "; " . $countries . ";";
+                        $geographic_area = $region . " " . $cities . " " . $states . " " . $countries . "";
+                        $geographic_area = rtrim($geographic_area, "; ");
                     }
 
                     // Get description

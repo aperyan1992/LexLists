@@ -13,9 +13,12 @@ $(document).ajaxStop(function() {
 $(document).ready(function() {
 
     //hide last empty checkbox
-    var lastitem = $('.region .org-body form input')[12];
-    $(this).find(lastitem).css({"visibility": 'hidden'});
-
+    $('.region .org-body form input').each(function(){
+        if(!$(this).attr('value'))
+        {
+            $(this).hide();
+        }
+    });
 
     var report_data_table = $("#report_surveys").dataTable({
         "sDom": '<"H"flr>t<"F"ip>',

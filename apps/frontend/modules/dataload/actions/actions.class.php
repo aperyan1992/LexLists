@@ -105,7 +105,7 @@ class dataloadActions extends sfActions
                     {
 
                         $fianlresult[$key]['survey_name'] = $data[2];
-                        $contact['name'] = $data[2];
+                        $contact['name'] = $data[15];
                     }
                     else{
                         $fianlresult[$key]['survey_name'] = null;

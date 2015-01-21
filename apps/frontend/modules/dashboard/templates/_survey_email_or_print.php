@@ -63,15 +63,17 @@
             <td>
                 <?php
                 $geographic_area = "- - -";
-                if($survey->getRegion() || $survey->getLtSurveyCity()->getFirst() || $survey->getLtSurveyState()->getFirst() || $survey->getLtSurveyCountry()->getFirst()) {
+                if($survey->getRegion()->getName() || $survey->getLtSurveyCity()->getFirst() || $survey->getLtSurveyState()->getFirst() || $survey->getLtSurveyCountry()->getFirst()) {
                     // Get region
-                    $region = "- - -";
+                    $region = "";
                     if($survey->getRegion()) {
                         $region = $survey->getRegion()->getName();
+                        $region .= "; ";
+
                     }
 
                     // Get cities
-                    $cities = "- - -";
+                    $cities = "";
                     if ($survey->getLtSurveyCity()->getFirst()) {
                         $cities_array = array();
                         foreach ($survey->getLtSurveyCity() as $city) {
@@ -79,10 +81,12 @@
                         }
 
                         $cities = implode(", ", $cities_array);
+                        $cities .= "; ";
+
                     }
 
                     // Get countries
-                    $countries = "- - -";
+                    $countries = "";
                     if($survey->getLtSurveyCountry()->getFirst()) {
                         $countries_array = array();
                         foreach ($survey->getLtSurveyCountry() as $country) {
@@ -90,10 +94,12 @@
                         }
 
                         $countries = implode(", ", $countries_array);
+                        $countries .= "; ";
+
                     }
 
                     // Get states
-                    $states = "- - -";
+                    $states = "";
                     if($survey->getLtSurveyState()->getFirst()) {
                         $states_array = array();
                         foreach ($survey->getLtSurveyState() as $state) {
@@ -101,13 +107,11 @@
                         }
 
                         $states = implode(", ", $states_array);
-                    }
+                        $states .= "; ";
 
-                    /*if($region == "- - -" && $cities == "- - -" && $states == "- - -" && $countries == "- - -")
-                    {
-                        $geographic_area = "- - -";
-                    }*/
-                    $geographic_area = $region . "; " . $cities . "; ". $states . "; " . $countries . ";";
+                    }
+                    $geographic_area = $region . " " . $cities . " ". $states . " " . $countries . "";
+                    $geographic_area = rtrim($geographic_area, "; ");
                 }
                 echo $geographic_area;
                 ?>

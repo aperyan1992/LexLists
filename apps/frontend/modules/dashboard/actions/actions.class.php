@@ -465,7 +465,9 @@ class dashboardActions extends sfActions {
 
                         // Get cities
                         $cities = "";
+
                         if ($survey->getLtSurveyCity()->getFirst()) {
+
                             $cities_array = array();
                             foreach ($survey->getLtSurveyCity() as $city) {
                                 $cities_array[] = $city->getCity()->getName();
@@ -1026,11 +1028,16 @@ class dashboardActions extends sfActions {
                     $region = "";
                     if ($survey->getRegion()) {
                         $region = $survey->getRegion()->getName();
+                        if($region == '')
+                        {
+                            $region = "";
+                        }
                         $region .= "; ";
                     }
 
                     // Get cities
                     $cities = "";
+
                     if ($survey->getLtSurveyCity()->getFirst()) {
                         $cities_array = array();
                         foreach ($survey->getLtSurveyCity() as $city) {

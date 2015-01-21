@@ -547,7 +547,7 @@ class mySurveyActions extends sfActions {
                             $states .= "; ";
                         }
 
-                        $geographic_area = $region . " " . $cities . " " . $states . " " . $countries . "";
+                        $geographic_area = $region . "" . $cities . "" . $states . "" . $countries . "";
                         $geographic_area = rtrim($geographic_area, "; ");
                     }
 

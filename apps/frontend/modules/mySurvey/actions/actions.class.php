@@ -501,7 +501,14 @@ class mySurveyActions extends sfActions {
                         $region = "";
                         if ($survey->getSurvey()->getRegion()) {
                             $region = $survey->getSurvey()->getRegion()->getName();
-                            $region .= "; ";
+                            if($region == '')
+                            {
+                                $region = "";
+                            }
+                            else
+                            {
+                                $region .= "; ";
+                            }
                         }
 
                         // Get cities

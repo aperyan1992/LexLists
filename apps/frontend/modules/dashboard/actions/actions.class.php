@@ -460,7 +460,14 @@ class dashboardActions extends sfActions {
                         $region = "";
                         if($survey->getRegion()) {
                             $region = $survey->getRegion()->getName();
-                            $region .= "; ";
+                            if($region == '')
+                            {
+                                $region = "";
+                            }
+                            else
+                            {
+                                $region .= "; ";
+                            }
                         }
 
                         // Get cities
@@ -757,7 +764,15 @@ class dashboardActions extends sfActions {
                         $region = "";
                         if($survey->getRegion()) {
                             $region = $survey->getRegion()->getName();
-                            $region .= "; ";
+                            if($region == '')
+                            {
+                                $region = "";
+                            }
+                            else
+                            {
+                                $region .= "; ";
+                            }
+
                         }
 
                         // Get cities

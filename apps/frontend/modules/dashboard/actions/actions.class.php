@@ -1028,7 +1028,7 @@ class dashboardActions extends sfActions {
                     $region = "";
                     if ($survey->getRegion()) {
                         $region = $survey->getRegion()->getName();
-                        if($region == '')
+                        if($region == ' ')
                         {
                             $region = "";
                         }

@@ -21,6 +21,14 @@
                 }
             });
 
+            $('.organization .org-body form input').each(function(){
+                if(!$(this).attr('value'))
+                {
+                    $(this).hide();
+                    $('.organization .org-body form').css({"margin-top":'-18px'});
+                }
+            });
+
 
             var region_name = [];
             var region_name_us = [];
@@ -82,6 +90,12 @@
                 $('.state_line_NJ').hide();
                 $('.state_line_DE').hide();
                 $('.state_line_MD').hide();
+                $('.state_line_DC').hide();
+                $('.state_line_DC_letters').hide();
+                $('.dc_transparent').hide();
+                $('.dc_blue').hide();
+                $('.dc_orange').hide();
+                $('.dc_hover').hide();
 
 
                 $('.dialog_for_map').dialog("option", "title", "LexLists: World Regions" );
@@ -837,6 +851,12 @@
                 $('.state_line_NJ').hide();
                 $('.state_line_DE').hide();
                 $('.state_line_MD').hide();
+                $('.state_line_DC').hide();
+                $('.state_line_DC_letters').hide();
+                $('.dc_transparent').hide();
+                $('.dc_blue').hide();
+                $('.dc_orange').hide();
+                $('.dc_hover').hide();
 
                 $('.dialog_for_map').dialog( "option", "title", "LexLists: US Regions" );
 
@@ -883,6 +903,10 @@
                 $('.state_line_NJ').show();
                 $('.state_line_DE').show();
                 $('.state_line_MD').show();
+                $('.state_line_DC').show();
+                $('.state_line_DC_letters').show();
+                $('.dc_blue').show();
+
 
                 $('.dialog_for_map').dialog( "option", "title", "LexLists: US States" );
 
@@ -909,7 +933,7 @@
                     $(this).css({'fill-opacity': '1'});
                 });
 
-                $('.highcharts-data-labels g:nth-child(20)').attr('transform', 'translate(718,70)');
+                $('.highcharts-data-labels g:nth-child(20)').attr('transform', 'translate(718,79)');
                 $('.highcharts-data-labels g:nth-child(20)').hover(function(){
                     $('.highcharts-name-new-hampshire').css({'fill-opacity': '0.7'});
                 },function(){
@@ -917,7 +941,7 @@
 
                 });
 
-                $('.highcharts-data-labels g:nth-child(3)').attr('transform', 'translate(718,94)');
+                $('.highcharts-data-labels g:nth-child(3)').attr('transform', 'translate(718,97)');
                 $('.highcharts-data-labels g:nth-child(3)').hover(function(){
                     $('.highcharts-name-massachusetts').css({'fill-opacity': '0.7'});
                 },function(){
@@ -965,13 +989,13 @@
 
                 });
 
+                $('.dc_blue, .state_line_DC_letters').hover(function(){
+                    $('.dc_hover').show();
 
-                /*$('.highcharts-data-labels g').each(function(){
-                    $('.highcharts-data-labels g').transform('translate','647,80').css({"visibility": 'hidden'});
-                });*/
+                },function(){
+                    $('.dc_hover').hide();
 
-
-                //('.highcharts-data-labels g').configure({transform:'translate(700,80)'},true);
+                });
 
                 if(!openedmap)
                 {
@@ -982,6 +1006,43 @@
                     $('.state_line_NJ').show();
                     $('.state_line_DE').show();
                     $('.state_line_MD').show();
+                    $('.state_line_DC').show();
+                    $('.state_line_DC_letters').show();
+                    $('.dc_blue').show();
+
+                    $('.dc_blue, .dc_hover, .state_line_DC_letters, .dc_transparent').click(function(){
+
+                        var x = $('.highcharts-name-district-of').attr('class').substring(17).split(" ")[0];
+                        if(sel[x]==true)
+                        {
+
+                            $('.dc_orange').hide();
+                            $('.dc_transparent').hide();
+                            sel[x] = false;
+                            $('.highcharts-name-district-of').css({"fill": "#57A0C1"});
+                            for(var i=0; i<search_states.length; i++)
+                            {
+                                state_idx = $.inArray($('.highcharts-name-delaware').attr('class').substring(17).split(" ")[0], search_states[i]);
+                                if(state_idx !== -1)
+                                {
+                                    state_idx = search_states[i].indexOf($('.highcharts-name-district-of').attr('class').substring(17).split(" ")[0]);
+                                    search_states[i].splice(state_idx, 1);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            $('.dc_hover').hide();
+                            $('.dc_orange').show();
+                            $('.dc_transparent').show();
+                            sel[x] = true;
+                            $('.highcharts-name-district-of').css({"fill": "#ffa767"});
+                            search_states.push($('.highcharts-name-district-of').attr('class').substring(17).split(" "));
+                            //console.log(search_states);
+
+                        }
+                        openedmap = true;
+                    });
 
                     $('.highcharts-data-labels g:nth-child(7) text tspan:last-child').click(function(){
 

@@ -134,17 +134,17 @@ class dashboardActions extends sfActions {
                     $year = (!is_null($survey->getYear()) && $survey->getYear() != "" && $survey->getYear() != 0) ? $survey-> getYear() : "- - -";
 
                     // Set organization
-                    $organization = (!is_null($survey->getOrganizationId()) && $survey->getOrganizationId() != "") ? $this->CheckStringLength($survey->getOrganization()->getName()) : "- - -";
+                    $organization = (!is_null($survey->getOrganizationId()) && $survey->getOrganizationId() != "") ? $this->CheckStringLength($survey->getOrganization()->getName(), 50) : "- - -";
 
                     // Set survey name
                     //$survey_name = (!is_null($survey->getSurveyName()) && $survey->getSurveyName() != "") ? $this->CheckStringLength($survey->getSurveyName()) : "- - -";
-                    $survey_name = (!is_null($survey->getSurveyName()) && $survey->getSurveyName() != "") ? $this->CheckStringLength($survey->getSurveyName()) : "- - -";
+                    $survey_name = (!is_null($survey->getSurveyName()) && $survey->getSurveyName() != "") ? $this->CheckStringLength($survey->getSurveyName(), 50) : "- - -";
 
                     // Set survey name link
-                    $survey_name_link = "<a href='#' class='custom_link details_link' s_id='" . $survey->getId() . "'>" . $this->CheckStringLength($survey_name) . "</a>";
+                    $survey_name_link = "<a href='#' class='custom_link details_link' s_id='" . $survey->getId() . "'>" . $this->CheckStringLength($survey_name, 50) . "</a>";
 
                     // Set candidate type
-                    $candidate_type = (!is_null($survey->getCandidateType()) && $survey->getCandidateType() != "" && $survey->getCandidateType() != "0") ? $this->CheckStringLength(LtSurvey::$candidate_types_array[$survey->getCandidateType()]) : "- - -";
+                    $candidate_type = (!is_null($survey->getCandidateType()) && $survey->getCandidateType() != "" && $survey->getCandidateType() != "0") ? $this->CheckStringLength(LtSurvey::$candidate_types_array[$survey->getCandidateType()], 50) : "- - -";
 
                     // Set practice area
                     $practice_areas = "- - -";
@@ -154,7 +154,7 @@ class dashboardActions extends sfActions {
                             $practice_area_array[] = $practice_area->getPracticeArea()->getShortCode();
                         }
 
-                        $practice_areas = $this->CheckStringLength(implode(", ", $practice_area_array));
+                        $practice_areas = $this->CheckStringLength(implode(", ", $practice_area_array), 50);
                     }
 
                     // Set special criteria
@@ -165,11 +165,11 @@ class dashboardActions extends sfActions {
                             $special_criteria_array[] = $special_criteria->getSpecialCriteria()->getName();
                         }
 
-                        $special_criterias = $this->CheckStringLength(implode(", ", $special_criteria_array));
+                        $special_criterias = $this->CheckStringLength(implode(", ", $special_criteria_array), 50);
                     }
 
                     // Set region
-                    $region = (!is_null($survey->getSurveyRegionId()) && $survey->getSurveyRegionId() != "") ? $this->CheckStringLength($survey->getRegion()->getName()) : "- - -";
+                    $region = (!is_null($survey->getSurveyRegionId()) && $survey->getSurveyRegionId() != "") ? $this->CheckStringLength($survey->getRegion()->getName(), 50) : "- - -";
 
                     // Set cities
                     $cities = "- - -";
@@ -179,7 +179,7 @@ class dashboardActions extends sfActions {
                             $cities_array[] = $city->getCity()->getName();
                         }
 
-                        $cities = $this->CheckStringLength(implode(", ", $cities_array));
+                        $cities = $this->CheckStringLength(implode(", ", $cities_array), 50);
                     }
                     
                     // Set states
@@ -190,7 +190,7 @@ class dashboardActions extends sfActions {
                             $states_array[] = $state->getState()->getName();
                         }
 
-                        $states = $this->CheckStringLength(implode(", ", $states_array));
+                        $states = $this->CheckStringLength(implode(", ", $states_array), 50);
                     }
                     
                     // Set countries
@@ -201,20 +201,20 @@ class dashboardActions extends sfActions {
                             $countries_array[] = $country->getCountry()->getName();
                         }
 
-                        $countries = $this->CheckStringLength(implode(", ", $countries_array));
+                        $countries = $this->CheckStringLength(implode(", ", $countries_array), 50);
                     }
                     
                     // Set submission deadline
-                    $submission_deadline = (!is_null($survey->getSubmissionDeadline()) && $survey->getSubmissionDeadline() != "") ? $this->CheckStringLength($survey->getSubmissionDeadline()) : "- - -";
+                    $submission_deadline = (!is_null($survey->getSubmissionDeadline()) && $survey->getSubmissionDeadline() != "") ? $this->CheckStringLength($survey->getSubmissionDeadline(), 50) : "- - -";
 
                     // Set eligibility
-                    $eligibility = (!is_null($survey->getEligibilityCriteria()) && $survey->getEligibilityCriteria() != "") ? $this->CheckStringLength($survey->getShortEligibilityCriteria()) : "- - -";
+                    $eligibility = (!is_null($survey->getEligibilityCriteria()) && $survey->getEligibilityCriteria() != "") ? $this->CheckStringLength($survey->getShortEligibilityCriteria(), 50) : "- - -";
                     
                     // Set description
-                    $description = (!is_null($survey->getSurveyDescription()) && $survey->getSurveyDescription() != "") ? $this->CheckStringLength($survey->getShortSurveyDescription()) : "- - -";
+                    $description = (!is_null($survey->getSurveyDescription()) && $survey->getSurveyDescription() != "") ? $this->CheckStringLength($survey->getShortSurveyDescription(), 50) : "- - -";
 
                     // Set methodology
-                    $methodology = (!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != "") ? $this->CheckStringLength($survey->getShortSelectionMethodology()) : "- - -";
+                    $methodology = (!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != "") ? $this->CheckStringLength($survey->getShortSelectionMethodology(), 50) : "- - -";
 
                     // Set email
                     $email_link = null;//"<a href='#' class='custom_link email_link' s_id='" . $survey->getId() . "'><span class='genericon genericon-mail'></span></a>";
@@ -257,15 +257,24 @@ class dashboardActions extends sfActions {
         $this->redirect404();
     }
 
-    protected function CheckStringLength($string)
+    protected function CheckStringLength($string, $length)
     {
-        if (strlen($string) > 50) {
+        if (strlen($string) > $length) {
 
-            // truncate string
-            $stringCut = substr($string, 0, 50);
+            $stringCut = substr($string, 0, $length);
 
-            // make sure it ends in a word so assassinate doesn't become ass...
             $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...';
+        }
+        return $string;
+    }
+
+    protected function CheckURLLength($string, $length)
+    {
+        if (strlen($string) > $length) {
+
+            $stringCut = substr($string, 0, $length);
+
+            $string = $stringCut.'...'."'".'</a>';
         }
         return $string;
     }
@@ -523,6 +532,7 @@ class dashboardActions extends sfActions {
 
                     if(!is_null($survey->getNomination()) && $survey->getNomination() != ""){
                         $survey_how_to_apply = $survey->getNominationWithLinks();
+                        //$this->CheckStringLength($survey_how_to_apply, 90);
                     }else{
                         $survey_how_to_apply = "- - -";
                     }
@@ -826,6 +836,7 @@ class dashboardActions extends sfActions {
 
                     if(!is_null($survey->getNomination()) && $survey->getNomination() != ""){
                         $survey_how_to_apply = $survey->getNominationWithLinks();
+                        //$this->CheckURLLength($survey_how_to_apply, 90);
                     }else{
                         $survey_how_to_apply = "- - -";
                     }
@@ -1103,6 +1114,9 @@ class dashboardActions extends sfActions {
 
                 // Get nomination
                 $nomination = (!is_null($survey->getNomination()) && $survey->getNomination() != "") ? $survey->getNominationWithLinks() : "- - -";
+                //$nomination = $this->CheckURLLength($nomination, 90);
+
+                // var_dump($nomination);die;
 
                 // Get frequency
                 $frequency = ($survey->getFrequency() != 0) ? LtSurvey::$frequency_types_array[$survey->getFrequency()] : "- - -";

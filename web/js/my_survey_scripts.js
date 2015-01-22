@@ -20,6 +20,14 @@ $(document).ready(function() {
         }
     });
 
+    $('.organization .org-body form input').each(function(){
+        if(!$(this).attr('value'))
+        {
+            $(this).hide();
+            $('.organization .org-body form').css({"margin-top":'-18px'});
+        }
+    });
+
     var report_data_table = $("#report_surveys").dataTable({
         "sDom": '<"H"flr>t<"F"ip>',
         "bDestroy":true,

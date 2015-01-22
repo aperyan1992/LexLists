@@ -18,17 +18,22 @@
     height: 1px;
     border-top: 1px solid black;
     position: absolute;
-    top: 123px;
+    top: 133px;
     right: 72px;
 }
 
 .state_line_MA {
-    width: 60px;
+    width: 54px;
     height: 1px;
     border-top: 1px solid black;
     position: absolute;
     top: 148px;
     right: 72px;
+    -webkit-transform: rotate(6deg);
+    -moz-transform: rotate(6deg);
+    -ms-transform: rotate(6deg);
+    -o-transform: rotate(6deg);
+    transform: rotate(6deg);
 }
 
 .state_line_RI {
@@ -99,6 +104,72 @@
     -ms-transform: rotate(17deg);
     -o-transform: rotate(17deg);
     transform: rotate(17deg);
+}
+
+.state_line_DC {
+    width: 111px;
+    height: 1px;
+    border-top: 1px solid black;
+    position: absolute;
+    top: 234px;
+    right: 68px;
+    -webkit-transform: rotate(23deg);
+    -moz-transform: rotate(23deg);
+    -ms-transform: rotate(23deg);
+    -o-transform: rotate(23deg);
+    transform: rotate(23deg);
+    z-index: 12;
+}
+
+.dc_transparent {
+    width: 20px;
+    height: 14px;
+    position: absolute;
+    top: 250px;
+    right: 48px;
+    z-index: 6;
+}
+
+.state_line_DC_letters {
+    width: 20px;
+    height: 14px;
+    position: absolute;
+    top: 250px;
+    right: 48px;
+    z-index: 5;
+}
+
+.dc_blue {
+    display: block;
+    position: absolute;
+    top: 206px;
+    right: 164px;
+    width: 20px;
+    height: 15px;
+    transform: rotate(-24deg);
+    z-index: 1;
+}
+
+.dc_orange {
+    display: block;
+    position: absolute;
+    top: 206px;
+    right: 164px;
+    width: 20px;
+    height: 15px;
+    transform: rotate(-24deg);
+    z-index: 2;
+}
+
+.dc_hover {
+    display: block;
+    position: absolute;
+    top: 206px;
+    right: 164px;
+    width: 20px;
+    height: 15px;
+    transform: rotate(-24deg);
+    z-index: 3;
 }
 
 #container {
@@ -3844,9 +3915,10 @@ table.dataTable td.datatable_td_align_center_checkboxes {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
 }
-.org-body{
+.org-body {
     width: 196px;
-    height: 90px;
+    min-height: 90px;
+    max-height: 180px;
     overflow-y: auto;
     /*
         border: 1px solid #666666;
@@ -3856,6 +3928,27 @@ table.dataTable td.datatable_td_align_center_checkboxes {
     font-size: 16px;
     color: #000;
 }
+
+.year .org-body {
+    height: 90px !important;
+}
+.org-body form {
+    margin-bottom: 0;
+}
+
+.special_criteria .org-body, .deadline .org-body {
+    width: 196px;
+    height: auto;
+    overflow-y: auto;
+   /*
+        border: 1px solid #666666;
+    */
+    padding: 10px;
+    font-family: Arial;
+    font-size: 16px;
+    color: #000;
+}
+
 .org-body input, .search-block input{
     /*margin-right: 10px;*/
     /*margin-bottom: 7px;*/

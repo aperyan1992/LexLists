@@ -1342,6 +1342,13 @@
         <div class="state_line_NJ" style="display: none;"></div>
         <div class="state_line_DE" style="display: none;"></div>
         <div class="state_line_MD" style="display: none;"></div>
+        <div class="state_line_DC" style="display: none;"></div>
+        <img src="../images/dc_transparent.png" class="dc_transparent" style="display: none;"/>
+        <img src="../images/imgo.jpeg" class="state_line_DC_letters" style="display: none;"/>
+        <img src="../images/dc_blue.png" class="dc_blue" style="display: none;"/>
+        <img src="../images/dc_orange.png" class="dc_orange" style="display: none;"/>
+        <img src="../images/dc_hover.png" class="dc_hover" style="display: none;"/>
+
 
     <button class="region_selected" id="region_selected">Search</button>
     <button class="region_cancel" id="region_cancel">Cancel</button>

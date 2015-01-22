@@ -39,9 +39,11 @@ class LtSurveyContactTable extends Doctrine_Table {
         $phone = "- - -";
         if ($survey_contact->getPhoneNumber() != '') {
           $phone = $survey_contact->getPhoneNumber();
+
         }
 
         $survey_contacts_array[$survey_contact->getId()] = $survey_contact->getLastName() . ", " . $survey_contact->getFirstName() . " (Email: " . $email_address . ", Phone: " . $phone . ")";
+          //var_dump($survey_contacts_array);die;
       }
     }
 

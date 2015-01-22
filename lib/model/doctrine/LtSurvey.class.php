@@ -106,8 +106,10 @@ class LtSurvey extends BaseLtSurvey {
                     if (strpos($match, "http") === FALSE && strpos($match, "https") === FALSE) {
                         $http_prefix = "http://";
                     }
+                    $match2 = $this->CheckStringLength($match,50);
 
-                    $nomination = str_replace($match, "<a href='" . $http_prefix . $match . "' class='custom_link' target='_blank'>" . $match . "</a>", $nomination);
+                    $nomination = str_replace($match, "<a href='" . $http_prefix . $match . "' class='custom_link' target='_blank'>" . $match2 . "</a>", $nomination);
+
                 }
             }
 
@@ -115,6 +117,16 @@ class LtSurvey extends BaseLtSurvey {
         }
 
         return $this->_get('nomination');
+    }
+
+    protected function CheckStringLength($string, $length)
+    {
+        if (strlen($string) > $length) {
+
+            $stringCut = substr($string, 0, $length);
+            $string = $stringCut.'...';
+        }
+        return $string;
     }
     
     /**

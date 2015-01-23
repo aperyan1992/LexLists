@@ -32,12 +32,9 @@ class dataloadActions extends sfActions
             $arrStates[$state['short_code']] =$state['id'];
         }
 
-        /*$all_cities = 'SELECT* FROM cities';
-        $cities_query = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($all_cities)->fetchAll();
-        foreach($cities_query as $city){
-            $arrCities[$city['name']] =$city['id'];
-        }*/
 
+
+//var_dump($arrCities[$city['name']]);die;
         $query = 'SELECT MAX(`id`) FROM `surveys`';
         $max_survey_id = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
         $max_survey_id = $max_survey_id[0];
@@ -60,6 +57,7 @@ class dataloadActions extends sfActions
                 }
 
                 unset($csvdata[0], $csvdata[1]);
+
                 foreach($csvdata as $key=>$data)
                 {
                    // var_dump($data);die;
@@ -295,6 +293,38 @@ class dataloadActions extends sfActions
                             }
                         }
                     }
+
+                    if(isset($data[7]))
+                    {
+                        if(!$update)
+                        {
+                            if(!empty($newcitiesarray[$data[7]]))
+                            {
+                                $fianlresult[$key]['city_id'] = $newcitiesarray[$data[7]];
+                            }
+                            else
+                            {
+                                $query = 'INSERT INTO `cities` (`name`) VALUES';
+
+
+                                $exist_cities = 'SELECT* FROM `cities` where name = "'.$data[7].'"';
+                                $cities = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($exist_cities)->fetchAll();
+                                if(empty($cities) || $cities == '')
+                                {
+                                    $query .= " ('".$data[7]."')";
+                                    $result = Doctrine_Manager::getInstance()->getCurrentConnection();
+                                    if($result->execute($query))
+                                    {
+                                        $lastid = $result->lastInsertId();
+                                        $fianlresult[$key]['city'] = $lastid;
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+
+
                     if($update)
                     {
                         $now = new DateTime();
@@ -322,13 +352,18 @@ class dataloadActions extends sfActions
                          }
                     }
                 }
+
                 if(!empty($fianlresult))
                 {
                     $now = new DateTime();
                     $i = $max_survey_id+1;
-                    $final_states_string = 'INSERT INTO `survey_states`(`survey_id`, `state_id`) VALUES (';
-                    //$final_cities_string = 'INSERT INTO `survey_cities`(`survey_id`, `city_id`) VALUES (';
-
+                    $final_states_string = 'INSERT INTO `survey_states` (`survey_id`, `state_id`) VALUES (';
+                    $final_cities_string = 'INSERT INTO `survey_cities` (`survey_id`, `city_id`) VALUES (';
+                    $all_cities = 'SELECT* FROM cities';
+                    $cities_query = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($all_cities)->fetchAll();
+                    foreach($cities_query as $city){
+                        $arrCities[$city['name']] =$city['id'];
+                    }
 
                     $arraykey = array_keys($fianlresult);
                     //var_dump($arraykey[0]);die;
@@ -354,20 +389,12 @@ class dataloadActions extends sfActions
                             $valuestate = true;
                         }
 
-                        //$cityquery = 'SELECT `id` FROM `cities` WHERE `name` = "'.$arrCities[$final['city']].'"';
-                       // $citiesqueryres = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($cityquery)->fetchAll();
-
                         //var_dump($final['city']);
-
-                       /* if($final['city']!='' && isset($arrCities[$final['city']]))
+                        if($final['city']!='' && isset($arrCities[$final['city']]))
                         {
-
-                            if(!$citiesqueryres)
-                            {
-                                $final_cities_string .= '"'. $i .'","'. $arrCities[$final['city']] .'"),(';
-                                $valuecity = true;
-                            }
-                        }*/
+                            $final_cities_string .= '"'. $i .'","'. $arrCities[$final['city']] .'"),(';
+                            $valuecity = true;
+                        }
                         $i++;
                         foreach($final as $key=>$value)
                         {
@@ -385,13 +412,10 @@ class dataloadActions extends sfActions
                         $finalquerystring.='),(';
 
                     }
-                   // var_dump($valuecity);
-//die;
+
                     $finalquerystring = rtrim($finalquerystring, ",(");
                     $final_states_string = rtrim($final_states_string, ",(");
-                   // $final_cities_string = rtrim($final_cities_string, ",(");
-                    //var_dump($final_states_string);die;
-
+                    $final_cities_string = rtrim($final_cities_string, ",(");
 
                     if(Doctrine_Manager::getInstance()->getCurrentConnection()->execute($finalquerystring))
                     {
@@ -400,11 +424,11 @@ class dataloadActions extends sfActions
                             Doctrine_Manager::getInstance()->getCurrentConnection()->execute($final_states_string);
 
                         }
-                       /* if(isset($valuecity))
+                        if(isset($valuecity))
                         {
                             Doctrine_Manager::getInstance()->getCurrentConnection()->execute($final_cities_string);
 
-                        }*/
+                        }
                         $this->result = '<h2> The CSV data has been successfully uploaded(updated).</h2>';
 
                     }

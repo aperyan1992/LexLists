@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ff16ca9-f95a-440f-a391-4abfd5c9a103" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/model/doctrine/LtSurveyContactTable.class.php" afterPath="$PROJECT_DIR$/lib/model/doctrine/LtSurveyContactTable.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/jquery.dataTables_themeroller.css" afterPath="$PROJECT_DIR$/web/css/jquery.dataTables_themeroller.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="lex.local.iws" />
@@ -37,10 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="actions.class.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="actions.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="186" column="44" selection-start="10798" selection-end="10798" vertical-scroll-proportion="0.516129" vertical-offset="2486" max-vertical-offset="18525">
+            <state line="196" column="41" selection-start="11263" selection-end="11263" vertical-scroll-proportion="-13.291667" vertical-offset="2621" max-vertical-offset="18525">
               <folding>
                 <marker date="1421928388027" expanded="false" signature="27124:27158" placeholder="..." />
                 <marker date="1421928388027" expanded="false" signature="27176:27206" placeholder="..." />
@@ -61,20 +59,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/style.css">
+      <file leaf-file-name="actions.class.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3243" column="19" selection-start="104013" selection-end="104013" vertical-scroll-proportion="-8.444445" vertical-offset="48417" max-vertical-offset="75900">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery.dataTables_themeroller.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/jquery.dataTables_themeroller.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="198" column="14" selection-start="3906" selection-end="3906" vertical-scroll-proportion="0.0" vertical-offset="2745" max-vertical-offset="3750">
-              <folding />
+            <state line="366" column="0" selection-start="14738" selection-end="14738" vertical-scroll-proportion="0.29715303" vertical-offset="5218" max-vertical-offset="7020">
+              <folding>
+                <marker date="1422026475495" expanded="true" signature="1103:1134" placeholder="SELECT MAX(`..." />
+                <marker date="1422026475495" expanded="true" signature="2272:2306" placeholder="Select `id`,..." />
+                <marker date="1422026475495" expanded="true" signature="2620:2660" placeholder="Select `id`,..." />
+                <marker date="1422026475495" expanded="true" signature="3022:3058" placeholder="Select `id`,..." />
+                <marker date="1422026475495" expanded="true" signature="9767:9876" placeholder="INSERT INTO ..." />
+                <marker date="1422026475495" expanded="true" signature="10890:10933" placeholder="INSERT INTO ..." />
+                <marker date="1422026475495" expanded="true" signature="11909:11945" placeholder="INSERT INTO ..." />
+                <marker date="1422026475495" expanded="true" signature="14242:14304" placeholder="INSERT INTO ..." />
+                <marker date="1422026475495" expanded="true" signature="14351:14412" placeholder="INSERT INTO ..." />
+                <marker date="1422026475495" expanded="true" signature="14888:14911" placeholder="INSERT INTO ..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -129,7 +129,6 @@
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_details_popup.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_or_print.php" />
-        <option value="$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/indexSuccess.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
@@ -143,6 +142,7 @@
         <option value="$PROJECT_DIR$/lib/model/doctrine/LtSurveyContactTable.class.php" />
         <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/web/css/jquery.dataTables_themeroller.css" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php" />
       </list>
     </option>
   </component>
@@ -443,6 +443,62 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="dataload" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dataload" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="actions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="dashboard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -620,13 +676,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php</url>
-          <line>315</line>
+          <line>345</line>
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php</url>
           <line>92</line>
           <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php</url>
+          <line>296</line>
+          <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/web/js/jqvmap/maps/jquery.vmap.usa.js</url>
@@ -754,7 +815,7 @@
           <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="56" />
+      <option name="time" value="57" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -873,15 +934,6 @@
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/sfGuardUser/templates/_form_field.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="53" selection-start="914" selection-end="914" vertical-scroll-proportion="0.35511363" vertical-offset="100" max-vertical-offset="795" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="60" selection-start="4676" selection-end="4678" vertical-scroll-proportion="2.0833333" vertical-offset="1065" max-vertical-offset="6765">
-          <folding>
-            <element signature="e#6#202#0" expanded="false" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php">
@@ -1062,7 +1114,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="186" column="44" selection-start="10798" selection-end="10798" vertical-scroll-proportion="0.516129" vertical-offset="2486" max-vertical-offset="18525">
+        <state line="196" column="41" selection-start="11263" selection-end="11263" vertical-scroll-proportion="-13.291667" vertical-offset="2621" max-vertical-offset="18525">
           <folding>
             <marker date="1421928388027" expanded="false" signature="27124:27158" placeholder="..." />
             <marker date="1421928388027" expanded="false" signature="27176:27206" placeholder="..." />
@@ -1078,6 +1130,24 @@
             <marker date="1421928388027" expanded="false" signature="46021:46056" placeholder="..." />
             <marker date="1421928388027" expanded="false" signature="46124:46141" placeholder="..." />
             <marker date="1421928388027" expanded="true" signature="46142:46343" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dataload/actions/actions.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="366" column="0" selection-start="14738" selection-end="14738" vertical-scroll-proportion="0.29715303" vertical-offset="5218" max-vertical-offset="7020">
+          <folding>
+            <marker date="1422026475495" expanded="true" signature="1103:1134" placeholder="SELECT MAX(`..." />
+            <marker date="1422026475495" expanded="true" signature="2272:2306" placeholder="Select `id`,..." />
+            <marker date="1422026475495" expanded="true" signature="2620:2660" placeholder="Select `id`,..." />
+            <marker date="1422026475495" expanded="true" signature="3022:3058" placeholder="Select `id`,..." />
+            <marker date="1422026475495" expanded="true" signature="9767:9876" placeholder="INSERT INTO ..." />
+            <marker date="1422026475495" expanded="true" signature="10890:10933" placeholder="INSERT INTO ..." />
+            <marker date="1422026475495" expanded="true" signature="11909:11945" placeholder="INSERT INTO ..." />
+            <marker date="1422026475495" expanded="true" signature="14242:14304" placeholder="INSERT INTO ..." />
+            <marker date="1422026475495" expanded="true" signature="14351:14412" placeholder="INSERT INTO ..." />
+            <marker date="1422026475495" expanded="true" signature="14888:14911" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>

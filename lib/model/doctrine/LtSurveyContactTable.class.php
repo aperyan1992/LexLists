@@ -21,34 +21,59 @@ class LtSurveyContactTable extends Doctrine_Table {
    * 
    * @return array
    */
-  public function getSurveyContacts() {
-    $q = $this->createQuery('u');
-    
-    $result = $q->orderBy('u.first_name');
+    public function getSurveyContacts() {
+        $q = $this->createQuery('u');
 
-    $survey_contacts = $result->execute();
+        $result = $q->orderBy('u.first_name');
 
-    $survey_contacts_array = array();
-    if ($survey_contacts->getFirst()) {
-      foreach ($survey_contacts as $survey_contact) {
-        $email_address = "- - -";
-        if ($survey_contact->getEmailAddress() != '') {
-          $email_address = $survey_contact->getEmailAddress();
+        $survey_contacts = $result->execute();
+
+        $survey_contacts_array = array();
+        if ($survey_contacts->getFirst()) {
+            foreach ($survey_contacts as $survey_contact) {
+                $email_address = "";
+                if ($survey_contact->getEmailAddress() != '') {
+                    $email_address = " (Email: ";
+                    $email_address .= $survey_contact->getEmailAddress();
+                }
+
+                $phone = "";
+                if ($survey_contact->getPhoneNumber() != '') {
+                    if($email_address == "")
+                    {
+                        $phone =  "(Phone: " ;
+                    }
+                    else{
+                        $phone =  ", Phone: " ;
+                    }
+
+                    $phone .= $survey_contact->getPhoneNumber();
+                }
+
+                $scope = "";
+                if($email_address != "" || $phone != "")
+                {
+                    $scope = ")";
+                }
+
+                $survey_contact_last_name = "";
+                if($survey_contact->getLastName() != '')
+                {
+                    $survey_contact_last_name = $survey_contact->getLastName().", ";
+                }
+
+                $survey_contact_first_name = "";
+                if($survey_contact->getFirstName() != '')
+                {
+                    $survey_contact_first_name = $survey_contact->getFirstName()." ";
+                }
+
+                $survey_contacts_array[$survey_contact->getId()] = $survey_contact_last_name . $survey_contact_first_name . $email_address . $phone . $scope;
+            }
         }
 
-        $phone = "- - -";
-        if ($survey_contact->getPhoneNumber() != '') {
-          $phone = $survey_contact->getPhoneNumber();
-
-        }
-
-        $survey_contacts_array[$survey_contact->getId()] = $survey_contact->getLastName() . ", " . $survey_contact->getFirstName() . " (Email: " . $email_address . ", Phone: " . $phone . ")";
-          //var_dump($survey_contacts_array);die;
-      }
+        return $survey_contacts_array;
     }
-
-    return $survey_contacts_array;
-  }
 
     /**
      * Get syrvey emails

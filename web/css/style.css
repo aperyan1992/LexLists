@@ -1090,7 +1090,7 @@ footer.meta li:last-child { padding: 0 !important;	background: none; }
 
 .p-item dl, dl.p-item {
     margin-bottom: 24px;
-    margin-top: 6px;
+    margin-top: -16px;
     border-bottom: #ddd 1px solid;
 }
 .p-item dt { background: url("../images/loader.gif") center no-repeat; }
@@ -3236,12 +3236,12 @@ div.tooltip p {
     z-index: 100;
     background-image: url("../images/ajax-loader.gif");
     background-repeat: no-repeat;
-    background-position: 180px 7px;
+    background-position: 160px 2px;
     color: black !important;
     font-style: italic;
     font-weight: bold;
     text-align: left !important;
-    padding-left: 70px !important;
+    padding-left: 50px !important;
     width: 210px !important;
 }
 

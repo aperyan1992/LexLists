@@ -13,6 +13,16 @@
     font-style: normal;
 }
 
+.calendar_link {
+    text-decoration: none;
+    margin-left: 3px!important;
+}
+
+.calendar_link:hover {
+    text-decoration: none;
+    color:#666666;
+}
+
 .state_line_NH {
     width: 60px;
     height: 1px;

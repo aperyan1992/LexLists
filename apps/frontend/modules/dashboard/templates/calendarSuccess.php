@@ -20,23 +20,14 @@
         </div>
     </div>
 
-    <h3>March 2013</h3>
-    <small>To see example with events navigate to march 2013</small>
+    <h3>January 2015</h3>
 </div>
 
 <div id="calendar" ></div>
 
 <script type="text/javascript">
     var calendar = $("#calendar").calendar({
-        events_source: [
-            {
-                "id": "293",
-                "title": "This is warning class event with very long title to check how it fits to evet in day view",
-                "url": "http://www.example.com/",
-                "class": "event-warning",
-                "start": "1422367200",
-                "end":   "1422387200"
-            }],
+        events_source: '/dashboard/calendarDates',
         tmpl_path: "/js/calendar/tmpls/",
         view: 'month',
         tmpl_cache: false,

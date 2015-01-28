@@ -19,6 +19,23 @@ class dashboardActions extends sfActions {
     public function executeCalendar(sfWebRequest $request) {
 
     }
+
+    public function executeCalendarDates() {
+        $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysDeadlines();
+        $newarray = array();
+        foreach($surveys as $key=>$survey)
+        {
+            //$newarray[$key]['id'] = $survey['id'];
+            $newarray[$key]['title'] = $survey['survey_name'];
+            $newarray[$key]['url'] = $survey['survey_name'];
+            $newarray[$key]['class'] = "event-warning";
+            $newarray[$key]['start'] = (string)(strtotime($survey['submission_deadline'])* 1000);
+            $newarray[$key]['end'] = (string)(strtotime($survey['submission_deadline'])* 1000);
+        }
+        $result = array("success" => 1, "result"=> $newarray);
+        echo json_encode($result);die;
+    }
+
     public function executeIndex(sfWebRequest $request) {
         // Get surveys years
         $this->surveys_years = Doctrine_Core::getTable('LtSurvey')->getSurveysYears();

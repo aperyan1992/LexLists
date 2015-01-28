@@ -15,6 +15,10 @@ class dashboardActions extends sfActions {
      *
      * @param sfRequest $request A request object
      */
+
+    public function executeCalendar(sfWebRequest $request) {
+
+    }
     public function executeIndex(sfWebRequest $request) {
         // Get surveys years
         $this->surveys_years = Doctrine_Core::getTable('LtSurvey')->getSurveysYears();
@@ -144,7 +148,7 @@ class dashboardActions extends sfActions {
                     $survey_name_link = "<a href='#' class='custom_link details_link' s_id='" . $survey->getId() . "'>" . $this->CheckStringLength($survey_name, 50) . "</a>";
 
                     // Set candidate type
-                    $candidate_type = (!is_null($survey->getCandidateType()) && $survey->getCandidateType() != "" && $survey->getCandidateType() != "0") ? $this->CheckStringLength(LtSurvey::$candidate_types_array[$survey->getCandidateType()], 50) : "- - -";
+                    $candidate_type = (isset(LtSurvey::$candidate_types_array[$survey->getCandidateType()]) && !is_null($survey->getCandidateType()) && $survey->getCandidateType() != "" && $survey->getCandidateType() != "0") ? $this->CheckStringLength(LtSurvey::$candidate_types_array[$survey->getCandidateType()], 50) : "- - -";
 
                     // Set practice area
                     $practice_areas = "- - -";

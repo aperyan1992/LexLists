@@ -7,3 +7,10 @@ indexSuccess:
     title: LexLists-Dashboard
 
 
+calendarSuccess:
+  javascripts: [calendar/js/calendar.js, calendar/components/underscore/underscore-min.js]
+  stylesheets:    [calendar.css]
+  metas:
+    title: LexLists-Dashboard
+
+

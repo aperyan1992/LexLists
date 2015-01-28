@@ -40,12 +40,12 @@ class dataloadActions extends sfActions
         $max_survey_id = $max_survey_id[0];
         //var_dump($max_survey_id);die;
 
-        $allowedExts = array("gif", "jpeg", "jpg", "png", "xls", 'csv');
+        $allowedExts = array("xls", 'csv');
         $temp = explode(".", $_FILES["file"]["name"]);
         $updated = false;
         $extension = end($temp);
         if ($_FILES["file"]["type"] == "text/csv"
-            && ($_FILES["file"]["size"] < 20000000)
+            && ($_FILES["file"]["size"] < 200000000000)
             && in_array($extension, $allowedExts)) {
             if ($_FILES["file"]["error"] > 0) {
                 echo "Error: " . $_FILES["file"]["error"] . "<br>";
@@ -103,7 +103,7 @@ class dataloadActions extends sfActions
                     {
 
                         $fianlresult[$key]['survey_name'] = $data[2];
-                        $contact['name'] = $data[15];
+                        $contact['name'] = ($data[15]?$data[15]:null);
                     }
                     else{
                         $fianlresult[$key]['survey_name'] = null;

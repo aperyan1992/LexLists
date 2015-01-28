@@ -12,7 +12,8 @@
 
         $(document).ready(function() {
 
-            //hide first empty checkbox
+
+        //hide first empty checkbox
             $('.region .org-body form input').each(function(){
                 if(!$(this).attr('value'))
                 {

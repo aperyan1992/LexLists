@@ -66,6 +66,29 @@
     <input type="hidden" id="admin_remove_my_survey_info" ms_id="" tr_number="" is_updated="" is_past_due="" />
 </div>
 
+<div class="dialog_for_calendar" style="display: none; overflow: hidden;" title="">
+    <div class="page-header">
+
+        <div class="pull-right form-inline">
+            <div class="btn-group">
+                <button class="btn btn-primary" data-calendar-nav="prev">&lt;&lt; Prev</button>
+                <button class="btn" data-calendar-nav="today">Today</button>
+                <button class="btn btn-primary" data-calendar-nav="next">Next &gt;&gt;</button>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-warning" data-calendar-view="year">Year</button>
+                <button class="btn btn-warning active" data-calendar-view="month">Month</button>
+                <button class="btn btn-warning" data-calendar-view="week">Week</button>
+                <button class="btn btn-warning" data-calendar-view="day">Day</button>
+            </div>
+        </div>
+
+        <h3>January 2015</h3>
+    </div>
+    <div id="calendar_div" style="padding-left: 45px;padding-right: 45px;padding-bottom: 15px;">
+
+    </div>
+</div>
 <div class="dialog_for_map" style="display: none; overflow: hidden;" title="">
 
     <div id="container"></div>

@@ -25,9 +25,9 @@ class dashboardActions extends sfActions {
         $newarray = array();
         foreach($surveys as $key=>$survey)
         {
-            //$newarray[$key]['id'] = $survey['id'];
+            $newarray[$key]['id'] = $survey['id'];
             $newarray[$key]['title'] = $survey['survey_name'];
-            $newarray[$key]['url'] = $survey['survey_name'];
+            $newarray[$key]['url'] = '#';
             $newarray[$key]['class'] = "event-warning";
             $newarray[$key]['start'] = (string)(strtotime($survey['submission_deadline'])* 1000);
             $newarray[$key]['end'] = (string)(strtotime($survey['submission_deadline'])* 1000);

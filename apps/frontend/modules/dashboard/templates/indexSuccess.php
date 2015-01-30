@@ -79,7 +79,7 @@
         <h3 class="custom_color jsmapclick_us_states" title="A way to filter by US States on a map" >US States Map<i class="filter_arrow"></i></h3>
         <h3 class="custom_color jsmapclick_us" title="A way to filter by US Regions on a map" >US Regions Map<i class="filter_arrow"></i></h3>
         <h3 class="custom_color jsmapclick" title="A way to filter by World Regions on a map" >World Regions Map<i class="filter_arrow"></i></h3>
-        <h3 class="custom_color calendar_link" title="A way to Calendar Deadlines"><a href="/dashboard/calendar"  class="custom_color calendar_link" >Calendar Deadlines</a></h3>
+        <h3 class="custom_color calendar_link" title="A way to Calendar Deadlines">Calendar Deadlines<i class="filter_arrow"></i></h3>
     </div>
 </div>
 

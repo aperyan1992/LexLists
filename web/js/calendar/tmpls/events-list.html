@@ -5,9 +5,28 @@
 			<li>
 				<span class="pull-left event <%= event['class'] %>"></span>&nbsp;
 				<a href="<%= event.url ? event.url : 'javascript:void(0)' %>" data-event-id="<%= event.id %>"
-					data-event-class="<%= event['class'] %>" class="event-item">
+					data-event-class="<%= event['class'] %>" onclick="survey_info(<%= event.id %>)" class="event-item">
 					<%= event.title %></a>
 			</li>
 		<% }) %>
 	</ul>
 </div>
+
+<script>
+    function survey_info(id){
+        $.ajax({
+            url: "/dashboard/getSurveyInfo",
+            type: "POST",
+            data: {
+                survey_id: id
+            },
+            dataType: "json",
+            success: function(data) {
+                $("#dialog_form_survey_details").data(data).dialog("open");
+            },
+            error: function() {
+                openErrorPopupWindow('dialog_error_alert', 'Error !!!');
+            }
+        });
+    }
+</script>

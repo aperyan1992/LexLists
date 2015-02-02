@@ -13,12 +13,18 @@
         $(document).ready(function() {
 
 
-            $("#calendar_div").calendar({
+            var date = new Date();
+            $('body').on('click','.event-item',function(e){
+                console.log($('.event-item'));
+            });
+            //var cal_date = date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate();
+
+            var calendar = $("#calendar_div").calendar({
                 events_source: '/dashboard/calendarDates',
                 tmpl_path: "/js/calendar/tmpls/",
                 view: 'month',
                 tmpl_cache: false,
-                day: '2015-01-27',
+                day: 'now',
                 onAfterEventsLoad: function(events) {
                     if(!events) {
                         return;
@@ -42,26 +48,8 @@
                         general: 'label'
                     }
                 }
-            },function(){
-                $('.event-item').on('click',function(event){
-                    event.preventDefault();
-                    alert($(this).attr("data-event-id"));
-                    $.ajax({
-                        url: "/dashboard/getSurveyInfo",
-                        type: "POST",
-                        data: {
-                            survey_id: $(this).attr("data-event-id")
-                        },
-                        dataType: "json",
-                        success: function(data) {
-                            $("#dialog_form_survey_details").data(data).dialog("open");
-                        },
-                        error: function() {
-                            openErrorPopupWindow('dialog_error_alert', 'Error !!!');
-                        }
-                    });
-                });
             });
+
 
             (function($) {
 

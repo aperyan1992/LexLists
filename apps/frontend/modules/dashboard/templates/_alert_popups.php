@@ -83,7 +83,8 @@
             </div>
         </div>
 
-        <h3>January 2015</h3>
+
+        <h3></h3>
     </div>
     <div id="calendar_div" style="padding-left: 45px;padding-right: 45px;padding-bottom: 15px;">
 

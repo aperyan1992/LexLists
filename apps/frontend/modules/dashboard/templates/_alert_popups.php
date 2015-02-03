@@ -71,15 +71,15 @@
 
         <div class="pull-right form-inline">
             <div class="btn-group">
-                <button class="btn btn-primary" data-calendar-nav="prev">&lt;&lt; Prev</button>
+                <button class="btn btn-warning" data-calendar-nav="prev">&lt;&lt; Prev</button>
                 <button class="btn" data-calendar-nav="today">Today</button>
-                <button class="btn btn-primary" data-calendar-nav="next">Next &gt;&gt;</button>
+                <button class="btn btn-warning" data-calendar-nav="next">Next &gt;&gt;</button>
             </div>
             <div class="btn-group">
                 <button class="btn btn-warning" data-calendar-view="year">Year</button>
                 <button class="btn btn-warning active" data-calendar-view="month">Month</button>
                 <button class="btn btn-warning" data-calendar-view="week">Week</button>
-                <button class="btn btn-warning" data-calendar-view="day">Day</button>
+                <!--<button class="btn btn-warning" data-calendar-view="day">Day</button>-->
             </div>
         </div>
 

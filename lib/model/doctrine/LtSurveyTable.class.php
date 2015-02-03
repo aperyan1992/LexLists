@@ -70,7 +70,7 @@ class LtSurveyTable extends Doctrine_Table {
     }
 
     public function getSurveysDeadlines() {
-        $checkingquery = 'SELECT `id`, `survey_name`, `submission_deadline` FROM `surveys` WHERE `submission_deadline` != "0000-00-00"';
+        $checkingquery = 'SELECT `s`.`id`, `s`.`survey_name`, `s`.`submission_deadline`, `o`.`name` FROM `surveys` AS `s` JOIN `organizations` AS `o` ON `s`.`submission_deadline` != "0000-00-00" AND `s`.`organization_id` = `o`.`id`';
         $resultupdate = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($checkingquery)->fetchAll();
 
         return $resultupdate;

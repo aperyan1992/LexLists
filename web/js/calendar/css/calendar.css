@@ -337,9 +337,10 @@
 .event-info {
   background-color: #1e90ff;
 }
-.event-warning {
+/*.event-warning {
   background-color: #e3bc08;
-}
+  background-color: #ff6801!important;
+}*/
 .event-inverse {
   background-color: #1b1b1b;
 }
@@ -359,7 +360,7 @@
 }
 .day-highlight.dh-event-warning:hover,
 .day-highlight.dh-event-warning {
-  background-color: #fdf1ba;
+  background-color: #e3bc08;
 }
 .day-highlight.dh-event-info:hover,
 .day-highlight.dh-event-info {

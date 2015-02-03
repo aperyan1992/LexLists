@@ -13,6 +13,7 @@
         $(document).ready(function() {
 
 
+            // calendar start
             var date = new Date();
             $('body').on('click','.event-item',function(e){
                 console.log($('.event-item'));
@@ -89,6 +90,7 @@
                 });
             }(jQuery));
 
+            //calendar end
 
 
         //hide first empty checkbox

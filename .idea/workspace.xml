@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2da5432-7c79-44d2-9269-2b9fdffb7cd6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/model/doctrine/LtSurveyTable.class.php" afterPath="$PROJECT_DIR$/lib/model/doctrine/LtSurveyTable.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/calendar.css" afterPath="$PROJECT_DIR$/web/css/calendar.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/calendar/css/calendar.css" afterPath="$PROJECT_DIR$/web/js/calendar/css/calendar.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/dashboard_scripts.js" afterPath="$PROJECT_DIR$/web/js/dashboard_scripts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/calendar/tmpls/day.html" afterPath="$PROJECT_DIR$/web/js/calendar/tmpls/day.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/calendar/tmpls/events-list.html" afterPath="$PROJECT_DIR$/web/js/calendar/tmpls/events-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/config/view.yml" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/config/view.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/calendar/less/variables.less" afterPath="$PROJECT_DIR$/web/js/calendar/less/variables.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/calendar/tmpls/week-days.html" afterPath="$PROJECT_DIR$/web/js/calendar/tmpls/week-days.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -32,56 +36,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="actions.class.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="actions.class.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="24" selection-start="570" selection-end="570" vertical-scroll-proportion="-3.75" vertical-offset="270" max-vertical-offset="18840">
-              <folding />
+            <state line="151" column="42" selection-start="8007" selection-end="8007" vertical-scroll-proportion="0.2614601" vertical-offset="2111" max-vertical-offset="18855">
+              <folding>
+                <marker date="1422951581537" expanded="false" signature="28024:28058" placeholder="..." />
+                <marker date="1422951581537" expanded="false" signature="28076:28106" placeholder="..." />
+                <marker date="1422951581537" expanded="false" signature="33587:33622" placeholder="..." />
+                <marker date="1422951581537" expanded="false" signature="33690:33707" placeholder="..." />
+                <marker date="1422951581537" expanded="true" signature="33708:33909" placeholder="..." />
+                <marker date="1422951581537" expanded="false" signature="34679:34714" placeholder="..." />
+                <marker date="1422951581537" expanded="false" signature="34781:34798" placeholder="..." />
+                <marker date="1422951581537" expanded="true" signature="34799:35003" placeholder="..." />
+                <marker date="1422951581537" expanded="false" signature="35209:35224" placeholder="..." />
+                <marker date="1422951581537" expanded="false" signature="35242:35272" placeholder="..." />
+                <marker date="1422951581537" expanded="false" signature="46619:46657" placeholder="..." />
+                <marker date="1422951581537" expanded="false" signature="46921:46956" placeholder="..." />
+                <marker date="1422951581537" expanded="false" signature="47024:47041" placeholder="..." />
+                <marker date="1422951581537" expanded="true" signature="47042:47243" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard_scripts.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="dashboard_scripts.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/dashboard_scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="33" selection-start="951" selection-end="951" vertical-scroll-proportion="0.5837563" vertical-offset="75" max-vertical-offset="29490">
+            <state line="87" column="41" selection-start="3225" selection-end="3225" vertical-scroll-proportion="-36.22222" vertical-offset="327" max-vertical-offset="29520">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="events-list.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/calendar/tmpls/events-list.html">
+      <file leaf-file-name="LtSurveyTable.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/model/doctrine/LtSurveyTable.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="49" selection-start="92" selection-end="105" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="555">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="week-days.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/calendar/tmpls/week-days.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="9" selection-start="448" selection-end="945" vertical-scroll-proportion="-13.416667" vertical-offset="53" max-vertical-offset="465">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="day.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/calendar/tmpls/day.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="29" selection-start="3079" selection-end="3079" vertical-scroll-proportion="-16.470589" vertical-offset="285" max-vertical-offset="1455">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/config/view.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="760" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
-              <folding />
+            <state line="74" column="0" selection-start="2388" selection-end="2388" vertical-scroll-proportion="-8.0" vertical-offset="918" max-vertical-offset="3330">
+              <folding>
+                <marker date="1422950928761" expanded="true" signature="2062:2267" placeholder="SELECT `s`.`..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -89,8 +83,10 @@
       <file leaf-file-name="_alert_popups.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="0" selection-start="4945" selection-end="4945" vertical-scroll-proportion="0.0" vertical-offset="1035" max-vertical-offset="20820">
-              <folding />
+            <state line="88" column="34" selection-start="5016" selection-end="5016" vertical-scroll-proportion="-5.5" vertical-offset="1188" max-vertical-offset="20820">
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#16;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,25 +104,29 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php" />
-        <option value="$PROJECT_DIR$/web/css/calendar.css" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/config/view.yml" />
-        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" />
-        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/web/js/calendar/js/calendar.js" />
-        <option value="$PROJECT_DIR$/web/js/calendar/tmpls/events-list.html" />
-        <option value="$PROJECT_DIR$/web/js/calendar/tmpls/week-days.html" />
         <option value="$PROJECT_DIR$/web/js/calendar/tmpls/day.html" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php" />
+        <option value="$PROJECT_DIR$/web/css/style.css" />
+        <option value="$PROJECT_DIR$/web/js/calendar/css/calendar.css" />
+        <option value="$PROJECT_DIR$/web/js/calendar/tmpls/week-days.html" />
+        <option value="$PROJECT_DIR$/web/js/calendar/tmpls/events-list.html" />
+        <option value="$PROJECT_DIR$/web/js/calendar/less/variables.less" />
+        <option value="$PROJECT_DIR$/web/css/calendar.css" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" />
+        <option value="$PROJECT_DIR$/lib/model/doctrine/LtSurveyTable.class.php" />
         <option value="$PROJECT_DIR$/web/js/dashboard_scripts.js" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
-    <option name="width" value="1301" />
-    <option name="height" value="744" />
+    <option name="x" value="64" />
+    <option name="y" value="-4" />
+    <option name="width" value="1303" />
+    <option name="height" value="773" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -154,6 +154,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -249,6 +250,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="calendar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -402,7 +429,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -422,7 +448,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1301" height="744" extended-state="7" />
+    <frame x="64" y="-4" width="1303" height="773" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -431,7 +457,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2652899" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26926133" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -441,8 +467,8 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -465,7 +491,67 @@
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="24" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="18840">
+          <folding>
+            <marker date="1422951581537" expanded="false" signature="28024:28058" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="28076:28106" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="33587:33622" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="33690:33707" placeholder="..." />
+            <marker date="1422951581537" expanded="true" signature="33708:33909" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="34679:34714" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="34781:34798" placeholder="..." />
+            <marker date="1422951581537" expanded="true" signature="34799:35003" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="35209:35224" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="35242:35272" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="46619:46657" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="46921:46956" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="47024:47041" placeholder="..." />
+            <marker date="1422951581537" expanded="true" signature="47042:47243" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/dashboard_scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="0" selection-start="2682" selection-end="2682" vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="29490">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/calendar/css/calendar.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="361" column="20" selection-start="7561" selection-end="7561" vertical-scroll-proportion="0.0" vertical-offset="5186" max-vertical-offset="7815">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="0" selection-start="4945" selection-end="4945" vertical-scroll-proportion="0.0" vertical-offset="1035" max-vertical-offset="20820">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#16;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="24" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="18840">
+          <folding>
+            <marker date="1422951581537" expanded="false" signature="28024:28058" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="28076:28106" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="33587:33622" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="33690:33707" placeholder="..." />
+            <marker date="1422951581537" expanded="true" signature="33708:33909" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="34679:34714" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="34781:34798" placeholder="..." />
+            <marker date="1422951581537" expanded="true" signature="34799:35003" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="35209:35224" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="35242:35272" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="46619:46657" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="46921:46956" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="47024:47041" placeholder="..." />
+            <marker date="1422951581537" expanded="true" signature="47042:47243" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -492,15 +578,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/config/view.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="760" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="225">
-          <folding />
-        </state>
+        <state line="3" column="760" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="225" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="85" column="0" selection-start="4945" selection-end="4945" vertical-scroll-proportion="0.0" vertical-offset="1035" max-vertical-offset="20820">
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#16;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -514,7 +600,22 @@
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="24" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="18840">
-          <folding />
+          <folding>
+            <marker date="1422951581537" expanded="false" signature="28024:28058" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="28076:28106" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="33587:33622" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="33690:33707" placeholder="..." />
+            <marker date="1422951581537" expanded="true" signature="33708:33909" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="34679:34714" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="34781:34798" placeholder="..." />
+            <marker date="1422951581537" expanded="true" signature="34799:35003" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="35209:35224" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="35242:35272" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="46619:46657" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="46921:46956" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="47024:47041" placeholder="..." />
+            <marker date="1422951581537" expanded="true" signature="47042:47243" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -541,15 +642,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/config/view.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="760" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="225">
-          <folding />
-        </state>
+        <state line="3" column="760" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="225" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="85" column="0" selection-start="4945" selection-end="4945" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="20820">
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#16;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -563,7 +664,22 @@
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="39" selection-start="781" selection-end="781" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="18840">
-          <folding />
+          <folding>
+            <marker date="1422951581537" expanded="false" signature="28024:28058" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="28076:28106" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="33587:33622" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="33690:33707" placeholder="..." />
+            <marker date="1422951581537" expanded="true" signature="33708:33909" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="34679:34714" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="34781:34798" placeholder="..." />
+            <marker date="1422951581537" expanded="true" signature="34799:35003" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="35209:35224" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="35242:35272" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="46619:46657" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="46921:46956" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="47024:47041" placeholder="..." />
+            <marker date="1422951581537" expanded="true" signature="47042:47243" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -581,15 +697,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/config/view.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="2" selection-start="38" selection-end="38" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="225">
-          <folding />
-        </state>
+        <state line="3" column="2" selection-start="38" selection-end="38" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="225" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="87" column="91" selection-start="5077" selection-end="5077" vertical-scroll-proportion="0.0" vertical-offset="915" max-vertical-offset="20805">
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#16;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -601,13 +717,23 @@
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="53" selection-start="734" selection-end="734" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="18840">
-          <folding />
+          <folding>
+            <marker date="1422951581537" expanded="false" signature="28024:28058" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="28076:28106" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="33587:33622" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="33690:33707" placeholder="..." />
+            <marker date="1422951581537" expanded="true" signature="33708:33909" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="34679:34714" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="34781:34798" placeholder="..." />
+            <marker date="1422951581537" expanded="true" signature="34799:35003" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="35209:35224" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="35242:35272" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="46619:46657" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="46921:46956" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="47024:47041" placeholder="..." />
+            <marker date="1422951581537" expanded="true" signature="47042:47243" placeholder="..." />
+          </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/calendar.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="11" selection-start="3073" selection-end="3073" vertical-scroll-proportion="0.54635763" vertical-offset="1665" max-vertical-offset="7815" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/css/images/animated-overlay.gif">
@@ -630,11 +756,6 @@
         <state line="35" column="0" selection-start="1031" selection-end="1031" vertical-scroll-proportion="1.0372341" vertical-offset="135" max-vertical-offset="5250" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="129" selection-start="4737" selection-end="4737" vertical-scroll-proportion="0.7443182" vertical-offset="953" max-vertical-offset="3300" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/calendar/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="52" selection-start="779" selection-end="779" vertical-scroll-proportion="0.0" vertical-offset="208" max-vertical-offset="1155">
@@ -642,59 +763,149 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/config/view.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="0" selection-start="4945" selection-end="4945" vertical-scroll-proportion="0.0" vertical-offset="1035" max-vertical-offset="20820">
+        <state line="3" column="760" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/calendar/tmpls/day.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="29" selection-start="3079" selection-end="3079" vertical-scroll-proportion="1.5555556" vertical-offset="285" max-vertical-offset="1455" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="31" selection-start="23524" selection-end="23524" vertical-scroll-proportion="0.38652483" vertical-offset="37" max-vertical-offset="76050">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="24" selection-start="570" selection-end="570" vertical-scroll-proportion="-3.75" vertical-offset="270" max-vertical-offset="18840">
+        <state line="81" column="81" selection-start="4689" selection-end="4689" vertical-scroll-proportion="0.33274022" vertical-offset="1028" max-vertical-offset="3300" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/calendar/tmpls/week-days.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="31" selection-start="244" selection-end="244" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="465">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/calendar/js/calendar.js">
+    <entry file="file://$PROJECT_DIR$/web/js/calendar/css/calendar.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="14" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.23857868" vertical-offset="429" max-vertical-offset="18075">
+        <state line="0" column="4719" selection-start="4719" selection-end="4719" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/calendar/less/day.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="20" selection-start="1066" selection-end="1066" vertical-scroll-proportion="0.37941176" vertical-offset="606" max-vertical-offset="1080">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/calendar/less/events.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="31" selection-start="704" selection-end="704" vertical-scroll-proportion="0.42352942" vertical-offset="351" max-vertical-offset="1320">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/calendar/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="151" selection-start="3310" selection-end="3310" vertical-scroll-proportion="-5.0" vertical-offset="1105" max-vertical-offset="4110">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/calendar/less/variables.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="26" selection-start="192" selection-end="192" vertical-scroll-proportion="-2.4489796" vertical-offset="0" max-vertical-offset="630">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/calendar/tmpls/events-list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="49" selection-start="92" selection-end="105" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="555">
+        <state line="6" column="39" selection-start="291" selection-end="291" vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="555">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/calendar/tmpls/week-days.html">
+    <entry file="file://$PROJECT_DIR$/web/js/calendar/events.json.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="9" selection-start="448" selection-end="945" vertical-scroll-proportion="-13.416667" vertical-offset="53" max-vertical-offset="465">
+        <state line="15" column="22" selection-start="396" selection-end="396" vertical-scroll-proportion="0.33150685" vertical-offset="104" max-vertical-offset="1245">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/calendar/tmpls/day.html">
+    <entry file="file://$PROJECT_DIR$/web/js/calendar/css/calendar.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="29" selection-start="3079" selection-end="3079" vertical-scroll-proportion="-16.470589" vertical-offset="285" max-vertical-offset="1455">
+        <state line="362" column="27" selection-start="7595" selection-end="7601" vertical-scroll-proportion="1.3041363" vertical-offset="4894" max-vertical-offset="7830">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/config/view.yml">
+    <entry file="file://$PROJECT_DIR$/lib/model/doctrine/LtSurveyTable.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="760" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
+        <state line="74" column="0" selection-start="2388" selection-end="2388" vertical-scroll-proportion="-8.0" vertical-offset="918" max-vertical-offset="3330">
+          <folding>
+            <marker date="1422950928761" expanded="true" signature="2062:2267" placeholder="SELECT `s`.`..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/calendar.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="365" column="28" selection-start="7657" selection-end="7657" vertical-scroll-proportion="0.53984576" vertical-offset="5265" max-vertical-offset="7815">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/calendar/js/calendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="14" selection-start="1015" selection-end="1015" vertical-scroll-proportion="-1.5398936" vertical-offset="1149" max-vertical-offset="18075">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="34" selection-start="5016" selection-end="5016" vertical-scroll-proportion="-5.5" vertical-offset="1188" max-vertical-offset="20820">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#16;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/dashboard_scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="33" selection-start="951" selection-end="951" vertical-scroll-proportion="0.5837563" vertical-offset="75" max-vertical-offset="29490">
+        <state line="87" column="41" selection-start="3225" selection-end="3225" vertical-scroll-proportion="-36.22222" vertical-offset="327" max-vertical-offset="29520">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="151" column="42" selection-start="8007" selection-end="8007" vertical-scroll-proportion="0.2614601" vertical-offset="2111" max-vertical-offset="18855">
+          <folding>
+            <marker date="1422951581537" expanded="false" signature="28024:28058" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="28076:28106" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="33587:33622" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="33690:33707" placeholder="..." />
+            <marker date="1422951581537" expanded="true" signature="33708:33909" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="34679:34714" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="34781:34798" placeholder="..." />
+            <marker date="1422951581537" expanded="true" signature="34799:35003" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="35209:35224" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="35242:35272" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="46619:46657" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="46921:46956" placeholder="..." />
+            <marker date="1422951581537" expanded="false" signature="47024:47041" placeholder="..." />
+            <marker date="1422951581537" expanded="true" signature="47042:47243" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

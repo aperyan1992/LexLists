@@ -295,7 +295,7 @@
   border: 1px solid #ad2121;
 }
 #cal-day-box .day-highlight.dh-event-warning {
-  border: 1px solid #ff6801;
+  border: 1px solid #666666;
 }
 #cal-day-box .day-highlight.dh-event-info {
   border: 1px solid #1e90ff;

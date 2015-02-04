@@ -40,7 +40,7 @@ my_list:
 print_survey:
   url:   /print
   param: { module: dashboard, action: printSurvey }
-    
+
 help_page:
   url: /help
   param: { module: staticPages, action: help }

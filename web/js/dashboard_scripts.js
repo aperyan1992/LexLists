@@ -12,12 +12,17 @@
 
         $(document).ready(function() {
 
+            /*$(document).on('click', '#print_calendar', function() {
+                $('#print_calendar_form').submit();
+                return false;
+            })*/
+
 
             // calendar start
-            var date = new Date();
+            /*var date = new Date();
             $('body').on('click','.event-item',function(e){
                 console.log($('.event-item'));
-            });
+            });*/
             //var cal_date = date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate();
 
             var calendar = $("#calendar_div").calendar({

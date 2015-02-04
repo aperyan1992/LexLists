@@ -372,6 +372,17 @@ class dashboardActions extends sfActions {
 
         $this->redirect404();
     }
+
+    /**
+     * Printing of calendar
+     *
+     * @param sfWebRequest $request     Request object
+     *
+     * @return string       HTML for print
+     */
+    /*public function executePrintCalendar(sfWebRequest $request) {
+
+    }*/
     
     /**
      * Printing of surveys

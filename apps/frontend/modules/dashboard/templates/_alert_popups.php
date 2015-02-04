@@ -67,6 +67,20 @@
 </div>
 
 <div class="dialog_for_calendar" style="display: none; overflow: hidden;" title="">
+    <?php
+    //$date = date("d-M-Y");
+
+    $session_user_id = $_SESSION['symfony/user/sfUser/attributes']['sfGuardSecurityUser']['user_id'];
+
+    $query1 = 'SELECT c.`name` FROM `clients` AS c JOIN `sf_guard_user` AS sgu ON sgu.`client_id` = c.`id` WHERE sgu.`id` = '. $session_user_id.'';
+    $name1 = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query1)->fetch();
+    $survey_client_name = $name1['name'];
+
+    $query = 'SELECT `first_name`, `last_name` FROM `sf_guard_user` WHERE `id` = '.$session_user_id.'';
+    $name = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
+    $survey_first_name = $name['first_name'];
+    $survey_last_name = $name['last_name'];
+    ?>
     <div class="page-header">
 
         <div class="pull-right form-inline">
@@ -86,9 +100,25 @@
 
         <h3></h3>
     </div>
-    <div id="calendar_div" style="padding-left: 45px;padding-right: 45px;padding-bottom: 15px;">
+    <script type="text/javascript">
 
+        var head_html = '<div style="line-height: 70%;"><h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm;"><?php echo $survey_client_name;?></h2><h2 style="text-align: right; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;"><i><?php echo $survey_first_name ." ".$survey_last_name;?></i></h2></div>';
+
+        function CallPrint(strid) {
+            var prtContent = document.getElementById(strid);
+            var WinPrint = window.open('', '', 'letf=0,top=0,width=100,auto,toolbar=0,scrollbars=0,status=0');
+            WinPrint.document.write(head_html + prtContent.innerHTML);
+            WinPrint.document.close();
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+        }
+    </script>
+    <div id="calendar_div" style="padding-left: 45px;padding-right: 45px;padding-bottom: 15px;">
     </div>
+    <button class="print_calendar" id="print_calendar" onclick="javascript:CallPrint('calendar_div')">Print</button>
+
+
 </div>
 <div class="dialog_for_map" style="display: none; overflow: hidden;" title="">
 

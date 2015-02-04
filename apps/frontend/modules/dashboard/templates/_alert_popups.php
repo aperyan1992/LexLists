@@ -69,17 +69,24 @@
 <div class="dialog_for_calendar" style="display: none; overflow: hidden;" title="">
     <?php
     //$date = date("d-M-Y");
+    if(empty($_SESSION['symfony/user/sfUser/attributes']['sfGuardSecurityUser']['user_id']))
+    {
+        $survey_client_name = null;
+        $survey_first_name = null;
+        $survey_last_name = null;
+    }
+    else{
+        $session_user_id = $_SESSION['symfony/user/sfUser/attributes']['sfGuardSecurityUser']['user_id'];
+        $query1 = 'SELECT c.`name` FROM `clients` AS c JOIN `sf_guard_user` AS sgu ON sgu.`client_id` = c.`id` WHERE sgu.`id` = '. $session_user_id.'';
+        $name1 = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query1)->fetch();
+        $survey_client_name = $name1['name'];
 
-    $session_user_id = $_SESSION['symfony/user/sfUser/attributes']['sfGuardSecurityUser']['user_id'];
+        $query = 'SELECT `first_name`, `last_name` FROM `sf_guard_user` WHERE `id` = '.$session_user_id.'';
+        $name = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
+        $survey_first_name = $name['first_name'];
+        $survey_last_name = $name['last_name'];
+    }
 
-    $query1 = 'SELECT c.`name` FROM `clients` AS c JOIN `sf_guard_user` AS sgu ON sgu.`client_id` = c.`id` WHERE sgu.`id` = '. $session_user_id.'';
-    $name1 = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query1)->fetch();
-    $survey_client_name = $name1['name'];
-
-    $query = 'SELECT `first_name`, `last_name` FROM `sf_guard_user` WHERE `id` = '.$session_user_id.'';
-    $name = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
-    $survey_first_name = $name['first_name'];
-    $survey_last_name = $name['last_name'];
     ?>
     <div class="page-header">
 

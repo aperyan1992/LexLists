@@ -799,10 +799,10 @@ body .ui-tooltip {
 .ui-widget-content {
 	border: 1px solid #dfd9c3;
 	background: #fafafa url(images/ui-bg_highlight-hard_100_fafafa_1x100.png) 50% top repeat-x;
-	color: #312e25;
+	color: #321e25;
 }
 .ui-widget-content a {
-	color: #312e25;
+	color: #321e25;
 }
 .ui-widget-header {
 	border: 1px solid #d4ccb0;

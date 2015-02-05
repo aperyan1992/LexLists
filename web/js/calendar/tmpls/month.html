@@ -7,17 +7,28 @@
 	<% for(i = 0; i < 6; i++) { %>
 		<% if(cal.stop_cycling == true) break; %>
 		<div class="cal-row-fluid cal-before-eventlist">
-			<div class="cal-cell1 cal-cell" data-cal-row="-day1"><%= cal._day(i, day++) %></div>
-			<div class="cal-cell1 cal-cell" data-cal-row="-day2"><%= cal._day(i, day++) %></div>
-			<div class="cal-cell1 cal-cell" data-cal-row="-day3"><%= cal._day(i, day++) %></div>
-			<div class="cal-cell1 cal-cell" data-cal-row="-day4"><%= cal._day(i, day++) %></div>
-			<div class="cal-cell1 cal-cell" data-cal-row="-day5"><%= cal._day(i, day++) %></div>
-			<div class="cal-cell1 cal-cell" data-cal-row="-day6"><%= cal._day(i, day++) %></div>
-			<div class="cal-cell1 cal-cell" data-cal-row="-day7"><%= cal._day(i, day++) %></div>
+			<div class="cal-cell1 cal-cell set_black_color" data-cal-row="-day1"><%= cal._day(i, day++) %></div>
+			<div class="cal-cell1 cal-cell set_black_color" data-cal-row="-day2"><%= cal._day(i, day++) %></div>
+			<div class="cal-cell1 cal-cell set_black_color" data-cal-row="-day3"><%= cal._day(i, day++) %></div>
+			<div class="cal-cell1 cal-cell set_black_color" data-cal-row="-day4"><%= cal._day(i, day++) %></div>
+			<div class="cal-cell1 cal-cell set_black_color" data-cal-row="-day5"><%= cal._day(i, day++) %></div>
+			<div class="cal-cell1 cal-cell set_black_color" data-cal-row="-day6"><%= cal._day(i, day++) %></div>
+			<div class="cal-cell1 cal-cell set_black_color" data-cal-row="-day7"><%= cal._day(i, day++) %></div>
 		</div>
 	<% } %>
 </div>
 <style>
+
+.set_black_color {
+    color: #000000 !important;
+    opacity: 1 !important;
+}
+
+.set_black_color span {
+    opacity: 1 !important;
+}
+
+
 ul {
     list-style-type: none;
 }
@@ -489,9 +500,10 @@ span[data-cal-date]:hover {
 }
 .cal-day-today span[data-cal-date] {
     color: darkgreen;
+    margin-top: 12px !important;
 }
 .cal-month-box .cal-day-today span[data-cal-date] {
-    font-size: 1.9em;
+    font-size: 1.4em;
 }
 .cal-day-holiday span[data-cal-date] {
     color: #800080;

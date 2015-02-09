@@ -35,7 +35,11 @@ if(!String.prototype.formatNum) {
 		return r;
 	};
 }
-
+$(document).on('click', '#print_calendar', function() {
+    $('#month_hidden').val($('.page-header > h3').text());
+    $('#print_calendar_form').submit();
+    return false;
+});
 (function($) {
 
 	var defaults = {

@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2da5432-7c79-44d2-9269-2b9fdffb7cd6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/jquery-ui-1.10.0.custom.css" afterPath="$PROJECT_DIR$/web/css/jquery-ui-1.10.0.custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/calendar/tmpls/month.html" afterPath="$PROJECT_DIR$/web/js/calendar/tmpls/month.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/calendar/less/theme.less" afterPath="$PROJECT_DIR$/web/js/calendar/less/theme.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/calendar/js/calendar.js" afterPath="$PROJECT_DIR$/web/js/calendar/js/calendar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/dashboard_scripts.js" afterPath="$PROJECT_DIR$/web/js/dashboard_scripts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/config/routing.yml" afterPath="$PROJECT_DIR$/apps/frontend/config/routing.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="lex.local.iws" />
@@ -28,20 +30,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BaseLtSurveyContact.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/model/doctrine/base/BaseLtSurveyContact.class.php">
+      <file leaf-file-name="dashboard_scripts.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/dashboard_scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="31" selection-start="515" selection-end="515" vertical-scroll-proportion="-7.5" vertical-offset="45" max-vertical-offset="1095">
+            <state line="36" column="37" selection-start="1271" selection-end="1272" vertical-scroll-proportion="0.0" vertical-offset="352" max-vertical-offset="29550">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard_scripts.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/dashboard_scripts.js">
+      <file leaf-file-name="calendar.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/calendar/js/calendar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="17" selection-start="569" selection-end="718" vertical-scroll-proportion="0.0" vertical-offset="89" max-vertical-offset="29595">
+            <state line="49" column="68" selection-start="1410" selection-end="1411" vertical-scroll-proportion="0.0" vertical-offset="547" max-vertical-offset="18135">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="actions.class.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="513" column="31" selection-start="25104" selection-end="25104" vertical-scroll-proportion="0.37037036" vertical-offset="7485" max-vertical-offset="20400">
+              <folding>
+                <marker date="1423142170059" expanded="true" signature="19543:19803" placeholder="SELECT `s`.`..." />
+                <marker date="1423142170059" expanded="false" signature="21247:21281" placeholder="..." />
+                <marker date="1423142170059" expanded="false" signature="21299:21329" placeholder="..." />
+                <marker date="1423142170059" expanded="false" signature="22461:22479" placeholder="..." />
+                <marker date="1423142170059" expanded="true" signature="22480:22670" placeholder="..." />
+                <marker date="1423142170059" expanded="false" signature="33087:33121" placeholder="..." />
+                <marker date="1423142170059" expanded="false" signature="33139:33169" placeholder="..." />
+                <marker date="1423142170059" expanded="false" signature="38650:38685" placeholder="..." />
+                <marker date="1423142170059" expanded="false" signature="38753:38770" placeholder="..." />
+                <marker date="1423142170059" expanded="true" signature="38771:38972" placeholder="..." />
+                <marker date="1423142170059" expanded="true" signature="38771:38972" placeholder="..." />
+                <marker date="1423142170059" expanded="false" signature="39742:39777" placeholder="..." />
+                <marker date="1423142170059" expanded="false" signature="39844:39861" placeholder="..." />
+                <marker date="1423142170059" expanded="true" signature="39862:40066" placeholder="..." />
+                <marker date="1423142170059" expanded="true" signature="39862:40066" placeholder="..." />
+                <marker date="1423142170059" expanded="false" signature="40272:40287" placeholder="..." />
+                <marker date="1423142170059" expanded="false" signature="40305:40335" placeholder="..." />
+                <marker date="1423142170059" expanded="false" signature="51682:51720" placeholder="..." />
+                <marker date="1423142170059" expanded="false" signature="51984:52019" placeholder="..." />
+                <marker date="1423142170059" expanded="false" signature="52087:52104" placeholder="..." />
+                <marker date="1423142170059" expanded="true" signature="52105:52306" placeholder="..." />
+                <marker date="1423142170059" expanded="true" signature="52105:52306" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -49,8 +83,10 @@
       <file leaf-file-name="LtSurveyTable.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/model/doctrine/LtSurveyTable.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="36" selection-start="2072" selection-end="2072" vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="3330">
-              <folding />
+            <state line="73" column="117" selection-start="2044" selection-end="2387" vertical-scroll-proportion="0.0" vertical-offset="1095" max-vertical-offset="3330">
+              <folding>
+                <marker date="1423057552474" expanded="true" signature="2062:2267" placeholder="SELECT `s`.`..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,34 +94,16 @@
       <file leaf-file-name="_alert_popups.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="23" selection-start="4503" selection-end="4503" vertical-scroll-proportion="0.0" vertical-offset="1012" max-vertical-offset="21375">
+            <state line="126" column="31" selection-start="7000" selection-end="7012" vertical-scroll-proportion="0.0" vertical-offset="1426" max-vertical-offset="21405">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="actions.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
+      <file leaf-file-name="routing.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1050" column="112" selection-start="50638" selection-end="50679" vertical-scroll-proportion="0.0" vertical-offset="15750" max-vertical-offset="17985">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="month.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/calendar/tmpls/month.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="0" selection-start="1138" selection-end="1138" vertical-scroll-proportion="-2.9411764" vertical-offset="225" max-vertical-offset="8565">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="theme.less" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/js/calendar/less/theme.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="16" selection-start="2035" selection-end="2035" vertical-scroll-proportion="0.6647059" vertical-offset="1004" max-vertical-offset="2265">
+            <state line="43" column="14" selection-start="1112" selection-end="1112" vertical-scroll-proportion="0.0" vertical-offset="349" max-vertical-offset="1035">
               <folding />
             </state>
           </provider>
@@ -105,7 +123,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/config/view.yml" />
-        <option value="$PROJECT_DIR$/web/js/calendar/js/calendar.js" />
         <option value="$PROJECT_DIR$/web/js/calendar/tmpls/day.html" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php" />
         <option value="$PROJECT_DIR$/web/js/calendar/css/calendar.css" />
@@ -114,19 +131,20 @@
         <option value="$PROJECT_DIR$/web/css/calendar.css" />
         <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/web/css/calendar_print.css" />
-        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" />
-        <option value="$PROJECT_DIR$/web/js/dashboard_scripts.js" />
         <option value="$PROJECT_DIR$/web/js/calendar/tmpls/modal.html" />
         <option value="$PROJECT_DIR$/web/js/calendar/tmpls/week.html" />
         <option value="$PROJECT_DIR$/web/js/calendar/tmpls/week-days.html" />
         <option value="$PROJECT_DIR$/web/js/calendar/tmpls/year-month.html" />
-        <option value="$PROJECT_DIR$/apps/frontend/config/routing.yml" />
         <option value="$PROJECT_DIR$/web/js/calendar/tmpls/year.html" />
         <option value="$PROJECT_DIR$/lib/model/doctrine/LtSurveyTable.class.php" />
-        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" />
         <option value="$PROJECT_DIR$/web/js/calendar/less/theme.less" />
         <option value="$PROJECT_DIR$/web/css/jquery-ui-1.10.0.custom.css" />
         <option value="$PROJECT_DIR$/web/js/calendar/tmpls/month.html" />
+        <option value="$PROJECT_DIR$/apps/frontend/config/routing.yml" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" />
+        <option value="$PROJECT_DIR$/web/js/calendar/js/calendar.js" />
+        <option value="$PROJECT_DIR$/web/js/dashboard_scripts.js" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" />
       </list>
     </option>
   </component>
@@ -191,6 +209,86 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="calendar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="calendar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -212,10 +310,6 @@
               <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="doctrine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -228,118 +322,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lex.local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="actions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -384,10 +366,9 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32924962" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28514695" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29388404" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -396,6 +377,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -556,11 +538,6 @@
         <state line="138" column="1" selection-start="3132" selection-end="3132" vertical-scroll-proportion="0.33161953" vertical-offset="1941" max-vertical-offset="7830" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/calendar/js/calendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1090" column="67" selection-start="31513" selection-end="31513" vertical-scroll-proportion="0.3324468" vertical-offset="16225" max-vertical-offset="18075" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2131" column="15" selection-start="79500" selection-end="79506" vertical-scroll-proportion="0.3323782" vertical-offset="31849" max-vertical-offset="76305" />
@@ -591,11 +568,6 @@
         <state line="545" column="0" selection-start="12316" selection-end="12316" vertical-scroll-proportion="-13.416667" vertical-offset="7853" max-vertical-offset="8265" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="17" selection-start="966" selection-end="966" vertical-scroll-proportion="-2.6666667" vertical-offset="468" max-vertical-offset="975" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4575" column="1" selection-start="0" selection-end="137067" vertical-scroll-proportion="-3.7407408" vertical-offset="68524" max-vertical-offset="95070" />
@@ -603,9 +575,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="20" selection-start="0" selection-end="55460" vertical-scroll-proportion="0.0" vertical-offset="625" max-vertical-offset="8400">
-          <folding />
-        </state>
+        <state line="49" column="20" selection-start="0" selection-end="55460" vertical-scroll-proportion="0.0" vertical-offset="625" max-vertical-offset="8400" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/model/doctrine/LtStateTable.class.php">
@@ -615,9 +585,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/calendar/tmpls/year.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="538" column="0" selection-start="16914" selection-end="16914" vertical-scroll-proportion="0.0" vertical-offset="7560" max-vertical-offset="111510">
-          <folding />
-        </state>
+        <state line="538" column="0" selection-start="16914" selection-end="16914" vertical-scroll-proportion="0.0" vertical-offset="7560" max-vertical-offset="111510" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/model/doctrine/sfDoctrineGuardPlugin/base/BasesfGuardUser.class.php">
@@ -625,78 +593,105 @@
         <state line="33" column="33" selection-start="1229" selection-end="1229" vertical-scroll-proportion="-1.4151515" vertical-offset="962" max-vertical-offset="3225" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/dashboard_scripts.js">
+    <entry file="file://$PROJECT_DIR$/web/js/calendar/less/variables.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="17" selection-start="569" selection-end="718" vertical-scroll-proportion="0.0" vertical-offset="89" max-vertical-offset="29595">
-          <folding />
-        </state>
+        <state line="22" column="1" selection-start="714" selection-end="714" vertical-scroll-proportion="-3.0" vertical-offset="102" max-vertical-offset="630" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/jquery-ui-1.10.0.custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="801" column="18" selection-start="17015" selection-end="17021" vertical-scroll-proportion="0.3324468" vertical-offset="11890" max-vertical-offset="17700" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/calendar.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="451" column="1" selection-start="9646" selection-end="9646" vertical-scroll-proportion="0.31362468" vertical-offset="6643" max-vertical-offset="7815" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/calendar/less/theme.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="16" selection-start="2035" selection-end="2035" vertical-scroll-proportion="0.40720722" vertical-offset="1004" max-vertical-offset="2265" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/calendar/tmpls/month.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="1138" selection-end="1138" vertical-scroll-proportion="0.25862068" vertical-offset="225" max-vertical-offset="8565" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1050" column="112" selection-start="50638" selection-end="50679" vertical-scroll-proportion="0.0" vertical-offset="15640" max-vertical-offset="17985" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/model/doctrine/base/BaseLtSurveyContact.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="31" selection-start="515" selection-end="515" vertical-scroll-proportion="-7.5" vertical-offset="45" max-vertical-offset="1095">
+        <state line="15" column="31" selection-start="515" selection-end="515" vertical-scroll-proportion="0.29900333" vertical-offset="45" max-vertical-offset="1095" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="14" selection-start="1112" selection-end="1112" vertical-scroll-proportion="0.0" vertical-offset="349" max-vertical-offset="1035">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/model/doctrine/LtSurveyTable.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="36" selection-start="2072" selection-end="2072" vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="3330">
+        <state line="73" column="117" selection-start="2044" selection-end="2387" vertical-scroll-proportion="0.0" vertical-offset="1095" max-vertical-offset="3330">
+          <folding>
+            <marker date="1423057552474" expanded="true" signature="2062:2267" placeholder="SELECT `s`.`..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/dashboard_scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="37" selection-start="1271" selection-end="1272" vertical-scroll-proportion="0.0" vertical-offset="352" max-vertical-offset="29550">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
+    <entry file="file://$PROJECT_DIR$/web/js/calendar/js/calendar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1050" column="112" selection-start="50638" selection-end="50679" vertical-scroll-proportion="0.0" vertical-offset="15640" max-vertical-offset="17985">
+        <state line="49" column="68" selection-start="1410" selection-end="1411" vertical-scroll-proportion="0.0" vertical-offset="547" max-vertical-offset="18135">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="31" selection-start="7000" selection-end="7012" vertical-scroll-proportion="0.0" vertical-offset="1426" max-vertical-offset="21405">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="397" column="27" selection-start="18791" selection-end="18868" vertical-scroll-proportion="-4.9166665" vertical-offset="5837" max-vertical-offset="19020" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="23" selection-start="4503" selection-end="4503" vertical-scroll-proportion="0.0" vertical-offset="1012" max-vertical-offset="21375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/calendar/less/variables.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="1" selection-start="714" selection-end="714" vertical-scroll-proportion="-3.0" vertical-offset="102" max-vertical-offset="630">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/calendar/tmpls/month.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="1138" selection-end="1138" vertical-scroll-proportion="-2.9411764" vertical-offset="225" max-vertical-offset="8565">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/jquery-ui-1.10.0.custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="801" column="18" selection-start="17015" selection-end="17021" vertical-scroll-proportion="0.3324468" vertical-offset="11890" max-vertical-offset="17700">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/calendar.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="451" column="1" selection-start="9646" selection-end="9646" vertical-scroll-proportion="0.31362468" vertical-offset="6643" max-vertical-offset="7815">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/calendar/less/theme.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="16" selection-start="2035" selection-end="2035" vertical-scroll-proportion="0.6647059" vertical-offset="1004" max-vertical-offset="2265">
-          <folding />
+        <state line="513" column="31" selection-start="25104" selection-end="25104" vertical-scroll-proportion="0.37037036" vertical-offset="7485" max-vertical-offset="20400">
+          <folding>
+            <marker date="1423142170059" expanded="true" signature="19543:19803" placeholder="SELECT `s`.`..." />
+            <marker date="1423142170059" expanded="false" signature="21247:21281" placeholder="..." />
+            <marker date="1423142170059" expanded="false" signature="21299:21329" placeholder="..." />
+            <marker date="1423142170059" expanded="false" signature="22461:22479" placeholder="..." />
+            <marker date="1423142170059" expanded="true" signature="22480:22670" placeholder="..." />
+            <marker date="1423142170059" expanded="false" signature="33087:33121" placeholder="..." />
+            <marker date="1423142170059" expanded="false" signature="33139:33169" placeholder="..." />
+            <marker date="1423142170059" expanded="false" signature="38650:38685" placeholder="..." />
+            <marker date="1423142170059" expanded="false" signature="38753:38770" placeholder="..." />
+            <marker date="1423142170059" expanded="true" signature="38771:38972" placeholder="..." />
+            <marker date="1423142170059" expanded="true" signature="38771:38972" placeholder="..." />
+            <marker date="1423142170059" expanded="false" signature="39742:39777" placeholder="..." />
+            <marker date="1423142170059" expanded="false" signature="39844:39861" placeholder="..." />
+            <marker date="1423142170059" expanded="true" signature="39862:40066" placeholder="..." />
+            <marker date="1423142170059" expanded="true" signature="39862:40066" placeholder="..." />
+            <marker date="1423142170059" expanded="false" signature="40272:40287" placeholder="..." />
+            <marker date="1423142170059" expanded="false" signature="40305:40335" placeholder="..." />
+            <marker date="1423142170059" expanded="false" signature="51682:51720" placeholder="..." />
+            <marker date="1423142170059" expanded="false" signature="51984:52019" placeholder="..." />
+            <marker date="1423142170059" expanded="false" signature="52087:52104" placeholder="..." />
+            <marker date="1423142170059" expanded="true" signature="52105:52306" placeholder="..." />
+            <marker date="1423142170059" expanded="true" signature="52105:52306" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

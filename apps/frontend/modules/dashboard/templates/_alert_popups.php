@@ -68,7 +68,7 @@
 
 <div class="dialog_for_calendar" style="display: none; overflow: hidden;" title="">
     <?php
-    //$date = date("d-M-Y");
+    /*//$date = date("d-M-Y");
     if(empty($_SESSION['symfony/user/sfUser/attributes']['sfGuardSecurityUser']['user_id']))
     {
         $survey_client_name = null;
@@ -85,7 +85,7 @@
         $name = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
         $survey_first_name = $name['first_name'];
         $survey_last_name = $name['last_name'];
-    }
+    }*/
 
     ?>
     <div class="page-header">
@@ -108,7 +108,7 @@
         <h3></h3>
     </div>
     <script type="text/javascript">
-
+/*
         var head_html = '<div style="line-height: 70%;"><h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm;"><?php echo $survey_client_name;?></h2><h2 style="text-align: right; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;"><i><?php echo $survey_first_name ." ".$survey_last_name;?></i></h2></div>';
 
         function CallPrint(strid) {
@@ -119,12 +119,14 @@
             WinPrint.focus();
             WinPrint.print();
             WinPrint.close();
-        }
+        }*/
     </script>
     <div id="calendar_div" style="padding-left: 45px;padding-right: 45px;padding-bottom: 15px;">
     </div>
-    <button class="print_calendar" id="print_calendar" onclick="javascript:CallPrint('calendar_div')">Print</button>
-
+    <form action="/index.php/print_calendar" method="post" id="print_calendar_form">
+        <input id="month_hidden" type="hidden" name="month" value="">
+        <button class="print_calendar" id="print_calendar" ><!--onclick="javascript:CallPrint('calendar_div')"-->Print</button>
+    </form>
 
 </div>
 <div class="dialog_for_map" style="display: none; overflow: hidden;" title="">

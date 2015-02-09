@@ -41,6 +41,10 @@ print_survey:
   url:   /print
   param: { module: dashboard, action: printSurvey }
 
+print_calendar:
+  url:   /print_calendar
+  param: { module: dashboard, action: printCalendar }
+
 help_page:
   url: /help
   param: { module: staticPages, action: help }

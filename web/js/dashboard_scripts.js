@@ -12,12 +12,6 @@
 
         $(document).ready(function() {
 
-            /*$(document).on('click', '#print_calendar', function() {
-                $('#print_calendar_form').submit();
-                return false;
-            })*/
-
-
             // calendar start
             /*var date = new Date();
             $('body').on('click','.event-item',function(e){
@@ -96,6 +90,9 @@
             }(jQuery));
 
             //calendar end
+
+
+
 
 
         //hide first empty checkbox
@@ -1815,8 +1812,8 @@
 
 
 
-
         });
+
 
         /**
          * Filtering by other parameters

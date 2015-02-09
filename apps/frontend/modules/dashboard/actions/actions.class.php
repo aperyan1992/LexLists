@@ -380,9 +380,101 @@ class dashboardActions extends sfActions {
      *
      * @return string       HTML for print
      */
-    /*public function executePrintCalendar(sfWebRequest $request) {
+    public function executePrintCalendar(sfWebRequest $request) {
+        $date = date("F o");
+        $datemonth = $_POST['month'];
+        $first_day = "01 ". $datemonth;
+        $first_day = strtotime($first_day);
+        $first_day = date('Y-m-d', $first_day);
+        $last_day = strtotime($first_day." + 1 month - 1 day");
+        $last_day = date('Y-m-d', $last_day);
 
-    }*/
+        $session_user_id = $_SESSION['symfony/user/sfUser/attributes']['sfGuardSecurityUser']['user_id'];
+
+        $query1 = 'SELECT c.`name` FROM `clients` AS c JOIN `sf_guard_user` AS sgu ON sgu.`client_id` = c.`id` WHERE sgu.`id` = '. $session_user_id.'';
+        $name1 = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query1)->fetch();
+        $survey_client_name = $name1['name'];
+
+        $query = 'SELECT `first_name`, `last_name` FROM `sf_guard_user` WHERE `id` = '.$session_user_id.'';
+        $name = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
+        $survey_first_name = $name['first_name'];
+        $survey_last_name = $name['last_name'];
+
+        $checkingquery = 'SELECT `s`.`id`, `s`.`survey_name`, `s`.`submission_deadline`, `o`.`name` FROM `surveys` AS `s` JOIN `organizations` AS `o` ON `s`.`organization_id` = `o`.`id` WHERE `s`.`submission_deadline` >= "'.$first_day.'" AND `s`.`submission_deadline` <= "'.$last_day.'" ORDER BY `s`.`submission_deadline`';
+        $resultupdate = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($checkingquery)->fetchAll();
+
+        $this->getContext()->getConfiguration()->loadHelpers('tcpdf_include','tcpdf');
+
+        $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        $pdf->SetPrintHeader(false);
+        $pdf->SetPrintFooter(true);
+        $pdf->setFooterData(array(0,0,0), array(255,255,255));
+        $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+        $pdf->SetMargins(PDF_MARGIN_LEFT, /*PDF_MARGIN_TOP,*/'', PDF_MARGIN_RIGHT);
+        $pdf->SetTopMargin(16);
+        $pdf->SetLeftMargin(40);
+        $pdf->SetRightMargin(40);
+        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+        $pdf->setFontSubsetting(true);
+        $pdf->SetFont('dejavusans', '', 12, '', true);
+        $pdf->AddPage();
+        $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
+        $pdf->SetFooterMargin(20);
+        $pdf->SetLeftMargin(105);
+
+        $pdf->SetLeftMargin(20);
+        $html1 = '<h3 style="font-size: 5mm; line-height: 100%;">Lex<span style="color:#ff6801; font-size: 5mm;">Lists</span></h3>';
+        $pdf->writeHTML($html1, true, false, true, false, '');
+
+        $pdf->Text(150, 10, '');
+        $pdf->SetLeftMargin(155);
+        $pdf->SetRightMargin(20);
+        $html4 ='
+               <div style="line-height: 70%;">
+                   <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm;">'.$survey_client_name.'</h2>
+                   <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;"><i>'.$survey_first_name.'&nbsp;'.$survey_last_name.'</i></h2>
+
+               </div>';
+
+        $pdf->writeHTML($html4, true, false, true, false, '');
+
+        $pdf->SetLeftMargin(105);
+        $pdf->Text(100, 20, '');
+        $html ='
+                <div style="line-height: 70%;">
+                    <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;">'.$datemonth.'</h2>
+                </div>';
+        $pdf->writeHTML($html, true, false, true, false, '');
+
+        $pdf->SetLeftMargin(20);
+        $pdf->SetRightMargin(20);
+        $pdf->Text(10, 40, '');
+        $html = '<div style="line-height: 100%;">';
+        $deaslines_array = array();
+        foreach($resultupdate as $res)
+        {
+            $deaslines_array [$res['submission_deadline']][] = $res['survey_name'].', '.$res['name'];
+        }
+        foreach($deaslines_array as $date=>$deadline)
+        {
+            $html .='
+                    <h2 style="text-align: left; font-family: Georgia, serif; font-size: 4.5mm;">'.date('j F Y', strtotime($date)).'</h2>';
+
+            foreach($deadline as $value)
+            {
+                $html .='
+                    <h2 style="text-align: left; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;">- '.$value.'</h2>';
+            }
+        }
+        $html .='</div>';
+        $pdf->writeHTML($html, true, false, true, false, '');
+
+        $pdf->Output("LexLists-$survey_first_name-$survey_last_name-$date.pdf", 'I');die;
+    }
     
     /**
      * Printing of surveys

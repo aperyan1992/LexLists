@@ -597,21 +597,22 @@ class dashboardActions extends sfActions {
         $pdf->Text(10, 40, '');
         $html = '<div style="line-height: 100%;">';
         $deaslines_array = array();
+        $i = 0;
         foreach($resultupdate as $res)
         {
-            $deaslines_array [$res['submission_deadline']][] = $res['survey_name'];
-            $deaslines_names_array [$res['survey_name']][] = $res['name'];
+            $deaslines_array [$res['submission_deadline']][$i]['survey_name'] = $res['survey_name'];
+            $deaslines_array [$res['submission_deadline']][$i]['name'] = $res['name'];
+            $i++;
         }
         foreach($deaslines_array as $date=>$deadline)
         {
             $html .='
                     <h2 style="text-align: left; font-family: Georgia, serif; font-size: 4.5mm;">'.date('j F Y', strtotime($date)).'</h2>';
 
-            foreach($deaslines_names_array as $key=>$value)
+            foreach($deadline as $value)
             {
-
                 $html .='
-                    <h2 style="text-align: left; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;">- <i>'.$key."</i>, ".$value[0].'</h2>';
+                    <h2 style="text-align: left; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;">- <i>'.$value['survey_name']."</i>, ".$value['name'].'</h2>';
             }
         }
         $html .='</div>';

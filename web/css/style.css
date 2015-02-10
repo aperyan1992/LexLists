@@ -453,6 +453,12 @@
     margin-top: 2px;
 }
 
+#report_surveys_years_wrapper th div.genericon {
+    font-size: 16px !important;
+    font-family: 'Genericons' !important;
+    margin-top: 2px;
+}
+
 /**
  * IE7 and IE6 hacks
  */
@@ -2332,7 +2338,7 @@ div.tooltip p {
     margin-bottom: 20px;
 }
 
-#survey_logs_info, #report_surveys_info, #office_table_info {
+#survey_logs_info, #report_surveys_info, #report_surveys_years_info, #office_table_info {
     font-size: 13px;
     color: #666666;
 }
@@ -3098,6 +3104,7 @@ div.tooltip p {
 #practice_group_notes_wrapper label,
 #survey_logs_wrapper label,
 #report_surveys_wrapper label,
+#report_surveys_years_wrapper label,
 #office_table_wrapper label,
 #past_rankings_wrapper label,
 #head_of_department_wrapper label,
@@ -3150,6 +3157,7 @@ div.tooltip p {
 #survey_logs_wrapper select,
 #reminders_logs_wrapper select,
 #report_surveys_wrapper select,
+#report_surveys_years_wrapper select,
 #office_table_wrapper select,
 #past_rankings_wrapper select,
 #head_of_department_wrapper select,
@@ -3877,7 +3885,16 @@ input[readonly] {
     /*border: 1px solid #d4ccb0 !important;*/
 }
 
+#report_surveys_years tbody td {
+    /*border: 1px solid #d4ccb0 !important;*/
+}
+
 #report_surveys_table .ui-state-default {
+    border: none;
+    background: none;
+}
+
+#report_surveys_years_table .ui-state-default {
     border: none;
     background: none;
 }
@@ -3889,7 +3906,18 @@ input[readonly] {
     padding: 0px !important;
 }
 
+#report_surveys_years thead th {
+    /*    padding-top: 0px !important;
+        padding-bottom: 0px !important;
+        padding-right: 0px !important;*/
+    padding: 0px !important;
+}
+
 #report_surveys_table .dataTables_scrollHeadInner table.dataTable thead th {
+    padding: 3px 0px 3px 0px !important;
+}
+
+#report_surveys_years_table .dataTables_scrollHeadInner table.dataTable thead th {
     padding: 3px 0px 3px 0px !important;
 }
 
@@ -4095,7 +4123,18 @@ fieldset.disp-block{
     font-size: 13px !important;
 }
 
+#report_surveys_years_wrapper th div, #report_surveys_years tr td {
+    font-family: segoe ui,Arial,sans-serif !important;
+    font-size: 13px !important;
+}
+
 #report_surveys_wrapper select {
+    font-family: segoe ui,Arial,sans-serif !important;
+    font-size: 13px !important;
+
+}
+
+#report_surveys_years_wrapper select {
     font-family: segoe ui,Arial,sans-serif !important;
     font-size: 13px !important;
 }
@@ -4113,6 +4152,11 @@ fieldset.disp-block{
 #report_surveys_table .dataTable {
     max-width: none !important;
 }
+
+#report_surveys_years_table .dataTable {
+    max-width: none !important;
+}
+
 
 /*************************************************************/
 
@@ -4470,6 +4514,10 @@ fieldset.disp-block{
 /*****************************************/
 
 /************ Filters ********************/
+.other_filters_block input[type=checkbox][disabled] {
+    cursor: wait !important;
+}
+
 .other_filters_block h3, .deadline h3{
     /*border: 1px solid #666;*/
     padding: 5px;

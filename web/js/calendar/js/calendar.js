@@ -35,10 +35,31 @@ if(!String.prototype.formatNum) {
 		return r;
 	};
 }
+
+function CallPrint(strid) {
+    var head_html = '<div style="line-height: 70%;"><h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm;"></h2><h2 style="text-align: right; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;"><i></i></h2></div>';
+    var prtContent = document.getElementById(strid);
+    var WinPrint = window.open('', '', 'letf=0,top=0,width=1000,auto,toolbar=0,scrollbars=0,status=0');
+    WinPrint.document.write(head_html + prtContent.innerHTML);
+    WinPrint.document.close();
+    WinPrint.focus();
+    WinPrint.print();
+    WinPrint.close();
+}
+
 $(document).on('click', '#print_calendar', function() {
-    $('#month_hidden').val($('.page-header > h3').text());
-    $('#print_calendar_form').submit();
-    return false;
+
+    if($('.page-header .pull-right .btn-group button:contains("Month")').hasClass("active"))
+    {
+        $('#month_hidden').val($('.page-header > h3').text());
+        $('#print_calendar_form').submit();
+    }
+    else
+    {
+        CallPrint('calendar_div');
+        return false;
+    }
+
 });
 (function($) {
 

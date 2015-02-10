@@ -69,6 +69,30 @@ class LtSurveyTable extends Doctrine_Table {
         return $q->execute();
     }
 
+    public function getSurveysByYear() {
+        $year = date('o');
+
+        $q = $this->createQuery('s')
+            ->leftJoin('s.Contact c')
+            ->leftJoin("s.Organization o")
+            ->leftJoin("s.LtSurveyCity s_city")
+            ->leftJoin("s_city.City city")
+            ->leftJoin("s.Region region")
+            ->leftJoin("s.LtSurveyState ss")
+            ->leftJoin("ss.State state")
+            ->leftJoin("s.LtSurveyCountry sc")
+            ->leftJoin("sc.Country country")
+            ->leftJoin("s.LtSurveySpecialCriteria ssc")
+            ->leftJoin("ssc.SpecialCriteria")
+            ->leftJoin("s.LtSurveyPracticeArea spa")
+            ->leftJoin('spa.PracticeArea pa')
+            ->leftJoin('pa.MainPracticeArea mpa')
+            ->where('s.year = ?', (int)$year);
+        $q->orderBy('s.year ASC');
+
+        return $q->execute();
+    }
+
     public function getSurveysDeadlines() {
         $checkingquery = 'SELECT `s`.`id`, `s`.`survey_name`, `s`.`submission_deadline`, `o`.`name` FROM `surveys` AS `s` JOIN `organizations` AS `o` ON `s`.`submission_deadline` != "0000-00-00" AND `s`.`organization_id` = `o`.`id`';
         $resultupdate = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($checkingquery)->fetchAll();

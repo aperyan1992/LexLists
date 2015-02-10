@@ -12,7 +12,10 @@
 
         $(document).ready(function() {
 
-            // calendar start
+            $('#2015').prop( "checked", true );
+
+            // Calendar start
+
             /*var date = new Date();
             $('body').on('click','.event-item',function(e){
                 console.log($('.event-item'));
@@ -1461,6 +1464,36 @@
 
         //*******end us states map *******//
 
+            var report_data_table_years = $("#report_surveys_years").dataTable({
+                "autoWidth":true,
+                "sDom": '<"H"flr>t<"F"ip>',
+                "bDestroy":true,
+                "bJQueryUI": true,
+                "bRetrieve": true,
+                "aaSorting": [],
+                "bProcessing": true,
+                "sServerMethod": "POST",
+                "sAjaxSource": "/dashboard/GetSurveysByYear",
+                "bDeferRender": true,
+                "iDisplayLength": 25,
+                "aLengthMenu": [
+                    [10, 25, 50, 100, -1],
+                    [10, 25, 50, 100, "All"]
+                ],
+                "sScrollX": "100%",
+                "bScrollCollapse": true,
+                "oLanguage": {
+                    "sInfo"      : "_END_ of _TOTAL_ entries",
+                    "sInfoEmpty" : "_END_ of _TOTAL_ entries",
+                    "sLengthMenu": "Display _MENU_"
+                },
+                "aoColumnDefs": [
+                    { "sClass": "datatable_td_align_center", "aTargets": ["_all"]},
+                    { "bVisible": false, "aTargets": [ 4,5,6,8,9,10,12,13,14 ] },
+                    { "bVisible": true, "aTargets": [ 0,1,2,3,7,11 ] },
+                    { "bSortable": false, "aTargets": [ 0 ] }
+                ]
+            });
 
             var report_data_table = $("#report_surveys").dataTable({
                 "autoWidth":true,
@@ -1492,6 +1525,10 @@
                     { "bSortable": false, "aTargets": [ 0 ] }
                 ]
             });
+
+            $('#report_surveys').hide();
+            $('#report_surveys_wrapper').hide();
+
             /**
              *  Add tooltip for search field in dataTable
              */
@@ -1499,6 +1536,12 @@
 
             // Filtering
             $(".other_filters_block input:checkbox").change(function() {
+
+                $('#report_surveys_years').hide();
+                $('#report_surveys_years_wrapper').hide();
+                $('#report_surveys_wrapper').show();
+                $('#report_surveys').show();
+
                 filterByOtherParameters(report_data_table, $(this));
             });
 
@@ -1784,6 +1827,7 @@
                 $("#hidden_filters_block select").html('<option value="0"></option>');
 
                 // Reset filters
+                report_data_table_years.fnFilter('');
                 report_data_table.fnFilter('');
                 var colCount = report_data_table.fnGetData(0).length;
                 for (var i = 0; i <= colCount; i++) {

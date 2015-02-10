@@ -113,7 +113,7 @@
 
         function CallPrint(strid) {
             var prtContent = document.getElementById(strid);
-            var WinPrint = window.open('', '', 'letf=0,top=0,width=100,auto,toolbar=0,scrollbars=0,status=0');
+            var WinPrint = window.open('', '', 'letf=0,top=0,width=1000,auto,toolbar=0,scrollbars=0,status=0');
             WinPrint.document.write(head_html + prtContent.innerHTML);
             WinPrint.document.close();
             WinPrint.focus();
@@ -123,7 +123,7 @@
     </script>
     <div id="calendar_div" style="padding-left: 45px;padding-right: 45px;padding-bottom: 15px;">
     </div>
-    <form action="/index.php/print_calendar" method="post" id="print_calendar_form">
+    <form action="/index.php/print_calendar" target="_blank" method="post" id="print_calendar_form">
         <input id="month_hidden" type="hidden" name="month" value="">
         <button class="print_calendar" id="print_calendar" ><!--onclick="javascript:CallPrint('calendar_div')"-->Print</button>
     </form>

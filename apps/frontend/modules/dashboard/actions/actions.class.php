@@ -279,6 +279,148 @@ class dashboardActions extends sfActions {
         $this->redirect404();
     }
 
+    public function executeGetSurveysByYear(sfWebRequest $request) {
+        if ($request->isXmlHttpRequest()) {
+            $i = 0;
+
+            // Get all surveys
+            $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByYear();
+
+            if (isset($surveys) && $surveys->getFirst()) {
+
+                $aa_data_array = array("aaData" => array());
+
+                foreach ($surveys as $survey) {
+
+                    // Set survey checkbox
+                    $survey_checkbox = "<input type='checkbox' class='table_checkbox' style='float:left' s_id='" . $survey->getId() . "' />"."<a href='#' style='float:right' class='custom_link email_link' s_id='" . $survey->getId() . "'><span class='genericon genericon-mail'></span></a>";
+
+                    // Set year
+                    $year = (!is_null($survey->getYear()) && $survey->getYear() != "" && $survey->getYear() != 0) ? $survey-> getYear() : "- - -";
+
+                    // Set organization
+                    $organization = (!is_null($survey->getOrganizationId()) && $survey->getOrganizationId() != "") ? $this->CheckStringLength($survey->getOrganization()->getName(), 50) : "- - -";
+
+                    // Set survey name
+                    //$survey_name = (!is_null($survey->getSurveyName()) && $survey->getSurveyName() != "") ? $this->CheckStringLength($survey->getSurveyName()) : "- - -";
+                    $survey_name = (!is_null($survey->getSurveyName()) && $survey->getSurveyName() != "") ? $this->CheckStringLength($survey->getSurveyName(), 50) : "- - -";
+
+                    // Set survey name link
+                    $survey_name_link = "<a href='#' class='custom_link details_link' s_id='" . $survey->getId() . "'>" . $this->CheckStringLength($survey_name, 50) . "</a>";
+
+                    // Set candidate type
+                    $candidate_type = (isset(LtSurvey::$candidate_types_array[$survey->getCandidateType()]) && !is_null($survey->getCandidateType()) && $survey->getCandidateType() != "" && $survey->getCandidateType() != "0") ? $this->CheckStringLength(LtSurvey::$candidate_types_array[$survey->getCandidateType()], 50) : "- - -";
+
+                    // Set practice area
+                    $practice_areas = "- - -";
+                    if ($survey->getLtSurveyPracticeArea()->getFirst()) {
+                        $practice_area_array = array();
+                        foreach ($survey->getLtSurveyPracticeArea() as $practice_area) {
+                            $practice_area_array[] = $practice_area->getPracticeArea()->getShortCode();
+                        }
+
+                        $practice_areas = $this->CheckStringLength(implode(", ", $practice_area_array), 50);
+                    }
+
+                    // Set special criteria
+                    $special_criterias = "- - -";
+                    if ($survey->getLtSurveySpecialCriteria()->getFirst()) {
+                        $special_criteria_array = array();
+                        foreach ($survey->getLtSurveySpecialCriteria() as $special_criteria) {
+                            $special_criteria_array[] = $special_criteria->getSpecialCriteria()->getName();
+                        }
+
+                        $special_criterias = $this->CheckStringLength(implode(", ", $special_criteria_array), 50);
+                    }
+
+                    // Set region
+                    $region = (!is_null($survey->getSurveyRegionId()) && $survey->getSurveyRegionId() != "") ? $this->CheckStringLength($survey->getRegion()->getName(), 50) : "- - -";
+
+                    // Set cities
+                    $cities = "- - -";
+                    if ($survey->getLtSurveyCity()->getFirst()) {
+                        $cities_array = array();
+                        foreach ($survey->getLtSurveyCity() as $city) {
+                            $cities_array[] = $city->getCity()->getName();
+                        }
+
+                        $cities = $this->CheckStringLength(implode(", ", $cities_array), 50);
+                    }
+
+                    // Set states
+                    $states = "- - -";
+                    if ($survey->getLtSurveyState()->getFirst()) {
+                        $states_array = array();
+                        foreach ($survey->getLtSurveyState() as $state) {
+                            $states_array[] = $state->getState()->getName();
+                        }
+
+                        $states = $this->CheckStringLength(implode(", ", $states_array), 50);
+                    }
+
+                    // Set countries
+                    $countries = "- - -";
+                    if ($survey->getLtSurveyCountry()->getFirst()) {
+                        $countries_array = array();
+                        foreach ($survey->getLtSurveyCountry() as $country) {
+                            $countries_array[] = $country->getCountry()->getName();
+                        }
+
+                        $countries = $this->CheckStringLength(implode(", ", $countries_array), 50);
+                    }
+
+                    // Set submission deadline
+                    $submission_deadline = (!is_null($survey->getSubmissionDeadline()) && $survey->getSubmissionDeadline() != "") ? $this->CheckStringLength($survey->getSubmissionDeadline(), 50) : "- - -";
+
+                    // Set eligibility
+                    $eligibility = (!is_null($survey->getEligibilityCriteria()) && $survey->getEligibilityCriteria() != "") ? $this->CheckStringLength($survey->getShortEligibilityCriteria(), 50) : "- - -";
+
+                    // Set description
+                    $description = (!is_null($survey->getSurveyDescription()) && $survey->getSurveyDescription() != "") ? $this->CheckStringLength($survey->getShortSurveyDescription(), 50) : "- - -";
+
+                    // Set methodology
+                    $methodology = (!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != "") ? $this->CheckStringLength($survey->getShortSelectionMethodology(), 50) : "- - -";
+
+                    // Set email
+                    $email_link = null;//"<a href='#' class='custom_link email_link' s_id='" . $survey->getId() . "'><span class='genericon genericon-mail'></span></a>";
+
+
+                    $aa_data_array['aaData'][$i] = array(
+                        $survey_checkbox,
+                        $year,
+                        $organization,
+                        $survey_name_link,
+                        $candidate_type,
+                        $practice_areas,
+                        $special_criterias,
+                        $region,
+                        $cities,
+                        $states,
+                        $countries,
+                        $submission_deadline,
+                        $eligibility,
+                        $description,
+                        $methodology,
+                        //$email_link,
+                    );
+
+                    $i++;
+                }
+
+                $response_array = $aa_data_array;
+            } else {
+                $response_array = array("aaData" => array());
+            }
+            return $this->renderText(
+                json_encode(
+                    $response_array
+                )
+            );
+        }
+
+        $this->redirect404();
+    }
+
     protected function CheckStringLength($string, $length)
     {
         if (strlen($string) > $length) {
@@ -457,17 +599,19 @@ class dashboardActions extends sfActions {
         $deaslines_array = array();
         foreach($resultupdate as $res)
         {
-            $deaslines_array [$res['submission_deadline']][] = $res['survey_name'].', '.$res['name'];
+            $deaslines_array [$res['submission_deadline']][] = $res['survey_name'];
+            $deaslines_names_array [$res['survey_name']][] = $res['name'];
         }
         foreach($deaslines_array as $date=>$deadline)
         {
             $html .='
                     <h2 style="text-align: left; font-family: Georgia, serif; font-size: 4.5mm;">'.date('j F Y', strtotime($date)).'</h2>';
 
-            foreach($deadline as $value)
+            foreach($deaslines_names_array as $key=>$value)
             {
+
                 $html .='
-                    <h2 style="text-align: left; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;">- '.$value.'</h2>';
+                    <h2 style="text-align: left; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;">- <i>'.$key."</i>, ".$value[0].'</h2>';
             }
         }
         $html .='</div>';
@@ -1313,6 +1457,10 @@ class dashboardActions extends sfActions {
                 // Get recipient email address
                 $recipient_email_address = $user->getEmailAddress();
 
+                //Get user first name and last name
+                $recipient_first_name = $user->getFirstName();
+                $recipient_last_name = $user->getLastName();
+
                 return $this->renderText(
                     json_encode(
                         array(
@@ -1333,7 +1481,7 @@ class dashboardActions extends sfActions {
                             "survey_id"              => $s_id,
                             "created_date"           => $created_date,
                             "updated_date"           => $updated_date,
-                            "user_email"             => $recipient_email_address
+                            "user_email"             => /*$recipient_email_address*/$recipient_first_name." ".$recipient_last_name
                         )
                     )
                 );

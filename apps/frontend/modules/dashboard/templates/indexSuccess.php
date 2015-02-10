@@ -190,6 +190,32 @@
                     </thead>
                     <tbody></tbody>
                 </table>
+
+                <table id="report_surveys_years">
+                    <thead>
+                    <tr>
+                        <th style="width:45px !important;"><input type="checkbox" style="float:left;margin-left:0px" id="table_checkbox_select_all" class="main_table_checkbox" />  <span style="margin-left:5px;border-left: 1px solid #d4ccb0;width:19px;height:34px;position:absolute;">&nbsp;</span></th>
+
+                        <th style="width: 60px !important">Year</th>
+
+                        <th>Organization</th>
+                        <th>Award</th>
+                        <th>Candidate Type</th>
+                        <th>Practice Area/Industry</th>
+                        <th>Special Criteria</th>
+                        <th>Region</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Country</th>
+                        <th>Deadline</th>
+
+                        <th>Eligibility</th>
+                        <th>Description</th>
+                        <th>Methodology</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
             </div>
         </div>
     </div>

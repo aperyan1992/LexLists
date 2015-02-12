@@ -12,6 +12,7 @@
 
         $(document).ready(function() {
 
+            $('.year div').show();
             $('#2015').prop( "checked", true );
 
             // Calendar start

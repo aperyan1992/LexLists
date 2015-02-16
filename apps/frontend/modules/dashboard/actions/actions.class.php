@@ -10,11 +10,6 @@
  */
 class dashboardActions extends sfActions {
 
-    /**
-     * Executes index action
-     *
-     * @param sfRequest $request A request object
-     */
 
     public function executeCalendar(sfWebRequest $request) {
 
@@ -25,7 +20,6 @@ class dashboardActions extends sfActions {
         $newarray = array();
         foreach($surveys as $key=>$survey)
         {
-
             $newarray[$key]['id'] = $survey['id'];
             $newarray[$key]['title'] = $survey['survey_name'] . ", " . $survey['name'];
             //$newarray[$key]['url'] = '';
@@ -37,6 +31,11 @@ class dashboardActions extends sfActions {
         echo json_encode($result);die;
     }
 
+    /**
+     * Executes index action
+     *
+     * @param sfRequest $request A request object
+     */
     public function executeIndex(sfWebRequest $request) {
         // Get surveys years
         $this->surveys_years = Doctrine_Core::getTable('LtSurvey')->getSurveysYears();
@@ -604,6 +603,7 @@ class dashboardActions extends sfActions {
             $deaslines_array [$res['submission_deadline']][$i]['name'] = $res['name'];
             $i++;
         }
+
         foreach($deaslines_array as $date=>$deadline)
         {
             $html .='

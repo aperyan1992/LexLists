@@ -73,6 +73,10 @@
                     </form>
                 </div>
             </div>
+
+            <div class="jsmap">
+                <h3 class="custom_color calendar_link" title="A way to Calendar">Calendar<i class="filter_arrow"></i></h3>
+            </div>
             
         </div>
 

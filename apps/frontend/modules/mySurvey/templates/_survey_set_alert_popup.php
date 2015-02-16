@@ -254,6 +254,37 @@
 <!--            </tr>-->
 <!--        </table>-->
 <!--    </form>-->
+
+    <div class="dialog_for_calendar_my_list" style="display: none; overflow: hidden;" title="">
+
+        <div class="page-header">
+
+            <div class="pull-right form-inline">
+                <div class="btn-group">
+                    <button class="btn btn-warning" data-calendar-nav="prev">&lt;&lt; Prev</button>
+                    <button class="btn" data-calendar-nav="today">Today</button>
+                    <button class="btn btn-warning" data-calendar-nav="next">Next &gt;&gt;</button>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-warning" data-calendar-view="year">Year</button>
+                    <button class="btn btn-warning active" data-calendar-view="month">Month</button>
+                    <button class="btn btn-warning" data-calendar-view="week">Week</button>
+                    <!--<button class="btn btn-warning" data-calendar-view="day">Day</button>-->
+                </div>
+            </div>
+
+
+            <h3></h3>
+        </div>
+
+        <div id="calendar_div_my_list" style="padding-left: 45px;padding-right: 45px;padding-bottom: 15px;">
+        </div>
+        <form action="/index.php/print_calendar_list" target="_blank" method="post" id="print_calendar_form">
+            <input id="month_hidden_list" type="hidden" name="month" value="">
+            <button class="print_calendar" id="print_calendar" ><!--onclick="javascript:CallPrint('calendar_div')"-->Print</button>
+        </form>
+
+    </div>
 </div>
 
 

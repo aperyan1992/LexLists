@@ -10,6 +10,40 @@
  */
 class mySurveyActions extends sfActions {
 
+    public function executeCalendar(sfWebRequest $request) {
+
+    }
+
+    public function executeCalendarDates() {
+        // Get all my surveys ids
+        $surveys_ids = Doctrine_Core::getTable("LtSurvey")->getAllMySyrveysListIds();
+        $all_my_surveys = array();
+        foreach($surveys_ids as $survey_id)
+        {
+            // Get all my surveys
+            $all_my_surveys[] = Doctrine_Core::getTable("LtSurvey")->getAllMySyrveysList($survey_id['survey_id']);
+
+        }
+
+        $newarray = array();
+        foreach($all_my_surveys as $key=>$survey)
+        {
+            foreach($survey as $s)
+            {
+                $newarray[$key]['id'] = $s['id'];
+                $newarray[$key]['title'] = $s['survey_name'] . ", " . $s['name'];
+                //$newarray[$key]['url'] = '';
+                $newarray[$key]['class'] = "event-warning";
+                $newarray[$key]['start'] = (string)(strtotime($s['submission_deadline'])* 1000);
+                $newarray[$key]['end'] = (string)(strtotime($s['submission_deadline'])* 1000);
+            }
+
+        }
+
+        $result = array("success" => 1, "result"=> $newarray);
+        echo json_encode($result);die;
+    }
+
     /**
      * Executes index action
      *
@@ -86,6 +120,119 @@ class mySurveyActions extends sfActions {
         }
     }
 
+
+    /**
+     * Printing of calendar
+     *
+     * @param sfWebRequest $request     Request object
+     *
+     * @return string       HTML for print
+     */
+    public function executePrintCalendar(sfWebRequest $request) {
+        $date = date("F o");
+        $datemonth = $_POST['month'];
+        $first_day = "01 ". $datemonth;
+        $first_day = strtotime($first_day);
+        $first_day = date('Y-m-d', $first_day);
+        $last_day = strtotime($first_day." + 1 month - 1 day");
+        $last_day = date('Y-m-d', $last_day);
+
+        $session_user_id = $_SESSION['symfony/user/sfUser/attributes']['sfGuardSecurityUser']['user_id'];
+
+        $query1 = 'SELECT c.`name` FROM `clients` AS c JOIN `sf_guard_user` AS sgu ON sgu.`client_id` = c.`id` WHERE sgu.`id` = '. $session_user_id.'';
+        $name1 = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query1)->fetch();
+        $survey_client_name = $name1['name'];
+
+        $query = 'SELECT `first_name`, `last_name` FROM `sf_guard_user` WHERE `id` = '.$session_user_id.'';
+        $name = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
+        $survey_first_name = $name['first_name'];
+        $survey_last_name = $name['last_name'];
+
+        // Get all my surveys
+        $surveys = Doctrine_Core::getTable("LtSurvey")->getAllMySyrveysMonthList($first_day, $last_day);
+
+        $this->getContext()->getConfiguration()->loadHelpers('tcpdf_include','tcpdf');
+
+        $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        $pdf->SetPrintHeader(false);
+        $pdf->SetPrintFooter(true);
+        $pdf->setFooterData(array(0,0,0), array(255,255,255));
+        $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+        $pdf->SetMargins(PDF_MARGIN_LEFT, /*PDF_MARGIN_TOP,*/'', PDF_MARGIN_RIGHT);
+        $pdf->SetTopMargin(16);
+        $pdf->SetLeftMargin(40);
+        $pdf->SetRightMargin(40);
+        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+        $pdf->setFontSubsetting(true);
+        $pdf->SetFont('dejavusans', '', 12, '', true);
+        $pdf->AddPage();
+        $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
+        $pdf->SetFooterMargin(20);
+        $pdf->SetLeftMargin(105);
+
+        $pdf->SetLeftMargin(20);
+        $html1 = '<h3 style="font-size: 5mm; line-height: 100%;">Lex<span style="color:#ff6801; font-size: 5mm;">Lists</span></h3>';
+        $pdf->writeHTML($html1, true, false, true, false, '');
+
+        $pdf->Text(150, 10, '');
+        $pdf->SetLeftMargin(155);
+        $pdf->SetRightMargin(20);
+        $html4 ='
+               <div style="line-height: 70%;">
+                   <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm;">'.$survey_client_name.'</h2>
+                   <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;"><i>'.$survey_first_name.'&nbsp;'.$survey_last_name.'</i></h2>
+
+               </div>';
+
+        $pdf->writeHTML($html4, true, false, true, false, '');
+
+        $pdf->SetLeftMargin(105);
+        $pdf->Text(100, 20, '');
+        $html ='
+                <div style="line-height: 70%;">
+                    <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;">'.$datemonth.'</h2>
+                </div>';
+        $pdf->writeHTML($html, true, false, true, false, '');
+
+        $pdf->SetLeftMargin(20);
+        $pdf->SetRightMargin(20);
+        $pdf->Text(10, 40, '');
+        $html = '<div style="line-height: 100%;">';
+        $deaslines_array = array();
+        $i = 0;
+
+        foreach($surveys as $survey)
+        {
+            $deaslines_array [$survey['submission_deadline']][$i]['survey_name'] = $survey['survey_name'];
+            $deaslines_array [$survey['submission_deadline']][$i]['name'] = $survey['name'];
+            $i++;
+
+        }
+
+        foreach($deaslines_array as $date=>$deadline)
+        {
+            $html .='
+                    <h2 style="text-align: left; font-family: Georgia, serif; font-size: 4.5mm;">'.date('j F Y', strtotime($date)).'</h2>';
+
+            foreach($deadline as $d)
+            {
+                $html .='
+                    <h2 style="text-align: left; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;">- <i>'.$d['survey_name']."</i>, ".$d['name'].'</h2>';
+            }
+
+        }
+
+        $html .='</div>';
+        $pdf->writeHTML($html, true, false, true, false, '');
+
+        $pdf->Output("LexLists-$survey_first_name-$survey_last_name-$date.pdf", 'I');die;
+    }
+
+
     /**
      * Get my surveys with ajax request
      * 
@@ -99,7 +246,7 @@ class mySurveyActions extends sfActions {
 
             // Get all surveys
             $surveys = Doctrine_Core::getTable("LtMySurvey")->getAllMySyrveys($this->getUser()->getGuardUser()->getId());
-            
+
             if (isset($surveys) && $surveys->getFirst()) {
                 $aa_data_array = array("aaData" => array());
 

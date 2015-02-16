@@ -100,6 +100,27 @@ class LtSurveyTable extends Doctrine_Table {
         return $resultupdate;
     }
 
+    public function getAllMySyrveysListIds() {
+        $checkingquery = 'SELECT `survey_id` FROM `my_surveys`';
+        $resultupdate = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($checkingquery)->fetchAll();
+
+        return $resultupdate;
+    }
+
+    public function getAllMySyrveysList($id) {
+        $checkingquery = 'SELECT `s`.`id`, `s`.`survey_name`, `s`.`submission_deadline`, `o`.`name` FROM `surveys` AS `s` JOIN `organizations` AS `o` ON `s`.`organization_id` = `o`.`id` WHERE `s`.`id` = '.$id.'';
+        $resultupdate = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($checkingquery)->fetchAll();
+
+        return $resultupdate;
+    }
+
+    public function getAllMySyrveysMonthList($first_day, $last_day) {
+        $checkingquery = 'SELECT `s`.`id`, `s`.`survey_name`, `s`.`submission_deadline`, `o`.`name` FROM `surveys` AS `s` JOIN `organizations` AS `o` ON `s`.`organization_id` = `o`.`id` JOIN `my_surveys` AS `m_s` ON `s`.`id` = `m_s`.`survey_id` WHERE `s`.`submission_deadline` >= "'.$first_day.'" AND `s`.`submission_deadline` <= "'.$last_day.'" ORDER BY `s`.`submission_deadline` ASC';
+        $resultupdate = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($checkingquery)->fetchAll();
+
+        return $resultupdate;
+    }
+
     /**
      * Get full information about survey
      * 

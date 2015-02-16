@@ -14,19 +14,49 @@
 
 <script>
     function survey_info(id){
-        $.ajax({
-            url: "/dashboard/getSurveyInfo",
-            type: "POST",
-            data: {
-                survey_id: id
-            },
-            dataType: "json",
-            success: function(data) {
-                $("#dialog_form_survey_details").data(data).dialog("open");
-            },
-            error: function() {
-                openErrorPopupWindow('dialog_error_alert', 'Error !!!');
-            }
-        });
+        var url = document.URL;
+        if(url.search("my_list") == -1)
+        {
+            $.ajax({
+                url: "/dashboard/getSurveyInfo",
+                type: "POST",
+                data: {
+                    survey_id: id
+                },
+                dataType: "json",
+                success: function(data) {
+                    $("#dialog_form_survey_details").data(data).dialog("open");
+                },
+                error: function() {
+                    openErrorPopupWindow('dialog_error_alert', 'Error !!!');
+                }
+            });
+        }
+        else
+        {
+            $.ajax({
+                url: "/mySurvey/getSurveyInfo",
+                type: "POST",
+                data: {
+                    survey_id: id
+                },
+                dataType: "json",
+                success: function(data) {
+                    var s_id = data.survey_id;
+
+                    $.getJSON("/mySurvey/getMySurveyNotes?s_id=" + s_id, null, function (json) {
+                        notes_table.fnClearTable();
+                        notes_table.fnAddData(json.aaData);
+                        notes_table.fnDraw();
+                    });
+
+                    $("#dialog_form_survey_details_for_my_lists").data(data).dialog("open");
+                },
+                error: function() {
+                    openErrorPopupWindow('dialog_error_alert', 'Error !!!');
+                }
+            });
+        }
+
     }
 </script>

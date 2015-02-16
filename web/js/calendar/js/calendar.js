@@ -51,12 +51,30 @@ $(document).on('click', '#print_calendar', function() {
 
     if($('.page-header .pull-right .btn-group button:contains("Month")').hasClass("active"))
     {
-        $('#month_hidden').val($('.page-header > h3').text());
+        var url = document.URL;
+        if(url.search("my_list") == -1)
+        {
+            $('#month_hidden').val('');
+            $('#month_hidden').val($('.dialog_for_calendar .page-header > h3').text());
+        }
+        else
+        {
+            $('#month_hidden_list').val('');
+            $('#month_hidden_list').val($('.dialog_for_calendar_my_list .page-header > h3').text());
+        }
         $('#print_calendar_form').submit();
     }
     else
     {
-        CallPrint('calendar_div');
+        var url = document.URL;
+        if(url.search("my_list") == -1)
+        {
+            CallPrint('calendar_div');
+        }
+        else
+        {
+            CallPrint('calendar_div_my_list');
+        }
         return false;
     }
 

@@ -45,6 +45,14 @@ print_calendar:
   url:   /print_calendar
   param: { module: dashboard, action: printCalendar }
 
+calendar_dates:
+  url:   /calendar_dates
+  param: { module: mySurvey, action: calendarDates }
+
+print_calendar_list:
+  url:   /print_calendar_list
+  param: { module: mySurvey, action: printCalendar }
+
 help_page:
   url: /help
   param: { module: staticPages, action: help }

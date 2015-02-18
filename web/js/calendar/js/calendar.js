@@ -56,29 +56,61 @@ $(document).on('click', '#print_calendar', function() {
         {
             $('#month_hidden').val('');
             $('#month_hidden').val($('.dialog_for_calendar .page-header > h3').text());
+            $('#calendar_type').val('month');
+            $('#print_calendar_form').submit();
         }
         else
         {
             $('#month_hidden_list').val('');
             $('#month_hidden_list').val($('.dialog_for_calendar_my_list .page-header > h3').text());
+            $('#calendar_type_list').val('month');
+            $('#print_calendar_form_my_list').submit();
         }
-        $('#print_calendar_form').submit();
+
     }
-    else
+
+    if($('.page-header .pull-right .btn-group button:contains("Year")').hasClass("active"))
     {
         var url = document.URL;
         if(url.search("my_list") == -1)
         {
-            CallPrint('calendar_div');
+            $('#month_hidden').val('');
+            $('#month_hidden').val($('.dialog_for_calendar .page-header > h3').text());
+            $('#calendar_type').val('year');
+            $('#print_calendar_form').submit();
         }
         else
         {
-            CallPrint('calendar_div_my_list');
+            $('#month_hidden_list').val('');
+            $('#month_hidden_list').val($('.dialog_for_calendar_my_list .page-header > h3').text());
+            $('#calendar_type_list').val('year');
+            $('#print_calendar_form_my_list').submit();
         }
-        return false;
+
+    }
+
+    if($('.page-header .pull-right .btn-group button:contains("Week")').hasClass("active"))
+    {
+        var url = document.URL;
+        if(url.search("my_list") == -1)
+        {
+            $('#month_hidden').val('');
+            $('#month_hidden').val($('.dialog_for_calendar .page-header > h3').text());
+            $('#calendar_type').val('week');
+            $('#print_calendar_form').submit();
+        }
+        else
+        {
+            $('#month_hidden_list').val('');
+            $('#month_hidden_list').val($('.dialog_for_calendar_my_list .page-header > h3').text());
+            $('#calendar_type_list').val('week');
+            $('#print_calendar_form_my_list').submit();
+        }
+
     }
 
 });
+
 (function($) {
 
 	var defaults = {
@@ -217,7 +249,7 @@ $(document).on('click', '#print_calendar', function() {
 
 		title_year:  '{0}',
 		title_month: '{0} {1}',
-		title_week:  'week {0} of {1}',
+		title_week:  'Week {0} of {1}',
 		title_day:   '{0} {1} {2}, {3}',
 
 		week:        'Week {0}',

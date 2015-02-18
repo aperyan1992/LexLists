@@ -130,12 +130,8 @@ class mySurveyActions extends sfActions {
      */
     public function executePrintCalendar(sfWebRequest $request) {
         $date = date("F o");
-        $datemonth = $_POST['month'];
-        $first_day = "01 ". $datemonth;
-        $first_day = strtotime($first_day);
-        $first_day = date('Y-m-d', $first_day);
-        $last_day = strtotime($first_day." + 1 month - 1 day");
-        $last_day = date('Y-m-d', $last_day);
+        $calendar_type = $_POST['calendar_type'];
+        $ducument_name = "---";
 
         $session_user_id = $_SESSION['symfony/user/sfUser/attributes']['sfGuardSecurityUser']['user_id'];
 
@@ -147,9 +143,6 @@ class mySurveyActions extends sfActions {
         $name = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
         $survey_first_name = $name['first_name'];
         $survey_last_name = $name['last_name'];
-
-        // Get all my surveys
-        $surveys = Doctrine_Core::getTable("LtSurvey")->getAllMySyrveysMonthList($first_day, $last_day);
 
         $this->getContext()->getConfiguration()->loadHelpers('tcpdf_include','tcpdf');
 
@@ -190,46 +183,166 @@ class mySurveyActions extends sfActions {
 
         $pdf->writeHTML($html4, true, false, true, false, '');
 
-        $pdf->SetLeftMargin(105);
-        $pdf->Text(100, 20, '');
-        $html ='
+        if($calendar_type == "month")
+        {
+            $datemonth = $_POST['month'];
+            $ducument_name = $datemonth;
+            $first_day = "01 ". $datemonth;
+            $first_day = strtotime($first_day);
+            $first_day = date('Y-m-d', $first_day);
+            $last_day = strtotime($first_day." + 1 month - 1 day");
+            $last_day = date('Y-m-d', $last_day);
+
+            // Get all my surveys
+            $surveys = Doctrine_Core::getTable("LtSurvey")->getAllMySyrveysMonthList($first_day, $last_day);
+
+            $pdf->SetLeftMargin(105);
+            $pdf->Text(100, 20, '');
+            $html ='
                 <div style="line-height: 70%;">
                     <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;">'.$datemonth.'</h2>
                 </div>';
-        $pdf->writeHTML($html, true, false, true, false, '');
+            $pdf->writeHTML($html, true, false, true, false, '');
 
-        $pdf->SetLeftMargin(20);
-        $pdf->SetRightMargin(20);
-        $pdf->Text(10, 40, '');
-        $html = '<div style="line-height: 100%;">';
-        $deaslines_array = array();
-        $i = 0;
+            $pdf->SetLeftMargin(20);
+            $pdf->SetRightMargin(20);
+            $pdf->Text(10, 40, '');
+            $html = '<div style="line-height: 100%;">';
+            $deaslines_array = array();
+            $i = 0;
 
-        foreach($surveys as $survey)
-        {
-            $deaslines_array [$survey['submission_deadline']][$i]['survey_name'] = $survey['survey_name'];
-            $deaslines_array [$survey['submission_deadline']][$i]['name'] = $survey['name'];
-            $i++;
-
-        }
-
-        foreach($deaslines_array as $date=>$deadline)
-        {
-            $html .='
-                    <h2 style="text-align: left; font-family: Georgia, serif; font-size: 4.5mm;">'.date('j F Y', strtotime($date)).'</h2>';
-
-            foreach($deadline as $d)
+            foreach($surveys as $survey)
             {
-                $html .='
-                    <h2 style="text-align: left; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;">- <i>'.$d['survey_name']."</i>, ".$d['name'].'</h2>';
+                $deaslines_array [$survey['submission_deadline']][$i]['survey_name'] = $survey['survey_name'];
+                $deaslines_array [$survey['submission_deadline']][$i]['name'] = $survey['name'];
+                $i++;
+
             }
 
+            foreach($deaslines_array as $date=>$deadline)
+            {
+                $html .='
+                    <h2 style="text-align: left; font-family: Georgia, serif; font-size: 4.5mm;">'.date('j F Y', strtotime($date)).'</h2>';
+
+                foreach($deadline as $d)
+                {
+                    $html .='
+                    <h2 style="text-align: left; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;">- <i>'.$d['survey_name']."</i>, ".$d['name'].'</h2>';
+                }
+
+            }
+
+            $html .='</div>';
+            $pdf->writeHTML($html, true, false, true, false, '');
         }
 
-        $html .='</div>';
-        $pdf->writeHTML($html, true, false, true, false, '');
+        if($calendar_type == "year")
+        {
+            $datemonth = $_POST['month'];
+            $ducument_name = $datemonth;
+            $year_start = $datemonth."-01-01";
+            $year_end = $datemonth."-12-31";
 
-        $pdf->Output("LexLists-$survey_first_name-$survey_last_name-$date.pdf", 'I');die;
+            $checkingquery = 'SELECT `s`.`id`, `s`.`survey_name`, `s`.`submission_deadline`, `o`.`name` FROM `surveys` AS `s` JOIN `organizations` AS `o` ON `s`.`organization_id` = `o`.`id` JOIN `my_surveys` AS `m_s` ON `s`.`id` = `m_s`.`survey_id` WHERE `s`.`submission_deadline` >= "'.$year_start.'" AND `s`.`submission_deadline` <= "'.$year_end.'" ORDER BY `s`.`submission_deadline`';
+            $resultupdate = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($checkingquery)->fetchAll();
+
+            $pdf->SetLeftMargin(105);
+            $pdf->Text(100, 20, '');
+            $html ='
+                <div style="line-height: 70%;">
+                    <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;">'.$datemonth.'</h2>
+                </div>';
+            $pdf->writeHTML($html, true, false, true, false, '');
+
+            $pdf->SetLeftMargin(20);
+            $pdf->SetRightMargin(20);
+            $pdf->Text(10, 40, '');
+            $html = '<div style="line-height: 100%;">';
+            $deaslines_array = array();
+            $i = 0;
+            foreach($resultupdate as $res)
+            {
+                $deaslines_array [$res['submission_deadline']][$i]['survey_name'] = $res['survey_name'];
+                $deaslines_array [$res['submission_deadline']][$i]['name'] = $res['name'];
+                $i++;
+            }
+
+            foreach($deaslines_array as $date=>$deadline)
+            {
+                $html .='
+                    <h2 style="text-align: left; font-family: Georgia, serif; font-size: 4.5mm;">'.date('j F Y', strtotime($date)).'</h2>';
+
+                foreach($deadline as $value)
+                {
+                    $html .='
+                    <h2 style="text-align: left; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;">- <i>'.$value['survey_name']."</i>, ".$value['name'].'</h2>';
+                }
+            }
+            $html .='</div>';
+            $pdf->writeHTML($html, true, false, true, false, '');
+
+        }
+
+        if($calendar_type == "week")
+        {
+            $datemonth = $_POST['month'];
+            $ducument_name = $datemonth;
+
+            $d = explode(" ",$datemonth);
+            $week = $d[1];
+            $year = $d[3];
+            $week_number = strtotime($year."-01-01"." + ".($week-1)." week");
+            $x = date("Y-m-d",$week_number);
+            $week_day_number = date("N", $week_number);
+
+            $diff_days = 7-($week_day_number -1);
+            $week_start = strtotime($x." - ".$diff_days." day");
+
+            $week_end = strtotime(date("Y-m-d",$week_start)." + 6 day");
+            $week_start = date("Y-m-d",$week_start);
+            $week_end = date("Y-m-d",$week_end);
+
+            $checkingquery = 'SELECT `s`.`id`, `s`.`survey_name`, `s`.`submission_deadline`, `o`.`name` FROM `surveys` AS `s` JOIN `organizations` AS `o` ON `s`.`organization_id` = `o`.`id` JOIN `my_surveys` AS `m_s` ON `s`.`id` = `m_s`.`survey_id` WHERE `s`.`submission_deadline` >= "'.$week_start.'" AND `s`.`submission_deadline` <= "'.$week_end.'" ORDER BY `s`.`submission_deadline`';
+            $resultupdate = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($checkingquery)->fetchAll();
+
+            $pdf->SetLeftMargin(105);
+            $pdf->Text(100, 20, '');
+            $html ='
+                <div style="line-height: 70%;">
+                    <h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;">'.$datemonth.'</h2>
+                </div>';
+            $pdf->writeHTML($html, true, false, true, false, '');
+
+            $pdf->SetLeftMargin(20);
+            $pdf->SetRightMargin(20);
+            $pdf->Text(10, 40, '');
+            $html = '<div style="line-height: 100%;">';
+            $deaslines_array = array();
+            $i = 0;
+            foreach($resultupdate as $res)
+            {
+                $deaslines_array [$res['submission_deadline']][$i]['survey_name'] = $res['survey_name'];
+                $deaslines_array [$res['submission_deadline']][$i]['name'] = $res['name'];
+                $i++;
+            }
+
+            foreach($deaslines_array as $date=>$deadline)
+            {
+                $html .='
+                    <h2 style="text-align: left; font-family: Georgia, serif; font-size: 4.5mm;">'.date('j F Y', strtotime($date)).'</h2>';
+
+                foreach($deadline as $value)
+                {
+                    $html .='
+                    <h2 style="text-align: left; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;">- <i>'.$value['survey_name']."</i>, ".$value['name'].'</h2>';
+                }
+            }
+            $html .='</div>';
+            $pdf->writeHTML($html, true, false, true, false, '');
+
+        }
+
+        $pdf->Output("LexLists-Report-$ducument_name.pdf", 'I');die;
     }
 
 

@@ -273,15 +273,15 @@
                 </div>
             </div>
 
-
             <h3></h3>
         </div>
 
         <div id="calendar_div_my_list" style="padding-left: 45px;padding-right: 45px;padding-bottom: 15px;">
         </div>
-        <form action="/index.php/print_calendar_list" target="_blank" method="post" id="print_calendar_form">
+        <form action="/index.php/print_calendar_list" target="_blank" method="post" id="print_calendar_form_my_list">
             <input id="month_hidden_list" type="hidden" name="month" value="">
-            <button class="print_calendar" id="print_calendar" ><!--onclick="javascript:CallPrint('calendar_div')"-->Print</button>
+            <input id="calendar_type_list" type="hidden" name="calendar_type" value="">
+            <button class="print_calendar" id="print_calendar" >Print</button>
         </form>
 
     </div>

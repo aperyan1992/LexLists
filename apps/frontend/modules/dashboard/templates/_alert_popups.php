@@ -104,28 +104,15 @@
             </div>
         </div>
 
-
         <h3></h3>
     </div>
-    <script type="text/javascript">
-/*
-        var head_html = '<div style="line-height: 70%;"><h2 style="text-align: center; font-family: Georgia, serif; font-size: 4mm;"><?php echo $survey_client_name;?></h2><h2 style="text-align: right; font-family: Georgia, serif; font-size: 4mm; font-weight: normal;"><i><?php echo $survey_first_name ." ".$survey_last_name;?></i></h2></div>';
 
-        function CallPrint(strid) {
-            var prtContent = document.getElementById(strid);
-            var WinPrint = window.open('', '', 'letf=0,top=0,width=1000,auto,toolbar=0,scrollbars=0,status=0');
-            WinPrint.document.write(head_html + prtContent.innerHTML);
-            WinPrint.document.close();
-            WinPrint.focus();
-            WinPrint.print();
-            WinPrint.close();
-        }*/
-    </script>
-    <div id="calendar_div" style="padding-left: 45px;padding-right: 45px;padding-bottom: 15px;">
+    <div id="calendar_div" style="padding-left: 52px;padding-right: 52px;padding-bottom: 15px;">
     </div>
     <form action="/index.php/print_calendar" target="_blank" method="post" id="print_calendar_form">
         <input id="month_hidden" type="hidden" name="month" value="">
-        <button class="print_calendar" id="print_calendar" ><!--onclick="javascript:CallPrint('calendar_div')"-->Print</button>
+        <input id="calendar_type" type="hidden" name="calendar_type" value="">
+        <button class="print_calendar" id="print_calendar" >Print</button>
     </form>
 
 </div>

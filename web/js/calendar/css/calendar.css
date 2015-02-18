@@ -129,12 +129,12 @@
   width: 100%;
 }
 #cal-week-box {
-  position: absolute;
-  width: 70px;
-  left: -71px;
-  top: -1px;
-  padding: 8px 5px;
-  cursor: pointer;
+    position: absolute;
+    width: 64px;
+    left: -65px;
+    top: -1px;
+    padding: 8px 3px;
+    cursor: pointer;
 }
 #cal-day-tick {
   position: absolute;

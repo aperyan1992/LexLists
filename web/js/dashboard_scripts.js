@@ -145,6 +145,7 @@ $(document).ready(function() {
     $('#us_south').hide();
     $('#midwest').hide();
     $('#northeast').hide();
+    $('#mid_atlantic').hide();
 
     //dialog for calendar
     function initCalendarPopupWindow(element) {
@@ -636,9 +637,10 @@ $(document).ready(function() {
     //******* start us map *******//
 
     var west_ids = "#jqvmap1_wy, #jqvmap1_wa, #jqvmap1_mt, #jqvmap1_id, #jqvmap1_or, #jqvmap1_ca, #jqvmap1_nv, #jqvmap1_ut, #jqvmap1_co, #jqvmap1_mt, #jqvmap1_nm, #jqvmap1_ak, #jqvmap1_hi, #jqvmap1_az";
-    var south_ids = "#jqvmap1_dc, #jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_va, #jqvmap1_wv, #jqvmap1_md, #jqvmap1_de, #jqvmap1_ga, #jqvmap1_nc";
+    var south_ids = "#jqvmap1_tx, #jqvmap1_ok, #jqvmap1_la, #jqvmap1_ar, #jqvmap1_ms, #jqvmap1_fl, #jqvmap1_al, #jqvmap1_tn, #jqvmap1_ky, #jqvmap1_sc, #jqvmap1_ga, #jqvmap1_nc";
     var midwest_ids = "#jqvmap1_nd, #jqvmap1_sd, #jqvmap1_ne, #jqvmap1_ks, #jqvmap1_mn, #jqvmap1_ia, #jqvmap1_mo, #jqvmap1_il, #jqvmap1_wi, #jqvmap1_mi, #jqvmap1_in, #jqvmap1_oh, #jqvmap1_mi";
-    var northeast_ids = "#jqvmap1_vt, #jqvmap1_nj, #jqvmap1_pa, #jqvmap1_ny, #jqvmap10_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me";
+    var northeast_ids = "#jqvmap1_vt, #jqvmap10_vt, #jqvmap1_ct, #jqvmap1_ri, #jqvmap1_ma, #jqvmap1_nh, #jqvmap1_me";
+    var mid_atlantic_ids = "#jqvmap1_dc, #jqvmap1_ny, #jqvmap1_pa, #jqvmap1_nj, #jqvmap1_md, #jqvmap1_de, #jqvmap1_wv, #jqvmap1_va";
 
     $(west_ids).hover(
         function() {
@@ -666,6 +668,13 @@ $(document).ready(function() {
             $(northeast_ids).css({"opacity": "0.7"});
         }, function() {
             $(northeast_ids).css({"opacity": "1"});
+        });
+
+    $(mid_atlantic_ids).hover(
+        function() {
+            $(mid_atlantic_ids).css({"opacity": "0.7"});
+        }, function() {
+            $(mid_atlantic_ids).css({"opacity": "1"});
         });
 
 //west
@@ -730,6 +739,7 @@ $(document).ready(function() {
                 $(south_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
                 $(midwest_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
                 $(northeast_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                $(mid_atlantic_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
 
                 region_name_us = [];
                 region_title = [];
@@ -742,6 +752,7 @@ $(document).ready(function() {
                 $('#us_south').hide();
                 $('#midwest').hide();
                 $('#northeast').hide();
+                $('#mid_atlantic').hide();
             }
         }
     });
@@ -804,6 +815,7 @@ $(document).ready(function() {
                 $(south_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
                 $(west_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
                 $(northeast_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                $(mid_atlantic_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
 
                 region_name_us = [];
                 region_title = [];
@@ -816,6 +828,7 @@ $(document).ready(function() {
                 $('#us_south').hide();
                 $('#midwest').show();
                 $('#northeast').hide();
+                $('#mid_atlantic').hide();
             }
         }
     });
@@ -878,6 +891,8 @@ $(document).ready(function() {
                 $(south_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
                 $(west_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
                 $(midwest_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                $(mid_atlantic_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+
 
                 region_name_us = [];
                 region_title = [];
@@ -890,6 +905,84 @@ $(document).ready(function() {
                 $('#us_south').hide();
                 $('#midwest').hide();
                 $('#northeast').show();
+                $('#mid_atlantic').hide();
+            }
+        }
+
+    });
+
+    //mid atlantic
+    $(mid_atlantic_ids + ', #mid_atlantic_title').click(function(e){
+        var isCtrlPressed_northeast = e.ctrlKey;
+
+        if( $('#mid_atlantic').is(':visible'))
+        {
+            $(mid_atlantic_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+            $('#mid_atlantic').hide();
+
+            var idx_name = region_name_us.indexOf("Mid-Atlantic");
+            if (idx_name != -1) {
+                region_name_us.splice(idx_name, 1);
+            }
+
+            var idx_title = region_title.indexOf("&nbsp;&nbsp;&nbsp;&nbsp; US Mid-Atlantic");
+            if (idx_title != -1) {
+                region_title.splice(idx_title, 1);
+                $('.region_title p').html(region_title);
+            }
+        }
+        else
+        {
+            $(mid_atlantic_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+            $('#mid_atlantic').show();
+
+            if(isCtrlPressed_northeast && first!=0)
+            {
+                if($.inArray("Mid-Atlantic", region_name_us) == -1)
+                {
+                    $(mid_atlantic_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
+                    $('#mid_atlantic').show();
+                    region_name_us.push("Mid-Atlantic");
+                    region_title.push("&nbsp;&nbsp;&nbsp;&nbsp; US Mid-Atlantic");
+                    $('.region_title p').html(region_title);
+                }
+                else
+                {
+                    $(mid_atlantic_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                    $('#mid_atlantic').hide();
+
+                    var idx_name = region_name_us.indexOf("Mid-Atlantic");
+                    if (idx_name != -1) {
+                        region_name_us.splice(idx_name, 1);
+                    }
+
+                    var idx_title = region_title.indexOf("&nbsp;&nbsp;&nbsp;&nbsp; US Mid-Atlantic");
+                    if (idx_title != -1) {
+                        region_title.splice(idx_title, 1);
+                        $('.region_title p').html(region_title);
+                    }
+                }
+            }
+            else
+            {
+                first++;
+                $(south_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                $(west_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                $(midwest_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                $(northeast_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+
+                region_name_us = [];
+                region_title = [];
+                region_name_us[0] = "Mid-Atlantic";
+                region_title[0] = "&nbsp;&nbsp;&nbsp;&nbsp; US Mid-Atlantic";
+                $('.region_title p').html(region_title);
+
+                $('#us_west').hide();
+                $('#small_us_west').hide();
+                $('#us_south').hide();
+                $('#midwest').hide();
+                $('#northeast').hide();
+                $('#mid_atlantic').show();
             }
         }
 
@@ -953,6 +1046,7 @@ $(document).ready(function() {
                 $(northeast_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
                 $(west_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
                 $(midwest_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
+                $(mid_atlantic_ids).css({"stroke":"#818181", "stroke-width": "0", "fill": "#57A0C1"});
 
                 region_name_us = [];
                 region_title = [];
@@ -965,6 +1059,7 @@ $(document).ready(function() {
                 $('#us_south').show();
                 $('#midwest').hide();
                 $('#northeast').hide();
+                $('#mid_atlantic').hide();
             }
         }
 
@@ -1573,6 +1668,7 @@ $(document).ready(function() {
             $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+            $(mid_atlantic_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
 
             $('.region_title p').html('');
         }
@@ -1617,6 +1713,7 @@ $(document).ready(function() {
         $('#us_south').hide();
         $('#midwest').hide();
         $('#northeast').hide();
+        $('#mid_atlantic').hide();
 
         $('.dialog_for_map').dialog("close");
     });
@@ -1627,6 +1724,7 @@ $(document).ready(function() {
         $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
         $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
         $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+        $(mid_atlantic_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
 
         region_name = '';
         region_name_us = '';
@@ -1647,6 +1745,7 @@ $(document).ready(function() {
         $('#us_south').hide();
         $('#midwest').hide();
         $('#northeast').hide();
+        $('#mid_atlantic').hide();
 
         $('.dialog_for_map').dialog("close");
     });
@@ -1657,6 +1756,7 @@ $(document).ready(function() {
         $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
         $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
         $(northeast_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
+        $(mid_atlantic_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
 
         region_name = '';
         region_name_us = '';
@@ -1677,6 +1777,7 @@ $(document).ready(function() {
         $('#us_south').hide();
         $('#midwest').hide();
         $('#northeast').hide();
+        $('#mid_atlantic').hide();
     });
 
 

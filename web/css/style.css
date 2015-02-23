@@ -237,10 +237,10 @@
 }
 
 #us_south {
-    width: 485px;
-    height: 307px;
-    margin-top: 197px;
-    margin-left: 253px;
+    width: 470px;
+    height: 254px;
+    margin-top: 235px;
+    margin-left: 261px;
     position: absolute;
     z-index: -100 !important;
 }
@@ -255,10 +255,19 @@
 }
 
 #northeast {
-    width: 176px;
-    height: 186px;
-    margin-left: 631px;
-    margin-top: 36px;
+    width: 80px;
+    height: 131px;
+    margin-left: 720px;
+    margin-top: 42px;
+    position: absolute;
+    z-index: -100 !important;
+}
+
+#mid_atlantic {
+    width: 138px;
+    height: 178px;
+    margin-left: 615px;
+    margin-top: 98px;
     position: absolute;
     z-index: -100 !important;
 }
@@ -295,8 +304,18 @@
 
 #northeast_title {
     position: absolute;
-    margin-left: 648px;
-    margin-top: 111px;
+    margin-left: 697px;
+    margin-top: 63px;
+    color: white;
+    text-shadow: 2px 2px #000000;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+#mid_atlantic_title {
+    position: absolute;
+    margin-left: 625px;
+    margin-top: 160px;
     color: white;
     text-shadow: 2px 2px #000000;
     font-weight: bold;
@@ -316,6 +335,10 @@
 }
 
 #northeast_title:hover {
+    cursor: default;
+}
+
+#mid_atlantic_title:hover {
     cursor: default;
 }
 

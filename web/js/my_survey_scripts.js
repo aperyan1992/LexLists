@@ -444,11 +444,11 @@ $(document).ready(function() {
     /**
      *  END
      */
-    /*$(document).on('mouseleave', '.menu-drop-wrapper', function(e) {
+    $(document).on('mouseleave', '.menu-drop-wrapper', function(e) {
         if(!$('.menu-dropdown',this).is(':hidden')){
             $('.menu-dropdown',this).slideUp();
         }
-    });*/
+    });
 
     /**
      *  Dynamic calculation of menu in result table
@@ -480,7 +480,7 @@ function makeMenusFixed() {
         $(this).siblings('.menu-dropdown').css({
             'top': menuLinkTopPos + 'px',
             'left': menuLinkLeftPos + 'px',
-            'marginTop' : '15px',
+            'marginTop' : '15px'
         });
     });
 }

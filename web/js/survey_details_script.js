@@ -195,7 +195,7 @@ function initSurveyDetailsPopupWindow(element) {
                 // Print surveys
                 $('#print_form').submit();
             },
-            "E-mail": function() {
+            "E-mail Me": function() {
                 // Send email message
                 sendEmailToMe([$(this).data("survey_id")]);
             },
@@ -298,7 +298,7 @@ function initSurveyDetailsForMyListsPopupWindow(element) {
                 // Print surveys
                 $('#print_form').submit();
             },
-            "E-mail": function() {
+            "E-mail Me": function() {
                 // Send email message
                 sendEmailToMe([$(this).data("survey_id")]);
             },

@@ -104,6 +104,7 @@ class dashboardActions extends sfActions {
         $this->survey_regions_checkboxes = "";
         foreach ($this->survey_regions as $region) {
             $region_name = $region->getRegion()->getName();
+            //var_dump( $region->getRegion()->getName());
             $allRegion_name[]=$region_name;
             //$this->survey_regions_checkboxes .= '<input checkbox_type="region" type="checkbox" class="region_checkbox" col_num="7" value="' . $region_name . '" id="' . $region_name . '" /><span>' . $region_name . '</span><br />';
         }
@@ -457,7 +458,7 @@ class dashboardActions extends sfActions {
             $email_cc           = $request->getParameter("cc", FALSE);
             $cc = array();
             foreach($email_cc as $ccs)
-            {
+            {var_dump($ccs);
                 if(strpos($ccs,'('))
                 {
                     $c = explode("(", $ccs);
@@ -468,7 +469,7 @@ class dashboardActions extends sfActions {
                     array_push($cc,$ccs);
                 }
 
-            }
+            }die;
             $additional_message = $request->getParameter("message", FALSE);
 
             if ($survey_ids) {

@@ -17,12 +17,6 @@ $(document).ready(function() {
 
     //*************************** Calendar start *****************************//
 
-    /*var date = new Date();
-    $('body').on('click','.event-item',function(e){
-        console.log($('.event-item'));
-    });*/
-    //var cal_date = date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate();
-
     var calendar = $("#calendar_div").calendar({
         events_source: '/dashboard/calendarDates',
         tmpl_path: "/js/calendar/tmpls/",
@@ -95,6 +89,37 @@ $(document).ready(function() {
 
     //*********************** calendar end **********************************//
 
+    //dialog for svg test
+    function initSvgPopupWindow(element) {
+
+        var myPos = { my: "center top", at: "center top+20", of: window };
+
+        $("." + element).dialog({
+            autoOpen: false,
+            height: 600,
+            width: 830,
+            modal: true,
+            position:myPos,
+            open: function() {
+            },
+            close: function() {
+                $(this).dialog("close");
+            }
+        });
+        $('.close_btn').on('click', function(){
+            $("#" + element).dialog("close");
+        });
+    }
+    initSvgPopupWindow("svg_test_dialog");
+
+    $('#testnewsvg').click(function(){
+        $('.svg_test_dialog').show();
+        $('.svg_test_dialog div').css({"margin-top":'50px'});
+
+        $('.svg_test_dialog').dialog("option", "title", "LexLists: US Regions Map" );
+
+        $('.svg_test_dialog').dialog("open");
+    });
 
 
 

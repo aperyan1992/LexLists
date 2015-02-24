@@ -1,7 +1,7 @@
 <div id="dialog_form_survey_email" class="popup1" title="Email Award">
     <form>
         <table style="">
-            <tr>
+            <tr style="margin-bottom: 9px;">
                 <th>
                     <label for="to_dialog_form_survey_email" title="To.">To: </label>
                 </th>
@@ -13,8 +13,8 @@
                 <tr>
                     <th><label>Cc:</label></th>
                     <td>
-                        <input style="width: 330px" type="text" name="to" id="to_dialog_form_survey_email" class="text ui-widget-content ui-corner-all"/>
-                        <a style="color: #ff6801;font-weight: 700;margin-left: 1px;" href="#" id="addemailcc2">Add</a>
+                        <input style="width: 330px" placeholder="&nbsp;  Click to select or type address and press Enter" type="text" name="to" id="to_dialog_form_survey_email" class="text ui-widget-content ui-corner-all"/>
+                       <!-- <a style="color: #ff6801;font-weight: 700;margin-left: 1px;" href="#" id="addemailcc2">Add</a>-->
                     </td>
                 </tr>
             <tr style="margin-top: 10px;">

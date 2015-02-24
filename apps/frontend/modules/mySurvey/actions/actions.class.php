@@ -377,7 +377,7 @@ class mySurveyActions extends sfActions {
                                         <a href="#" class="menu_link">
                     <span class="genericon genericon-menu"></span>
                                         </a>
-                                        <ul class="menu-dropdown" >
+                                        <ul class="menu-dropdown" style="z-index: 100000 ">
                                             <li><a href="#" class="set_an_alert_class" s_id="' . $survey->getSurvey()->getId() . '">Set an Alert</a></li>
                                             <!--<li><a href="#">Send a Reminder</a></li>-->
                                             <li><a href="#" class="my_list_email_send" s_id="' . $survey->getSurvey()->getId() . '">E-mail</a></li>
@@ -1201,6 +1201,8 @@ class mySurveyActions extends sfActions {
      */
     public function executeGetAllEmails(sfWebRequest $request)
     {
+        $current_user_id =$this->getUser()->getGuardUser()->getId();
+
         $my_client_id =$this->getUser()->getGuardUser()->getClient_id();
         if(!$my_client_id)
         {
@@ -1209,7 +1211,7 @@ class mySurveyActions extends sfActions {
             );
         }
 
-        $query = 'SELECT * FROM sf_guard_user WHERE client_id="'. $my_client_id .'" ORDER BY last_name';
+        $query = 'SELECT * FROM sf_guard_user WHERE client_id="'. $my_client_id .'" AND id !="'.$current_user_id.'" ORDER BY last_name';
         $arrEmails = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
         
         if($arrEmails)

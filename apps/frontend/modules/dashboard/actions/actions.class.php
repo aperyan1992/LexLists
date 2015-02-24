@@ -458,7 +458,7 @@ class dashboardActions extends sfActions {
             $email_cc           = $request->getParameter("cc", FALSE);
             $cc = array();
             foreach($email_cc as $ccs)
-            {var_dump($ccs);
+            {
                 if(strpos($ccs,'('))
                 {
                     $c = explode("(", $ccs);
@@ -469,7 +469,7 @@ class dashboardActions extends sfActions {
                     array_push($cc,$ccs);
                 }
 
-            }die;
+            }
             $additional_message = $request->getParameter("message", FALSE);
 
             if ($survey_ids) {

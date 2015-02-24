@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2da5432-7c79-44d2-9269-2b9fdffb7cd6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_email_popup.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_email_popup.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/select2.css" afterPath="$PROJECT_DIR$/web/css/select2.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="lex.local.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,48 +33,175 @@
       <file leaf-file-name="actions.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="457" column="21" selection-start="23338" selection-end="23347" vertical-scroll-proportion="-4.375" vertical-offset="6750" max-vertical-offset="24360">
+            <state line="471" column="13" selection-start="23781" selection-end="23781" vertical-scroll-proportion="-11.25" vertical-offset="6795" max-vertical-offset="24360">
               <folding>
-                <marker date="1424699326939" expanded="false" signature="27958:27992" placeholder="..." />
-                <marker date="1424699326939" expanded="false" signature="28010:28040" placeholder="..." />
-                <marker date="1424699326939" expanded="false" signature="30049:30067" placeholder="..." />
-                <marker date="1424699326939" expanded="false" signature="32265:32283" placeholder="..." />
-                <marker date="1424699326939" expanded="false" signature="34957:34975" placeholder="..." />
-                <marker date="1424699326939" expanded="false" signature="45808:45842" placeholder="..." />
-                <marker date="1424699326939" expanded="false" signature="45860:45890" placeholder="..." />
-                <marker date="1424699326939" expanded="false" signature="51371:51406" placeholder="..." />
-                <marker date="1424699326939" expanded="false" signature="51474:51491" placeholder="..." />
-                <marker date="1424699326939" expanded="true" signature="51492:51693" placeholder="..." />
-                <marker date="1424699326939" expanded="false" signature="52463:52498" placeholder="..." />
-                <marker date="1424699326939" expanded="false" signature="52565:52582" placeholder="..." />
-                <marker date="1424699326939" expanded="true" signature="52583:52787" placeholder="..." />
-                <marker date="1424699326939" expanded="false" signature="52993:53008" placeholder="..." />
-                <marker date="1424699326939" expanded="false" signature="53026:53056" placeholder="..." />
-                <marker date="1424699326939" expanded="false" signature="64403:64441" placeholder="..." />
-                <marker date="1424699326939" expanded="false" signature="64705:64740" placeholder="..." />
-                <marker date="1424699326939" expanded="false" signature="64808:64825" placeholder="..." />
-                <marker date="1424699326939" expanded="true" signature="64826:65027" placeholder="..." />
+                <marker date="1424764168110" expanded="false" signature="27939:27973" placeholder="..." />
+                <marker date="1424764168110" expanded="false" signature="27991:28021" placeholder="..." />
+                <marker date="1424764168110" expanded="false" signature="30030:30048" placeholder="..." />
+                <marker date="1424764168110" expanded="false" signature="32246:32264" placeholder="..." />
+                <marker date="1424764168110" expanded="false" signature="34938:34956" placeholder="..." />
+                <marker date="1424764168110" expanded="false" signature="45789:45823" placeholder="..." />
+                <marker date="1424764168110" expanded="false" signature="45841:45871" placeholder="..." />
+                <marker date="1424764168110" expanded="false" signature="51352:51387" placeholder="..." />
+                <marker date="1424764168110" expanded="false" signature="51455:51472" placeholder="..." />
+                <marker date="1424764168110" expanded="true" signature="51473:51674" placeholder="..." />
+                <marker date="1424764168110" expanded="false" signature="52444:52479" placeholder="..." />
+                <marker date="1424764168110" expanded="false" signature="52546:52563" placeholder="..." />
+                <marker date="1424764168110" expanded="true" signature="52564:52768" placeholder="..." />
+                <marker date="1424764168110" expanded="false" signature="52974:52989" placeholder="..." />
+                <marker date="1424764168110" expanded="false" signature="53007:53037" placeholder="..." />
+                <marker date="1424764168110" expanded="false" signature="64384:64422" placeholder="..." />
+                <marker date="1424764168110" expanded="false" signature="64686:64721" placeholder="..." />
+                <marker date="1424764168110" expanded="false" signature="64789:64806" placeholder="..." />
+                <marker date="1424764168110" expanded="true" signature="64807:65008" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_survey_email_popup.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php">
+      <file leaf-file-name="actions.class.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="98" selection-start="843" selection-end="843" vertical-scroll-proportion="-5.625" vertical-offset="105" max-vertical-offset="1515">
+            <state line="381" column="80" selection-start="18455" selection-end="18455" vertical-scroll-proportion="0.5120482" vertical-offset="5545" max-vertical-offset="21915">
               <folding>
-                <element signature="n#style#0;n#a#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <marker date="1424766179694" expanded="false" signature="8709:8743" placeholder="..." />
+                <marker date="1424766179694" expanded="false" signature="8761:8791" placeholder="..." />
+                <marker date="1424766179694" expanded="false" signature="10493:10511" placeholder="..." />
+                <marker date="1424766179694" expanded="false" signature="12769:12787" placeholder="..." />
+                <marker date="1424766179694" expanded="false" signature="15520:15538" placeholder="..." />
+                <marker date="1424766179694" expanded="true" signature="17857:17867" placeholder="..." />
+                <marker date="1424766179694" expanded="true" signature="17906:17917" placeholder="..." />
+                <marker date="1424766179694" expanded="true" signature="17944:18209" placeholder="..." />
+                <marker date="1424766179694" expanded="true" signature="18015:18127" placeholder="..." />
+                <marker date="1424766179694" expanded="true" signature="18202:18209" placeholder="..." />
+                <marker date="1424766179694" expanded="true" signature="54402:54559" placeholder="INSERT INTO ..." />
+                <marker date="1424766179694" expanded="true" signature="60531:60661" placeholder="INSERT INTO ..." />
+                <marker date="1424766179694" expanded="true" signature="60982:61098" placeholder="INSERT INTO ..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="send_email.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="send_email.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/send_email.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="12" selection-start="2516" selection-end="2516" vertical-scroll-proportion="0.11749347" vertical-offset="1005" max-vertical-offset="4515">
+            <state line="72" column="12" selection-start="2516" selection-end="2516" vertical-scroll-proportion="0.0" vertical-offset="1005" max-vertical-offset="4515">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_alert_popups.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="82" selection-start="1787" selection-end="1787" vertical-scroll-proportion="-4.9583335" vertical-offset="346" max-vertical-offset="9825">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#6;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#7;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#8;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#9;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#10;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#11;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#12;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#13;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#14;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#15;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#16;n#!!top" expanded="true" />
+                <element signature="e#4129#5094#0" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#16;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#0;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#1;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#2;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#3;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#4;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#5;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#6;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#7;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#8;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#9;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#10;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#11;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#12;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#13;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#14;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#15;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#16;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#17;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#18;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#19;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#20;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#21;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#22;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#23;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#24;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#25;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#26;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#27;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#28;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#29;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#30;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#31;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#32;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#33;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#34;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#35;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#36;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#37;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#38;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#39;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#40;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#41;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#42;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#43;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#44;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#45;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#46;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#47;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#48;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#49;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#50;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#51;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#52;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#53;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#54;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#55;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#56;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#57;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#58;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#59;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#60;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#61;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#62;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#63;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#64;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#65;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#66;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#67;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#68;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#69;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#path#70;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#6;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#7;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#8;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#9;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#10;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#1;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#2;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#3;n#div#17;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#4;n#div#17;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -79,7 +209,7 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="11" selection-start="25682" selection-end="25682" vertical-scroll-proportion="-10.555555" vertical-offset="1530" max-vertical-offset="77370">
+            <state line="121" column="11" selection-start="25682" selection-end="25682" vertical-scroll-proportion="37.77778" vertical-offset="2835" max-vertical-offset="77370">
               <folding />
             </state>
           </provider>
@@ -88,7 +218,7 @@
       <file leaf-file-name="select2.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/css/select2.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="14" selection-start="3460" selection-end="3460" vertical-scroll-proportion="0.0" vertical-offset="1665" max-vertical-offset="10650">
+            <state line="138" column="0" selection-start="3566" selection-end="3566" vertical-scroll-proportion="0.0" vertical-offset="1665" max-vertical-offset="10650">
               <folding />
             </state>
           </provider>
@@ -131,17 +261,19 @@
         <option value="$PROJECT_DIR$/web/js/calendar/js/calendar.js" />
         <option value="$PROJECT_DIR$/web/js/my_survey_scripts.js" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php" />
-        <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/web/js/survey_details_script.js" />
-        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" />
         <option value="$PROJECT_DIR$/web/js/dashboard_scripts.js" />
         <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/surveyManagement/templates/_form_field.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/surveyManagement/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/surveyManagement/templates/_form_fieldset.php" />
-        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" />
-        <option value="$PROJECT_DIR$/web/css/select2.css" />
         <option value="$PROJECT_DIR$/web/js/send_email.js" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" />
+        <option value="$PROJECT_DIR$/web/css/select2.css" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_email_popup.php" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
       </list>
     </option>
   </component>
@@ -543,6 +675,118 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mySurvey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mySurvey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="actions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -626,16 +870,16 @@
           <line>631</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php</url>
+          <line>1204</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="259" column="61" selection-start="21423" selection-end="21431" vertical-scroll-proportion="0.0" vertical-offset="3505" max-vertical-offset="8400" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/config/view.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="33" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180" />
@@ -737,7 +981,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/my_survey_scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="447" column="26" selection-start="13869" selection-end="13869" vertical-scroll-proportion="0.2358156" vertical-offset="6542" max-vertical-offset="9930" />
+        <state line="447" column="26" selection-start="13869" selection-end="13869" vertical-scroll-proportion="0.2358156" vertical-offset="6542" max-vertical-offset="9930">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freefont-20120503/ChangeLog">
@@ -787,13 +1033,6 @@
     <entry file="file://$PROJECT_DIR$/lib/model/doctrine/base/BaseLtSurvey.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="83" column="31" selection-start="6081" selection-end="6081" vertical-scroll-proportion="-6.875" vertical-offset="1080" max-vertical-offset="4230">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="26" selection-start="6628" selection-end="6628" vertical-scroll-proportion="10.625" vertical-offset="1860" max-vertical-offset="28245">
           <folding />
         </state>
       </provider>
@@ -889,22 +1128,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="22" selection-start="5305" selection-end="5305" vertical-scroll-proportion="-5.0" vertical-offset="1440" max-vertical-offset="21885">
-          <folding>
-            <marker date="1424676378848" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1424676378848" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1424676378848" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1424676378848" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1424676378848" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1424676378848" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1424676378848" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1424676378848" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/surveyManagement/templates/_form_fieldset.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="10" selection-start="57" selection-end="57" vertical-scroll-proportion="0.04178273" vertical-offset="0" max-vertical-offset="359">
@@ -922,60 +1145,205 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
+    <entry file="file://$PROJECT_DIR$/web/js/send_email.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="457" column="21" selection-start="23338" selection-end="23347" vertical-scroll-proportion="-4.375" vertical-offset="6750" max-vertical-offset="24360">
-          <folding>
-            <marker date="1424699326939" expanded="false" signature="27958:27992" placeholder="..." />
-            <marker date="1424699326939" expanded="false" signature="28010:28040" placeholder="..." />
-            <marker date="1424699326939" expanded="false" signature="30049:30067" placeholder="..." />
-            <marker date="1424699326939" expanded="false" signature="32265:32283" placeholder="..." />
-            <marker date="1424699326939" expanded="false" signature="34957:34975" placeholder="..." />
-            <marker date="1424699326939" expanded="false" signature="45808:45842" placeholder="..." />
-            <marker date="1424699326939" expanded="false" signature="45860:45890" placeholder="..." />
-            <marker date="1424699326939" expanded="false" signature="51371:51406" placeholder="..." />
-            <marker date="1424699326939" expanded="false" signature="51474:51491" placeholder="..." />
-            <marker date="1424699326939" expanded="true" signature="51492:51693" placeholder="..." />
-            <marker date="1424699326939" expanded="false" signature="52463:52498" placeholder="..." />
-            <marker date="1424699326939" expanded="false" signature="52565:52582" placeholder="..." />
-            <marker date="1424699326939" expanded="true" signature="52583:52787" placeholder="..." />
-            <marker date="1424699326939" expanded="false" signature="52993:53008" placeholder="..." />
-            <marker date="1424699326939" expanded="false" signature="53026:53056" placeholder="..." />
-            <marker date="1424699326939" expanded="false" signature="64403:64441" placeholder="..." />
-            <marker date="1424699326939" expanded="false" signature="64705:64740" placeholder="..." />
-            <marker date="1424699326939" expanded="false" signature="64808:64825" placeholder="..." />
-            <marker date="1424699326939" expanded="true" signature="64826:65027" placeholder="..." />
-          </folding>
+        <state line="72" column="12" selection-start="2516" selection-end="2516" vertical-scroll-proportion="0.0" vertical-offset="1005" max-vertical-offset="4515">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="11" selection-start="25682" selection-end="25682" vertical-scroll-proportion="-10.555555" vertical-offset="1530" max-vertical-offset="77370">
+        <state line="121" column="11" selection-start="25682" selection-end="25682" vertical-scroll-proportion="37.77778" vertical-offset="2835" max-vertical-offset="77370">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="98" selection-start="843" selection-end="843" vertical-scroll-proportion="-5.625" vertical-offset="105" max-vertical-offset="1515">
-          <folding>
-            <element signature="n#style#0;n#a#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/css/select2.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="14" selection-start="3460" selection-end="3460" vertical-scroll-proportion="0.0" vertical-offset="1665" max-vertical-offset="10650">
+        <state line="138" column="0" selection-start="3566" selection-end="3566" vertical-scroll-proportion="0.0" vertical-offset="1665" max-vertical-offset="10650">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/send_email.js">
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_email_popup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="12" selection-start="2516" selection-end="2516" vertical-scroll-proportion="0.11749347" vertical-offset="1005" max-vertical-offset="4515">
-          <folding />
+        <state line="15" column="121" selection-start="671" selection-end="740" vertical-scroll-proportion="-4.3333335" vertical-offset="121" max-vertical-offset="1515">
+          <folding>
+            <element signature="n#style#0;n#tr#0;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="121" selection-start="740" selection-end="740" vertical-scroll-proportion="0.2896936" vertical-offset="121" max-vertical-offset="1515">
+          <folding>
+            <element signature="n#style#0;n#tr#0;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="471" column="13" selection-start="23781" selection-end="23781" vertical-scroll-proportion="-11.25" vertical-offset="6795" max-vertical-offset="24360">
+          <folding>
+            <marker date="1424764168110" expanded="false" signature="27939:27973" placeholder="..." />
+            <marker date="1424764168110" expanded="false" signature="27991:28021" placeholder="..." />
+            <marker date="1424764168110" expanded="false" signature="30030:30048" placeholder="..." />
+            <marker date="1424764168110" expanded="false" signature="32246:32264" placeholder="..." />
+            <marker date="1424764168110" expanded="false" signature="34938:34956" placeholder="..." />
+            <marker date="1424764168110" expanded="false" signature="45789:45823" placeholder="..." />
+            <marker date="1424764168110" expanded="false" signature="45841:45871" placeholder="..." />
+            <marker date="1424764168110" expanded="false" signature="51352:51387" placeholder="..." />
+            <marker date="1424764168110" expanded="false" signature="51455:51472" placeholder="..." />
+            <marker date="1424764168110" expanded="true" signature="51473:51674" placeholder="..." />
+            <marker date="1424764168110" expanded="false" signature="52444:52479" placeholder="..." />
+            <marker date="1424764168110" expanded="false" signature="52546:52563" placeholder="..." />
+            <marker date="1424764168110" expanded="true" signature="52564:52768" placeholder="..." />
+            <marker date="1424764168110" expanded="false" signature="52974:52989" placeholder="..." />
+            <marker date="1424764168110" expanded="false" signature="53007:53037" placeholder="..." />
+            <marker date="1424764168110" expanded="false" signature="64384:64422" placeholder="..." />
+            <marker date="1424764168110" expanded="false" signature="64686:64721" placeholder="..." />
+            <marker date="1424764168110" expanded="false" signature="64789:64806" placeholder="..." />
+            <marker date="1424764168110" expanded="true" signature="64807:65008" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="82" selection-start="1787" selection-end="1787" vertical-scroll-proportion="-4.9583335" vertical-offset="346" max-vertical-offset="9825">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#6;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#7;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#8;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#9;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#10;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#11;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#12;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#13;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#14;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#15;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#16;n#!!top" expanded="true" />
+            <element signature="e#4129#5094#0" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#16;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#0;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#1;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#2;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#3;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#4;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#5;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#6;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#7;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#8;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#9;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#10;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#11;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#12;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#13;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#14;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#15;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#16;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#17;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#18;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#19;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#20;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#21;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#22;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#23;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#24;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#25;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#26;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#27;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#28;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#29;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#30;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#31;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#32;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#33;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#34;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#35;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#36;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#37;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#38;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#39;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#40;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#41;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#42;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#43;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#44;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#45;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#46;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#47;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#48;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#49;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#50;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#51;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#52;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#53;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#54;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#55;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#56;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#57;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#58;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#59;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#60;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#61;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#62;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#63;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#64;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#65;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#66;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#67;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#68;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#69;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#70;n#g#0;n#svg#0;n#div#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#6;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#7;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#8;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#9;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#10;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#1;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#2;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#3;n#div#17;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#4;n#div#17;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="381" column="80" selection-start="18455" selection-end="18455" vertical-scroll-proportion="0.5120482" vertical-offset="5545" max-vertical-offset="21915">
+          <folding>
+            <marker date="1424766179694" expanded="false" signature="8709:8743" placeholder="..." />
+            <marker date="1424766179694" expanded="false" signature="8761:8791" placeholder="..." />
+            <marker date="1424766179694" expanded="false" signature="10493:10511" placeholder="..." />
+            <marker date="1424766179694" expanded="false" signature="12769:12787" placeholder="..." />
+            <marker date="1424766179694" expanded="false" signature="15520:15538" placeholder="..." />
+            <marker date="1424766179694" expanded="true" signature="17857:17867" placeholder="..." />
+            <marker date="1424766179694" expanded="true" signature="17906:17917" placeholder="..." />
+            <marker date="1424766179694" expanded="true" signature="17944:18209" placeholder="..." />
+            <marker date="1424766179694" expanded="true" signature="18015:18127" placeholder="..." />
+            <marker date="1424766179694" expanded="true" signature="18202:18209" placeholder="..." />
+            <marker date="1424766179694" expanded="true" signature="54402:54559" placeholder="INSERT INTO ..." />
+            <marker date="1424766179694" expanded="true" signature="60531:60661" placeholder="INSERT INTO ..." />
+            <marker date="1424766179694" expanded="true" signature="60982:61098" placeholder="INSERT INTO ..." />
+          </folding>
         </state>
       </provider>
     </entry>

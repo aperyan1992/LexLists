@@ -466,7 +466,7 @@ class mySurveyActions extends sfActions {
 
                         $countries = $this->CheckStringLength(implode(", ", $countries_array));
                     }
-                    
+
                     // Set submission deadline
                     $submission_deadline = (!is_null($survey->getSurvey()->getSubmissionDeadline()) && $survey->getSurvey()->getSubmissionDeadline() != "") ? $survey->getSurvey()->getSubmissionDeadline() : "- - -";
 

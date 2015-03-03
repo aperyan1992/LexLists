@@ -24,7 +24,7 @@ class LtSurveyTable extends Doctrine_Table {
     public function getSurveysCandidateTypes() {
         $q = $this->fieldForSelect("candidate_type")
                 ->where("s.candidate_type IS NOT NULL")
-                ->andWhere("s.candidate_type <> ?", 0);
+                /*->andWhere("s.candidate_type <> ?", 0)*/;
 
         return $this->groupByAndExecute($q, "s.candidate_type");
     }

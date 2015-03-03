@@ -255,19 +255,19 @@
 }
 
 #northeast {
-    width: 80px;
-    height: 131px;
+    width: 79px;
+    height: 128px;
     margin-left: 720px;
-    margin-top: 42px;
+    margin-top: 44px;
     position: absolute;
     z-index: -100 !important;
 }
 
 #mid_atlantic {
-    width: 138px;
-    height: 178px;
-    margin-left: 615px;
-    margin-top: 98px;
+    width: 139px;
+    height: 173px;
+    margin-left: 617px;
+    margin-top: 102px;
     position: absolute;
     z-index: -100 !important;
 }

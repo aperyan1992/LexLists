@@ -66,6 +66,7 @@ class dashboardActions extends sfActions {
 
         // Get survey candidate types
         $this->survey_candidate_types = Doctrine_Core::getTable('LtSurvey')->getSurveysCandidateTypes();
+       // var_dump($this->survey_candidate_types);die;
         $this->survey_candidate_types_checkboxes = "";
 
         foreach ((array) $this->survey_candidate_types as $candidate_type) {

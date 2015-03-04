@@ -15,9 +15,8 @@ $(document).ready(function() {
 
     //****************** start calendar ************//
 
-if( /Windows|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    $('.menu-dropdown').css({'background-color': "#ff0000"});
-    alert("hello");
+if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
+    $('.dataTables_scrollBody').css({'overflow':'visible !important'});  
 }
 
 

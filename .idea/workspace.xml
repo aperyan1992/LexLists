@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2da5432-7c79-44d2-9269-2b9fdffb7cd6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/my_survey_scripts.js" afterPath="$PROJECT_DIR$/web/js/my_survey_scripts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/report_fix.css" afterPath="$PROJECT_DIR$/web/css/report_fix.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/set_alert.js" afterPath="$PROJECT_DIR$/web/js/set_alert.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="lex.local.iws" />
@@ -27,23 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="dashboard_scripts.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/dashboard_scripts.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="633" column="117" selection-start="22319" selection-end="22319" vertical-scroll-proportion="0.0" vertical-offset="9205" max-vertical-offset="28215">
-              <folding>
-                <element signature="e#23314#26417#0" expanded="false" />
-                <element signature="e#26492#29461#0" expanded="false" />
-                <element signature="e#29543#32552#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="actions.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="30" selection-start="3395" selection-end="3395" vertical-scroll-proportion="-5.625" vertical-offset="945" max-vertical-offset="24375">
+            <state line="1578" column="60" selection-start="74437" selection-end="74773" vertical-scroll-proportion="-5.0" vertical-offset="23415" max-vertical-offset="24375">
               <folding>
                 <marker date="1425371929895" expanded="false" signature="27994:28028" placeholder="..." />
                 <marker date="1425371929895" expanded="false" signature="28046:28076" placeholder="..." />
@@ -69,129 +57,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LtSurveyTable.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/model/doctrine/LtSurveyTable.class.php">
+      <file leaf-file-name="_survey_email_popup.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="0" selection-start="669" selection-end="669" vertical-scroll-proportion="-5.098039" vertical-offset="145" max-vertical-offset="4005">
+            <state line="15" column="73" selection-start="692" selection-end="692" vertical-scroll-proportion="-4.9583335" vertical-offset="106" max-vertical-offset="1515">
               <folding>
-                <marker date="1425372059751" expanded="true" signature="2935:3140" placeholder="SELECT `s`.`..." />
-                <marker date="1425372059751" expanded="true" signature="3372:3408" placeholder="SELECT `surv..." />
+                <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_alert_popups.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="57" selection-start="5368" selection-end="5368" vertical-scroll-proportion="-0.29411766" vertical-offset="1410" max-vertical-offset="12840">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#4;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#5;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#6;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#7;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#8;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#9;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#10;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#11;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#12;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#13;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#14;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#15;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#16;n#!!top" expanded="true" />
-                <element signature="e#4129#5094#0" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#16;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#0;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#49;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#52;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#53;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#64;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#65;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#66;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#67;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#68;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#69;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#70;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#71;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#72;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#73;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#74;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#75;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#76;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#77;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#78;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#1;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#2;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#3;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#4;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#5;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#6;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#7;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#8;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#9;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#10;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#11;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#12;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#13;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#14;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#15;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#16;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#17;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#18;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#19;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#20;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#21;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#22;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#path#23;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#4;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#5;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#6;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#7;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#8;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#9;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#10;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#1;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#2;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#3;n#div#17;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#4;n#div#17;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lastsvg.svg" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/images/lastsvg.svg">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="43" selection-start="506" selection-end="546" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="55905">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4370" column="19" selection-start="125523" selection-end="125529" vertical-scroll-proportion="-11.037037" vertical-offset="65252" max-vertical-offset="77370">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="databases.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/databases.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -199,39 +71,66 @@
       <file leaf-file-name="actions.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="379" column="65" selection-start="18194" selection-end="18194" vertical-scroll-proportion="-4.45098" vertical-offset="5458" max-vertical-offset="11400">
+            <state line="1252" column="56" selection-start="59761" selection-end="59761" vertical-scroll-proportion="-4.470588" vertical-offset="7347" max-vertical-offset="11040">
               <folding>
+                <element signature="n#executeCalendarDates#0;n#mySurveyActions#0;n#!!top" expanded="false" />
+                <element signature="n#executePrintCalendar#0;n#mySurveyActions#0;n#!!top" expanded="false" />
+                <element signature="n#executeGetMySurveys#0;n#mySurveyActions#0;n#!!top" expanded="false" />
                 <element signature="n#CheckStringLength#0;n#mySurveyActions#0;n#!!top" expanded="false" />
                 <element signature="n#executeSaveSurveyToMyList#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-                <element signature="n#executeGetSurveyInfo#0;n#mySurveyActions#0;n#!!top" expanded="false" />
+                <element signature="n#executeMultipleSaveSurveyToMyList#0;n#mySurveyActions#0;n#!!top" expanded="false" />
                 <element signature="n#check_if_url_exists#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-                <element signature="n#executeGetMySurveyNotes#0;n#mySurveyActions#0;n#!!top" expanded="false" />
                 <element signature="n#executeAddMySurveyNote#0;n#mySurveyActions#0;n#!!top" expanded="false" />
                 <element signature="n#executeSaveMySurveyAdditionalInfo#0;n#mySurveyActions#0;n#!!top" expanded="false" />
                 <element signature="n#executeRemoveFromMyList#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-                <element signature="n#executeGetAllEmails#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-                <element signature="n#executeSaveAlertDetails#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-                <element signature="n#executeRemoveSurveyAlert#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-                <element signature="n#executeChangeAlert#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-                <element signature="n#executeSetFlagByClick#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-                <marker date="1425455194573" expanded="true" signature="8709:8743" placeholder="..." />
-                <marker date="1425455194573" expanded="true" signature="8761:8791" placeholder="..." />
-                <marker date="1425455194573" expanded="false" signature="10493:10511" placeholder="..." />
-                <marker date="1425455194573" expanded="false" signature="12769:12787" placeholder="..." />
-                <marker date="1425455194573" expanded="false" signature="15520:15538" placeholder="..." />
-                <marker date="1425455194573" expanded="true" signature="20759:20838" placeholder="..." />
-                <marker date="1425455194573" expanded="true" signature="54358:54515" placeholder="INSERT INTO ..." />
-                <marker date="1425455194573" expanded="true" signature="60487:60617" placeholder="INSERT INTO ..." />
-                <marker date="1425455194573" expanded="true" signature="60938:61054" placeholder="INSERT INTO ..." />
+                <marker date="1425464676657" expanded="true" signature="8709:8743" placeholder="..." />
+                <marker date="1425464676657" expanded="true" signature="8761:8791" placeholder="..." />
+                <marker date="1425464676657" expanded="false" signature="10493:10511" placeholder="..." />
+                <marker date="1425464676657" expanded="false" signature="12769:12787" placeholder="..." />
+                <marker date="1425464676657" expanded="false" signature="15520:15538" placeholder="..." />
+                <marker date="1425464676657" expanded="true" signature="20759:20838" placeholder="..." />
+                <marker date="1425464676657" expanded="true" signature="54736:54893" placeholder="INSERT INTO ..." />
+                <marker date="1425464676657" expanded="true" signature="61172:61302" placeholder="INSERT INTO ..." />
+                <marker date="1425464676657" expanded="true" signature="61623:61739" placeholder="INSERT INTO ..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="my_survey_scripts.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_survey_set_alert_popup.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="74" selection-start="885" selection-end="917" vertical-scroll-proportion="-3.235294" vertical-offset="180" max-vertical-offset="4470">
+              <folding>
+                <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#5;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#5;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="set_alert.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="28" selection-start="986" selection-end="986" vertical-scroll-proportion="0.7832898" vertical-offset="90" max-vertical-offset="5580">
+              <folding>
+                <marker date="1425465032569" expanded="true" signature="7812:7906" placeholder="..." />
+                <marker date="1425465032569" expanded="true" signature="8010:8022" placeholder="..." />
+                <marker date="1425465032569" expanded="true" signature="8117:8129" placeholder="..." />
+                <marker date="1425465032569" expanded="true" signature="8546:8633" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="my_survey_scripts.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/my_survey_scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="481" column="43" selection-start="14685" selection-end="14685" vertical-scroll-proportion="0.38652483" vertical-offset="6967" max-vertical-offset="9930">
+            <state line="622" column="111" selection-start="19718" selection-end="19721" vertical-scroll-proportion="-4.3703704" vertical-offset="9182" max-vertical-offset="9930">
               <folding />
             </state>
           </provider>
@@ -242,6 +141,17 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="31" column="0" selection-start="413" selection-end="478" vertical-scroll-proportion="-3.4444444" vertical-offset="372" max-vertical-offset="1245">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_survey_email_popup.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_email_popup.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="65" selection-start="684" selection-end="684" vertical-scroll-proportion="-4.9583335" vertical-offset="106" max-vertical-offset="1515">
+              <folding>
+                <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -278,7 +188,6 @@
         <option value="$PROJECT_DIR$/web/js/calendar/tmpls/events-list.html" />
         <option value="$PROJECT_DIR$/web/js/calendar/tmpls/month.html" />
         <option value="$PROJECT_DIR$/web/js/calendar/css/calendar.css" />
-        <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php" />
         <option value="$PROJECT_DIR$/web/js/calendar/js/calendar.js" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php" />
         <option value="$PROJECT_DIR$/web/js/survey_details_script.js" />
@@ -297,9 +206,11 @@
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/lib/model/doctrine/LtSurveyTable.class.php" />
         <option value="$PROJECT_DIR$/config/databases.yml" />
-        <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/web/js/my_survey_scripts.js" />
         <option value="$PROJECT_DIR$/web/css/report_fix.css" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
+        <option value="$PROJECT_DIR$/web/js/set_alert.js" />
       </list>
     </option>
   </component>
@@ -508,6 +419,10 @@
               <option name="myItemId" value="mySurvey" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -566,6 +481,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="actions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -665,16 +610,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1303" height="773" extended-state="7" />
+    <frame x="64" y="-4" width="1303" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31852987" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31852987" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2025417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16441621" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -711,7 +656,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php</url>
-          <line>1204</line>
+          <line>1214</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -724,16 +669,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/js/calendar/css/calendar.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="13" selection-start="3079" selection-end="3079" vertical-scroll-proportion="0.29116118" vertical-offset="1827" max-vertical-offset="7830" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_set_alert_popup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_details_popup.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="-1.9596775" vertical-offset="729" max-vertical-offset="1125" />
@@ -765,11 +700,6 @@
     <entry file="file://$PROJECT_DIR$/web/js/calendar/js/calendar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="0" selection-start="1600" selection-end="1600" vertical-scroll-proportion="0.30668843" vertical-offset="532" max-vertical-offset="19200" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="283" column="64" selection-start="11870" selection-end="11870" vertical-scroll-proportion="0.6689304" vertical-offset="3851" max-vertical-offset="4440" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/filter/doctrine/base/BaseLtCityFormFilter.class.php">
@@ -862,16 +792,6 @@
         <state line="138" column="0" selection-start="3566" selection-end="3566" vertical-scroll-proportion="0.0" vertical-offset="1665" max-vertical-offset="10650" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_email_popup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="121" selection-start="671" selection-end="740" vertical-scroll-proportion="-4.3333335" vertical-offset="121" max-vertical-offset="1515" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="121" selection-start="740" selection-end="740" vertical-scroll-proportion="0.2896936" vertical-offset="121" max-vertical-offset="1515" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/send_email.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="72" column="12" selection-start="2516" selection-end="2516" vertical-scroll-proportion="0.07340946" vertical-offset="1005" max-vertical-offset="4515" />
@@ -935,92 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="57" selection-start="5368" selection-end="5368" vertical-scroll-proportion="-0.29411766" vertical-offset="1410" max-vertical-offset="12840">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#6;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#7;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#8;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#9;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#10;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#11;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#12;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#13;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#14;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#15;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#16;n#!!top" expanded="true" />
-            <element signature="e#4129#5094#0" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#16;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#0;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#49;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#52;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#53;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#64;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#65;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#66;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#67;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#68;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#69;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#70;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#71;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#72;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#73;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#74;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#75;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#76;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#77;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#78;n#g#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#0;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#1;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#2;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#3;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#4;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#5;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#6;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#7;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#8;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#9;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#10;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#11;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#12;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#13;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#14;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#15;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#16;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#17;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#18;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#19;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#20;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#21;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#22;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#path#23;n#svg#0;n#div#0;n#div#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#6;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#7;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#8;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#9;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#10;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#2;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#3;n#div#17;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#4;n#div#17;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/dashboard_scripts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="633" column="117" selection-start="22319" selection-end="22319" vertical-scroll-proportion="0.0" vertical-offset="9205" max-vertical-offset="28215">
@@ -1032,16 +866,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/model/doctrine/LtSurveyTable.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="669" selection-end="669" vertical-scroll-proportion="-5.098039" vertical-offset="145" max-vertical-offset="4005">
-          <folding>
-            <marker date="1425372059751" expanded="true" signature="2935:3140" placeholder="SELECT `s`.`..." />
-            <marker date="1425372059751" expanded="true" signature="3372:3408" placeholder="SELECT `surv..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/databases.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="0" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
@@ -1049,9 +873,102 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/select2.full.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7174" column="32" selection-start="279385" selection-end="279385" vertical-scroll-proportion="0.48825064" vertical-offset="107423" max-vertical-offset="209910">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4370" column="19" selection-start="125523" selection-end="125529" vertical-scroll-proportion="-11.037037" vertical-offset="65252" max-vertical-offset="77370">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/report_fix.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="413" selection-end="478" vertical-scroll-proportion="-3.4444444" vertical-offset="372" max-vertical-offset="1245">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_or_print.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2460">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="57" selection-start="5368" selection-end="5368" vertical-scroll-proportion="0.028680688" vertical-offset="1410" max-vertical-offset="12840">
+          <folding>
+            <element signature="e#4129#5094#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_set_alert_popup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="536">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/model/doctrine/LtSurveyTable.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="0" selection-start="669" selection-end="669" vertical-scroll-proportion="-5.098039" vertical-offset="145" max-vertical-offset="4005">
+          <folding>
+            <marker date="1425372059751" expanded="true" signature="-1:-1" placeholder="SELECT `s`.`..." />
+            <marker date="1425372059751" expanded="true" signature="-1:-1" placeholder="SELECT `surv..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="73" selection-start="692" selection-end="692" vertical-scroll-proportion="-4.9583335" vertical-offset="106" max-vertical-offset="1515">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_email_popup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="65" selection-start="684" selection-end="684" vertical-scroll-proportion="-4.9583335" vertical-offset="106" max-vertical-offset="1515">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/my_survey_scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="622" column="111" selection-start="19718" selection-end="19721" vertical-scroll-proportion="-4.3703704" vertical-offset="9182" max-vertical-offset="9930">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="74" selection-start="885" selection-end="917" vertical-scroll-proportion="-3.235294" vertical-offset="180" max-vertical-offset="4470">
+          <folding>
+            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#5;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#5;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="30" selection-start="3395" selection-end="3395" vertical-scroll-proportion="-5.625" vertical-offset="945" max-vertical-offset="24375">
+        <state line="1578" column="60" selection-start="74437" selection-end="74773" vertical-scroll-proportion="-5.0" vertical-offset="23415" max-vertical-offset="24375">
           <folding>
             <marker date="1425371929895" expanded="false" signature="27994:28028" placeholder="..." />
             <marker date="1425371929895" expanded="false" signature="28046:28076" placeholder="..." />
@@ -1076,73 +993,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/select2.full.js">
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7174" column="32" selection-start="279385" selection-end="279385" vertical-scroll-proportion="0.48825064" vertical-offset="107423" max-vertical-offset="209910">
-          <folding />
+        <state line="1252" column="56" selection-start="59761" selection-end="59761" vertical-scroll-proportion="-4.470588" vertical-offset="7347" max-vertical-offset="11040">
+          <folding>
+            <element signature="n#executeCalendarDates#0;n#mySurveyActions#0;n#!!top" expanded="false" />
+            <element signature="n#executePrintCalendar#0;n#mySurveyActions#0;n#!!top" expanded="false" />
+            <element signature="n#executeGetMySurveys#0;n#mySurveyActions#0;n#!!top" expanded="false" />
+            <element signature="n#CheckStringLength#0;n#mySurveyActions#0;n#!!top" expanded="false" />
+            <element signature="n#executeSaveSurveyToMyList#0;n#mySurveyActions#0;n#!!top" expanded="false" />
+            <element signature="n#executeMultipleSaveSurveyToMyList#0;n#mySurveyActions#0;n#!!top" expanded="false" />
+            <element signature="n#check_if_url_exists#0;n#mySurveyActions#0;n#!!top" expanded="false" />
+            <element signature="n#executeAddMySurveyNote#0;n#mySurveyActions#0;n#!!top" expanded="false" />
+            <element signature="n#executeSaveMySurveyAdditionalInfo#0;n#mySurveyActions#0;n#!!top" expanded="false" />
+            <element signature="n#executeRemoveFromMyList#0;n#mySurveyActions#0;n#!!top" expanded="false" />
+            <marker date="1425464676657" expanded="true" signature="8709:8743" placeholder="..." />
+            <marker date="1425464676657" expanded="true" signature="8761:8791" placeholder="..." />
+            <marker date="1425464676657" expanded="false" signature="10493:10511" placeholder="..." />
+            <marker date="1425464676657" expanded="false" signature="12769:12787" placeholder="..." />
+            <marker date="1425464676657" expanded="false" signature="15520:15538" placeholder="..." />
+            <marker date="1425464676657" expanded="true" signature="20759:20838" placeholder="..." />
+            <marker date="1425464676657" expanded="true" signature="54736:54893" placeholder="INSERT INTO ..." />
+            <marker date="1425464676657" expanded="true" signature="61172:61302" placeholder="INSERT INTO ..." />
+            <marker date="1425464676657" expanded="true" signature="61623:61739" placeholder="INSERT INTO ..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="62" selection-start="1737" selection-end="1788" vertical-scroll-proportion="0.33159268" vertical-offset="563" max-vertical-offset="5535">
+        <state line="28" column="28" selection-start="986" selection-end="986" vertical-scroll-proportion="0.7832898" vertical-offset="90" max-vertical-offset="5580">
           <folding>
-            <marker date="1412582660021" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1412582660021" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1412582660021" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1412582660021" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1425465032569" expanded="true" signature="7812:7906" placeholder="..." />
+            <marker date="1425465032569" expanded="true" signature="8010:8022" placeholder="..." />
+            <marker date="1425465032569" expanded="true" signature="8117:8129" placeholder="..." />
+            <marker date="1425465032569" expanded="true" signature="8546:8633" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4370" column="19" selection-start="125523" selection-end="125529" vertical-scroll-proportion="-11.037037" vertical-offset="65252" max-vertical-offset="77370">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="379" column="65" selection-start="18194" selection-end="18194" vertical-scroll-proportion="-4.45098" vertical-offset="5458" max-vertical-offset="11400">
-          <folding>
-            <element signature="n#CheckStringLength#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-            <element signature="n#executeSaveSurveyToMyList#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-            <element signature="n#executeGetSurveyInfo#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-            <element signature="n#check_if_url_exists#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-            <element signature="n#executeGetMySurveyNotes#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-            <element signature="n#executeAddMySurveyNote#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-            <element signature="n#executeSaveMySurveyAdditionalInfo#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-            <element signature="n#executeRemoveFromMyList#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-            <element signature="n#executeGetAllEmails#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-            <element signature="n#executeSaveAlertDetails#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-            <element signature="n#executeRemoveSurveyAlert#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-            <element signature="n#executeChangeAlert#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-            <element signature="n#executeSetFlagByClick#0;n#mySurveyActions#0;n#!!top" expanded="false" />
-            <marker date="1425455194573" expanded="true" signature="8709:8743" placeholder="..." />
-            <marker date="1425455194573" expanded="true" signature="8761:8791" placeholder="..." />
-            <marker date="1425455194573" expanded="false" signature="10493:10511" placeholder="..." />
-            <marker date="1425455194573" expanded="false" signature="12769:12787" placeholder="..." />
-            <marker date="1425455194573" expanded="false" signature="15520:15538" placeholder="..." />
-            <marker date="1425455194573" expanded="true" signature="20759:20838" placeholder="..." />
-            <marker date="1425455194573" expanded="true" signature="54358:54515" placeholder="INSERT INTO ..." />
-            <marker date="1425455194573" expanded="true" signature="60487:60617" placeholder="INSERT INTO ..." />
-            <marker date="1425455194573" expanded="true" signature="60938:61054" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/report_fix.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="413" selection-end="478" vertical-scroll-proportion="-3.4444444" vertical-offset="372" max-vertical-offset="1245">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/my_survey_scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="481" column="43" selection-start="14685" selection-end="14685" vertical-scroll-proportion="0.38652483" vertical-offset="6967" max-vertical-offset="9930">
-          <folding />
         </state>
       </provider>
     </entry>

@@ -21,15 +21,25 @@ $(document).ready(function() {
         // Get email list
         $.ajax({
             url: "/frontend_dev.php/mySurvey/GetAllEmails",
-            type: "POST",
+            type: "POST",data: {
+                survey_id: survey_id
+            },
             dataType: "json",
             success: function(data) {
+                var to_me = data['me'];
+                var organization = data['organization'];
+                var survey_name = data['survey_name'];
+                $('.to_me_label').text(to_me);
+                $('.orgjson').text(organization);
+                $('.srvjson').text(survey_name);
+
                 var arrEmails = new Array();
-                for(var i = 0;i< data.length;i++)
+                for(var i = 0;i< data['array'].length;i++)
                 {
-                    arrEmails.push({id:i,text:data[i]})
+                    arrEmails.push({id:i,text:data['array'][i].f_name+' '+data['array'][i].l_name+' ('+data['array'][i].email+')'});
 
                 }
+                //console.log(arrEmails);
                 window.arrEmails = arrEmails;
                 $('#to_dialog_form_survey_set_alert2').select2({
                 createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },

@@ -15,6 +15,10 @@ $(document).ready(function() {
 
     //****************** start calendar ************//
 
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    $('.menu-dropdown').css({'background-color': "#ff0000"});
+}
+
 
     var calendar = $("#calendar_div_my_list").calendar({
         events_source: '/mySurvey/calendarDates',

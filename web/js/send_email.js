@@ -29,6 +29,9 @@ $(document).ready(function() {
                     dataType: "json",
                     success: function(data) {
                         var arrEmails = new Array();
+                        var to_me = data['me'];
+                        data = data.pop();
+                        alert(data);
                         for(var i = 0;i< data.length;i++)
                         {
                             arrEmails.push({id:i,text:data[i].f_name+' '+data[i].l_name+' ('+data[i].email+')'});

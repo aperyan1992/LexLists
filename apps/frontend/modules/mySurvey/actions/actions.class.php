@@ -875,6 +875,16 @@ class mySurveyActions extends sfActions {
                         }
                     }
 
+                    $user = $this->getUser()->getGuardUser();
+
+                    // Get recipient email address
+                    $recipient_email_address = $user->getEmailAddress();
+
+                    //Get user first name and last name
+                    $recipient_first_name = $user->getFirstName();
+                    $recipient_last_name = $user->getLastName();
+
+
                     return $this->renderText(
                         json_encode(
                             array(
@@ -1213,7 +1223,56 @@ class mySurveyActions extends sfActions {
 
         $query = 'SELECT * FROM sf_guard_user WHERE client_id="'. $my_client_id .'" AND id !="'.$current_user_id.'" ORDER BY last_name';
         $arrEmails = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
-        
+
+        $user = $this->getUser()->getGuardUser();
+
+        //Get user first name and last name
+        $recipient_first_name = $user->getFirstName();
+        $recipient_last_name = $user->getLastName();
+
+        $survey_id = $request->getParameter("survey_id", FALSE);
+        if ($survey_id) {
+            // Get survey info
+            $survey = Doctrine_Core::getTable("LtMySurvey")->getFullMySurveyInfo($survey_id, $this->getUser()->getGuardUser()->getId());
+
+            if ($survey) {
+                
+                // Get organization
+                $organization = "- - -";
+                if ((!is_null($survey->getSurvey()->getOrganizationId()) && $survey->getSurvey()->getOrganizationId() != "")) 
+                {
+                    if ($this->check_if_url_exists($survey->getSurvey()->getOrganizationUrl()))
+                    {
+                        $organization = "<a class='custom_link' target='_blank' href='" . $survey->getSurvey()->getOrganizationUrl() . "'>" . $survey->getSurvey()->getOrganization()->getName() . "</a>";
+                    }
+                    else
+                    {
+                        $organization = $survey->getSurvey()->getOrganization()->getName();
+                    }
+                }
+                $org = $survey->getSurvey()->getOrganization()->getName();
+                $srv = $survey->getSurvey()->getSurveyName();
+                // Get survey name
+                $survey_name = "- - -";
+
+                if (!is_null($survey->getSurvey()->getSurveyName()) && $survey->getSurvey()->getSurveyName() != "") 
+                {
+                    if ($this->check_if_url_exists($survey->getSurvey()->getSurveyUrl()))
+                    {
+                        $survey_name = "<a class='custom_link' target='_blank' href='" . $survey->getSurvey()->getSurveyUrl() . "'>" . $survey->getSurvey()->getSurveyName() . "</a>";
+                    }
+                    else
+                    {
+                        $survey_name = $survey->getSurvey()->getSurveyName();
+                    }
+
+                }
+
+            }
+        }
+
+
+        $newarray = array();
         if($arrEmails)
         {
             $i = 0;
@@ -1226,11 +1285,20 @@ class mySurveyActions extends sfActions {
                     $newarray[$i]['f_name'] = $email['first_name'];
                     if(!empty($email['last_name']))
                     $newarray[$i]['l_name'] = $email['last_name'];
+
+
+
                     $i++;
                 }
+
             }
+            $final['array'] = $newarray; 
+            $final['me'] = $recipient_first_name." ".$recipient_last_name;
+            $final['organization'] = $org;
+            $final['survey_name'] = $srv;
+            //$newarray['me'] = $recipient_first_name." ".$recipient_last_name;
             return $this->renderText(
-                json_encode($newarray)
+                json_encode($final)
             );
         }
         //$this->forward404();

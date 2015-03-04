@@ -4,6 +4,26 @@
         <form id="set_alert_form">
         <div class="area">
              <div class="left_block tooltip2">
+                 <span> Organization: </span>
+                
+             </div>
+
+            <div class="right_block">
+                 <span class="orgjson"></span>
+            </div>
+        </div>
+        <div class="area">
+             <div class="left_block tooltip2">
+                 <span> Survey Name: </span>
+                
+             </div>
+
+            <div class="right_block">
+                 <span class="srvjson"></span>
+            </div>
+        </div>
+        <div class="area">
+             <div class="left_block tooltip2">
                  <span> To: </span>
                  <span class="toolclass">
                 Send the alert to me.
@@ -11,7 +31,7 @@
              </div>
 
             <div class="right_block">
-                 <input type="checkbox" class="tomemail" name="to_me" id="to_me_dialog_form_survey_email" checked /><span class="to_me_label">Me</span>
+                 <input type="checkbox" class="tomemail" name="to_me" id="to_me_dialog_form_survey_email" checked /><span class="to_me_label"></span>
             </div>
         </div>
         <div class="area ">
@@ -21,8 +41,12 @@
             </div>
 
             <div class="right_block">
-                <textarea type="text" id="to_dialog_form_survey_set_alert2" style="width: 400px !important;"></textarea>
-                <span class="tooltip2 addemailclass"><span class="toolclass"><strong>If the user is not already available from the pull-down, type-in the email and then press Add</span></strong><a style="color: #ff6801;font-weight: 700;margin-left: 5px;" href="#" id="addemailcc">Add</a> </span>
+                <!-- <textarea type="text" id="to_dialog_form_survey_set_alert2" style="width: 400px !important;"></textarea> -->
+                <input style="width: 400px" placeholder="&nbsp;  Click to select or type address and press Enter" type="text" name="to" id="to_dialog_form_survey_set_alert2" class="text ui-widget-content ui-corner-all"/>
+
+                <!--<span class="tooltip2 addemailclass"><span class="toolclass"><strong>If the user is not already available from the pull-down, type-in the email and then press Add</span></strong>
+                    <a style="color: #ff6801;font-weight: 700;margin-left: 5px;" href="#" id="addemailcc">Add</a>
+                </span>-->
             </div>
         </div>
         <div class="area">

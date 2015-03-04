@@ -377,7 +377,7 @@ class mySurveyActions extends sfActions {
                                         <a href="#" class="menu_link">
                     <span class="genericon genericon-menu"></span>
                                         </a>
-                                        <ul class="menu-dropdown" style="z-index: 100000 ">
+                                        <ul class="menu-dropdown" style="z-index: 16777270 ">
                                             <li><a href="#" class="set_an_alert_class" s_id="' . $survey->getSurvey()->getId() . '">Set an Alert</a></li>
                                             <!--<li><a href="#">Send a Reminder</a></li>-->
                                             <li><a href="#" class="my_list_email_send" s_id="' . $survey->getSurvey()->getId() . '">E-mail</a></li>

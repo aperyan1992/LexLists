@@ -30,15 +30,21 @@
 }
 
 .menu-drop-wrapper .menu-dropdown{
+
+    -webkit-transform:translateZ(1px);
+    -moz-transform:translateZ(1px);
+    -o-transform:translateZ(1px);
+    transform:translateZ(1px);
+
     position: fixed !important;
     top: 18px;
     margin: 0;
     list-style: none;
     text-align: left;
     border: #ff6801 1px solid;
-    background: #fff;
+    background: red;/*#fff;*/
     /*right: 100px;*/
-    z-index: 99999;
+    z-index: 15;
     display: none;
     margin-left: -176px;
     width: 190px;

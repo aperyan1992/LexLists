@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2da5432-7c79-44d2-9269-2b9fdffb7cd6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/report_fix.css" afterPath="$PROJECT_DIR$/web/css/report_fix.css" />
     </list>
     <ignored path="lex.local.iws" />
@@ -195,10 +194,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="actions.class.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="actions.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="366" column="8" selection-start="17281" selection-end="17281" vertical-scroll-proportion="0.09638554" vertical-offset="5458" max-vertical-offset="11400">
+            <state line="379" column="65" selection-start="18194" selection-end="18194" vertical-scroll-proportion="-4.45098" vertical-offset="5458" max-vertical-offset="11400">
               <folding>
                 <element signature="n#CheckStringLength#0;n#mySurveyActions#0;n#!!top" expanded="false" />
                 <element signature="n#executeSaveSurveyToMyList#0;n#mySurveyActions#0;n#!!top" expanded="false" />
@@ -236,10 +235,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="report_fix.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="report_fix.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/css/report_fix.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="16" selection-start="621" selection-end="624" vertical-scroll-proportion="-4.5555553" vertical-offset="462" max-vertical-offset="1080">
+            <state line="38" column="28" selection-start="619" selection-end="619" vertical-scroll-proportion="0.41463414" vertical-offset="417" max-vertical-offset="1170">
               <folding />
             </state>
           </provider>
@@ -297,8 +296,8 @@
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/lib/model/doctrine/LtSurveyTable.class.php" />
         <option value="$PROJECT_DIR$/config/databases.yml" />
-        <option value="$PROJECT_DIR$/web/css/report_fix.css" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
+        <option value="$PROJECT_DIR$/web/css/report_fix.css" />
       </list>
     </option>
   </component>
@@ -1099,13 +1098,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/report_fix.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="16" selection-start="621" selection-end="624" vertical-scroll-proportion="-4.5555553" vertical-offset="462" max-vertical-offset="1080">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4370" column="19" selection-start="125523" selection-end="125529" vertical-scroll-proportion="-11.037037" vertical-offset="65252" max-vertical-offset="77370">
@@ -1115,7 +1107,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="366" column="8" selection-start="17281" selection-end="17281" vertical-scroll-proportion="0.09638554" vertical-offset="5458" max-vertical-offset="11400">
+        <state line="379" column="65" selection-start="18194" selection-end="18194" vertical-scroll-proportion="-4.45098" vertical-offset="5458" max-vertical-offset="11400">
           <folding>
             <element signature="n#CheckStringLength#0;n#mySurveyActions#0;n#!!top" expanded="false" />
             <element signature="n#executeSaveSurveyToMyList#0;n#mySurveyActions#0;n#!!top" expanded="false" />
@@ -1140,6 +1132,13 @@
             <marker date="1425455194573" expanded="true" signature="60487:60617" placeholder="INSERT INTO ..." />
             <marker date="1425455194573" expanded="true" signature="60938:61054" placeholder="INSERT INTO ..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/report_fix.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="28" selection-start="619" selection-end="619" vertical-scroll-proportion="0.41463414" vertical-offset="417" max-vertical-offset="1170">
+          <folding />
         </state>
       </provider>
     </entry>

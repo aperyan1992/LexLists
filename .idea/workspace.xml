@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2da5432-7c79-44d2-9269-2b9fdffb7cd6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/my_survey_scripts.js" afterPath="$PROJECT_DIR$/web/js/my_survey_scripts.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/report_fix.css" afterPath="$PROJECT_DIR$/web/css/report_fix.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="lex.local.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -226,19 +228,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="my_survey_scripts.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="my_survey_scripts.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/my_survey_scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="456" column="33" selection-start="14086" selection-end="14086" vertical-scroll-proportion="0.0" vertical-offset="6563" max-vertical-offset="9930">
+            <state line="481" column="43" selection-start="14685" selection-end="14685" vertical-scroll-proportion="0.38652483" vertical-offset="6967" max-vertical-offset="9930">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="report_fix.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="report_fix.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/css/report_fix.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="21" selection-start="812" selection-end="812" vertical-scroll-proportion="0.7804878" vertical-offset="417" max-vertical-offset="1215">
+            <state line="31" column="0" selection-start="413" selection-end="478" vertical-scroll-proportion="-3.4444444" vertical-offset="372" max-vertical-offset="1245">
               <folding />
             </state>
           </provider>
@@ -278,7 +280,6 @@
         <option value="$PROJECT_DIR$/web/js/calendar/css/calendar.css" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php" />
         <option value="$PROJECT_DIR$/web/js/calendar/js/calendar.js" />
-        <option value="$PROJECT_DIR$/web/js/my_survey_scripts.js" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php" />
         <option value="$PROJECT_DIR$/web/js/survey_details_script.js" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/surveyManagement/templates/_form_field.php" />
@@ -297,6 +298,7 @@
         <option value="$PROJECT_DIR$/lib/model/doctrine/LtSurveyTable.class.php" />
         <option value="$PROJECT_DIR$/config/databases.yml" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
+        <option value="$PROJECT_DIR$/web/js/my_survey_scripts.js" />
         <option value="$PROJECT_DIR$/web/css/report_fix.css" />
       </list>
     </option>
@@ -669,7 +671,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31852987" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31852987" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2025417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -907,7 +909,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/indexSuccess.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="4" selection-start="363" selection-end="2792" vertical-scroll-proportion="1.5789474" vertical-offset="0" max-vertical-offset="3690" />
+        <state line="62" column="4" selection-start="363" selection-end="2792" vertical-scroll-proportion="1.5789474" vertical-offset="0" max-vertical-offset="3690">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/sfGuardAuth/actions/actions.class.php">
@@ -1091,13 +1095,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/my_survey_scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="456" column="33" selection-start="14086" selection-end="14086" vertical-scroll-proportion="0.0" vertical-offset="6563" max-vertical-offset="9930">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4370" column="19" selection-start="125523" selection-end="125529" vertical-scroll-proportion="-11.037037" vertical-offset="65252" max-vertical-offset="77370">
@@ -1137,7 +1134,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/css/report_fix.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="21" selection-start="812" selection-end="812" vertical-scroll-proportion="0.7804878" vertical-offset="417" max-vertical-offset="1215">
+        <state line="31" column="0" selection-start="413" selection-end="478" vertical-scroll-proportion="-3.4444444" vertical-offset="372" max-vertical-offset="1245">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/my_survey_scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="481" column="43" selection-start="14685" selection-end="14685" vertical-scroll-proportion="0.38652483" vertical-offset="6967" max-vertical-offset="9930">
           <folding />
         </state>
       </provider>

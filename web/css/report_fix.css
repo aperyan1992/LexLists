@@ -28,9 +28,11 @@
     display: inline-block;
     width: 20px;
 }
+/*
 .dataTables_scrollBody{
     overflow:visible !important;
 }
+*/
 
 .menu-drop-wrapper .menu-dropdown{
 

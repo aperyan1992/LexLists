@@ -479,7 +479,7 @@ function makeMenusFixed() {
         var menuLinkLeftPos = $(this).offset().left;
         $(this).siblings('.menu-dropdown').css({
             'top': menuLinkTopPos + 'px',
-            'left': menuLinkLeftPos + 'px',
+            'left': menuLinkLeftPos +190+ 'px',
             'marginTop' : '15px'
         });
     });

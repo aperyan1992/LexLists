@@ -414,6 +414,11 @@ if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
      */
     $(document).on('click', '.menu-drop-wrapper .menu_link', function(e) {
         e.preventDefault();
+
+      /*  $('.menu_link').each(function(){
+            $('.menu_link:last-child')
+        });*/
+
         
         makeMenusFixed();
 

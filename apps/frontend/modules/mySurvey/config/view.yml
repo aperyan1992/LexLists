@@ -2,6 +2,6 @@
 ---
 indexSuccess:
   javascripts: [select2.min.js, date_formating.js, set_alert.js,my_survey_scripts.js, send_email.js, survey_details_script.js, filters_scripts.js, calendar/js/app.js, calendar/js/calendar.js, calendar/components/underscore/underscore-min.js]
-  stylesheets:    [calendar.css, select2.css, select2-bootstrap.css, report_fix.css]
+  stylesheets:    [calendar.css, select2.css, select2-bootstrap.css, report_fix.css, normalize.css]
   metas:
     title: LexLists-My Lists

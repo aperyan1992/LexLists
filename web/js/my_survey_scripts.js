@@ -13,11 +13,14 @@ $(document).ajaxStop(function() {
 $(document).ready(function() {
 
 
+var drop_down_menu_opened = false;
+var drop_down_menu_closed = true;
+
     //****************** start calendar ************//
 
-if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
+/*if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
     $('.dataTables_scrollBody').css({'overflow':'visible !important'});  
-}
+}*/
 
 
     var calendar = $("#calendar_div_my_list").calendar({
@@ -414,18 +417,58 @@ if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
      */
     $(document).on('click', '.menu-drop-wrapper .menu_link', function(e) {
         e.preventDefault();
-
-      /*  $('.menu_link').each(function(){
-            $('.menu_link:last-child')
-        });*/
-
         
-        makeMenusFixed();
+
+       
+
 
         //if($('.menu-dropdown').is(':hidden')){
-            $(this).siblings('.menu-dropdown').slideToggle();
+            //$(this).siblings('.menu-dropdown').slideToggle(1);
         //}
 
+
+ //drop-down menu for ipad
+        //if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
+            if(drop_down_menu_closed || !drop_down_menu_opened)
+            {
+                $(this).parent().find('.menu-dropdown').slideDown();
+                drop_down_menu_opened = true;
+                drop_down_menu_closed = false;
+                if( /iPhone|iPad|iPod/i.test(navigator.userAgent) )
+                {
+                    $('.dataTables_scrollBody').css({"overflow":"visible"});
+                }
+            }
+            else
+            {
+                $(this).parent().find('.menu-dropdown').slideUp();  
+                drop_down_menu_closed = true;  
+                drop_down_menu_opened = false;          
+                $('.dataTables_scrollBody').css({"overflow":"auto"});
+            }
+        //}
+
+
+       
+
+        /*setTimeout(function(){ 
+            if($('.menu-dropdown').is(':hidden')){
+                alert('vis');
+                $('.dataTables_scrollBody').css({"overflow":"visible"});
+            }
+            else
+            {
+                alert('auto')
+                $('.dataTables_scrollBody').css({"overflow":"auto"});    
+            }
+        }, 2000);*/
+        
+        
+
+                    
+        makeMenusFixed();
+
+        
         /*(function (elem) {
             var menu_hidden  = $(elem).siblings('.menu-dropdown:hidden');
                 console.log(menu_hidden.length);
@@ -456,6 +499,9 @@ if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
     $(document).on('mouseleave', '.menu-drop-wrapper', function(e) {
         if(!$('.menu-dropdown',this).is(':hidden')){
             $('.menu-dropdown',this).slideUp();
+            drop_down_menu_closed = true;
+            drop_down_menu_opened = false;
+      
         }
     });
 

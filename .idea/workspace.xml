@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2da5432-7c79-44d2-9269-2b9fdffb7cd6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/send_email.js" afterPath="$PROJECT_DIR$/web/js/send_email.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/set_alert.js" afterPath="$PROJECT_DIR$/web/js/set_alert.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/my_survey_scripts.js" afterPath="$PROJECT_DIR$/web/js/my_survey_scripts.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="lex.local.iws" />
@@ -50,7 +47,7 @@
       <file leaf-file-name="actions.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1252" column="56" selection-start="59761" selection-end="59761" vertical-scroll-proportion="0.0" vertical-offset="18780" max-vertical-offset="22245">
+            <state line="1298" column="56" selection-start="61869" selection-end="61869" vertical-scroll-proportion="0.0" vertical-offset="19470" max-vertical-offset="22935">
               <folding />
             </state>
           </provider>
@@ -59,7 +56,7 @@
       <file leaf-file-name="_survey_set_alert_popup.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="74" selection-start="885" selection-end="917" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="4470">
+            <state line="44" column="74" selection-start="1593" selection-end="1593" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="4800">
               <folding />
             </state>
           </provider>
@@ -68,12 +65,12 @@
       <file leaf-file-name="set_alert.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="28" selection-start="986" selection-end="986" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="5580">
+            <state line="35" column="28" selection-start="1269" selection-end="1269" vertical-scroll-proportion="-0.05059022" vertical-offset="525" max-vertical-offset="5685">
               <folding>
-                <marker date="1425466085677" expanded="true" signature="7819:7913" placeholder="..." />
-                <marker date="1425466085677" expanded="true" signature="8017:8029" placeholder="..." />
-                <marker date="1425466085677" expanded="true" signature="8124:8136" placeholder="..." />
-                <marker date="1425466085677" expanded="true" signature="8553:8640" placeholder="..." />
+                <marker date="1425469821225" expanded="false" signature="8194:8288" placeholder="..." />
+                <marker date="1425469821225" expanded="false" signature="8392:8404" placeholder="..." />
+                <marker date="1425469821225" expanded="false" signature="8499:8511" placeholder="..." />
+                <marker date="1425469821225" expanded="false" signature="8928:9015" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -82,7 +79,7 @@
       <file leaf-file-name="my_survey_scripts.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/my_survey_scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="622" column="111" selection-start="19718" selection-end="19721" vertical-scroll-proportion="0.0" vertical-offset="9330" max-vertical-offset="9960">
+            <state line="639" column="35" selection-start="20179" selection-end="20182" vertical-scroll-proportion="0.0" vertical-offset="9585" max-vertical-offset="10230">
               <folding />
             </state>
           </provider>
@@ -91,7 +88,7 @@
       <file leaf-file-name="report_fix.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/css/report_fix.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="413" selection-end="478" vertical-scroll-proportion="0.0" vertical-offset="372" max-vertical-offset="1245">
+            <state line="31" column="0" selection-start="413" selection-end="478" vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="1245">
               <folding />
             </state>
           </provider>
@@ -245,6 +242,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -568,7 +583,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16441621" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16918188" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -635,11 +650,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/lib/helper/fonts/freefont-20120503/ChangeLog">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3914" column="45" selection-start="113936" selection-end="113936" vertical-scroll-proportion="0.205" vertical-offset="58587" max-vertical-offset="220695" />
-      </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3914" column="45" selection-start="113936" selection-end="113936" vertical-scroll-proportion="0.205" vertical-offset="58587" max-vertical-offset="220695" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/survey_details_script.js">
@@ -862,14 +877,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/my_survey_scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="622" column="111" selection-start="19718" selection-end="19721" vertical-scroll-proportion="0.0" vertical-offset="9330" max-vertical-offset="9960">
+        <state line="639" column="35" selection-start="20179" selection-end="20182" vertical-scroll-proportion="0.0" vertical-offset="9585" max-vertical-offset="10230">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="74" selection-start="885" selection-end="917" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="4470">
+        <state line="44" column="74" selection-start="1593" selection-end="1593" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="4800">
           <folding />
         </state>
       </provider>
@@ -883,19 +898,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1252" column="56" selection-start="59761" selection-end="59761" vertical-scroll-proportion="0.0" vertical-offset="18780" max-vertical-offset="22245">
+        <state line="1298" column="56" selection-start="61869" selection-end="61869" vertical-scroll-proportion="0.0" vertical-offset="19470" max-vertical-offset="22935">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="28" selection-start="986" selection-end="986" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="5580">
+        <state line="35" column="28" selection-start="1269" selection-end="1269" vertical-scroll-proportion="-0.05059022" vertical-offset="525" max-vertical-offset="5685">
           <folding>
-            <marker date="1425466085677" expanded="true" signature="7819:7913" placeholder="..." />
-            <marker date="1425466085677" expanded="true" signature="8017:8029" placeholder="..." />
-            <marker date="1425466085677" expanded="true" signature="8124:8136" placeholder="..." />
-            <marker date="1425466085677" expanded="true" signature="8553:8640" placeholder="..." />
+            <marker date="1425469821225" expanded="false" signature="8194:8288" placeholder="..." />
+            <marker date="1425469821225" expanded="false" signature="8392:8404" placeholder="..." />
+            <marker date="1425469821225" expanded="false" signature="8499:8511" placeholder="..." />
+            <marker date="1425469821225" expanded="false" signature="8928:9015" placeholder="..." />
           </folding>
         </state>
       </provider>

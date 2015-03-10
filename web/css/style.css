@@ -13,6 +13,18 @@
     font-style: normal;
 }
 
+.list_alerts div {
+	font-weight: normal !important;
+}
+
+.select2-container .select2-container-multi .select2-choices {
+	margin-top: -5px;
+}
+
+.select2-container .select2-container-multi .select2-choices .select2-search-field {
+	height: 30px !important;
+}
+
 .calendar_link {
     text-decoration: none;
     margin-left: 5px!important;

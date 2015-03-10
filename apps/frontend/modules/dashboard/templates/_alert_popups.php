@@ -25,8 +25,11 @@
 <div id="dialog_delete_alert_cofirm_alert" style="display: none;" title="LexLists Warning">
     <div class="warning_message">This alert will be removed.</div>
 </div>
-<div id="dialog_save_alert_validation" style="display: none;" title="LexLists Warning">
-    <div class="warning_message">Warning! You must indicate when you want to be alerted. Select the time before the submission deadline or anytime the record is updated.</div>
+<div id="dialog_save_alert_validation" style="display: none; max-height: 130px !important;" title="LexLists Warning">
+    <div class="warning_message" style="font-weight: normal;">Warning! You must indicate when you want to be alerted. 
+    Select either a time period before the 
+submission deadline (<strong>When</strong> field) or select the <strong>Anytime the record is updated</strong> check-box to be 
+notified anytime there is a change.</div>
 </div>
 <div id="dialog_save_alert_validation2" style="display: none;" title="LexLists Warning">
     <div class="warning_message">Warning! You must have at least one recipient to set an alert.</div>

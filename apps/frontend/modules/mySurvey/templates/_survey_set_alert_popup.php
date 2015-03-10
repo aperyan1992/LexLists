@@ -79,8 +79,8 @@
             </div>
 
             <div class="right_block tooltip2">
-                <span class="toolclass"><strong>Notify me whenever this record is updated.</strong></span>
-                <input type="checkbox" name="updated"  />
+                <span class="toolclass">Notify me whenever this record is updated.</span>
+                <input type="checkbox" name="updated" id="notify_me_checkbox"  />
                 <span>Anytime the record is updated</span>
             </div>
         </div>
@@ -125,7 +125,7 @@
                     </div>
                 </div>
 
-                <div class="list_alerts" style="float:left;width: 99.7%;border:1px solid #D9D2B9;border-bottom: none;border-top:none;">
+                <div class="list_alerts" style="float:left;width: 99.7%;border:1px solid #D9D2B9;border-bottom: none;border-top:none; color: gray;">
 
                 </div>
                 <div class="add_remove">

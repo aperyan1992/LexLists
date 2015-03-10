@@ -1231,41 +1231,23 @@ class mySurveyActions extends sfActions {
         $recipient_last_name = $user->getLastName();
 
         $survey_id = $request->getParameter("survey_id", FALSE);
+       
         if ($survey_id) {
             // Get survey info
             $survey = Doctrine_Core::getTable("LtMySurvey")->getFullMySurveyInfo($survey_id, $this->getUser()->getGuardUser()->getId());
 
             if ($survey) {
-                
-                // Get organization
-                $organization = "- - -";
+
+                $org = "- - -";
                 if ((!is_null($survey->getSurvey()->getOrganizationId()) && $survey->getSurvey()->getOrganizationId() != "")) 
                 {
-                    if ($this->check_if_url_exists($survey->getSurvey()->getOrganizationUrl()))
-                    {
-                        $organization = "<a class='custom_link' target='_blank' href='" . $survey->getSurvey()->getOrganizationUrl() . "'>" . $survey->getSurvey()->getOrganization()->getName() . "</a>";
-                    }
-                    else
-                    {
-                        $organization = $survey->getSurvey()->getOrganization()->getName();
-                    }
+                    $org = $survey->getSurvey()->getOrganization()->getName();
                 }
-                $org = $survey->getSurvey()->getOrganization()->getName();
-                $srv = $survey->getSurvey()->getSurveyName();
-                // Get survey name
-                $survey_name = "- - -";
 
+                $srv = "- - -";
                 if (!is_null($survey->getSurvey()->getSurveyName()) && $survey->getSurvey()->getSurveyName() != "") 
                 {
-                    if ($this->check_if_url_exists($survey->getSurvey()->getSurveyUrl()))
-                    {
-                        $survey_name = "<a class='custom_link' target='_blank' href='" . $survey->getSurvey()->getSurveyUrl() . "'>" . $survey->getSurvey()->getSurveyName() . "</a>";
-                    }
-                    else
-                    {
-                        $survey_name = $survey->getSurvey()->getSurveyName();
-                    }
-
+                    $srv = $survey->getSurvey()->getSurveyName();
                 }
 
             }
@@ -1296,6 +1278,7 @@ class mySurveyActions extends sfActions {
             $final['me'] = $recipient_first_name." ".$recipient_last_name;
             $final['organization'] = $org;
             $final['survey_name'] = $srv;
+
             //$newarray['me'] = $recipient_first_name." ".$recipient_last_name;
             return $this->renderText(
                 json_encode($final)
@@ -1316,48 +1299,110 @@ class mySurveyActions extends sfActions {
         if($request->isXmlHttpRequest())
         {
             $details = $request->getParameter('details');
-            $arrDetails['cc_email'] = '';
-            foreach($details as $detail)
+
+            $set_error_alert = false;
+            foreach($details as $d)
             {
-                if(!isset($detail['name']))
+                if($d['name'] == 'time-frame')
                 {
-                    foreach($detail['cc_emails'] as $value)
-                    {
-                        $arrDetails['cc_email'] .= $value.', ';
+                    $time_frame = $d['value'];
+                }
+
+                if($d['name'] == 'time-frame-type')
+                {
+                    $time_frame_type = $d['value'];
+                }
+
+                if($d['name'] == 'survey_id')
+                {
+                    $s_id = $d['value'];
+                }
+            }
+
+
+            $query = 'SELECT `survey_id`, `time-frame`, `time-frame-type` FROM `survey_alerts` WHERE `survey_id` = '.$s_id.'';
+            $res = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+
+            foreach($res as $r)
+            {
+                if($r['time-frame'] !== 0)
+                {
+                    if($s_id == $r['survey_id'] && $time_frame == $r['time-frame'] && $time_frame_type == $r['time-frame-type'])
+                    {//var_dump($s_id." ".$r['survey_id']." ".$time_frame." ".$r['time-frame']);
+                        $set_error_alert = true;
                     }
-                    $arrDetails['cc_email'] = substr($arrDetails['cc_email'], 0, -2);
+                    else
+                    {
+                        $set_error_alert = false;
+                    }
                 }
                 else
                 {
-                    $arrDetails[$detail['name']] = $detail['value'];
+                    if($s_id == $r['survey_id'] && $time_frame == "" )
+                    {
+                        $set_error_alert = true;
+                    }
+                    else
+                    {
+                        $set_error_alert = false;
+                    }
                 }
+                //var_dump($set_error_alert);
+
             }
-            if(isset($arrDetails['to_me']) && $arrDetails['to_me']=='on')
+            //die;
+
+            if($set_error_alert == false)
             {
-                $arrDetails['to_me'] = 1;
-            }
-            else{
-                $arrDetails['to_me'] = 0;
-            }
-            if(isset($arrDetails['updated']))
-            {
-                $query = 'INSERT INTO `survey_alerts` (`survey_id`, `user_id`, `time-frame`, `time-frame-type`, `cc_email`, `email_me`, `created_at`) VALUES';
-                $query .= " ('".$arrDetails['survey_id']."', '{$this->getUser()->getGuardUser()->getId()}','".$arrDetails['time-frame']."' , '".$arrDetails['time-frame-type']."', '".$arrDetails['cc_email']."', '".$arrDetails['to_me']."', NOW())";
+                $arrDetails['cc_email'] = '';
+                foreach($details as $detail)
+                {
+                    if(!isset($detail['name']))
+                    {
+                        foreach($detail['cc_emails'] as $value)
+                        {
+                            $arrDetails['cc_email'] .= $value.', ';
+                        }
+                        $arrDetails['cc_email'] = substr($arrDetails['cc_email'], 0, -2);
+                    }
+                    else
+                    {
+                        $arrDetails[$detail['name']] = $detail['value'];
+                    }
+                }
+                if(isset($arrDetails['to_me']) && $arrDetails['to_me']=='on')
+                {
+                    $arrDetails['to_me'] = 1;
+                }
+                else{
+                    $arrDetails['to_me'] = 0;
+                }
+                if(isset($arrDetails['updated']))
+                {
+                    $query = 'INSERT INTO `survey_alerts` (`survey_id`, `user_id`, `time-frame`, `time-frame-type`, `cc_email`, `email_me`, `created_at`) VALUES';
+                    $query .= " ('".$arrDetails['survey_id']."', '{$this->getUser()->getGuardUser()->getId()}','".$arrDetails['time-frame']."' , '".$arrDetails['time-frame-type']."', '".$arrDetails['cc_email']."', '".$arrDetails['to_me']."', NOW())";
+                }
+                else
+                {
+                    $query = 'INSERT INTO `survey_alerts` (`survey_id`, `user_id`, `time-frame`, `time-frame-type`, `cc_email`, `email_me`) VALUES';
+                    $query .= " ('".$arrDetails['survey_id']."', '{$this->getUser()->getGuardUser()->getId()}','".$arrDetails['time-frame']."' , '".$arrDetails['time-frame-type']."', '".$arrDetails['cc_email']."', '".$arrDetails['to_me']."')";
+
+                }
+                // execute query
+                if(Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query))
+                {
+                    return $this->renderText(
+                        json_encode(
+                            $arrDetails
+                        )
+                    );
+                }
             }
             else
             {
-                $query = 'INSERT INTO `survey_alerts` (`survey_id`, `user_id`, `time-frame`, `time-frame-type`, `cc_email`, `email_me`) VALUES';
-                $query .= " ('".$arrDetails['survey_id']."', '{$this->getUser()->getGuardUser()->getId()}','".$arrDetails['time-frame']."' , '".$arrDetails['time-frame-type']."', '".$arrDetails['cc_email']."', '".$arrDetails['to_me']."')";
-
-            }
-            // execute query
-            if(Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query))
-            {
                 return $this->renderText(
-                    json_encode(
-                        $arrDetails
-                    )
-                );
+                    json_encode('error')
+                );die;
             }
         }
         $this->forward404();
@@ -1375,18 +1420,26 @@ class mySurveyActions extends sfActions {
     {
         if($request->isXmlHttpRequest())
         {
+            $alerts_array = array();
             $survey_id = $request->getParameter('survey_id');
+
+            $current_user_id =$this->getUser()->getGuardUser()->getId();
+            $query = 'SELECT first_name, last_name, email_address FROM sf_guard_user WHERE id ="'.$current_user_id.'"';
+            $user_email = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
+
+
             if($survey_id)
             {
                 $query = 'SELECT * FROM survey_alerts WHERE user_id="'.$this->getUser()->getGuardUser()->getId().'" AND survey_id="'.$survey_id.'"';
 
-                $alerts = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                $alerts_array['alerts'] = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                $alerts_array['user_email'] = $user_email['first_name']." ".$user_email['first_name']." (".$user_email['email_address'].")";
 
-                if(!empty($alerts))
+                if(!empty($alerts_array['alerts']))
                 {
                     return $this->renderText(
                         json_encode(
-                            $alerts
+                            $alerts_array
                         )
                     );
                 }

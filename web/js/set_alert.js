@@ -8,6 +8,8 @@ $(document).ready(function() {
     initSurveySetAlertPopupWindow("dialog_form_survey__set_alert");
     initSaveAlertValidationPopup('dialog_save_alert_validation');
     initSaveAlertValidationPopup('dialog_save_alert_validation2');
+
+
     /**
      * Send email message
      */
@@ -29,6 +31,9 @@ $(document).ready(function() {
                 var to_me = data['me'];
                 var organization = data['organization'];
                 var survey_name = data['survey_name'];
+                console.log(to_me);
+                console.log(organization);
+                console.log(survey_name);
                 $('.to_me_label').text(to_me);
                 $('.orgjson').text(organization);
                 $('.srvjson').text(survey_name);
@@ -230,7 +235,7 @@ function get_survey_alerts(survey_id)
             if(data!='error')
             {
                 console.log(data);
-                $(data).each(function(){
+                $(data['alerts']).each(function(){
                     if(this['created_at']=='0000-00-00 00:00:00')
                     {
                         var timeframe = this['time-frame']+' '+this['time-frame-type']+' before submission deadline';
@@ -240,7 +245,7 @@ function get_survey_alerts(survey_id)
                         var timeframe = 'Anytime the record is updated';
                     }
                     $('.list_alerts').append('<div style="float: left;width: 100%;border-bottom: 1px solid #D9D2B9;padding-bottom: 5px; border-top:none;"><div class="alert_value1 alert_emails">'
-                        +this['cc_email']+'</div><div style="width: 288px" class="alert_value1 timeframe_alert">'
+                        +data['user_email']+'</br>'+this['cc_email']+'</div><div style="width: 288px" class="alert_value1 timeframe_alert">'
                         +timeframe+'</div><div style="width: 100px" class="alert_value1"><div class="changealert" created='
                         +this['created_at']+' email_me='+this['email_me']+' created_at='+this['created_at']+' s_id='+this['id']+'>Change</div><div class="removealert" s_id='
                         +this['id']+'>Remove</div></div></div>');
@@ -287,6 +292,13 @@ function save_alert_details(data_for_send, survey_id)
             return false;
         }
     });
+
+    $(".select_day").val("");
+    $(".select_month").val("");
+    $(".select2-search-choice div").text("");
+    $(".select2-search-choice").hide();
+    $("#notify_me_checkbox").attr('checked', false);
+
 }
 function initSurveySetAlertPopupWindow(element) {
     var myPos = { my: "center top", at: "center top+150", of: window };

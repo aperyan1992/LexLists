@@ -8,6 +8,20 @@ $(document).ready(function() {
     initSurveySetAlertPopupWindow("dialog_form_survey__set_alert");
     initSaveAlertValidationPopup('dialog_save_alert_validation');
     initSaveAlertValidationPopup('dialog_save_alert_validation2');
+    var current_user_email_address;
+    $.ajax({
+        url: "/frontend_dev.php/mySurvey/GetMyEmail",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            var to_me = data['me'];
+            current_user_email_address = to_me;
+
+        },
+        error: function() {
+            openErrorPopupWindow("dialog_error_alert", "Error !!!");
+        }
+    });
 
 
     /**
@@ -16,7 +30,7 @@ $(document).ready(function() {
     $(document).on("click", ".set_an_alert_class", function() {
         var survey_id = $(this).attr("s_id");
         window.survey_id = $(this).attr("s_id");
-        get_survey_alerts(window.survey_id);
+        get_survey_alerts(window.survey_id, current_user_email_address);
         $('#set_alert_form')[0].reset();
         $('.list_alerts').empty();
         $("#dialog_form_survey__set_alert").dialog("open");
@@ -29,6 +43,7 @@ $(document).ready(function() {
             dataType: "json",
             success: function(data) {
                 var to_me = data['me'];
+                current_user_email_address = to_me;
                 var organization = data['organization'];
                 var survey_name = data['survey_name'];
                 console.log(to_me);
@@ -67,8 +82,12 @@ $(document).ready(function() {
         return false;
     });
     $('.ok_btn').on('click', function(){
+        $('.alert_value1').text("");
+        $('.alert_value1').css({"background-color":'red'});
         var data_for_send = $('#change_alert').serializeArray();
+
         send_changed_alert(data_for_send, window.survey_id);
+
 
     });
     $('#addemailcc').on('click', function(){
@@ -129,9 +148,17 @@ $(document).ready(function() {
 
         if(check)
         {
+            if($(".tomemail").is(":checked"))
+            {
+                var to_me = true;
+            }
+            else
+            {
+                var to_me = false;
+            }
             //cc_emails = cc_emails.serialize();
             var data_for_ajax = $( this ).serializeArray();
-            data_for_ajax = $.merge(data_for_ajax,[{'cc_emails':cc_emails},{'name':'survey_id', 'value':survey_id}]);
+            data_for_ajax = $.merge(data_for_ajax,[{'name':'cc_emails','value':cc_emails},{'name':'survey_id', 'value':survey_id},{'name':'to_me', 'value': to_me /*' +($(".tomemail").is(":checked") ? true : false)+ '*/}]);
             save_alert_details(data_for_ajax, window.survey_id)
         }
 
@@ -169,7 +196,7 @@ $(document).ready(function() {
 
 
 
-function send_changed_alert(data, survey_id)
+function send_changed_alert(data, survey_id, current_user_email_address)
 {
 
     $.ajax({
@@ -182,11 +209,13 @@ function send_changed_alert(data, survey_id)
         beforeSend: function() {
             // Show blocker
             $("#display_blocker").show();
+
         },
         success: function(data) {
-            get_survey_alerts(survey_id);
+            get_survey_alerts(survey_id, current_user_email_address);
             $('.change_values').css('display','none');
             $("#display_blocker").hide();
+
 
 
         },
@@ -195,7 +224,7 @@ function send_changed_alert(data, survey_id)
         }
     });
 }
-function remove_survey_alert(alert_id, survey_id)
+function remove_survey_alert(alert_id, survey_id, current_user_email_address)
 {
 
     $.ajax({
@@ -206,7 +235,7 @@ function remove_survey_alert(alert_id, survey_id)
         },
         dataType: "json",
         success: function(data) {
-                    get_survey_alerts(survey_id);
+                    get_survey_alerts(survey_id, current_user_email_address);
 
                 },
 
@@ -215,7 +244,7 @@ function remove_survey_alert(alert_id, survey_id)
         }
     });
 }
-function get_survey_alerts(survey_id)
+function get_survey_alerts(survey_id,current_user_email_address)
 {
 
 
@@ -234,8 +263,9 @@ function get_survey_alerts(survey_id)
         success: function(data) {
             if(data!='error')
             {
+                var user_email = '';
                 console.log(data);
-                $(data['alerts']).each(function(){
+                $(data).each(function(){
                     if(this['created_at']=='0000-00-00 00:00:00')
                     {
                         var timeframe = this['time-frame']+' '+this['time-frame-type']+' before submission deadline';
@@ -244,8 +274,12 @@ function get_survey_alerts(survey_id)
                     {
                         var timeframe = 'Anytime the record is updated';
                     }
+                    if(this['email_me'] == '1')
+                    {
+                        user_email = current_user_email_address;
+                    }
                     $('.list_alerts').append('<div style="float: left;width: 100%;border-bottom: 1px solid #D9D2B9;padding-bottom: 5px; border-top:none;"><div class="alert_value1 alert_emails">'
-                        +data['user_email']+'</br>'+this['cc_email']+'</div><div style="width: 288px" class="alert_value1 timeframe_alert">'
+                        +user_email+'</br>'+this['cc_email']+'</div><div style="width: 288px" class="alert_value1 timeframe_alert">'
                         +timeframe+'</div><div style="width: 100px" class="alert_value1"><div class="changealert" created='
                         +this['created_at']+' email_me='+this['email_me']+' created_at='+this['created_at']+' s_id='+this['id']+'>Change</div><div class="removealert" s_id='
                         +this['id']+'>Remove</div></div></div>');
@@ -264,7 +298,7 @@ function get_survey_alerts(survey_id)
         }
     });
 }
-function save_alert_details(data_for_send, survey_id)
+function save_alert_details(data_for_send, survey_id, current_user_email_address)
 {
 
     $.ajax({
@@ -280,7 +314,7 @@ function save_alert_details(data_for_send, survey_id)
         },
         success: function(data) {
             // Hide blocker
-            get_survey_alerts(survey_id);
+            get_survey_alerts(survey_id,current_user_email_address);
             $("#display_blocker").hide();
             return true;
         },

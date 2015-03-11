@@ -197,7 +197,7 @@
 
 <div id="display_blocker" style="display: none;">
     <div class="blocker_ajax_loader">
-        Sending message... <img src="/images/ajax-loader2.gif" />
+        Setting message... <img src="/images/ajax-loader2.gif" />
     </div>
 </div>
 

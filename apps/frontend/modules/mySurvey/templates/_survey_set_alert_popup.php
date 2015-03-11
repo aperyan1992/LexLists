@@ -12,7 +12,7 @@
                  <span class="orgjson"></span>
             </div>
         </div>
-        <div class="area">
+        <div class="area" style="margin-top: -16px;">
              <div class="left_block tooltip2">
                  <span> Survey Name: </span>
                 
@@ -22,6 +22,9 @@
                  <span class="srvjson"></span>
             </div>
         </div>
+
+        <div style="width: 96%; height: 1px; border: 1px solid gray; position: absolute; top:45px;"></div>
+
         <div class="area">
              <div class="left_block tooltip2">
                  <span> To: </span>
@@ -92,10 +95,10 @@
             <div class="right_block">
 
                 <div class="setalert_button">
-                    <input type="submit" value="Set Alert">
+                    <input type="submit" value="Set Alert" style="height: 28px;">
                 </div>
                 <div class="close_btn">
-                    <input type="button" value="Cancel">
+                    <input type="button" value="Cancel" style="height: 28px;">
                 </div>
 
             </div>
@@ -138,7 +141,7 @@
     <div class="change_values">
 
         <div class="change_alert">
-            <p> Change an alert</p>
+            <p>Change the Alert</p>
             <div class="close_button">
                 <span class="close_img"> X </span>
             </div>
@@ -155,31 +158,35 @@
                     </div>
                 </td>
                 <td >
+                    <label for="cc" title="Notify">CC: </label>
                     <div class="alert_textarea">
-                        <textarea name="to" id="change_alert_emails" class="text ui-widget-content ui-corner-all"></textarea>
+                        <textarea name="to" id="change_alert_emails" class="text ui-widget-content ui-corner-all" style="width: 392px; height:32px; margin-top:16px;border-radius: 0px;"></textarea>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td>
 
-                    <label for="select_data">When:</label>
-                    <select name="time-frame" class="select_day_change">
-                        <?php for($i=1;$i<31;$i++)
-                        {
-                            echo '<option>'.$i.'</option>';
-                        }
-                        ?>
-                    </select>
+                    <label for="select_data" style="margin-left: 10px; margin-top: 12px; width: 70px;">When:</label>
 
-                    <select name="time-frame-type" class="select_month_change">
-                        <option>Day(s)</option>
-                        <option>Week(s)</option>
-                        <option>Month(s)</option>
-                    </select>
-                    <div class="checkbox_update">
+                    <div style="width: 75%; float: right; margin-top: -26px;">
+                        <select name="time-frame" class="select_day_change" style="width:60px;border-radius: 3px;">
+                            <?php for($i=1;$i<31;$i++)
+                            {
+                                echo '<option>'.$i.'</option>';
+                            }
+                            ?>
+                        </select>
+
+                        <select name="time-frame-type" class="select_month_change" style="width: 150px;border-radius: 3px;">
+                            <option>Day(s)</option>
+                            <option>Week(s)</option>
+                            <option>Month(s)</option>
+                        </select>
+                    </div>
+                    <div class="checkbox_update" style="margin-left: 150px;">
                         <input type="checkbox" name=""  />
-                        <label for="checkbox_title">Anytime the record is updated</label>
+                        <label for="checkbox_title" style="font-weight: normal !important;">Anytime the record is updated</label>
                     </div>
                 </td>
             </tr>
@@ -191,10 +198,10 @@
             <tr>
                 <td>
                     <div class="ok_btn">
-                        <input type="button" value="OK">
+                        <input type="button" value="OK" style="height: 28px;">
                     </div>
                     <div class="cancel_btn">
-                        <input type="button" value="Cancel">
+                        <input type="button" value="Cancel" style="height: 28px;">
                     </div>
                 </td>
             </tr>

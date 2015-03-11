@@ -1229,6 +1229,7 @@ class mySurveyActions extends sfActions {
         //Get user first name and last name
         $recipient_first_name = $user->getFirstName();
         $recipient_last_name = $user->getLastName();
+        $recipient_email_address = $user->getEmailAddress();
 
         $survey_id = $request->getParameter("survey_id", FALSE);
        
@@ -1275,7 +1276,7 @@ class mySurveyActions extends sfActions {
 
             }
             $final['array'] = $newarray; 
-            $final['me'] = $recipient_first_name." ".$recipient_last_name;
+            $final['me'] = $recipient_first_name." ".$recipient_last_name." (".$recipient_email_address.")";
             $final['organization'] = $org;
             $final['survey_name'] = $srv;
 
@@ -1300,7 +1301,6 @@ class mySurveyActions extends sfActions {
         {
             $details = $request->getParameter('details');
 
-            $set_error_alert = false;
             foreach($details as $d)
             {
                 if($d['name'] == 'time-frame')
@@ -1317,45 +1317,30 @@ class mySurveyActions extends sfActions {
                 {
                     $s_id = $d['value'];
                 }
+                if($d['name'] == 'to_me')
+                {
+                    $email_to_me = $d['value'];
+                }
+                if($d['name'] == 'cc_emails')
+                {
+                    $cc_email = $d['value'];
+                }
             }
 
 
-            $query = 'SELECT `survey_id`, `time-frame`, `time-frame-type` FROM `survey_alerts` WHERE `survey_id` = '.$s_id.'';
+            $query = 'SELECT * FROM `survey_alerts` WHERE `survey_id` = "'.$s_id.'" AND `time-frame` = "'.$time_frame.'" AND `time-frame-type` = "'.$time_frame_type.'" AND `email_me` = "'.$email_to_me.'" ';
             $res = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
 
-            foreach($res as $r)
-            {
-                if($r['time-frame'] !== 0)
-                {
-                    if($s_id == $r['survey_id'] && $time_frame == $r['time-frame'] && $time_frame_type == $r['time-frame-type'])
-                    {//var_dump($s_id." ".$r['survey_id']." ".$time_frame." ".$r['time-frame']);
-                        $set_error_alert = true;
-                    }
-                    else
-                    {
-                        $set_error_alert = false;
-                    }
-                }
-                else
-                {
-                    if($s_id == $r['survey_id'] && $time_frame == "" )
-                    {
-                        $set_error_alert = true;
-                    }
-                    else
-                    {
-                        $set_error_alert = false;
-                    }
-                }
-                //var_dump($set_error_alert);
 
-            }
-            //die;
 
-            if($set_error_alert == false)
+            if(!isset($res) || empty($res))
             {
                 $arrDetails['cc_email'] = '';
-                foreach($details as $detail)
+                if(isset($cc_email) && !empty($cc_email))
+                {
+                    $arrDetails['cc_email'] = $cc_email;
+                }
+                /*foreach($details as $detail)
                 {
                     if(!isset($detail['name']))
                     {
@@ -1363,14 +1348,14 @@ class mySurveyActions extends sfActions {
                         {
                             $arrDetails['cc_email'] .= $value.', ';
                         }
-                        $arrDetails['cc_email'] = substr($arrDetails['cc_email'], 0, -2);
+                        $arrDetails['cc_email'] = substr($arrDetails['cc_email'], 0, -1);
                     }
                     else
                     {
                         $arrDetails[$detail['name']] = $detail['value'];
                     }
-                }
-                if(isset($arrDetails['to_me']) && $arrDetails['to_me']=='on')
+                }*/
+                if(isset($email_to_me) && $email_to_me == true)
                 {
                     $arrDetails['to_me'] = 1;
                 }
@@ -1402,10 +1387,30 @@ class mySurveyActions extends sfActions {
             {
                 return $this->renderText(
                     json_encode('error')
-                );die;
+                );
             }
         }
         $this->forward404();
+    }
+
+    /**
+     * Get current user email address
+     * @param sfWebRequest $request**/
+
+    public function executeGetMyEmail(sfWebRequest $request)
+    {
+        $user = $this->getUser()->getGuardUser();
+
+        //Get user first name and last name
+        $recipient_first_name = $user->getFirstName();
+        $recipient_last_name = $user->getLastName();
+        $recipient_email_address = $user->getEmailAddress();
+
+        $final['me'] = $recipient_first_name." ".$recipient_last_name." (".$recipient_email_address.")";
+
+        return $this->renderText(
+            json_encode($final)
+        );
     }
 
     /**
@@ -1424,18 +1429,21 @@ class mySurveyActions extends sfActions {
             $survey_id = $request->getParameter('survey_id');
 
             $current_user_id =$this->getUser()->getGuardUser()->getId();
-            $query = 'SELECT first_name, last_name, email_address FROM sf_guard_user WHERE id ="'.$current_user_id.'"';
-            $user_email = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
+            /*$query = 'SELECT first_name, last_name, email_address FROM sf_guard_user WHERE id ="'.$current_user_id.'"';
+            $user_email = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();*/
 
 
             if($survey_id)
             {
                 $query = 'SELECT * FROM survey_alerts WHERE user_id="'.$this->getUser()->getGuardUser()->getId().'" AND survey_id="'.$survey_id.'"';
 
-                $alerts_array['alerts'] = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
-                $alerts_array['user_email'] = $user_email['first_name']." ".$user_email['first_name']." (".$user_email['email_address'].")";
+                $alerts_array= Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                //$alerts_array['user_email'] = $user_email['first_name']." ".$user_email['first_name']." (".$user_email['email_address'].")";
 
-                if(!empty($alerts_array['alerts']))
+                //var_dump($alerts_array);die;
+
+
+                if(!empty($alerts_array))
                 {
                     return $this->renderText(
                         json_encode(
@@ -1498,11 +1506,14 @@ class mySurveyActions extends sfActions {
     {
         if ($request->isXmlHttpRequest()) {
             $details = $request->getParameter('details');
+
             if ($details) {
                 foreach($details as $detail)
                 {
                     $arrDetails[$detail['name']] = $detail['value'];
                 }
+                /*echo "<pre>";
+                var_dump($arrDetails);die;*/
                 if(isset($arrDetails['to_me']) && $arrDetails['to_me']=='on')
                 {
                     $arrDetails['to_me'] = 1;
@@ -1511,11 +1522,11 @@ class mySurveyActions extends sfActions {
                     $arrDetails['to_me'] = 0;
                 }
                 if(isset($arrDetails['updated']))
-                {
+                {/*die("123");*/
                     $query = 'UPDATE survey_alerts SET `time-frame`="'.$arrDetails['time-frame'].'", `time-frame-type`="'.$arrDetails['time-frame-type'].'", `cc_email`="'.$arrDetails['to'].'", `email_me`="'.$arrDetails['to_me'].'", `created_at`=NOW()  WHERE id="'.$arrDetails['alert_id'].'"';
                 }
                 else
-                {
+                {/*die("456");*/
                     $query = 'UPDATE survey_alerts SET `time-frame`="'.$arrDetails['time-frame'].'", `time-frame-type`="'.$arrDetails['time-frame-type'].'", `cc_email`="'.$arrDetails['to'].'", `email_me`="'.$arrDetails['to_me'].'"  WHERE id="'.$arrDetails['alert_id'].'"';
 
                 }

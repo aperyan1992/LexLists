@@ -11,7 +11,7 @@ $(document).ajaxStop(function() {
 });
 
 $(document).ready(function() {
-
+    //var current_user_email_address ='';
 
 var drop_down_menu_opened = false;
 var drop_down_menu_closed = true;

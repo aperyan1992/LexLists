@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2da5432-7c79-44d2-9269-2b9fdffb7cd6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/set_alert.js" afterPath="$PROJECT_DIR$/web/js/set_alert.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="lex.local.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,16 +30,7 @@
       <file leaf-file-name="actions.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1578" column="60" selection-start="74437" selection-end="74773" vertical-scroll-proportion="0.0" vertical-offset="23415" max-vertical-offset="24375">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_survey_email_popup.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="73" selection-start="692" selection-end="692" vertical-scroll-proportion="-4.9583335" vertical-offset="106" max-vertical-offset="1515">
+            <state line="1578" column="60" selection-start="74437" selection-end="74773" vertical-scroll-proportion="-10.625" vertical-offset="23415" max-vertical-offset="24375">
               <folding />
             </state>
           </provider>
@@ -47,47 +39,23 @@
       <file leaf-file-name="actions.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1379" column="35" selection-start="64729" selection-end="64729" vertical-scroll-proportion="-5.4117646" vertical-offset="20409" max-vertical-offset="23895">
+            <state line="1368" column="13" selection-start="63548" selection-end="63548" vertical-scroll-proportion="-6.7647057" vertical-offset="20175" max-vertical-offset="24105">
               <folding>
-                <marker date="1426088890756" expanded="true" signature="8709:8743" placeholder="..." />
-                <marker date="1426088890756" expanded="true" signature="8761:8791" placeholder="..." />
-                <marker date="1426088890756" expanded="true" signature="10493:10511" placeholder="..." />
-                <marker date="1426088890756" expanded="true" signature="12769:12787" placeholder="..." />
-                <marker date="1426088890756" expanded="true" signature="15520:15538" placeholder="..." />
-                <marker date="1426088890756" expanded="true" signature="54736:54893" placeholder="INSERT INTO ..." />
-                <marker date="1426088890756" expanded="true" signature="62180:62365" placeholder="SELECT `surv..." />
-                <marker date="1426088890756" expanded="true" signature="62180:62559" placeholder="SELECT `surv..." />
-                <marker date="1426088890756" expanded="true" signature="62180:62233" placeholder="SELECT `surv..." />
-                <marker date="1426088890756" expanded="true" signature="62180:62229" placeholder="SELECT * FRO..." />
-                <marker date="1426088890756" expanded="true" signature="62193:62209" placeholder="INSERT INTO ..." />
-                <marker date="1426088890756" expanded="true" signature="62471:62558" placeholder="..." />
-                <marker date="1426088890756" expanded="true" signature="63651:63781" placeholder="INSERT INTO ..." />
-                <marker date="1426088890756" expanded="true" signature="64122:64238" placeholder="INSERT INTO ..." />
-                <marker date="1426088890756" expanded="true" signature="68893:68978" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_survey_set_alert_popup.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="22" selection-start="5282" selection-end="5330" vertical-scroll-proportion="-5.9166665" vertical-offset="1883" max-vertical-offset="4905">
-              <folding>
-                <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#7;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#1;n#div#1;n#div#7;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#8;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#textarea#0;n#div#0;n#td#1;n#tr#0;n#form#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#td#0;n#tr#1;n#form#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#tr#1;n#form#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#select#0;n#div#0;n#td#0;n#tr#1;n#form#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#select#1;n#div#0;n#td#0;n#tr#1;n#form#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#td#0;n#tr#1;n#form#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#1;n#td#0;n#tr#1;n#form#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#td#0;n#tr#3;n#form#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#1;n#td#0;n#tr#3;n#form#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <marker date="1426191886552" expanded="true" signature="8709:8743" placeholder="..." />
+                <marker date="1426191886552" expanded="true" signature="8761:8791" placeholder="..." />
+                <marker date="1426191886552" expanded="true" signature="10493:10511" placeholder="..." />
+                <marker date="1426191886552" expanded="true" signature="12769:12787" placeholder="..." />
+                <marker date="1426191886552" expanded="true" signature="15520:15538" placeholder="..." />
+                <marker date="1426191886552" expanded="true" signature="54736:54893" placeholder="INSERT INTO ..." />
+                <marker date="1426191886552" expanded="true" signature="63121:63362" placeholder="SELECT `surv..." />
+                <marker date="1426191886552" expanded="true" signature="63121:63564" placeholder="SELECT `surv..." />
+                <marker date="1426191886552" expanded="true" signature="63121:63174" placeholder="SELECT `surv..." />
+                <marker date="1426191886552" expanded="true" signature="63121:63170" placeholder="SELECT * FRO..." />
+                <marker date="1426191886552" expanded="true" signature="63134:63150" placeholder="INSERT INTO ..." />
+                <marker date="1426191886552" expanded="true" signature="63489:63564" placeholder="..." />
+                <marker date="1426191886552" expanded="true" signature="63897:64027" placeholder="INSERT INTO ..." />
+                <marker date="1426191886552" expanded="true" signature="64321:64437" placeholder="INSERT INTO ..." />
+                <marker date="1426191886552" expanded="true" signature="68928:69013" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -96,7 +64,7 @@
       <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4799" column="13" selection-start="134659" selection-end="134659" vertical-scroll-proportion="0.37724552" vertical-offset="71859" max-vertical-offset="77685">
+            <state line="2903" column="14" selection-start="96268" selection-end="96268" vertical-scroll-proportion="0.35992908" vertical-offset="43342" max-vertical-offset="77685">
               <folding />
             </state>
           </provider>
@@ -105,12 +73,12 @@
       <file leaf-file-name="set_alert.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="160" column="53" selection-start="5851" selection-end="5857" vertical-scroll-proportion="-6.111111" vertical-offset="2205" max-vertical-offset="6375">
+            <state line="179" column="10" selection-start="6906" selection-end="6906" vertical-scroll-proportion="-13.62963" vertical-offset="2287" max-vertical-offset="6585">
               <folding>
-                <marker date="1426077614932" expanded="true" signature="9519:9613" placeholder="..." />
-                <marker date="1426077614932" expanded="true" signature="9736:9748" placeholder="..." />
-                <marker date="1426077614932" expanded="true" signature="9843:9855" placeholder="..." />
-                <marker date="1426077614932" expanded="true" signature="10272:10359" placeholder="..." />
+                <marker date="1426194757428" expanded="true" signature="10138:10232" placeholder="..." />
+                <marker date="1426194757428" expanded="true" signature="10355:10367" placeholder="..." />
+                <marker date="1426194757428" expanded="true" signature="10462:10474" placeholder="..." />
+                <marker date="1426194757428" expanded="true" signature="10891:10978" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -203,9 +171,9 @@
         <option value="$PROJECT_DIR$/web/css/report_fix.css" />
         <option value="$PROJECT_DIR$/config/databases.yml" />
         <option value="$PROJECT_DIR$/web/js/my_survey_scripts.js" />
-        <option value="$PROJECT_DIR$/web/js/set_alert.js" />
-        <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php" />
+        <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
+        <option value="$PROJECT_DIR$/web/js/set_alert.js" />
         <option value="$PROJECT_DIR$/web/css/style.css" />
       </list>
     </option>
@@ -630,7 +598,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31852987" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31852987" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17156473" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -680,16 +648,16 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php</url>
-          <line>1504</line>
+          <line>1518</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/web/js/set_alert.js</url>
-          <line>298</line>
-          <option name="timeStamp" value="9" />
+          <line>310</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="12" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -919,14 +887,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/actions/actions.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1578" column="60" selection-start="74437" selection-end="74773" vertical-scroll-proportion="0.0" vertical-offset="23415" max-vertical-offset="24375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/databases.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="52" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+        <state line="1578" column="60" selection-start="74437" selection-end="74773" vertical-scroll-proportion="-10.625" vertical-offset="23415" max-vertical-offset="24375">
           <folding />
         </state>
       </provider>
@@ -938,6 +899,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="127" column="26" selection-start="5068" selection-end="5068" vertical-scroll-proportion="-8.416667" vertical-offset="1703" max-vertical-offset="4905">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/databases.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="52" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="73" selection-start="692" selection-end="692" vertical-scroll-proportion="-4.9583335" vertical-offset="106" max-vertical-offset="1515">
@@ -945,66 +920,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="53" selection-start="5851" selection-end="5857" vertical-scroll-proportion="-6.111111" vertical-offset="2205" max-vertical-offset="6375">
-          <folding>
-            <marker date="1426077614932" expanded="true" signature="9519:9613" placeholder="..." />
-            <marker date="1426077614932" expanded="true" signature="9736:9748" placeholder="..." />
-            <marker date="1426077614932" expanded="true" signature="9843:9855" placeholder="..." />
-            <marker date="1426077614932" expanded="true" signature="10272:10359" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1379" column="35" selection-start="64729" selection-end="64729" vertical-scroll-proportion="-5.4117646" vertical-offset="20409" max-vertical-offset="23895">
+        <state line="1368" column="13" selection-start="63548" selection-end="63548" vertical-scroll-proportion="-6.7647057" vertical-offset="20175" max-vertical-offset="24105">
           <folding>
-            <marker date="1426088890756" expanded="true" signature="8709:8743" placeholder="..." />
-            <marker date="1426088890756" expanded="true" signature="8761:8791" placeholder="..." />
-            <marker date="1426088890756" expanded="true" signature="10493:10511" placeholder="..." />
-            <marker date="1426088890756" expanded="true" signature="12769:12787" placeholder="..." />
-            <marker date="1426088890756" expanded="true" signature="15520:15538" placeholder="..." />
-            <marker date="1426088890756" expanded="true" signature="54736:54893" placeholder="INSERT INTO ..." />
-            <marker date="1426088890756" expanded="true" signature="62180:62365" placeholder="SELECT `surv..." />
-            <marker date="1426088890756" expanded="true" signature="62180:62559" placeholder="SELECT `surv..." />
-            <marker date="1426088890756" expanded="true" signature="62180:62233" placeholder="SELECT `surv..." />
-            <marker date="1426088890756" expanded="true" signature="62180:62229" placeholder="SELECT * FRO..." />
-            <marker date="1426088890756" expanded="true" signature="62193:62209" placeholder="INSERT INTO ..." />
-            <marker date="1426088890756" expanded="true" signature="62471:62558" placeholder="..." />
-            <marker date="1426088890756" expanded="true" signature="63651:63781" placeholder="INSERT INTO ..." />
-            <marker date="1426088890756" expanded="true" signature="64122:64238" placeholder="INSERT INTO ..." />
-            <marker date="1426088890756" expanded="true" signature="68893:68978" placeholder="..." />
+            <marker date="1426191886552" expanded="true" signature="8709:8743" placeholder="..." />
+            <marker date="1426191886552" expanded="true" signature="8761:8791" placeholder="..." />
+            <marker date="1426191886552" expanded="true" signature="10493:10511" placeholder="..." />
+            <marker date="1426191886552" expanded="true" signature="12769:12787" placeholder="..." />
+            <marker date="1426191886552" expanded="true" signature="15520:15538" placeholder="..." />
+            <marker date="1426191886552" expanded="true" signature="54736:54893" placeholder="INSERT INTO ..." />
+            <marker date="1426191886552" expanded="true" signature="63121:63362" placeholder="SELECT `surv..." />
+            <marker date="1426191886552" expanded="true" signature="63121:63564" placeholder="SELECT `surv..." />
+            <marker date="1426191886552" expanded="true" signature="63121:63174" placeholder="SELECT `surv..." />
+            <marker date="1426191886552" expanded="true" signature="63121:63170" placeholder="SELECT * FRO..." />
+            <marker date="1426191886552" expanded="true" signature="63134:63150" placeholder="INSERT INTO ..." />
+            <marker date="1426191886552" expanded="true" signature="63489:63564" placeholder="..." />
+            <marker date="1426191886552" expanded="true" signature="63897:64027" placeholder="INSERT INTO ..." />
+            <marker date="1426191886552" expanded="true" signature="64321:64437" placeholder="INSERT INTO ..." />
+            <marker date="1426191886552" expanded="true" signature="68928:69013" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php">
+    <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="22" selection-start="5282" selection-end="5330" vertical-scroll-proportion="-5.9166665" vertical-offset="1883" max-vertical-offset="4905">
+        <state line="179" column="10" selection-start="6906" selection-end="6906" vertical-scroll-proportion="-13.62963" vertical-offset="2287" max-vertical-offset="6585">
           <folding>
-            <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#7;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#1;n#div#1;n#div#7;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#8;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#div#0;n#td#1;n#tr#0;n#form#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#td#0;n#tr#1;n#form#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#1;n#form#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#0;n#td#0;n#tr#1;n#form#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#1;n#div#0;n#td#0;n#tr#1;n#form#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#td#0;n#tr#1;n#form#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#1;n#td#0;n#tr#1;n#form#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#td#0;n#tr#3;n#form#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#1;n#td#0;n#tr#3;n#form#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <marker date="1426194757428" expanded="true" signature="10138:10232" placeholder="..." />
+            <marker date="1426194757428" expanded="true" signature="10355:10367" placeholder="..." />
+            <marker date="1426194757428" expanded="true" signature="10462:10474" placeholder="..." />
+            <marker date="1426194757428" expanded="true" signature="10891:10978" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4799" column="13" selection-start="134659" selection-end="134659" vertical-scroll-proportion="0.37724552" vertical-offset="71859" max-vertical-offset="77685">
+        <state line="2903" column="14" selection-start="96268" selection-end="96268" vertical-scroll-proportion="0.35992908" vertical-offset="43342" max-vertical-offset="77685">
           <folding />
         </state>
       </provider>

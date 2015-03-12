@@ -1255,7 +1255,7 @@ class mySurveyActions extends sfActions {
         }
 
 
-        $newarray = array();
+        $newarray = '';
         if($arrEmails)
         {
             $i = 0;
@@ -1321,56 +1321,76 @@ class mySurveyActions extends sfActions {
                 {
                     $email_to_me = $d['value'];
                 }
-                if($d['name'] == 'cc_emails')
+                if($d['name'] == 'cc_emails' && !empty($d['value']))
                 {
                     $cc_email = $d['value'];
                 }
+                else
+                {
+                    $cc_email = '';
+                }
+
+                if($d['name'] == 'updated' && $d['value'] == 'on')
+                {
+                    $updated = $d['value'];
+                }
+
+
             }
 
+            if(isset($email_to_me) && $email_to_me == "true")
+            {
+                $arrDetails['to_me'] = 1;
+            }
+            else{
+                $arrDetails['to_me'] = 0;
+            }
+            $arrDetails['cc_email'] = '';
 
-            $query = 'SELECT * FROM `survey_alerts` WHERE `survey_id` = "'.$s_id.'" AND `time-frame` = "'.$time_frame.'" AND `time-frame-type` = "'.$time_frame_type.'" AND `email_me` = "'.$email_to_me.'" ';
+            foreach($details as $detail)
+            {
+                if($detail['name'] == 'cc_emails' && !empty($detail['value']))
+                {
+                    foreach($detail['value'] as $val)
+                    {
+                        $arrDetails['cc_email'] .= $val.', ';
+                    }
+                    $arrDetails['cc_email'] = substr($arrDetails['cc_email'], 0, -2);
+                }
+
+            }
+
+            $query = 'SELECT * FROM `survey_alerts` WHERE `survey_id` = "'.$s_id.'" AND `time-frame` = "'.$time_frame.'" AND `time-frame-type` = "'.$time_frame_type.'" AND  `cc_email` = "'.$arrDetails['cc_email'].'" AND `email_me` = "'.$arrDetails['to_me'].'" ';
             $res = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
 
+//var_dump($res);die;
 
-
-            if(!isset($res) || empty($res))
+            if(isset($res) && !empty($res))
             {
-                $arrDetails['cc_email'] = '';
-                if(isset($cc_email) && !empty($cc_email))
-                {
-                    $arrDetails['cc_email'] = $cc_email;
-                }
-                /*foreach($details as $detail)
-                {
-                    if(!isset($detail['name']))
-                    {
-                        foreach($detail['cc_emails'] as $value)
-                        {
-                            $arrDetails['cc_email'] .= $value.', ';
-                        }
-                        $arrDetails['cc_email'] = substr($arrDetails['cc_email'], 0, -1);
-                    }
-                    else
-                    {
-                        $arrDetails[$detail['name']] = $detail['value'];
-                    }
-                }*/
-                if(isset($email_to_me) && $email_to_me == true)
-                {
-                    $arrDetails['to_me'] = 1;
-                }
-                else{
-                    $arrDetails['to_me'] = 0;
-                }
-                if(isset($arrDetails['updated']))
+                return $this->renderText(
+                    json_encode(
+                        'error'
+                    )
+                );
+            }
+            else
+            {
+
+
+
+
+
+
+                //var_dump($arrDetails);die;
+                if(isset($updated) && !empty($updated))
                 {
                     $query = 'INSERT INTO `survey_alerts` (`survey_id`, `user_id`, `time-frame`, `time-frame-type`, `cc_email`, `email_me`, `created_at`) VALUES';
-                    $query .= " ('".$arrDetails['survey_id']."', '{$this->getUser()->getGuardUser()->getId()}','".$arrDetails['time-frame']."' , '".$arrDetails['time-frame-type']."', '".$arrDetails['cc_email']."', '".$arrDetails['to_me']."', NOW())";
+                    $query .= " ('".$s_id."', '{$this->getUser()->getGuardUser()->getId()}','".$time_frame."' , '".$time_frame_type."', '".$arrDetails['cc_email']."', '".$arrDetails['to_me']."', NOW())";
                 }
                 else
                 {
                     $query = 'INSERT INTO `survey_alerts` (`survey_id`, `user_id`, `time-frame`, `time-frame-type`, `cc_email`, `email_me`) VALUES';
-                    $query .= " ('".$arrDetails['survey_id']."', '{$this->getUser()->getGuardUser()->getId()}','".$arrDetails['time-frame']."' , '".$arrDetails['time-frame-type']."', '".$arrDetails['cc_email']."', '".$arrDetails['to_me']."')";
+                    $query .= " ('".$s_id."', '{$this->getUser()->getGuardUser()->getId()}','".$time_frame."' , '".$time_frame_type."', '".$arrDetails['cc_email']."', '".$arrDetails['to_me']."')";
 
                 }
                 // execute query
@@ -1382,12 +1402,6 @@ class mySurveyActions extends sfActions {
                         )
                     );
                 }
-            }
-            else
-            {
-                return $this->renderText(
-                    json_encode('error')
-                );
             }
         }
         $this->forward404();
@@ -1425,14 +1439,14 @@ class mySurveyActions extends sfActions {
     {
         if($request->isXmlHttpRequest())
         {
-            $alerts_array = array();
+            //$alerts_array = array();
             $survey_id = $request->getParameter('survey_id');
 
             $current_user_id =$this->getUser()->getGuardUser()->getId();
             /*$query = 'SELECT first_name, last_name, email_address FROM sf_guard_user WHERE id ="'.$current_user_id.'"';
             $user_email = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();*/
 
-
+//var_dump($survey_id);die;
             if($survey_id)
             {
                 $query = 'SELECT * FROM survey_alerts WHERE user_id="'.$this->getUser()->getGuardUser()->getId().'" AND survey_id="'.$survey_id.'"';
@@ -1440,7 +1454,7 @@ class mySurveyActions extends sfActions {
                 $alerts_array= Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
                 //$alerts_array['user_email'] = $user_email['first_name']." ".$user_email['first_name']." (".$user_email['email_address'].")";
 
-                //var_dump($alerts_array);die;
+                //Svar_dump($alerts_array);die;
 
 
                 if(!empty($alerts_array))

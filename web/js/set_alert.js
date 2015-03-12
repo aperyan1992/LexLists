@@ -8,6 +8,8 @@ $(document).ready(function() {
     initSurveySetAlertPopupWindow("dialog_form_survey__set_alert");
     initSaveAlertValidationPopup('dialog_save_alert_validation');
     initSaveAlertValidationPopup('dialog_save_alert_validation2');
+
+    $('.select2-container .select2-container-multi .select2-choices .select2-search-field input').css({"height":'30px !important'});
     var current_user_email_address;
     $.ajax({
         url: "/frontend_dev.php/mySurvey/GetMyEmail",
@@ -86,7 +88,7 @@ $(document).ready(function() {
         $('.alert_value1').css({"background-color":'red'});
         var data_for_send = $('#change_alert').serializeArray();
 
-        send_changed_alert(data_for_send, window.survey_id);
+        send_changed_alert(data_for_send, window.survey_id, current_user_email_address);
 
 
     });
@@ -159,7 +161,7 @@ $(document).ready(function() {
             //cc_emails = cc_emails.serialize();
             var data_for_ajax = $( this ).serializeArray();
             data_for_ajax = $.merge(data_for_ajax,[{'name':'cc_emails','value':cc_emails},{'name':'survey_id', 'value':survey_id},{'name':'to_me', 'value': to_me /*' +($(".tomemail").is(":checked") ? true : false)+ '*/}]);
-            save_alert_details(data_for_ajax, window.survey_id)
+            save_alert_details(data_for_ajax, window.survey_id, current_user_email_address)
         }
 
     });
@@ -168,6 +170,14 @@ $(document).ready(function() {
         initSurveySetAlertPopupWindow("change_values");
 
         $('#change_alert_emails').val($(this).parent().parent().find('.alert_emails').text());
+        var ind = $('#change_alert_emails').val().indexOf(current_user_email_address);
+        if(ind > -1)
+        {
+            var l = current_user_email_address.length;
+            var str = $('#change_alert_emails').val().replace($('#change_alert_emails').val().substr(ind, ind+l),"")
+        }
+        $('#change_alert_emails').val(str);
+        //console.log("vvvvv"+$('#change_alert_emails').val());
         $('.checkbox_update input').prop('checked', true);
         if($(this).attr('created_at')=='0000-00-00 00:00:00')
         {
@@ -247,7 +257,7 @@ function remove_survey_alert(alert_id, survey_id, current_user_email_address)
 function get_survey_alerts(survey_id,current_user_email_address)
 {
 
-
+   // var user_email = '';
     $('.list_alerts').empty();
     $.ajax({
         url: "/frontend_dev.php/mySurvey/GetAllAlerts",
@@ -263,7 +273,7 @@ function get_survey_alerts(survey_id,current_user_email_address)
         success: function(data) {
             if(data!='error')
             {
-                var user_email = '';
+
                 console.log(data);
                 $(data).each(function(){
                     if(this['created_at']=='0000-00-00 00:00:00')
@@ -276,8 +286,8 @@ function get_survey_alerts(survey_id,current_user_email_address)
                     }
                     if(this['email_me'] == '1')
                     {
-                        user_email = current_user_email_address;
-                    }
+                        var user_email = current_user_email_address;
+                    }else{ var user_email = "";}
                     $('.list_alerts').append('<div style="float: left;width: 100%;border-bottom: 1px solid #D9D2B9;padding-bottom: 5px; border-top:none;"><div class="alert_value1 alert_emails">'
                         +user_email+'</br>'+this['cc_email']+'</div><div style="width: 288px" class="alert_value1 timeframe_alert">'
                         +timeframe+'</div><div style="width: 100px" class="alert_value1"><div class="changealert" created='
@@ -313,6 +323,10 @@ function save_alert_details(data_for_send, survey_id, current_user_email_address
             $("#display_blocker").show();
         },
         success: function(data) {
+            if(data == 'error')
+            {
+                openErrorPopupWindow("dialog_error_alert", "This Alert already exists.");
+            }
             // Hide blocker
             get_survey_alerts(survey_id,current_user_email_address);
             $("#display_blocker").hide();

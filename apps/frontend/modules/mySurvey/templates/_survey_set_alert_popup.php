@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="area ">
-             <div class="left_block tooltip2">
+             <div class="left_block tooltip2" style="margin-top: 5px !important;">
                  <span class="toolclass">Others to include in the alert.</span>
                  <span>Cc:</span>
             </div>

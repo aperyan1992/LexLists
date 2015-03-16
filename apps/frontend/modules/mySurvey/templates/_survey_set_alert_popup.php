@@ -45,7 +45,7 @@
 
             <div class="right_block">
                 <!-- <textarea type="text" id="to_dialog_form_survey_set_alert2" style="width: 400px !important;"></textarea> -->
-                <input style="width: 400px" placeholder="&nbsp;  Click to select or type address and press Enter" type="text" name="to" id="to_dialog_form_survey_set_alert2" class="text ui-widget-content ui-corner-all special_height"/>
+                <input style="width: 400px; padding: 0 !important;" placeholder="&nbsp;  Click to select or type address and press Enter" type="text" name="to" id="to_dialog_form_survey_set_alert2" class="text ui-widget-content ui-corner-all special_height"/>
 
                 <!--<span class="tooltip2 addemailclass"><span class="toolclass"><strong>If the user is not already available from the pull-down, type-in the email and then press Add</span></strong>
                     <a style="color: #ff6801;font-weight: 700;margin-left: 5px;" href="#" id="addemailcc">Add</a>

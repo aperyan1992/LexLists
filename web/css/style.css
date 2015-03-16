@@ -1424,8 +1424,8 @@ a.s_rss { background: url("../images/i_rss.png") 0 0 no-repeat; }
 #sf_guard_user_groups_list,#sf_guard_user_client_id,#lt_survey_year, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input, .select-menu {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
-    padding-left: 15px;
-    padding-right: 15px;
+    /*padding-left: 15px;
+    padding-right: 15px;*/
     -moz-box-shadow: 1px 1px 1px #e3e3e3;
     -webkit-box-shadow: 1px 1px 1px #e3e3e3;
     box-shadow: 0 1px 2px #e3e3e3;

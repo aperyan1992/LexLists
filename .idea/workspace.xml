@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2da5432-7c79-44d2-9269-2b9fdffb7cd6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_email_popup.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_email_popup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/templates/layout.php" afterPath="$PROJECT_DIR$/apps/frontend/templates/layout.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/sql/schema.sql" afterPath="$PROJECT_DIR$/data/sql/schema.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/select2.css" afterPath="$PROJECT_DIR$/web/css/select2.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/set_alert.js" afterPath="$PROJECT_DIR$/web/js/set_alert.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="lex.local.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,13 +63,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_survey_email_popup.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_survey_email_popup.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="235" selection-start="854" selection-end="854" vertical-scroll-proportion="0.3323442" vertical-offset="113" max-vertical-offset="1515">
+            <state line="15" column="235" selection-start="854" selection-end="854" vertical-scroll-proportion="-4.6666665" vertical-offset="113" max-vertical-offset="1515">
               <folding>
                 <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="select2.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/css/select2.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="539" column="19" selection-start="14797" selection-end="14814" vertical-scroll-proportion="0.0" vertical-offset="7950" max-vertical-offset="10650">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -107,15 +108,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="set_alert.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="set_alert.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="279" column="21" selection-start="9637" selection-end="9637" vertical-scroll-proportion="-7.7777777" vertical-offset="3945" max-vertical-offset="6570">
+            <state line="12" column="45" selection-start="483" selection-end="483" vertical-scroll-proportion="0.4491018" vertical-offset="0" max-vertical-offset="6585">
               <folding>
-                <marker date="1426500197385" expanded="false" signature="10166:10260" placeholder="..." />
-                <marker date="1426500197385" expanded="false" signature="10383:10395" placeholder="..." />
-                <marker date="1426500197385" expanded="true" signature="10490:10502" placeholder="..." />
-                <marker date="1426500197385" expanded="false" signature="10742:10829" placeholder="..." />
+                <marker date="1426517939789" expanded="false" signature="10249:10343" placeholder="..." />
+                <marker date="1426517939789" expanded="false" signature="10466:10478" placeholder="..." />
+                <marker date="1426517939789" expanded="true" signature="10573:10585" placeholder="..." />
+                <marker date="1426517939789" expanded="false" signature="10825:10912" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -128,15 +129,6 @@
               <folding>
                 <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="databases.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/databases.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="52" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="240">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -189,7 +181,6 @@
         <option value="$PROJECT_DIR$/apps/frontend/modules/surveyManagement/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/surveyManagement/templates/_form_fieldset.php" />
         <option value="$PROJECT_DIR$/web/js/send_email.js" />
-        <option value="$PROJECT_DIR$/web/css/select2.css" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/lastsvg.svg" />
         <option value="$PROJECT_DIR$/web/images/lastsvg.svg" />
         <option value="$PROJECT_DIR$/web/js/dashboard_scripts.js" />
@@ -200,13 +191,14 @@
         <option value="$PROJECT_DIR$/web/js/my_survey_scripts.js" />
         <option value="$PROJECT_DIR$/apps/frontend/templates/layout.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" />
-        <option value="$PROJECT_DIR$/web/js/set_alert.js" />
         <option value="$PROJECT_DIR$/data/sql/schema.sql" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_email_popup.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php" />
+        <option value="$PROJECT_DIR$/web/css/select2.css" />
+        <option value="$PROJECT_DIR$/web/js/set_alert.js" />
       </list>
     </option>
   </component>
@@ -272,6 +264,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -305,6 +329,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lex.local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -399,7 +449,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/web/js/set_alert.js</url>
-          <line>309</line>
+          <line>310</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
@@ -513,11 +563,6 @@
     <entry file="file://$PROJECT_DIR$/apps/frontend/modules/surveyManagement/templates/_form_fieldset.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="10" selection-start="57" selection-end="57" vertical-scroll-proportion="0.04178273" vertical-offset="0" max-vertical-offset="359" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/select2.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="0" selection-start="3566" selection-end="3566" vertical-scroll-proportion="0.0" vertical-offset="1665" max-vertical-offset="10650" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/send_email.js">
@@ -670,21 +715,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
+    <entry file="file://$PROJECT_DIR$/web/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="279" column="21" selection-start="9637" selection-end="9637" vertical-scroll-proportion="-7.7777777" vertical-offset="3945" max-vertical-offset="6570">
+        <state line="20" column="28" selection-start="23585" selection-end="23585" vertical-scroll-proportion="-7.2222223" vertical-offset="105" max-vertical-offset="77835">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_email_popup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="235" selection-start="854" selection-end="854" vertical-scroll-proportion="-5.0" vertical-offset="105" max-vertical-offset="1515">
           <folding>
-            <marker date="1426500197385" expanded="false" signature="10166:10260" placeholder="..." />
-            <marker date="1426500197385" expanded="false" signature="10383:10395" placeholder="..." />
-            <marker date="1426500197385" expanded="true" signature="10490:10502" placeholder="..." />
-            <marker date="1426500197385" expanded="false" signature="10742:10829" placeholder="..." />
+            <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/style.css">
+    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="28" selection-start="23585" selection-end="23585" vertical-scroll-proportion="-7.2222223" vertical-offset="105" max-vertical-offset="77835">
+        <state line="15" column="235" selection-start="854" selection-end="854" vertical-scroll-proportion="-4.6666665" vertical-offset="113" max-vertical-offset="1515">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/select2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="539" column="19" selection-start="14797" selection-end="14814" vertical-scroll-proportion="0.0" vertical-offset="7950" max-vertical-offset="10650">
           <folding />
         </state>
       </provider>
@@ -701,20 +759,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_email_popup.php">
+    <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="235" selection-start="854" selection-end="854" vertical-scroll-proportion="-5.0" vertical-offset="105" max-vertical-offset="1515">
+        <state line="12" column="45" selection-start="483" selection-end="483" vertical-scroll-proportion="0.4491018" vertical-offset="0" max-vertical-offset="6585">
           <folding>
-            <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_survey_email_popup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="235" selection-start="854" selection-end="854" vertical-scroll-proportion="0.3323442" vertical-offset="113" max-vertical-offset="1515">
-          <folding>
-            <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <marker date="1426517939789" expanded="false" signature="10249:10343" placeholder="..." />
+            <marker date="1426517939789" expanded="false" signature="10466:10478" placeholder="..." />
+            <marker date="1426517939789" expanded="true" signature="10573:10585" placeholder="..." />
+            <marker date="1426517939789" expanded="false" signature="10825:10912" placeholder="..." />
           </folding>
         </state>
       </provider>

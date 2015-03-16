@@ -10,6 +10,7 @@ $(document).ready(function() {
     initSaveAlertValidationPopup('dialog_save_alert_validation2');
 
     $('.select2-container .select2-container-multi .select2-choices .select2-search-field input').css({"height":'30px !important'});
+    $('#s2id_to_dialog_form_survey_set_alert2').css({"height":'30px !important'});
     var current_user_email_address;
     $.ajax({
         url: "/frontend_dev.php/mySurvey/GetMyEmail",

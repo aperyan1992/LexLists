@@ -123,7 +123,7 @@ $(document).ready(function() {
     });
     $(document).on('click','.removealert',function(){
         var alert_id =  $(this).attr('s_id');
-        initDeleteAlertPopupWindow('dialog_delete_alert_cofirm_alert',alert_id);
+        initDeleteAlertPopupWindow('dialog_delete_alert_cofirm_alert',alert_id, current_user_email_address);
         $("#dialog_delete_alert_cofirm_alert").dialog("open");
     });
     $('#set_alert_form').on('submit', function(){
@@ -290,8 +290,7 @@ function get_survey_alerts(survey_id,current_user_email_address)
                     }else{ var user_email = "";}
                     $('.list_alerts').append('<div style="float: left;width: 100%;border-bottom: 1px solid #D9D2B9;padding-bottom: 5px; border-top:none;"><div class="alert_value1 alert_emails">'
                         +user_email+'</br>'+this['cc_email']+'</div><div style="width: 288px" class="alert_value1 timeframe_alert">'
-                        +timeframe+'</div><div style="width: 100px" class="alert_value1"><div class="changealert" created='
-                        +this['created_at']+' email_me='+this['email_me']+' created_at='+this['created_at']+' s_id='+this['id']+'>Change</div><div class="removealert" s_id='
+                        +timeframe+'</div><div style="width: 100px" class="alert_value1"><div class="removealert" s_id='
                         +this['id']+'>Remove</div></div></div>');
                 });
             }
@@ -401,7 +400,7 @@ function initSurveySetAlertPopupWindow(element) {
 /**
  * Initialization of "Confirm" popup window in deleting an alert
  */
-function initDeleteAlertPopupWindow(element, alert_id) {
+function initDeleteAlertPopupWindow(element, alert_id, current_user_email_address) {
     $("#" + element).dialog({
         autoOpen: false,
         height: 200,
@@ -414,7 +413,7 @@ function initDeleteAlertPopupWindow(element, alert_id) {
             },
             "OK": function() {
                 $(this).dialog("close");
-                remove_survey_alert(alert_id, window.survey_id);
+                remove_survey_alert(alert_id, window.survey_id, current_user_email_address);
             }
         }
     });

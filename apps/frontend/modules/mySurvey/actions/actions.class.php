@@ -348,9 +348,9 @@ class mySurveyActions extends sfActions {
 
     /**
      * Get my surveys with ajax request
-     * 
+     *
      * @param sfWebRequest $request     Request object
-     * 
+     *
      * @return array                    JSON array with response message
      */
     public function executeGetMySurveys(sfWebRequest $request) {
@@ -444,7 +444,7 @@ class mySurveyActions extends sfActions {
 
                         $cities = $this->CheckStringLength(implode(", ", $cities_array));
                     }
-                    
+
                     // Set states
                     $states = "- - -";
                     if ($survey->getSurvey()->getLtSurveyState()->getFirst()) {
@@ -455,7 +455,7 @@ class mySurveyActions extends sfActions {
 
                         $states = $this->CheckStringLength(implode(", ", $states_array));
                     }
-                    
+
                     // Set countries
                     $countries = "- - -";
                     if ($survey->getSurvey()->getLtSurveyCountry()->getFirst()) {
@@ -472,19 +472,19 @@ class mySurveyActions extends sfActions {
 
                     // Set my status
                     $my_status = (!is_null($survey->getMyStatus()) && $survey->getMyStatus() != "") ? LtMySurvey::$my_statuses_array[$survey->getMyStatus()] : "- - -";
-                    
+
                     // Set owner
                     $owner = (!is_null($survey->getOwnerId()) && $survey->getOwnerId() != "") ? (ucfirst($survey->getOwner()->getLastName()) . ", " . ucfirst(substr($survey->getOwner()->getFirstName(), 0, 1)) . "." ) : "- - -";
-                    
+
                     // Set eligibility
                     $eligibility = (!is_null($survey->getSurvey()->getEligibilityCriteria()) && $survey->getSurvey()->getEligibilityCriteria() != "") ? $this->CheckStringLength($survey->getSurvey()->getShortEligibilityCriteria()) : "- - -";
-                    
+
                     // Set description
                     $description = (!is_null($survey->getSurvey()->getSurveyDescription()) && $survey->getSurvey()->getSurveyDescription() != "") ? $this->CheckStringLength($survey->getSurvey()->getShortSurveyDescription()) : "- - -";
 
                     // Set methodology
                     $methodology = (!is_null($survey->getSurvey()->getSelectionMethodology()) && $survey->getSurvey()->getSelectionMethodology() != "") ? $this->CheckStringLength($survey->getSurvey()->getShortSelectionMethodology()) : "- - -";
-                                        
+
                     // Set email
                     /*$email_link = '<div class="menu-drop-wrapper">
                                         <a href="#" class="menu_link">
@@ -552,24 +552,24 @@ class mySurveyActions extends sfActions {
     }
 
     /**
-     * Saving of survey to "My Lists" section 
-     * 
+     * Saving of survey to "My Lists" section
+     *
      * @param sfWebRequest $request     Request object
-     * 
+     *
      * @return array                    JSON array with response message
      */
     public function executeSaveSurveyToMyList(sfWebRequest $request) {
         if ($request->isXmlHttpRequest()) {
             // Get request parameters
             $survey_id = $request->getParameter("survey_id", FALSE);
-            
+
             if($survey_id) {
                 // Get survey
                 $survey = Doctrine_Core::getTable("LtSurvey")->findOneById($survey_id);
-                
+
                 // Get user
                 $user = $this->getUser()->getGuardUser();
-                
+
                 if($survey) {
                     // Check existing of survey in my list
                     $check_survey = Doctrine_Core::getTable("LtMySurvey")->findOneBySurveyIdAndUserId($survey_id, $user->getId());
@@ -582,7 +582,7 @@ class mySurveyActions extends sfActions {
                             )
                         );
                     }
-                    
+
                     // Save to "My Lists" section
                     $new_my_survey = new LtMySurvey();
                     $new_my_survey->setSurvey($survey);
@@ -590,9 +590,9 @@ class mySurveyActions extends sfActions {
                     $new_my_survey->setOwner($user);
                     if(!is_null($survey->getSubmissionDeadline()) && strtotime($survey->getSubmissionDeadline()) < strtotime(date("Y-m-d"))) {
                         $new_my_survey->setIsDeadlinePast(true);
-                    } 
+                    }
                     $new_my_survey->save();
-                    
+
                     return $this->renderText(
                         json_encode(
                             array(
@@ -603,35 +603,35 @@ class mySurveyActions extends sfActions {
                 }
             }
         }
-        
+
         $this->redirect404();
     }
-    
+
     /**
      * Multiple saving of surveys to "My Lists" section
-     * 
+     *
      * @param sfWebRequest $request     Request object
-     * 
+     *
      * @return array                    JSON array with response message
      */
     public function executeMultipleSaveSurveyToMyList(sfWebRequest $request) {
         if ($request->isXmlHttpRequest()) {
             // Get request parameters
             $survey_ids = $request->getParameter("survey_ids", FALSE);
-            
+
             if($survey_ids) {
                 // Get user
                 $user = $this->getUser()->getGuardUser();
-                
+
                 // Check existing of surveys
-                $check_surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds($survey_ids);                
+                $check_surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds($survey_ids);
                 if($check_surveys->count() === count($survey_ids)) {
                     // Check existing of survey in my list
                     $existing_surveys_ids = Doctrine_Core::getTable("LtMySurvey")->getIdsOfExistingMySyrveys($survey_ids, $user->getId());
-                    
+
                     // Removing of existing survey IDs
                     $survey_ids = array_diff($survey_ids, (array) $existing_surveys_ids);
-                    
+
                     // Get connection
                     $con = Doctrine_Manager::getInstance()->getCurrentConnection();
 
@@ -639,16 +639,16 @@ class mySurveyActions extends sfActions {
                         $con->beginTransaction();
 
                         // Save surveys to "My Lists" section
-                        foreach ($survey_ids as $survey_id) { 
+                        foreach ($survey_ids as $survey_id) {
                             // Get survey info
                             $survey = Doctrine_Core::getTable("LtSurvey")->findOneById($survey_id);
-                            
+
                             $new_my_survey = new LtMySurvey();
                             $new_my_survey->setSurveyId($survey_id);
                             $new_my_survey->setUser($user);
                             $new_my_survey->setOwner($user);
-                            if($survey 
-                                    && !is_null($survey->getSubmissionDeadline()) 
+                            if($survey
+                                    && !is_null($survey->getSubmissionDeadline())
                                     && (strtotime($survey->getSubmissionDeadline()) < strtotime(date("Y-m-d")))) {
                                 $new_my_survey->setIsDeadlinePast(true);
                             }
@@ -671,15 +671,15 @@ class mySurveyActions extends sfActions {
                 }
             }
         }
-        
+
         $this->forward404();
     }
 
     /**
      * Get information about survey
-     * 
+     *
      * @param sfWebRequest $request     Request object
-     * 
+     *
      * @return array                    JSON array with response message
      */
     public function executeGetSurveyInfo(sfWebRequest $request) {
@@ -851,10 +851,10 @@ class mySurveyActions extends sfActions {
 
                     // Get owners list
                     $share_with_list_user = $owners = Doctrine_Core::getTable("sfGuardUser")->getUsersList($this->getUser()->hasCredential("superuser"));
-                    
+
                     // Get current owner
                     $owner = $survey->getOwner()->getId();
-                    
+
                     // Get "My Status" of award
                     $my_status = (!is_null($survey->getMyStatus()) && $survey->getMyStatus() != "") ? $survey->getMyStatus() : NULL;
 
@@ -933,30 +933,30 @@ class mySurveyActions extends sfActions {
 
     /**
      * Get notes of my survey
-     * 
+     *
      * @param sfWebRequest $request     Request object
-     * 
+     *
      * @return array                    JSON array with response message
      */
     public function executeGetMySurveyNotes(sfWebRequest $request) {
         if ($request->isXmlHttpRequest()) {
             // Get request parameters
             $survey_id = $request->getParameter("s_id", FALSE);
-            
+
             if ($survey_id) {
                 // Get notes
                 $notes = Doctrine_Core::getTable("LtMySurveyNote")->getAwardNotes($survey_id);
-                
+
                 if ($notes->getFirst()) {
                     $aa_data_array = array("aaData" => array());
 
                     $i = 0;
-                    foreach ($notes as $note) {                        
+                    foreach ($notes as $note) {
                         $aa_data_array['aaData'][$i] = array(
                             $note->getDateTimeObject("created_at")->format("d-M-Y"),
                             $note->getNote(),
                             ucfirst($note->getUser()->getFirstName()) . ", " . ucfirst(substr($note->getUser()->getFirstName(), 0, 1)) . "."
-                        ); 
+                        );
 
                         $i++;
                     }
@@ -966,22 +966,22 @@ class mySurveyActions extends sfActions {
                     $response_array = array("aaData" => array());
                 }
             }
-            
+
             return $this->renderText(
                 json_encode(
                     $response_array
                 )
             );
         }
-        
+
         $this->forward404();
     }
-    
+
     /**
      * Adding of my survey note
-     * 
+     *
      * @param sfWebRequest $request     Request object
-     * 
+     *
      * @return array                    JSON array with response message
      */
     public function executeAddMySurveyNote(sfWebRequest $request) {
@@ -989,14 +989,14 @@ class mySurveyActions extends sfActions {
             // Get request parameters
             $survey_id = $request->getParameter("survey_id", FALSE);
             $note_text = $request->getParameter("note_text", FALSE);
-            
+
             if ($survey_id && $note_text) {
                 // Get user
                 $user = $this->getUser()->getGuardUser();
-                
+
                 // Check existing of my survey
                 $survey = Doctrine_Core::getTable("LtSurvey")->findOneById($survey_id);
-                
+
                 if($survey) {
                     // Save note
                     $new_note = new LtMySurveyNote();
@@ -1004,31 +1004,31 @@ class mySurveyActions extends sfActions {
                     $new_note->setNote($note_text);
                     $new_note->setUser($user);
                     $new_note->save();
-                    
+
                     return $this->renderText(
                         json_encode(
                             array(
                                 "created_at"      => $new_note->getDateTimeObject("created_at")->format("d-M-Y"),
                                 "note_text"       => $new_note->getNote(),
                                 "user_first_name" => ucfirst($new_note->getUser()->getFirstName())
-                                                        . ", " 
-                                                        . ucfirst(substr($new_note->getUser()->getFirstName(), 0, 1)) 
+                                                        . ", "
+                                                        . ucfirst(substr($new_note->getUser()->getFirstName(), 0, 1))
                                                         . "."
-                            )                                
+                            )
                         )
                     );
                 }
             }
         }
-        
+
         $this->forward404();
     }
-    
+
     /**
      * Saving of additional info about my survey
-     * 
+     *
      * @param sfWebRequest $request     Request object
-     * 
+     *
      * @return array                    JSON array with response message
      */
     public function executeSaveMySurveyAdditionalInfo(sfWebRequest $request) {
@@ -1039,24 +1039,24 @@ class mySurveyActions extends sfActions {
             $owner        = $request->getParameter("owner", NULL);
             $shared_with  = $request->getParameter("shared_with", NULL);
             $status = 'success';
-            
+
             if($my_survey_id && is_numeric($owner)) {
                 // Check existing of my survey
                 $my_survey = Doctrine_Core::getTable("LtMySurvey")->findOneById($my_survey_id);
-                
+
                 if ($my_survey) {
                     // Get user
                     $user = $this->getUser()->getGuardUser();
-                    
+
                     // Check existing of my survey by owner
                     $owner_my_survey = Doctrine_Core::getTable("LtMySurvey")->findOneBySurveyIdAndUserId($my_survey->getSurveyId(), $owner);
-                    
+
                     // Save additional info to my survey
                     if (!empty($my_status)) {
                         $my_survey->setMyStatus($my_status);
                     } else {
                         $my_survey->setMyStatus(NULL);
-                    }                    
+                    }
 
                     //if (!empty($owner) && !$owner_my_survey) {
                     //    $my_survey->setOwnerId($owner);
@@ -1142,40 +1142,40 @@ class mySurveyActions extends sfActions {
 
                         Doctrine_Core::getTable("LtMySurvey")->removeSpecifyShareWith($my_survey->getSurveyId(), $shared_with, $my_survey->getOwnerId());
                     }
-                    
+
                     return $this->renderText(
                         json_encode(
                             array(
                                 "status" => $status
-                            )                                
+                            )
                         )
                     );
                 }
             }
         }
-        
+
         $this->forward404();
     }
-    
+
     /**
      * Remove survey from "My Lists" section
-     * 
+     *
      * @param sfWebRequest $request     Request object
-     * 
+     *
      * @return array                    JSON array with response message
      */
     public function executeRemoveFromMyList(sfWebRequest $request) {
         if ($request->isXmlHttpRequest()) {
             // Get request parameters
             $my_survey_id = $request->getParameter("my_survey_id", FALSE);
-            
+
             if ($my_survey_id) {
                 // Check existing of my survey
                 $my_survey = Doctrine_Core::getTable("LtMySurvey")->findOneById($my_survey_id);
 
                 // get survey_id
                 $survey_id = $my_survey->getSurveyId();
-                
+
                 if($my_survey) {
                     $my_survey->delete();
 
@@ -1187,18 +1187,18 @@ class mySurveyActions extends sfActions {
                         // set new owner
                         Doctrine_Core::getTable("LtMySurvey")->setNewOwnerForAword($survey_id, $new_owner);
                     }
-                    
+
                     return $this->renderText(
                         json_encode(
                             array(
                                 "status" => "success"
-                            )                                
+                            )
                         )
                     );
                 }
             }
         }
-        
+
         $this->forward404();
     }
 
@@ -1232,7 +1232,7 @@ class mySurveyActions extends sfActions {
         $recipient_email_address = $user->getEmailAddress();
 
         $survey_id = $request->getParameter("survey_id", FALSE);
-       
+
         if ($survey_id) {
             // Get survey info
             $survey = Doctrine_Core::getTable("LtMySurvey")->getFullMySurveyInfo($survey_id, $this->getUser()->getGuardUser()->getId());
@@ -1240,13 +1240,13 @@ class mySurveyActions extends sfActions {
             if ($survey) {
 
                 $org = "- - -";
-                if ((!is_null($survey->getSurvey()->getOrganizationId()) && $survey->getSurvey()->getOrganizationId() != "")) 
+                if ((!is_null($survey->getSurvey()->getOrganizationId()) && $survey->getSurvey()->getOrganizationId() != ""))
                 {
                     $org = $survey->getSurvey()->getOrganization()->getName();
                 }
 
                 $srv = "- - -";
-                if (!is_null($survey->getSurvey()->getSurveyName()) && $survey->getSurvey()->getSurveyName() != "") 
+                if (!is_null($survey->getSurvey()->getSurveyName()) && $survey->getSurvey()->getSurveyName() != "")
                 {
                     $srv = $survey->getSurvey()->getSurveyName();
                 }
@@ -1275,7 +1275,7 @@ class mySurveyActions extends sfActions {
                 }
 
             }
-            $final['array'] = $newarray; 
+            $final['array'] = $newarray;
             $final['me'] = $recipient_first_name." ".$recipient_last_name." (".$recipient_email_address.")";
             $final['organization'] = $org;
             $final['survey_name'] = $srv;
@@ -1300,7 +1300,8 @@ class mySurveyActions extends sfActions {
         if($request->isXmlHttpRequest())
         {
             $details = $request->getParameter('details');
-
+//var_dump($details);die;
+            $anytime = 0;
             foreach($details as $d)
             {
                 if($d['name'] == 'time-frame')
@@ -1332,12 +1333,13 @@ class mySurveyActions extends sfActions {
 
                 if($d['name'] == 'updated' && $d['value'] == 'on')
                 {
+                    $anytime = '1';
                     $updated = $d['value'];
+
                 }
 
-
             }
-
+//var_dump($anytime . ", ". $updated);die;
             if(isset($email_to_me) && $email_to_me == "true")
             {
                 $arrDetails['to_me'] = 1;
@@ -1359,8 +1361,8 @@ class mySurveyActions extends sfActions {
                 }
 
             }
-
-            $query = 'SELECT * FROM `survey_alerts` WHERE `survey_id` = "'.$s_id.'" AND `time-frame` = "'.$time_frame.'" AND `time-frame-type` = "'.$time_frame_type.'" AND  `cc_email` = "'.$arrDetails['cc_email'].'" AND `email_me` = "'.$arrDetails['to_me'].'" ';
+//var_dump($anytime);
+            $query = 'SELECT * FROM `survey_alerts` WHERE `survey_id` = "'.$s_id.'" AND `time-frame` = "'.$time_frame.'" AND `time-frame-type` = "'.$time_frame_type.'" AND  `cc_email` = "'.$arrDetails['cc_email'].'" AND `email_me` = "'.$arrDetails['to_me'].'" AND `anytime_updated` = "'.$anytime.'" ';
             $res = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
 
 //var_dump($res);die;
@@ -1381,16 +1383,17 @@ class mySurveyActions extends sfActions {
 
 
 
+
                 //var_dump($arrDetails);die;
                 if(isset($updated) && !empty($updated))
                 {
-                    $query = 'INSERT INTO `survey_alerts` (`survey_id`, `user_id`, `time-frame`, `time-frame-type`, `cc_email`, `email_me`, `created_at`) VALUES';
-                    $query .= " ('".$s_id."', '{$this->getUser()->getGuardUser()->getId()}','".$time_frame."' , '".$time_frame_type."', '".$arrDetails['cc_email']."', '".$arrDetails['to_me']."', NOW())";
+                    $query = 'INSERT INTO `survey_alerts` (`survey_id`, `user_id`, `time-frame`, `time-frame-type`, `cc_email`, `email_me`, `anytime_updated`, `created_at`) VALUES';
+                    $query .= " ('".$s_id."', '{$this->getUser()->getGuardUser()->getId()}','".$time_frame."' , '".$time_frame_type."', '".$arrDetails['cc_email']."', '".$arrDetails['to_me']."', '".$anytime."', NOW())";
                 }
                 else
                 {
-                    $query = 'INSERT INTO `survey_alerts` (`survey_id`, `user_id`, `time-frame`, `time-frame-type`, `cc_email`, `email_me`) VALUES';
-                    $query .= " ('".$s_id."', '{$this->getUser()->getGuardUser()->getId()}','".$time_frame."' , '".$time_frame_type."', '".$arrDetails['cc_email']."', '".$arrDetails['to_me']."')";
+                    $query = 'INSERT INTO `survey_alerts` (`survey_id`, `user_id`, `time-frame`, `time-frame-type`, `cc_email`, `email_me`, `anytime_updated`) VALUES';
+                    $query .= " ('".$s_id."', '{$this->getUser()->getGuardUser()->getId()}','".$time_frame."' , '".$time_frame_type."', '".$arrDetails['cc_email']."', '".$arrDetails['to_me']."', 0 )";
 
                 }
                 // execute query
@@ -1408,7 +1411,7 @@ class mySurveyActions extends sfActions {
     }
 
     /**
-     * Get current user email address
+     * Get current user email address666666
      * @param sfWebRequest $request**/
 
     public function executeGetMyEmail(sfWebRequest $request)
@@ -1558,9 +1561,9 @@ class mySurveyActions extends sfActions {
     }
     /**
      * Set "Updated/Deadline Past" flag for my survey by click on bubble
-     * 
+     *
      * @param sfWebRequest $request     Request object
-     * 
+     *
      * @return array                    JSON array with response message
      */
     public function executeSetFlagByClick(sfWebRequest $request) {
@@ -1569,32 +1572,32 @@ class mySurveyActions extends sfActions {
             $my_survey_id = $request->getParameter("my_survey_id", FALSE);
             $bubble_type  = $request->getParameter("bubble_type", FALSE);
             $flag         = $request->getParameter("flag", FALSE);
-            
+
             if ($my_survey_id && ($bubble_type === "updated" || $bubble_type === "past_dues")) {
                 // Check existing of my survey
                 $my_survey = Doctrine_Core::getTable("LtMySurvey")->findOneById($my_survey_id);
-                
-                if ($my_survey) {                                                         
+
+                if ($my_survey) {
                     // Set flag
                     if ($bubble_type === "updated") {
                         $my_survey->setIsUpdated((bool) $flag);
                     } else {
                         $my_survey->setIsDeadlinePast((bool) $flag);
                     }
-                    
+
                     $my_survey->save();
-                    
+
                     return $this->renderText(
                         json_encode(
                             array(
                                 "status" => "success"
-                            )                                
+                            )
                         )
                     );
                 }
             }
         }
-        
+
         $this->forward404();
     }
 

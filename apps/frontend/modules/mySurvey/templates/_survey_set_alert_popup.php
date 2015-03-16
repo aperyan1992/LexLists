@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <div style="width: 96%; height: 1px; border: 1px solid gray; position: absolute; top:45px;"></div>
+        <div style="width: 100%; height: 0px; margin-left: -14px; border-top: 1px solid #E2DDC9; position: absolute; top:45px;"></div>
 
         <div class="area">
              <div class="left_block tooltip2">
@@ -40,12 +40,12 @@
         <div class="area ">
              <div class="left_block tooltip2">
                  <span class="toolclass">Others to include in the alert.</span>
-                 <span>CC:</span>
+                 <span>Cc:</span>
             </div>
 
             <div class="right_block">
                 <!-- <textarea type="text" id="to_dialog_form_survey_set_alert2" style="width: 400px !important;"></textarea> -->
-                <input style="width: 400px" placeholder="&nbsp;  Click to select or type address and press Enter" type="text" name="to" id="to_dialog_form_survey_set_alert2" class="text ui-widget-content ui-corner-all"/>
+                <input style="width: 400px" placeholder="&nbsp;  Click to select or type address and press Enter" type="text" name="to" id="to_dialog_form_survey_set_alert2" class="text ui-widget-content ui-corner-all special_height"/>
 
                 <!--<span class="tooltip2 addemailclass"><span class="toolclass"><strong>If the user is not already available from the pull-down, type-in the email and then press Add</span></strong>
                     <a style="color: #ff6801;font-weight: 700;margin-left: 5px;" href="#" id="addemailcc">Add</a>
@@ -83,7 +83,7 @@
 
             <div class="right_block tooltip2">
                 <span class="toolclass">Notify me whenever this record is updated.</span>
-                <input type="checkbox" name="updated" id="notify_me_checkbox"  />
+                <input type="checkbox" name="updated" id="notify_me_checkbox" style="margin-top: -1px !important;"  />
                 <span>Anytime the record is updated</span>
             </div>
         </div>
@@ -158,7 +158,7 @@
                     </div>
                 </td>
                 <td >
-                    <label for="cc" title="Notify">CC: </label>
+                    <label for="cc" title="Notify">Cc: </label>
                     <div class="alert_textarea">
                         <textarea name="to" id="change_alert_emails" class="text ui-widget-content ui-corner-all" style="width: 392px; height:32px; margin-top:16px;border-radius: 0px;"></textarea>
                     </div>

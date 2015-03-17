@@ -870,7 +870,7 @@ class mySurveyActions extends sfActions {
 
                     // remove user, which have this survey and filed "share_with" = 0
                     foreach (Doctrine_Core::getTable("LtMySurvey")->findAllSurveyWithoutShareWith($survey_id) as $value) {
-                        if ($share_with_list_user[$value->getUserId()]) {
+                        if (isset($share_with_list_user[$value->getUserId()])) {
                             unset($share_with_list_user[$value->getUserId()]);
                         }
                     }

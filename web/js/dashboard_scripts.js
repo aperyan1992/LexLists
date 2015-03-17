@@ -1631,6 +1631,7 @@ $(document).ready(function() {
         $('#report_surveys').show();
 
         filterByOtherParameters(report_data_table, $(this));
+        filterByOtherParameters(report_data_table_years, $(this));
     });
 
     $("#region_selected").click(function() {
@@ -1679,6 +1680,7 @@ $(document).ready(function() {
             });
             str = str.slice(0,-1);
             filterReportDataTable(report_data_table,str,9);
+            filterReportDataTable(report_data_table_years,str,9);
 
         }
 
@@ -1783,6 +1785,7 @@ $(document).ready(function() {
         }
 
         report_data_table.fnDraw();
+        report_data_table_years.fnDraw();
     });
     // End of filtering
 
@@ -1798,6 +1801,7 @@ $(document).ready(function() {
         });
 
         var report_data_table = $("#report_surveys").dataTable();
+        var report_data_table_years = $("#report_surveys_years").dataTable();
 
         var column_number = $(this).attr("col_num");
         var show_status   = $(this).is(":checked");
@@ -1810,9 +1814,11 @@ $(document).ready(function() {
 
         // Show/Hide static column
         showAndHideColumns(0, static_col_show_status, report_data_table);
+        showAndHideColumns(0, static_col_show_status, report_data_table_years);
         //showAndHideColumns(15, static_col_show_status, report_data_table);
 
         showAndHideColumns(column_number, show_status, report_data_table);
+        showAndHideColumns(column_number, show_status, report_data_table_years);
     });
 
     /**
@@ -1827,9 +1833,11 @@ $(document).ready(function() {
 
                 // Show static column
                 showAndHideColumns(0, true, report_data_table);
+                showAndHideColumns(0, true, report_data_table_years);
                 //showAndHideColumns(15, true, report_data_table);
 
                 showAndHideColumns(column_number, true, report_data_table);
+                showAndHideColumns(column_number, true, report_data_table_years);
             }
         });
 
@@ -1841,9 +1849,11 @@ $(document).ready(function() {
 
                 // Show static column
                 showAndHideColumns(0, true, report_data_table);
+                showAndHideColumns(0, true, report_data_table_years);
                 //showAndHideColumns(15, true, report_data_table);
 
                 showAndHideColumns(column_number, false, report_data_table);
+                showAndHideColumns(column_number, false, report_data_table_years);
             }
         });
 
@@ -1859,10 +1869,12 @@ $(document).ready(function() {
 
                 // Show static column
                 showAndHideColumns(0, true, report_data_table);
+                showAndHideColumns(0, true, report_data_table_years);
                 //showAndHideColumns(15, true, report_data_table);
 
                 // Show other columns
                 showAndHideColumns(column_number, true, report_data_table);
+                showAndHideColumns(column_number, true, report_data_table_years);
             }
         });
 
@@ -1878,10 +1890,12 @@ $(document).ready(function() {
 
                 // Hide static column
                 showAndHideColumns(0, false, report_data_table);
+                showAndHideColumns(0, false, report_data_table_years);
                 //showAndHideColumns(15, false, report_data_table);
 
                 // Hide other columns
                 showAndHideColumns(column_number, false, report_data_table);
+                showAndHideColumns(column_number, false, report_data_table_years);
             }
         });
 

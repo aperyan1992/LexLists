@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2da5432-7c79-44d2-9269-2b9fdffb7cd6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" afterPath="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/dashboard_scripts.js" afterPath="$PROJECT_DIR$/web/js/dashboard_scripts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/highcharts/us-all.js" afterPath="$PROJECT_DIR$/web/js/highcharts/us-all.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="lex.local.iws" />
@@ -65,15 +64,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="select2.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/select2.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="539" column="19" selection-start="14797" selection-end="14814" vertical-scroll-proportion="0.0" vertical-offset="7950" max-vertical-offset="10650">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="_survey_set_alert_popup.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/modules/mySurvey/templates/_survey_set_alert_popup.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -106,7 +96,16 @@
       <file leaf-file-name="dashboard_scripts.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/dashboard_scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1939" column="40" selection-start="71620" selection-end="71620" vertical-scroll-proportion="0.36379018" vertical-offset="28840" max-vertical-offset="31800">
+            <state line="1714" column="8" selection-start="63739" selection-end="63739" vertical-scroll-proportion="-2.113475" vertical-offset="26872" max-vertical-offset="31860">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="19" selection-start="48" selection-end="48" vertical-scroll-proportion="-1.8" vertical-offset="0" max-vertical-offset="135">
               <folding />
             </state>
           </provider>
@@ -124,8 +123,13 @@
       <file leaf-file-name="set_alert.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="45" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="6615">
-              <folding />
+            <state line="12" column="45" selection-start="483" selection-end="483" vertical-scroll-proportion="204.11111" vertical-offset="5661" max-vertical-offset="6585">
+              <folding>
+                <marker date="1426517939789" expanded="false" signature="10249:10343" placeholder="..." />
+                <marker date="1426517939789" expanded="false" signature="10466:10478" placeholder="..." />
+                <marker date="1426517939789" expanded="false" signature="10573:10585" placeholder="..." />
+                <marker date="1426517939789" expanded="false" signature="10825:10912" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -188,6 +192,7 @@
         <option value="$PROJECT_DIR$/apps/frontend/modules/mySurvey/actions/actions.class.php" />
         <option value="$PROJECT_DIR$/apps/frontend/modules/dashboard/templates/_alert_popups.php" />
         <option value="$PROJECT_DIR$/web/js/highcharts/us-all.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/web/js/dashboard_scripts.js" />
       </list>
     </option>
@@ -465,11 +470,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/js/survey_details_script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="192" column="51" selection-start="6153" selection-end="6153" vertical-scroll-proportion="-9.925926" vertical-offset="2612" max-vertical-offset="5250" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/calendar/js/calendar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="0" selection-start="1600" selection-end="1600" vertical-scroll-proportion="0.30668843" vertical-offset="532" max-vertical-offset="19200" />
@@ -689,13 +689,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="45" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="6615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="212" column="374" selection-start="15888" selection-end="15908" vertical-scroll-proportion="0.0" vertical-offset="3060" max-vertical-offset="8400">
@@ -757,9 +750,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="19" selection-start="48" selection-end="48" vertical-scroll-proportion="-1.8" vertical-offset="0" max-vertical-offset="135">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/set_alert.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="45" selection-start="483" selection-end="483" vertical-scroll-proportion="204.11111" vertical-offset="5661" max-vertical-offset="6585">
+          <folding>
+            <marker date="1426517939789" expanded="false" signature="10249:10343" placeholder="..." />
+            <marker date="1426517939789" expanded="false" signature="10466:10478" placeholder="..." />
+            <marker date="1426517939789" expanded="false" signature="10573:10585" placeholder="..." />
+            <marker date="1426517939789" expanded="false" signature="10825:10912" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/dashboard_scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1939" column="40" selection-start="71620" selection-end="71620" vertical-scroll-proportion="0.36379018" vertical-offset="28840" max-vertical-offset="31800">
+        <state line="1714" column="8" selection-start="63739" selection-end="63739" vertical-scroll-proportion="-2.113475" vertical-offset="26872" max-vertical-offset="31860">
           <folding />
         </state>
       </provider>

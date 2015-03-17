@@ -1630,8 +1630,8 @@ $(document).ready(function() {
         $('#report_surveys_wrapper').show();
         $('#report_surveys').show();
 
+        //filterByOtherParameters(report_data_table_years, $(this));
         filterByOtherParameters(report_data_table, $(this));
-        filterByOtherParameters(report_data_table_years, $(this));
     });
 
     $("#region_selected").click(function() {
@@ -1680,7 +1680,6 @@ $(document).ready(function() {
             });
             str = str.slice(0,-1);
             filterReportDataTable(report_data_table,str,9);
-            filterReportDataTable(report_data_table_years,str,9);
 
         }
 
@@ -1709,6 +1708,11 @@ $(document).ready(function() {
         $('#northeast').hide();
         $('#mid_atlantic').hide();
 
+        $('#report_surveys_years').hide();
+        $('#report_surveys_years_wrapper').hide();
+        $('#report_surveys_wrapper').show();
+        $('#report_surveys').show();
+        
         $('.dialog_for_map').dialog("close");
     });
 

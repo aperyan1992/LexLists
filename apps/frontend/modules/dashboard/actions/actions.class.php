@@ -110,9 +110,31 @@ class dashboardActions extends sfActions {
             //$this->survey_regions_checkboxes .= '<input checkbox_type="region" type="checkbox" class="region_checkbox" col_num="7" value="' . $region_name . '" id="' . $region_name . '" /><span>' . $region_name . '</span><br />';
         }
         sort($allRegion_name);
-        foreach($allRegion_name as $region_names){
-            $this->survey_regions_checkboxes .= '<input checkbox_type="region" type="checkbox" class="region_checkbox" col_num="7" value="' . $region_names . '" id="' . $region_names . '" /><span>' . $region_names . '</span><br />';
 
+        $sorted_names[0] = "US Mid-Atlantic";
+        $sorted_names[1] = "US Midwest";
+        $sorted_names[2] = "US Northeast";
+        $sorted_names[3] = "US South";
+        $sorted_names[4] = "US West";
+        $sorted_names[5] = "Africa";
+        $sorted_names[6] = "Asia";
+        $sorted_names[7] = "Europe";
+        $sorted_names[8] = "Australia";
+        $sorted_names[9] = "North America";
+        $sorted_names[10] = "South America";
+        $sorted_names[11] = "Global (the world)";
+        $sorted_names[12] = "US (All States)";
+
+
+        foreach($sorted_names as $sorted_name)
+        {
+            foreach($allRegion_name as $region_names)
+            {
+                if($sorted_name == $region_names)
+                {
+                    $this->survey_regions_checkboxes .= '<input checkbox_type="region" type="checkbox" class="region_checkbox" col_num="7" value="' . $region_names . '" id="' . $region_names . '" /><span>' . $region_names . '</span><br />';
+                }
+            }
         }
         //$this->survey_regions_checkboxes .= '<input checkbox_type="state" type="checkbox" class="state_checkbox" col_num="7" value="Texas" id="Texas" /><span>Texas</span><br />';
 

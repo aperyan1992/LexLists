@@ -105,9 +105,39 @@ class mySurveyActions extends sfActions {
         $this->survey_regions = Doctrine_Core::getTable('LtSurvey')->getSurveyRegions();
         $this->survey_regions_checkboxes = "";
         foreach ($this->survey_regions as $region) {
-            $region_name = $region->getRegion()->getName();
+//            $region_name = $region->getRegion()->getName();
 
-            $this->survey_regions_checkboxes .= '<input checkbox_type="region" type="checkbox" class="region_checkbox" col_num="7" value="' . $region_name . '" id="' . $region_name . '" /><span>' . $region_name . '</span><br />';
+            $region_name = $region->getRegion()->getName();
+            //var_dump( $region->getRegion()->getName());
+            $allRegion_name[]=$region_name;
+
+//            $this->survey_regions_checkboxes .= '<input checkbox_type="region" type="checkbox" class="region_checkbox" col_num="7" value="' . $region_name . '" id="' . $region_name . '" /><span>' . $region_name . '</span><br />';
+        }
+
+        $sorted_names[0] = "US Mid-Atlantic";
+        $sorted_names[1] = "US Midwest";
+        $sorted_names[2] = "US Northeast";
+        $sorted_names[3] = "US South";
+        $sorted_names[4] = "US West";
+        $sorted_names[5] = "Africa";
+        $sorted_names[6] = "Asia";
+        $sorted_names[7] = "Europe";
+        $sorted_names[8] = "Australia";
+        $sorted_names[9] = "North America";
+        $sorted_names[10] = "South America";
+        $sorted_names[11] = "Global (the world)";
+        $sorted_names[12] = "US (All States)";
+
+
+        foreach($sorted_names as $sorted_name)
+        {
+            foreach($allRegion_name as $region_names)
+            {
+                if($sorted_name == $region_names)
+                {
+                    $this->survey_regions_checkboxes .= '<input checkbox_type="region" type="checkbox" class="region_checkbox" col_num="7" value="' . $region_names . '" id="' . $region_names . '" /><span>' . $region_names . '</span><br />';
+                }
+            }
         }
 
         // Get survey special criterias
@@ -1232,6 +1262,8 @@ class mySurveyActions extends sfActions {
         $recipient_email_address = $user->getEmailAddress();
 
         $survey_id = $request->getParameter("survey_id", FALSE);
+        $org = "- - -";
+        $srv = "- - -";
 
         if ($survey_id) {
             // Get survey info
@@ -1239,13 +1271,11 @@ class mySurveyActions extends sfActions {
 
             if ($survey) {
 
-                $org = "- - -";
                 if ((!is_null($survey->getSurvey()->getOrganizationId()) && $survey->getSurvey()->getOrganizationId() != ""))
                 {
                     $org = $survey->getSurvey()->getOrganization()->getName();
                 }
 
-                $srv = "- - -";
                 if (!is_null($survey->getSurvey()->getSurveyName()) && $survey->getSurvey()->getSurveyName() != "")
                 {
                     $srv = $survey->getSurvey()->getSurveyName();

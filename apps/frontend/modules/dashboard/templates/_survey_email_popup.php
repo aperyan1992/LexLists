@@ -1,4 +1,4 @@
-<div id="dialog_form_survey_email" class="popup1" title="Email Award">
+<div id="dialog_form_survey_email" class="popup1" style="display:none" title="Email Award">
     <form>
         <table style="">
             <tr style="margin-bottom: 9px;">

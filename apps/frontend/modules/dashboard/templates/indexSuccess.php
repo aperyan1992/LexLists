@@ -165,7 +165,7 @@
     <div class="main-block">
         <div class="parent-block">
             <div id="report_surveys_table">
-                <table id="report_surveys">
+                <table id="report_surveys" style="display: none;">
                     <thead>
                     <tr>
                         <th style="width:45px !important;"><input type="checkbox" style="float:left;margin-left:0px" id="table_checkbox_select_all" class="main_table_checkbox" />  <span style="margin-left:5px;border-left: 1px solid #d4ccb0;width:19px;height:34px;position:absolute;">&nbsp;</span></th>
@@ -191,7 +191,7 @@
                     <tbody></tbody>
                 </table>
 
-                <table id="report_surveys_years">
+                <table id="report_surveys_years"  style="display: none;">
                     <thead>
                     <tr>
                         <th style="width:45px !important;"><input type="checkbox" style="float:left;margin-left:0px" id="table_checkbox_select_all" class="main_table_checkbox" />  <span style="margin-left:5px;border-left: 1px solid #d4ccb0;width:19px;height:34px;position:absolute;">&nbsp;</span></th>

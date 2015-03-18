@@ -146,7 +146,7 @@ var drop_down_menu_closed = true;
             $('.organization .org-body form').css({"margin-top":'-18px'});
         }
     });
-
+    $("#report_surveys").show();
     var report_data_table = $("#report_surveys").dataTable({
         "sDom": '<"H"flr>t<"F"ip>',
         "bDestroy":true,

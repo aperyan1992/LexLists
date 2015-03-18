@@ -1551,7 +1551,8 @@ $(document).ready(function() {
     });
 
 //*******end us states map *******//
-
+    $("#report_surveys").show();
+    $("#report_surveys_years").show();
     var report_data_table_years = $("#report_surveys_years").dataTable({
         "autoWidth":true,
         "sDom": '<"H"flr>t<"F"ip>',

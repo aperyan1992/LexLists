@@ -283,7 +283,14 @@ function get_survey_alerts(survey_id,current_user_email_address)
                     }
                     else
                     {
-                        var timeframe = 'Anytime the record is updated';
+                        if(this['time-frame'] != 0)
+                        {
+                            var timeframe = this['time-frame']+' '+this['time-frame-type']+' before submission deadline'+"<br>"+ 'Anytime the record is updated';
+                        }
+                        else
+                        {
+                            var timeframe ='Anytime the record is updated';
+                        }
                     }
                     if(this['email_me'] == '1')
                     {

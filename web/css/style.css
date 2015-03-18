@@ -3910,9 +3910,9 @@ input[readonly] {
 
 .datatable_td_align_center_checkboxes {
     text-align: center;
-    width: 13px !important;
-    min-width: 13px !important;
-    max-width: 30px !important;
+    width: 55px !important;
+    /*min-width: 13px !important;
+    max-width: 30px !important;*/
 }
 
 .datatable_td_align_center_checkboxes .DataTables_sort_wrapper {

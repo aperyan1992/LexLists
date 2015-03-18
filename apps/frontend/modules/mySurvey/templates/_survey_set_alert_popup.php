@@ -1,4 +1,4 @@
-<div id="dialog_form_survey__set_alert" class="popup1" title="Set Alert">
+<div id="dialog_form_survey__set_alert" class="popup1"  style="display:none" title="Set Alert">
 
     <div class="content">
         <form id="set_alert_form">

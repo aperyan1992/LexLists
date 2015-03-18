@@ -3911,6 +3911,8 @@ input[readonly] {
 .datatable_td_align_center_checkboxes {
     text-align: center;
     width: 55px !important;
+    min-width: 55px !important;
+    max-width: 55px !important;
     /*min-width: 13px !important;
     max-width: 30px !important;*/
 }

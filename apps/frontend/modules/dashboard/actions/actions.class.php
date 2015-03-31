@@ -53,9 +53,13 @@ class dashboardActions extends sfActions {
         // Get survey organizations
         $this->survey_organizations = Doctrine_Core::getTable('LtSurvey')->getSurveyOrganizations();
         $this->survey_organization_checkboxes = "";
+        $allOrganizations = array();
         foreach ($this->survey_organizations as $organization) {
             $organization_name = $organization->getOrganization()->getName();
-            $allOrganizations[]=$organization_name;
+            if(!in_array($organization_name, $allOrganizations))
+            {
+                $allOrganizations[]=$organization_name;
+            }           
             //$this->survey_organizations_checkboxes .= '<input checkbox_type="organization" type="checkbox" class="organization_checkbox" col_num="2" value="' . $organization_name . '" id="' . $organization_name . '" /><span>' . $organization_name . '</span><br />';
         }
         sort($allOrganizations);//sorting A-Z
@@ -79,9 +83,16 @@ class dashboardActions extends sfActions {
             //$this->survey_candidate_types_checkboxes .= '<input checkbox_type="candidate_type" type="checkbox" class="candidate_type_checkbox" col_num="4" value="' . $c_type . '" id="' . $c_type . '" /><span>' . $c_type . '</span><br />';
         }
         sort($allC_type);
-        foreach($allC_type as $c_types){
+        $sort_candidate_type[0] = "Individual";
+        $sort_candidate_type[1] = "Practice group";
+        $sort_candidate_type[2] = "Law firm";
+        $sort_candidate_type[3] = "Judge";
+        $sort_candidate_type[4] = "Bar association";
+        $sort_candidate_type[5] = "Company";
+        $sort_candidate_type[6] = "Public sector";
+        $sort_candidate_type[7] = "Non-profit";
+        foreach(/*$allC_type*/$sort_candidate_type as $c_types){
             $this->survey_candidate_types_checkboxes .= '<input checkbox_type="candidate_type" type="checkbox" class="candidate_type_checkbox" col_num="4" value="' . $c_types . '" id="' . $c_types . '" /><span>' . $c_types . '</span><br />';
-
         }
 
         // Get survey practice areas
@@ -95,8 +106,43 @@ class dashboardActions extends sfActions {
        // var_dump($allPractice_area_name);die;
         $allPractice_area_name = array_unique($allPractice_area_name);
         sort($allPractice_area_name);
+        $sort_prac_area[0] = "Antitrust";
+        $sort_prac_area[1] = "Arbitration & Alternative Dispute Resolution";
+        $sort_prac_area[2] = "Aviation";
+        $sort_prac_area[3] = "Banking & Finance";
+        $sort_prac_area[4] = "Bankruptcy";
+        $sort_prac_area[5] = "Civil Rights";
+        $sort_prac_area[6] = "Construction";
+        $sort_prac_area[7] = "Corporate";
+        $sort_prac_area[8] = "Corporate Crime & Investigations";
+        $sort_prac_area[9] = "Criminal Law";
+        $sort_prac_area[10] = "Education";
+        $sort_prac_area[11] = "Employment Law";
+        $sort_prac_area[12] = "Energy & Natural Resources";
+        $sort_prac_area[13] = "Environmental";
+        $sort_prac_area[14] = "Family Law";
+        $sort_prac_area[15] = "Healthcare";
+        $sort_prac_area[16] = "Immigration";
+        $sort_prac_area[17] = "Insurance";
+        $sort_prac_area[18] = "Intellectual Property";
+        $sort_prac_area[19] = "International Arbitration";
+        $sort_prac_area[20] = "International Trade";
+        $sort_prac_area[21] = "Life Sciences";
+        $sort_prac_area[22] = "Litigation";
+        $sort_prac_area[23] = "M&A";
+        $sort_prac_area[24] = "Media & Entertainment";
+        $sort_prac_area[25] = "Poverty Law";
+        $sort_prac_area[26] = "Private Equity";
+        $sort_prac_area[27] = "Public Law & Policy";
+        $sort_prac_area[28] = "Real Estate";
+        $sort_prac_area[29] = "Security & Data Privacy";
+        $sort_prac_area[30] = "Tax";
+        $sort_prac_area[31] = "Telecommunications";
+        $sort_prac_area[32] = "Transportation";
+        $sort_prac_area[33] = "Trusts & Estates";
+        $sort_prac_area[34] = "Venture Capital";
 
-        foreach($allPractice_area_name as $practice_area_names){
+        foreach(/*$allPractice_area_name*/$sort_prac_area as $practice_area_names){
             $this->survey_practice_areas_checkboxes .= '<input checkbox_type="practice_area" type="checkbox" class="practice_area_checkbox" col_num="5" value="' . $practice_area_names . '" id="' . $practice_area_names . '" /><span>' . $practice_area_names . '</span><br />';
 
         }
@@ -117,9 +163,9 @@ class dashboardActions extends sfActions {
         $sorted_names[3] = "US South";
         $sorted_names[4] = "US West";
         $sorted_names[5] = "Africa";
-        $sorted_names[6] = "Asia";
-        $sorted_names[7] = "Europe";
-        $sorted_names[8] = "Australia";
+        $sorted_names[6] = "Australia";
+        $sorted_names[7] = "AsiaAustralia";
+        $sorted_names[8] = "Europe";
         $sorted_names[9] = "North America";
         $sorted_names[10] = "South America";
         $sorted_names[11] = "Global (the world)";
@@ -147,9 +193,16 @@ class dashboardActions extends sfActions {
             //$this->survey_special_criterias_checkboxes .= '<input checkbox_type="special_criteria" type="checkbox" class="special_criteria_checkbox" col_num="6" value="' . $s_criteria . '" id="' . $s_criteria . '" /><span>' . $s_criteria . '</span><br />';
         }
         sort($allS_criteria);
-        foreach($allS_criteria as $s_criterias){
-            $this->survey_special_criterias_checkboxes .= '<input checkbox_type="special_criteria" type="checkbox" class="special_criteria_checkbox" col_num="6" value="' . $s_criterias . '" id="' . $s_criterias . '" /><span>' . $s_criterias . '</span><br />';
+        $sorted_criterias[0] = "Age";
+        $sorted_criterias[1] ="Community or civic";
+        $sorted_criterias[2] ="Minority";
+        $sorted_criterias[2] ="Philanthropy";
+        $sorted_criterias[3] ="Pro bono";
+        $sorted_criterias[4] ="Women";
+        $sorted_criterias[5] ="Years in Practice";
 
+        foreach(/*$allS_criteria*/$sorted_criterias as $s_criterias){
+            $this->survey_special_criterias_checkboxes .= '<input checkbox_type="special_criteria" type="checkbox" class="special_criteria_checkbox" col_num="6" value="' . $s_criterias . '" id="' . $s_criterias . '" /><span>' . $s_criterias . '</span><br />';
         }
     }
 

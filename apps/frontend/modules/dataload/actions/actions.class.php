@@ -319,7 +319,6 @@ class dataloadActions extends sfActions
                                         $fianlresult[$key]['city'] = $lastid;
                                     }
                                 }
-
                             }
                         }
                     }

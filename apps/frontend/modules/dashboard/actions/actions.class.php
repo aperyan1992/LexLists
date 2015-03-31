@@ -172,7 +172,7 @@ class dashboardActions extends sfActions {
         $sorted_names[12] = "US (All States)";
 
 
-        foreach($sorted_names as $sorted_name)
+        /*foreach($sorted_names as $sorted_name)
         {
             foreach($allRegion_name as $region_names)
             {
@@ -181,7 +181,12 @@ class dashboardActions extends sfActions {
                     $this->survey_regions_checkboxes .= '<input checkbox_type="region" type="checkbox" class="region_checkbox" col_num="7" value="' . $region_names . '" id="' . $region_names . '" /><span>' . $region_names . '</span><br />';
                 }
             }
-        }
+        }*/
+        foreach($sorted_names as $region_names)
+            {               
+                $this->survey_regions_checkboxes .= '<input checkbox_type="region" type="checkbox" class="region_checkbox" col_num="7" value="' . $region_names . '" id="' . $region_names . '" /><span>' . $region_names . '</span><br />';
+               
+            }
         //$this->survey_regions_checkboxes .= '<input checkbox_type="state" type="checkbox" class="state_checkbox" col_num="7" value="Texas" id="Texas" /><span>Texas</span><br />';
 
         // Get survey special criterias

@@ -11,6 +11,9 @@ $(document).ajaxStop(function() {
 });
 
 $(document).ready(function() {
+    $(window).resize(function(){
+        location.reload();
+    })
 
     $('.year div').show();
     $('#2015').prop( "checked", true );

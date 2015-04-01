@@ -87,10 +87,9 @@ class dashboardActions extends sfActions {
         $sort_candidate_type[1] = "Practice group";
         $sort_candidate_type[2] = "Law firm";
         $sort_candidate_type[3] = "Judge";
-        $sort_candidate_type[4] = "Bar association";
-        $sort_candidate_type[5] = "Company";
-        $sort_candidate_type[6] = "Public sector";
-        $sort_candidate_type[7] = "Non-profit";
+        $sort_candidate_type[4] = "Company";
+        $sort_candidate_type[5] = "Legal Department";
+        $sort_candidate_type[6] = "Organization";
         foreach(/*$allC_type*/$sort_candidate_type as $c_types){
             $this->survey_candidate_types_checkboxes .= '<input checkbox_type="candidate_type" type="checkbox" class="candidate_type_checkbox" col_num="4" value="' . $c_types . '" id="' . $c_types . '" /><span>' . $c_types . '</span><br />';
         }
@@ -201,7 +200,6 @@ class dashboardActions extends sfActions {
         $sorted_criterias[0] = "Age";
         $sorted_criterias[1] ="Community or civic";
         $sorted_criterias[2] ="Minority";
-        $sorted_criterias[2] ="Philanthropy";
         $sorted_criterias[3] ="Pro bono";
         $sorted_criterias[4] ="Women";
         $sorted_criterias[5] ="Years in Practice";

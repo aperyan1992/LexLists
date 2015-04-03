@@ -10,10 +10,7 @@ $(document).ajaxStop(function() {
     $(".left-sidebar input:checkbox").prop("disabled", false);
 });
 
-$(document).ready(function() {
-    $(window).resize(function(){
-        location.reload();
-    })
+$(document).ready(function() {   
 
     $('.year div').show();
     $('#2015').prop( "checked", true );
@@ -1557,7 +1554,9 @@ $(document).ready(function() {
     $("#report_surveys").show();
     $("#report_surveys_years").show();
     var report_data_table_years = $("#report_surveys_years").dataTable({
-        "autoWidth":true,
+        
+        responsive: true,
+        "autoWidth": false,
         "sDom": '<"H"flr>t<"F"ip>',
         "bDestroy":true,
         "bJQueryUI": true,
@@ -1588,7 +1587,8 @@ $(document).ready(function() {
     });
 
     var report_data_table = $("#report_surveys").dataTable({
-        "autoWidth":true,
+        responsive: true,
+        "autoWidth": false,
         "sDom": '<"H"flr>t<"F"ip>',
         "bDestroy":true,
         "bJQueryUI": true,
@@ -1617,6 +1617,18 @@ $(document).ready(function() {
             { "bSortable": false, "aTargets": [ 0 ] }
         ]
     });
+ var update_size = function() {
+    $(report_data_table).css({ width: $(report_data_table).parent().width() });
+    report_data_table.fnAdjustColumnSizing();  
+    $(report_data_table_years).css({ width: $(report_data_table_years).parent().width() });
+    report_data_table_years.fnAdjustColumnSizing(); 
+  }
+
+  $(window).resize(function() {
+    clearTimeout(window.refresh_size);
+    window.refresh_size = setTimeout(function() { update_size(); }, 250);
+  });
+
 
     $('#report_surveys').hide();
     $('#report_surveys_wrapper').hide();

@@ -1,7 +1,7 @@
-Firm Name - jkjkj
+Firm Name - qw
 Number of Lawyers - 12
 Number of Partners - 12
-Number of Surveys - 21
+Number of Surveys - 12
 AmLaw Ranking - 12
 Avg Partner Billing Rate - 482
 Price Per Partner Per Year YEAR 1- $1666.67

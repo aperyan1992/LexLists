@@ -121,7 +121,7 @@
 			<input type="text" name="year_2_price" style="display:none;">
 			<input type="text" name="year_2_mins" style="display:none;">
 
-			<input type="submit" name="email" id="bl" class="btn btn-primary" value="Email" style="width:84px; margin: 0 auto; display:none;">
+			<input type="submit" name="email" id="bl" class="btn btn-primary" value="Download Details" style="margin: 0 auto; display:none;">
 		</form>
 
 		<br>

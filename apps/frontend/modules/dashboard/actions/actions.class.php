@@ -30,7 +30,7 @@ class dashboardActions extends sfActions {
         $result = array("success" => 1, "result"=> $newarray);
         echo json_encode($result);die;
     }
-
+    
     /**
      * Executes index action
      *

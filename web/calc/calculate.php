@@ -338,16 +338,10 @@ $('#calc_form').submit(function(event){
 	  url: "file.php",
 	  data: hidden_form
 	})
-	  .done(function( msg ) {
-	  	//console.log(msg);
-	    if(msg == 'false')
-	    {
-	    	alert( "Error! ");
-	    }
-	    else
-    	{
-    		alert("Data Saved!");
-    	}
+	  .done(function( msg ) {	  	
+	    
+	    	alert(msg);
+	    
 	  });
 
 	

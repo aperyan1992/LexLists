@@ -31,13 +31,11 @@
 				// Mail it
 				if(mail($to, $subject, $message, $headers))
 				{
-					header("Data Saved!");
-					//header('HTTP', true, 500);
+					echo 1;
 				}
 				else
 				{
-					header("Error!");
-					//header('HTTP', true, 500);
+					echo 0;
 				}
 
 			}

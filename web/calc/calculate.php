@@ -339,10 +339,17 @@ $('#calc_form').submit(function(event){
 	  data: hidden_form
 	})
 	  .done(function( msg ) {	  	
+	    if(msg==1)
+	    {
+	    	alert('File has been saved and message has been sent')
+	    }
+	    else
+	    {
+	    	alert('The message cant be sent ! ! ')
+	    }   	
+		  });
 	    
-	    	alert(msg);
 	    
-	  });
 
 	
 	$('.calc_result').fadeIn();

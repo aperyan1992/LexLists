@@ -125,7 +125,7 @@
 		</form>
 		</div>
 
-		<form action="file.php" method="post" name="email_form">
+		<form action="file.php" method="post" name="email_form" id="hidden_form">
 			<input type="text" name="firm_name" style="display:none;">
 			<input type="text" name="lawyers_num" style="display:none;">
 			<input type="text" name="partners_num" style="display:none;">
@@ -331,6 +331,16 @@ $('#calc_form').submit(function(event){
 	$('input[name=year_1_license]').val(y1);
 	$('input[name=year_2_subscription]').val(Number((y2/12).toFixed(0)));
 
+	var hidden_form = $('#hidden_form').serialize();
+	
+	$.ajax({
+	  method: "POST",
+	  url: "file.php",
+	  data: hidden_form
+	})
+	  .done(function( msg ) {
+	    alert( "Data Saved: " + msg );
+	  });
 
 	
 	$('.calc_result').fadeIn();

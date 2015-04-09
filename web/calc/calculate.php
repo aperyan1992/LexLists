@@ -4,11 +4,11 @@
 <link rel="stylesheet" href="../css/bootstrap.css">
 <style type="text/css">
 .green_div {
-	min-width: 175px; 
+	min-width: 184px; 
 	min-height: 190px; 
 	background-color: #85c441;
 	color: white; 
-	font-size: 16px;
+	font-size: 15px;
 	font-weight: bold;
 	text-align: center;
 	margin: 0 auto;

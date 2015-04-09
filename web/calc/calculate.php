@@ -225,7 +225,7 @@ $('#bti_2014').on('change', function() {
 
 $('#calc_form').submit(function(event){
 	event.preventDefault();
-	$('#bl').css({"display":'block'});
+	//$('#bl').css({"display":'block'});
 
 
 	var firm_name = $('input[name=firm_name]').val();

@@ -332,14 +332,21 @@ $('#calc_form').submit(function(event){
 	$('input[name=year_2_subscription]').val(Number((y2/12).toFixed(0)));
 
 	var hidden_form = $('#hidden_form').serialize();
-	
+
 	$.ajax({
 	  method: "POST",
 	  url: "file.php",
 	  data: hidden_form
 	})
 	  .done(function( msg ) {
-	    alert( "Data Saved: " + msg );
+	    if(msg == 'true')
+	    {
+	    	alert( "Data Saved! ");
+	    }
+	    else
+    	{
+    		alert("Error!");
+    	}
 	  });
 
 	

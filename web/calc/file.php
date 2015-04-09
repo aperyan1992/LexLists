@@ -29,7 +29,14 @@
 				$headers .= 'To: George <george@lextrack.com>' . "\r\n";
 				$headers .= 'From: LexLists <support@lexlist.com>' . "\r\n";				
 				// Mail it
-				var_dump(mail($to, $subject, $message, $headers));
+				if(mail($to, $subject, $message, $headers))
+				{
+					echo 'true';
+				}
+				else
+				{
+					echo 'false';
+				}
 
 			}
 ?>	

@@ -1,4 +1,5 @@
 <?php
+require 'PHPMailer-master/PHPMailerAutoload.php';
 ob_start();
 			if(isset($_POST['email']))
 			{
@@ -22,10 +23,10 @@ ob_start();
 				$message = '
 				<html>
 				<head>
-				  <title>Birthday Reminders for August</title>
+				  <title>Calculated details</title>
 				</head>
 				<body>
-				  <h1>hello</h1>
+				  <p>'.$msg.'</p>
 				</body>
 				</html>
 				';
@@ -35,10 +36,8 @@ ob_start();
 				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 				// Additional headers
-				$headers .= 'To: Mary <mary@example.com>, Kelly <kelly@example.com>' . "\r\n";
-				$headers .= 'From: Birthday Reminder <birthday@example.com>' . "\r\n";
-				$headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
-				$headers .= 'Bcc: birthdaycheck@example.com' . "\r\n";
+				$headers .= 'To: Mary <george@lextrack.com>' . "\r\n";
+				$headers .= 'From: LexLists <support@lexlist.com>' . "\r\n";
 				// Mail it
 				var_dump(mail($to, $subject, $message, $headers));
 

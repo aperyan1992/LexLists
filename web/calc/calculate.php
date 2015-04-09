@@ -99,7 +99,13 @@
 					<label>Avg Partner Billing Rate:</label>
 				</div>
 				<div class="col-sm-7 col-md-7 col-lg-7">
-					<input type="number" class="form-control" min="100" max="2000" name="bill_rate" required>
+					<div class="col-sm-5 col-md-5 col-lg-5" style="padding:0;">
+						<input type="number" class="form-control" min="100" max="2000" name="bill_rate" required>
+					</div>
+					<div class="col-sm-7 col-md-7 col-lg-7" style="padding-right:0;">
+						<input type="checkbox" value="Use BTI 2014 Survey" id="bti_2014" name="bti_2014">
+						<label style="font-weight: normal;">Use BTI 2014 Survey</label>
+					</div>
 				</div>
 				<div class="col-sm-1 col-md-1 col-lg-1"></div>
 			</div>
@@ -109,10 +115,8 @@
 			<div class="row">
 				<div class="col-sm-1 col-md-1 col-lg-1"></div>
 				<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
-					<input type="checkbox" value="Use BTI 2014 Survey" id="bti_2014" name="bti_2014">
 				</div>
 				<div class="col-sm-5 col-md-5 col-lg-5" style="padding-left:0;">
-					<label>Use BTI 2014 Survey</label>
 				</div>
 			</div>
 		</div>
@@ -170,13 +174,13 @@
 			<div class="row">
 				<div class="col-sm-6 col-md-6 col-lg-6">
 					<div class="green_div">
-						<p>YEAR 1 - LICENSE</p>
+						<p style="padding-top: 32px;">YEAR 1 - LICENSE</p>
 						<p id="year_1_license"></p>
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg-6">
 					<div class="green_div">
-						<p>YEAR 2 - SUBSCRIPTION</p>
+						<p style="padding-top: 32px;">YEAR 2 - SUBSCRIPTION</p>
 						<p id="year_2_subscription"></p>						
 					</div>
 				</div>
@@ -337,28 +341,21 @@ $('#calc_form').submit(function(event){
 	  method: "POST",
 	  url: "file.php",
 	  data: hidden_form
-	})
-	  .done(function( msg ) {	  	
-	    if(msg==1)
-	    {
-	    	alert('File has been saved and message has been sent')
-	    }
-	    else
-	    {
-	    	alert('The message cant be sent ! ! ')
-	    }   	
-		  });
+	});
 	    
 	    
 
 	
 	$('.calc_result').fadeIn();
 
-	$('#year_1').html( "<h1>$"+B1+"</h1><p>per partner/year</p><p>OR</p><p>"+C1_mins+" MINUTES OF BILLABLE TIME PER YEAR</p>" );
-	$('#year_2').html( "<h1>$"+B2+"</h1><p>per partner/year</p><p>OR</p><p>"+C2_mins+" MINUTES OF BILLABLE TIME PER YEAR</p>" );
+	$('#year_1').html( "<h1>$"+B1+"</h1><p style='margin-top: -10px;'>per partner/year</p><p>OR</p><p>"+C1_mins+" MINUTES OF BILLABLE TIME PER YEAR</p>" );
+	$('#year_2').html( "<h1>$"+B2+"</h1><p style='margin-top: -10px;'>per partner/year</p><p>OR</p><p>"+C2_mins+" MINUTES OF BILLABLE TIME PER YEAR</p>" );
 
-	$('#year_1_license').html( "<h1>$"+y1+"</h1><p>(one time)</p>" );
-	$('#year_2_subscription').html( "<h1>$"+Number((y2/12).toFixed(0))+"/mo</h1>" );
+	var Y1 = (y1).toLocaleString();
+	var Y2 = (Number((y2/12).toFixed(0))).toLocaleString();
+
+	$('#year_1_license').html( "<h1>$"+Y1+"</h1><p style='margin-top: -10px;'>(one time)</p>" );
+	$('#year_2_subscription').html( "<h1>$"+Y2+"/mo</h1>" );
 	
 	
 

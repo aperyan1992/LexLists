@@ -40,6 +40,7 @@ ob_start();
 				$headers .= 'From: LexLists <support@lexlist.com>' . "\r\n";
 				$headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
 				$headers .= 'Bcc: birthdaycheck@example.com' . "\r\n";
+				echo 'sdsd';die;
 				// Mail it
 				var_dump(mail($to, $subject, $message, $headers));
 

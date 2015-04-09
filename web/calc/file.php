@@ -23,10 +23,10 @@ ob_start();
 				$message = '
 				<html>
 				<head>
-				  <title>Calculated details</title>
+				  <title>Birthday Reminders for August</title>
 				</head>
 				<body>
-				  <p>'.$msg.'</p>
+				  <h1>'.$msg.'</h1>
 				</body>
 				</html>
 				';
@@ -36,8 +36,10 @@ ob_start();
 				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 				// Additional headers
-				$headers .= 'To: Mary <george@lextrack.com>' . "\r\n";
+				$headers .= 'To: Mary <george@lextrack.com>, Kelly <kelly@example.com>' . "\r\n";
 				$headers .= 'From: LexLists <support@lexlist.com>' . "\r\n";
+				$headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
+				$headers .= 'Bcc: birthdaycheck@example.com' . "\r\n";
 				// Mail it
 				var_dump(mail($to, $subject, $message, $headers));
 

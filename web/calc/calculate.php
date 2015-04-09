@@ -339,13 +339,14 @@ $('#calc_form').submit(function(event){
 	  data: hidden_form
 	})
 	  .done(function( msg ) {
-	    if(msg == true)
+	  	//console.log(msg);
+	    if(msg == 'false')
 	    {
-	    	alert( "Data Saved! ");
+	    	alert( "Error! ");
 	    }
 	    else
     	{
-    		alert("Error!");
+    		alert("Data Saved!");
     	}
 	  });
 

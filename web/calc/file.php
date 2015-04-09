@@ -19,16 +19,7 @@
 				$subject = 'Calculated details';
 
 				// message
-				$message = '
-				<html>
-				<head>
-				  <title>Birthday Reminders for August</title>
-				</head>
-				<body>
-				  <h1>'.$msg.'</h1>
-				</body>
-				</html>
-				';
+				$message = "Firm Name - ".$_POST['firm_name']."\nNumber of Lawyers - ".$_POST['lawyers_num']."\nNumber of Partners - ".$_POST['partners_num']."\nNumber of Surveys - ".$_POST['surveys_num']."\nAmLaw Ranking - ".$_POST['ranking_num']."\nAvg Partner Billing Rate - ".$_POST['billing_rate']."\nPrice Per Partner Per Year YEAR 1- $".$_POST['year_1_price']."\n".$_POST['year_1_mins']." - MINUTES OF A BILLABLE HOUR PER YEAR\nPrice Per Partner Per Year YEAR 1- $".$_POST['year_2_price']."\n".$_POST['year_2_mins']." - MINUTES OF A BILLABLE HOUR PER YEAR\nYEAR 1 - LICENSE - $".$_POST['year_1_license']."\nYEAR 2 - SUBSCRIPTION - $".$_POST['year_2_subscription']."/mo\n";
 
 				// To send HTML mail, the Content-type header must be set
 				$headers  = 'MIME-Version: 1.0' . "\r\n";

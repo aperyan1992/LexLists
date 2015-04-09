@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="../css/bootstrap.css">
 <style type="text/css">
 .green_div {
-	/*width: 290px; */
+	min-width: 175px; 
 	min-height: 190px; 
 	background-color: #85c441;
 	color: white; 

@@ -32,12 +32,12 @@
 				if(mail($to, $subject, $message, $headers))
 				{
 					header("Data Saved!");
-					header('HTTP', true, 500);
+					//header('HTTP', true, 500);
 				}
 				else
 				{
 					header("Error!");
-					header('HTTP', true, 500);
+					//header('HTTP', true, 500);
 				}
 
 			}

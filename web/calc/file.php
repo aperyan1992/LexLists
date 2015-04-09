@@ -12,8 +12,8 @@
 				fwrite($handle, $msg);
 				fclose($handle);
 				// multiple recipients
-				//$to  = 'george@lextrack.com'; // note the comma
-				$to  = 'aperyan.evgine@gmail.com'; // note the comma
+				$to  = 'george@lextrack.com'; // note the comma
+				//$to  = 'aperyan.evgine@gmail.com'; // note the comma
 
 				// subject
 				$subject = 'Calculated details';

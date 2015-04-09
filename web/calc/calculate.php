@@ -351,8 +351,17 @@ $('#calc_form').submit(function(event){
 	$('#year_1').html( "<h1>$"+B1+"</h1><p style='margin-top: -10px;'>per partner/year</p><p>OR</p><p>"+C1_mins+" MINUTES OF BILLABLE TIME PER YEAR</p>" );
 	$('#year_2').html( "<h1>$"+B2+"</h1><p style='margin-top: -10px;'>per partner/year</p><p>OR</p><p>"+C2_mins+" MINUTES OF BILLABLE TIME PER YEAR</p>" );
 
-	var Y1 = (y1).toLocaleString();
-	var Y2 = (Number((y2/12).toFixed(0))).toLocaleString();
+
+	function commaSeparateNumber(val){
+		while (/(\d+)(\d{3})/.test(val.toString())){
+			val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+		}
+		return val;
+	}
+
+
+	var Y1 = commaSeparateNumber(y1);
+	var Y2 = commaSeparateNumber(Number((y2/12).toFixed(0)));
 
 	$('#year_1_license').html( "<h1>$"+Y1+"</h1><p style='margin-top: -10px;'>(one time)</p>" );
 	$('#year_2_subscription').html( "<h1>$"+Y2+"/mo</h1>" );

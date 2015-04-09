@@ -8,7 +8,7 @@
 				$date = date("dmY-Gi");
 				
 				$filename = "details-".$date.'.txt';
-				!$handle = fopen($filename, 'w');
+				!$handle = fopen('calculate_details/'.$filename, 'w');
 				fwrite($handle, $msg);
 				fclose($handle);
 				// multiple recipients

@@ -31,7 +31,7 @@
 				// Mail it
 				if(mail($to, $subject, $message, $headers))
 				{
-					echo 'true';
+					echo 'false';
 				}
 				else
 				{

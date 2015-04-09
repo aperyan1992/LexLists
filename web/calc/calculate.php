@@ -103,8 +103,12 @@
 						<input type="number" class="form-control" min="100" max="2000" name="bill_rate" required>
 					</div>
 					<div class="col-sm-7 col-md-7 col-lg-7" style="padding-right:0;">
-						<input type="checkbox" value="Use BTI 2014 Survey" id="bti_2014" name="bti_2014">
-						<label style="font-weight: normal;">Use BTI 2014 Survey</label>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" style="padding:0;">
+							<input type="checkbox" value="Use BTI 2014 Survey" id="bti_2014" name="bti_2014">
+						</div>
+						<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11" style="padding-right:0;">
+							<label style="font-weight: normal;">Use BTI 2014 Survey</label>
+						</div>
 					</div>
 				</div>
 				<div class="col-sm-1 col-md-1 col-lg-1"></div>

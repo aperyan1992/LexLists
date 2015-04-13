@@ -568,6 +568,17 @@ class mySurveyActions extends sfActions {
         $this->redirect404();
     }
 
+    protected function CheckStringLengthDescription($string, $length)
+    {
+        if (strlen($string) > $length) {
+
+            $stringCut = substr($string, 0, $length);
+
+            $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'<span class="more" style="cursor:pointer; color:#ff6801;"> ...more</span>';
+        }
+        return $string;
+    }
+
     protected function CheckStringLength($string)
     {
         if (strlen($string) > 50) {
@@ -927,7 +938,8 @@ class mySurveyActions extends sfActions {
                                 "eligibility_notes"      => $eligibility_notes,
                                 "practice_areas"         => $practice_areas,
                                 "geographic_area"        => $geographic_area,
-                                "description"            => $description,
+                                "description"            => $this->CheckStringLengthDescription($description,320),
+                                "description_1"          => $description.' <span class="less" style="cursor:pointer; color:#ff6801;"> less</span>',
                                 "submission_methodology" => $submission_methodology,
                                 "nomination"             => $nomination,
                                 "frequency"              => $frequency,

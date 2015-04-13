@@ -12,9 +12,9 @@
 				fwrite($handle, $msg);
 				fclose($handle);
 				// multiple recipients
-				//$to  = 'george@lextrack.com, marsha@lextrack.com'; // note the comma
+				$to  = 'george@lextrack.com'.', '.'marsha@lextrack.com'; // note the comma
 
-				$to  = /*'aperyan.evgine@gmail.com'.', '.*/'aram.webtech@gmail.com'; // note the comma
+				//$to  = /*'aperyan.evgine@gmail.com'.', '.*/'aram.webtech@gmail.com'; // note the comma
 
 				// subject
 				$subject = $_POST['firm_name'].' - Calculated details';
@@ -27,7 +27,7 @@
 				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 				// Additional headers
-				$headers .= 'To: George <george@lextrack.com>, <marsha@lextrack.com>, <aperyan.evgine@gmail.com>' . "\r\n";
+				$headers .= 'To: George <george@lextrack.com>, <marsha@lextrack.com>'. "\r\n";
 				$headers .= 'From: LexLists <support@lexlist.com>' . "\r\n";				
 				// Mail it
 				if(mail($to, $subject, $message, $headers))

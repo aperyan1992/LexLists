@@ -40,6 +40,7 @@
             <tr>
                 <th align="right" valign="top">Description:</th>
                 <td id="dialog_description"></td>
+                <td id="dialog_description_1" style="display:none;"></td>
             </tr>
             <tr>
                 <th align="right" valign="top">Methodology:</th>

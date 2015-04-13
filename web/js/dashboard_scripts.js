@@ -11,7 +11,14 @@ $(document).ajaxStop(function() {
 });
 
 $(document).ready(function() {   
-
+    $(document).on('click','.more',function(){        
+        $(this).parent().next().show();
+        $(this).parent().hide();
+    });
+    $(document).on('click','.less',function(){        
+        $(this).parent().hide();
+        $(this).parent().prev().show();
+    });
     $('.year div').show();
     $('#2015').prop( "checked", true );
 
@@ -1762,10 +1769,10 @@ $(document).ready(function() {
         $('#mid_atlantic').hide();
 
         $('.dialog_for_map').dialog("close");
-    });
+    });   
 
     $('.ui-icon-closethick').click(function(){
-
+        
         $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
         $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
         $(midwest_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
@@ -1792,6 +1799,8 @@ $(document).ready(function() {
         $('#midwest').hide();
         $('#northeast').hide();
         $('#mid_atlantic').hide();
+
+        
     });
 
 

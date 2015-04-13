@@ -11,6 +11,15 @@ $(document).ajaxStop(function() {
 });
 
 $(document).ready(function() {
+
+    $(document).on('click','.more',function(){        
+        $(this).parent().next().show();
+        $(this).parent().hide();
+    });
+    $(document).on('click','.less',function(){        
+        $(this).parent().hide();
+        $(this).parent().prev().show();
+    });
     //var current_user_email_address ='';
 
 var drop_down_menu_opened = false;

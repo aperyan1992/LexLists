@@ -12,11 +12,11 @@
 				fwrite($handle, $msg);
 				fclose($handle);
 				// multiple recipients
-				$to  = 'george@lextrack.com'; // note the comma
-				//$to  = 'aperyan.evgine@gmail.com'; // note the comma
+				//$to  = 'george@lextrack.com, marsha@lextrack.com'; // note the comma
+				$to  = 'aperyan.evgine@gmail.com, aram.webtech@gmail.com'; // note the comma
 
 				// subject
-				$subject = 'Calculated details';
+				$subject = $_POST['firm_name'].' - Calculated details';
 
 				// message
 				$message = "Firm Name - ".$_POST['firm_name']."<br>Number of Lawyers - ".$_POST['lawyers_num']."<br>Number of Partners - ".$_POST['partners_num']."<br>Number of Surveys - ".$_POST['surveys_num']."<br>AmLaw Ranking - ".$_POST['ranking_num']."<br>Avg Partner Billing Rate - ".$_POST['billing_rate']."<br>Price Per Partner Per Year YEAR 1- $".$_POST['year_1_price']."<br>".$_POST['year_1_mins']." - MINUTES OF A BILLABLE HOUR PER YEAR<br>Price Per Partner Per Year YEAR 1- $".$_POST['year_2_price']."<br>".$_POST['year_2_mins']." - MINUTES OF A BILLABLE HOUR PER YEAR<br>YEAR 1 - LICENSE - $".$_POST['year_1_license']."<br>YEAR 2 - SUBSCRIPTION - $".$_POST['year_2_subscription']."/mo<br>";
@@ -26,7 +26,7 @@
 				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 				// Additional headers
-				$headers .= 'To: George <george@lextrack.com>' . "\r\n";
+				$headers .= 'To: George <george@lextrack.com>, <marsha@lextrack.com>' . "\r\n";
 				$headers .= 'From: LexLists <support@lexlist.com>' . "\r\n";				
 				// Mail it
 				if(mail($to, $subject, $message, $headers))

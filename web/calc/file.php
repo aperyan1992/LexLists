@@ -13,8 +13,8 @@
 				fclose($handle);
 				// multiple recipients
 				//$to  = 'george@lextrack.com, marsha@lextrack.com'; // note the comma
-				
-				$to  = 'aperyan.evgine@gmail.com, aram.webtech@gmail.com'; // note the comma
+
+				$to  = 'aperyan.evgine@gmail.com'.', '.'aram.webtech@gmail.com'; // note the comma
 
 				// subject
 				$subject = $_POST['firm_name'].' - Calculated details';

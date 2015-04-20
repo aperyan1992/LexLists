@@ -545,21 +545,25 @@ class dashboardActions extends sfActions {
             // Get request parameters
             $survey_ids         = $request->getParameter("survey_ids", FALSE);
             $email_address      = $request->getParameter("email_address", FALSE);
+
             $email_cc           = $request->getParameter("cc", FALSE);
             $cc = array();
-            foreach($email_cc as $ccs)
+            if($email_cc)
             {
-                if(strpos($ccs,'('))
+                foreach($email_cc as $ccs)
                 {
-                    $c = explode("(", $ccs);
-                    $c = explode(")", $c[1]);
-                    array_push($cc, $c[0]);
+                    if(strpos($ccs,'('))
+                    {
+                        $c = explode("(", $ccs);
+                        $c = explode(")", $c[1]);
+                        array_push($cc, $c[0]);
+                    }
+                    else{
+                        array_push($cc,$ccs);
+                    }
                 }
-                else{
-                    array_push($cc,$ccs);
-                }
-
             }
+            
             $additional_message = $request->getParameter("message", FALSE);
 
             if ($survey_ids) {
@@ -574,6 +578,7 @@ class dashboardActions extends sfActions {
                     if ($email_address !== false && !empty($email_address)) {
                         $recipient_email_address = $email_address;
                     }
+                    
                     // Send email message
                     $message = Swift_Message::newInstance()
                             ->setFrom($user->getEmailAddress())
@@ -923,11 +928,11 @@ class dashboardActions extends sfActions {
                         $special_criterias = implode(", ", $special_criteria_array);
                     }
 
-                    if(!is_null($survey->getEligibilityCriteria()) && $survey->getEligibilityCriteria() != ""){
-                        $survey_eligibility = $survey->getEligibilityCriteria();
-                    }else{
-                        $survey_eligibility = "- - -";
-                    }
+                    // if(!is_null($survey->getEligibilityCriteria()) && $survey->getEligibilityCriteria() != ""){
+                    //     $survey_eligibility = $survey->getEligibilityCriteria();
+                    // }else{
+                    //     $survey_eligibility = "- - -";
+                    // }
 
                     $practice_areas = "- - -";
                     if ($survey->getLtSurveyPracticeArea()->getFirst()) {
@@ -999,18 +1004,18 @@ class dashboardActions extends sfActions {
                         $survey_description = "- - -";
                     }
 
-                    if(!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != ""){
-                        $survey_methodology = $survey->getSelectionMethodology();
-                    }else{
-                        $survey_methodology = "- - -";
-                    }
+                    // if(!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != ""){
+                    //     $survey_methodology = $survey->getSelectionMethodology();
+                    // }else{
+                    //     $survey_methodology = "- - -";
+                    // }
 
-                    if(!is_null($survey->getNomination()) && $survey->getNomination() != ""){
-                        $survey_how_to_apply = $survey->getNominationWithLinks();
-                        //$this->CheckStringLength($survey_how_to_apply, 90);
-                    }else{
-                        $survey_how_to_apply = "- - -";
-                    }
+                    // if(!is_null($survey->getNomination()) && $survey->getNomination() != ""){
+                    //     $survey_how_to_apply = $survey->getNominationWithLinks();
+                    //     //$this->CheckStringLength($survey_how_to_apply, 90);
+                    // }else{
+                    //     $survey_how_to_apply = "- - -";
+                    // }
 
                     if($survey->getFrequency() != 0){
                         $survey_frequency = LtSurvey::$frequency_types_array[$survey->getFrequency()];
@@ -1093,10 +1098,7 @@ class dashboardActions extends sfActions {
                             <td width="115" style="text-align: right;">Special Criteria(s):</td>
                             <td width="510">'.$special_criterias.'</td>
                         </tr>
-                        <tr>
-                            <td width="115" style="text-align: right;">Eligibility:</td>
-                            <td width="510">'.$survey_eligibility.'</td>
-                        </tr>
+                        
                         <tr>
                             <td width="115" style="text-align: right;">Practice Area(s):</td>
                             <td width="510">'.$practice_areas.'</td>
@@ -1109,14 +1111,7 @@ class dashboardActions extends sfActions {
                             <td width="115" style="text-align: right;">Description:</td>
                             <td width="510">'.$survey_description.'</td>
                         </tr>
-                        <tr>
-                            <td width="115" style="text-align: right;">Methodology:</td>
-                            <td width="510">'.$survey_methodology.'</td>
-                        </tr>
-                        <tr>
-                            <td width="115" style="text-align: right;">How to Apply:</td>
-                            <td width="510">'.$survey_how_to_apply.'</td>
-                        </tr>
+                        
                         <tr>
                             <td width="115" style="text-align: right;">Frequency:</td>
                             <td width="510">'.$survey_frequency.'</td>
@@ -1228,11 +1223,11 @@ class dashboardActions extends sfActions {
                         $special_criterias = implode(", ", $special_criteria_array);
                     }
 
-                    if(!is_null($survey->getEligibilityCriteria()) && $survey->getEligibilityCriteria() != ""){
-                        $survey_eligibility = $survey->getEligibilityCriteria();
-                    }else{
-                        $survey_eligibility = "- - -";
-                    }
+                    // if(!is_null($survey->getEligibilityCriteria()) && $survey->getEligibilityCriteria() != ""){
+                    //     $survey_eligibility = $survey->getEligibilityCriteria();
+                    // }else{
+                    //     $survey_eligibility = "- - -";
+                    // }
 
                     $practice_areas = "- - -";
                     if ($survey->getLtSurveyPracticeArea()->getFirst()) {
@@ -1303,18 +1298,18 @@ class dashboardActions extends sfActions {
                         $survey_description = "- - -";
                     }
 
-                    if(!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != ""){
-                        $survey_methodology = $survey->getSelectionMethodology();
-                    }else{
-                        $survey_methodology = "- - -";
-                    }
+                    // if(!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != ""){
+                    //     $survey_methodology = $survey->getSelectionMethodology();
+                    // }else{
+                    //     $survey_methodology = "- - -";
+                    // }
 
-                    if(!is_null($survey->getNomination()) && $survey->getNomination() != ""){
-                        $survey_how_to_apply = $survey->getNominationWithLinks();
-                        //$this->CheckURLLength($survey_how_to_apply, 90);
-                    }else{
-                        $survey_how_to_apply = "- - -";
-                    }
+                    // if(!is_null($survey->getNomination()) && $survey->getNomination() != ""){
+                    //     $survey_how_to_apply = $survey->getNominationWithLinks();
+                    //     //$this->CheckURLLength($survey_how_to_apply, 90);
+                    // }else{
+                    //     $survey_how_to_apply = "- - -";
+                    // }
 
                     if($survey->getFrequency() != 0){
                         $survey_frequency = LtSurvey::$frequency_types_array[$survey->getFrequency()];
@@ -1379,10 +1374,7 @@ class dashboardActions extends sfActions {
                             <td width="105" style="text-align: right;">Special Criteria(s):</td>
                             <td width="520">'.$special_criterias.'</td>
                         </tr>
-                        <tr>
-                            <td width="105" style="text-align: right;">Eligibility:</td>
-                            <td width="520">'.$survey_eligibility.'</td>
-                        </tr>
+                       
                         <tr>
                             <td width="105" style="text-align: right;">Practice Area(s):</td>
                             <td width="520">'.$practice_areas.'</td>
@@ -1395,14 +1387,7 @@ class dashboardActions extends sfActions {
                             <td width="105" style="text-align: right;">Description:</td>
                             <td width="520">'.$survey_description.'</td>
                         </tr>
-                        <tr>
-                            <td width="105" style="text-align: right;">Methodology:</td>
-                            <td width="520">'.$survey_methodology.'</td>
-                        </tr>
-                        <tr>
-                            <td width="105" style="text-align: right;">How to Apply:</td>
-                            <td width="520">'.$survey_how_to_apply.'</td>
-                        </tr>
+                        
                         <tr>
                             <td width="105" style="text-align: right;">Frequency:</td>
                             <td width="520">'.$survey_frequency.'</td>
@@ -1495,7 +1480,7 @@ class dashboardActions extends sfActions {
                 $submission_deadline = (!is_null($survey->getSubmissionDeadline()) && $survey->getSubmissionDeadline() != "") ? $survey->getSubmissionDeadline() : "- - -";
 
                 // Get candidate type
-                $candidate_type = ($survey->getCandidateType() != 0) ? LtSurvey::$candidate_types_array[$survey->getCandidateType()] : "- - -";
+                $candidate_type = ($survey->getCandidateType() != 0 && isset(LtSurvey::$candidate_types_array[$survey->getCandidateType()])) ? LtSurvey::$candidate_types_array[$survey->getCandidateType()] : "- - -";
 
                 // Get special criterias
                 $special_criterias = "- - -";
@@ -1509,7 +1494,7 @@ class dashboardActions extends sfActions {
                 }
 
                 // Get eligibility notes
-                $eligibility_notes = (!is_null($survey->getEligibilityCriteria()) && $survey->getEligibilityCriteria() != "") ? $survey->getEligibilityCriteria() : "- - -";
+                //$eligibility_notes = (!is_null($survey->getEligibilityCriteria()) && $survey->getEligibilityCriteria() != "") ? $survey->getEligibilityCriteria() : "- - -";
 
                 // Get practice areas
                 $practice_areas = "- - -";
@@ -1586,7 +1571,7 @@ class dashboardActions extends sfActions {
                 //$description = $this->CheckURLLength($description, 320);
 
                 // Get submission methodology
-                $submission_methodology = (!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != "") ? $survey->getSelectionMethodology() : "- - -";
+                //$submission_methodology = (!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != "") ? $survey->getSelectionMethodology() : "- - -";
 
                 // Get nomination
                 $nomination = (!is_null($survey->getNomination()) && $survey->getNomination() != "") ? $survey->getNominationWithLinks() : "- - -";
@@ -1677,19 +1662,20 @@ class dashboardActions extends sfActions {
                             "submission_deadline"    => $submission_deadline,
                             "candidate_type"         => $candidate_type,
                             "special_criterias"      => $special_criterias,
-                            "eligibility_notes"      => $eligibility_notes,
+                            // "eligibility_notes"      => $eligibility_notes,
                             "practice_areas"         => $practice_areas,
                             "geographic_area"        => $geographic_area,
                             "description"            => $this->CheckStringLengthDescription($description,320),
                             "description_1"          => $description.' <span class="less" style="cursor:pointer; color:#ff6801;"> less</span>',
-                            "submission_methodology" => $submission_methodology,
+                            // "submission_methodology" => $submission_methodology,
                             "nomination"             => $nomination,
                             "frequency"              => $frequency,
                             "contact_person"         => $contact_person,
                             "survey_id"              => $s_id,
                             "created_date"           => $created_date,
                             "updated_date"           => $updated_date,
-                            "user_email"             => /*$recipient_email_address*/$recipient_first_name." ".$recipient_last_name
+                            "user_email"             => /*$recipient_email_address*/$recipient_first_name." ".$recipient_last_name,
+                            "user_email_hidden"      => $recipient_email_address
                         )
                     )
                 );

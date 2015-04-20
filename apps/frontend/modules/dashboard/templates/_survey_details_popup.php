@@ -26,10 +26,10 @@
                 <th align="right">Special Criteria(s):</th>
                 <td id="dialog_special_criterias"></td>
             </tr>
-            <tr>
+           <!--  <tr>
                 <th align="right" valign="top">Eligibility:</th>
                 <td id="dialog_eligibility_notes"></td>
-            </tr>
+            </tr> -->
             <tr>
                 <th align="right">Practice Area(s):</th>
                 <td id="dialog_practice_areas"></td>
@@ -43,14 +43,14 @@
                 <td id="dialog_description"></td>
                 <td id="dialog_description_1" style="display:none;"></td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <th align="right" valign="top">Methodology:</th>
                 <td id="dialog_submission_methodology"></td>
-            </tr>
-            <tr>
+            </tr> -->
+            <!-- <tr>
                 <th align="right" valign="top">How to Apply:</th>
                 <td id="dialog_nomination"></td>
-            </tr>
+            </tr> -->
             <tr>
                 <th align="right">Frequency:</th>
                 <td id="dialog_frequency"></td>

@@ -437,7 +437,7 @@ class mySurveyActions extends sfActions {
                             . "</div>";
 
                     // Set candidate type
-                    $candidate_type = (!is_null($survey->getSurvey()->getCandidateType()) && $survey->getSurvey()->getCandidateType() != "" && $survey->getSurvey()->getCandidateType() != "0") ? $this->CheckStringLength(LtSurvey::$candidate_types_array[$survey->getSurvey()->getCandidateType()]) : "- - -";
+                    $candidate_type = (!is_null($survey->getSurvey()->getCandidateType()) && $survey->getSurvey()->getCandidateType() != "" && $survey->getSurvey()->getCandidateType() != "0" && isset(LtSurvey::$candidate_types_array[$survey->getSurvey()->getCandidateType()])) ? $this->CheckStringLength(LtSurvey::$candidate_types_array[$survey->getSurvey()->getCandidateType()]) : "- - -";
 
                     // Set practice area
                     $practice_areas = "- - -";
@@ -782,7 +782,7 @@ class mySurveyActions extends sfActions {
                     }
 
                     // Get eligibility notes
-                    $eligibility_notes = (!is_null($survey->getSurvey()->getEligibilityCriteria()) && $survey->getSurvey()->getEligibilityCriteria() != "") ? $survey->getSurvey()->getEligibilityCriteria() : "- - -";
+                    //$eligibility_notes = (!is_null($survey->getSurvey()->getEligibilityCriteria()) && $survey->getSurvey()->getEligibilityCriteria() != "") ? $survey->getSurvey()->getEligibilityCriteria() : "- - -";
 
                     // Get practice areas
                     $practice_areas = "- - -";
@@ -856,7 +856,7 @@ class mySurveyActions extends sfActions {
                     $description = (!is_null($survey->getSurvey()->getSurveyDescription()) && $survey->getSurvey()->getSurveyDescription() != "") ? $survey->getSurvey()->getSurveyDescription() : "- - -";
 
                     // Get submission methodology
-                    $submission_methodology = (!is_null($survey->getSurvey()->getSelectionMethodology()) && $survey->getSurvey()->getSelectionMethodology() != "") ? $survey->getSurvey()->getSelectionMethodology() : "- - -";
+                    //$submission_methodology = (!is_null($survey->getSurvey()->getSelectionMethodology()) && $survey->getSurvey()->getSelectionMethodology() != "") ? $survey->getSurvey()->getSelectionMethodology() : "- - -";
 
                     // Get nomination
                     $nomination = (!is_null($survey->getSurvey()->getNomination()) && $survey->getSurvey()->getNomination() != "") ? $survey->getSurvey()->getNominationWithLinks() : "- - -";
@@ -935,12 +935,12 @@ class mySurveyActions extends sfActions {
                                 "submission_deadline"    => $submission_deadline,
                                 "candidate_type"         => $candidate_type,
                                 "special_criterias"      => $special_criterias,
-                                "eligibility_notes"      => $eligibility_notes,
+                                //"eligibility_notes"      => $eligibility_notes,
                                 "practice_areas"         => $practice_areas,
                                 "geographic_area"        => $geographic_area,
                                 "description"            => $this->CheckStringLengthDescription($description,320),
                                 "description_1"          => $description.' <span class="less" style="cursor:pointer; color:#ff6801;"> less</span>',
-                                "submission_methodology" => $submission_methodology,
+                                //"submission_methodology" => $submission_methodology,
                                 "nomination"             => $nomination,
                                 "frequency"              => $frequency,
                                 "contact_person"         => $contact_person,
@@ -953,6 +953,7 @@ class mySurveyActions extends sfActions {
                                 "my_survey_id"           => $my_survey_id,
                                 "share_with"             => $share_with,
                                 "share_with_list_user"   => $share_with_list_user,
+                                "user_email_hidden"      => $recipient_email_address
                             )
                         )
                     );

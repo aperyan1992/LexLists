@@ -7,7 +7,9 @@
                 </th>
 
                 <td>
-                    <input type="checkbox" name="to_me" id="to_me_dialog_form_survey_email" class="timemail" checked /><span class="to_me_label" id="dialog_email_user_email"></span>
+                    <input type="checkbox" name="to_me" id="to_me_dialog_form_survey_email" class="timemail" checked />
+                    <span class="to_me_label" id="dialog_email_user_email"></span>
+                    <div style="display:none" id="dialog_email_user_email_hidden"></div>
                 </td>
             </tr>
                 <tr>

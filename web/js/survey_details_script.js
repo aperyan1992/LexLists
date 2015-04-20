@@ -300,6 +300,7 @@ function initSurveyDetailsForMyListsPopupWindow(element) {
             },
             "E-mail Me": function() {
                 // Send email message
+             
                 sendEmailToMe([$(this).data("survey_id")]);
             },
             "Cancel": function() {

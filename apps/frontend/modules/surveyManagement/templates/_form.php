@@ -24,7 +24,7 @@
                 <div class="alert alert-success success_message" style="display: none;">Success! Survey has been added.</div>
                     
                 <?php foreach ($configuration->getFormFields($form, $form->isNew() ? 'new' : 'edit') as $fieldset => $fields): ?>
-                    <?php include_partial('surveyManagement/form_fieldset', array('lt_survey' => $lt_survey, 'form' => $form, 'fields' => $fields, 'fieldset' => $fieldset)) ?>
+                    <?php    include_partial('surveyManagement/form_fieldset', array('lt_survey' => $lt_survey, 'form' => $form, 'fields' => $fields, 'fieldset' => $fieldset)) ?>
                 <?php endforeach; ?>
             </tbody>
         </table>

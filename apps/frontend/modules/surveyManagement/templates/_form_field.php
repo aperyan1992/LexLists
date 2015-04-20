@@ -3,13 +3,14 @@
 <?php elseif ($field->isComponent()): ?>
     <?php include_component('surveyManagement', $name, array('form' => $form, 'attributes' => $attributes instanceof sfOutputEscaper ? $attributes->getRawValue() : $attributes)) ?>
 <?php else: ?>
-  <tr class="distance">
-      <th>            
+  <tr style="<?php echo ($name == 'eligibility_criteria' || $name == 'nomination' || $name == 'selection_methodology' || $name == 'self_nomination' || $name == 'fees' || $name == 'pay_for_play')? "display: none;" : "" ?>" class="distance">
+      <th>  
           <?php if ($help = $form[$name]->renderHelp()): ?>
             <?php echo $form[$name]->renderLabel($label, array("title" => $form->getWidgetSchema()->getHelp($name))) ?>
           <?php else : ?>
             <?php echo $form[$name]->renderLabel($label) ?>
           <?php endif; ?>
+
       </th>
       <td>  
           <?php if($attributes instanceof sfOutputEscaper) : ?>
@@ -27,6 +28,7 @@
           <?php endif; ?>
 
           <?php echo $form[$name]->renderError() ?>
+   
       </td>
   </tr>    
 <?php endif; ?>

@@ -54,10 +54,10 @@
                 <th align="right">Special Criteria(s):</th>
                 <td id="dialog_email_special_criterias"></td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <th align="right" valign="top">Eligibility:</th>
                 <td id="dialog_email_eligibility_notes"></td>
-            </tr>
+            </tr> -->
             <tr>
                 <th align="right">Practice Area(s):</th>
                 <td id="dialog_email_practice_areas"></td>
@@ -70,14 +70,14 @@
                 <th align="right" valign="top">Description:</th>
                 <td id="dialog_email_description"></td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <th align="right" valign="top">Methodology:</th>
                 <td id="dialog_email_submission_methodology"></td>
             </tr>
             <tr>
                 <th align="right" valign="top">How to Apply:</th>
                 <td id="dialog_email_nomination"></td>
-            </tr>
+            </tr> -->
             <tr>
                 <th align="right">Frequency:</th>
                 <td id="dialog_email_frequency"></td>

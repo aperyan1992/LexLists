@@ -12,14 +12,14 @@
     <th align="right">Survey Name:</th>
     <td><?php echo (!is_null($survey->getSurveyName()) && $survey->getSurveyName() != "") ? $survey->getSurveyName() : "- - -"; ?></td>
   </tr>
-  <tr>
+  <!-- <tr>
     <th align="right">Eligibility:</th>
     <td><?php echo ($survey->getCandidateType() != 0) ? LtSurvey::$candidate_types_array[$survey->getCandidateType()] : "- - -"; ?></td>
   </tr>
   <tr>
     <th align="right">Eligibility Notes:</th>
     <td><?php echo (!is_null($survey->getEligibilityCriteria()) && $survey->getEligibilityCriteria() != "") ? $survey->getEligibilityCriteria() : "- - -"; ?></td>
-  </tr>
+  </tr> -->
   <tr>
     <th align="right">Practice Area(s):</th>
     <td>
@@ -42,10 +42,10 @@
     <th align="right">Description/Criteria:</th>
     <td><?php echo (!is_null($survey->getSurveyDescription()) && $survey->getSurveyDescription() != "") ? $survey->getSurveyDescription() : "- - -"; ?></td>
   </tr>
-  <tr>
+ <!--  <tr>
     <th align="right">Submission Methodology:</th>
     <td><?php echo (!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != "") ? $survey->getSelectionMethodology() : "- - -"; ?></td>
-  </tr>
+  </tr> -->
   <tr>
     <th align="right">Contact Person:</th>
     <td>

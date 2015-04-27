@@ -840,7 +840,8 @@ class dashboardActions extends sfActions {
      */
     public function executePrintSurvey(sfWebRequest $request) {
 
-        $date = date("d-M-Y");
+        $date = date("d-M-Y");   
+
 
         $session_user_id = $_SESSION['symfony/user/sfUser/attributes']['sfGuardSecurityUser']['user_id'];
 

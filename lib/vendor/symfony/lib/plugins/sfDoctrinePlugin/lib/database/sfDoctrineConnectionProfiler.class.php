@@ -67,6 +67,11 @@ class sfDoctrineConnectionProfiler extends Doctrine_Connection_Profiler
     if ($this->options['logging'])
     {
       $this->dispatcher->notify(new sfEvent($event->getInvoker(), 'application.log', array(sprintf('query : %s - (%s)', $event->getQuery(), join(', ', self::fixParams($event->getParams()))))));
+      $logPath = sfConfig::get('sf_log_dir').'/custom.log';
+      $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+
+      $custom_logger->info(sprintf('query : %s - (%s)', $event->getQuery(), join(', ', self::fixParams($event->getParams()))));
+    
     }
 
     sfTimerManager::getTimer('Database (Doctrine)');
@@ -103,6 +108,11 @@ class sfDoctrineConnectionProfiler extends Doctrine_Connection_Profiler
     if ($this->options['logging'])
     {
       $this->dispatcher->notify(new sfEvent($event->getInvoker(), 'application.log', array(sprintf('exec : %s - (%s)', $event->getQuery(), join(', ', self::fixParams($event->getParams()))))));
+       $logPath = sfConfig::get('sf_log_dir').'/custom.log';
+      $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+
+      $custom_logger->info(sprintf('exec : %s - (%s)', $event->getQuery(), join(', ', self::fixParams($event->getParams()))));
+    
     }
 
     sfTimerManager::getTimer('Database (Doctrine)');
@@ -139,6 +149,10 @@ class sfDoctrineConnectionProfiler extends Doctrine_Connection_Profiler
     if ($this->options['logging'])
     {
       $this->dispatcher->notify(new sfEvent($event->getInvoker(), 'application.log', array(sprintf('execute : %s - (%s)', $event->getQuery(), join(', ', self::fixParams($event->getParams()))))));
+      $logPath = sfConfig::get('sf_log_dir').'/custom.log';
+      $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+
+      $custom_logger->info(sprintf('execute : %s - (%s)', $event->getQuery(), join(', ', self::fixParams($event->getParams()))));
     }
 
     sfTimerManager::getTimer('Database (Doctrine)');

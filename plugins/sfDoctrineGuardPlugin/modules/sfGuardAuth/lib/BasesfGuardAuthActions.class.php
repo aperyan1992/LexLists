@@ -20,6 +20,7 @@ class BasesfGuardAuthActions extends sfActions
   public function executeSignin($request)
   {
     $user = $this->getUser();
+
     if ($user->isAuthenticated())
     {
       return $this->redirect('@homepage');
@@ -41,7 +42,15 @@ class BasesfGuardAuthActions extends sfActions
         // or to the homepage
         $signinUrl = sfConfig::get('app_sf_guard_plugin_success_signin_url', $user->getReferer($request->getReferer()));
 
+
+        $logPath = sfConfig::get('sf_log_dir').'/custom.log';
+        $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+
+        $custom_logger->info("Login - ".$user);
+
         return $this->redirect('' != $signinUrl ? $signinUrl : '@homepage');
+
+
       }
     }
     else
@@ -70,6 +79,14 @@ class BasesfGuardAuthActions extends sfActions
 
   public function executeSignout($request)
   {
+    $user = $this->getUser();
+
+    $logPath = sfConfig::get('sf_log_dir').'/custom.log';
+    $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+
+    $custom_logger->info("Logout - ".$user);
+
+
     $this->getUser()->signOut();
 
     $signoutUrl = sfConfig::get('app_sf_guard_plugin_success_signout_url', $request->getReferer());

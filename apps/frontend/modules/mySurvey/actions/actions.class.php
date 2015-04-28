@@ -50,6 +50,15 @@ class mySurveyActions extends sfActions {
      * @param sfRequest $request A request object
      */
     public function executeIndex(sfWebRequest $request) {
+        //set session attribute for log file
+        //$this->getUser()->setAttribute('Directory', 'My List');
+
+        $final_filename = $this->getUser()->getAttribute('log_file_name');
+        $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+        $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+
+        $custom_logger->info("Directory - My List");
+
         // Get surveys years
         $this->surveys_years = Doctrine_Core::getTable('LtSurvey')->getSurveysYears();
         $this->survey_year_checkboxes = "";
@@ -602,12 +611,14 @@ class mySurveyActions extends sfActions {
     public function executeSaveSurveyToMyList(sfWebRequest $request) {
         if ($request->isXmlHttpRequest()) {
             // Get request parameters
-            $survey_id = $request->getParameter("survey_id", FALSE);
+            $survey_id = $request->getParameter("survey_id", FALSE);            
+            //$survey_name = $request->getParameter("survey_name", FALSE);
 
             if($survey_id) {
                 // Get survey
                 $survey = Doctrine_Core::getTable("LtSurvey")->findOneById($survey_id);
-
+                
+               
                 // Get user
                 $user = $this->getUser()->getGuardUser();
 
@@ -634,6 +645,16 @@ class mySurveyActions extends sfActions {
                     }
                     $new_my_survey->save();
 
+                    //save info in log file
+                    $final_filename = $this->getUser()->getAttribute('log_file_name');
+                    $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+                    $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+                    
+                     $survey_name =  $survey->getSurveyName();
+                    //var_dump($survey_id);die;
+                    $custom_logger->info('Directory - Save Award To My List - Award Id - '.$survey_id.' - Award Name - '.$survey_name);
+
+
                     return $this->renderText(
                         json_encode(
                             array(
@@ -659,7 +680,8 @@ class mySurveyActions extends sfActions {
         if ($request->isXmlHttpRequest()) {
             // Get request parameters
             $survey_ids = $request->getParameter("survey_ids", FALSE);
-
+            $s_ids_for_log = implode(", ",$survey_ids);
+           
             if($survey_ids) {
                 // Get user
                 $user = $this->getUser()->getGuardUser();
@@ -694,6 +716,14 @@ class mySurveyActions extends sfActions {
                                 $new_my_survey->setIsDeadlinePast(true);
                             }
                             $new_my_survey->save();
+
+                            //save info in log file
+                            $final_filename = $this->getUser()->getAttribute('log_file_name');
+                            $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+                            $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+                                                    
+                            $custom_logger->info('Directory - Save Award To My List - Awards Ids - '.$s_ids_for_log);
+
                         }
 
                         $con->commit();
@@ -723,7 +753,9 @@ class mySurveyActions extends sfActions {
      *
      * @return array                    JSON array with response message
      */
-    public function executeGetSurveyInfo(sfWebRequest $request) {
+    public function executeGetSurveyInfo(sfWebRequest $request) {       
+
+
         if ($request->isXmlHttpRequest()) {
             // Get request parameters
             $survey_id = $request->getParameter("survey_id", FALSE);
@@ -756,10 +788,14 @@ class mySurveyActions extends sfActions {
                         if ($this->check_if_url_exists($survey->getSurvey()->getSurveyUrl()))
                         {
                             $survey_name = "<a class='custom_link' target='_blank' href='" . $survey->getSurvey()->getSurveyUrl() . "'>" . $survey->getSurvey()->getSurveyName() . "</a>";
+                            $s_name_for_log_file = $survey->getSurvey()->getSurveyName();
+                            $survey_name_hidden = $survey->getSurvey()->getSurveyName();
                         }
                         else
                         {
                             $survey_name = $survey->getSurvey()->getSurveyName();
+                            $s_name_for_log_file = $survey_name;
+                            $survey_name_hidden = $survey_name;
                         }
 
                     }
@@ -925,6 +961,13 @@ class mySurveyActions extends sfActions {
                     $recipient_first_name = $user->getFirstName();
                     $recipient_last_name = $user->getLastName();
 
+                    //save info in log file
+                    $final_filename = $this->getUser()->getAttribute('log_file_name');
+                    $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+                    $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+
+                    $custom_logger->info("Directory - My List - Award Information - Award Name - ".$s_name_for_log_file);
+
 
                     return $this->renderText(
                         json_encode(
@@ -932,6 +975,7 @@ class mySurveyActions extends sfActions {
                                 "year"                   => $year,
                                 "organization"           => $organization,
                                 "survey_name"            => $survey_name,
+                                "survey_name_hidden"     => $survey_name_hidden,
                                 "submission_deadline"    => $submission_deadline,
                                 "candidate_type"         => $candidate_type,
                                 "special_criterias"      => $special_criterias,
@@ -1404,11 +1448,11 @@ class mySurveyActions extends sfActions {
                 }
 
             }
-//var_dump($anytime);
+
             $query = 'SELECT * FROM `survey_alerts` WHERE `survey_id` = "'.$s_id.'" AND `time-frame` = "'.$time_frame.'" AND `time-frame-type` = "'.$time_frame_type.'" AND  `cc_email` = "'.$arrDetails['cc_email'].'" AND `email_me` = "'.$arrDetails['to_me'].'" AND `anytime_updated` = "'.$anytime.'" ';
             $res = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
 
-//var_dump($res);die;
+
 
             if(isset($res) && !empty($res))
             {
@@ -1419,15 +1463,7 @@ class mySurveyActions extends sfActions {
                 );
             }
             else
-            {
-
-
-
-
-
-
-
-                //var_dump($arrDetails);die;
+            {                
                 if(isset($updated) && !empty($updated))
                 {
                     $query = 'INSERT INTO `survey_alerts` (`survey_id`, `user_id`, `time-frame`, `time-frame-type`, `cc_email`, `email_me`, `anytime_updated`, `created_at`) VALUES';
@@ -1442,6 +1478,24 @@ class mySurveyActions extends sfActions {
                 // execute query
                 if(Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query))
                 {
+                    if ($s_id) 
+                    {
+                        $survey = Doctrine_Core::getTable("LtMySurvey")->getFullMySurveyInfo($s_id, $this->getUser()->getGuardUser()->getId());
+                        if ($survey) 
+                        {     
+                            if (!is_null($survey->getSurvey()->getSurveyName()) && $survey->getSurvey()->getSurveyName() != "")
+                            {
+                                $srv = $survey->getSurvey()->getSurveyName();
+                            }
+                        }
+                    }
+
+                    $final_filename = $this->getUser()->getAttribute('log_file_name');
+                    $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+                    $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+
+                    $custom_logger->info('Directory - My List - Set Alert - Award Id - '.$s_id.' - Award Name- '.$srv);
+
                     return $this->renderText(
                         json_encode(
                             $arrDetails
@@ -1483,6 +1537,12 @@ class mySurveyActions extends sfActions {
 
     public function executeGetAllAlerts(sfWebRequest $request)
     {
+        // $final_filename = $this->getUser()->getAttribute('log_file_name');
+        // $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+        // $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+
+        // $custom_logger->info("Directory - My List - Set Alert");
+
         if($request->isXmlHttpRequest())
         {
             //$alerts_array = array();
@@ -1492,7 +1552,6 @@ class mySurveyActions extends sfActions {
             /*$query = 'SELECT first_name, last_name, email_address FROM sf_guard_user WHERE id ="'.$current_user_id.'"';
             $user_email = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();*/
 
-//var_dump($survey_id);die;
             if($survey_id)
             {
                 $query = 'SELECT * FROM survey_alerts WHERE user_id="'.$this->getUser()->getGuardUser()->getId().'" AND survey_id="'.$survey_id.'"';

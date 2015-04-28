@@ -3,6 +3,58 @@
  */
 
 $(document).ready(function() {
+
+    $(document).on('change','#report_surveys_years_filter input',function(){
+        var current = {current:$(this).val()};
+        $.ajax({
+            url: "/dashboard/setTextSearchLog",
+            type: "POST",
+            data: current,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });   
+        
+    });
+
+    $('.search-block input:checkbox').on("change", function(){
+        if($(this).is(":checked")) {
+            var data = {title:$(this).next().text(), filter_action:'Display Box Checked Filter - '} ;           
+        }
+        else
+        {
+            var data = {title:$(this).next().text(), filter_action:'Display Box Unchecked Filter - '};
+        }
+         $.ajax({
+            url: "/dashboard/setFilterLog",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+    });
+
+    $('.left-sidebar input:checkbox').on("change", function(){
+        if($(this).is(":checked")) {
+            var data = {title:$(this).next().text(), filter_action:'Left Sidebar Checked Filter - '} ;           
+        }
+        else
+        {
+            var data = {title:$(this).next().text(), filter_action:'Left Sidebar Unchecked Filter - '};
+        }
+         $.ajax({
+            url: "/dashboard/setFilterLog",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+    });
     
    $('.other_filters_block h3').add('.deadline h3').click(function(){
 

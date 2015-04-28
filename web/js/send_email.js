@@ -155,7 +155,34 @@ function sendEmailToMe(survey_ids) {
         url: "/dashboard/sendEmail",
         type: "POST",
         data: {
-            survey_ids: survey_ids
+            survey_ids: survey_ids,
+            survey_name: $('#dialog_email_survey_name_hidden').text()
+        },
+        dataType: "json",
+        beforeSend: function() {
+            // Show blocker
+            $("#display_blocker").show();
+        },
+        success: function(data) {
+            // Hide blocker
+            $("#display_blocker").hide();
+        },
+        error: function() {
+            openErrorPopupWindow("dialog_error_alert", "Message sending failed. Try again.");
+
+            // Hide blocker
+            $("#display_blocker").hide();
+        }
+    });
+}
+
+function sendEmailToMeDashboard(survey_ids) {
+    $.ajax({
+        url: "/dashboard/sendEmail",
+        type: "POST",
+        data: {
+            survey_ids: survey_ids,
+            survey_name: $('#dialog_survey_name_hidden').text()
         },
         dataType: "json",
         beforeSend: function() {
@@ -182,7 +209,7 @@ function sendEmailToMe(survey_ids) {
  * @param {string}  email_address     Email address
  * @param {string}  message           Message
  */
-function sendEmailToAnotherUser(survey_ids, email_address, message,cc) {
+function sendEmailToAnotherUser(survey_ids, email_address, message,cc) {    
     $.ajax({
         url: "/dashboard/sendEmail",
         type: "POST",
@@ -190,7 +217,8 @@ function sendEmailToAnotherUser(survey_ids, email_address, message,cc) {
             survey_ids    : survey_ids,
             email_address : email_address,
             message       : message,
-            cc            : cc
+            cc            : cc,
+            survey_name   : $('#dialog_email_survey_name_hidden').text()
         },
         dataType: "json",
         beforeSend: function() {

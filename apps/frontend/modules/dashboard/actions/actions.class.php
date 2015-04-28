@@ -37,6 +37,13 @@ class dashboardActions extends sfActions {
      * @param sfRequest $request A request object
      */
     public function executeIndex(sfWebRequest $request) {
+
+        $final_filename = $this->getUser()->getAttribute('log_file_name');
+        $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+        $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+
+        $custom_logger->info("Directory - Dashboard");
+
         // Get surveys years
         $this->surveys_years = Doctrine_Core::getTable('LtSurvey')->getSurveysYears();
         $this->survey_year_checkboxes = "";
@@ -545,7 +552,34 @@ class dashboardActions extends sfActions {
             // Get request parameters
             $survey_ids         = $request->getParameter("survey_ids", FALSE);
             $email_address      = $request->getParameter("email_address", FALSE);
+            $survey_name        = $request->getParameter("survey_name", FALSE);
 
+            //var_dump("vvvvvvvv".$survey_name);die;
+            if(count($survey_ids)>1)
+            {
+                //save info in log file
+                $final_filename = $this->getUser()->getAttribute('log_file_name');
+                $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+                $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+                $s_ids = implode(", ", $survey_ids);
+                $custom_logger->info("Directory - Send Email - Awards Ids - ".$s_ids);
+
+            }
+            else
+            {
+                $s_ids = implode(" ", $survey_ids);
+
+                //save info in log file
+                $final_filename = $this->getUser()->getAttribute('log_file_name');
+                $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+                $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+                $s_ids = implode(", ", $survey_ids);
+                $custom_logger->info("Directory - Send Email - Award Id - ".$s_ids." - Award Name - ".$survey_name);
+
+            }
+            
+
+            //var_dump("name - ".$survey_name.' - ids - '.$s_ids);die;
             $email_cc           = $request->getParameter("cc", FALSE);
             $cc = array();
             if($email_cc)
@@ -569,6 +603,8 @@ class dashboardActions extends sfActions {
             if ($survey_ids) {
                 // Check if surveys exists
                 $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds($survey_ids);
+
+                
                 if ($surveys->getFirst()) {
                     // Get user
                     $user = $this->getUser()->getGuardUser();
@@ -578,6 +614,7 @@ class dashboardActions extends sfActions {
                     if ($email_address !== false && !empty($email_address)) {
                         $recipient_email_address = $email_address;
                     }
+                    
                     
                     // Send email message
                     $message = Swift_Message::newInstance()
@@ -595,6 +632,8 @@ class dashboardActions extends sfActions {
                     if ($send_status == 1) {
                         $status = true;
                     }
+
+                    
 
                     return $this->renderText(
                         json_encode(
@@ -830,6 +869,32 @@ class dashboardActions extends sfActions {
 
         $pdf->Output("LexLists-Report-$ducument_name.pdf", 'I');die;
     }
+
+    public function executeSetTextSearchLog(sfWebRequest $request)
+    {
+        $textsearch = $request->getParameter("current", FALSE);
+
+        //save info in log file
+        $final_filename = $this->getUser()->getAttribute('log_file_name');
+        $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+        $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+                                
+        $custom_logger->info('Directory - Search Text - '.$textsearch);
+    }
+
+    public function executeSetFilterLog(sfWebRequest $request)
+    {
+        $title = $request->getParameter("title", FALSE);
+        $action = $request->getParameter("filter_action", FALSE);
+        //var_dump($title.', '.$action);die;
+
+        //save info in log file
+        $final_filename = $this->getUser()->getAttribute('log_file_name');
+        $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+        $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+                                
+        $custom_logger->info('Directory - '.$action.$title);
+    }
     
     /**
      * Printing of surveys
@@ -884,6 +949,7 @@ class dashboardActions extends sfActions {
 
         if (count($survey_ids)>1)
         {
+            $s_id_for_log = $survey_ids;
             $top = 0;
             $first_survey = true;
             $c = count($survey_ids);
@@ -895,6 +961,7 @@ class dashboardActions extends sfActions {
                 $last_footer = false;
             }
 
+            $s_names_for_log = array();
             foreach($survey_ids as $key =>$survey_id)
             {
                 // Check if surveys exists
@@ -903,6 +970,7 @@ class dashboardActions extends sfActions {
                 {
                     if(!is_null($survey->getSurveyName()) && $survey->getSurveyName() != ""){
                         $survey_name = $survey->getSurveyName();
+                        $s_names_for_log[] = $survey_name;
                     }else{
                         $survey_name = "- - -";
                     }
@@ -1181,6 +1249,17 @@ class dashboardActions extends sfActions {
 
                 $pdf->writeHTML($html5, true, false, true, false, '');
             }
+
+            //save info in log file
+            $final_filename = $this->getUser()->getAttribute('log_file_name');
+            $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+            $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+            $s_id_for_log = implode(", ",$s_id_for_log);
+            $s_names_for_log = implode(", ", $s_names_for_log);
+           
+            $custom_logger->info('Directory - Print Award - Awards Ids - '.$s_id_for_log.' - Awards Names - '.$s_names_for_log);
+
+
         }
 
         else{
@@ -1193,12 +1272,14 @@ class dashboardActions extends sfActions {
             $pdf->SetLeftMargin(40);
 
             if ($survey_ids) {
+                $s_id_for_log = $survey_ids;
                 // Check if surveys exists
                 $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds($survey_ids);
                 foreach($surveys as $survey)
                 {
                     if(!is_null($survey->getSurveyName()) && $survey->getSurveyName() != ""){
                         $survey_name = $survey->getSurveyName();
+                        $s_names_for_log = $survey_name;
                     }else{
                         $survey_name = "- - -";
                     }
@@ -1421,7 +1502,21 @@ class dashboardActions extends sfActions {
 
                     $pdf->writeHTML($html, true, false, true, false, '');
             }
+            //save info in log file
+            $final_filename = $this->getUser()->getAttribute('log_file_name');
+            $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+            $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+            $s_id_for_log = implode(" ",$s_id_for_log);
+            // $s_names_for_log = implode(" ", $s_names_for_log);
+           
+            $custom_logger->info('Directory - Print Award - Award Id - '.$s_id_for_log.' - Award Name - '.$s_names_for_log);
+
+
         }
+
+
+        
+
 
         $pdf->Output("LexLists-$survey_first_name-$survey_last_name-$date.pdf", 'I');die;
 
@@ -1439,6 +1534,7 @@ class dashboardActions extends sfActions {
         if ($request->isXmlHttpRequest()) {
             // Get request parameters
             $survey_id = $request->getParameter("survey_id", FALSE);
+            //$survey_name_hidden = $request->getParameter("survey_name", FALSE);
 
             if ($survey_id) {
                 // Get survey info
@@ -1469,10 +1565,12 @@ class dashboardActions extends sfActions {
                     if ($this->check_if_url_exists($survey->getSurveyUrl()))
                     {
                         $survey_name = "<a class='custom_link' target='_blank' href='" . $survey->getSurveyUrl() . "'>" . $survey->getSurveyName() . "</a>";
+                        $survey_name_hidden = $survey->getSurveyName();
                     }
                     else
                     {
                         $survey_name = $survey->getSurveyName();
+                        $survey_name_hidden = $survey_name;
                     }
 
                 }
@@ -1654,12 +1752,14 @@ class dashboardActions extends sfActions {
                 $recipient_first_name = $user->getFirstName();
                 $recipient_last_name = $user->getLastName();
 
+
                 return $this->renderText(
                     json_encode(
                         array(
                             "year"                   => $year,
                             "organization"           => $organization,
                             "survey_name"            => $survey_name,
+                            "survey_name_hidden"     => $survey_name_hidden,
                             "submission_deadline"    => $submission_deadline,
                             "candidate_type"         => $candidate_type,
                             "special_criterias"      => $special_criterias,

@@ -40,6 +40,7 @@
             <tr>
                 <th align="right">Award:</th>
                 <td id="dialog_email_survey_name"></td>
+                <td id="dialog_email_survey_name_hidden" style="display:none;"></td>
             </tr>
             <tr>
                 <th align="right">Submission Deadline:</th>

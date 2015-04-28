@@ -41,12 +41,19 @@ class BasesfGuardAuthActions extends sfActions
         // or to the referer
         // or to the homepage
         $signinUrl = sfConfig::get('app_sf_guard_plugin_success_signin_url', $user->getReferer($request->getReferer()));
+        
+        $log_date = time();
+        $filename = $log_date.'_'.$user.'.log';
+        $final_filename = str_replace('()', '', $filename);
+        
+        //set session attribute for log file
+        $this->getUser()->setAttribute('log_file_name', $final_filename);
 
-
-        $logPath = sfConfig::get('sf_log_dir').'/custom.log';
+        $username = str_replace('()', '', $user);
+        $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
         $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
 
-        $custom_logger->info("Login - ".$user);
+        $custom_logger->info("Login - ".$username);
 
         return $this->redirect('' != $signinUrl ? $signinUrl : '@homepage');
 
@@ -81,10 +88,13 @@ class BasesfGuardAuthActions extends sfActions
   {
     $user = $this->getUser();
 
-    $logPath = sfConfig::get('sf_log_dir').'/custom.log';
+    $final_filename = $this->getUser()->getAttribute('log_file_name');
+    
+    $username = str_replace('()', '', $user);
+    $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
     $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
 
-    $custom_logger->info("Logout - ".$user);
+    $custom_logger->info("Logout - ".$username);
 
 
     $this->getUser()->signOut();

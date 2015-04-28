@@ -197,7 +197,7 @@ function initSurveyDetailsPopupWindow(element) {
             },
             "E-mail Me": function() {
                 // Send email message
-                sendEmailToMe([$(this).data("survey_id")]);
+                sendEmailToMeDashboard([$(this).data("survey_id")]);
             },
             "Save": function() {
                 // Save survey to my list
@@ -301,7 +301,7 @@ function initSurveyDetailsForMyListsPopupWindow(element) {
             "E-mail Me": function() {
                 // Send email message
              
-                sendEmailToMe([$(this).data("survey_id")]);
+                sendEmailToMeDashboard([$(this).data("survey_id")]);
             },
             "Cancel": function() {
                 $(this).dialog("close");

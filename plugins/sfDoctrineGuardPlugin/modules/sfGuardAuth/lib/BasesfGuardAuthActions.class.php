@@ -45,7 +45,8 @@ class BasesfGuardAuthActions extends sfActions
         $log_date = time();
         $filename = $log_date.'_'.$user.'.log';
         $final_filename = str_replace('()', '', $filename);
-        
+        $final_filename = str_replace(' ', '', $final_filename);
+        //$username = str_replace(' ', '_', $username);
         //set session attribute for log file
         $this->getUser()->setAttribute('log_file_name', $final_filename);
 
@@ -91,6 +92,8 @@ class BasesfGuardAuthActions extends sfActions
     $final_filename = $this->getUser()->getAttribute('log_file_name');
     
     $username = str_replace('()', '', $user);
+    $final_filename = str_replace(' ', '', $final_filename);
+    //$username = str_replace(' ', '_', $username);
     $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
     $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
 

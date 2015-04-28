@@ -1252,10 +1252,12 @@ class dashboardActions extends sfActions {
 
             //save info in log file
             $final_filename = $this->getUser()->getAttribute('log_file_name');
+
             $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
             $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
             $s_id_for_log = implode(", ",$s_id_for_log);
             $s_names_for_log = implode(", ", $s_names_for_log);
+            
            
             $custom_logger->info('Directory - Print Award - Awards Ids - '.$s_id_for_log.' - Awards Names - '.$s_names_for_log);
 

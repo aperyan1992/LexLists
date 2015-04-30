@@ -4,6 +4,70 @@
 
 $(document).ready(function() {
 
+    
+
+    $('#default_display').on('click', function(){
+
+        var data = {title:$(this).text(), filter_action:'Display Box Filter - '} ; 
+
+        $.ajax({
+            url: "/dashboard/setFilterLog",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+        
+    });
+    $('#select_all_display').on('click', function(){
+
+        var data = {title:$(this).text(), filter_action:'Display Box Filter - '} ; 
+
+        $.ajax({
+            url: "/dashboard/setFilterLog",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+        
+    });
+    $('#clear_all_display').on('click', function(){
+
+        var data = {title:$(this).text(), filter_action:'Display Box Filter - '} ; 
+
+        $.ajax({
+            url: "/dashboard/setFilterLog",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+        
+    });
+
+    $('#clear_filters').on('click', function(){
+        var data = {title:$(this).text(), filter_action:'Left Sidebar Filter - '} ; 
+
+        $.ajax({
+            url: "/dashboard/setFilterLog",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+        
+    });
+
+
     $(document).on('change','#report_surveys_years_filter input',function(){
         var current = {current:$(this).val()};
         $.ajax({

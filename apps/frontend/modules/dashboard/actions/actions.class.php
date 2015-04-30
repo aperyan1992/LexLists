@@ -554,38 +554,17 @@ class dashboardActions extends sfActions {
             $email_address      = $request->getParameter("email_address", FALSE);
             $survey_name        = $request->getParameter("survey_name", FALSE);
 
-            //var_dump("vvvvvvvv".$survey_name);die;
-            if(count($survey_ids)>1)
-            {
-                //save info in log file
-                $final_filename = $this->getUser()->getAttribute('log_file_name');
-                $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
-                $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
-                $s_ids = implode(", ", $survey_ids);
-                $custom_logger->info("Directory - Send Email - Awards Ids - ".$s_ids);
-
-            }
-            else
-            {
-                $s_ids = implode(" ", $survey_ids);
-
-                //save info in log file
-                $final_filename = $this->getUser()->getAttribute('log_file_name');
-                $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
-                $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
-                $s_ids = implode(", ", $survey_ids);
-                $custom_logger->info("Directory - Send Email - Award Id - ".$s_ids." - Award Name - ".$survey_name);
-
-            }
-            
 
             //var_dump("name - ".$survey_name.' - ids - '.$s_ids);die;
             $email_cc           = $request->getParameter("cc", FALSE);
             $cc = array();
+            $cc_for_log = array();
             if($email_cc)
             {
                 foreach($email_cc as $ccs)
                 {
+                    
+                    array_push($cc_for_log, $ccs);
                     if(strpos($ccs,'('))
                     {
                         $c = explode("(", $ccs);
@@ -597,6 +576,35 @@ class dashboardActions extends sfActions {
                     }
                 }
             }
+
+
+            //var_dump("vvvvvvvv".$cc_for_log[0]);die;
+            $cc_for_log = implode(", ", $cc_for_log);
+            if(count($survey_ids)>1)
+            {
+                //save info in log file
+                $final_filename = $this->getUser()->getAttribute('log_file_name');
+                $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+                $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+                $s_ids = implode(", ", $survey_ids);
+                $custom_logger->info("Directory - Send Email - Awards Ids - ".$s_ids." - Email To - ".$cc_for_log);
+
+            }
+            else
+            {
+                $s_ids = implode(" ", $survey_ids);
+
+                //save info in log file
+                $final_filename = $this->getUser()->getAttribute('log_file_name');
+                $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+                $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+                $s_ids = implode(", ", $survey_ids);
+                $custom_logger->info("Directory - Send Email - Award Id - ".$s_ids." - Award Name - ".$survey_name." - Email To - ".$cc_for_log);
+
+            }
+            
+
+            
             
             $additional_message = $request->getParameter("message", FALSE);
 
@@ -883,6 +891,20 @@ class dashboardActions extends sfActions {
     }
 
     public function executeSetFilterLog(sfWebRequest $request)
+    {
+        $title = $request->getParameter("title", FALSE);
+        $action = $request->getParameter("filter_action", FALSE);
+        //var_dump($title.', '.$action);die;
+
+        //save info in log file
+        $final_filename = $this->getUser()->getAttribute('log_file_name');
+        $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+        $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+                                
+        $custom_logger->info('Directory - '.$action.$title);
+    }
+
+    public function executeSetOpenEmailLog(sfWebRequest $request)
     {
         $title = $request->getParameter("title", FALSE);
         $action = $request->getParameter("filter_action", FALSE);
@@ -1552,10 +1574,13 @@ class dashboardActions extends sfActions {
                     if ($this->check_if_url_exists($survey->getOrganizationUrl()))
                     {
                         $organization = "<a class='custom_link' target='_blank' href='" . $survey->getOrganizationUrl() . "'>" . $survey->getOrganization()->getName() . "</a>";
+                        $org_name_for_log = $survey->getOrganization()->getName();
+                        $org_url_for_log = $survey->getOrganizationUrl();
                     }
                     else
                     {
                         $organization = $survey->getOrganization()->getName();
+                        $org_name_for_log = $organization;
                     }
 
                 }
@@ -1568,6 +1593,7 @@ class dashboardActions extends sfActions {
                     {
                         $survey_name = "<a class='custom_link' target='_blank' href='" . $survey->getSurveyUrl() . "'>" . $survey->getSurveyName() . "</a>";
                         $survey_name_hidden = $survey->getSurveyName();
+                        $survey_url_for_log = $survey->getSurveyUrl();
                     }
                     else
                     {
@@ -1754,7 +1780,33 @@ class dashboardActions extends sfActions {
                 $recipient_first_name = $user->getFirstName();
                 $recipient_last_name = $user->getLastName();
 
+                //save info to log file
+                $final_filename = $this->getUser()->getAttribute('log_file_name');
+                $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+                $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+                
+                $award_url = '';
+                if(isset($survey_url_for_log) && !empty($survey_url_for_log))
+                {
+                    $award_url = " - Award URL - ".$survey_url_for_log;           
+                }
 
+                $org_url = '';
+                if(isset($org_url_for_log) && !empty($org_url_for_log))
+                {
+                    $org_url = " - Organization URL - ".$org_url_for_log;           
+                }
+
+                $is_email_link = $request->getParameter("email", FALSE);
+                if($is_email_link == '1')
+                {
+                    $custom_logger->info("Directory - Open Email Award - ".$survey_name_hidden);
+                }
+                else
+                {
+                    $custom_logger->info("Directory - Dashboard - Open Award - ".$survey_name_hidden.$award_url." - Organization Name - ".$org_name_for_log.$org_url);
+                }
+                
                 return $this->renderText(
                     json_encode(
                         array(

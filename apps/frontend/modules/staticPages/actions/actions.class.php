@@ -16,6 +16,13 @@ class staticPagesActions extends sfActions {
      * @param sfRequest $request A request object
      */
     public function executeHelp(sfWebRequest $request) {
+
+    	//save info in log file
+        $final_filename = $this->getUser()->getAttribute('log_file_name');
+        $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+        $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+      
+        $custom_logger->info("Directory - Help");
         
     }
 

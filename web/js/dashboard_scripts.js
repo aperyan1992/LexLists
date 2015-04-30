@@ -11,6 +11,7 @@ $(document).ajaxStop(function() {
 });
 
 $(document).ready(function() {   
+
     $(document).on('click','.more',function(){        
         $(this).parent().next().show();
         $(this).parent().hide();

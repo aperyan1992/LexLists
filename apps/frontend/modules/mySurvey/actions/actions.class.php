@@ -774,10 +774,13 @@ class mySurveyActions extends sfActions {
                         if ($this->check_if_url_exists($survey->getSurvey()->getOrganizationUrl()))
                         {
                             $organization = "<a class='custom_link' target='_blank' href='" . $survey->getSurvey()->getOrganizationUrl() . "'>" . $survey->getSurvey()->getOrganization()->getName() . "</a>";
+                            $org_name_for_log = $survey->getSurvey()->getOrganization()->getName();
+                            $org_url_for_log = $survey->getSurvey()->getOrganizationUrl();
                         }
                         else
                         {
                             $organization = $survey->getSurvey()->getOrganization()->getName();
+                            $org_name_for_log = $organization;
                         }
                     }
 
@@ -790,6 +793,7 @@ class mySurveyActions extends sfActions {
                             $survey_name = "<a class='custom_link' target='_blank' href='" . $survey->getSurvey()->getSurveyUrl() . "'>" . $survey->getSurvey()->getSurveyName() . "</a>";
                             $s_name_for_log_file = $survey->getSurvey()->getSurveyName();
                             $survey_name_hidden = $survey->getSurvey()->getSurveyName();
+                            $survey_url_for_log = $survey->getSurvey()->getSurveyUrl();
                         }
                         else
                         {
@@ -966,8 +970,27 @@ class mySurveyActions extends sfActions {
                     $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
                     $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
 
-                    $custom_logger->info("Directory - My List - Award Information - Award Name - ".$s_name_for_log_file);
+                    $award_url = '';
+                    if(isset($survey_url_for_log) && !empty($survey_url_for_log))
+                    {
+                        $award_url = " - Award URL - ".$survey_url_for_log;           
+                    }
 
+                    $org_url = '';
+                    if(isset($org_url_for_log) && !empty($org_url_for_log))
+                    {
+                        $org_url = " - Organization URL - ".$org_url_for_log;           
+                    }
+
+                    $is_email_link = $request->getParameter("email", FALSE);
+                    if($is_email_link == '1')
+                    {
+                        $custom_logger->info("Directory - Open Email Award - ".$survey_name_hidden);
+                    }
+                    else
+                    {
+                        $custom_logger->info("Directory - My List - Open Award - ".$survey_name_hidden.$award_url." - Organization Name - ".$org_name_for_log.$org_url);
+                    }
 
                     return $this->renderText(
                         json_encode(
@@ -1262,8 +1285,19 @@ class mySurveyActions extends sfActions {
 
                 // get survey_id
                 $survey_id = $my_survey->getSurveyId();
+                $survey_name_log = $my_survey->getSurvey()->getSurveyName();
 
                 if($my_survey) {
+
+
+                    $final_filename = $this->getUser()->getAttribute('log_file_name');
+                    $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+                    $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+                    
+                    $custom_logger->info("Directory - Delete Award From My List - Award Id - ".$survey_id." - Award Name - ".$survey_name_log);
+
+
+
                     $my_survey->delete();
 
                     // find next owner
@@ -1274,6 +1308,7 @@ class mySurveyActions extends sfActions {
                         // set new owner
                         Doctrine_Core::getTable("LtMySurvey")->setNewOwnerForAword($survey_id, $new_owner);
                     }
+
 
                     return $this->renderText(
                         json_encode(

@@ -400,7 +400,7 @@ function initRemoveMySurveyConfirmPopupWindow(element) {
             "No, cancel": function() {
                 $(this).dialog("close");
             },
-            "Yes, remove from My Lists": function() {
+            "Yes, remove from My List": function() {
                 var my_surveys_table = $("#report_surveys").dataTable();
                 var my_survey_id     = $('#admin_remove_my_survey_info').attr("ms_id");
                 var tr_number        = $('#admin_remove_my_survey_info').attr('tr_number');

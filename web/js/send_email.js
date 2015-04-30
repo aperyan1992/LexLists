@@ -12,6 +12,8 @@ $(document).ready(function() {
      * Send email message
      */
     $(document).on("click", ".email_link, .my_list_email_send", function() {
+        
+
         var survey_id = $(this).attr("s_id");
 
         // Get survey info
@@ -19,7 +21,8 @@ $(document).ready(function() {
             url: "/dashboard/getSurveyInfo",
             type: "POST",
             data: {
-                survey_id: survey_id
+                survey_id: survey_id,
+                email:'1'
             },
             dataType: "json",
             success: function(data1) {
@@ -30,14 +33,14 @@ $(document).ready(function() {
                     success: function(data) {
                         var arrEmails = new Array();
                         var to_me = data['me'];
-                        data = data.pop();
-                        alert(data);
+                        data = data.array;
+                        console.log(data);
                         for(var i = 0;i< data.length;i++)
                         {
                             arrEmails.push({id:i,text:data[i].f_name+' '+data[i].l_name+' ('+data[i].email+')'});
                         }
                         window.arrEmails = arrEmails;
-                        $('#to_dialog_form_survey_email').select2({
+                        $('#to_dialog_form_survey_email').select2({                            
                             createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
                             multiple: true,
                             allowClear:true,
@@ -50,11 +53,14 @@ $(document).ready(function() {
                 });
                 console.log(data1);
                 $("#dialog_form_survey_email").data(data1).dialog("open");
+
             },
             error: function() {
                 openErrorPopupWindow("dialog_error_alert", "Error !!!");
             }
         });
+
+        
 
         // Close menu if exists
         if ($(this).hasClass("my_list_email_send")) {

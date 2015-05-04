@@ -52,6 +52,8 @@ class BasesfGuardAuthActions extends sfActions
 
         $username = str_replace('()', '', $user);
         $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+        $now_date = date("d-m-Y");
+        file_put_contents($logPath, "LexLists Logging events: ".$now_date."\n");
         $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
 
         $custom_logger->info("Login - ".$username);

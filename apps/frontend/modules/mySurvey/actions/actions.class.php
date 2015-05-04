@@ -57,7 +57,7 @@ class mySurveyActions extends sfActions {
         $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
         $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
 
-        $custom_logger->info("Directory - My List");
+        $custom_logger->info("Directory | My List");
 
         // Get surveys years
         $this->surveys_years = Doctrine_Core::getTable('LtSurvey')->getSurveysYears();
@@ -601,6 +601,25 @@ class mySurveyActions extends sfActions {
         return $string;
     }
 
+    public function executeCloseForLog(sfWebRequest $request)
+    {
+        if ($request->isXmlHttpRequest()) {
+            // Get request parameters
+            $my_survey_id = $request->getParameter("my_survey_id", FALSE);            
+            $my_survey_name = $request->getParameter("my_survey_name", FALSE);            
+            $organization = $request->getParameter("organization", FALSE);  
+
+            //save info in log file
+            $final_filename = $this->getUser()->getAttribute('log_file_name');
+            $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+            $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+            
+            //var_dump($survey_id);die;
+            $custom_logger->info('Directory | My List Award | Close | Award: '.$my_survey_name.'; '.$organization.' | '.$my_survey_id);
+
+        }          
+    }
+
     /**
      * Saving of survey to "My Lists" section
      *
@@ -612,6 +631,7 @@ class mySurveyActions extends sfActions {
         if ($request->isXmlHttpRequest()) {
             // Get request parameters
             $survey_id = $request->getParameter("survey_id", FALSE);            
+            $organization = $request->getParameter("organization", FALSE);            
             //$survey_name = $request->getParameter("survey_name", FALSE);
 
             if($survey_id) {
@@ -652,7 +672,7 @@ class mySurveyActions extends sfActions {
                     
                      $survey_name =  $survey->getSurveyName();
                     //var_dump($survey_id);die;
-                    $custom_logger->info('Directory - Save Award To My List - Award Id - '.$survey_id.' - Award Name - '.$survey_name);
+                    $custom_logger->info('Directory | Dashboard Award | Save | Award: '.$survey_name.'; '.$organization.' | '.$survey_id);
 
 
                     return $this->renderText(
@@ -985,11 +1005,11 @@ class mySurveyActions extends sfActions {
                     $is_email_link = $request->getParameter("email", FALSE);
                     if($is_email_link == '1')
                     {
-                        $custom_logger->info("Directory - Open Email Award - ".$survey_name_hidden);
+                        $custom_logger->info("Directory | My List | Envelope | Award: ".$survey_name_hidden."; ".$org_name_for_log." | ".$s_id);
                     }
                     else
                     {
-                        $custom_logger->info("Directory - My List - Open Award - ".$survey_name_hidden.$award_url." - Organization Name - ".$org_name_for_log.$org_url);
+                        $custom_logger->info("Directory | My List | Open | Award: ".$survey_name_hidden."; ".$org_name_for_log." | ".$s_id);
                     }
 
                     return $this->renderText(

@@ -116,6 +116,40 @@ $(document).ready(function() {
 
 })
 
+
+function closeForLogDashboard(survey_id, survey_name, organization)
+{
+    $.ajax({
+        url: "/dashboard/closeForLog",
+        type: "POST",
+        data: {
+            my_survey_id: survey_id,
+            my_survey_name: survey_name,
+            organization: organization
+        },
+        dataType: "json",
+        success: function(data) {
+            
+        }
+    });
+}
+
+function closeForLog(survey_id, survey_name, organization)
+{
+    $.ajax({
+        url: "/mySurvey/closeForLog",
+        type: "POST",
+        data: {
+            my_survey_id: survey_id,
+            my_survey_name: survey_name,
+            organization: organization
+        },
+        dataType: "json",
+        success: function(data) {
+            
+        }
+    });
+}
 /**
  * Saving of survey to "My Lists" section
  * 
@@ -126,7 +160,8 @@ function saveSurveyToMyList(survey_id) {
         url: "/mySurvey/saveSurveyToMyList",
         type: "POST",
         data: {
-            survey_id: survey_id
+            survey_id: survey_id,
+            organization: $('#dialog_organization a').text()
         },
         dataType: "json",
         success: function(data) {
@@ -204,6 +239,8 @@ function initSurveyDetailsPopupWindow(element) {
                 saveSurveyToMyList($(this).data("survey_id"));
             },
             "Close": function() {
+                closeForLogDashboard($('#dialog_survey_id').text(), $('#dialog_survey_name_hidden').text(), $('#dialog_organization').text());
+
                 $(this).dialog("close");
             }
         },
@@ -307,6 +344,8 @@ function initSurveyDetailsForMyListsPopupWindow(element) {
                 $(this).dialog("close");
             },
             "Close": function() {
+                closeForLog($('#dialog_survey_id').text(), $('#dialog_survey_name_hidden').text(), $('#dialog_organization').text());
+
                 // Save additonal info about my survey
                 saveMySurveyAdditionalInfo($(this).data("my_survey_id"), $('input[name="dialog_form_survey_details_for_my_lists_my_status"]:checked').val(), owner.val(), share.val())
                 

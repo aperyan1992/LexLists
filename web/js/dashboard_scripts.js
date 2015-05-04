@@ -1659,7 +1659,20 @@ $(document).ready(function() {
     });
 
     $("#region_selected").click(function() {
-        $('#clear_filters').click();
+        //$('#clear_filters').click();
+        // Clear filter checkboxes
+        $(".other_filters_block input:checkbox, .deadline input:checkbox").prop("checked", false);
+
+        // Clear hidden filters
+        $("#hidden_filters_block select").html('<option value="0"></option>');
+
+        // Reset filters
+        report_data_table_years.fnFilter('');
+        report_data_table.fnFilter('');
+        var colCount = report_data_table.fnGetData(0).length;
+        for (var i = 0; i <= colCount; i++) {
+            report_data_table.fnFilter('', i);
+        }
 
         var region;
         $('.region_checkbox').prop('checked',false);
@@ -1671,6 +1684,18 @@ $(document).ready(function() {
                 $('input[value="'+region_name[i]+'"]').click();
                 i++;
             }
+
+            var data = {title:region_name} ; 
+            $.ajax({
+                url: "/dashboard/setWorldRegionsMapsLog",
+                type: "POST",
+                data: data,
+                dataType: "json",
+                success: function(data) {
+                   
+                }            
+            });
+            
         }
         if(region_name_us.length !=0)
         {
@@ -1680,6 +1705,17 @@ $(document).ready(function() {
                 $('input[value="US '+region_name_us[i]+'"]').click();
                 i++;
             }
+
+            var data = {title:region_name_us} ; 
+            $.ajax({
+                url: "/dashboard/setUSRegionsMapsLog",
+                type: "POST",
+                data: data,
+                dataType: "json",
+                success: function(data) {
+                   
+                }            
+            });
 
             $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
             $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
@@ -1704,6 +1740,17 @@ $(document).ready(function() {
             });
             str = str.slice(0,-1);
             filterReportDataTable(report_data_table,str,9);
+            var data = {title:search_states} ; 
+            $.ajax({
+                url: "/dashboard/setStatesMapsLog",
+                type: "POST",
+                data: data,
+                dataType: "json",
+                success: function(data) {
+                   
+                }            
+            });
+            //console.log(search_states);
 
         }
 
@@ -1958,6 +2005,19 @@ $(document).ready(function() {
      * Clear filters
      */
     $(document).on("click", "#clear_filters", function() {
+
+        var data = {title:$(this).text(), filter_action:'Left Sidebar Filter - '} ; 
+
+        $.ajax({
+            url: "/dashboard/setFilterLog",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+
         // Clear filter checkboxes
         $(".other_filters_block input:checkbox, .deadline input:checkbox").prop("checked", false);
 

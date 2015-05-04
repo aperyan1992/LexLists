@@ -11,7 +11,7 @@ $(document).ready(function() {
     /**
      * Send email message
      */
-    $(document).on("click", ".email_link, .my_list_email_send", function() {
+    $(document).on("click", ".email_link", function() {
         
 
         var survey_id = $(this).attr("s_id");
@@ -19,6 +19,64 @@ $(document).ready(function() {
         // Get survey info
         $.ajax({
             url: "/dashboard/getSurveyInfo",
+            type: "POST",
+            data: {
+                survey_id: survey_id,
+                email:'1'
+            },
+            dataType: "json",
+            success: function(data1) {
+                $.ajax({
+                    url: "/frontend_dev.php/mySurvey/GetAllEmails",
+                    type: "POST",
+                    dataType: "json",
+                    success: function(data) {
+                        var arrEmails = new Array();
+                        var to_me = data['me'];
+                        data = data.array;
+                        console.log(data);
+                        for(var i = 0;i< data.length;i++)
+                        {
+                            arrEmails.push({id:i,text:data[i].f_name+' '+data[i].l_name+' ('+data[i].email+')'});
+                        }
+                        window.arrEmails = arrEmails;
+                        $('#to_dialog_form_survey_email').select2({                            
+                            createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
+                            multiple: true,
+                            allowClear:true,
+                            data: arrEmails
+                        });
+                    },
+                    error: function() {
+                        openErrorPopupWindow("dialog_error_alert", "Error !!!");
+                    }
+                });
+                console.log(data1);
+                $("#dialog_form_survey_email").data(data1).dialog("open");
+
+            },
+            error: function() {
+                openErrorPopupWindow("dialog_error_alert", "Error !!!");
+            }
+        });
+
+        
+
+        // Close menu if exists
+        if ($(this).hasClass("my_list_email_send")) {
+            $(this).parents('ul.menu-dropdown').slideToggle();
+        }
+        return false;
+    });
+    
+    $(document).on("click", ".my_list_email_send", function() {
+        
+
+        var survey_id = $(this).attr("s_id");
+
+        // Get survey info
+        $.ajax({
+            url: "/mySurvey/getSurveyInfo",
             type: "POST",
             data: {
                 survey_id: survey_id,
@@ -162,7 +220,9 @@ function sendEmailToMe(survey_ids) {
         type: "POST",
         data: {
             survey_ids: survey_ids,
-            survey_name: $('#dialog_email_survey_name_hidden').text()
+            survey_name: $('#dialog_email_survey_name_hidden').text(),
+            organization: $('#dialog_email_organization a').text(),
+            email_me: 1
         },
         dataType: "json",
         beforeSend: function() {
@@ -188,7 +248,9 @@ function sendEmailToMeDashboard(survey_ids) {
         type: "POST",
         data: {
             survey_ids: survey_ids,
-            survey_name: $('#dialog_survey_name_hidden').text()
+            survey_name: $('#dialog_survey_name_hidden').text(),
+            organization: $('#dialog_organization a').text(),
+            email_me: 1
         },
         dataType: "json",
         beforeSend: function() {
@@ -224,7 +286,9 @@ function sendEmailToAnotherUser(survey_ids, email_address, message,cc) {
             email_address : email_address,
             message       : message,
             cc            : cc,
-            survey_name   : $('#dialog_email_survey_name_hidden').text()
+            survey_name   : $('#dialog_email_survey_name_hidden').text(),
+            organization  : $('#dialog_email_organization a').text(),
+            email_me      : 0
         },
         dataType: "json",
         beforeSend: function() {
@@ -240,6 +304,26 @@ function sendEmailToAnotherUser(survey_ids, email_address, message,cc) {
 
             // Hide blocker
             $("#display_blocker").hide();
+        }
+    });
+}
+
+function cancelEmailLog(survey_id, survey_name, organization){
+     $.ajax({
+        url: "/dashboard/cancelEmailLog",
+        type: "POST",
+        data: {
+            survey_id    : survey_id,            
+            survey_name   : survey_name,
+            organization  : organization
+        },
+        dataType: "json",
+       
+        success: function(data) {
+           
+        },
+        error: function() {
+          
         }
     });
 }
@@ -266,6 +350,7 @@ function initSurveyEmailPopupWindow(element) {
         },
         buttons: {
             "Cancel": function() {
+                cancelEmailLog($('#dialog_email_survey_id').text(), $('#dialog_email_survey_name_hidden').text(), $('#dialog_email_organization').text());
                 text_fields.val("");
                 to_me_flag.prop("checked", true);
                 $(this).dialog("close");

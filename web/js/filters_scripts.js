@@ -4,6 +4,46 @@
 
 $(document).ready(function() {
 
+    $('.jsmapclick_us_states').click(function(){
+        var data = {title:"US States Map"} ; 
+
+        $.ajax({
+            url: "/dashboard/setMapsLog",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+    });
+    $('.jsmapclick_us').click(function(){
+        var data = {title:"US Regions Map"} ; 
+
+        $.ajax({
+            url: "/dashboard/setMapsLog",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+    }); 
+    $('.jsmapclick').click(function(){
+        var data = {title:"World Regions Map"} ; 
+
+        $.ajax({
+            url: "/dashboard/setMapsLog",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+    });
+
     
 
     $('#default_display').on('click', function(){
@@ -52,20 +92,20 @@ $(document).ready(function() {
         
     });
 
-    $('#clear_filters').on('click', function(){
-        var data = {title:$(this).text(), filter_action:'Left Sidebar Filter - '} ; 
+    // $('#clear_filters').click( function(){
+    //     var data = {title:$(this).text(), filter_action:'Left Sidebar Filter - '} ; 
 
-        $.ajax({
-            url: "/dashboard/setFilterLog",
-            type: "POST",
-            data: data,
-            dataType: "json",
-            success: function(data) {
+    //     $.ajax({
+    //         url: "/dashboard/setFilterLog",
+    //         type: "POST",
+    //         data: data,
+    //         dataType: "json",
+    //         success: function(data) {
                
-            }            
-        });
+    //         }            
+    //     });
         
-    });
+    // });
 
 
     $(document).on('change','#report_surveys_years_filter input',function(){
@@ -83,12 +123,12 @@ $(document).ready(function() {
     });
 
     $('.search-block input:checkbox').on("change", function(){
-        if($(this).is(":checked")) {
-            var data = {title:$(this).next().text(), filter_action:'Display Box Checked Filter - '} ;           
+        if($(this).is(":checked")) {            
+            var data = {title:$(this).next().text(), filter_action:'Select | '} ;           
         }
         else
         {
-            var data = {title:$(this).next().text(), filter_action:'Display Box Unchecked Filter - '};
+            var data = {title:$(this).next().text(), filter_action:'Unselect | '};
         }
          $.ajax({
             url: "/dashboard/setFilterLog",
@@ -103,14 +143,47 @@ $(document).ready(function() {
 
     $('.left-sidebar input:checkbox').on("change", function(){
         if($(this).is(":checked")) {
-            var data = {title:$(this).next().text(), filter_action:'Left Sidebar Checked Filter - '} ;           
+            var filter_name = $(this).parent().parent().parent().attr("class");
+            filter_name = filter_name.charAt(0).toUpperCase() + filter_name.substr(1);
+            var data = {title:$(this).next().text(), filter_action:'Select | '+filter_name+': '} ;           
         }
         else
         {
-            var data = {title:$(this).next().text(), filter_action:'Left Sidebar Unchecked Filter - '};
+            var filter_name = $(this).parent().parent().parent().attr("class");
+            filter_name = filter_name.charAt(0).toUpperCase() + filter_name.substr(1);
+            var data = {title:$(this).next().text(), filter_action:'Unselect | '+filter_name+': '};
         }
          $.ajax({
             url: "/dashboard/setFilterLog",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+    });
+
+    $(document).on('click', '#dialog_organization a', function () {
+        
+        var data = {title:$('#dialog_organization a').attr("href"), id:$('#dialog_survey_id').text(), word:'Organization: '};
+
+        $.ajax({
+            url: "/dashboard/setURLLog",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+    });
+    $(document).on('click', '#dialog_survey_name a', function () {
+        
+        var data = {title:$('#dialog_survey_name a').attr("href"), id:$('#dialog_survey_id').text(), word:'Award: '};
+
+        $.ajax({
+            url: "/dashboard/setURLLog",
             type: "POST",
             data: data,
             dataType: "json",

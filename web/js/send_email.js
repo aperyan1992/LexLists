@@ -269,6 +269,33 @@ function sendEmailToMeDashboard(survey_ids) {
         }
     });
 }
+function sendEmailToMeMyList(survey_ids) {
+    $.ajax({
+        url: "/mySurvey/sendEmail",
+        type: "POST",
+        data: {
+            survey_ids: survey_ids,
+            survey_name: $('#dialog_survey_name_hidden').text(),
+            organization: $('#dialog_organization a').text(),
+            email_me: 1
+        },
+        dataType: "json",
+        beforeSend: function() {
+            // Show blocker
+            $("#display_blocker").show();
+        },
+        success: function(data) {
+            // Hide blocker
+            $("#display_blocker").hide();
+        },
+        error: function() {
+            openErrorPopupWindow("dialog_error_alert", "Message sending failed. Try again.");
+
+            // Hide blocker
+            $("#display_blocker").hide();
+        }
+    });
+}
 
 /**
  * Sending of email message to another user

@@ -338,9 +338,22 @@ function initSurveyDetailsForMyListsPopupWindow(element) {
             "E-mail Me": function() {
                 // Send email message
              
-                sendEmailToMeDashboard([$(this).data("survey_id")]);
+                sendEmailToMeMyList([$(this).data("survey_id")]);
             },
             "Cancel": function() {
+
+                var data = {title:$(this).data("survey_id")};
+
+                $.ajax({
+                    url: "/mySurvey/cancelMyListLog",
+                    type: "POST",
+                    data: data,
+                    dataType: "json",
+                    success: function(data) {
+                       
+                    }            
+                });
+
                 $(this).dialog("close");
             },
             "Close": function() {

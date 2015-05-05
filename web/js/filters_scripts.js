@@ -4,6 +4,80 @@
 
 $(document).ready(function() {
 
+    // $('#calendar_div a').attr("href='javascript:void(0)'").click(function(){
+    //     alert("yeeeees");
+    // });
+
+    $('.calendar_link').click(function(){
+
+        var data = {title:"Calendar"};
+        $.ajax({
+            url: "/dashboard/calendar",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+    });
+
+    $('.btn-group button:contains(Year)').click(function(){
+        var data = {title:"Year", button:1};
+        $.ajax({
+            url: "/dashboard/calendar",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+    });
+    $('.btn-group button:contains(Month)').click(function(){
+        var data = {title:"Month", button:1};
+        $.ajax({
+            url: "/dashboard/calendar",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+    });
+    $('.btn-group button:contains(Week)').click(function(){
+        var data = {title:"Week", button:1};
+        $.ajax({
+            url: "/dashboard/calendar",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+    });
+
+    // var cancelmapname = '';
+    // $('.btn-group button').each(function(){
+    //     if($(this).attr('data-calendar-view') == 'year')
+    //     {
+    //         cancelmapname = $(this).attr("id"); 
+    //         var data = {title:cancelmapname};
+    //         $.ajax({
+    //             url: "/dashboard/cancelMapLog",
+    //             type: "POST",
+    //             data: data,
+    //             dataType: "json",
+    //             success: function(data) {
+                   
+    //             }            
+    //         });
+                      
+    //     }
+    // });
+
     $('.jsmapclick_us_states').click(function(){
         var data = {title:"US States Map"} ; 
 
@@ -153,7 +227,7 @@ $(document).ready(function() {
             filter_name = filter_name.charAt(0).toUpperCase() + filter_name.substr(1);
             var data = {title:$(this).next().text(), filter_action:'Unselect | '+filter_name+': '};
         }
-         $.ajax({
+        $.ajax({
             url: "/dashboard/setFilterLog",
             type: "POST",
             data: data,
@@ -164,34 +238,34 @@ $(document).ready(function() {
         });
     });
 
-    $(document).on('click', '#dialog_organization a', function () {
+    // $(document).on('click', '#dialog_organization a', function () {
         
-        var data = {title:$('#dialog_organization a').attr("href"), id:$('#dialog_survey_id').text(), word:'Organization: '};
+    //     var data = {title:$('#dialog_organization a').attr("href"), id:$('#dialog_survey_id').text(), word:'Organization: '};
 
-        $.ajax({
-            url: "/dashboard/setURLLog",
-            type: "POST",
-            data: data,
-            dataType: "json",
-            success: function(data) {
+    //     $.ajax({
+    //         url: "/dashboard/setURLLog",
+    //         type: "POST",
+    //         data: data,
+    //         dataType: "json",
+    //         success: function(data) {
                
-            }            
-        });
-    });
-    $(document).on('click', '#dialog_survey_name a', function () {
+    //         }            
+    //     });
+    // });
+    // $(document).on('click', '#dialog_survey_name a', function () {
         
-        var data = {title:$('#dialog_survey_name a').attr("href"), id:$('#dialog_survey_id').text(), word:'Award: '};
+    //     var data = {title:$('#dialog_survey_name a').attr("href"), id:$('#dialog_survey_id').text(), word:'Award: '};
 
-        $.ajax({
-            url: "/dashboard/setURLLog",
-            type: "POST",
-            data: data,
-            dataType: "json",
-            success: function(data) {
+    //     $.ajax({
+    //         url: "/dashboard/setURLLog",
+    //         type: "POST",
+    //         data: data,
+    //         dataType: "json",
+    //         success: function(data) {
                
-            }            
-        });
-    });
+    //         }            
+    //     });
+    // });
     
    $('.other_filters_block h3').add('.deadline h3').click(function(){
 

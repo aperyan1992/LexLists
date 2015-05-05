@@ -44,6 +44,20 @@ class mySurveyActions extends sfActions {
         echo json_encode($result);die;
     }
 
+    public function executeSetURLLog(sfWebRequest $request)
+    {
+        $title = $request->getParameter("title", FALSE);
+        $id = $request->getParameter("id", FALSE);
+        $word = $request->getParameter("word", FALSE);
+       
+        //save info in log file
+        $final_filename = $this->getUser()->getAttribute('log_file_name');
+        $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+        $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+                                
+        $custom_logger->info('Directory | My List Award | Open | '.$word.$title.' | '.$id);
+    }
+
     /**
      * Executes index action
      *
@@ -159,6 +173,42 @@ class mySurveyActions extends sfActions {
         }
     }
 
+    public function executeCancelMyListLog(sfWebRequest $request)
+    {
+        if ($request->isXmlHttpRequest()) {
+            // Get request parameters
+            $survey_id          = $request->getParameter("title", FALSE);
+
+
+            if ($survey_id) {
+                // Get survey info
+                $survey = Doctrine_Core::getTable("LtMySurvey")->getFullMySurveyInfo($survey_id, $this->getUser()->getGuardUser()->getId());
+
+                if ($survey) {                   
+                    // Get organization
+                    $organization = "";
+                    if ((!is_null($survey->getSurvey()->getOrganizationId()) && $survey->getSurvey()->getOrganizationId() != "")) 
+                    {                                           
+                        $organization = $survey->getSurvey()->getOrganization()->getName();                        
+                    }
+
+                    $survey_name = "";
+                    if (!is_null($survey->getSurvey()->getSurveyName()) && $survey->getSurvey()->getSurveyName() != "") 
+                    {                        
+                        $survey_name = $survey->getSurvey()->getSurveyName();                          
+                    }
+                }
+            }
+
+            //save info in log file
+            $final_filename = $this->getUser()->getAttribute('log_file_name');
+            $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+            $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));       
+
+            $custom_logger->info("Directory | My List Award | Close | Award: ".$survey_name."; ".$organization." | ".$survey_id);
+        }
+    }
+
 
     /**
      * Printing of calendar
@@ -248,12 +298,16 @@ class mySurveyActions extends sfActions {
             $pdf->Text(10, 40, '');
             $html = '<div style="line-height: 100%;">';
             $deaslines_array = array();
+            $surveysforlog = array();
             $i = 0;
 
             foreach($surveys as $survey)
             {
                 $deaslines_array [$survey['submission_deadline']][$i]['survey_name'] = $survey['survey_name'];
                 $deaslines_array [$survey['submission_deadline']][$i]['name'] = $survey['name'];
+
+                $surveysforlog[] = $survey['survey_name'].'; '.$survey['name'].' | '.$survey['id'];
+
                 $i++;
 
             }
@@ -298,11 +352,15 @@ class mySurveyActions extends sfActions {
             $pdf->Text(10, 40, '');
             $html = '<div style="line-height: 100%;">';
             $deaslines_array = array();
+            $surveysforlog = array();
             $i = 0;
             foreach($resultupdate as $res)
             {
                 $deaslines_array [$res['submission_deadline']][$i]['survey_name'] = $res['survey_name'];
                 $deaslines_array [$res['submission_deadline']][$i]['name'] = $res['name'];
+
+                $surveysforlog[] = $res['survey_name'].'; '.$res['name'].' | '.$res['id'];
+
                 $i++;
             }
 
@@ -357,11 +415,15 @@ class mySurveyActions extends sfActions {
             $pdf->Text(10, 40, '');
             $html = '<div style="line-height: 100%;">';
             $deaslines_array = array();
+            $surveysforlog = array();
             $i = 0;
             foreach($resultupdate as $res)
             {
                 $deaslines_array [$res['submission_deadline']][$i]['survey_name'] = $res['survey_name'];
                 $deaslines_array [$res['submission_deadline']][$i]['name'] = $res['name'];
+
+                $surveysforlog[] = $res['survey_name'].'; '.$res['name'].' | '.$res['id'];
+
                 $i++;
             }
 
@@ -381,7 +443,140 @@ class mySurveyActions extends sfActions {
 
         }
 
+        $final_filename = $this->getUser()->getAttribute('log_file_name');
+        $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+        $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+        
+        $surveysforlogfinal = implode(", ", $surveysforlog);
+
+        $custom_logger->info('Directory | Calendar | Print | Award: '.$surveysforlogfinal);
+
         $pdf->Output("LexLists-Report-$ducument_name.pdf", 'I');die;
+    }
+
+
+    public function executeSendEmail(sfWebRequest $request) {
+        if ($request->isXmlHttpRequest() && $this->getUser()->isAuthenticated()) {
+            // Get request parameters
+            $survey_ids         = $request->getParameter("survey_ids", FALSE);
+            $email_address      = $request->getParameter("email_address", FALSE);
+            $survey_name        = $request->getParameter("survey_name", FALSE);
+            $organization       = $request->getParameter("organization", FALSE);
+
+
+            //var_dump("name - ".$survey_name);die;
+            $email_cc           = $request->getParameter("cc", FALSE);
+            $email_me           = $request->getParameter("email_me", FALSE);
+            $cc = array();
+            $cc_for_log = array();
+            if($email_cc)
+            {
+                foreach($email_cc as $ccs)
+                {
+                    
+                    array_push($cc_for_log, $ccs);
+                    if(strpos($ccs,'('))
+                    {
+                        $c = explode("(", $ccs);
+                        $c = explode(")", $c[1]);
+                        array_push($cc, $c[0]);
+                    }
+                    else{
+                        array_push($cc,$ccs);
+                    }
+                }
+            }
+
+            $additional_message = $request->getParameter("message", FALSE);
+
+
+            //var_dump("vvvvvvvv".$cc_for_log[0]);die;
+            $cc_for_log = implode(", ", $cc_for_log);
+            if(count($survey_ids)>1)
+            {
+                //save info in log file
+                $final_filename = $this->getUser()->getAttribute('log_file_name');
+                $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+                $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+                $s_ids = implode(", ", $survey_ids);
+                $custom_logger->info("Directory | Envelope | Send | Award: ".$survey_name."; ".$organization." | ".$s_ids." | ".$cc_for_log." | ".$additional_message);
+
+            }
+            else
+            {
+                $s_ids = implode(" ", $survey_ids);
+
+                //save info in log file
+                $final_filename = $this->getUser()->getAttribute('log_file_name');
+                $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+                $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+                $s_ids = implode(", ", $survey_ids);
+
+                if($email_me == 0)
+                {
+                    $custom_logger->info("Directory | Envelope | Send | Award: ".$survey_name."; ".$organization." | ".$s_ids." | ".$cc_for_log." | ".$additional_message);
+
+                }
+                if($email_me == 1)
+                {
+                    $custom_logger->info("Directory | My List Award | EmailMe | Award:  ".$survey_name."; ".$organization." | ".$s_ids);
+
+                }
+                
+            }
+            
+
+            
+            
+            
+
+            if ($survey_ids) {
+                // Check if surveys exists
+                $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds($survey_ids);
+
+                
+                if ($surveys->getFirst()) {
+                    // Get user
+                    $user = $this->getUser()->getGuardUser();
+
+                    // Get recipient email address
+                    $recipient_email_address = $user->getEmailAddress();
+                    if ($email_address !== false && !empty($email_address)) {
+                        $recipient_email_address = $email_address;
+                    }
+                    
+                    
+                    // Send email message
+                    $message = Swift_Message::newInstance()
+                            ->setFrom($user->getEmailAddress())
+                            ->setTo($recipient_email_address)
+                            ->setCc($cc)
+                            ->setSubject("LexLists E-mail")
+                            ->setBody($this->getPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => $additional_message)))
+                            ->setContentType("text/html");
+
+                    $send_status = $this->getMailer()->send($message);
+
+                    // Check sending status//
+                    $status = false;
+                    if ($send_status == 1) {
+                        $status = true;
+                    }
+
+                    
+
+                    return $this->renderText(
+                        json_encode(
+                            array(
+                                "status" => $status
+                            )
+                        )
+                    );
+                }
+            }
+        }
+
+        $this->redirect404();
     }
 
 
@@ -779,6 +974,7 @@ class mySurveyActions extends sfActions {
         if ($request->isXmlHttpRequest()) {
             // Get request parameters
             $survey_id = $request->getParameter("survey_id", FALSE);
+            $calendar = $request->getParameter("calendar", FALSE);
 
             if ($survey_id) {
                 // Get survey info
@@ -1006,6 +1202,10 @@ class mySurveyActions extends sfActions {
                     if($is_email_link == '1')
                     {
                         $custom_logger->info("Directory | My List | Envelope | Award: ".$survey_name_hidden."; ".$org_name_for_log." | ".$s_id);
+                    } 
+                    elseif(isset($calendar) && !empty($calendar)) 
+                    {
+                        $custom_logger->info("Directory | Calendar | Open | Award: ".$survey_name_hidden."; ".$org_name_for_log." | ".$s_id);
                     }
                     else
                     {
@@ -1542,6 +1742,11 @@ class mySurveyActions extends sfActions {
                             {
                                 $srv = $survey->getSurvey()->getSurveyName();
                             }
+
+                            if ((!is_null($survey->getSurvey()->getOrganizationId()) && $survey->getSurvey()->getOrganizationId() != "")) 
+                            {                                           
+                                $org = $survey->getSurvey()->getOrganization()->getName();                        
+                            }
                         }
                     }
 
@@ -1549,7 +1754,7 @@ class mySurveyActions extends sfActions {
                     $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
                     $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
 
-                    $custom_logger->info('Directory - My List - Set Alert - Award Id - '.$s_id.' - Award Name- '.$srv);
+                    $custom_logger->info('Directory | My List Award | Set Alert | Award: '.$srv.'; '.$org.' | '.$s_id);
 
                     return $this->renderText(
                         json_encode(

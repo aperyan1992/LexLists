@@ -10,7 +10,37 @@ $(document).ajaxStop(function() {
     $(".left-sidebar input:checkbox").prop("disabled", false);
 });
 
-$(document).ready(function() {   
+$(document).ready(function() { 
+
+    $(document).on('click', '#dialog_organization a', function () {
+        
+        var data = {title:$('#dialog_organization a').attr("href"), id:$('#dialog_survey_id').text(), word:'Organization: '};
+
+        $.ajax({
+            url: "/dashboard/setURLLog",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+    });  
+
+    $(document).on('click', '#dialog_survey_name a', function () {
+        
+        var data = {title:$('#dialog_survey_name a').attr("href"), id:$('#dialog_survey_id').text(), word:'Award: '};
+
+        $.ajax({
+            url: "/dashboard/setURLLog",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+    });
 
     $(document).on('click','.more',function(){        
         $(this).parent().next().show();
@@ -196,6 +226,18 @@ $(document).ready(function() {
 
     //
     $('.calendar_link').click(function(){
+
+        // var data = {title:"Calendar"};
+        // $.ajax({
+        //     url: "/dashboard/calendar",
+        //     type: "POST",
+        //     data: data,
+        //     dataType: "json",
+        //     success: function(data) {
+               
+        //     }            
+        // });
+
         $('#calendar_div').show();
 
         $('.dialog_for_calendar').dialog("option", "title", "LexLists: Calendar Deadlines" );
@@ -343,6 +385,17 @@ $(document).ready(function() {
             }
             else
             {
+                var data = {title:'North America', search:'Search World Regions Map: '};
+                $.ajax({
+                    url: "/dashboard/setWorldRegionsMapsLog",
+                    type: "POST",
+                    data: data,
+                    dataType: "json",
+                    success: function(data) {
+                       
+                    }            
+                });
+
                 selected_reg_north_america = true;
 
                 if(isCtrlPressed_north_america && first_m!=0)
@@ -393,6 +446,17 @@ $(document).ready(function() {
             }
             else
             {
+                var data = {title:'South America', search:'Search World Regions Map: '};
+                $.ajax({
+                    url: "/dashboard/setWorldRegionsMapsLog",
+                    type: "POST",
+                    data: data,
+                    dataType: "json",
+                    success: function(data) {
+                       
+                    }            
+                });
+
                 selected_reg_south_america = true;
 
                 if(isCtrlPressed_south_america && first_m!=0)
@@ -444,6 +508,17 @@ $(document).ready(function() {
             }
             else
             {
+                var data = {title:'Europe', search:'Search World Regions Map: '};
+                $.ajax({
+                    url: "/dashboard/setWorldRegionsMapsLog",
+                    type: "POST",
+                    data: data,
+                    dataType: "json",
+                    success: function(data) {
+                       
+                    }            
+                });
+
                 selected_reg_europe = true;
 
                 if(isCtrlPressed_europe && first_m!=0)
@@ -495,6 +570,17 @@ $(document).ready(function() {
             }
             else
             {
+                var data = {title:'Asia', search:'Search World Regions Map: '};
+                $.ajax({
+                    url: "/dashboard/setWorldRegionsMapsLog",
+                    type: "POST",
+                    data: data,
+                    dataType: "json",
+                    success: function(data) {
+                       
+                    }            
+                });
+
                 selected_reg_asia = true;
 
                 if(isCtrlPressed_asia && first_m!=0)
@@ -545,6 +631,17 @@ $(document).ready(function() {
             }
             else
             {
+                var data = {title:'Africa', search:'Search World Regions Map: '};
+                $.ajax({
+                    url: "/dashboard/setWorldRegionsMapsLog",
+                    type: "POST",
+                    data: data,
+                    dataType: "json",
+                    success: function(data) {
+                       
+                    }            
+                });
+
                 selected_reg_africa = true;
                 if(isCtrlPressed_africa && first_m!=0)
                 {
@@ -595,6 +692,17 @@ $(document).ready(function() {
             }
             else
             {
+                var data = {title:'Australia', search:'Search World Regions Map: '};
+                $.ajax({
+                    url: "/dashboard/setWorldRegionsMapsLog",
+                    type: "POST",
+                    data: data,
+                    dataType: "json",
+                    success: function(data) {
+                       
+                    }            
+                });
+
                 selected_reg_australia = true;
                 if(isCtrlPressed_australia && first_m!=0)
                 {
@@ -699,6 +807,17 @@ $(document).ready(function() {
         }
         else
         {
+            var data = {title:'US West', search:'Search US Regions Map: '};
+            $.ajax({
+                url: "/dashboard/setUSRegionsMapsLog",
+                type: "POST",
+                data: data,
+                dataType: "json",
+                success: function(data) {
+                   
+                }            
+            });
+
             $(west_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
             $('#us_west').show();
             $('#small_us_west').show();
@@ -778,6 +897,17 @@ $(document).ready(function() {
         }
         else
         {
+            var data = {title:'US Midwest', search:'Search US Regions Map: '};
+            $.ajax({
+                url: "/dashboard/setUSRegionsMapsLog",
+                type: "POST",
+                data: data,
+                dataType: "json",
+                success: function(data) {
+                   
+                }            
+            });
+
             $(midwest_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
             $('#midwest').show();
 
@@ -854,6 +984,17 @@ $(document).ready(function() {
         }
         else
         {
+            var data = {title:'US Northeast', search:'Search US Regions Map: '};
+            $.ajax({
+                url: "/dashboard/setUSRegionsMapsLog",
+                type: "POST",
+                data: data,
+                dataType: "json",
+                success: function(data) {
+                   
+                }            
+            });
+
             $(northeast_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
             $('#northeast').show();
 
@@ -932,6 +1073,17 @@ $(document).ready(function() {
         }
         else
         {
+            var data = {title:'US Mid-Atlantic', search:'Search US Regions Map: '};
+            $.ajax({
+                url: "/dashboard/setUSRegionsMapsLog",
+                type: "POST",
+                data: data,
+                dataType: "json",
+                success: function(data) {
+                   
+                }            
+            });
+
             $(mid_atlantic_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
 
             $('#mid_atlantic').show();
@@ -1010,6 +1162,18 @@ $(document).ready(function() {
         }
         else
         {
+
+            var data = {title:'US South', search:'Search US Regions Map: '};
+            $.ajax({
+                url: "/dashboard/setUSRegionsMapsLog",
+                type: "POST",
+                data: data,
+                dataType: "json",
+                success: function(data) {
+                   
+                }            
+            });
+
             $(south_ids).css({"stroke":"#ffa767", "stroke-width": "0", "fill": "#ffa767"});
             $('#us_south').show();
 
@@ -1254,7 +1418,7 @@ $(document).ready(function() {
                     }
                 }
                 else
-                {
+                {                   
                     $('.dc_hover').hide();
                     $('.dc_orange').show();
                     $('.dc_transparent').show();
@@ -1262,6 +1426,19 @@ $(document).ready(function() {
                     $('.highcharts-name-district-of').css({"fill": "#ffa767"});
                     search_states.push($('.highcharts-name-district-of').attr('class').substring(17).split(" "));
                     //console.log(search_states);
+
+                    var stateforlog = $('.highcharts-name-district-of').attr('class').substring(17).split(" ")[0];
+                    stateforlog = stateforlog+"-columbia";                    
+                    var data = {title:stateforlog, search:'Search US States Map: '};
+                    $.ajax({
+                        url: "/dashboard/setStatesMapsLog",
+                        type: "POST",
+                        data: data,
+                        dataType: "json",
+                        success: function(data) {
+                           
+                        }            
+                    });
 
                 }
                 openedmap = true;
@@ -1290,6 +1467,18 @@ $(document).ready(function() {
                     $('.highcharts-name-delaware').css({"fill": "#ffa767"});
                     search_states.push($('.highcharts-name-delaware').attr('class').substring(17).split(" "));
                     //console.log(search_states);
+
+                    var stateforlog = $('.highcharts-name-delaware').attr('class').substring(17).split(" ")[0];                    
+                    var data = {title:stateforlog, search:'Search US States Map: '};
+                    $.ajax({
+                        url: "/dashboard/setStatesMapsLog",
+                        type: "POST",
+                        data: data,
+                        dataType: "json",
+                        success: function(data) {
+                           
+                        }            
+                    });
 
                 }
                 openedmap = true;
@@ -1320,6 +1509,18 @@ $(document).ready(function() {
                     search_states.push($('.highcharts-name-new-jersey').attr('class').substring(17).split(" "));
                     //console.log(search_states);
 
+                    var stateforlog = $('.highcharts-name-new-jersey').attr('class').substring(17).split(" ")[0];                    
+                    var data = {title:stateforlog, search:'Search US States Map: '};
+                    $.ajax({
+                        url: "/dashboard/setStatesMapsLog",
+                        type: "POST",
+                        data: data,
+                        dataType: "json",
+                        success: function(data) {
+                           
+                        }            
+                    });
+
                 }
                 openedmap = true;
 
@@ -1348,6 +1549,18 @@ $(document).ready(function() {
                     $('.highcharts-name-rhode-island').css({"fill": "#ffa767"});
                     search_states.push($('.highcharts-name-rhode-island').attr('class').substring(17).split(" "));
                     //console.log(search_states);
+
+                    var stateforlog = $('.highcharts-name-rhode-island').attr('class').substring(17).split(" ")[0];                    
+                    var data = {title:stateforlog, search:'Search US States Map: '};
+                    $.ajax({
+                        url: "/dashboard/setStatesMapsLog",
+                        type: "POST",
+                        data: data,
+                        dataType: "json",
+                        success: function(data) {
+                           
+                        }            
+                    });
 
                 }
                 openedmap = true;
@@ -1378,6 +1591,18 @@ $(document).ready(function() {
                     search_states.push($('.highcharts-name-massachusetts').attr('class').substring(17).split(" "));
                     //console.log(search_states);
 
+                    var stateforlog = $('.highcharts-name-massachusetts').attr('class').substring(17).split(" ")[0];                    
+                    var data = {title:stateforlog, search:'Search US States Map: '};
+                    $.ajax({
+                        url: "/dashboard/setStatesMapsLog",
+                        type: "POST",
+                        data: data,
+                        dataType: "json",
+                        success: function(data) {
+                           
+                        }            
+                    });
+
                 }
                 openedmap = true;
 
@@ -1406,6 +1631,18 @@ $(document).ready(function() {
                     $('.highcharts-name-connecticut').css({"fill": "#ffa767"});
                     search_states.push($('.highcharts-name-connecticut').attr('class').substring(17).split(" "));
                     //console.log(search_states);
+
+                    var stateforlog = $('.highcharts-name-connecticut').attr('class').substring(17).split(" ")[0];                    
+                    var data = {title:stateforlog, search:'Search US States Map: '};
+                    $.ajax({
+                        url: "/dashboard/setStatesMapsLog",
+                        type: "POST",
+                        data: data,
+                        dataType: "json",
+                        success: function(data) {
+                           
+                        }            
+                    });
 
                 }
                 openedmap = true;
@@ -1436,6 +1673,18 @@ $(document).ready(function() {
                     search_states.push($('.highcharts-name-maryland').attr('class').substring(17).split(" "));
                     //console.log(search_states);
 
+                    var stateforlog = $('.highcharts-name-maryland').attr('class').substring(17).split(" ")[0];                    
+                    var data = {title:stateforlog, search:'Search US States Map: '};
+                    $.ajax({
+                        url: "/dashboard/setStatesMapsLog",
+                        type: "POST",
+                        data: data,
+                        dataType: "json",
+                        success: function(data) {
+                           
+                        }            
+                    });
+
                 }
                 openedmap = true;
 
@@ -1465,6 +1714,18 @@ $(document).ready(function() {
                     search_states.push($('.highcharts-name-new-hampshire').attr('class').substring(17).split(" "));
                     //console.log(search_states);
 
+                    var stateforlog = $('.highcharts-name-new-hampshire').attr('class').substring(17).split(" ")[0];                    
+                    var data = {title:stateforlog, search:'Search US States Map: '};
+                    $.ajax({
+                        url: "/dashboard/setStatesMapsLog",
+                        type: "POST",
+                        data: data,
+                        dataType: "json",
+                        success: function(data) {
+                           
+                        }            
+                    });
+
                 }
                 openedmap = true;
 
@@ -1485,13 +1746,25 @@ $(document).ready(function() {
                             search_states[i].splice(state_idx, 1);
                         }
                     }
+                    
                 }
                 else
                 {
                     sel[x] = true;
                     $(this).css({"fill": "#ffa767"});
                     search_states.push($(this).attr('class').substring(17).split(" "));
-                    //console.log(search_states);
+                    
+                    var stateforlog = $(this).attr('class').substring(17).split(" ")[0];                    
+                    var data = {title:stateforlog, search:'Search US States Map: '};
+                    $.ajax({
+                        url: "/dashboard/setStatesMapsLog",
+                        type: "POST",
+                        data: data,
+                        dataType: "json",
+                        success: function(data) {
+                           
+                        }            
+                    });
 
                 }
                 openedmap = true;
@@ -1695,7 +1968,7 @@ $(document).ready(function() {
                    
                 }            
             });
-            
+
         }
         if(region_name_us.length !=0)
         {
@@ -1788,6 +2061,27 @@ $(document).ready(function() {
     });
 
     $('#region_cancel').click(function(){
+        var cancelmapname = '';
+        $('.dialog_for_map div').each(function(){
+            if($(this).attr('style') == 'display: block;')
+            {
+                cancelmapname = $(this).attr("id"); 
+                var data = {title:cancelmapname};
+                $.ajax({
+                    url: "/dashboard/cancelMapLog",
+                    type: "POST",
+                    data: data,
+                    dataType: "json",
+                    success: function(data) {
+                       
+                    }            
+                });
+                          
+            }
+        });
+       
+        
+        
 
         $(west_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});
         $(south_ids).css({"stroke":"#818181", "stroke-width": "1px", "fill": "#57A0C1"});

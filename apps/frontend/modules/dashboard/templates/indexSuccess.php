@@ -223,6 +223,7 @@
     <div class="multiple_actions_block">
         <form id="print_form" target="_blank" method="POST" action="<?php echo url_for("@print_survey"); ?>" style="display: none;">
             <select name="surveys_for_print[]" multiple="multiple" id="surveys_for_print"></select>
+            <input type="hidden" name="hidden_section_name_for_log" value="dashboard">
         </form>
         <input type="button" id="multiple_print" class="btn btn-success" value="Print" />
         <input type="button" id="multiple_email" class="btn btn-success" value="E-mail" />

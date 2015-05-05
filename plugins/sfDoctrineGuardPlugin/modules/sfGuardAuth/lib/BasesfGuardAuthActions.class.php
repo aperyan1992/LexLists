@@ -56,7 +56,7 @@ class BasesfGuardAuthActions extends sfActions
         file_put_contents($logPath, "LexLists Logging events: ".$now_date."\n");
         $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
 
-        $custom_logger->info("Login - ".$username);
+        $custom_logger->info("Login | ".$username);
 
         return $this->redirect('' != $signinUrl ? $signinUrl : '@homepage');
 
@@ -99,7 +99,7 @@ class BasesfGuardAuthActions extends sfActions
     $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
     $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
 
-    $custom_logger->info("Logout - ".$username);
+    $custom_logger->info("Logout | ".$username);
 
 
     $this->getUser()->signOut();

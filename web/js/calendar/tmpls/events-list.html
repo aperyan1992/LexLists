@@ -21,7 +21,8 @@
                 url: "/dashboard/getSurveyInfo",
                 type: "POST",
                 data: {
-                    survey_id: id
+                    survey_id: id,
+                    calendar: 1
                 },
                 dataType: "json",
                 success: function(data) {
@@ -38,7 +39,8 @@
                 url: "/mySurvey/getSurveyInfo",
                 type: "POST",
                 data: {
-                    survey_id: id
+                    survey_id: id,
+                    calendar: 1
                 },
                 dataType: "json",
                 success: function(data) {

@@ -803,6 +803,8 @@ class mySurveyActions extends sfActions {
             $my_survey_id = $request->getParameter("my_survey_id", FALSE);            
             $my_survey_name = $request->getParameter("my_survey_name", FALSE);            
             $organization = $request->getParameter("organization", FALSE);  
+            $close_alert = $request->getParameter("close_alert", FALSE);  
+            $set = $request->getParameter("title", FALSE);  
 
             //save info in log file
             $final_filename = $this->getUser()->getAttribute('log_file_name');
@@ -810,8 +812,21 @@ class mySurveyActions extends sfActions {
             $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
             
             //var_dump($survey_id);die;
-            $custom_logger->info('Directory | My List Award | Close | Award: '.$my_survey_name.'; '.$organization.' | '.$my_survey_id);
 
+            if (isset($close_alert) && $close_alert == 1) {
+                $custom_logger->info('Directory | My List Award | Cancel Set Alert | Award: '.$my_survey_name.'; '.$organization.' | '.$my_survey_id);
+
+            }
+            elseif (isset($set) && $set == 'Set') 
+            {
+                $custom_logger->info('Directory | My List Award | Set Alert | Award: '.$my_survey_name.'; '.$organization.' | '.$my_survey_id);
+
+            }
+            else
+            {
+                $custom_logger->info('Directory | My List Award | Close | Award: '.$my_survey_name.'; '.$organization.' | '.$my_survey_id);
+            }
+            
         }          
     }
 
@@ -1354,6 +1369,37 @@ class mySurveyActions extends sfActions {
         $this->forward404();
     }
 
+    public function executeSetCheckedRadioLog(sfWebRequest $request)
+    {
+        if ($request->isXmlHttpRequest()) {
+          
+            $checked = $request->getParameter("title", FALSE);
+            $survey_name = $request->getParameter("survey_name", FALSE);
+            $organization = $request->getParameter("organization", FALSE);
+            $survey_id = $request->getParameter("survey_id", FALSE);
+
+            if (isset($checked) && !empty($checked)) 
+            {
+                if ($checked == 'Definite') {
+                    $final_filename = $this->getUser()->getAttribute('log_file_name');
+                    $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+                    $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+                    
+                    $custom_logger->info("Directory | My List Award | Definite | Award: ".$survey_name."; ".$organization." | ".$survey_id);
+
+                } else{
+                    $final_filename = $this->getUser()->getAttribute('log_file_name');
+                    $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+                    $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+                    
+                    $custom_logger->info("Directory | My List Award | Maybe | Award: ".$survey_name."; ".$organization." | ".$survey_id);
+
+                }
+            }
+
+        }
+    }
+
     /**
      * Saving of additional info about my survey
      *
@@ -1753,8 +1799,12 @@ class mySurveyActions extends sfActions {
                     $final_filename = $this->getUser()->getAttribute('log_file_name');
                     $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
                     $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
-
-                    $custom_logger->info('Directory | My List Award | Set Alert | Award: '.$srv.'; '.$org.' | '.$s_id);
+                    if ($anytime == 1) {
+                        $yes = "Yes";
+                    } else {
+                        $yes = "No";
+                    }
+                    $custom_logger->info('Directory | My List Award | Set Alert | Award: '.$srv.'; '.$org.' | '.$s_id.' | '.$arrDetails['cc_email'].' | '.$time_frame.' '.$time_frame_type.' | '.$yes);
 
                     return $this->renderText(
                         json_encode(
@@ -1854,13 +1904,53 @@ class mySurveyActions extends sfActions {
     public function executeRemoveSurveyAlert(sfWebRequest $request)
     {
         if ($request->isXmlHttpRequest()) {
-            $alert_id = $request->getParameter("alert_id", FALSE);
+            $alert_id = $request->getParameter("alert_id", FALSE);           
+            $my_survey_name = $request->getParameter("my_survey_name", FALSE);           
+            $organization = $request->getParameter("organization", FALSE);           
+
+            
             if ($alert_id) {
+
+                $query = 'SELECT * FROM survey_alerts WHERE id ='.$alert_id;
+                $alert = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query);
+                if($alert)
+                {
+                    foreach ($alert as $key => $value) {
+                        $survey_id = $value[1];
+                        $time_frame = $value[3];
+                        $time_frame_type = $value[4];
+                        $cc_emails = $value[5];
+                        $anytime = $value[7];
+                    }
+           
+                }
+               
+
 
                 $query = 'DELETE FROM survey_alerts WHERE id ='.$alert_id;
                 $alerts = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query);
                 if($alerts)
                 {
+
+                    //save info in log file
+                    $final_filename = $this->getUser()->getAttribute('log_file_name');
+                    $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+                    $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+                    
+                    if($time_frame == 0)
+                    {
+                        $time_frame = '';
+                    }
+                    if($anytime == 1)
+                    {
+                        $yes = "Yes";
+                    } else {
+                        $yes = "No";
+                    }
+                    //var_dump($survey_id);die;
+                    $custom_logger->info('Directory | My List Award | Remove Alert | Award:  '.$my_survey_name.'; '.$organization.' | '.$survey_id.' | '.$cc_emails.' | '.$time_frame.' '.$time_frame_type.' | '.$yes);
+
+
                     return $this->renderText(
                             json_encode(
                                 array(
@@ -1870,7 +1960,7 @@ class mySurveyActions extends sfActions {
                         );
                 }
 
-            }
+            }          
         }
     }
 

@@ -3,6 +3,52 @@
  */
 $(document).ready(function() {
 
+    $('#dialog_form_survey_details_for_my_lists_my_status_1').change(function(){
+
+        if($(this).attr('checked', 'checked')) 
+        {
+            var data = {
+                title:"Definite", 
+                survey_name:$('#dialog_survey_name_hidden').text(), 
+                organization:$('#dialog_organization a').text(), 
+                survey_id:$('#dialog_survey_id').text()
+            } ; 
+
+            $.ajax({
+                url: "/mySurvey/setCheckedRadioLog",
+                type: "POST",
+                data: data,
+                dataType: "json",
+                success: function(data) {
+                   
+                }            
+            });
+        } 
+    });
+
+    $('#dialog_form_survey_details_for_my_lists_my_status_2').change(function(){
+
+        if($(this).attr('checked', 'checked')) 
+        {
+            var data = {
+                title:"Maybe",
+                survey_name:$('#dialog_survey_name_hidden').text(), 
+                organization:$('#dialog_organization a').text(), 
+                survey_id:$('#dialog_survey_id').text()
+            } ; 
+
+            $.ajax({
+                url: "/mySurvey/setCheckedRadioLog",
+                type: "POST",
+                data: data,
+                dataType: "json",
+                success: function(data) {
+                   
+                }            
+            });
+        } 
+    });
+
     /**
      *  Init popups
      */

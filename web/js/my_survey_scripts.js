@@ -12,6 +12,44 @@ $(document).ajaxStop(function() {
 
 $(document).ready(function() {
 
+    $('#set_alert_form .close_btn input').click(function(){
+        var data = {
+            close_alert: 1,
+            my_survey_name:$('.srvjson').text(), 
+            organization:$('.orgjson').text(), 
+            my_survey_id:window.survey_id
+        } ; 
+
+        $.ajax({
+            url: "/mySurvey/closeForLog",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data) {
+               
+            }            
+        });
+    });
+    
+    // $('#set_alert_form .close_btn input').click(function(){
+    //     var data = {
+    //         close_alert: 1,
+    //         my_survey_name:$('.srvjson').text(), 
+    //         organization:$('.orgjson').text(), 
+    //         my_survey_id:window.survey_id
+    //     } ; 
+
+    //     $.ajax({
+    //         url: "/mySurvey/closeForLog",
+    //         type: "POST",
+    //         data: data,
+    //         dataType: "json",
+    //         success: function(data) {
+               
+    //         }            
+    //     });
+    // });
+
     $(document).on('click', '#dialog_organization a', function () {
         
         var data = {title:$('#dialog_organization a').attr("href"), id:$('#dialog_survey_id').text(), word:'Organization: '};

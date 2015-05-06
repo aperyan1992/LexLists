@@ -56,6 +56,23 @@ $(document).ready(function() {
                 $('.orgjson').text(organization);
                 $('.srvjson').text(survey_name);
 
+                var data1 = {
+                    title:"Set", 
+                    my_survey_name:survey_name, 
+                    organization:organization, 
+                    my_survey_id:survey_id
+                } ; 
+
+                $.ajax({
+                    url: "/mySurvey/closeForLog",
+                    type: "POST",
+                    data: data1,
+                    dataType: "json",
+                    success: function(data) {
+                       
+                    }            
+                });
+
                 var arrEmails = new Array();
                 for(var i = 0;i< data['array'].length;i++)
                 {
@@ -124,6 +141,9 @@ $(document).ready(function() {
     });
     $(document).on('click','.removealert',function(){
         var alert_id =  $(this).attr('s_id');
+
+        
+
         initDeleteAlertPopupWindow('dialog_delete_alert_cofirm_alert',alert_id, current_user_email_address);
         $("#dialog_delete_alert_cofirm_alert").dialog("open");
     });
@@ -237,17 +257,20 @@ function send_changed_alert(data, survey_id, current_user_email_address)
 }
 function remove_survey_alert(alert_id, survey_id, current_user_email_address)
 {
-
+    
     $.ajax({
         url: "/frontend_dev.php/mySurvey/RemoveSurveyAlert",
         type: "POST",
         data:{
-            alert_id:alert_id
+            alert_id:alert_id,
+            my_survey_name:$('.srvjson').text(), 
+            organization:$('.orgjson').text(), 
+            my_survey_id:window.survey_id
+
         },
         dataType: "json",
         success: function(data) {
                     get_survey_alerts(survey_id, current_user_email_address);
-
                 },
 
         error: function() {

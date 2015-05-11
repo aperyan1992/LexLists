@@ -1379,7 +1379,7 @@ class mySurveyActions extends sfActions {
             $survey_id = $request->getParameter("survey_id", FALSE);
             $shared_with_user = $request->getParameter("shared_with_user", FALSE);
             $shared_notes = $request->getParameter("shared_notes", FALSE);
-            
+
             if (isset($checked) && !empty($checked)) 
             {
                 if ($checked == 'Definite') {
@@ -1406,7 +1406,7 @@ class mySurveyActions extends sfActions {
                 }
             }
 
-        }
+        }die;
     }
 
     /**

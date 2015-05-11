@@ -1377,7 +1377,9 @@ class mySurveyActions extends sfActions {
             $survey_name = $request->getParameter("survey_name", FALSE);
             $organization = $request->getParameter("organization", FALSE);
             $survey_id = $request->getParameter("survey_id", FALSE);
-
+            $shared_with_user = $request->getParameter("shared_with_user", FALSE);
+            $shared_notes = $request->getParameter("shared_notes", FALSE);
+            
             if (isset($checked) && !empty($checked)) 
             {
                 if ($checked == 'Definite') {
@@ -1387,6 +1389,13 @@ class mySurveyActions extends sfActions {
                     
                     $custom_logger->info("Directory | My List Award | Definite | Award: ".$survey_name."; ".$organization." | ".$survey_id);
 
+                } elseif ($checked == 'Share') {
+                    $final_filename = $this->getUser()->getAttribute('log_file_name');
+                    $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+                    $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+                    
+                    $custom_logger->info("Directory | My List Award | Share | Award: ".$survey_name."; ".$organization." | ".$survey_id." | ".$shared_with_user." | ".$shared_notes);
+                
                 } else{
                     $final_filename = $this->getUser()->getAttribute('log_file_name');
                     $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;

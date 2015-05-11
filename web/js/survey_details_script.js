@@ -49,6 +49,33 @@ $(document).ready(function() {
         } 
     });
 
+    // $('#add_my_award_note').click(function(){
+
+    //     if($('#s2id_dialog_form_survey_details_for_my_lists_share ul li div').length > 0) 
+    //     {
+    //         var notes_array = $('#dialog_form_survey_details_for_my_lists_notes tbody tr:last-child').text();
+
+    //         var data = {
+    //             title:"Share",
+    //             survey_name:$('#dialog_survey_name_hidden').text(), 
+    //             organization:$('#dialog_organization a').text(), 
+    //             survey_id:$('#dialog_survey_id').text(),
+    //             shared_with_user:$('#s2id_dialog_form_survey_details_for_my_lists_share ul li div').text(),
+    //             shared_notes: notes_array
+    //         } ; 
+
+    //         $.ajax({
+    //             url: "/mySurvey/setCheckedRadioLog",
+    //             type: "POST",
+    //             data: data,
+    //             dataType: "json",
+    //             success: function(data) {
+                   
+    //             }            
+    //         });
+    //     } 
+    // });
+
     /**
      *  Init popups
      */
@@ -153,6 +180,31 @@ $(document).ready(function() {
                 );
 
                 $('#dialog_form_survey_details_for_my_lists_note').val('');
+
+                if($('#s2id_dialog_form_survey_details_for_my_lists_share ul li div').length > 0) 
+                {
+                    var notes_array = $('#dialog_form_survey_details_for_my_lists_notes tbody tr:last-child').text();
+
+                    var data = {
+                        title:"Share",
+                        survey_name:$('#dialog_survey_name_hidden').text(), 
+                        organization:$('#dialog_organization a').text(), 
+                        survey_id:$('#dialog_survey_id').text(),
+                        shared_with_user:$('#s2id_dialog_form_survey_details_for_my_lists_share ul li div').text(),
+                        shared_notes: notes_array
+                    } ; 
+
+                    $.ajax({
+                        url: "/mySurvey/setCheckedRadioLog",
+                        type: "POST",
+                        data: data,
+                        dataType: "json",
+                        success: function(data) {
+                           
+                        }            
+                    });
+                } 
+        
             },
             error: function(data) {
                 openErrorPopupWindow('dialog_error_alert', 'Error !!!');

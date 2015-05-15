@@ -197,7 +197,7 @@
 
 <div id="display_blocker" style="display: none;">
     <div class="blocker_ajax_loader">
-        Setting Alert... <img src="/images/ajax-loader2.gif" />
+         Sending Award Information... <img src="/images/ajax-loader2.gif" />
     </div>
 </div>
 

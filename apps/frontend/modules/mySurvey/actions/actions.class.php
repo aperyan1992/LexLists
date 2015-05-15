@@ -796,6 +796,55 @@ class mySurveyActions extends sfActions {
         return $string;
     }
 
+    public function executeSaveOwner(sfWebRequest $request)
+    {
+        if ($request->isXmlHttpRequest()) {
+            $new_owner_id = $request->getParameter("owner_id", FALSE);
+            $survey_id = $request->getParameter("survey_id", FALSE);
+            if($new_owner_id && $survey_id)
+            {
+                $query = 'UPDATE my_surveys SET owner_id='.$new_owner_id.' WHERE survey_id='.$survey_id;
+                $res = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query);
+                $query2 = 'Select * FROM my_surveys WHERE survey_id='.$survey_id.' AND  user_id='.$new_owner_id;
+                $res2 = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query2)->fetch();
+                if(!$res2)
+                {
+                    $insert = 'INSERT INTO my_surveys (owner_id, survey_id, user_id) VALUES ('.$new_owner_id.','.$survey_id.','.$new_owner_id.')';
+                    $res3 = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($insert);
+                }
+                $user = $this->getUser()->getGuardUser();
+                $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds(array($survey_id));
+                 // Send email message
+                $additional_message = 'Hello, this is a notification that you are the new Owner of The Survey.';
+                $owner_info = Doctrine_Core::getTable("sfGuardUser")->findOneById($new_owner_id);
+                    $message = Swift_Message::newInstance()
+                            ->setFrom($user->getEmailAddress())
+                            ->setTo($owner_info->email_address)
+                            ->setSubject("LexLists E-mail")
+                            ->setBody($this->getPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => $additional_message)))
+                            ->setContentType("text/html");
+
+                    $send_status = $this->getMailer()->send($message);
+
+                    // Check sending status//
+                    $status = false;
+                    if ($send_status == 1) {
+                        $status = true;
+                    }
+                return $this->renderText(
+                            json_encode(
+                                array(
+                                    "status" => "updated",
+                                    'email_owner'=>$status,
+                                )
+                            )
+                        );
+            }
+
+            
+        }
+    }
+
     public function executeCloseForLog(sfWebRequest $request)
     {
         if ($request->isXmlHttpRequest()) {
@@ -1039,7 +1088,7 @@ class mySurveyActions extends sfActions {
                     $submission_deadline = (!is_null($survey->getSurvey()->getSubmissionDeadline()) && $survey->getSurvey()->getSubmissionDeadline() != "") ? $survey->getSurvey()->getSubmissionDeadline() : "- - -";
 
                     // Get candidate type
-                    $candidate_type = ($survey->getSurvey()->getCandidateType() != 0) ? LtSurvey::$candidate_types_array[$survey->getSurvey()->getCandidateType()] : "- - -";
+                    $candidate_type = ($survey->getSurvey()->getCandidateType() != 0 && isset(LtSurvey::$candidate_types_array[$survey->getSurvey()->getCandidateType()])) ? LtSurvey::$candidate_types_array[$survey->getSurvey()->getCandidateType()] : "- - -";
 
                     // Get special criterias
                     $special_criterias = "- - -";
@@ -1162,11 +1211,15 @@ class mySurveyActions extends sfActions {
                     $updated_date = $survey->getSurvey()->getUpdatedAt();
 
                     // Get owners list
-                    $share_with_list_user = $owners = Doctrine_Core::getTable("sfGuardUser")->getUsersList($this->getUser()->hasCredential("superuser"));
 
+                    
+ 
+                    $owners = Doctrine_Core::getTable("sfGuardUser")->getUsersList($this->getUser()->hasCredential("superuser"));
+                    //sort($owners);
+                    $share_with_list_user = $owners;
                     // Get current owner
                     $owner = $survey->getOwner()->getId();
-
+                    //var_dump($owners);die;
                     // Get "My Status" of award
                     $my_status = (!is_null($survey->getMyStatus()) && $survey->getMyStatus() != "") ? $survey->getMyStatus() : NULL;
 

@@ -26,6 +26,22 @@ $(document).ready(function() {
         } 
     });
 
+     $("#dialog_form_survey_details_for_my_lists_owner").on('change', function(){
+                $.ajax({
+                    url: "/mySurvey/SaveOwner",
+                    type: "POST",
+                    data:  {owner_id:$(this).val(),
+                            survey_id:$(this).attr('s_id')},
+                    dataType: "json",
+                    success: function(data) {
+                       if(data.status == 'updated')
+                       {
+                        alert('Owner has been updated');
+                       }
+                    }            
+                });
+            });
+
     $('#dialog_form_survey_details_for_my_lists_my_status_2').change(function(){
 
         if($(this).attr('checked', 'checked')) 
@@ -374,52 +390,94 @@ function initSurveyDetailsForMyListsPopupWindow(element) {
             
             // Set value of "My Status" field
             $('#dialog_form_survey_details_for_my_lists_my_status_' + $(this).data('my_status')).prop("checked", true);
-            
+            var owner_id = $(this).data('owner');  
             // Set owners list in dropdown selectbox  
             $('#dialog_form_survey_details_for_my_lists_owner').html('');
-            if(Object.keys($(this).data('owners')).length > 0) {                
-                for (var key in $(this).data('owners')) {       
-                    var selected = '';
-                    if(key === $(this).data('owner')) {
-                        selected = 'selected';
-                    }
-                    $('#dialog_form_survey_details_for_my_lists_owner').append( 
-                        $('<option value="' + key + '" ' + selected + '>' + $(this).data('owners')[key] + '</option>')
-                    );
-                }
-            }
+            if(Object.keys($(this).data('owners')).length > 0) {  
+             var newobjarray = [];  
 
+            for (var key in $(this).data('owners')) {   
+                  var temparr = [];
+                  temparr['string'] = $(this).data('owners')[key];
+                  temparr['key'] = key;
+                  newobjarray.push(temparr);
+                  }
+            var sortedarray2 = newobjarray.sort(function(a, b){
+                        if(a['string'].toLowerCase() < b['string'].toLowerCase()) return -1;
+                        if(a['string'].toLowerCase() > b['string'].toLowerCase()) return 1;
+                        return 0;
+                    }); 
+                    var slectedcheck = false; 
+
+            sortedarray2.forEach(function(value){
+                 var selected = '';                
+                    if(value['key'] == owner_id) {
+                        
+                        selected = 'selected';
+                        slectedcheck = true;
+                    }                       
+                    $('#dialog_form_survey_details_for_my_lists_owner').append( 
+                        $('<option value="' + value['key'] + '" ' + selected + '>' + value['string'] + '</option>')
+                    );
+            });
+            if(!slectedcheck){
+                    $('#dialog_form_survey_details_for_my_lists_owner').prepend( 
+                        $('<option></option>')
+                    );
+            }
+        }   
+           
+            var shared_id = $(this).data('share_with');
             // Set share with in dropdown selectbox
             $('#dialog_form_survey_details_for_my_lists_share').html('');
             if(Object.keys($(this).data('share_with_list_user')).length > 0) {
-                for (var key in $(this).data('share_with_list_user')) {
+                 var newobjarray = [];  
 
-                    if (key === $(this).data('owner')) {
+            for (var key in $(this).data('share_with_list_user')) {   
+                  var temparr = [];
+                  temparr['string'] = $(this).data('share_with_list_user')[key];
+                  temparr['key'] = key;
+                  newobjarray.push(temparr);
+                  }
+            var sortedarray = newobjarray.sort(function(a, b){
+                        if(a['string'].toLowerCase() < b['string'].toLowerCase()) return -1;
+                        if(a['string'].toLowerCase() > b['string'].toLowerCase()) return 1;
+                        return 0;
+                    });         
+            sortedarray.forEach(function(value){
+                /*  if (value['key'] === $(this).data('owner')) {
                         continue;
                     }
-
+*/
                     var selected = '';
 
-                    if(Object.keys($(this).data('owners')).length > 0) {
-                        for (var key_share in $(this).data('share_with')) {
+                        for (var key_share in shared_id) {
 
-                            if(key_share === key) {
+                            if(key_share === value['key']) {
                                 selected = 'selected';
                             }
                         }
-                    }
 
                     $('#dialog_form_survey_details_for_my_lists_share').append(
-                        $('<option value="' + key + '" ' + selected + '>' + $(this).data('share_with_list_user')[key] + '</option>')
+                        $('<option value="' + value['key'] + '" ' + selected + '>' + value['string'] + '</option>')
                     );
-                }
-            }
+            });                
+        }
             
             // Add attribute with "Survey ID" in "Add Note" button
             $("#add_my_award_note").attr("s_id", $(this).data('survey_id'));
+            $("#dialog_form_survey_details_for_my_lists_owner").attr("s_id", $(this).data('survey_id'));
+            $("#dialog_form_survey_details_for_my_lists_owner").attr("owner_id", $(this).data('owner'));
             
             // Reinit select2
-            $("#dialog_form_survey_details_for_my_lists_owner").select2({ dropdownCssClass: 'ui-dialog', width: "resolve" });
+            /*$("#dialog_form_survey_details_for_my_lists_owner").select2(
+                {
+                 dropdownCssClass: 'ui-dialog',
+                  width: "resolve",
+                  placeholder: 'Select an Owner',               
+                 
+                   });*/
+
             $("#dialog_form_survey_details_for_my_lists_share").select2({ dropdownCssClass: 'ui-dialog', width: "resolve" });
         },
         buttons: {

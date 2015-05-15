@@ -618,7 +618,6 @@ class dashboardActions extends sfActions {
             $additional_message = $request->getParameter("message", FALSE);
 
 
-            //var_dump("vvvvvvvv".$cc_for_log[0]);die;
             $cc_for_log = implode(", ", $cc_for_log);
             if(count($survey_ids)>1)
             {

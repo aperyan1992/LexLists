@@ -26,21 +26,41 @@ $(document).ready(function() {
         } 
     });
 
-     $("#dialog_form_survey_details_for_my_lists_owner").on('change', function(){
-                $.ajax({
-                    url: "/mySurvey/SaveOwner",
-                    type: "POST",
-                    data:  {owner_id:$(this).val(),
-                            survey_id:$(this).attr('s_id')},
-                    dataType: "json",
-                    success: function(data) {
-                       if(data.status == 'updated')
-                       {
-                        alert('Owner has been updated');
-                       }
-                    }            
-                });
-            });
+    $("#dialog_form_survey_details_for_my_lists_owner").on('change', function(){
+        
+        $.ajax({
+            url: "/mySurvey/SaveOwner",
+            type: "POST",
+            data:  {prev_owner_id:$(this).attr('owner_id'),
+                owner_id:$(this).val(),
+                    survey_id:$(this).attr('s_id')},
+            dataType: "json",
+            success: function(data) {
+               if(data.status == 'updated')
+               {
+                alert('Owner has been updated');
+               }
+            }            
+        });
+    });
+
+    $("#dialog_form_survey_details_for_my_lists_share").on('change', function(){
+        //alert($("#s2id_dialog_form_survey_details_for_my_lists_share ul li div").text());
+        $.ajax({
+            url: "/mySurvey/SaveShare",
+            type: "POST",
+            data:  {share_id:$("#s2id_dialog_form_survey_details_for_my_lists_share ul li div").text(),
+                    survey_id:$('#dialog_survey_id').text(),
+                    user_id:$('#dialog_form_survey_details_for_my_lists_share').val()},
+            dataType: "json",
+            success: function(data) {
+               if(data.status == 'shared')
+               {
+                alert('The Award has been shared');
+               }
+            }            
+        });
+    });
 
     $('#dialog_form_survey_details_for_my_lists_my_status_2').change(function(){
 
@@ -409,6 +429,10 @@ function initSurveyDetailsForMyListsPopupWindow(element) {
                     }); 
                     var slectedcheck = false; 
 
+                    $('#dialog_form_survey_details_for_my_lists_owner').append(
+                    $('<option value="nobody">Nobody</option>') 
+                        );
+
             sortedarray2.forEach(function(value){
                  var selected = '';                
                     if(value['key'] == owner_id) {
@@ -443,7 +467,8 @@ function initSurveyDetailsForMyListsPopupWindow(element) {
                         if(a['string'].toLowerCase() < b['string'].toLowerCase()) return -1;
                         if(a['string'].toLowerCase() > b['string'].toLowerCase()) return 1;
                         return 0;
-                    });         
+                    });  
+                    //console.log($(this).data('shared_with_user_id'));       
             sortedarray.forEach(function(value){
                 /*  if (value['key'] === $(this).data('owner')) {
                         continue;
@@ -459,7 +484,7 @@ function initSurveyDetailsForMyListsPopupWindow(element) {
                         }
 
                     $('#dialog_form_survey_details_for_my_lists_share').append(
-                        $('<option value="' + value['key'] + '" ' + selected + '>' + value['string'] + '</option>')
+                        $('<option value="' + value['key'] + '" user_id ="'+ value['key'] +'" ' + selected + '>' + value['string'] + '</option>')
                     );
             });                
         }

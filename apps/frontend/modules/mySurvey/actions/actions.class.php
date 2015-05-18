@@ -593,7 +593,10 @@ class mySurveyActions extends sfActions {
 
             // Get all surveys
             $surveys = Doctrine_Core::getTable("LtMySurvey")->getAllMySyrveys($this->getUser()->getGuardUser()->getId());
-
+            //$surveys = 'SELECT * FROM my_surveys WHERE user_id = '.$this->getUser()->getGuardUser()->getId().' OR share_with = '.$this->getUser()->getGuardUser()->getId();
+            //$res = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($surveys2)->fetchAll();
+            // echo "<pre>";
+            // var_dump($res);die;
             if (isset($surveys) && $surveys->getFirst()) {
                 $aa_data_array = array("aaData" => array());
 
@@ -796,41 +799,170 @@ class mySurveyActions extends sfActions {
         return $string;
     }
 
+    public function executeSaveShare(sfWebRequest $request)
+    {
+        if ($request->isXmlHttpRequest()) {
+            $share_with = $request->getParameter("share_id", FALSE);
+            $survey_id = $request->getParameter("survey_id", FALSE);
+            $user_id = $request->getParameter("user_id", FALSE);
+            foreach ($user_id as $value) {
+                $query_email = 'Select email_address FROM sf_guard_user WHERE id = '.$value;
+                $res_email = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query_email)->fetch();
+                $user_email_address[] = $res_email['email_address'];
+            }
+            $user_email_address = implode("; ",$user_email_address);
+            //var_dump($user_email_address1);die;
+            // $query_email = 'Select email_address FROM sf_guard_user WHERE id = '.$user_id[0];
+            // $res_email = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query_email)->fetch();
+            // $user_email_address = $res_email['email_address'];
+
+            $user = $this->getUser()->getGuardUser(); 
+            $guard_user = $user->getId();
+
+            if($share_with && $survey_id && $user_id && $user_id != '')
+            {   
+                $query = 'Select * FROM my_surveys WHERE survey_id = '.$survey_id.' AND share_with = '.$user_id[0];
+                $res = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
+                if(!$res)
+                {
+                    // $insert = 'INSERT INTO my_surveys (survey_id, user_id, share_with) VALUES ('.$survey_id.','.$guard_user.','.$user_id[0].')';
+                    // $res3 = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($insert);
+
+                    $query = 'Select * FROM my_surveys WHERE survey_id = '.$survey_id.' AND user_id = '.$user_id[0];
+                    $res = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
+                    if(!$res)
+                    {
+                        $insert1 = 'INSERT INTO my_surveys (survey_id, user_id) VALUES ('.$survey_id.','.$user_id[0].')';
+                        $res5 = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($insert1);
+                    }
+
+                    $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds(array($survey_id));
+                     // Send email message
+                    $additional_message = 'Hello, this is a notification that you have been shared The Survey.';
+                    //$user_info = Doctrine_Core::getTable("sfGuardUser")->findOneById($prev_owner_id);
+                        $message = Swift_Message::newInstance()
+                                ->setFrom($user->getEmailAddress())
+                                ->setTo(/*$user_email_address*/'sofia.ohanjanyan@gmail.com')
+                                ->setSubject("LexLists E-mail")
+                                ->setBody($this->getPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => $additional_message)))
+                                ->setContentType("text/html");
+
+                    $send_status = $this->getMailer()->send($message);
+                }
+
+                
+            }
+
+            // Check sending status//
+            $status = false;
+            if ($send_status == 1) {
+                $status = true;
+            }
+
+            return $this->renderText(
+                json_encode(
+                    array(
+                        "status" => "shared",
+                        'email_user'=>$status,
+                    )
+                )
+            );
+
+        }
+    }
+
     public function executeSaveOwner(sfWebRequest $request)
     {
         if ($request->isXmlHttpRequest()) {
+            $prev_owner_id = $request->getParameter("prev_owner_id", FALSE);
             $new_owner_id = $request->getParameter("owner_id", FALSE);
             $survey_id = $request->getParameter("survey_id", FALSE);
+
             if($new_owner_id && $survey_id)
             {
-                $query = 'UPDATE my_surveys SET owner_id='.$new_owner_id.' WHERE survey_id='.$survey_id;
-                $res = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query);
-                $query2 = 'Select * FROM my_surveys WHERE survey_id='.$survey_id.' AND  user_id='.$new_owner_id;
-                $res2 = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query2)->fetch();
-                if(!$res2)
-                {
-                    $insert = 'INSERT INTO my_surveys (owner_id, survey_id, user_id) VALUES ('.$new_owner_id.','.$survey_id.','.$new_owner_id.')';
-                    $res3 = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($insert);
-                }
-                $user = $this->getUser()->getGuardUser();
-                $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds(array($survey_id));
-                 // Send email message
-                $additional_message = 'Hello, this is a notification that you are the new Owner of The Survey.';
-                $owner_info = Doctrine_Core::getTable("sfGuardUser")->findOneById($new_owner_id);
-                    $message = Swift_Message::newInstance()
-                            ->setFrom($user->getEmailAddress())
-                            ->setTo($owner_info->email_address)
-                            ->setSubject("LexLists E-mail")
-                            ->setBody($this->getPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => $additional_message)))
-                            ->setContentType("text/html");
+                if($new_owner_id == 'nobody')
+                {                
+                    $new_owner_id = 'NULL';
+                    $query = 'UPDATE my_surveys SET owner_id='.$new_owner_id.' WHERE survey_id='.$survey_id;
+                    $res = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query);
+                    // $query2 = 'Select * FROM my_surveys WHERE survey_id='.$survey_id.' AND  user_id='.$new_owner_id;
+                    // $res2 = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query2)->fetch();
+                    // if(!$res2)
+                    // {
+                    //     $insert = 'INSERT INTO my_surveys (owner_id, survey_id, user_id) VALUES ('.$new_owner_id.','.$survey_id.','.$new_owner_id.')';
+                    //     $res3 = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($insert);
+                    // }
+                    $user = $this->getUser()->getGuardUser();
+                    $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds(array($survey_id));
+                     // Send email message
+                    $additional_message = 'Hello, this is a notification that you are no longer the owner of The Survey and The Survey has no owner.';
+                    $owner_info = Doctrine_Core::getTable("sfGuardUser")->findOneById($prev_owner_id);
+                        $message = Swift_Message::newInstance()
+                                ->setFrom($user->getEmailAddress())
+                                ->setTo(/*$owner_info->email_address*/'sofia.ohanjanyan@gmail.com')
+                                ->setSubject("LexLists E-mail")
+                                ->setBody($this->getPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => $additional_message)))
+                                ->setContentType("text/html");
 
                     $send_status = $this->getMailer()->send($message);
 
-                    // Check sending status//
-                    $status = false;
-                    if ($send_status == 1) {
-                        $status = true;
+                    $query_email = 'Select email_address FROM sf_guard_user WHERE is_super_admin = "1"';
+                    $res_email = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query_email)->fetchAll();
+                    foreach ($res_email as $value) {
+                        $admin_email[] = $value['email_address'];
                     }
+                    $admin_email = implode("; ", $admin_email);
+                    //var_dump($admin_email);die;
+                    // Send email message to admin
+                    $owner_info = Doctrine_Core::getTable("sfGuardUser")->findOneById($prev_owner_id);
+                    $prev_owner_name = $owner_info->first_name.' '.$owner_info->last_name;
+
+                    $additional_message = 'Hello, this is a notification that '.$prev_owner_name.' is no longer the owner of The Survey and The Survey has no owner.';
+                   
+                        $message = Swift_Message::newInstance()
+                                ->setFrom($user->getEmailAddress())
+                                ->setTo(/*$admin_email*/'sofia.ohanjanyan@gmail.com')
+                                ->setSubject("LexLists E-mail")
+                                ->setBody($this->getPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => $additional_message)))
+                                ->setContentType("text/html");
+
+                    $send_status = $this->getMailer()->send($message);
+
+
+
+                }
+                else
+                {
+                    $query = 'UPDATE my_surveys SET owner_id='.$new_owner_id.' WHERE survey_id='.$survey_id;
+                    $res = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query);
+                    $query2 = 'Select * FROM my_surveys WHERE survey_id='.$survey_id.' AND  user_id='.$new_owner_id;
+                    $res2 = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query2)->fetch();
+                    if(!$res2)
+                    {
+                        $insert = 'INSERT INTO my_surveys (owner_id, survey_id, user_id) VALUES ('.$new_owner_id.','.$survey_id.','.$new_owner_id.')';
+                        $res3 = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($insert);
+                    }
+                    $user = $this->getUser()->getGuardUser();
+                    $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds(array($survey_id));
+                     // Send email message
+                    $additional_message = 'Hello, this is a notification that you are the new Owner of The Survey.';
+                    $owner_info = Doctrine_Core::getTable("sfGuardUser")->findOneById($new_owner_id);
+                        $message = Swift_Message::newInstance()
+                                ->setFrom($user->getEmailAddress())
+                                ->setTo(/*$owner_info->email_address*/'sofia.ohanjanyan@gmail.com')
+                                ->setSubject("LexLists E-mail")
+                                ->setBody($this->getPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => $additional_message)))
+                                ->setContentType("text/html");
+
+                    $send_status = $this->getMailer()->send($message);
+                }
+
+                // Check sending status//
+                $status = false;
+                if ($send_status == 1) {
+                    $status = true;
+                }
+
                 return $this->renderText(
                             json_encode(
                                 array(
@@ -1218,7 +1350,11 @@ class mySurveyActions extends sfActions {
                     //sort($owners);
                     $share_with_list_user = $owners;
                     // Get current owner
-                    $owner = $survey->getOwner()->getId();
+                    $owner = "- - -";
+                    if($survey->getOwner())
+                    {
+                        $owner = $survey->getOwner()->getId();
+                    }
                     //var_dump($owners);die;
                     // Get "My Status" of award
                     $my_status = (!is_null($survey->getMyStatus()) && $survey->getMyStatus() != "") ? $survey->getMyStatus() : NULL;
@@ -1231,14 +1367,20 @@ class mySurveyActions extends sfActions {
                     $share_with = array();
                     foreach ($share_with_result as $val) {
                         $share_with[$val['user_id']] = $val['user_id'];
-                    }
 
+                    }
+ //var_dump($share_with_result);die;
                     // remove user, which have this survey and filed "share_with" = 0
                     foreach (Doctrine_Core::getTable("LtMySurvey")->findAllSurveyWithoutShareWith($survey_id) as $value) {
                         if (isset($share_with_list_user[$value->getUserId()])) {
-                            unset($share_with_list_user[$value->getUserId()]);
+                            $shared_with_user_id[] = $share_with_list_user[$value->getUserId()];
+                            //unset($share_with_list_user[$value->getUserId()]);
+                            //----------------------------------------------------
+                            //unseti depqum bolor email-ner chen galis
+                            //----------------------------------------------------
                         }
                     }
+                    //var_dump($shared_with_user_id);die;
 
                     $user = $this->getUser()->getGuardUser();
 
@@ -1308,6 +1450,7 @@ class mySurveyActions extends sfActions {
                                 "my_survey_id"           => $my_survey_id,
                                 "share_with"             => $share_with,
                                 "share_with_list_user"   => $share_with_list_user,
+                                //"share_with_user_id"     => isset($shared_with_user_id)? $shared_with_user_id : '',
                                 "user_email_hidden"      => $recipient_email_address
                             )
                         )

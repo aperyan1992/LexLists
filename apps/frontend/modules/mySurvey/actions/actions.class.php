@@ -838,11 +838,11 @@ class mySurveyActions extends sfActions {
 
                     $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds(array($survey_id));
                      // Send email message
-                    $additional_message = 'Hello, this is a notification that you have been shared The Survey.';
+                    $additional_message = 'Hello, this is a notification that you have been shared this Award.';
                     //$user_info = Doctrine_Core::getTable("sfGuardUser")->findOneById($prev_owner_id);
                         $message = Swift_Message::newInstance()
                                 ->setFrom($user->getEmailAddress())
-                                ->setTo(/*$user_email_address*/'sofia.ohanjanyan@gmail.com')
+                                ->setTo($user_email_address)
                                 ->setSubject("LexLists E-mail")
                                 ->setBody($this->getPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => $additional_message)))
                                 ->setContentType("text/html");
@@ -895,11 +895,11 @@ class mySurveyActions extends sfActions {
                     $user = $this->getUser()->getGuardUser();
                     $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds(array($survey_id));
                      // Send email message
-                    $additional_message = 'Hello, this is a notification that you are no longer the owner of The Survey and The Survey has no owner.';
+                    $additional_message = 'Hello, this is a notification that you are no longer the owner of The Award and The Award has no owner.';
                     $owner_info = Doctrine_Core::getTable("sfGuardUser")->findOneById($prev_owner_id);
                         $message = Swift_Message::newInstance()
                                 ->setFrom($user->getEmailAddress())
-                                ->setTo(/*$owner_info->email_address*/'sofia.ohanjanyan@gmail.com')
+                                ->setTo($owner_info->email_address)
                                 ->setSubject("LexLists E-mail")
                                 ->setBody($this->getPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => $additional_message)))
                                 ->setContentType("text/html");
@@ -917,11 +917,11 @@ class mySurveyActions extends sfActions {
                     $owner_info = Doctrine_Core::getTable("sfGuardUser")->findOneById($prev_owner_id);
                     $prev_owner_name = $owner_info->first_name.' '.$owner_info->last_name;
 
-                    $additional_message = 'Hello, this is a notification that '.$prev_owner_name.' is no longer the owner of The Survey and The Survey has no owner.';
+                    $additional_message = 'Hello, this is a notification that '.$prev_owner_name.' is no longer the owner of The Award and The Award has no owner.';
                    
                         $message = Swift_Message::newInstance()
                                 ->setFrom($user->getEmailAddress())
-                                ->setTo(/*$admin_email*/'sofia.ohanjanyan@gmail.com')
+                                ->setTo($admin_email)
                                 ->setSubject("LexLists E-mail")
                                 ->setBody($this->getPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => $additional_message)))
                                 ->setContentType("text/html");
@@ -949,7 +949,7 @@ class mySurveyActions extends sfActions {
                     $owner_info = Doctrine_Core::getTable("sfGuardUser")->findOneById($new_owner_id);
                         $message = Swift_Message::newInstance()
                                 ->setFrom($user->getEmailAddress())
-                                ->setTo(/*$owner_info->email_address*/'sofia.ohanjanyan@gmail.com')
+                                ->setTo($owner_info->email_address)
                                 ->setSubject("LexLists E-mail")
                                 ->setBody($this->getPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => $additional_message)))
                                 ->setContentType("text/html");

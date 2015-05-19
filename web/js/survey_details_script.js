@@ -38,7 +38,7 @@ $(document).ready(function() {
             success: function(data) {
                if(data.status == 'updated')
                {
-                alert('Owner has been updated');
+                //alert('Owner has been updated');
                }
             }            
         });
@@ -57,7 +57,7 @@ $(document).ready(function() {
             success: function(data) {
                if(data.status == 'shared')
                {
-                alert('The Award has been shared');
+                //alert('The Award has been shared');
                }
             }            
         });

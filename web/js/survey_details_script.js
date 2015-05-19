@@ -27,12 +27,12 @@ $(document).ready(function() {
     });
 
     $("#dialog_form_survey_details_for_my_lists_owner").on('change', function(){
-        
+        //console.log("___________"+$(this).val());
         $.ajax({
             url: "/mySurvey/SaveOwner",
             type: "POST",
             data:  {prev_owner_id:$(this).attr('owner_id'),
-                owner_id:$(this).val(),
+                    owner_id:$(this).val(),
                     survey_id:$(this).attr('s_id')},
             dataType: "json",
             success: function(data) {
@@ -51,6 +51,7 @@ $(document).ready(function() {
             type: "POST",
             data:  {share_id:$("#s2id_dialog_form_survey_details_for_my_lists_share ul li div").text(),
                     survey_id:$('#dialog_survey_id').text(),
+                    my_survey_id:$('#dialog_my_survey_id').text(),
                     user_id:$('#dialog_form_survey_details_for_my_lists_share').val()},
             dataType: "json",
             success: function(data) {
@@ -333,7 +334,7 @@ function saveMySurveyAdditionalInfo(my_survey_id, my_status, owner, shared_with)
             
         },
         error: function() {
-            openErrorPopupWindow('dialog_error_alert', 'Error !!!');
+            openErrorPopupWindow('dialog_error_alert', 'Error !!!!');
         }
     });
 }
@@ -430,8 +431,8 @@ function initSurveyDetailsForMyListsPopupWindow(element) {
                     var slectedcheck = false; 
 
                     $('#dialog_form_survey_details_for_my_lists_owner').append(
-                    $('<option value="nobody">Nobody</option>') 
-                        );
+                        $('<option value="0">Nobody</option>') 
+                    );
 
             sortedarray2.forEach(function(value){
                  var selected = '';                
@@ -445,9 +446,9 @@ function initSurveyDetailsForMyListsPopupWindow(element) {
                     );
             });
             if(!slectedcheck){
-                    $('#dialog_form_survey_details_for_my_lists_owner').prepend( 
-                        $('<option></option>')
-                    );
+                    // $('#dialog_form_survey_details_for_my_lists_owner').prepend( 
+                    //     $('<option></option>')
+                    // );
             }
         }   
            
@@ -539,9 +540,9 @@ function initSurveyDetailsForMyListsPopupWindow(element) {
             },
             "Close": function() {
                 closeForLog($('#dialog_survey_id').text(), $('#dialog_survey_name_hidden').text(), $('#dialog_organization').text());
-
+                //console.log(owner.attr("owner_id"));
                 // Save additonal info about my survey
-                saveMySurveyAdditionalInfo($(this).data("my_survey_id"), $('input[name="dialog_form_survey_details_for_my_lists_my_status"]:checked').val(), owner.val(), share.val())
+                //saveMySurveyAdditionalInfo($(this).data("my_survey_id"), $('input[name="dialog_form_survey_details_for_my_lists_my_status"]:checked').val(), owner.val(), share.val())
                 
                 $(this).dialog("close");
             }

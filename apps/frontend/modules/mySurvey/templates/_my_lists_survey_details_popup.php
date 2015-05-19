@@ -100,6 +100,7 @@
                     <label for="dialog_form_survey_details_for_my_lists_note" title="Anything you want to remember about this award.">Note: </label>
                 </th>
                 <td>
+                    <input type="hidden" id="dialog_my_survey_id">
                     <textarea id="dialog_form_survey_details_for_my_lists_note" maxlength="100" style="width: 380px; margin-bottom: 0 !important;" rows="2"></textarea>
                     <input type="button" id="add_my_award_note" class="btn btn-success" value="Add Note" style="vertical-align: bottom;" />
                 </td>

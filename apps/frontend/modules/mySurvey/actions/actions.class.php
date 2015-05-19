@@ -804,7 +804,9 @@ class mySurveyActions extends sfActions {
         if ($request->isXmlHttpRequest()) {
             $share_with = $request->getParameter("share_id", FALSE);
             $survey_id = $request->getParameter("survey_id", FALSE);
+            $my_survey_id = $request->getParameter("my_survey_id", FALSE);
             $user_id = $request->getParameter("user_id", FALSE);
+            //var_dump($survey_id."========".$my_survey_id);die;
             foreach ($user_id as $value) {
                 $query_email = 'Select email_address FROM sf_guard_user WHERE id = '.$value;
                 $res_email = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query_email)->fetch();
@@ -821,20 +823,30 @@ class mySurveyActions extends sfActions {
 
             if($share_with && $survey_id && $user_id && $user_id != '')
             {   
-                $query = 'Select * FROM my_surveys WHERE survey_id = '.$survey_id.' AND share_with = '.$user_id[0];
+                // $query = 'Select * FROM my_surveys WHERE id = '.$my_survey_id;
+                // $res = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
+                $query = 'Select * FROM my_surveys WHERE survey_id = '.$survey_id.' AND user_id = '.$user_id[0];
                 $res = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
                 if(!$res)
                 {
                     // $insert = 'INSERT INTO my_surveys (survey_id, user_id, share_with) VALUES ('.$survey_id.','.$guard_user.','.$user_id[0].')';
                     // $res3 = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($insert);
 
-                    $query = 'Select * FROM my_surveys WHERE survey_id = '.$survey_id.' AND user_id = '.$user_id[0];
+                    $query = 'Select * FROM my_surveys WHERE id = '.$my_survey_id;
                     $res = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetch();
-                    if(!$res)
+                    if($res)
                     {
-                        $insert1 = 'INSERT INTO my_surveys (survey_id, user_id) VALUES ('.$survey_id.','.$user_id[0].')';
+                        if(empty($res["my_status"]))
+                            $res["my_status"] = "NULL";
+                        if(empty($res["owner_id"]))
+                            $res["owner_id"] = "NULL";
+                        //var_dump($res);die;
+                        $insert1 = 'INSERT INTO my_surveys (survey_id, user_id, my_status, owner_id, is_updated, is_deadline_past, share_with, created_at, updated_at) VALUES ('.$survey_id.','.$user_id[0].','.$res["my_status"].','.$res["owner_id"].','.$res["is_updated"].','.$res["is_deadline_past"].','.$res["share_with"].',NOW(), NOW())';
                         $res5 = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($insert1);
                     }
+
+                    
+
 
                     $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds(array($survey_id));
                      // Send email message
@@ -877,11 +889,12 @@ class mySurveyActions extends sfActions {
             $prev_owner_id = $request->getParameter("prev_owner_id", FALSE);
             $new_owner_id = $request->getParameter("owner_id", FALSE);
             $survey_id = $request->getParameter("survey_id", FALSE);
-
-            if($new_owner_id && $survey_id)
+//var_dump($new_owner_id."_________".$survey_id);die;
+            if(isset($new_owner_id) && $survey_id)
             {
-                if($new_owner_id == 'nobody')
-                {                
+                if($new_owner_id == '0')
+                {         
+                    //var_dump($new_owner_id);die;
                     $new_owner_id = 'NULL';
                     $query = 'UPDATE my_surveys SET owner_id='.$new_owner_id.' WHERE survey_id='.$survey_id;
                     $res = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query);
@@ -964,13 +977,13 @@ class mySurveyActions extends sfActions {
                 }
 
                 return $this->renderText(
-                            json_encode(
-                                array(
-                                    "status" => "updated",
-                                    'email_owner'=>$status,
-                                )
-                            )
-                        );
+                    json_encode(
+                        array(
+                            "status" => "updated",
+                            'email_owner'=>$status,
+                        )
+                    )
+                );
             }
 
             
@@ -1355,7 +1368,7 @@ class mySurveyActions extends sfActions {
                     {
                         $owner = $survey->getOwner()->getId();
                     }
-                    //var_dump($owners);die;
+                   
                     // Get "My Status" of award
                     $my_status = (!is_null($survey->getMyStatus()) && $survey->getMyStatus() != "") ? $survey->getMyStatus() : NULL;
 
@@ -1369,18 +1382,15 @@ class mySurveyActions extends sfActions {
                         $share_with[$val['user_id']] = $val['user_id'];
 
                     }
- //var_dump($share_with_result);die;
+
                     // remove user, which have this survey and filed "share_with" = 0
                     foreach (Doctrine_Core::getTable("LtMySurvey")->findAllSurveyWithoutShareWith($survey_id) as $value) {
                         if (isset($share_with_list_user[$value->getUserId()])) {
                             $shared_with_user_id[] = $share_with_list_user[$value->getUserId()];
-                            //unset($share_with_list_user[$value->getUserId()]);
-                            //----------------------------------------------------
-                            //unseti depqum bolor email-ner chen galis
-                            //----------------------------------------------------
+                            unset($share_with_list_user[$value->getUserId()]);                            
                         }
                     }
-                    //var_dump($shared_with_user_id);die;
+                    
 
                     $user = $this->getUser()->getGuardUser();
 
@@ -1450,7 +1460,6 @@ class mySurveyActions extends sfActions {
                                 "my_survey_id"           => $my_survey_id,
                                 "share_with"             => $share_with,
                                 "share_with_list_user"   => $share_with_list_user,
-                                //"share_with_user_id"     => isset($shared_with_user_id)? $shared_with_user_id : '',
                                 "user_email_hidden"      => $recipient_email_address
                             )
                         )
@@ -1620,7 +1629,7 @@ class mySurveyActions extends sfActions {
             $owner        = $request->getParameter("owner", NULL);
             $shared_with  = $request->getParameter("shared_with", NULL);
             $status = 'success';
-
+            //var_dump($my_survey_id."---------".$owner);die;
             if($my_survey_id && is_numeric($owner)) {
                 // Check existing of my survey
                 $my_survey = Doctrine_Core::getTable("LtMySurvey")->findOneById($my_survey_id);
@@ -1668,19 +1677,19 @@ class mySurveyActions extends sfActions {
                             Doctrine_Core::getTable("LtMySurvey")->updateOldOwner($my_survey->getSurveyId(), $owner);
                             $old_owner_aword_exists = $owner;
                         } else {
-                            // Add my survey to new owner
-                            if ($user->getId() !== $owner) {
-                                if (!$owner_my_survey) {
-                                    $new_my_survey = new LtMySurvey();
-                                    $new_my_survey->setSurveyId($my_survey->getSurveyId());
-                                    $new_my_survey->setUserId($owner);
-                                    $new_my_survey->setOwnerId($owner);
-                                    if($my_survey->getSurvey() && (strtotime($my_survey->getSurvey()->getSubmissionDeadline()) < strtotime(date("Y-m-d")))) {
-                                        $new_my_survey->setIsDeadlinePast(true);
-                                    }
-                                    $new_my_survey->save();
-                                }
-                            }
+                            // // Add my survey to new owner
+                            // if ($user->getId() !== $owner) {
+                            //     if (!$owner_my_survey) {var_dump($owner);
+                            //         $new_my_survey = new LtMySurvey();
+                            //         $new_my_survey->setSurveyId($my_survey->getSurveyId());
+                            //         $new_my_survey->setUserId($owner);
+                            //         $new_my_survey->setOwnerId($owner);
+                            //         if($my_survey->getSurvey() && (strtotime($my_survey->getSurvey()->getSubmissionDeadline()) < strtotime(date("Y-m-d")))) {
+                            //             $new_my_survey->setIsDeadlinePast(true);
+                            //         }die("-------!23");
+                            //         $new_my_survey->save();die("!23");
+                            //     }
+                            // }
                         }
                         Doctrine_Core::getTable("LtMySurvey")->setNewOwnerForAword($my_survey->getSurveyId(), $owner);
                     }

@@ -431,7 +431,7 @@ function initSurveyDetailsForMyListsPopupWindow(element) {
                     var slectedcheck = false; 
 
                     $('#dialog_form_survey_details_for_my_lists_owner').append(
-                        $('<option value="0">Nobody</option>') 
+                        $('<option value="0"></option>') 
                     );
 
             sortedarray2.forEach(function(value){

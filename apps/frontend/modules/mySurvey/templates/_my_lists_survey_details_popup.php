@@ -84,7 +84,7 @@
                     <label for="dialog_form_survey_details_for_my_lists_owner" title="Designate the owner -the responsible person- for this award. By default the owner is you. If you assign it to someone else, it will remain under your own saved list (with a different owner) and will also appear on the new owner's saved list. Removing an award you have assigned to someone else only removes the entry from your own saved list.">Owner: </label>
                 </th>
                 <td>
-                    <select id="dialog_form_survey_details_for_my_lists_owner" style="width: 505px;"></select>
+                    <select id="dialog_form_survey_details_for_my_lists_owner" style="margin-bottom:15px;"></select>
                 </td>
             </tr>
             <tr>
@@ -92,17 +92,17 @@
                     <label for="dialog_form_survey_details_for_my_lists_share" title="Share this award with other users on LexLists. The award will also appear on their My List.">Share: </label>
                 </th>
                 <td>
-                    <select multiple="multiple" id="dialog_form_survey_details_for_my_lists_share" style="width: 505px;"></select>
+                    <select  id="dialog_form_survey_details_for_my_lists_share" style="padding-top:10px;width: 300px;"></select>
                 </td>
             </tr>
             <tr>
                 <th class="top_vertical_align">
-                    <label for="dialog_form_survey_details_for_my_lists_note" title="Anything you want to remember about this award.">Note: </label>
+                    <label for="dialog_form_survey_details_for_my_lists_note" style="margin-top:10px;" title="Anything you want to remember about this award.">Note: </label>
                 </th>
                 <td>
                     <input type="hidden" id="dialog_my_survey_id">
-                    <textarea id="dialog_form_survey_details_for_my_lists_note" maxlength="100" style="width: 380px; margin-bottom: 0 !important;" rows="2"></textarea>
-                    <input type="button" id="add_my_award_note" class="btn btn-success" value="Add Note" style="vertical-align: bottom;" />
+                    <textarea id="dialog_form_survey_details_for_my_lists_note" maxlength="100" style="margin-top:10px;width: 380px; margin-bottom: 0 !important;" rows="2"></textarea>
+                    <input type="button" id="add_my_award_note" class="btn btn-success" value="Add Note" style="margin-top:15px;vertical-align: bottom;" />
                 </td>
             </tr>
             <tr>
@@ -110,14 +110,18 @@
                     <table id="dialog_form_survey_details_for_my_lists_notes">
                         <thead>
                             <tr>
-                                <th style="width: 130px !important;">Date</th>
-                                <th style="width: 424px !important;">Notes</th>
-                                <th style="width: 130px !important;">User</th>
+                                <th>Date</th>
+                                <th>Notes</th>
+                                <th>User</th>
                             </tr>                            
                         </thead>
                         <tbody></tbody>
                     </table>
                 </td>
+                <style>
+                #dialog_form_survey_details_for_my_lists_notes td{width:200px !important;}
+                #dialog_form_survey_details_for_my_lists_notes th{width:200px !important;}
+                </style>
             </tr>
             <tr>
                 <td colspan="2" style="padding-left: 0 !important; padding-top: 10px; font-size: 10px;">

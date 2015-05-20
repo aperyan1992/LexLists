@@ -3179,8 +3179,8 @@ div.tooltip p {
 }
 
 #dialog_form_survey_details_for_my_lists_notes {
-    width: 684px !important;
-    max-width: 684px !important;
+/*    width: 684px !important;
+*/    max-width: 684px !important;
 }
 
 #office_table_wrapper {

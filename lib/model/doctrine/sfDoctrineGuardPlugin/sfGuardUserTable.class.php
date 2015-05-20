@@ -73,7 +73,8 @@ class sfGuardUserTable extends PluginsfGuardUserTable {
         $owners = false;
         if(!$is_superuser_flag) {
 
-            $query = 'SELECT * FROM sf_guard_user WHERE client_id="'. sfContext::getInstance()->getUser()->getGuardUser()->getClientId() .'" AND is_client_admin ="false" ORDER BY last_name ASC';
+            $query = 'SELECT * FROM sf_guard_user WHERE client_id="'. sfContext::getInstance()->getUser()->getGuardUser()->getClientId() .'" ORDER BY last_name ASC';
+           // $query = 'SELECT * FROM sf_guard_user WHERE client_id="'. sfContext::getInstance()->getUser()->getGuardUser()->getClientId() .'" AND is_client_admin ="false" ORDER BY last_name ASC';
             $owners = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query);
 //pordzi
 

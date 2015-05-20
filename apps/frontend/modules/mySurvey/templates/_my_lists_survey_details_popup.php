@@ -84,7 +84,7 @@
                     <label for="dialog_form_survey_details_for_my_lists_owner" title="Designate the owner -the responsible person- for this award. By default the owner is you. If you assign it to someone else, it will remain under your own saved list (with a different owner) and will also appear on the new owner's saved list. Removing an award you have assigned to someone else only removes the entry from your own saved list.">Owner: </label>
                 </th>
                 <td>
-                    <select id="dialog_form_survey_details_for_my_lists_owner" style="margin-bottom:15px;"></select>
+                    <select id="dialog_form_survey_details_for_my_lists_owner" style="width: 300px;margin-bottom:15px;"></select>
                 </td>
             </tr>
             <tr>

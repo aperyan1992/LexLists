@@ -2738,6 +2738,10 @@ div.tooltip p {
     margin-left: 5px !important;
 }
 
+
+#dialog_form_survey_details_for_my_lists_notes td {
+	font-size: 1em !important;
+}
 #practice_group_highlighted_lawyer_justification_tr,
 #individual_highlighted_lawyer_justification_tr {
     display: none;

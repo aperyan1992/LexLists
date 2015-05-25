@@ -110,9 +110,9 @@
                     <table id="dialog_form_survey_details_for_my_lists_notes">
                         <thead>
                             <tr>
-                                <th>Date</th>
-                                <th>Notes</th>
-                                <th>User</th>
+                                <th style="width: 130px !important;">Date</th>
+                                <th style="width: 424px !important;">Notes</th>
+                                <th style="width: 130px !important;">User</th>
                             </tr>                            
                         </thead>
                         <tbody></tbody>
@@ -120,8 +120,6 @@
                 </td> 
                 <style>
                 .ui-dialog{width:625px !important;}
-                #dialog_form_survey_details_for_my_lists_notes td{width:200px !important;}
-                #dialog_form_survey_details_for_my_lists_notes th{width:200px !important;}
                 </style>
             </tr>
             <tr>

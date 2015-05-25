@@ -98,7 +98,7 @@ class sfGuardUserTable extends PluginsfGuardUserTable {
                     $phone = $owner['phone_number'];
                 }
                 
-                $owners_array[$owner['id']] = $owner['last_name'] . ", " . $owner['first_name'] . " (Email: " . $email_address . ", Phone: " . $phone . ")";
+                $owners_array[$owner['id']] = $owner['last_name'] . ", " . $owner['first_name'] . " (" . $email_address . ", " . $phone . ")";
             }
         }        
         

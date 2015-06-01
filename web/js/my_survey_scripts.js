@@ -249,11 +249,10 @@ var drop_down_menu_closed = true;
         "aoColumnDefs": [
             { "sClass": "datatable_td_align_center_checkboxes", "aTargets": [0]},
             { "sClass": "datatable_td_align_center", "aTargets": ["_all"]},            
-            { "bVisible": false, "aTargets": [ 4,5,6,8,9,10,12,14,15,16 ] },
+            { "bVisible": false, "aTargets": [ 4,5,6,8,9,10,12,14,15,16,17 ] },
             { "bVisible": true, "aTargets": [ 0,1,2,3,7,11,13 ] },
             { "bSortable": false, "aTargets": [ 0 ] }
         ]
-
     });
     
     /**

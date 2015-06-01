@@ -52,6 +52,10 @@
                 <td id="dialog_nomination"></td>
             </tr> -->
             <tr>
+                <th align="right">Keywords:</th>
+                <td id="dialog_keywords"></td>
+            </tr> 
+            <tr>
                 <th align="right">Frequency:</th>
                 <td id="dialog_frequency"></td>
             </tr>

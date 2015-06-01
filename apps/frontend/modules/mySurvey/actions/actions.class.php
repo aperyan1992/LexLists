@@ -713,6 +713,14 @@ class mySurveyActions extends sfActions {
                     // Set owner
                     $owner = (!is_null($survey->getOwnerId()) && $survey->getOwnerId() != "") ? (ucfirst($survey->getOwner()->getLastName()) . ", " . ucfirst(substr($survey->getOwner()->getFirstName(), 0, 1)) . "." ) : "- - -";
 
+                    $query = 'SELECT keywords FROM surveys WHERE id="'. $survey->getSurvey()->getId() .'"';
+                    $resquery = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                    $keywords = "- - -";
+                    if(isset($resquery[0]['keywords']) && !empty($resquery[0]['keywords']))
+                    {
+                        $keywords =  $resquery[0]['keywords'];
+                    }
+
                     // Set eligibility
                     $eligibility = (!is_null($survey->getSurvey()->getEligibilityCriteria()) && $survey->getSurvey()->getEligibilityCriteria() != "") ? $this->CheckStringLength($survey->getSurvey()->getShortEligibilityCriteria()) : "- - -";
 
@@ -754,6 +762,7 @@ class mySurveyActions extends sfActions {
                         $eligibility,
                         $description,
                         $methodology,
+                        $keywords
                         //$email_link
                     );
 
@@ -1326,6 +1335,16 @@ class mySurveyActions extends sfActions {
                     // Get nomination
                     $nomination = (!is_null($survey->getSurvey()->getNomination()) && $survey->getSurvey()->getNomination() != "") ? $survey->getSurvey()->getNominationWithLinks() : "- - -";
 
+
+                    //Keywords
+
+                    $query = 'SELECT keywords FROM surveys WHERE id="'. $survey_id .'"';
+                    $resquery = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                    $keywords = "";
+                    if(isset($resquery[0]['keywords']))
+                    {
+                        $keywords =  $resquery[0]['keywords'];
+                    }
                     // Get frequency
                     $frequency = ($survey->getSurvey()->getFrequency() != 0) ? LtSurvey::$frequency_types_array[$survey->getSurvey()->getFrequency()] : "- - -";
 
@@ -1449,6 +1468,7 @@ class mySurveyActions extends sfActions {
                                 "description_1"          => $description.' <span class="less" style="cursor:pointer; color:#ff6801;"> less</span>',
                                 //"submission_methodology" => $submission_methodology,
                                 "nomination"             => $nomination,
+                                "keywords"               => $keywords,
                                 "frequency"              => $frequency,
                                 "contact_person"         => $contact_person,
                                 "survey_id"              => $s_id,

@@ -4,15 +4,14 @@
     <?php include_component('surveyManagement', $name, array('form' => $form, 'attributes' => $attributes instanceof sfOutputEscaper ? $attributes->getRawValue() : $attributes)) ?>
 <?php else: ?>
   <tr style="<?php echo ($name == 'eligibility_criteria' || $name == 'nomination' || $name == 'selection_methodology' || $name == 'self_nomination' || $name == 'fees' || $name == 'pay_for_play')? "display: none;" : "" ?>" class="distance">
-      <th>  
+      <th style="padding-bottom:20px;">  
           <?php if ($help = $form[$name]->renderHelp()): ?>
             <?php echo $form[$name]->renderLabel($label, array("title" => $form->getWidgetSchema()->getHelp($name))) ?>
           <?php else : ?>
             <?php echo $form[$name]->renderLabel($label) ?>
           <?php endif; ?>
-
       </th>
-      <td>  
+      <td style="padding-bottom:20px;">  
           <?php if($attributes instanceof sfOutputEscaper) : ?>
             <?php $attributes = $attributes->getRawValue(); ?>
           <?php endif; ?>
@@ -28,7 +27,6 @@
           <?php endif; ?>
 
           <?php echo $form[$name]->renderError() ?>
-   
       </td>
-  </tr>    
+  </tr>   
 <?php endif; ?>

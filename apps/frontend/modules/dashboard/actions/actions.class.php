@@ -347,6 +347,16 @@ class dashboardActions extends sfActions {
 
                         $countries = $this->CheckStringLength(implode(", ", $countries_array), 50);
                     }
+
+                    //Keywords
+
+                    $query = 'SELECT keywords FROM surveys WHERE id="'. $survey->getId() .'"';
+                    $resquery = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                    $keywords = "- - -";
+                    if(isset($resquery[0]['keywords']) && !empty($resquery[0]['keywords']))
+                    {
+                        $keywords =  $resquery[0]['keywords'];
+                    }
                     
                     // Set submission deadline
                     $submission_deadline = (!is_null($survey->getSubmissionDeadline()) && $survey->getSubmissionDeadline() != "") ? $this->CheckStringLength($survey->getSubmissionDeadline(), 50) : "- - -";
@@ -380,6 +390,7 @@ class dashboardActions extends sfActions {
                         $eligibility,
                         $description,
                         $methodology,
+                        $keywords
                         //$email_link,
                     );
 
@@ -490,6 +501,15 @@ class dashboardActions extends sfActions {
 
                         $countries = $this->CheckStringLength(implode(", ", $countries_array), 50);
                     }
+                     //Keywords
+
+                    $query = 'SELECT keywords FROM surveys WHERE id="'. $survey->getId() .'"';
+                    $resquery = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                    $keywords = "- - -";
+                    if(isset($resquery[0]['keywords']) && !empty($resquery[0]['keywords']))
+                    {
+                        $keywords =  $resquery[0]['keywords'];
+                    }
 
                     // Set submission deadline
                     $submission_deadline = (!is_null($survey->getSubmissionDeadline()) && $survey->getSubmissionDeadline() != "") ? $this->CheckStringLength($survey->getSubmissionDeadline(), 50) : "- - -";
@@ -523,6 +543,7 @@ class dashboardActions extends sfActions {
                         $eligibility,
                         $description,
                         $methodology,
+                        $keywords
                         //$email_link,
                     );
 
@@ -1858,7 +1879,6 @@ class dashboardActions extends sfActions {
             if ($survey_id) {
                 // Get survey info
                 $survey = Doctrine_Core::getTable("LtSurvey")->getFullInfo($survey_id);
-
                 // Get year
                 $year = (!is_null($survey->getYear()) && $survey->getYear() != "") ? $survey->getYear() : "- - -";
 
@@ -2001,6 +2021,15 @@ class dashboardActions extends sfActions {
 
                 // var_dump($nomination);die;
 
+                //Keywords
+
+              $query = 'SELECT keywords FROM surveys WHERE id="'. $survey_id .'"';
+                $resquery = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                $keywords = "";
+                if(isset($resquery[0]['keywords']))
+                {
+                    $keywords =  $resquery[0]['keywords'];
+                }
                 // Get frequency
                 $frequency = ($survey->getFrequency() != 0) ? LtSurvey::$frequency_types_array[$survey->getFrequency()] : "- - -";
 
@@ -2021,7 +2050,6 @@ class dashboardActions extends sfActions {
                     if($survey->getContact()->getFirstName())
                     {
                         $surFirstname = $survey->getContact()->getFirstName();
-
                     }
                     else{
                         $surFirstname = '';
@@ -2124,6 +2152,7 @@ class dashboardActions extends sfActions {
                             "description_1"          => $description.' <span class="less" style="cursor:pointer; color:#ff6801;"> less</span>',
                             // "submission_methodology" => $submission_methodology,
                             "nomination"             => $nomination,
+                            "keywords"               => $keywords,
                             "frequency"              => $frequency,
                             "contact_person"         => $contact_person,
                             "survey_id"              => $s_id,

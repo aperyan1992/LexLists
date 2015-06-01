@@ -186,6 +186,7 @@
                         <th>Eligibility</th>
                         <th>Description</th>
                         <th>Methodology</th>
+                        <th>Keywords</th>
                     </tr>
                     </thead>
                     <tbody></tbody>
@@ -212,6 +213,7 @@
                         <th>Eligibility</th>
                         <th>Description</th>
                         <th>Methodology</th>
+                        <th>Keywords</th>
                     </tr>
                     </thead>
                     <tbody></tbody>

@@ -1340,8 +1340,8 @@ class mySurveyActions extends sfActions {
 
                     $query = 'SELECT keywords FROM surveys WHERE id="'. $survey_id .'"';
                     $resquery = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
-                    $keywords = "";
-                    if(isset($resquery[0]['keywords']))
+                    $keywords = "- - -";
+                    if(isset($resquery[0]['keywords']) && !empty($resquery[0]['keywords']))
                     {
                         $keywords =  $resquery[0]['keywords'];
                     }

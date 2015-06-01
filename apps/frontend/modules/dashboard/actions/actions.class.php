@@ -353,7 +353,7 @@ class dashboardActions extends sfActions {
                     $query = 'SELECT keywords FROM surveys WHERE id="'. $survey->getId() .'"';
                     $resquery = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
                     $keywords = "- - -";
-                    if(isset($resquery[0]['keywords']) && !empty($resquery[0]['keywords']))
+                    if(isset($resquery[0]['keywords']) && !empty($resquery[0]['keywords']) && $resquery[0]['keywords']!='')
                     {
                         $keywords =  $resquery[0]['keywords'];
                     }
@@ -506,7 +506,7 @@ class dashboardActions extends sfActions {
                     $query = 'SELECT keywords FROM surveys WHERE id="'. $survey->getId() .'"';
                     $resquery = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
                     $keywords = "- - -";
-                    if(isset($resquery[0]['keywords']) && !empty($resquery[0]['keywords']))
+                    if(isset($resquery[0]['keywords']) && !empty($resquery[0]['keywords']) && $resquery[0]['keywords']!=' ')
                     {
                         $keywords =  $resquery[0]['keywords'];
                     }
@@ -2025,11 +2025,11 @@ class dashboardActions extends sfActions {
 
               $query = 'SELECT keywords FROM surveys WHERE id="'. $survey_id .'"';
                 $resquery = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
-                $keywords = "";
-                if(isset($resquery[0]['keywords']))
+                $keywords = "- - -";
+                if(isset($resquery[0]['keywords']) && !empty($resquery[0]['keywords']))
                 {
                     $keywords =  $resquery[0]['keywords'];
-                }
+                }              
                 // Get frequency
                 $frequency = ($survey->getFrequency() != 0) ? LtSurvey::$frequency_types_array[$survey->getFrequency()] : "- - -";
 

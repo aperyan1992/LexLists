@@ -21,6 +21,7 @@
     height: 30px !important;
 }
 
+#sf_admin_content input{padding-left:10px;}
 #dialog_form_survey_details_for_my_lists_notes tr{
 	display: table-row !important;
 	float: none !important; 

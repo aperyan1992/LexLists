@@ -13,7 +13,6 @@ $(document).ready(function() {
 
 
     });*/
-
     $('#s2id_lt_survey_survey_contact_id').css({"width": '434px'})
 
     /**

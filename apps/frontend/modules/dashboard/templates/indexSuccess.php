@@ -14,16 +14,7 @@
                     <?php echo $sf_data->getRaw('survey_year_checkboxes')?>
                 </form>
             </div>
-        </div>
-
-        <div class="organization">
-            <h3 class="custom_color" title="The organization running the survey or award.">Organization <i class="filter_arrow"></i></h3>
-            <div class="org-body test_smaller">
-                <form action="" name="">
-                    <?php echo $sf_data->getRaw('survey_organizations_checkboxes') ?>
-                </form>
-            </div>
-        </div>
+        </div>        
 
         <div class="candidate_type">
             <h3 class="custom_color" title="The type of candidate eligible to participate in a survey or be considered for an award.">Candidate Type <i class="filter_arrow"></i></h3>
@@ -39,6 +30,15 @@
             <div class="org-body">
                 <form action="" name="">
                     <?php echo $sf_data->getRaw('survey_practice_areas_checkboxes') ?>
+                </form>
+            </div>
+        </div>
+        
+        <div class="organization">
+            <h3 class="custom_color" title="The organization running the survey or award.">Organization <i class="filter_arrow"></i></h3>
+            <div class="org-body test_smaller">
+                <form action="" name="">
+                    <?php echo $sf_data->getRaw('survey_organizations_checkboxes') ?>
                 </form>
             </div>
         </div>

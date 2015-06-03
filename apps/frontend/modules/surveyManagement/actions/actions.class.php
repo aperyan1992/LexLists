@@ -44,6 +44,7 @@ class surveyManagementActions extends autoSurveyManagementActions {
             $self_nomination       = $request->getParameter("self_nomination", NULL);
             $fees                  = $request->getParameter("fees", NULL);
             $pay_for_play          = $request->getParameter("pay_for_play", NULL);
+            $keywords              = $request->getParameter("keywords", NULL);
             $contact_id            = $request->getParameter("contact_id", NULL);
             $survey_notes          = $request->getParameter("survey_notes", NULL);
             $staff_notes           = $request->getParameter("staff_notes", NULL);
@@ -78,6 +79,7 @@ class surveyManagementActions extends autoSurveyManagementActions {
                         $survey->setOrganizationId(NULL);
                     }
                     $survey->setOrganizationUrl($organization_url);
+                    $survey->setKeywords($keywords);
                     $survey->setSurveyName($survey_name);
                     if (!empty($survey_year)) {
                         $survey->setYear($survey_year);

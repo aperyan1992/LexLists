@@ -432,6 +432,7 @@ $(document).ready(function() {
             case "survey":
                 var organization          = $("#lt_survey_organization_id"),
                     organization_url      = $("#lt_survey_organization_url"),
+                    keywords              = $("#lt_survey_keywords"),
                     survey_name           = $("#lt_survey_survey_name"),
                     survey_year           = $("#lt_survey_year"),
                     survey_url            = $("#lt_survey_survey_url"),
@@ -488,6 +489,7 @@ $(document).ready(function() {
                         data: {
                             organization          : organization.val(),
                             organization_url      : organization_url.val(),
+                            keywords              : keywords.val(),
                             survey_name           : survey_name.val(),
                             survey_year           : survey_year.val(),
                             survey_url            : survey_url.val(),

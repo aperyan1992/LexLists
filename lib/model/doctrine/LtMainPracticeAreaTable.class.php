@@ -35,19 +35,19 @@ class LtMainPracticeAreaTable extends Doctrine_Table {
       foreach ($main_practice_areas as $main_practice_area) {
         if($main_practice_area->getName() != "ANY") {
           $practice_areas_array[$main_practice_area->getName()] = array();
-          if ($main_practice_area->getLtPracticeArea()->getFirst()) {
+          if ($main_practice_area->getId()=='555' && $main_practice_area->getLtPracticeArea()->getFirst()) {
             foreach ($main_practice_area->getLtPracticeArea() as $name) {
               $practice_areas_array[$main_practice_area->getName()][$name->getId()] = $name->getName();
             }
-          } else {
+          } /*else {
             $practice_areas_array[$main_practice_area->getName()][""] = "";
-          }
+          }*/
         } else {
           $any_practice_area_array[$main_practice_area->getLtPracticeArea()->getFirst()->getId()] = $main_practice_area->getLtPracticeArea()->getFirst()->getName();
         }
       }
     }
-    
+    //var_dump($any_practice_area_array + $practice_areas_array);die;
     return $any_practice_area_array + $practice_areas_array;
   }
 

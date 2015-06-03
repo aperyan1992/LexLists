@@ -11,6 +11,7 @@
  * @property integer $year
  * @property string $survey_url
  * @property integer $frequency
+ * @property string $keywords
  * @property date $submission_deadline
  * @property integer $survey_region_id
  * @property string $survey_description
@@ -46,6 +47,7 @@
  * @method integer             getYear()                    Returns the current record's "year" value
  * @method string              getSurveyUrl()               Returns the current record's "survey_url" value
  * @method integer             getFrequency()               Returns the current record's "frequency" value
+ * @method string              getKeywords()                Returns the current record's "frequency" value
  * @method date                getSubmissionDeadline()      Returns the current record's "submission_deadline" value
  * @method integer             getSurveyRegionId()          Returns the current record's "survey_region_id" value
  * @method string              getSurveyDescription()       Returns the current record's "survey_description" value
@@ -80,6 +82,7 @@
  * @method LtSurvey            setYear()                    Sets the current record's "year" value
  * @method LtSurvey            setSurveyUrl()               Sets the current record's "survey_url" value
  * @method LtSurvey            setFrequency()               Sets the current record's "frequency" value
+ * @method LtSurvey            setKeywords()                Sets the current record's "frequency" value
  * @method LtSurvey            setSubmissionDeadline()      Sets the current record's "submission_deadline" value
  * @method LtSurvey            setSurveyRegionId()          Sets the current record's "survey_region_id" value
  * @method LtSurvey            setSurveyDescription()       Sets the current record's "survey_description" value
@@ -141,6 +144,10 @@ abstract class BaseLtSurvey extends sfDoctrineRecord
              ));
         $this->hasColumn('frequency', 'integer', null, array(
              'type' => 'integer',
+             ));
+        $this->hasColumn('keywords', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
              ));
         $this->hasColumn('submission_deadline', 'date', null, array(
              'type' => 'date',

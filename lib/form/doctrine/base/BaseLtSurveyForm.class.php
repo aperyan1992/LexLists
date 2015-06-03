@@ -32,6 +32,7 @@ abstract class BaseLtSurveyForm extends BaseFormDoctrine
       'self_nomination'        => new sfWidgetFormInputCheckbox(),
       'fees'                   => new sfWidgetFormInputCheckbox(),
       'pay_for_play'           => new sfWidgetFormInputCheckbox(),
+      'keywords'               => new sfWidgetFormInputText(),
       'survey_contact_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Contact'), 'add_empty' => true)),
       'survey_notes'           => new sfWidgetFormTextarea(),
       'staff_notes'            => new sfWidgetFormTextarea(),
@@ -42,6 +43,7 @@ abstract class BaseLtSurveyForm extends BaseFormDoctrine
       'countries_list'         => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'LtCountry')),
       'special_criterias_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'LtSpecialCriteria')),
       'practice_areas_list'    => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'LtPracticeArea')),
+
     ));
 
     $this->setValidators(array(
@@ -62,6 +64,7 @@ abstract class BaseLtSurveyForm extends BaseFormDoctrine
       'self_nomination'        => new sfValidatorBoolean(array('required' => false)),
       'fees'                   => new sfValidatorBoolean(array('required' => false)),
       'pay_for_play'           => new sfValidatorBoolean(array('required' => false)),
+      'keywords'               => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'survey_contact_id'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Contact'), 'required' => false)),
       'survey_notes'           => new sfValidatorString(array('max_length' => 5000, 'required' => false)),
       'staff_notes'            => new sfValidatorString(array('max_length' => 5000, 'required' => false)),

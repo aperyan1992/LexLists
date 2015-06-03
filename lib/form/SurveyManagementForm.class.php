@@ -40,6 +40,8 @@ class SurveyManagementForm extends LtSurveyForm {
     $this->widgetSchema['eligibility_criteria']   = new sfWidgetFormTextarea(array(), array("class" => "admin_survey_management_textarea"));
     $this->widgetSchema['special_criterias_list'] = new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'LtSpecialCriteria'), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
     $this->widgetSchema['practice_areas_list']    = new sfCustomWidgetFormChoice(array("choices" => $practice_area_choices, "multiple" => true), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
+    $this->widgetSchema['keywords']               = new sfWidgetFormInputText(array(), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
+
     $this->widgetSchema['nomination']             = new sfWidgetFormTextarea(array(), array("class" => "admin_survey_management_textarea"));
     $this->widgetSchema['selection_methodology']  = new sfWidgetFormTextarea(array(), array("class" => "admin_survey_management_textarea"));
     $this->widgetSchema['self_nomination']        = new sfWidgetFormChoice(array("expanded" => true, "choices"  => array(1 => 'Yes', 0 => 'No')),array('class' => 'admin_syrvey_management_radio'));

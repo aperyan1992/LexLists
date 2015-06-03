@@ -67,6 +67,15 @@ $(document).ready(function() {
 
         return false;
     });
+
+   /* $('#lt_survey_keywords').select2({
+      tags: true,
+    })*/
+ $('#lt_survey_keywords').select2({
+          // specify tags
+          tags: [],
+          separator: ";"
+        });
     /**
      * END
      */

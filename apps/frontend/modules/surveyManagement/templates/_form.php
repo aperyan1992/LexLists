@@ -36,4 +36,5 @@
     <?php include_partial("surveyManagement/add_survey_organization_popup"); ?>
     <?php include_partial("surveyManagement/add_survey_city_popup"); ?>
     <?php include_partial("surveyManagement/add_survey_special_criteria_popup"); ?>
+    <?php include_partial("surveyManagement/add_new_keyword_popup"); ?>
 </div>

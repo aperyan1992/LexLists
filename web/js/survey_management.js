@@ -22,6 +22,7 @@ $(document).ready(function() {
     initOrganizationPopupWindow('dialog_form_organization');
     initSurveyCityPopupWindow('dialog_form_city');
     initSurveySpecialCriteriaPopupWindow('dialog_form_special_criteria');
+    initSurveyKeywordPopupWindow('dialog_form_keyword')
 
     /**
      * Add new survey contact
@@ -71,13 +72,24 @@ $(document).ready(function() {
    /* $('#lt_survey_keywords').select2({
       tags: true,
     })*/
+$("#add_keywords_link").click(function() {
+        $("#dialog_form_keyword").dialog("open");
+
+        return false;
+    });
+
  $('#lt_survey_keywords').select2({
           // specify tags
-          tags: [],
-          separator: ";"
+          tags: false,
+          separator: ";",
+          allowClear: true,
         });
-    /**
-     * END
-     */
+select2keywordvalues();
+
+$('#s2id_lt_survey_keywords .select2-search-choice-close').click(function(){
+    setTimeout(select2keywordvalues(),2000);
+});
+ $('#s2id_lt_survey_keywords .select2-input').attr('disabled',true);
+   
 
 });

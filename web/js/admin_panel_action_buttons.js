@@ -107,6 +107,33 @@ function checkRegexp( o, regexp, n ) {
    }
 }
 
+function select2keywordvalues(){
+
+    var names = [];
+    $('#s2id_lt_survey_keywords .select2-search-choice div').each(function(){
+        names.push($(this).text())
+    })
+    //console.log(names);
+    //var names = $('#lt_survey_keywords').val().split(";");
+    var uniqueNames = [];
+    var strnames = '';
+    $.each(names, function(i, el){
+        if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+    });
+    $.each(uniqueNames, function(i, el){
+        if(strnames=='')
+        {
+            strnames = el;
+        }
+        else{
+            strnames = strnames+';'+el
+        }
+    });
+    $('#lt_survey_keywords').val(strnames);
+    //console.log($('#lt_survey_keywords').val());
+
+}
+
 /**
  * Check email address for uniqueness
  * 
@@ -351,6 +378,7 @@ $(document).ready(function() {
      *  Click on "Save" button
      */
     $(document).on("click", ".save_button", function(erer) {
+         select2keywordvalues();
         var form_name = $(this).attr("form_name");
         var list_url = $('.cancel_admin_panel').attr("list_url");
         var is_new_object = $("#is_new_object").val();

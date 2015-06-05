@@ -305,4 +305,48 @@ function initSurveySpecialCriteriaPopupWindow(element) {
             $("#" + element + " .error_list li").text("");
         }
     });
+
 }
+function initSurveyKeywordPopupWindow(element) {
+    var keyword = $("#survey_keyword_dialog_form_keyword"),
+        allFields  = $([]).add(keyword);
+
+    $("#" + element).dialog({
+        autoOpen: false,
+        height: 'auto',
+        width: 550,
+        modal: true,
+        buttons: {
+            Cancel: function() {
+                $(this).dialog("close");
+                allFields.val("").removeClass("ui-state-error").removeClass("ui-state-highlight");
+                $("#" + element + " .error_list li").text("");
+            },
+            "Save": function() {                
+                var bValid = true;
+                allFields.removeClass("ui-state-error");
+                allFields.parent("td").find("ul li").text('');
+                
+                bValid = bValid && checkLength(keyword, "survey keyword", 1, 250);
+
+                if (bValid) {
+                    var response_status = true;
+                    var dataArray = $("#lt_survey_keywords").select2('data');
+                    dataArray.push({'id':keyword.val(),"text": keyword.val() });
+
+                    $("#lt_survey_keywords").select2("data", dataArray);
+                    select2keywordvalues();
+
+                      $(this).dialog("close");
+                      allFields.val("").removeClass("ui-state-error").removeClass("ui-state-highlight");
+                      $("#" + element + " .error_list li").text("");
+                    
+                }
+            }
+        },
+        close: function() {
+            allFields.val("").removeClass("ui-state-error").removeClass("ui-state-highlight");
+            $("#" + element + " .error_list li").text("");
+        }
+    });
+    }

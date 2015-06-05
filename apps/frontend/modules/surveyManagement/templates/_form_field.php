@@ -18,7 +18,8 @@
           <?php endif; ?>        
             <?php echo $form[$name]->render($attributes);                     ?>
 
-          <?php if(array_key_exists("with_add_new_link", $attributes) !== FALSE) : ?>
+          <?php if(array_key_exists("with_add_new_link", $attributes) !== FALSE OR 
+          $name=='keywords') : ?>
               <?php include_partial("surveyManagement/add_new_link", array('field_name' => $name)); ?>
           <?php endif; ?>
         

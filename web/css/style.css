@@ -16,7 +16,9 @@
 .list_alerts div {
 	font-weight: normal !important;
 }
-
+.ui-widget-header input {
+    font-weight: 100;
+}
 .select2-drop .select2-drop-multi, .special_height {
     height: 30px !important;
 }

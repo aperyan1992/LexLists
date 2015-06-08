@@ -335,6 +335,8 @@ class dataloadActions extends sfActions
 
                     if(isset($data[$arrKeys['practice_areas']]))
                     {
+                        $pracarea_query_str = 'INSERT INTO practice_areas (`main_practice_area_id`,`name`,`short_code`) VALUES ';
+
                         $pracareas1 = $data[$arrKeys['practice_areas']];
                         if (strpos($pracareas1,';') !== false) {
                                 $arrPrac = explode(';', $pracareas1); 

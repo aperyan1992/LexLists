@@ -36,6 +36,9 @@ class SurveyManagementForm extends LtSurveyForm {
     $this->widgetSchema['countries_list']         = new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'LtCountry'), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
     $this->widgetSchema['survey_region_id']       = new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Region'), 'add_empty' => true), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
     $this->widgetSchema['survey_description']     = new sfWidgetFormTextarea(array(), array("class" => "admin_survey_management_textarea"));
+    $this->widgetSchema['is_legal']               = new sfWidgetFormInputCheckbox();
+    $this->widgetSchema['is_list']                = new sfWidgetFormInputCheckbox();
+
     $this->widgetSchema['candidate_type']         = new sfCustomWidgetFormChoice(array("add_empty" => "", "choices" => LtSurvey::$candidate_types_array), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
     $this->widgetSchema['eligibility_criteria']   = new sfWidgetFormTextarea(array(), array("class" => "admin_survey_management_textarea"));
     $this->widgetSchema['special_criterias_list'] = new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'LtSpecialCriteria'), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));

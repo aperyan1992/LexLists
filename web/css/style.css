@@ -12,7 +12,7 @@
     font-weight: normal;
     font-style: normal;
 }
-
+.test_smaller table td{padding:5px;}
 .list_alerts div {
 	font-weight: normal !important;
 }

@@ -15,6 +15,8 @@
  * @property date $submission_deadline
  * @property integer $survey_region_id
  * @property string $survey_description
+ * @property integer $is_legal
+ * @property integer $is_list
  * @property integer $candidate_type
  * @property string $eligibility_criteria
  * @property string $nomination
@@ -47,10 +49,12 @@
  * @method integer             getYear()                    Returns the current record's "year" value
  * @method string              getSurveyUrl()               Returns the current record's "survey_url" value
  * @method integer             getFrequency()               Returns the current record's "frequency" value
- * @method string              getKeywords()                Returns the current record's "frequency" value
+ * @method string              getKeywords()                Returns the current record's "keywords" value
  * @method date                getSubmissionDeadline()      Returns the current record's "submission_deadline" value
  * @method integer             getSurveyRegionId()          Returns the current record's "survey_region_id" value
  * @method string              getSurveyDescription()       Returns the current record's "survey_description" value
+ * @method integer             getIsList()                  Returns the current record's "is_list" value
+ * @method integer             getIsLegal()                 Returns the current record's "is_legal" value
  * @method integer             getCandidateType()           Returns the current record's "candidate_type" value
  * @method string              getEligibilityCriteria()     Returns the current record's "eligibility_criteria" value
  * @method string              getNomination()              Returns the current record's "nomination" value
@@ -86,6 +90,8 @@
  * @method LtSurvey            setSubmissionDeadline()      Sets the current record's "submission_deadline" value
  * @method LtSurvey            setSurveyRegionId()          Sets the current record's "survey_region_id" value
  * @method LtSurvey            setSurveyDescription()       Sets the current record's "survey_description" value
+ * @method LtSurvey            setIsList()                  Sets the current record's "is_list" value
+ * @method LtSurvey            setIsLegal()                 Sets the current record's "is_legal" value
  * @method LtSurvey            setCandidateType()           Sets the current record's "candidate_type" value
  * @method LtSurvey            setEligibilityCriteria()     Sets the current record's "eligibility_criteria" value
  * @method LtSurvey            setNomination()              Sets the current record's "nomination" value
@@ -160,6 +166,12 @@ abstract class BaseLtSurvey extends sfDoctrineRecord
         $this->hasColumn('survey_description', 'string', 5000, array(
              'type' => 'string',
              'length' => 5000,
+             ));
+        $this->hasColumn('is_legal', 'integer', null, array(
+             'type' => 'integer',
+             ));
+        $this->hasColumn('is_list', 'integer', null, array(
+             'type' => 'integer',
              ));
         $this->hasColumn('candidate_type', 'integer', null, array(
              'type' => 'integer',

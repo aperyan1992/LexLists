@@ -287,6 +287,9 @@ class dashboardActions extends sfActions {
                     // Set survey name link
                     $survey_name_link = "<a href='#' class='custom_link details_link' s_id='" . $survey->getId() . "'>" . $this->CheckStringLength($survey_name, 50) . "</a>";
 
+                    $isList = (!is_null($survey->getIsList()) && $survey->getIsList() == "1") ? 'List' : "Award";
+                    $isLegal = (!is_null($survey->getIsLegal()) && $survey->getIsLegal() == "1") ? 'Legal' : "Business";
+
                     // Set candidate type
                     $candidate_type = (isset(LtSurvey::$candidate_types_array[$survey->getCandidateType()]) && !is_null($survey->getCandidateType()) && $survey->getCandidateType() != "" && $survey->getCandidateType() != "0") ? $this->CheckStringLength(LtSurvey::$candidate_types_array[$survey->getCandidateType()], 50) : "- - -";
 
@@ -390,7 +393,9 @@ class dashboardActions extends sfActions {
                         $eligibility,
                         $description,
                         $methodology,
-                        $keywords
+                        $keywords,
+                        $isList,
+                        $isLegal
                         //$email_link,
                     );
 
@@ -440,6 +445,9 @@ class dashboardActions extends sfActions {
 
                     // Set survey name link
                     $survey_name_link = "<a href='#' class='custom_link details_link' s_id='" . $survey->getId() . "'>" . $this->CheckStringLength($survey_name, 50) . "</a>";
+
+                    $isList = (!is_null($survey->getIsList()) && $survey->getIsList() == "1") ? 'List' : "Award";
+                    $isLegal = (!is_null($survey->getIsLegal()) && $survey->getIsLegal() == "1") ? 'Legal' : "Business";
 
                     // Set candidate type
                     $candidate_type = (isset(LtSurvey::$candidate_types_array[$survey->getCandidateType()]) && !is_null($survey->getCandidateType()) && $survey->getCandidateType() != "" && $survey->getCandidateType() != "0") ? $this->CheckStringLength(LtSurvey::$candidate_types_array[$survey->getCandidateType()], 50) : "- - -";
@@ -543,7 +551,9 @@ class dashboardActions extends sfActions {
                         $eligibility,
                         $description,
                         $methodology,
-                        $keywords
+                        $keywords,
+                        $isList,
+                        $isLegal
                         //$email_link,
                     );
 

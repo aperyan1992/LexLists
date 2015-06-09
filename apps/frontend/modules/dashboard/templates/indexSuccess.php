@@ -14,8 +14,17 @@
                     <?php echo $sf_data->getRaw('survey_year_checkboxes')?>
                 </form>
             </div>
-        </div>        
-
+        </div>  
+        <form class="test_smaller">      
+        <table>
+        <tr>
+        <td><input type="checkbox" class="is_list_checkbox" value="Award" col_num="16"><span>Awards</span></td>
+        <td><input type="checkbox" class="is_list_checkbox" value="List" col_num="16"><span>Lists</span></td>
+       </tr><tr>
+        <td><input type="checkbox" class="is_legal_checkbox" value="Legal" col_num="17"><span>Legal</span> </td>
+        <td><input type="checkbox" class="is_legal_checkbox" value="Business" col_num="17"><span>Business</span></td>
+        </tr>
+         </table>     
         <div class="candidate_type">
             <h3 class="custom_color" title="The type of candidate eligible to participate in a survey or be considered for an award.">Candidate Type <i class="filter_arrow"></i></h3>
             <div class="org-body">

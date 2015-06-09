@@ -35,6 +35,8 @@ class surveyManagementActions extends autoSurveyManagementActions {
             $survey_countries      = $request->getParameter("survey_countries", NULL);
             $survey_region         = $request->getParameter("survey_region", NULL);
             $survey_description    = $request->getParameter("survey_description", NULL);
+            $survey_is_list        = $request->getParameter("is_list", NULL);
+            $survey_is_legal       = $request->getParameter("is_legal", NULL);
             $candidate_type        = $request->getParameter("candidate_type", NULL);
             $eligibility_criteria  = $request->getParameter("eligibility_criteria", NULL);
             $special_criterias     = $request->getParameter("special_criterias", NULL);
@@ -99,6 +101,20 @@ class surveyManagementActions extends autoSurveyManagementActions {
                         $survey->setSurveyRegionId(NULL);
                     }
                     $survey->setSurveyDescription($survey_description);
+                    if($survey_is_list != "false")
+                    {
+                        $survey->setIsList(1);
+                    }
+                    else{
+                        $survey->setIsList(0);
+                    }
+                    if($survey_is_legal != "false")
+                    {
+                        $survey->setIsLegal(1);
+                    }
+                    else{
+                        $survey->setIsLegal(0);
+                    }
                     $survey->setCandidateType($candidate_type);
                     $survey->setEligibilityCriteria($eligibility_criteria);
                     $survey->setNomination($nomination);

@@ -8,8 +8,11 @@
  * @author        Sergey Kuprianov <sergey.kuprianov@sibers.com>
  */
 class SurveyManagementForm extends LtSurveyForm {
-  
-  public function configure() {
+
+    /**
+     *
+     */
+    public function configure() {
     // Remove fields
     $this->removeFields();
     
@@ -18,6 +21,13 @@ class SurveyManagementForm extends LtSurveyForm {
     for($year = sfConfig::get("app_survey_year_from"); $year <= (int) sfConfig::get("app_survey_year_to"); $year++) {
         $years_range_array[$year] = $year;
     }
+      $statuses_array = array(
+          'Gone' => 'Gone',
+          'Done' => 'Done' ,
+          'Stale' => 'Stale',
+          'Not Updated' => 'Not Updated' ,
+          'New' =>'New'
+      );
     
     // Get choices
     $practice_area_choices = Doctrine_Core::getTable("LtMainPracticeArea")->getPracticeAreasWithMainPracticeAreas();
@@ -52,6 +62,8 @@ class SurveyManagementForm extends LtSurveyForm {
     $this->widgetSchema['pay_for_play']           = new sfWidgetFormChoice(array("expanded" => true, "choices"  => array(1 => 'Yes', 0 => 'No')),array('class' => 'admin_syrvey_management_radio'));
     $this->widgetSchema['survey_contact_id']      = new sfCustomWidgetFormChoice(array("add_empty" => "", "choices" => $contact_choices), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
     $this->widgetSchema['survey_notes']           = new sfWidgetFormTextarea(array(), array("class" => "admin_survey_management_textarea"));
+    $this->widgetSchema['status']                 = new sfCustomWidgetFormChoice(array("add_empty" => "", "choices" => $statuses_array), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
+
     $this->widgetSchema['staff_notes']            = new sfWidgetFormTextarea(array(), array("class" => "admin_survey_management_textarea"));
     
     // Set validators
@@ -78,6 +90,7 @@ class SurveyManagementForm extends LtSurveyForm {
     $this->validatorSchema['pay_for_play']           = new sfValidatorChoice(array('choices' => array_keys(array(1 => 'Yes', 0 => 'No')), 'required' => false), array("required" => "This field is required."));
     $this->validatorSchema['survey_contact_id']      = new sfValidatorChoice(array('choices' => array_keys($contact_choices), 'required' => false), array("required" => "This field is required."));
     $this->validatorSchema['survey_notes']           = new sfValidatorString(array('max_length' => 5000, 'required' => false), array("max_length" => "Maximum length (5000 characters)"));
+    $this->validatorSchema['status']                 = new sfValidatorChoice(array('choices' => array_keys($statuses_array), 'required' => false), array("required" => "This field is required."));
     $this->validatorSchema['staff_notes']            = new sfValidatorString(array('max_length' => 5000, 'required' => false), array("max_length" => "Maximum length (5000 characters)"));
     
     // Set help messages

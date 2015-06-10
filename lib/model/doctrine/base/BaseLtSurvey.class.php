@@ -26,6 +26,7 @@
  * @property boolean $pay_for_play
  * @property integer $survey_contact_id
  * @property string $survey_notes
+ * @property string $status
  * @property string $staff_notes
  * @property LtSurveyContact $Contact
  * @property LtOrganization $Organization
@@ -64,6 +65,7 @@
  * @method boolean             getPayForPlay()              Returns the current record's "pay_for_play" value
  * @method integer             getSurveyContactId()         Returns the current record's "survey_contact_id" value
  * @method string              getSurveyNotes()             Returns the current record's "survey_notes" value
+ * @method string              getStatus()                  Returns the current record's "status" value
  * @method string              getStaffNotes()              Returns the current record's "staff_notes" value
  * @method LtSurveyContact     getContact()                 Returns the current record's "Contact" value
  * @method LtOrganization      getOrganization()            Returns the current record's "Organization" value
@@ -101,6 +103,7 @@
  * @method LtSurvey            setPayForPlay()              Sets the current record's "pay_for_play" value
  * @method LtSurvey            setSurveyContactId()         Sets the current record's "survey_contact_id" value
  * @method LtSurvey            setSurveyNotes()             Sets the current record's "survey_notes" value
+ * @method LtSurvey            setStatus()                  Sets the current record's "status" value
  * @method LtSurvey            setStaffNotes()              Sets the current record's "staff_notes" value
  * @method LtSurvey            setContact()                 Sets the current record's "Contact" value
  * @method LtSurvey            setOrganization()            Sets the current record's "Organization" value
@@ -208,6 +211,10 @@ abstract class BaseLtSurvey extends sfDoctrineRecord
              'type' => 'string',
              'length' => 5000,
              ));
+        $this->hasColumn('status', 'string', 250, array(
+            'type' => 'string',
+            'length' => 250,
+        ));
         $this->hasColumn('staff_notes', 'string', 5000, array(
              'type' => 'string',
              'length' => 5000,

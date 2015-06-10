@@ -49,6 +49,7 @@ class surveyManagementActions extends autoSurveyManagementActions {
             $keywords              = $request->getParameter("keywords", NULL);
             $contact_id            = $request->getParameter("contact_id", NULL);
             $survey_notes          = $request->getParameter("survey_notes", NULL);
+            $status                = $request->getParameter("status", NULL);
             $staff_notes           = $request->getParameter("staff_notes", NULL);
             $is_new_object         = $request->getParameter("is_new_object", FALSE);
 
@@ -134,6 +135,11 @@ class surveyManagementActions extends autoSurveyManagementActions {
                         $survey->setSurveyContactId(NULL);
                     }
                     $survey->setSurveyNotes($survey_notes);
+                    if (!empty($status)) {
+                        $survey->setStatus($status);
+                    } else {
+                        $survey->setStatus(NULL);
+                    }
                     $survey->setStaffNotes($staff_notes);
                     $survey->save();
 

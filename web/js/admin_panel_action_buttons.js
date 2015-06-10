@@ -484,6 +484,7 @@ $(document).ready(function() {
                     pay_for_play          = $("input[name='lt_survey[pay_for_play]']:checked"),
                     contact_id            = $("#lt_survey_survey_contact_id"),
                     survey_notes          = $("#lt_survey_survey_notes"),
+                    status                = $("#lt_survey_status"),
                     staff_notes           = $("#lt_survey_staff_notes"),
                     survey_form_fields    = $([]).add(organization).add(organization_url).add(survey_name)
                                                   .add(survey_year).add(survey_url).add(frequency)
@@ -543,6 +544,7 @@ $(document).ready(function() {
                             pay_for_play          : (pay_for_play.val() == undefined) ? false : pay_for_play.val(),
                             contact_id            : contact_id.val(),
                             survey_notes          : survey_notes.val(),
+                            status                : status.val(),
                             staff_notes           : staff_notes.val(),
                             is_new_object         : is_new_object
                         },

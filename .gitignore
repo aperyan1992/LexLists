@@ -2,3 +2,4 @@
 /log/*
 /nbproject/*
 .idea/workspace.xml
+.htaccess

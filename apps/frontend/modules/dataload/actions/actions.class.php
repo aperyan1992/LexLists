@@ -55,7 +55,7 @@ class dataloadActions extends sfActions
                     $arrKeys[strtolower(str_replace(' ', '_', $value))] = $key;
                 }
                 unset($csvdata[0], $csvdata[1]);
-
+                //var_dump($arrKeys);die;
                 foreach($csvdata as $key=>$data)
                 {
                     $arrStates = array();
@@ -206,7 +206,31 @@ class dataloadActions extends sfActions
                     }
                     else{
                         $fianlresult[$key]['practice_areas'] = null;
-                    }                     
+                    }
+
+                    if(isset($data[$arrKeys['is_list']]) && strpos(strtolower($data[$arrKeys['is_list']]),'yes') !== false)
+                    {
+                        $fianlresult[$key]['is_list'] = 1;
+                    }
+                    else{
+                        $fianlresult[$key]['is_list'] = 0;
+                    }
+
+                    if(isset($data[$arrKeys['is_legal']]) && strpos(strtolower($data[$arrKeys['is_legal']]),'yes') !== false)
+                    {
+                        $fianlresult[$key]['is_legal'] = 1;
+                    }
+                    else{
+                        $fianlresult[$key]['is_legal'] = 0;
+                    }
+
+                    if(isset($data[$arrKeys['status']]) )
+                    {
+                        $fianlresult[$key]['status'] = $data[$arrKeys['status']];
+                    }
+                    else{
+                        $fianlresult[$key]['status'] = null;
+                    }
 
                     if(isset($data[$arrKeys['notes']]))
                     {
@@ -400,7 +424,6 @@ class dataloadActions extends sfActions
                          }
                     }
                 }
-                
                 if(!empty($fianlresult))
                 {
                     $arrStates = array();

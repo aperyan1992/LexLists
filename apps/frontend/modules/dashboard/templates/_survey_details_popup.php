@@ -3,28 +3,28 @@
     <form>
         <table style="">
             <tr>
-                <th align="right">Year:</th>
+                <th align="right">Year</th>
                 <td id="dialog_year"></td>
             </tr>
             <tr>
-                <th align="right">Organization:</th>
+                <th align="right">Organization</th>
                 <td id="dialog_organization"></td>
             </tr>
             <tr>
-                <th align="right">Award:</th>
+                <th align="right">Award</th>
                 <td id="dialog_survey_name"></td>
                 <td id="dialog_survey_name_hidden" style="display:none;"></td>
             </tr>
             <tr>
-                <th align="right">Submission Deadline:</th>
+                <th align="right">Submission Deadline</th>
                 <td id="dialog_submission_deadline"></td>
             </tr>
             <tr>
-                <th align="right">Type:</th>
+                <th align="right">Type</th>
                 <td id="dialog_candidate_type"></td>
             </tr>
             <tr>
-                <th align="right">Special Criteria(s):</th>
+                <th align="right">Special Criteria(s)</th>
                 <td id="dialog_special_criterias"></td>
             </tr>
            <!--  <tr>
@@ -32,15 +32,15 @@
                 <td id="dialog_eligibility_notes"></td>
             </tr> -->
             <tr>
-                <th align="right">Practice Area(s):</th>
+                <th align="right">Practice/Industry Area(s)</th>
                 <td id="dialog_practice_areas"></td>
             </tr>
             <tr>
-                <th align="right">Geographic Area:</th>
+                <th align="right">Geographic Area</th>
                 <td id="dialog_geographic_area"></td>
             </tr>
             <tr>
-                <th align="right" valign="top">Description:</th>
+                <th align="right" valign="top">Description</th>
                 <td id="dialog_description"></td>
                 <td id="dialog_description_1" style="display:none;"></td>
             </tr>
@@ -53,15 +53,15 @@
                 <td id="dialog_nomination"></td>
             </tr> -->
             <tr>
-                <th align="right">Keywords:</th>
+                <th align="right">Keywords</th>
                 <td id="dialog_keywords"></td>
             </tr> 
             <tr>
-                <th align="right">Frequency:</th>
+                <th align="right">Frequency</th>
                 <td id="dialog_frequency"></td>
             </tr>
             <tr>
-                <th align="right" class="dialog_contact">Contact Person:</th>
+                <th align="right" class="dialog_contact">Contact Person</th>
                 <td id="dialog_contact_person"></td>
             </tr>
             <tr>

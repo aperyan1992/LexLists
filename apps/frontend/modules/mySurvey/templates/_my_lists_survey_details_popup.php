@@ -2,28 +2,28 @@
     <form>
         <table style="">
             <tr>
-                <th align="right">Year:</th>
+                <th align="right">Year</th>
                 <td id="dialog_year"></td>
             </tr>
             <tr>
-                <th align="right">Organization:</th>
+                <th align="right">Organization</th>
                 <td id="dialog_organization"></td>
             </tr>
             <tr>
-                <th align="right">Award:</th>
+                <th align="right">Award</th>
                 <td id="dialog_survey_name"></td>
                 <td id="dialog_survey_name_hidden" style="display:none;"></td>
             </tr>
             <tr>
-                <th align="right">Submission Deadline:</th>
+                <th align="right">Submission Deadline</th>
                 <td id="dialog_submission_deadline"></td>
             </tr>
             <tr>
-                <th align="right">Type:</th>
+                <th align="right">Type</th>
                 <td id="dialog_candidate_type"></td>
             </tr>
             <tr>
-                <th align="right">Special Criteria(s):</th>
+                <th align="right">Special Criteria(s)</th>
                 <td id="dialog_special_criterias"></td>
             </tr>
             <!-- <tr>
@@ -31,15 +31,15 @@
                 <td id="dialog_eligibility_notes"></td>
             </tr> -->
             <tr>
-                <th align="right">Practice Area(s):</th>
+                <th align="right">Practice/Industry Area(s)</th>
                 <td id="dialog_practice_areas"></td>
             </tr>
             <tr>
-                <th align="right">Geographic Area:</th>
+                <th align="right">Geographic Area</th>
                 <td id="dialog_geographic_area"></td>
             </tr>
             <tr>
-                <th align="right" valign="top">Description:</th>
+                <th align="right" valign="top">Description</th>
                 <td id="dialog_description"></td>
                 <td id="dialog_description_1" style="display:none;"></td>
             </tr>
@@ -52,15 +52,15 @@
                 <td id="dialog_nomination"></td>
             </tr> -->
             <tr>
-                <th align="right">Keywords:</th>
+                <th align="right">Keywords</th>
                 <td id="dialog_keywords"></td>
             </tr> 
             <tr>
-                <th align="right">Frequency:</th>
+                <th align="right">Frequency</th>
                 <td id="dialog_frequency"></td>
             </tr>
             <tr>
-                <th align="right">Contact Person:</th>
+                <th align="right">Contact Person</th>
                 <td id="dialog_contact_person"></td>
             </tr>
             <tr>
@@ -68,24 +68,24 @@
             </tr>
             <tr>
                 <th>
-                    <label for="dialog_form_survey_details_for_my_lists_my_status" title="Your intention of pursuing this award.">My Status: </label>
+                    <label for="dialog_form_survey_details_for_my_lists_my_status" title="Your intention of pursuing this award.">My Status </label>
                 </th>
                 <td>
                     <div class="radio">
                         <div class="inline_block_display">
                             <input type="radio" name="dialog_form_survey_details_for_my_lists_my_status" id="dialog_form_survey_details_for_my_lists_my_status_1" value="1" />
-                            <label for="dialog_form_survey_details_for_my_lists_my_status_1">Definite</label>
+                            <label class="label_no_padding" for="dialog_form_survey_details_for_my_lists_my_status_1">Definite</label>
                         </div>
                         <div class="inline_block_display margin_left_40">
                             <input type="radio" name="dialog_form_survey_details_for_my_lists_my_status" id="dialog_form_survey_details_for_my_lists_my_status_2" value="2" />
-                            <label for="dialog_form_survey_details_for_my_lists_my_status_2">Maybe</label>
+                            <label class="label_no_padding" for="dialog_form_survey_details_for_my_lists_my_status_2">Maybe</label>
                         </div>
                     </div>
                 </td>
             </tr>
             <tr>
                 <th>
-                    <label for="dialog_form_survey_details_for_my_lists_owner" title="Designate the owner -the responsible person- for this award. By default the owner is you. If you assign it to someone else, it will remain under your own saved list (with a different owner) and will also appear on the new owner's saved list. Removing an award you have assigned to someone else only removes the entry from your own saved list.">Owner: </label>
+                    <label for="dialog_form_survey_details_for_my_lists_owner" title="Designate the owner -the responsible person- for this award. By default the owner is you. If you assign it to someone else, it will remain under your own saved list (with a different owner) and will also appear on the new owner's saved list. Removing an award you have assigned to someone else only removes the entry from your own saved list.">Owner </label>
                 </th>
                 <td>
                     <select id="dialog_form_survey_details_for_my_lists_owner" style="width: 380px;margin-bottom:15px;"></select>
@@ -93,7 +93,7 @@
             </tr>
             <tr>
                 <th>
-                    <label for="dialog_form_survey_details_for_my_lists_share" title="Share this award with other users on LexLists. The award will also appear on their My List.">Share: </label>
+                    <label for="dialog_form_survey_details_for_my_lists_share" title="Share this award with other users on LexLists. The award will also appear on their My List.">Share </label>
                 </th>
                 <td>
                     <select  id="dialog_form_survey_details_for_my_lists_share" style="padding-top:10px;width: 380px;"></select>
@@ -101,7 +101,7 @@
             </tr>
             <tr>
                 <th class="top_vertical_align">
-                    <label for="dialog_form_survey_details_for_my_lists_note" style="margin-top:10px;" title="Anything you want to remember about this award.">Note: </label>
+                    <label for="dialog_form_survey_details_for_my_lists_note" style="margin-top:10px;" title="Anything you want to remember about this award.">Note </label>
                 </th>
                 <td>
                     <input type="hidden" id="dialog_my_survey_id">
@@ -110,7 +110,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2" style="padding-left: 0 !important;">
+                <td class="full_width_td" colspan="2" style="padding-left: 0 !important;">
                     <table id="dialog_form_survey_details_for_my_lists_notes">
                         <thead>
                             <tr>

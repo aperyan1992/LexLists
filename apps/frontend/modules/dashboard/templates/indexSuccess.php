@@ -34,6 +34,15 @@
             </div>
         </div>
 
+        <div class="special_criteria">
+            <h3 class="custom_color" title="Any special criteria or focus related to the award or survey.">Special Criteria <i class="filter_arrow"></i></h3>
+            <div class="org-body">
+                <form action="" name="">
+                    <?php echo $sf_data->getRaw('survey_special_criterias_checkboxes') ?>
+                </form>
+            </div>
+        </div>
+
         <div class="practice_area">
             <h3 class="custom_color" title="The practice areas covered by an award or survey.">Practice Area/Industry <i class="filter_arrow"></i></h3>
             <div class="org-body">
@@ -61,14 +70,6 @@
             </div>
         </div>
 
-        <div class="special_criteria">
-            <h3 class="custom_color" title="Any special criteria or focus related to the award or survey.">Special Criteria <i class="filter_arrow"></i></h3>
-            <div class="org-body">
-                <form action="" name="">
-                    <?php echo $sf_data->getRaw('survey_special_criterias_checkboxes') ?>
-                </form>
-            </div>
-        </div>
     </div>
 
     <div class="deadline">

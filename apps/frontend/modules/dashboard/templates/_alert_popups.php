@@ -1,4 +1,4 @@
-<div id="dialog_error_alert" style="display: none;" title="LexLists Error">
+<div id="dialog_error_alert" style="display: none;" title="LexLists Notice">
     <div id="error_popup_text" class="warning_message"></div>
 </div>
 

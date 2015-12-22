@@ -111,6 +111,12 @@ class dashboardActions extends sfActions {
             $this->survey_organizations_checkboxes .= '<input checkbox_type="organization" type="checkbox" class="organization_checkbox" col_num="2" value="' . $oganizations_name . '" id="' . $oganizations_name . '" /><span>' . $oganizations_name . '</span><br />';
         }
 
+        $this->types_checkboxes .= '<input type="checkbox" class="is_list_checkbox" value="Award" col_num="16"/><span>Directories</span><br />';
+        $this->types_checkboxes .= '<input type="checkbox" class="is_list_checkbox" value="List" col_num="16"/><span>Awards/Lists</span><br />';
+
+        $this->area_checkboxes .= '<input type="checkbox" class="is_legal_checkbox" value="Legal" col_num="17"/><span>Legal</span><br />';
+        $this->area_checkboxes .= '<input type="checkbox" class="is_legal_checkbox" value="Business" col_num="17"/><span>Business/Trade</span><br />';
+
         // Get survey candidate types
         $this->survey_candidate_types = Doctrine_Core::getTable('LtSurvey')->getSurveysCandidateTypes();
        // var_dump($this->survey_candidate_types);die;

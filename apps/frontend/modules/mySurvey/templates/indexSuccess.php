@@ -2,7 +2,7 @@
     <div class="row">
         <div class="left-sidebar">
             <div class="filters_header">
-                <h3 title="Select from the fields below to refine and better focus the results.">Filter By</h3> / 
+                <h3 title="Select from the fields below to refine and better focus the results.">Filter By</h3> /
                 <a href="#" id="clear_filters" class="custom_link">Clear Filters</a>
             </div>  
           
@@ -52,7 +52,11 @@
                   </div>
               </div>
 
-              <div class="special_criteria">
+                <div class="filters_header">
+                    <h3 title="Select from the fields below to refine and better focus the results.">Search By</h3>
+                </div>
+
+                <div class="special_criteria">
                   <h3 class="custom_color" title="Any special criteria or focus related to the award or survey.">Special Criteria <i class="filter_arrow"></i></h3>
                   <div class="org-body">
                       <form action="" name="">

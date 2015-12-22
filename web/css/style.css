@@ -2259,12 +2259,13 @@ form input[type="submit"], form input[type="button"] {
 }
 
 .dataTables_filter label input {
+    width: 250px;
     height: 27px;
     margin-bottom: 8px !important;
     margin-top: 5px !important;
 }
 
-.dataTables_length label select {
+.dataTables_length {
     margin-top: 5px;
 }
 
@@ -4576,7 +4577,7 @@ fieldset.disp-block{
     /*border: 1px solid #666;*/
     padding: 5px;
     position: relative;
-    cursor: move;
+    cursor: default;
 }
 .other_filters_block .org-body, .deadline .org-body{
     border-top: 0;
@@ -5196,4 +5197,8 @@ fieldset.disp-block{
 
 .datatable_td_align_center input[type=checkbox]{
     margin-left:5px
+}
+
+.buttons_margin_bottom {
+    margin-bottom: 30px;
 }

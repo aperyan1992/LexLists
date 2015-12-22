@@ -14,19 +14,28 @@
                     <?php echo $sf_data->getRaw('survey_year_checkboxes')?>
                 </form>
             </div>
-        </div>  
-        <form class="test_smaller">      
-        <table>
-        <tr>
-        <td><input type="checkbox" class="is_list_checkbox" value="Award" col_num="16"><span>Awards</span></td>
-        <td><input type="checkbox" class="is_list_checkbox" value="List" col_num="16"><span>Lists</span></td>
-       </tr><tr>
-        <td><input type="checkbox" class="is_legal_checkbox" value="Legal" col_num="17"><span>Legal</span> </td>
-        <td><input type="checkbox" class="is_legal_checkbox" value="Business" col_num="17"><span>Business</span></td>
-        </tr>
-         </table>     
+        </div>
+
+        <div class="award_list_type">
+            <h3 class="custom_color" title="The submission type, either an award, list or directory">Type<i class="filter_arrow"></i></h3>
+            <div class="org-body" style="min-height: 0px;">
+                <form action="" name="">
+                    <?php echo $sf_data->getRaw('types_checkboxes') ?>
+                </form>
+            </div>
+        </div>
+
+        <div class="area_legal_business">
+            <h3 class="custom_color" title="The submission area, legal or business">Area<i class="filter_arrow"></i></h3>
+            <div class="org-body" style="min-height: 0px;">
+                <form action="" name="">
+                    <?php echo $sf_data->getRaw('area_checkboxes') ?>
+                </form>
+            </div>
+        </div>
+
         <div class="candidate_type">
-            <h3 class="custom_color" title="The type of candidate eligible to participate in a survey or be considered for an award.">Candidate Type <i class="filter_arrow"></i></h3>
+            <h3 class="custom_color" title="The type of eligible candidate">Candidate Type <i class="filter_arrow"></i></h3>
             <div class="org-body">
                 <form action="" name="">
                     <?php echo $sf_data->getRaw('survey_candidate_types_checkboxes') ?>
@@ -35,7 +44,7 @@
         </div>
 
         <div class="special_criteria">
-            <h3 class="custom_color" title="Any special criteria or focus related to the award or survey.">Special Criteria <i class="filter_arrow"></i></h3>
+            <h3 class="custom_color" title="Special eligibility or focus criteria (ex. age, gender etc)">Special Criteria <i class="filter_arrow"></i></h3>
             <div class="org-body">
                 <form action="" name="">
                     <?php echo $sf_data->getRaw('survey_special_criterias_checkboxes') ?>
@@ -44,7 +53,7 @@
         </div>
 
         <div class="practice_area">
-            <h3 class="custom_color" title="The practice areas covered by an award or survey.">Practice Area/Industry <i class="filter_arrow"></i></h3>
+            <h3 class="custom_color" title="The practice or industy areas of focus">Practice Area/Industry <i class="filter_arrow"></i></h3>
             <div class="org-body">
                 <form action="" name="">
                     <?php echo $sf_data->getRaw('survey_practice_areas_checkboxes') ?>
@@ -53,7 +62,7 @@
         </div>
         
         <div class="organization">
-            <h3 class="custom_color" title="The organization running the survey or award.">Organization <i class="filter_arrow"></i></h3>
+            <h3 class="custom_color" title="The organization running the award or directory">Organization <i class="filter_arrow"></i></h3>
             <div class="org-body test_smaller">
                 <form action="" name="">
                     <?php echo $sf_data->getRaw('survey_organizations_checkboxes') ?>
@@ -62,7 +71,7 @@
         </div>
 
         <div class="region">
-            <h3 class="custom_color" title="The geographic area of acceptable candidates.">Region <i class="filter_arrow"></i></h3>
+            <h3 class="custom_color" title="The geographic area of focus for the submission">Region <i class="filter_arrow"></i></h3>
             <div class="org-body">
                 <form action="" name="">
                     <?php echo $sf_data->getRaw('survey_regions_checkboxes') ?>
@@ -70,10 +79,15 @@
             </div>
         </div>
 
+
+    </div>
+
+    <div class="filters_header">
+        <h3 title="Select from the fields below to refine and better focus the results.">Search By</h3>
     </div>
 
     <div class="deadline">
-        <h3 class="custom_color" title="A way to filter by date future surveys or awards based on their submission deadline.">Deadline <i class="filter_arrow"></i></h3>
+        <h3 class="custom_color" title="Upcoming deadlines">Deadline <i class="filter_arrow"></i></h3>
         <div class="org-body">
             <form action="" name="">
                 <input checkbox_type="submission_deadline" type="checkbox" class="deadline_checkbox" col_num="11" value="this_month" name="deadline_checkbox" id="this_month" /><span>This month</span><br />
@@ -84,13 +98,20 @@
             </form>
         </div>
     </div>
-    <div class="jsmap">
 
-        <h3 class="custom_color jsmapclick_us_states" title="A way to filter by US States on a map" >US States Map<i class="filter_arrow"></i></h3>
-        <h3 class="custom_color jsmapclick_us" title="A way to filter by US Regions on a map" >US Regions Map<i class="filter_arrow"></i></h3>
-        <h3 class="custom_color jsmapclick" title="A way to filter by World Regions on a map" >World Regions Map<i class="filter_arrow"></i></h3>
-        <h3 class="custom_color calendar_link" title="A way to Calendar">Calendar<i class="filter_arrow"></i></h3>
+    <div class="jsmap">
+        <h3 class="custom_color calendar_link" title="Use a calendar view">Calendar<i class="filter_arrow"></i></h3>
     </div>
+
+    <div class="other_filters_block">
+        <h3 class="custom_color" title="Use maps">Location<i class="filter_arrow"></i></h3>
+        <div class="org-body jsmap" style="min-height: 0px;">
+            <h3 class="custom_color jsmapclick_us_states" title="A way to filter by US States on a map" >US States Map</h3>
+            <h3 class="custom_color jsmapclick_us" title="A way to filter by US Regions on a map" >US Regions Map</h3>
+            <h3 class="custom_color jsmapclick" title="A way to filter by World Regions on a map" >World Regions Map</h3>
+        </div>
+    </div>
+
 </div>
 
 <div class="main-report-column">
@@ -232,7 +253,7 @@
         </div>
     </div>
 
-    <div class="multiple_actions_block">
+    <div class="multiple_actions_block buttons_margin_bottom">
         <form id="print_form" target="_blank" method="POST" action="<?php echo url_for("@print_survey"); ?>" style="display: none;">
             <select name="surveys_for_print[]" multiple="multiple" id="surveys_for_print"></select>
             <input type="hidden" name="hidden_section_name_for_log" value="dashboard">

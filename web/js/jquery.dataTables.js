@@ -9483,7 +9483,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Search:",
+			"sSearch": "Search",
 		
 		
 			/**

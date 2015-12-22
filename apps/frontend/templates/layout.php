@@ -166,8 +166,7 @@
                             <?php include_component('mySurvey', 'mySurveysBubbles') ?>
                             <a href="<?php echo url_for("@my_list"); ?>" data-toggle="tab">My List</a>
                         </li>
-                        <li class="<?php echo $manage_system_active_class ?> right_tab tab_correct"><a href="#" data-toggle="tab">Settings</a></li>
-                    </ul>
+<!--                        <li class="<?php /*echo $manage_system_active_class */?> right_tab tab_correct"><a href="#" data-toggle="tab">Settings</a></li>-->                    </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="recent">
                             <?php echo $sf_content ?>

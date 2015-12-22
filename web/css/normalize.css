@@ -259,6 +259,10 @@ textarea {
   margin: 0; /* 3 */
 }
 
+.dataTables_length select {
+  font-weight: 100 !important;
+}
+
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */

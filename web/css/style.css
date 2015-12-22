@@ -4579,6 +4579,9 @@ fieldset.disp-block{
     position: relative;
     cursor: default;
 }
+.other_filters_block input, .jsmap h3{
+    cursor: default !important;
+}
 .other_filters_block .org-body, .deadline .org-body{
     border-top: 0;
     width: 205px;

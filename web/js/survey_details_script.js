@@ -301,7 +301,7 @@ function saveSurveyToMyList(survey_id) {
         dataType: "json",
         success: function(data) {
             if (data.status === 'exists') {
-                openErrorPopupWindow('dialog_error_alert', 'This award already exists in your "My Lists" section.');                
+                openErrorPopupWindow('dialog_error_alert', 'Already there! This entry was already listed under "My List"');
             } else {
                 openConfirmWithCustomMessagePopupWindow('dialog_save_to_my_list_alert', 'Award has been saved under the "My Lists" section.');
             }            

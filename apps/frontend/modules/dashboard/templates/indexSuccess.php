@@ -18,7 +18,7 @@
 
         <div class="award_list_type">
             <h3 class="custom_color" title="The submission type, either an award, list or directory">Type<i class="filter_arrow"></i></h3>
-            <div class="org-body" style="min-height: 0px;">
+            <div class="org-body test_smaller" style="min-height: 0px;">
                 <form action="" name="">
                     <?php echo $sf_data->getRaw('types_checkboxes') ?>
                 </form>
@@ -106,9 +106,7 @@
     <div class="other_filters_block">
         <h3 class="custom_color" title="Use maps">Location<i class="filter_arrow"></i></h3>
         <div class="org-body jsmap" style="min-height: 0px;">
-            <h3 class="custom_color jsmapclick_us_states" title="A way to filter by US States on a map" >US States Map</h3>
-            <h3 class="custom_color jsmapclick_us" title="A way to filter by US Regions on a map" >US Regions Map</h3>
-            <h3 class="custom_color jsmapclick" title="A way to filter by World Regions on a map" >World Regions Map</h3>
+            <h3 class="cunstom_color">US <span class="jsmapclick_us_states custom_link">States</span>/<span class="jsmapclick_us custom_link">Regions</span></br><span class="jsmapclick custom_link">World</span></h3>
         </div>
     </div>
 

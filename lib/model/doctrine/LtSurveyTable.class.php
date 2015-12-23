@@ -87,7 +87,8 @@ class LtSurveyTable extends Doctrine_Table {
             ->leftJoin("s.LtSurveyPracticeArea spa")
             ->leftJoin('spa.PracticeArea pa')
             ->leftJoin('pa.MainPracticeArea mpa')
-            ->where('s.year = ?', (int)$year);
+            ->where('s.year = ?', (int)$year)
+            ->andWhere('s.is_legal = ?', 1);
         $q->orderBy('s.year ASC');
 
         return $q->execute();

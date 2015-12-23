@@ -436,3 +436,7 @@ th {
 .full_width_td {
   width: 590px;
 }
+
+.other_filters_block .jsmap{
+  margin-top: -15px;
+}

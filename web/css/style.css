@@ -4446,7 +4446,9 @@ fieldset.disp-block{
 }
 
 .admin_syrvey_management_radio label {
-    margin-left: 5px !important;
+    margin-left: 5px !important
+
+;
 }
 
 .admin_popup table th, .admin_popup table td {

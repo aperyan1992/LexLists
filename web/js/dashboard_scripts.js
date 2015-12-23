@@ -10,7 +10,8 @@ $(document).ajaxStop(function() {
     $(".left-sidebar input:checkbox").prop("disabled", false);
 });
 
-$(document).ready(function() { 
+$(document).ready(function() {
+
 
     $(document).on('click', '#dialog_organization a', function () {
         
@@ -51,6 +52,8 @@ $(document).ready(function() {
         $(this).parent().prev().show();
     });
     $('.year div').show();
+    $('.area_legal_business div').show();
+    $('.is_legal_checkbox:first-child').prop( "checked", true );
     $('#2015').prop( "checked", true );
 
     //*************************** Calendar start *****************************//
@@ -2425,6 +2428,8 @@ function showAndHideColumns(column_number, show_status, report_data_table) {
     if((show_status && !bVis) || (!show_status && bVis)) {
         report_data_table.fnSetColumnVis(column_number, show_status);
     }
+    $('#report_surveys_years thead tr th:first-child').css('width', '42px');
+    $('.dataTable thead tr th:first-child').css('width', '42px');
 }
 
 /**

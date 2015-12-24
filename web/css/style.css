@@ -12,6 +12,9 @@
     font-weight: normal;
     font-style: normal;
 }
+.sf_admin_filter_field_survey_name label{
+    text-transform: capitalize;
+}
 .test_smaller table td{padding:5px;}
 .list_alerts div {
 	font-weight: normal !important;
@@ -1542,7 +1545,7 @@ ul.nav-tabs { margin: 0 !important; border: none; }
 }
 .nav-tabs > li > a:hover, .nav-tabs > li.active > a:hover { border-color: #d3d3d3; background: none; }
 .nav-tabs > li.active > a:hover { border-bottom-color: #fff; }
-.tab-content { border: #d3d3d3 1px solid; padding: 18px 15px 0; }
+.tab-content { border: #d3d3d3 1px solid; padding: 5px 15px 0; }
 
 .tabs-top .nav-tabs > li > a:hover,
 .tabs-top .nav-tabs > li.active > a:hover,
@@ -5206,4 +5209,39 @@ fieldset.disp-block{
 
 .buttons_margin_bottom {
     margin-bottom: 30px;
+}
+.row .span3{
+    width: 200px !important;
+}
+.sf_admin_filter table{
+    width: 900px;
+}
+.sf_admin_filter tbody{
+    width: 900px;
+    margin-bottom: 50px;
+    display: inline-block;
+}
+.sf_admin_filter .sf_admin_filter_field_survey_name{
+    height: 37px;
+    margin-left: 30px;
+    float: none;
+}
+.sf_admin_filter .sf_admin_filter_field_year{
+    width: 239px;
+    height: 37px;
+    margin-left: 30px;
+    float: none;
+    display: inline-block !important;
+}
+.sf_admin_filter .sf_admin_filter_field_year td:last-child input, .sf_admin_filter .sf_admin_filter_field_year td:last-child #lt_survey_filters_year_is_empty{
+    margin-left: 0px !important;
+}
+.sf_admin_filter_field_year select{
+    margin-left: 0px !important;
+}
+.sf_admin_filter tfoot tr td input:last-child{
+    padding-right: 10px;
+}
+#sf_admin_container th{
+    background-color: lightgray;
 }

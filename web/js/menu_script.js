@@ -25,4 +25,5 @@ $(document).ready(function() {
             $('#navigation li ul').fadeOut();
         }        
     });
+    $('.sf_admin_td_actions li a').empty();
 });

@@ -12,11 +12,16 @@ abstract class BaseLtSurveyFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
+    // Get years range
+    $years_range_array = array();
+    for($year = sfConfig::get("app_survey_year_from"); $year <= (int) sfConfig::get("app_survey_year_to"); $year++) {
+      $years_range_array[$year] = $year;
+    }
     $this->setWidgets(array(
       'organization_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Organization'), 'add_empty' => true)),
       'organization_url'       => new sfWidgetFormFilterInput(),
       'survey_name'            => new sfWidgetFormFilterInput(),
-      'year'                   => new sfWidgetFormFilterInput(),
+      'year'                   => new sfCustomWidgetFormChoice(array("add_empty" => "", "choices" => $years_range_array), array("style" => "width: 60px !important;")),
       'survey_url'             => new sfWidgetFormFilterInput(),
       'frequency'              => new sfWidgetFormFilterInput(),
       'submission_deadline'    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
@@ -45,7 +50,7 @@ abstract class BaseLtSurveyFormFilter extends BaseFormFilterDoctrine
       'organization_id'        => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Organization'), 'column' => 'id')),
       'organization_url'       => new sfValidatorPass(array('required' => false)),
       'survey_name'            => new sfValidatorPass(array('required' => false)),
-      'year'                   => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'year'                   => new sfValidatorChoice(array('choices' => array_keys($years_range_array), 'required' => false), array("required" => "This field is required.")),
       'survey_url'             => new sfValidatorPass(array('required' => false)),
       'frequency'              => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'submission_deadline'    => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
@@ -180,8 +185,8 @@ abstract class BaseLtSurveyFormFilter extends BaseFormFilterDoctrine
       'id'                     => 'Number',
       'organization_id'        => 'ForeignKey',
       'organization_url'       => 'Text',
-      'survey_name'            => 'Text',
-      'year'                   => 'Number',
+      'survey_name'            => 'Number',
+      'year'                   => 'Boolean',
       'survey_url'             => 'Text',
       'frequency'              => 'Number',
       'submission_deadline'    => 'Date',

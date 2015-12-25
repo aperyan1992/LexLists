@@ -69,6 +69,8 @@
         clear: left; !important;
     }
     #sf_admin_container td, #sf_admin_container th {
+        max-width: 360px;
+        padding: 0px 9px;
         border-bottom: none !important;
         border-top:none !important;
     }

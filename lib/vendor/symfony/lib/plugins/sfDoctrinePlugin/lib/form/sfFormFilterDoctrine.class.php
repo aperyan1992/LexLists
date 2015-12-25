@@ -307,7 +307,6 @@ abstract class sfFormFilterDoctrine extends sfFormFilter
     }
 
     $relation = $table->getRelation($alias);
-
     return $relation['class'];
   }
 

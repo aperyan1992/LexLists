@@ -185,7 +185,7 @@ abstract class BaseLtSurveyFormFilter extends BaseFormFilterDoctrine
       'id'                     => 'Number',
       'organization_id'        => 'ForeignKey',
       'organization_url'       => 'Text',
-      'survey_name'            => 'Number',
+      'survey_name'            => 'Text',
       'year'                   => 'Boolean',
       'survey_url'             => 'Text',
       'frequency'              => 'Number',

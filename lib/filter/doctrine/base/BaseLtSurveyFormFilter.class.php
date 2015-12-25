@@ -49,7 +49,7 @@ abstract class BaseLtSurveyFormFilter extends BaseFormFilterDoctrine
     $this->setValidators(array(
       'organization_id'        => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Organization'), 'column' => 'id')),
       'organization_url'       => new sfValidatorPass(array('required' => false)),
-      'survey_name'            => new sfValidatorPass(array('required' => false)),
+      'survey_name'            => new sfValidatorPass(array('required' => false)), 
       'year'                   => new sfValidatorChoice(array('choices' => array_keys($years_range_array), 'required' => false), array("required" => "This field is required.")),
       'survey_url'             => new sfValidatorPass(array('required' => false)),
       'frequency'              => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),

@@ -31,7 +31,7 @@ class surveyManagementActions extends autoSurveyManagementActions {
             $frequency             = $request->getParameter("frequency", NULL);
             $submission_deadline   = $request->getParameter("submission_deadline", NULL);
             $survey_cities         = $request->getParameter("survey_cities", NULL);
-            $survey_states         = $request->getParameter("survey_states", NULL);
+            $survey_states         = $request->getParameter("   survey_states", NULL);
             $survey_countries      = $request->getParameter("survey_countries", NULL);
             $survey_region         = $request->getParameter("survey_region", NULL);
             $survey_description    = $request->getParameter("survey_description", NULL);

@@ -20,9 +20,12 @@ generator:
         special_criterias_list: { attributes: { with_add_new_link: true } }
       list:    
         title: List Of Surveys
-        display: [organization,year, survey_name, submission_deadline]
         max_per_page: 20
-      filter:  
+        display: [organization,year, survey_name, submission_deadline, updated_at]
+        fields:
+          submission_deadline:  {date_format: dd-MM-y}
+          updated_at:  {date_format: dd-MM-y HH:mm}
+      filter:
         class: LtSurveyFormFilter
       form:    
         class: SurveyManagementForm

@@ -21,10 +21,10 @@ generator:
       list:    
         title: List Of Surveys
         max_per_page: 20
-        display: [organization,year, survey_name, submission_deadline, updated_at]
+        display: [organization, year, survey_name, submission_deadline, updated_at]
         fields:
-          submission_deadline:  {date_format: dd-MM-y}
-          updated_at:  {date_format: dd-MM-y HH:mm}
+          submission_deadline:  {label: Submission Deadline, date_format: dd-MMM-y}
+          updated_at:  {label: Last Update, date_format: dd-MMM-y HH:mm}
       filter:
         class: LtSurveyFormFilter
       form:    

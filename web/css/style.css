@@ -12,7 +12,7 @@
     font-weight: normal;
     font-style: normal;
 }
-.sf_admin_text label{
+.sf_admin_text label, .sf_admin_list_th_survey_name a{
     text-transform: capitalize;
 }
 .test_smaller table td{padding:5px;}
@@ -5244,4 +5244,7 @@ fieldset.disp-block{
 }
 #sf_admin_container th{
     background-color: lightgray;
+}
+#sf_admin_list_th_actions{
+    width: 85px;
 }

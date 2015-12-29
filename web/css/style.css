@@ -5254,3 +5254,15 @@ fieldset.disp-block{
 .sf_admin_td_actions li{
     margin-right: 0px !important;
 }
+.sf_admin_list_th_organization{
+    width: 225px !important;
+}
+.sf_admin_list_th_submission_deadline{
+    width: 140px !important;
+}
+.sf_admin_list_th_updated_at{
+    width: 130px !important;
+}
+.sf_admin_list_th_year{
+    width: 45px !important;
+}

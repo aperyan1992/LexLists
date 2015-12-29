@@ -5251,3 +5251,6 @@ fieldset.disp-block{
 .sf_admin_list_th_survey_name{
     width: 230px !important;
 }
+.sf_admin_td_actions li{
+    margin-right: 0px !important;
+}

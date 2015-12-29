@@ -5248,3 +5248,6 @@ fieldset.disp-block{
 #sf_admin_list_th_actions{
     width: 85px;
 }
+.sf_admin_list_th_survey_name{
+    width: 230px !important;
+}

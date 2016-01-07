@@ -278,7 +278,7 @@ class dashboardActions extends sfActions {
                 foreach ($surveys as $survey) {
 
                     // Set survey checkbox
-                    $survey_checkbox = "<input type='checkbox' class='table_checkbox' style='float:left' s_id='" . $survey->getId() . "' />"."<a href='#' style='float:right' class='custom_link email_link' s_id='" . $survey->getId() . "'><span class='genericon genericon-mail'></span></a>";
+                    $survey_checkbox = "<input type='checkbox' class='table_checkbox' style='margin-right: 5px;' s_id='" . $survey->getId() . "' />"."<a href='#' style='margin-left: 8px; margin-top: 2px;' class='custom_link email_link' s_id='" . $survey->getId() . "'><span class='genericon genericon-mail'></span></a>";
 
                     // Set year
                     $year = (!is_null($survey->getYear()) && $survey->getYear() != "" && $survey->getYear() != 0) ? $survey-> getYear() : "- - -";

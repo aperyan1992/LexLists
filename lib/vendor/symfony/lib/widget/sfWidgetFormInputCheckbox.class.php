@@ -32,7 +32,7 @@ class sfWidgetFormInputCheckbox extends sfWidgetFormInput
    */
   public function __construct($options = array(), $attributes = array())
   {
-    $this->addOption('value_attribute_value');
+    $this->addOption('aavalue_attribute_value');
 
     parent::__construct($options, $attributes);
   }

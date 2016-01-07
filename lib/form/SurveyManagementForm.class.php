@@ -117,10 +117,15 @@ class SurveyManagementForm extends LtSurveyForm {
     $this->widgetSchema->setHelp("pay_for_play", "Can candidate pay to be listed (is it a directory)?");
     $this->widgetSchema->setHelp("survey_contact_id", "Survey contact at Organization.");
     $this->widgetSchema->setHelp("survey_notes", "Any notes we want to include about this survey.");
-    $this->widgetSchema->setHelp("staff_notes", "Any notes not visible to users we want to include in the survey.");    
-    
+    $this->widgetSchema->setHelp("staff_notes", "Any notes not visible to users we want to include in the survey.");
+    $this->widgetSchema->setHelp("is_legal", "Check if this is only a legal list or award.");
+    $this->widgetSchema->setHelp("is_list", "Check if this is not a directory (ex. chambers, legal 500).");
+
     // Set labels
     $this->widgetSchema->setLabel("organization_id", "Organization");
+    $this->widgetSchema->setLabel("keywords", "Keywords");
+    $this->widgetSchema->setLabel("is_legal", "Is Legal?");
+    $this->widgetSchema->setLabel("is_list", "List/Award?");
     $this->widgetSchema->setLabel("organization_url", "Organization URL");
     $this->widgetSchema->setLabel("survey_name", "Survey Name");
     $this->widgetSchema->setLabel("year", "Year");
@@ -146,12 +151,14 @@ class SurveyManagementForm extends LtSurveyForm {
     $this->widgetSchema->setLabel("staff_notes", "Staff Notes");
     
     // Set order of fields
+    $this->widgetSchema->moveField("survey_url", sfWidgetFormSchema::AFTER, 'survey_name');
     $this->widgetSchema->moveField("cities_list", sfWidgetFormSchema::AFTER, 'submission_deadline');
     $this->widgetSchema->moveField("states_list", sfWidgetFormSchema::AFTER, 'cities_list');
     $this->widgetSchema->moveField("countries_list", sfWidgetFormSchema::AFTER, 'states_list');
-    $this->widgetSchema->moveField("special_criterias_list", sfWidgetFormSchema::AFTER, 'eligibility_criteria');
+    $this->widgetSchema->moveField("special_criterias_list", sfWidgetFormSchema::AFTER, 'candidate_type');
     $this->widgetSchema->moveField("practice_areas_list", sfWidgetFormSchema::AFTER, 'special_criterias_list');
-    
+    $this->widgetSchema->moveField("keywords", sfWidgetFormSchema::AFTER, 'practice_areas_list');
+
   }
   
   /**

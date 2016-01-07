@@ -3,31 +3,29 @@
 
 <div class="sf_admin_form" id="survey_form">
     <?php echo form_tag_for($form, '@lt_survey') ?>
-        <table class="new_edit_table">
-            <tfoot>
-                <tr>
-                    <td colspan="2">
-                        <?php echo $form->renderHiddenFields(false) ?>   
-                        
-                        <input type="hidden" id="is_new_object" value="<?php echo ($form->isNew()) ? 'true' : $form->getObject()->getId() ?>" />
-                        
-                        <div class="admin_buttons_div" style="width: 702px !important;">
-                            <input type="button" value="Cancel" list_url="<?php echo url_for("@" . $helper->getUrlForAction('list')); ?>" class="cancel_admin_panel btn btn-success" />                          
-                            <input type="submit" value="Save" form_name="survey" class="btn btn-success save_button" />
-                        </div>
-                        
-                        <?php // include_partial('surveyManagement/form_actions', array('lt_survey' => $lt_survey, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>
-                    </td>
-                </tr>
-            </tfoot>
-            <tbody>
+        <div class="new_edit_table">
+
+
                 <div class="alert alert-success success_message" style="display: none;">Success! Survey has been added.</div>
-                    
                 <?php foreach ($configuration->getFormFields($form, $form->isNew() ? 'new' : 'edit') as $fieldset => $fields): ?>
                     <?php    include_partial('surveyManagement/form_fieldset', array('lt_survey' => $lt_survey, 'form' => $form, 'fields' => $fields, 'fieldset' => $fieldset)) ?>
                 <?php endforeach; ?>
-            </tbody>
-        </table>
+
+            <div>
+                <div class="btn_margin col-md-12 col-lg-12 col-sm-12">
+                    <?php echo $form->renderHiddenFields(false) ?>
+
+                    <input type="hidden" id="is_new_object" value="<?php echo ($form->isNew()) ? 'true' : $form->getObject()->getId() ?>" />
+
+                    <div class="admin_buttons_div" style="width: 702px !important;">
+                        <input type="button" value="Cancel" list_url="<?php echo url_for("@" . $helper->getUrlForAction('list')); ?>" class="cancel_admin_panel btn btn-success" />
+                        <input type="submit" value="Save" form_name="survey" class="btn btn-success save_button" />
+                    </div>
+
+                    <?php // include_partial('surveyManagement/form_actions', array('lt_survey' => $lt_survey, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>
+                </div>
+            </div>
+        </div>
     </form>
 </div>
 

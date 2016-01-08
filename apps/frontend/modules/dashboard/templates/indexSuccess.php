@@ -258,6 +258,7 @@
         </form>
         <input type="button" id="multiple_print" class="btn btn-success" value="Print" />
         <input type="button" id="multiple_email" class="btn btn-success" value="E-mail" />
+        <input type="button" id="multiple_forward" class="btn btn-success" value="Forward" />
         <input type="button" id="multiple_save" class="btn btn-success" value="Save" />
     </div>
 
@@ -269,4 +270,5 @@
 
 <?php include_partial("dashboard/survey_details_popup"); ?>
 <?php include_partial("dashboard/survey_email_popup"); ?>
+<?php include_partial("dashboard/survey_forward"); ?>
 <?php include_partial("dashboard/survey_set_alert_popup"); ?>

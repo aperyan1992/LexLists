@@ -18,7 +18,7 @@ class SurveyManagementForm extends LtSurveyForm {
     
     // Get years range
     $years_range_array = array();
-    for($year = sfConfig::get("app_survey_year_from"); $year <= (int) sfConfig::get("app_survey_year_to"); $year++) {
+    for($year = date("Y"); $year <= (int) sfConfig::get("app_survey_year_to"); $year++) {
         $years_range_array[$year] = $year;
     }
       $statuses_array = array(
@@ -28,11 +28,28 @@ class SurveyManagementForm extends LtSurveyForm {
           'Not Updated' => 'Not Updated' ,
           'New' =>'New'
       );
-    
+
     // Get choices
     $practice_area_choices = Doctrine_Core::getTable("LtMainPracticeArea")->getPracticeAreasWithMainPracticeAreas();
     $contact_choices       = Doctrine_Core::getTable("LtSurveyContact")->getSurveyContacts();
-    
+
+    $query = 'SELECT keywords FROM surveys';
+    $resquery = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+    $keyword = array();
+    foreach($resquery as $value)
+    {
+        if(isset($value['keywords']) && !empty($value['keywords']) && $value['keywords']!='')
+        {
+            $keys = explode(";", $value['keywords']);
+            foreach($keys as $v)
+            {
+                if(!in_array($v, $keyword))
+                {
+                    $keyword[] =  $v;
+                }
+            }
+        }
+    }
     // Set widgets
     $this->widgetSchema['organization_id']        = new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Organization'), 'add_empty' => true), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
     $this->widgetSchema['organization_url']       = new sfWidgetFormInputText(array(), array("class" => "admin_survey_management_input_text set_padding"));
@@ -53,7 +70,7 @@ class SurveyManagementForm extends LtSurveyForm {
     $this->widgetSchema['eligibility_criteria']   = new sfWidgetFormTextarea(array(), array("class" => "admin_survey_management_textarea"));
     $this->widgetSchema['special_criterias_list'] = new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'LtSpecialCriteria'), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
     $this->widgetSchema['practice_areas_list']    = new sfCustomWidgetFormChoice(array("choices" => $practice_area_choices, "multiple" => true), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
-    $this->widgetSchema['keywords']               = new sfWidgetFormInputText(array(), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
+    $this->widgetSchema['keywords']               = new sfCustomWidgetFormChoice(array("choices" => $keyword,'multiple' => true), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
 
     $this->widgetSchema['nomination']             = new sfWidgetFormTextarea(array(), array("class" => "admin_survey_management_textarea"));
     $this->widgetSchema['selection_methodology']  = new sfWidgetFormTextarea(array(), array("class" => "admin_survey_management_textarea"));
@@ -65,11 +82,11 @@ class SurveyManagementForm extends LtSurveyForm {
     $this->widgetSchema['status']                 = new sfCustomWidgetFormChoice(array("add_empty" => "", "choices" => $statuses_array), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
 
     $this->widgetSchema['staff_notes']            = new sfWidgetFormTextarea(array(), array("class" => "admin_survey_management_textarea"));
-    
+
     // Set validators
     $this->validatorSchema['organization_id']        = new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Organization'), 'required' => false));
     $this->validatorSchema['organization_url']       = new sfValidatorString(array('max_length' => 255, 'required' => false), array("max_length" => "Maximum length (255 characters)"));
-    $this->validatorSchema['survey_name']            = new sfValidatorString(array('max_length' => 255, 'required' => false), array("max_length" => "Maximum length (255 characters)"));    
+    $this->validatorSchema['survey_name']            = new sfValidatorString(array('max_length' => 255, 'required' => false), array("max_length" => "Maximum length (255 characters)"));
     $this->validatorSchema['year']                   = new sfValidatorChoice(array('choices' => array_keys($years_range_array), 'required' => false), array("required" => "This field is required."));
     $this->validatorSchema['survey_url']             = new sfValidatorString(array('max_length' => 255, 'required' => false), array("max_length" => "Maximum length (255 characters)"));
     $this->validatorSchema['frequency']              = new sfValidatorChoice(array('choices' => array_keys(LtSurvey::$frequency_types_array), 'required' => false), array("required" => "This field is required."));
@@ -77,7 +94,7 @@ class SurveyManagementForm extends LtSurveyForm {
     $this->validatorSchema['cities_list']            = new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'LtCity', 'required' => false));
     $this->validatorSchema['states_list']            = new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'LtState', 'required' => false));
     $this->validatorSchema['countries_list']         = new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'LtCountry', 'required' => false));
-    $this->validatorSchema['survey_region_id']       = new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Region'), 'required' => false));    
+    $this->validatorSchema['survey_region_id']       = new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Region'), 'required' => false));
     $this->validatorSchema['survey_description']     = new sfValidatorString(array('max_length' => 5000, 'required' => false), array("max_length" => "Maximum length (5000 characters)"));
     $this->validatorSchema['candidate_type']         = new sfValidatorChoice(array('choices' => array_keys(LtSurvey::$candidate_types_array), 'required' => false), array("required" => "This field is required."));
     $this->validatorSchema['eligibility_criteria']   = new sfValidatorString(array('max_length' => 5000, 'required' => false), array("max_length" => "Maximum length (5000 characters)"));
@@ -92,7 +109,7 @@ class SurveyManagementForm extends LtSurveyForm {
     $this->validatorSchema['survey_notes']           = new sfValidatorString(array('max_length' => 5000, 'required' => false), array("max_length" => "Maximum length (5000 characters)"));
     $this->validatorSchema['status']                 = new sfValidatorChoice(array('choices' => array_keys($statuses_array), 'required' => false), array("required" => "This field is required."));
     $this->validatorSchema['staff_notes']            = new sfValidatorString(array('max_length' => 5000, 'required' => false), array("max_length" => "Maximum length (5000 characters)"));
-    
+
     // Set help messages
     $this->widgetSchema->setHelp("organization_id", "The organization publishing the survey.");
     $this->widgetSchema->setHelp("organization_url", "URL of the organization that is running the survey.");
@@ -103,7 +120,7 @@ class SurveyManagementForm extends LtSurveyForm {
     $this->widgetSchema->setHelp("submission_deadline", "Submission deadline for the survey.");
     $this->widgetSchema->setHelp("cities_list", "The focus city for the survey. Survey will accept candidates only from this city.");
     $this->widgetSchema->setHelp("states_list", "The focus state for the survey. Survey will accept candidates only from this state.");
-    $this->widgetSchema->setHelp("countries_list", "The focus country for the survey. Survey will accept candidates only from this country.");    
+    $this->widgetSchema->setHelp("countries_list", "The focus country for the survey. Survey will accept candidates only from this country.");
     $this->widgetSchema->setHelp("survey_region_id", "The focus of the geographic region of acceptable candidates.");
     $this->widgetSchema->setHelp("survey_description", "Survey description.");
     $this->widgetSchema->setHelp("candidate_type", "The type of eligible candidates.");
@@ -126,7 +143,7 @@ class SurveyManagementForm extends LtSurveyForm {
     $this->widgetSchema->setLabel("keywords", "Keywords");
     $this->widgetSchema->setLabel("is_legal", "Is Legal?");
     $this->widgetSchema->setLabel("is_list", "List/Award?");
-    $this->widgetSchema->setLabel("organization_url", "Organization URL");
+    $this->widgetSchema->setLabel("organization_url", "Org URL");
     $this->widgetSchema->setLabel("survey_name", "Survey Name");
     $this->widgetSchema->setLabel("year", "Year");
     $this->widgetSchema->setLabel("survey_url", "Survey URL");

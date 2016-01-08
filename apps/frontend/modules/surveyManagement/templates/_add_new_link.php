@@ -1,1 +1,1 @@
-<a href="#" id="add_<?php echo $field_name ?>_link" class="add_new_item_link custom_link">Add New</a>
+<div style="width: 30px !important; height: 20px; display: inline; background: url(../../../../../web/sfDoctrinePlugin/images/new.png) no-repeat 0 0;"><a href="#" id="add_<?php echo $field_name ?>_link" class="add_new_item_link custom_link" style="top: 2px !important; margin-left: 10px !important;">&nbsp&nbsp&nbsp&nbsp&nbsp</a></div>

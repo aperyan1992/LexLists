@@ -269,3 +269,6 @@
   text-align: center;
 }
 
+.add_new_item_link{
+  background: url(../images/new.png) no-repeat 0 0;
+}

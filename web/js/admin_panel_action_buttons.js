@@ -5,6 +5,41 @@
 /**
  * Show error messages
  */
+$('document').ready(function(){
+    var url = $(location).attr('href').split("/").splice(0, 6).join("/");
+    var segments = url.split( '/' );
+    var id = segments[5];
+    $.ajax({
+        url: "/surveyManagement/GetKeyById/?id="+id,
+        type: "POST",
+        async: false,
+        dataType: "json",
+        success: function(data) {
+            if(data.status = "success") {
+                $(data.keywords).each(function(){
+                    $("#lt_survey_keywords").append(
+                        $('<option value="' + this + '">' + this + '</option>')
+                    );
+
+                    $("#lt_survey_keywords option[value='" + this + "']").prop("selected", true);
+
+                    $("#lt_survey_keywords").select2({ dropdownCssClass: 'ui-dialog', width: "resolve" });
+                });
+            } else {
+                openErrorPopupWindow('dialog_error_alert', 'Error !!!');
+                // Activate buttons
+                $(".save_button, .cancel_admin_panel").attr("disabled", false);
+            }
+        },
+        error: function(data) {
+            openErrorPopupWindow('dialog_error_alert', 'Error !!!');
+
+            // Activate buttons
+            $(".save_button, .cancel_admin_panel").attr("disabled", false);
+        }
+    });
+});
+
 function updateTips(o, t) {
     if(o.parent("td").find(".error_list").length > 0) {
       o.parent("td").find(".error_list").remove();
@@ -130,7 +165,6 @@ function select2keywordvalues(){
         }
     });
     $('#lt_survey_keywords').val(strnames);
-    //console.log($('#lt_survey_keywords').val());
 
 }
 
@@ -460,7 +494,7 @@ $(document).ready(function() {
             case "survey":
                 var organization          = $("#lt_survey_organization_id"),
                     organization_url      = $("#lt_survey_organization_url"),
-                    keywords              = $("#lt_survey_keywords"),
+                    keywords              = $("#lt_survey_keywords").select2('data'),
                     survey_name           = $("#lt_survey_survey_name"),
                     survey_year           = $("#lt_survey_year"),
                     survey_url            = $("#lt_survey_survey_url"),
@@ -508,7 +542,11 @@ $(document).ready(function() {
                 bValid = bValid && checkLength( selection_methodology, "selection methodology", false, 5000 );
                 bValid = bValid && checkLength( survey_notes, "survey notes", false, 5000 );
                 bValid = bValid && checkLength( staff_notes, "staff notes", false, 5000 );
-                
+                var finishKeywords = "";
+                $(keywords).each(function(){
+                    finishKeywords+=this.text+';';
+                });
+                finishKeywords = finishKeywords.substring(0, finishKeywords.length - 1);
                 if (bValid) {
                     // Disable buttons
                     $(".save_button, .cancel_admin_panel").attr("disabled", true);
@@ -520,7 +558,7 @@ $(document).ready(function() {
                         data: {
                             organization          : organization.val(),
                             organization_url      : organization_url.val(),
-                            keywords              : keywords.val(),
+                            keywords              : finishKeywords,
                             survey_name           : survey_name.val(),
                             survey_year           : survey_year.val(),
                             survey_url            : survey_url.val(),

@@ -346,6 +346,30 @@ class surveyManagementActions extends autoSurveyManagementActions {
 
         $this->forward404();
     }
+
+    public function executeGetKeyById(sfWebRequest $request){
+        $id = $request->getParameter('id', FALSE);
+
+        $query = 'SELECT keywords FROM surveys WHERE id="'.$id.'"';
+        $resquery = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+        $keys = $resquery[0][0];
+        $arrKeywords = array();
+        if(!empty($resquery)) {
+            foreach (explode(';', $keys) as $keyword) {
+                $arrKeywords[] = $keyword;
+            }
+        }
+        return $this->renderText(
+            json_encode(
+                array(
+                    "status" => "success",
+                    "keywords" => $arrKeywords,
+                )
+            )
+        );
+
+
+    }
     
     /**
      * Add survey special criteria

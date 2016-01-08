@@ -7,6 +7,7 @@ $(document).ready(function() {
      *  Init popups
      */
     initSurveyEmailPopupWindow("dialog_form_survey_email");
+    initSurveyForwardPopupWindow("dialog_form_survey_forward");
 
     /**
      * Send email message
@@ -126,6 +127,11 @@ $(document).ready(function() {
         }
         return false;
     });
+
+    $(document).on("click", "#multiple_forward", function() {
+        $("#dialog_form_survey_forward").dialog("open");
+    });
+
 
     /**
      * Enable/Disable "To" text field
@@ -414,6 +420,72 @@ function initSurveyEmailPopupWindow(element) {
                         openErrorPopupWindow("dialog_error_alert", "Warning! You must have at least one recipient to send an email.");
                     }
                 }
+
+        },
+        close: function() {
+            text_fields.val("");
+            to_me_flag.prop("checked", true);
+            $(this).dialog("close");
+        }
+    });
+}
+
+function initSurveyForwardPopupWindow(element) {
+    var to_email_address = $("#dialog_email_user_email_hidden"),
+        to_me_flag       = $("#to_me_dialog_form_survey_email"),
+        message          = $("#message_dialog_form_survey_email"),
+        text_fields      = $([]).add(to_email_address).add(message);
+
+    $("#" + element).dialog({
+        autoOpen: false,
+        height: 'auto',
+        width: 615,
+        modal: true,
+        open: function() {
+            // Set survey info into popup table
+            for (var item in $("#" + element).data()) {
+                $("#dialog_email_" + item).html($(this).data(item));
+            }
+        },
+        buttons: {
+            "Cancel": function() {
+                cancelEmailLog($('#dialog_email_survey_id').text(), $('#dialog_email_survey_name_hidden').text(), $('#dialog_email_organization').text());
+                text_fields.val("");
+                to_me_flag.prop("checked", true);
+                $(this).dialog("close");
+            },
+            "Send": function() {
+                var bValid = true;
+
+                // Validation of email address if "me" checkbox is unchecked
+                /* if(!to_me_flag.is(":checked")) {
+                 bValid = bValid && checkLength(to_email_address);
+                 bValid = bValid && checkRegexp(to_email_address, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
+                 }*/
+                var emailaddr = null;
+                if($(".timemail").is(":checked"))
+                {
+                    emailaddr = to_email_address.text();
+                }
+                var cc_emails = new Array();
+                $('.select2-search-choice div').each(function(){
+                    cc_emails.push($(this).text());
+                });
+                if( cc_emails.length==0 && !$(".timemail").is(":checked"))
+                {
+                    bValid = false;
+                }
+                if (bValid) {
+                    // Send email message
+                    sendEmailToAnotherUser([$(this).data("survey_id")], emailaddr, message.val(),cc_emails);
+
+                    text_fields.val("");
+                    to_me_flag.prop("checked", true);
+                    $(this).dialog("close");
+                } else {
+                    openErrorPopupWindow("dialog_error_alert", "Warning! You must have at least one recipient to send an email.");
+                }
+            }
 
         },
         close: function() {

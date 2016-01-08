@@ -307,6 +307,7 @@ function initSurveySpecialCriteriaPopupWindow(element) {
     });
 
 }
+
 function initSurveyKeywordPopupWindow(element) {
     var keyword = $("#survey_keyword_dialog_form_keyword"),
         allFields  = $([]).add(keyword);
@@ -323,7 +324,7 @@ function initSurveyKeywordPopupWindow(element) {
                 $("#" + element + " .error_list li").text("");
             },
             "Save": function() {                
-                var bValid = true;
+                /*var bValid = true;
                 allFields.removeClass("ui-state-error");
                 allFields.parent("td").find("ul li").text('');
                 
@@ -341,6 +342,30 @@ function initSurveyKeywordPopupWindow(element) {
                       allFields.val("").removeClass("ui-state-error").removeClass("ui-state-highlight");
                       $("#" + element + " .error_list li").text("");
                     
+                }*/
+                var bValid = true;
+                allFields.removeClass("ui-state-error");
+                allFields.parent("td").find("ul li").text('');
+
+                bValid = bValid && checkLength(keyword, "survey keyword", 1, 250);
+
+                if (bValid) {
+
+
+                        $("#lt_survey_keywords").append(
+                            $('<option value="' + keyword.val() + '">' + keyword.val() + '</option>')
+                        );
+
+                        $("#lt_survey_keywords option[value='" + keyword.val() + "']").prop("selected", true);
+
+                        $("#lt_survey_keywords").select2({ dropdownCssClass: 'ui-dialog', width: "resolve" });
+
+
+
+                        $(this).dialog("close");
+                        allFields.val("").removeClass("ui-state-error").removeClass("ui-state-highlight");
+                        $("#" + element + " .error_list li").text("");
+
                 }
             }
         },

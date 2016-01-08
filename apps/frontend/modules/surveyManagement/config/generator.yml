@@ -17,7 +17,7 @@ generator:
         organization_id:        { attributes: { with_add_new_link: true } }
         cities_list:            { attributes: { with_add_new_link: true } }
         survey_contact_id:      { attributes: { with_add_new_link: true } }
-      list:    
+      list:
         title: List Of Surveys
         max_per_page: 20
         display: [organization, year, survey_name, submission_deadline, updated_at]

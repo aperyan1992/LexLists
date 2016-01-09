@@ -708,12 +708,11 @@ class dashboardActions extends sfActions {
                     if ($email_address !== false && !empty($email_address)) {
                         $recipient_email_address = $email_address;
                     }
-                    
+
                     // Send email message
                     $message = Swift_Message::newInstance()
                             ->setFrom($user->getEmailAddress())
                             ->setTo($recipient_email_address)
-                            ->setCc($cc)
                             ->setSubject("LexLists E-mail")
                             ->setBody($this->getPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => $additional_message)))
                             ->setContentType("text/html");

@@ -713,6 +713,7 @@ class dashboardActions extends sfActions {
                     $message = Swift_Message::newInstance()
                             ->setFrom($user->getEmailAddress())
                             ->setTo($recipient_email_address)
+                            ->setCc($cc)
                             ->setSubject("LexLists E-mail")
                             ->setBody($this->getPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => $additional_message)))
                             ->setContentType("text/html");

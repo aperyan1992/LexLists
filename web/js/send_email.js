@@ -339,6 +339,7 @@ function sendEmailToAnotherUser(survey_ids, email_address) {
         success: function(data) {
             // Hide blocker
             $("#display_blocker").hide();
+            $("#dialog_form_survey_forward").dialog("close");
         },
         error: function() {
             openErrorPopupWindow("dialog_error_alert", "Message sending failed. Try again.");

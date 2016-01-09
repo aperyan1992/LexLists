@@ -620,7 +620,7 @@ class dashboardActions extends sfActions {
      * 
      * @return array                    JSON array with response message
      */
-    public function executeSendEmail(sfWebRequest $request) {die("A");
+    public function executeSendEmail(sfWebRequest $request) {
         if ($request->isXmlHttpRequest() && $this->getUser()->isAuthenticated()) {
             // Get request parameters
             $survey_ids         = $request->getParameter("survey_ids", FALSE);
@@ -709,7 +709,6 @@ class dashboardActions extends sfActions {
                         $recipient_email_address = $email_address;
                     }
                     
-                    var_dump($user->getEmailAddress());die("A");
                     // Send email message
                     $message = Swift_Message::newInstance()
                             ->setFrom($user->getEmailAddress())

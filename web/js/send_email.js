@@ -7,7 +7,7 @@ $(document).ready(function() {
      *  Init popups
      */
     initSurveyEmailPopupWindow("dialog_form_survey_email");
-    initSurveyForwardPopupWindow("dialog_form_survey_forward");
+
 
     /**
      * Send email message
@@ -129,7 +129,17 @@ $(document).ready(function() {
     });
 
     $(document).on("click", "#multiple_forward", function() {
-        $("#dialog_form_survey_forward").dialog("open");
+        var checked_checkboxes = $('.table_checkbox:checked');
+
+        // Check count of checked checkboxes
+        if (checkCountOfCheckboxes(checked_checkboxes, 0, 20, 'e-mail')) {
+            // Get all survey IDs
+            initSurveyForwardPopupWindow("dialog_form_survey_forward");
+            $("#dialog_form_survey_forward").dialog("open");
+        }
+
+        return false;
+
     });
 
 
@@ -310,15 +320,13 @@ function sendEmailToMeMyList(survey_ids) {
  * @param {string}  email_address     Email address
  * @param {string}  message           Message
  */
-function sendEmailToAnotherUser(survey_ids, email_address, message,cc) {    
+function sendEmailToAnotherUser(survey_ids, email_address) {
     $.ajax({
         url: "/dashboard/sendEmail",
         type: "POST",
         data: {
             survey_ids    : survey_ids,
             email_address : email_address,
-            message       : message,
-            cc            : cc,
             survey_name   : $('#dialog_email_survey_name_hidden').text(),
             organization  : $('#dialog_email_organization a').text(),
             email_me      : 0
@@ -455,35 +463,22 @@ function initSurveyForwardPopupWindow(element) {
                 $(this).dialog("close");
             },
             "Send": function() {
-                var bValid = true;
-
-                // Validation of email address if "me" checkbox is unchecked
-                /* if(!to_me_flag.is(":checked")) {
-                 bValid = bValid && checkLength(to_email_address);
-                 bValid = bValid && checkRegexp(to_email_address, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
-                 }*/
-                var emailaddr = null;
-                if($(".timemail").is(":checked"))
+                var checked_checkboxes = $('.table_checkbox:checked');
+                var email_address = $('.to_dialog_form_survey_forward').val();
+                // Check count of checked checkboxes
+                var survey_ids = getSurveyIds(checked_checkboxes);
+                var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+                if(expr.test(email_address))
                 {
-                    emailaddr = to_email_address.text();
+                    if(sendEmailToAnotherUser(survey_ids, email_address)) {
+                        uncheckCheckboxes(checked_checkboxes);
+                    }
+                    $('#email_validate_error').hide();
                 }
-                var cc_emails = new Array();
-                $('.select2-search-choice div').each(function(){
-                    cc_emails.push($(this).text());
-                });
-                if( cc_emails.length==0 && !$(".timemail").is(":checked"))
+                else
                 {
-                    bValid = false;
-                }
-                if (bValid) {
-                    // Send email message
-                    sendEmailToAnotherUser([$(this).data("survey_id")], emailaddr, message.val(),cc_emails);
-
-                    text_fields.val("");
-                    to_me_flag.prop("checked", true);
-                    $(this).dialog("close");
-                } else {
-                    openErrorPopupWindow("dialog_error_alert", "Warning! You must have at least one recipient to send an email.");
+                    $('#email_validate_error').show();
+                    return false;
                 }
             }
 
@@ -495,6 +490,11 @@ function initSurveyForwardPopupWindow(element) {
         }
     });
 }
+
+function ValidateEmail(email) {
+    var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    return expr.test(email);
+};
 
 /**
  * Check length of field

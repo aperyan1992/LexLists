@@ -50,6 +50,7 @@ class SurveyManagementForm extends LtSurveyForm {
             }
         }
     }
+    sort($keyword);
     // Set widgets
     $this->widgetSchema['organization_id']        = new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Organization'), 'add_empty' => true), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
     $this->widgetSchema['organization_url']       = new sfWidgetFormInputText(array(), array("class" => "admin_survey_management_input_text set_padding"));

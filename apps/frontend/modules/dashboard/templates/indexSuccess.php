@@ -257,8 +257,7 @@
             <input type="hidden" name="hidden_section_name_for_log" value="dashboard">
         </form>
         <input type="button" id="multiple_print" class="btn btn-success" value="Print" />
-        <input type="button" id="multiple_email" class="btn btn-success" value="E-mail" />
-        <input type="button" id="multiple_forward" class="btn btn-success" value="Forward" />
+        <input type="button" id="multiple_forward" class="btn btn-success" value="E-mail" />
         <input type="button" id="multiple_save" class="btn btn-success" value="Save" />
     </div>
 

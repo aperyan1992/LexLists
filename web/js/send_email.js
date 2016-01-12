@@ -320,16 +320,15 @@ function sendEmailToMeMyList(survey_ids) {
  * @param {string}  email_address     Email address
  * @param {string}  message           Message
  */
-function sendEmailToAnotherUser(survey_ids, email_address) {
+function sendEmailToAnotherUser(survey_ids, email_address, cc, message) {
     $.ajax({
         url: "/dashboard/sendEmail",
         type: "POST",
         data: {
             survey_ids    : survey_ids,
             email_address : email_address,
-            survey_name   : $('#dialog_email_survey_name_hidden').text(),
-            organization  : $('#dialog_email_organization a').text(),
-            email_me      : 0
+            message       : message,
+            email_me      : cc
         },
         dataType: "json",
         beforeSend: function() {
@@ -466,12 +465,14 @@ function initSurveyForwardPopupWindow(element) {
             "Send": function() {
                 var checked_checkboxes = $('.table_checkbox:checked');
                 var email_address = $('.to_dialog_form_survey_forward').val();
+                var cc = $('#to_me_dialog_form_survey_forward').is(':checked');
+                var message = $('#message_dialog_form_survey_forward').val();
                 // Check count of checked checkboxes
                 var survey_ids = getSurveyIds(checked_checkboxes);
                 var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
                 if(expr.test(email_address))
                 {
-                    if(sendEmailToAnotherUser(survey_ids, email_address)) {
+                    if(sendEmailToAnotherUser(survey_ids, email_address, cc, message)) {
                         uncheckCheckboxes(checked_checkboxes);
                     }
                     $('#email_validate_error').hide();

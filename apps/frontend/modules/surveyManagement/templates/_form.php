@@ -17,7 +17,7 @@
 
                     <input type="hidden" id="is_new_object" value="<?php echo ($form->isNew()) ? 'true' : $form->getObject()->getId() ?>" />
 
-                    <div class="admin_buttons_div" style="width: 702px !important;">
+                    <div class="admin_buttons_div" style="width: 75% !important;">
                         <input type="button" value="Cancel" list_url="<?php echo url_for("@" . $helper->getUrlForAction('list')); ?>" class="cancel_admin_panel btn btn-success" />
                         <input type="submit" value="Save" form_name="survey" class="btn btn-success save_button" />
                     </div>

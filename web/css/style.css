@@ -2724,6 +2724,12 @@ div.tooltip p {
 .select2-container-multi .select2-choices .select2-search-choice {
     margin: 3px 5px 3px 5px !important;
 }
+.keyword_class .select2-container-multi .select2-choices .select2-search-choice {
+    margin: 0px !important;
+    margin-left: 6px !important;
+    margin-bottom: 2px !important;
+    margin-top: 2px !important;
+}
 
 .select2-choices {
     border: 1px solid #d5d5d5 !important;;
@@ -5276,13 +5282,13 @@ fieldset.disp-block{
     padding: 0px !important;
 }
 .distance{
-    padding-bottom: 25px !important;
+    padding-bottom: 13px !important;
 }
 .one_col{
     padding-left: 0px !important;
 }
 .col-md-6, .col-lg-6, .col-sm6{
-    padding-left: 48px;
+    padding-left: 32px;
 }
 .hr_line{
     margin-bottom: 15px;
@@ -5304,4 +5310,33 @@ fieldset.disp-block{
 }
 .select2-search-choice{
     width: 190px !important;
+}
+.keyword_class .select2-search-choice{
+    width: 90px !important;
+}
+.full_width div div, .full_width div div a{
+    width: 656px !important;
+}
+.one_col div{
+    padding-left: 33px;
+}
+.full_width div textarea{
+    width: 77.3% !important;
+}
+.extend_width div div, .extend_width div input{
+    width: 261px !important;
+}
+.staff_note div textarea{
+    width: 261px !important;
+}
+.dataTable thead tr th:first-child div span{
+    width: 40% !important;
+}
+#report_surveys thead tr th:first-child + th{
+    width: 100px !important;
+    min-width: 100px !important;
+}
+.dataTable thead tr th:first-child + th{
+    width: 100px !important;
+    min-width: 100px !important;
 }

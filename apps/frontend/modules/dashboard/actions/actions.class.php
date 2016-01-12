@@ -625,31 +625,19 @@ class dashboardActions extends sfActions {
             // Get request parameters
             $survey_ids         = $request->getParameter("survey_ids", FALSE);
             $email_address      = $request->getParameter("email_address", FALSE);
-            $survey_name        = $request->getParameter("survey_name", FALSE);
-            $organization       = $request->getParameter("organization", FALSE);
 
 
             //var_dump("name - ".$survey_name);die;
             $email_cc           = $request->getParameter("cc", FALSE);
-            $email_me           = $request->getParameter("email_me", FALSE);
             $cc = array();
             $cc_for_log = array();
             if($email_cc)
             {
-                foreach($email_cc as $ccs)
-                {
-                    
-                    array_push($cc_for_log, $ccs);
-                    if(strpos($ccs,'('))
-                    {
-                        $c = explode("(", $ccs);
-                        $c = explode(")", $c[1]);
-                        array_push($cc, $c[0]);
-                    }
-                    else{
-                        array_push($cc,$ccs);
-                    }
-                }
+                $email_me = 1;
+            }
+            else
+            {
+                $email_me = 0;
             }
 
             $additional_message = $request->getParameter("message", FALSE);
@@ -726,7 +714,6 @@ class dashboardActions extends sfActions {
                         $status = true;
                     }
 
-                    
 
                     return $this->renderText(
                         json_encode(

@@ -625,6 +625,8 @@ class dashboardActions extends sfActions {
             // Get request parameters
             $survey_ids         = $request->getParameter("survey_ids", FALSE);
             $email_address      = $request->getParameter("email_address", FALSE);
+            $survey_name        = $request->getParameter("message", FALSE);
+            $organization       = $request->getParameter("organization", FALSE);
 
 
             //var_dump("name - ".$survey_name);die;
@@ -697,6 +699,7 @@ class dashboardActions extends sfActions {
                         $recipient_email_address = $email_address;
                     }
 
+                    //var_dump($recipient_email_address, $user->getEmailAddress(), $additional_message);die;
                     // Send email message
                     $message = Swift_Message::newInstance()
                             ->setFrom($user->getEmailAddress())

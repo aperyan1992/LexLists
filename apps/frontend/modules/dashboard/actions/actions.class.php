@@ -711,7 +711,7 @@ class dashboardActions extends sfActions {
                     {
                         foreach($arrEmailTo as $email)
                         {
-                            $message->setTo($eamil);
+                            $message->setTo($email);
                         }
                     }
                     else
@@ -727,7 +727,7 @@ class dashboardActions extends sfActions {
 
                     // Check sending status//
                     $status = false;
-                    if ($send_status == 1) {   
+                    if ($send_status == 1) {
                         $status = true;
                     }
 

@@ -74,10 +74,14 @@ $(document).ready(function() {
                 });
 
                 var arrEmails = new Array();
-                for(var i = 0;i< data['array'].length;i++)
-                {
-                    arrEmails.push({id:i,text:data['array'][i].f_name+' '+data['array'][i].l_name+' ('+data['array'][i].email+')'});
+                if(typeof data['array'] != 'undefined') {
+                    for (var i = 0; i < data['array'].length; i++) {
+                        arrEmails.push({
+                            id: i,
+                            text: data['array'][i].f_name + ' ' + data['array'][i].l_name + ' (' + data['array'][i].email + ')'
+                        });
 
+                    }
                 }
                 //console.log(arrEmails);
                 window.arrEmails = arrEmails;

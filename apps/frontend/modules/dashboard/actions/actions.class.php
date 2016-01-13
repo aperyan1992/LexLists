@@ -628,7 +628,6 @@ class dashboardActions extends sfActions {
             $survey_name        = $request->getParameter("message", FALSE);
             $organization       = $request->getParameter("organization", FALSE);
 
-
             //var_dump("name - ".$survey_name);die;
             $email_cc           = $request->getParameter("cc", FALSE);
             $cc = array();
@@ -698,12 +697,11 @@ class dashboardActions extends sfActions {
                     if ($email_address !== false && !empty($email_address)) {
                         $recipient_email_address = $email_address;
                     }
-
                     //var_dump($recipient_email_address, $user->getEmailAddress(), $additional_message);die;
                     // Send email message
                     $message = Swift_Message::newInstance()
                             ->setFrom($user->getEmailAddress())
-                            ->setTo($recipient_email_address)
+                            ->setTo(array_values($recipient_email_address))
                             ->setCc($cc)
                             ->setSubject("LexLists E-mail")
                             ->setBody($this->getPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => $additional_message)))
@@ -2171,6 +2169,35 @@ class dashboardActions extends sfActions {
             }
         }
 
+        $this->forward404();
+    }
+
+    public function executeGetSelfInfo() {
+
+        $user = $this->getUser()->getGuardUser();
+
+        // Get recipient email address
+        $recipient_email_address = $user->getEmailAddress();
+
+        //Get user first name and last name
+        $recipient_first_name = $user->getFirstName();
+        $recipient_last_name = $user->getLastName();
+
+        //save info to log file
+        $final_filename = $this->getUser()->getAttribute('log_file_name');
+        $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
+        $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
+
+
+
+        return $this->renderText(
+            json_encode(
+                array(
+                    "user_email"             => /*$recipient_email_address*/$recipient_first_name." ".$recipient_last_name,
+                    "user_email_hidden"      => $recipient_email_address
+                )
+            )
+        );
         $this->forward404();
     }
 

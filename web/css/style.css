@@ -2897,6 +2897,7 @@ div.tooltip p {
 
 .popup1 th {
     width: 165px !important;
+    height: 45px !important;
 }
 
 .popup1 table td {
@@ -2940,6 +2941,11 @@ div.tooltip p {
     position: relative;
     left: 5px;
     top: 2px;
+}
+.to_me_label_forward{
+    position: relative;
+    left: 5px;
+    top: -4px;
 }
 
 #add_my_award_note {

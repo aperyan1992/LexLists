@@ -146,33 +146,6 @@ $(document).ready(function() {
                 type: "POST",
                 dataType: "json",
                 success: function(data1) {
-                    $.ajax({
-                        url: "/frontend_dev.php/mySurvey/GetAllEmails",
-                        type: "POST",
-                        dataType: "json",
-                        success: function(data) {
-                            var arrEmails = new Array();
-                            var to_me = data['me'];
-                            data = data.array;
-                            console.log(data);
-                            if(typeof data != 'undefined') {
-                                for(var i = 0;i< data.length;i++)
-                                {
-                                    arrEmails.push({id:i,text:data[i].f_name+' '+data[i].l_name+' ('+data[i].email+')'});
-                                }
-                            }
-                            window.arrEmails = arrEmails;
-                            $('#to_dialog_form_survey_forward').select2({
-                                createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
-                                multiple: true,
-                                allowClear:true,
-                                data: arrEmails
-                            });
-                        },
-                        error: function() {
-                            openErrorPopupWindow("dialog_error_alert", "Error !!!");
-                        }
-                    });
                     initSurveyForwardPopupWindow("dialog_form_survey_forward");
                     $("#dialog_form_survey_forward").data(data1).dialog("open");
                 },
@@ -510,18 +483,11 @@ function initSurveyForwardPopupWindow(element) {
                 var email_address = $('.to_dialog_form_survey_forward').val();
                 var cc = $('#to_me_dialog_form_survey_forward').is(':checked');
                 var message = $('#message_dialog_form_survey_forward').val();
-                email_address = email_address.split(',');
-                var arr = new Array;
                 // Check count of checked checkboxes
                 var survey_ids = getSurveyIds(checked_checkboxes);
                 var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-                $.each(email_address, function(index, value){
-                    if(!expr.test(value))
-                    {
-                        arr.push(index);
-                    }
-                });
-                if(arr.length == 0)
+
+                if(expr.test(email_address))
                 {
                     if(sendEmailToAnotherUser(survey_ids, email_address, cc, message)) {
                         uncheckCheckboxes(checked_checkboxes);
@@ -531,12 +497,6 @@ function initSurveyForwardPopupWindow(element) {
                 else
                 {
                     $('#email_validate_error').show();
-                    for(var k=0;k<arr.length;k++)
-                    {
-                        $('.select2-choices li:nth-child('+(parseInt(arr[k])+1)+')').css('border-color','red');
-
-                    }
-
                     return false;
                 }
             }

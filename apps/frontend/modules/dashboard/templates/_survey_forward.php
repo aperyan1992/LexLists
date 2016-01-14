@@ -7,7 +7,7 @@
             </th>
 
             <td>
-                    <input style="width: 330px; margin-bottom: 13px !important;" placeholder="Enter email address" type="text" name="to" id="to_dialog_form_survey_forward" class=" select2 to_dialog_form_survey_forward text ui-widget-content ui-corner-all special_height"/>
+                    <input style="width: 330px; padding-left: 8px !important; margin-bottom: 13px !important;" placeholder="Enter email address" type="text" name="to" id="to_dialog_form_survey_forward" class=" select2 to_dialog_form_survey_forward text ui-widget-content ui-corner-all special_height"/>
                 <div style="display:none" id="dialog_email_user_email_hidden"></div>
             </td>
         </tr>

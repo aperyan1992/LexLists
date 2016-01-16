@@ -2,7 +2,7 @@
 <?php include_partial('surveyManagement/assets') ?>
 
 <div id="sf_admin_container">
-    <h3><?php echo __('ADD A NEW SURVEY', array(), 'messages') ?></h3>
+    <h3><?php echo __('ADD NEW SURVEY', array(), 'messages') ?></h3>
 
     <div id="sf_admin_header">
       <?php include_partial('surveyManagement/form_header', array('lt_survey' => $lt_survey, 'form' => $form, 'configuration' => $configuration)) ?>

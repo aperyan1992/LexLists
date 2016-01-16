@@ -58,4 +58,4 @@
             </div>
         <?php if($name == "states_list" || $name == "survey_region_id"): ?></div> <?php endif; ?>
     <?php endif; ?>
-<?php if($i=="6" || $i=="11" || $i=="13" || $i=="17" || $i=="24" || $i=="25"): ?> <div class="hr_line col-md-12 col-lg-12 col-sm-12" style="border-bottom: solid lightgrey 1px;"></div> <?php endif; endif; ?>
+<?php if($i=="6" || $i=="11" || $i=="13" || $i=="17" || $i=="24"): ?> <div class="hr_line col-md-12 col-lg-12 col-sm-12" style="border-bottom: solid lightgrey 1px;"></div> <?php endif; endif; ?>

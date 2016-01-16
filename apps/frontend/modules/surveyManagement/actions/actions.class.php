@@ -352,9 +352,9 @@ class surveyManagementActions extends autoSurveyManagementActions {
 
         $query = 'SELECT keywords FROM surveys WHERE id="'.$id.'"';
         $resquery = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
-        $keys = $resquery[0][0];
         $arrKeywords = array();
         if(!empty($resquery)) {
+            $keys = $resquery[0][0];
             foreach (explode(';', $keys) as $keyword) {
                 $arrKeywords[] = $keyword;
             }

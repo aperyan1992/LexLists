@@ -1,4 +1,4 @@
 ## YAML Template.
 ---
 all:
-  credentials: [superuser]
+  credentials: [[superuser,client admin]]

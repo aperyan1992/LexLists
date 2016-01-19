@@ -2897,7 +2897,6 @@ div.tooltip p {
 
 .popup1 th {
     width: 165px !important;
-    height: 45px !important;
 }
 
 .popup1 table td {
@@ -4685,10 +4684,7 @@ fieldset.disp-block{
     display: block;
     float: left;
     width: 590px;
-    height: 33px !important;
-}
-.popup1 form table tr th {
-    vertical-align: middle !important;
+    padding-top: 13px;
 }
 
 .popup1 form table td:nth-child(2) {
@@ -5217,6 +5213,10 @@ fieldset.disp-block{
 /*.select2-drop{
     z-index:1500 !important;
 }*/
+
+.dialog_contact {
+    vertical-align: 0 !important;
+}
 
 .datatable_td_align_center input[type=checkbox]{
     margin-left:5px

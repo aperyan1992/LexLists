@@ -50,6 +50,11 @@ class SurveyManagementForm extends LtSurveyForm {
             }
         }
     }
+
+    sort(LtSurvey::$frequency_types_array);
+    sort(LtSurvey::$candidate_types_array);
+    sort($contact_choices);
+    sort($statuses_array);
     sort($keyword);
     // Set widgets
     $this->widgetSchema['organization_id']        = new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Organization'), 'add_empty' => true), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
@@ -84,7 +89,17 @@ class SurveyManagementForm extends LtSurveyForm {
 
     $this->widgetSchema['staff_notes']            = new sfWidgetFormTextarea(array(), array("class" => "admin_survey_management_textarea"));
 
-    // Set validators
+
+    $this->widgetSchema['cities_list']->addOption('order_by',array('name','asc'));
+    $this->widgetSchema['organization_id']->addOption('order_by',array('name','asc'));
+    $this->widgetSchema['survey_region_id']->addOption('order_by',array('name','asc'));
+    $this->widgetSchema['states_list']->addOption('order_by',array('name','asc'));
+    $this->widgetSchema['countries_list']->addOption('order_by',array('name','asc'));
+    $this->widgetSchema['special_criterias_list']->addOption('order_by',array('name','asc'));
+
+    $this->widgetSchema->setDefault('cities_list','2013');
+
+        // Set validators
     $this->validatorSchema['organization_id']        = new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Organization'), 'required' => false));
     $this->validatorSchema['organization_url']       = new sfValidatorString(array('max_length' => 255, 'required' => false), array("max_length" => "Maximum length (255 characters)"));
     $this->validatorSchema['survey_name']            = new sfValidatorString(array('max_length' => 255, 'required' => false), array("max_length" => "Maximum length (255 characters)"));

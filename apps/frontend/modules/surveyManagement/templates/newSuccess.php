@@ -1,4 +1,5 @@
 <?php use_helper('I18N', 'Date') ?>
+
 <?php include_partial('surveyManagement/assets') ?>
 
 <div id="sf_admin_container">

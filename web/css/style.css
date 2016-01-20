@@ -4684,7 +4684,7 @@ fieldset.disp-block{
     display: block;
     float: left;
     width: 590px;
-    padding-top: 13px;
+    padding-top: 5px;
 }
 
 .popup1 form table td:nth-child(2) {
@@ -5345,4 +5345,7 @@ fieldset.disp-block{
 .dataTable thead tr th:first-child + th{
     width: 100px !important;
     min-width: 100px !important;
+}
+.borderbottomcity{
+    background-color:red;
 }

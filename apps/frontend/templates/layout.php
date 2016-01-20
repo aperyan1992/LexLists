@@ -20,7 +20,7 @@
     <link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="/images/icons/manifest.json">
     <link rel="mask-icon" href="/images/icons/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="/images/icons/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico" />
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
     <meta name="msapplication-config" content="/images/icons/browserconfig.xml">
@@ -28,7 +28,6 @@
     <?php include_http_metas() ?>
     <?php include_metas() ?>
     <?php include_title() ?>
-    <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>
     <!--[if lt IE 9]>

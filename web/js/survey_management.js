@@ -2,6 +2,7 @@
  *  Script for "Survey Management" page
  */
 $(document).ready(function() {
+
     /*$(".distance td").each(function(){
         if($(this).find(".admin_survey_management_input_text"))
         {
@@ -16,14 +17,16 @@ $(document).ready(function() {
 
     $('#s2id_lt_survey_survey_contact_id').css({"width": '434px'})
 
+    $('#lt_survey_cities_list option:first-child').after('<option value="198">United States of America</option>');
     /**
      *  Init popups
      */
+
     initSurveyContactPopupWindow('dialog_form_survey_contact');
     initOrganizationPopupWindow('dialog_form_organization');
     initSurveyCityPopupWindow('dialog_form_city');
     initSurveySpecialCriteriaPopupWindow('dialog_form_special_criteria');
-    initSurveyKeywordPopupWindow('dialog_form_keyword')
+    initSurveyKeywordPopupWindow('dialog_form_keyword');
 
     /**
      * Add new survey contact
@@ -91,6 +94,8 @@ $('#s2id_lt_survey_keywords .select2-search-choice-close').click(function(){
     setTimeout(select2keywordvalues(),2000);
 });
  $('#s2id_lt_survey_keywords .select2-input').attr('disabled',true);
-   
+
+
+
 
 });

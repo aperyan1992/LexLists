@@ -5347,5 +5347,6 @@ fieldset.disp-block{
     min-width: 100px !important;
 }
 .borderbottomcity{
-    background-color:red;
+    border-bottom: 1px dashed gray;
+    width: 95%;
 }

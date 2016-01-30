@@ -11,6 +11,7 @@
         <?php include_partial('surveyManagement/list_actions', array('helper' => $helper)) ?>
     </div>
 
+
     <div id="sf_admin_header">
         <?php include_partial('surveyManagement/list_header', array('pager' => $pager)) ?>
     </div>

@@ -74,6 +74,35 @@ class dashboardActions extends sfActions {
      */
     public function executeIndex(sfWebRequest $request) {
 
+        /*$query = "SELECT surveys.id, surveys.year, cities.name, countries.name
+FROM surveys
+JOIN organizations ON surveys.organization_id = organizations.id
+JOIN regions ON surveys.survey_region_id = regions.id
+LEFT JOIN survey_cities ON surveys.id = survey_cities.survey_id
+RIGHT JOIN cities ON survey_cities.city_id = cities.id
+JOIN survey_contacts on surveys.survey_contact_id = survey_contacts.id
+LEFT JOIN survey_countries on surveys.id = survey_countries.survey_id
+RIGHT JOIN countries on survey_countries.country_id= countries.id
+LEFT JOIN survey_states on surveys.id = survey_states.survey_id
+LEFT JOIN states on survey_states.state_id= states.id
+LEFT JOIN survey_practice_areas on surveys.id = survey_practice_areas.survey_id
+LEFT JOIN practice_areas on survey_practice_areas.practice_area_id= practice_areas.id
+LEFT JOIN survey_special_criterias on surveys.id = survey_special_criterias.survey_id
+LEFT JOIN special_criterias on survey_special_criterias.special_criteria_id= special_criterias.id LIMIT 0, 30
+";
+        $doctrine = Doctrine_Manager::getInstance()->getCurrentConnection();
+        try
+        {
+            var_dump($doctrine->execute($query)->fetchAll());
+        }
+        catch ( Doctrine_Connection_Exception $e )
+        {
+            echo 'Code : ' . $e->getPortableCode();
+            echo 'Message : ' . $e->getPortableMessage();
+        }
+        die;*/
+
+
         $final_filename = $this->getUser()->getAttribute('log_file_name');
         $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
         $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
@@ -270,41 +299,46 @@ class dashboardActions extends sfActions {
             $i = 0;
 
             // Get all surveys
-            $surveys = Doctrine_Core::getTable("LtSurvey")->getAllSurveys();
-
-            if (isset($surveys) && $surveys->getFirst()) {
+            $t1 = microtime();
+            //$surveys = Doctrine_Core::getTable("LtSurvey")->getAllSurveys();
+            $query = "SELECT surveys.year, surveys.id, surveys.submission_deadline, surveys.selection_methodology, surveys.survey_description, surveys.eligibility_criteria, surveys.candidate_type, surveys.is_list, surveys.is_legal, surveys.organization_id, surveys.survey_name, organizations.name as organization_name, regions.name as region_name, surveys.survey_region_id FROM surveys
+                      LEFT JOIN organizations ON surveys.organization_id = organizations.id LEFT JOIN regions ON surveys.survey_region_id = regions.id";
+            $surveys = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+            //var_dump($surveys);die;
+            if (isset($surveys) && !empty($surveys)) {
                 $aa_data_array = array("aaData" => array());
 
-                foreach ($surveys as $survey) {
-
+                foreach ($surveys as $key => $survey) {
                     // Set survey checkbox
-                    $survey_checkbox = "<input type='checkbox' class='table_checkbox' style='margin-right: 5px;' s_id='" . $survey->getId() . "' />"."<a href='#' style='margin-left: 8px; margin-top: 2px;' class='custom_link email_link' s_id='" . $survey->getId() . "'><span class='genericon genericon-mail'></span></a>";
+                    $survey_checkbox = "<input type='checkbox' class='table_checkbox' style='margin-right: 5px;' s_id='" . $survey['id'] . "' />"."<a href='#' style='margin-left: 8px; margin-top: 2px;' class='custom_link email_link' s_id='" . $survey['id'] . "'><span class='genericon genericon-mail'></span></a>";
 
                     // Set year
-                    $year = (!is_null($survey->getYear()) && $survey->getYear() != "" && $survey->getYear() != 0) ? $survey-> getYear() : "- - -";
+                    $year = (!is_null($survey['year']) && $survey['year'] != "" && $survey['year'] != 0) ? $survey['year'] : "- - -";
 
                     // Set organization
-                    $organization = (!is_null($survey->getOrganizationId()) && $survey->getOrganizationId() != "") ? $this->CheckStringLength($survey->getOrganization()->getName(), 50) : "- - -";
+                    $organization = (!is_null($survey['organization_id']) && $survey['organization_id'] != "") ? $this->CheckStringLength($survey['organization_name'], 50) : "- - -";
 
                     // Set survey name
                     //$survey_name = (!is_null($survey->getSurveyName()) && $survey->getSurveyName() != "") ? $this->CheckStringLength($survey->getSurveyName()) : "- - -";
-                    $survey_name = (!is_null($survey->getSurveyName()) && $survey->getSurveyName() != "") ? $this->CheckStringLength($survey->getSurveyName(), 50) : "- - -";
+                    $survey_name = (!is_null($survey['survey_name']) && $survey['survey_name'] != "") ? $this->CheckStringLength($survey['survey_name'], 50) : "- - -";
 
                     // Set survey name link
-                    $survey_name_link = "<a href='#' class='custom_link details_link' s_id='" . $survey->getId() . "'>" . $this->CheckStringLength($survey_name, 50) . "</a>";
+                    $survey_name_link = "<a href='#' class='custom_link details_link' s_id='" . $survey['id'] . "'>" . $this->CheckStringLength($survey_name, 50) . "</a>";
 
-                    $isList = (!is_null($survey->getIsList()) && $survey->getIsList() == "1") ? 'List' : "Award";
-                    $isLegal = (!is_null($survey->getIsLegal()) && $survey->getIsLegal() == "1") ? 'Legal' : "Business";
+                    $isList = (!is_null($survey['is_list']) && $survey['is_list'] == "1") ? 'List' : "Award";
+                    $isLegal = (!is_null($survey['is_legal']) && $survey['is_legal'] == "1") ? 'Legal' : "Business";
 
                     // Set candidate type
-                    $candidate_type = (isset(LtSurvey::$candidate_types_array[$survey->getCandidateType()]) && !is_null($survey->getCandidateType()) && $survey->getCandidateType() != "" && $survey->getCandidateType() != "0") ? $this->CheckStringLength(LtSurvey::$candidate_types_array[$survey->getCandidateType()], 50) : "- - -";
+                    $candidate_type = (isset(LtSurvey::$candidate_types_array[$survey['candidate_type']]) && !is_null($survey['candidate_type']) && $survey['candidate_type'] != "" && $survey['candidate_type'] != "0") ? $this->CheckStringLength(LtSurvey::$candidate_types_array[$survey['candidate_type']], 50) : "- - -";
 
                     // Set practice area
                     $practice_areas = "- - -";
-                    if ($survey->getLtSurveyPracticeArea()->getFirst()) {
+                    $query = "SELECT short_code FROM practice_areas JOIN survey_practice_areas ON practice_areas.id = survey_practice_areas.practice_area_id WHERE survey_practice_areas.survey_id ='".$survey['id']."'";
+                    $practice_area_result = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                    if (!empty($practice_area_result)) {
                         $practice_area_array = array();
-                        foreach ($survey->getLtSurveyPracticeArea() as $practice_area) {
-                            $practice_area_array[] = $practice_area->getPracticeArea()->getShortCode();
+                        foreach ($practice_area_result as $practice_area) {
+                            $practice_area_array[] = $practice_area['short_code'];
                         }
 
                         $practice_areas = $this->CheckStringLength(implode(", ", $practice_area_array), 50);
@@ -312,24 +346,28 @@ class dashboardActions extends sfActions {
 
                     // Set special criteria
                     $special_criterias = "- - -";
-                    if ($survey->getLtSurveySpecialCriteria()->getFirst()) {
+                    $query = "SELECT name FROM special_criterias JOIN survey_special_criterias ON special_criterias.id = survey_special_criterias.special_criteria_id WHERE survey_special_criterias.survey_id ='".$survey['id']."'";
+                    $special_criteria_result = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                    if (!empty($special_criteria_result)) {
                         $special_criteria_array = array();
-                        foreach ($survey->getLtSurveySpecialCriteria() as $special_criteria) {
-                            $special_criteria_array[] = $special_criteria->getSpecialCriteria()->getName();
+                        foreach ($special_criteria_result as $special_criteria) {
+                            $special_criteria_array[] = $special_criteria['name'];
                         }
 
                         $special_criterias = $this->CheckStringLength(implode(", ", $special_criteria_array), 50);
                     }
 
                     // Set region
-                    $region = (!is_null($survey->getSurveyRegionId()) && $survey->getSurveyRegionId() != "") ? $this->CheckStringLength($survey->getRegion()->getName(), 50) : "- - -";
+                    $region = (!is_null($survey['survey_region_id']) && $survey['survey_region_id'] != "") ? $this->CheckStringLength($survey['region_name'], 50) : "- - -";
 
                     // Set cities
                     $cities = "- - -";
-                    if ($survey->getLtSurveyCity()->getFirst()) {
+                    $query = "SELECT name FROM cities JOIN survey_cities ON cities.id = survey_cities.city_id WHERE survey_cities.survey_id ='".$survey['id']."'";
+                    $cities_result = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                    if (!empty($cities_result)) {
                         $cities_array = array();
-                        foreach ($survey->getLtSurveyCity() as $city) {
-                            $cities_array[] = $city->getCity()->getName();
+                        foreach ($cities_result as $city) {
+                            $cities_array[] = $city['name'];
                         }
 
                         $cities = $this->CheckStringLength(implode(", ", $cities_array), 50);
@@ -337,10 +375,12 @@ class dashboardActions extends sfActions {
                     
                     // Set states
                     $states = "- - -";
-                    if ($survey->getLtSurveyState()->getFirst()) {
+                    $query = "SELECT name FROM states JOIN survey_states ON states.id = survey_states.state_id WHERE survey_states.survey_id ='".$survey['id']."'";
+                    $states_result = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                    if (!empty($states_result)) {
                         $states_array = array();
-                        foreach ($survey->getLtSurveyState() as $state) {
-                            $states_array[] = $state->getState()->getName();
+                        foreach ($states_result as $state) {
+                            $states_array[] = $state['name'];
                         }
 
                         $states = $this->CheckStringLength(implode(", ", $states_array), 50);
@@ -348,10 +388,12 @@ class dashboardActions extends sfActions {
                     
                     // Set countries
                     $countries = "- - -";
-                    if ($survey->getLtSurveyCountry()->getFirst()) {
+                    $query = "SELECT name FROM countries JOIN survey_countries ON countries.id = survey_countries.country_id WHERE survey_countries.survey_id ='".$survey['id']."'";
+                    $countries_result = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                    if (!empty($countries_result)) {
                         $countries_array = array();
-                        foreach ($survey->getLtSurveyCountry() as $country) {
-                            $countries_array[] = $country->getCountry()->getName();
+                        foreach ($countries_result as $country) {
+                            $countries_array[] = $country['name'];
                         }
 
                         $countries = $this->CheckStringLength(implode(", ", $countries_array), 50);
@@ -359,7 +401,7 @@ class dashboardActions extends sfActions {
 
                     //Keywords
 
-                    $query = 'SELECT keywords FROM surveys WHERE id="'. $survey->getId() .'"';
+                    $query = 'SELECT keywords FROM surveys WHERE id="'. $survey['id'] .'"';
                     $resquery = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
                     $keywords = "- - -";
                     if(isset($resquery[0]['keywords']) && !empty($resquery[0]['keywords']) && $resquery[0]['keywords']!='')
@@ -368,20 +410,19 @@ class dashboardActions extends sfActions {
                     }
                     
                     // Set submission deadline
-                    $submission_deadline = (!is_null($survey->getSubmissionDeadline()) && $survey->getSubmissionDeadline() != "") ? $this->CheckStringLength($survey->getSubmissionDeadline(), 50) : "- - -";
+                    $submission_deadline = (!is_null($survey['submission_deadline']) && $survey['submission_deadline'] != "") ? $this->CheckStringLength($survey['submission_deadline'], 50) : "- - -";
 
                     // Set eligibility
-                    $eligibility = (!is_null($survey->getEligibilityCriteria()) && $survey->getEligibilityCriteria() != "") ? $this->CheckStringLength($survey->getShortEligibilityCriteria(), 50) : "- - -";
+                    $eligibility = (!is_null($survey['eligibility_criteria']) && $survey['eligibility_criteria'] != "") ? $this->CheckStringLength($survey['eligibility_criteria'], 50) : "- - -";
                     
                     // Set description
-                    $description = (!is_null($survey->getSurveyDescription()) && $survey->getSurveyDescription() != "") ? $this->CheckStringLength($survey->getShortSurveyDescription(), 50) : "- - -";
+                    $description = (!is_null($survey['survey_description']) && $survey['survey_description'] != "") ? $this->CheckStringLength($survey['survey_description'], 50) : "- - -";
 
                     // Set methodology
-                    $methodology = (!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != "") ? $this->CheckStringLength($survey->getShortSelectionMethodology(), 50) : "- - -";
+                    $methodology = (!is_null($survey['selection_methodology']) && $survey['selection_methodology'] != "") ? $this->CheckStringLength($survey['selection_methodology'], 50) : "- - -";
 
                     // Set email
                     $email_link = null;//"<a href='#' class='custom_link email_link' s_id='" . $survey->getId() . "'><span class='genericon genericon-mail'></span></a>";
-
 
                     $aa_data_array['aaData'][$i] = array(
                         $survey_checkbox,

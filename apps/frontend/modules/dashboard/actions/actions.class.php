@@ -74,35 +74,6 @@ class dashboardActions extends sfActions {
      */
     public function executeIndex(sfWebRequest $request) {
 
-        /*$query = "SELECT surveys.id, surveys.year, cities.name, countries.name
-FROM surveys
-JOIN organizations ON surveys.organization_id = organizations.id
-JOIN regions ON surveys.survey_region_id = regions.id
-LEFT JOIN survey_cities ON surveys.id = survey_cities.survey_id
-RIGHT JOIN cities ON survey_cities.city_id = cities.id
-JOIN survey_contacts on surveys.survey_contact_id = survey_contacts.id
-LEFT JOIN survey_countries on surveys.id = survey_countries.survey_id
-RIGHT JOIN countries on survey_countries.country_id= countries.id
-LEFT JOIN survey_states on surveys.id = survey_states.survey_id
-LEFT JOIN states on survey_states.state_id= states.id
-LEFT JOIN survey_practice_areas on surveys.id = survey_practice_areas.survey_id
-LEFT JOIN practice_areas on survey_practice_areas.practice_area_id= practice_areas.id
-LEFT JOIN survey_special_criterias on surveys.id = survey_special_criterias.survey_id
-LEFT JOIN special_criterias on survey_special_criterias.special_criteria_id= special_criterias.id LIMIT 0, 30
-";
-        $doctrine = Doctrine_Manager::getInstance()->getCurrentConnection();
-        try
-        {
-            var_dump($doctrine->execute($query)->fetchAll());
-        }
-        catch ( Doctrine_Connection_Exception $e )
-        {
-            echo 'Code : ' . $e->getPortableCode();
-            echo 'Message : ' . $e->getPortableMessage();
-        }
-        die;*/
-
-
         $final_filename = $this->getUser()->getAttribute('log_file_name');
         $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
         $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath));
@@ -301,8 +272,50 @@ LEFT JOIN special_criterias on survey_special_criterias.special_criteria_id= spe
             // Get all surveys
             $t1 = microtime();
             //$surveys = Doctrine_Core::getTable("LtSurvey")->getAllSurveys();
-            $query = "SELECT surveys.year, surveys.id, surveys.submission_deadline, surveys.selection_methodology, surveys.survey_description, surveys.eligibility_criteria, surveys.candidate_type, surveys.is_list, surveys.is_legal, surveys.organization_id, surveys.survey_name, organizations.name as organization_name, regions.name as region_name, surveys.survey_region_id FROM surveys
-                      LEFT JOIN organizations ON surveys.organization_id = organizations.id LEFT JOIN regions ON surveys.survey_region_id = regions.id";
+            $query = "SELECT surveys.year, surveys.keywords, surveys.id AS id, surveys.submission_deadline, surveys.selection_methodology, surveys.survey_description, surveys.eligibility_criteria, surveys.candidate_type, surveys.is_list, surveys.is_legal, surveys.organization_id, surveys.survey_name, organizations.name AS organization_name, regions.name AS region_name, surveys.survey_region_id,
+                    (SELECT GROUP_CONCAT( cities.name ) AS
+                    NAMES
+                    FROM cities
+                    LEFT JOIN survey_cities ON cities.id = survey_cities.city_id
+                    WHERE survey_cities.survey_id = id
+                    GROUP BY survey_cities.survey_id
+                    ) AS city_name,
+
+                    (SELECT GROUP_CONCAT( countries.name ) AS
+                    NAMES
+                    FROM countries
+                    LEFT JOIN survey_countries ON countries.id = survey_countries.country_id
+                    WHERE survey_countries.survey_id = id
+                    GROUP BY survey_countries.survey_id
+                    ) AS country_name,
+
+                    (SELECT GROUP_CONCAT( practice_areas.name ) AS
+                    NAMES
+                    FROM practice_areas
+                    LEFT JOIN survey_practice_areas ON practice_areas.id = survey_practice_areas.practice_area_id
+                    WHERE survey_practice_areas.survey_id = id
+                    GROUP BY survey_practice_areas.survey_id
+                    ) AS practice_area_name,
+
+                    (SELECT GROUP_CONCAT( special_criterias.name ) AS
+                    NAMES
+                    FROM special_criterias
+                    LEFT JOIN survey_special_criterias ON special_criterias.id = survey_special_criterias.special_criteria_id
+                    WHERE survey_special_criterias.survey_id = id
+                    GROUP BY survey_special_criterias.survey_id
+                    ) AS special_criteria_name,
+
+                    (SELECT GROUP_CONCAT( states.name ) AS
+                    NAMES
+                    FROM states
+                    LEFT JOIN survey_states ON states.id = survey_states.state_id
+                    WHERE survey_states.survey_id = id
+                    GROUP BY survey_states.survey_id
+                    ) AS state_name
+
+                    FROM surveys
+                    LEFT JOIN organizations ON surveys.organization_id = organizations.id
+                    LEFT JOIN regions ON surveys.survey_region_id = regions.id";
             $surveys = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
             //var_dump($surveys);die;
             if (isset($surveys) && !empty($surveys)) {
@@ -333,28 +346,14 @@ LEFT JOIN special_criterias on survey_special_criterias.special_criteria_id= spe
 
                     // Set practice area
                     $practice_areas = "- - -";
-                    $query = "SELECT short_code FROM practice_areas JOIN survey_practice_areas ON practice_areas.id = survey_practice_areas.practice_area_id WHERE survey_practice_areas.survey_id ='".$survey['id']."'";
-                    $practice_area_result = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
-                    if (!empty($practice_area_result)) {
-                        $practice_area_array = array();
-                        foreach ($practice_area_result as $practice_area) {
-                            $practice_area_array[] = $practice_area['short_code'];
-                        }
-
-                        $practice_areas = $this->CheckStringLength(implode(", ", $practice_area_array), 50);
+                    if ($survey['practice_area_name']) {
+                        $practice_areas = $survey['practice_area_name'];
                     }
 
                     // Set special criteria
                     $special_criterias = "- - -";
-                    $query = "SELECT name FROM special_criterias JOIN survey_special_criterias ON special_criterias.id = survey_special_criterias.special_criteria_id WHERE survey_special_criterias.survey_id ='".$survey['id']."'";
-                    $special_criteria_result = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
-                    if (!empty($special_criteria_result)) {
-                        $special_criteria_array = array();
-                        foreach ($special_criteria_result as $special_criteria) {
-                            $special_criteria_array[] = $special_criteria['name'];
-                        }
-
-                        $special_criterias = $this->CheckStringLength(implode(", ", $special_criteria_array), 50);
+                    if ($survey['special_criteria_name']) {
+                        $special_criterias = $survey['special_criteria_name'];
                     }
 
                     // Set region
@@ -362,51 +361,28 @@ LEFT JOIN special_criterias on survey_special_criterias.special_criteria_id= spe
 
                     // Set cities
                     $cities = "- - -";
-                    $query = "SELECT name FROM cities JOIN survey_cities ON cities.id = survey_cities.city_id WHERE survey_cities.survey_id ='".$survey['id']."'";
-                    $cities_result = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
-                    if (!empty($cities_result)) {
-                        $cities_array = array();
-                        foreach ($cities_result as $city) {
-                            $cities_array[] = $city['name'];
-                        }
-
-                        $cities = $this->CheckStringLength(implode(", ", $cities_array), 50);
+                    if ($survey['city_name']) {
+                        $cities = $survey['city_name'];
                     }
                     
                     // Set states
                     $states = "- - -";
-                    $query = "SELECT name FROM states JOIN survey_states ON states.id = survey_states.state_id WHERE survey_states.survey_id ='".$survey['id']."'";
-                    $states_result = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
-                    if (!empty($states_result)) {
-                        $states_array = array();
-                        foreach ($states_result as $state) {
-                            $states_array[] = $state['name'];
-                        }
-
-                        $states = $this->CheckStringLength(implode(", ", $states_array), 50);
+                    if ($survey['state_name']) {
+                        $states = $survey['state_name'];
                     }
                     
                     // Set countries
                     $countries = "- - -";
-                    $query = "SELECT name FROM countries JOIN survey_countries ON countries.id = survey_countries.country_id WHERE survey_countries.survey_id ='".$survey['id']."'";
-                    $countries_result = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
-                    if (!empty($countries_result)) {
-                        $countries_array = array();
-                        foreach ($countries_result as $country) {
-                            $countries_array[] = $country['name'];
-                        }
-
-                        $countries = $this->CheckStringLength(implode(", ", $countries_array), 50);
+                    if ($survey['country_name']) {
+                        $countries = $survey['country_name'];
                     }
 
                     //Keywords
 
-                    $query = 'SELECT keywords FROM surveys WHERE id="'. $survey['id'] .'"';
-                    $resquery = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
                     $keywords = "- - -";
-                    if(isset($resquery[0]['keywords']) && !empty($resquery[0]['keywords']) && $resquery[0]['keywords']!='')
+                    if($survey['keywords'] != "")
                     {
-                        $keywords =  $resquery[0]['keywords'];
+                        $keywords =  $survey['keywords'];
                     }
                     
                     // Set submission deadline

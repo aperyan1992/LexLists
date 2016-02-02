@@ -12,17 +12,17 @@ $(document).ajaxStop(function() {
 $(document).ready(function() {
 
     $('#report_surveys').on( 'init.dt', function () {
-        /*filterByOtherParameters(window.table, $('#2015'));
-        filterByOtherParameters(window.table, $('.is_legal_checkbox:first-child'));*/
-        //alert("A");
-        /*setInterval(function(){ filterByOtherParameters(window.table, $('#2015'));
-            filterByOtherParameters(window.table, $('.is_legal_checkbox:first-child')); }, 1000);*/
+
         oTable = $('#report_surveys').dataTable();
 
+
+
         /* Filter immediately */
-        oTable.fnFilter( '2015', 1 );
+        var year = new Date().getFullYear();
+        console.log(year);
+        oTable.fnFilter( year, 1 );
         oTable.fnFilter( 'Legal', 17 );
-        $("#2015").prop( "checked", true );
+        $("#"+year).prop( "checked", true );
         $(".is_legal_checkbox:first-child").prop( "checked", true );
     });
 

@@ -43,7 +43,7 @@
 
             <!-- Logo -->
             <div id="logo" class="span3 logo_margin_left">
-                <a href="<?php echo url_for("@homepage"); ?>"><img src="/images/LexListsLogoDemo.jpg" alt="LexLists"></a>
+                <a href="<?php echo url_for("@homepage"); ?>"><img src="/images/LexListsLogoBeta.jpg" alt="LexLists"></a>
             </div>
 
             <!-- Menu -->

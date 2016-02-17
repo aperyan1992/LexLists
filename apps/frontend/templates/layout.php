@@ -43,8 +43,8 @@
 
             <!-- Logo -->
             <?php switch($_SERVER['HTTP_HOST']) {
-                case "23.254.166.198/": $logo = "LexListsLogoDev.jpg";break;
-                case "104.168.162.106/": $logo = "LexListsLogoBeta.jpg";break;
+                case "23.254.166.198": $logo = "LexListsLogoDev.jpg";break;
+                case "104.168.162.106": $logo = "LexListsLogoBeta.jpg";break;
                 default: $logo = "LexListsLogoDev.jpg";
             } ?>
             <div id="logo" class="span3 logo_margin_left">

@@ -508,11 +508,11 @@ $(document).ready(function() {
                     is_list               = $("#lt_survey_is_list"),
                     is_legal              = $("#lt_survey_is_legal"),
                     candidate_type        = $("#lt_survey_candidate_type"),
-                    eligibility_criteria  = $("#lt_survey_eligibility_criteria"),
+                    //eligibility_criteria  = $("#lt_survey_eligibility_criteria"),
                     special_criterias     = $("#lt_survey_special_criterias_list"),
                     practice_areas        = $("#lt_survey_practice_areas_list"),
                     nomination            = $("#lt_survey_nomination"),
-                    selection_methodology = $("#lt_survey_selection_methodology"),
+                    //selection_methodology = $("#lt_survey_selection_methodology"),
                     self_nomination       = $("input[name='lt_survey[self_nomination]']:checked"),
                     fees                  = $("input[name='lt_survey[fees]']:checked"),
                     pay_for_play          = $("input[name='lt_survey[pay_for_play]']:checked"),
@@ -524,8 +524,8 @@ $(document).ready(function() {
                                                   .add(survey_year).add(survey_url).add(frequency)
                                                   .add(submission_deadline).add(survey_cities).add(survey_states)
                                                   .add(survey_countries).add(survey_region).add(survey_description)
-                                                  .add(candidate_type).add(eligibility_criteria).add(special_criterias)
-                                                  .add(practice_areas).add(nomination).add(selection_methodology).add(self_nomination)
+                                                  .add(candidate_type).add(special_criterias)
+                                                  .add(practice_areas).add(nomination).add(self_nomination)
                                                   .add(fees).add(pay_for_play).add(contact_id)
                                                   .add(survey_notes).add(staff_notes);
                    
@@ -537,9 +537,9 @@ $(document).ready(function() {
                 bValid = bValid && checkLength( survey_name, "survey name", false, 255 );
                 bValid = bValid && checkLength( survey_url, "survey url", false, 255 );
                 bValid = bValid && checkLength( survey_description, "survey description", false, 5000 );
-                bValid = bValid && checkLength( eligibility_criteria, "eligibility criteria", false, 5000 );
+                //bValid = bValid && checkLength( eligibility_criteria, "eligibility criteria", false, 5000 );
                 bValid = bValid && checkLength( nomination, "nomination", false, 5000 );
-                bValid = bValid && checkLength( selection_methodology, "selection methodology", false, 5000 );
+                //bValid = bValid && checkLength( selection_methodology, "selection methodology", false, 5000 );
                 bValid = bValid && checkLength( survey_notes, "survey notes", false, 5000 );
                 bValid = bValid && checkLength( staff_notes, "staff notes", false, 5000 );
                 var finishKeywords = "";
@@ -572,11 +572,11 @@ $(document).ready(function() {
                             is_list               : is_list.is(":checked"),
                             is_legal              : is_legal.is(":checked"),
                             candidate_type        : candidate_type.val(),
-                            eligibility_criteria  : eligibility_criteria.val(),
+                            //eligibility_criteria  : eligibility_criteria.val(),
                             special_criterias     : special_criterias.val(),
                             practice_areas        : practice_areas.val(),
                             nomination            : nomination.val(),
-                            selection_methodology : selection_methodology.val(),
+                            //selection_methodology : selection_methodology.val(),
                             self_nomination       : (self_nomination.val() == undefined) ? false : self_nomination.val(),
                             fees                  : (fees.val() == undefined) ? false : fees.val(),
                             pay_for_play          : (pay_for_play.val() == undefined) ? false : pay_for_play.val(),

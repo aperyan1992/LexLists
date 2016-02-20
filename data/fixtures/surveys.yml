@@ -380,8 +380,6 @@ $year = rand(2012, 2042);
     survey_region_id: '<?php echo rand(1, count($regions_array)) ?>'
     survey_description: 'test description <?php echo ($i + 1) ?>'
     candidate_type: '<?php echo rand(1, 6) ?>'
-    eligibility_criteria: 'test eligibility criteria <?php echo ($i + 1) ?>'
-    selection_methodology: 'test selection methodology <?php echo ($i + 1) ?>'
     self_nomination: '<?php echo rand(0, 1) ?>'
     fees: '<?php echo rand(0, 1) ?>'
     pay_for_play: '<?php echo rand(0, 1) ?>'

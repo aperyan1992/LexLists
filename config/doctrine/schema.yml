@@ -78,12 +78,12 @@ LtSurvey:
       type: string(5000)
     candidate_type:
       type: integer
-    eligibility_criteria:
-      type: string(5000)
+    #eligibility_criteria:
+     # type: string(5000)
     nomination:
       type: string(5000)
-    selection_methodology:
-      type: string(5000)
+    #selection_methodology:
+      #type: string(5000)
     self_nomination:
       type: boolean
       notnull: false

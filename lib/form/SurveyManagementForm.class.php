@@ -73,13 +73,13 @@ class SurveyManagementForm extends LtSurveyForm {
     $this->widgetSchema['is_list']                = new sfWidgetFormInputCheckbox();
 
     $this->widgetSchema['candidate_type']         = new sfCustomWidgetFormChoice(array("add_empty" => "", "choices" => LtSurvey::$candidate_types_array), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
-    $this->widgetSchema['eligibility_criteria']   = new sfWidgetFormTextarea(array(), array("class" => "admin_survey_management_textarea"));
+    //$this->widgetSchema['eligibility_criteria']   = new sfWidgetFormTextarea(array(), array("class" => "admin_survey_management_textarea"));
     $this->widgetSchema['special_criterias_list'] = new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'LtSpecialCriteria'), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
     $this->widgetSchema['practice_areas_list']    = new sfCustomWidgetFormChoice(array("choices" => $practice_area_choices, "multiple" => true), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
     $this->widgetSchema['keywords']               = new sfCustomWidgetFormChoice(array("choices" => $keyword,'multiple' => true), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
 
     $this->widgetSchema['nomination']             = new sfWidgetFormTextarea(array(), array("class" => "admin_survey_management_textarea"));
-    $this->widgetSchema['selection_methodology']  = new sfWidgetFormTextarea(array(), array("class" => "admin_survey_management_textarea"));
+    //$this->widgetSchema['selection_methodology']  = new sfWidgetFormTextarea(array(), array("class" => "admin_survey_management_textarea"));
     $this->widgetSchema['self_nomination']        = new sfWidgetFormChoice(array("expanded" => true, "choices"  => array(1 => 'Yes', 0 => 'No')),array('class' => 'admin_syrvey_management_radio'));
     $this->widgetSchema['fees']                   = new sfWidgetFormChoice(array("expanded" => true, "choices"  => array(1 => 'Yes', 0 => 'No')),array('class' => 'admin_syrvey_management_radio'));
     $this->widgetSchema['pay_for_play']           = new sfWidgetFormChoice(array("expanded" => true, "choices"  => array(1 => 'Yes', 0 => 'No')),array('class' => 'admin_syrvey_management_radio'));
@@ -113,11 +113,11 @@ class SurveyManagementForm extends LtSurveyForm {
     $this->validatorSchema['survey_region_id']       = new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Region'), 'required' => false));
     $this->validatorSchema['survey_description']     = new sfValidatorString(array('max_length' => 5000, 'required' => false), array("max_length" => "Maximum length (5000 characters)"));
     $this->validatorSchema['candidate_type']         = new sfValidatorChoice(array('choices' => array_keys(LtSurvey::$candidate_types_array), 'required' => false), array("required" => "This field is required."));
-    $this->validatorSchema['eligibility_criteria']   = new sfValidatorString(array('max_length' => 5000, 'required' => false), array("max_length" => "Maximum length (5000 characters)"));
+    //$this->validatorSchema['eligibility_criteria']   = new sfValidatorString(array('max_length' => 5000, 'required' => false), array("max_length" => "Maximum length (5000 characters)"));
     $this->validatorSchema['special_criterias_list'] = new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'LtSpecialCriteria', 'required' => false));
     $this->validatorSchema['practice_areas_list']    = new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'LtPracticeArea', 'required' => false));
     $this->validatorSchema['nomination']             = new sfValidatorString(array('max_length' => 5000, 'required' => false), array("max_length" => "Maximum length (5000 characters)"));
-    $this->validatorSchema['selection_methodology']  = new sfValidatorString(array('max_length' => 5000, 'required' => false), array("max_length" => "Maximum length (5000 characters)"));
+    //$this->validatorSchema['selection_methodology']  = new sfValidatorString(array('max_length' => 5000, 'required' => false), array("max_length" => "Maximum length (5000 characters)"));
     $this->validatorSchema['self_nomination']        = new sfValidatorChoice(array('choices' => array_keys(array(1 => 'Yes', 0 => 'No')), 'required' => false), array("required" => "This field is required."));
     $this->validatorSchema['fees']                   = new sfValidatorChoice(array('choices' => array_keys(array(1 => 'Yes', 0 => 'No')), 'required' => false), array("required" => "This field is required."));
     $this->validatorSchema['pay_for_play']           = new sfValidatorChoice(array('choices' => array_keys(array(1 => 'Yes', 0 => 'No')), 'required' => false), array("required" => "This field is required."));
@@ -140,11 +140,11 @@ class SurveyManagementForm extends LtSurveyForm {
     $this->widgetSchema->setHelp("survey_region_id", "The focus of the geographic region of acceptable candidates.");
     $this->widgetSchema->setHelp("survey_description", "Survey description.");
     $this->widgetSchema->setHelp("candidate_type", "The type of eligible candidates.");
-    $this->widgetSchema->setHelp("eligibility_criteria", "The criteria to make a candidate eligible.");
+    //$this->widgetSchema->setHelp("eligibility_criteria", "The criteria to make a candidate eligible.");
     $this->widgetSchema->setHelp("special_criterias_list", "This is one or more special criteria to be identify a survey. For example: Minority women under 40.");
     $this->widgetSchema->setHelp("practice_areas_list", "Practice areas covered by the survey.");
     $this->widgetSchema->setHelp("nomination", "How to apply or nominate candidate(s)");
-    $this->widgetSchema->setHelp("selection_methodology", "The survey selection and evaluation methodology.");
+    //$this->widgetSchema->setHelp("selection_methodology", "The survey selection and evaluation methodology.");
     $this->widgetSchema->setHelp("self_nomination", "Can a candidate be self-nominated?");
     $this->widgetSchema->setHelp("fees", "Are there any fees associated with participation?");
     $this->widgetSchema->setHelp("pay_for_play", "Can candidate pay to be listed (is it a directory)?");
@@ -171,11 +171,11 @@ class SurveyManagementForm extends LtSurveyForm {
     $this->widgetSchema->setLabel("survey_region_id", "Survey Region");
     $this->widgetSchema->setLabel("survey_description", "Survey Description");
     $this->widgetSchema->setLabel("candidate_type", "Candidate Type");
-    $this->widgetSchema->setLabel("eligibility_criteria", "Eligibility Criteria");
+    //$this->widgetSchema->setLabel("eligibility_criteria", "Eligibility Criteria");
     $this->widgetSchema->setLabel("special_criterias_list", "Special Criteria");
     $this->widgetSchema->setLabel("practice_areas_list", "Practice Area");
     $this->widgetSchema->setLabel("nomination", "Nomination");
-    $this->widgetSchema->setLabel("selection_methodology", "Selection Methodology");
+    //$this->widgetSchema->setLabel("selection_methodology", "Selection Methodology");
     $this->widgetSchema->setLabel("self_nomination", "Self-Nomination");
     $this->widgetSchema->setLabel("fees", "Fees");
     $this->widgetSchema->setLabel("pay_for_play", "Pay-For-Play");

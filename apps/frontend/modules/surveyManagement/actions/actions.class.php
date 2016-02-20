@@ -38,11 +38,11 @@ class surveyManagementActions extends autoSurveyManagementActions {
             $survey_is_list        = $request->getParameter("is_list", NULL);
             $survey_is_legal       = $request->getParameter("is_legal", NULL);
             $candidate_type        = $request->getParameter("candidate_type", NULL);
-            $eligibility_criteria  = $request->getParameter("eligibility_criteria", NULL);
+            //$eligibility_criteria  = $request->getParameter("eligibility_criteria", NULL);
             $special_criterias     = $request->getParameter("special_criterias", NULL);
             $practice_areas        = $request->getParameter("practice_areas", NULL);
             $nomination            = $request->getParameter("nomination", NULL);
-            $selection_methodology = $request->getParameter("selection_methodology", NULL);
+            //$selection_methodology = $request->getParameter("selection_methodology", NULL);
             $self_nomination       = $request->getParameter("self_nomination", NULL);
             $fees                  = $request->getParameter("fees", NULL);
             $pay_for_play          = $request->getParameter("pay_for_play", NULL);
@@ -117,9 +117,9 @@ class surveyManagementActions extends autoSurveyManagementActions {
                         $survey->setIsLegal(0);
                     }
                     $survey->setCandidateType($candidate_type);
-                    $survey->setEligibilityCriteria($eligibility_criteria);
+                    //$survey->setEligibilityCriteria($eligibility_criteria);
                     $survey->setNomination($nomination);
-                    $survey->setSelectionMethodology($selection_methodology);
+                    //$survey->setSelectionMethodology($selection_methodology);
                     if ($self_nomination != "false") {
                         $survey->setSelfNomination($self_nomination);
                     }

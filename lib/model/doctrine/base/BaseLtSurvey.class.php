@@ -18,9 +18,7 @@
  * @property integer $is_legal
  * @property integer $is_list
  * @property integer $candidate_type
- * @property string $eligibility_criteria
  * @property string $nomination
- * @property string $selection_methodology
  * @property boolean $self_nomination
  * @property boolean $fees
  * @property boolean $pay_for_play
@@ -57,9 +55,7 @@
  * @method integer             getIsList()                  Returns the current record's "is_list" value
  * @method integer             getIsLegal()                 Returns the current record's "is_legal" value
  * @method integer             getCandidateType()           Returns the current record's "candidate_type" value
- * @method string              getEligibilityCriteria()     Returns the current record's "eligibility_criteria" value
  * @method string              getNomination()              Returns the current record's "nomination" value
- * @method string              getSelectionMethodology()    Returns the current record's "selection_methodology" value
  * @method boolean             getSelfNomination()          Returns the current record's "self_nomination" value
  * @method boolean             getFees()                    Returns the current record's "fees" value
  * @method boolean             getPayForPlay()              Returns the current record's "pay_for_play" value
@@ -95,9 +91,7 @@
  * @method LtSurvey            setIsList()                  Sets the current record's "is_list" value
  * @method LtSurvey            setIsLegal()                 Sets the current record's "is_legal" value
  * @method LtSurvey            setCandidateType()           Sets the current record's "candidate_type" value
- * @method LtSurvey            setEligibilityCriteria()     Sets the current record's "eligibility_criteria" value
  * @method LtSurvey            setNomination()              Sets the current record's "nomination" value
- * @method LtSurvey            setSelectionMethodology()    Sets the current record's "selection_methodology" value
  * @method LtSurvey            setSelfNomination()          Sets the current record's "self_nomination" value
  * @method LtSurvey            setFees()                    Sets the current record's "fees" value
  * @method LtSurvey            setPayForPlay()              Sets the current record's "pay_for_play" value
@@ -179,18 +173,18 @@ abstract class BaseLtSurvey extends sfDoctrineRecord
         $this->hasColumn('candidate_type', 'integer', null, array(
              'type' => 'integer',
              ));
-        $this->hasColumn('eligibility_criteria', 'string', 5000, array(
+        /*$this->hasColumn('eligibility_criteria', 'string', 5000, array(
              'type' => 'string',
              'length' => 5000,
-             ));
+             ));*/
         $this->hasColumn('nomination', 'string', 5000, array(
              'type' => 'string',
              'length' => 5000,
              ));
-        $this->hasColumn('selection_methodology', 'string', 5000, array(
+        /*$this->hasColumn('selection_methodology', 'string', 5000, array(
              'type' => 'string',
              'length' => 5000,
-             ));
+             ));*/
         $this->hasColumn('self_nomination', 'boolean', null, array(
              'type' => 'boolean',
              'notnull' => false,

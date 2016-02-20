@@ -83,14 +83,17 @@ class dashboardActions extends sfActions {
         // Get surveys years
         $this->surveys_years = Doctrine_Core::getTable('LtSurvey')->getSurveysYears();
         $this->survey_year_checkboxes = "";
-        foreach ((array) $this->surveys_years as $year) {
-            $allYears[]=$year;
-//            $this->survey_year_checkboxes .= '<input checkbox_type="year" type="checkbox" class="year_checkbox" col_num="1" value="' . $year . '" id="' . $year . '" /><span>' . $year . '</span><br />';
-        }
-        rsort($allYears);//sorting Z-A
+        if(!empty((array) $this->surveys_years))
+        {
+            foreach ((array) $this->surveys_years as $year) {
+                $allYears[]=$year;
+    //            $this->survey_year_checkboxes .= '<input checkbox_type="year" type="checkbox" class="year_checkbox" col_num="1" value="' . $year . '" id="' . $year . '" /><span>' . $year . '</span><br />';
+            }
+            rsort($allYears);//sorting Z-A
 
-        foreach($allYears as $year){
-            $this->survey_year_checkboxes .= '<input checkbox_type="year" type="checkbox" class="year_checkbox" col_num="1" value="' . $year . '" id="' . $year . '" /><span>' . $year . '</span><br />';
+            foreach($allYears as $year){
+                $this->survey_year_checkboxes .= '<input checkbox_type="year" type="checkbox" class="year_checkbox" col_num="1" value="' . $year . '" id="' . $year . '" /><span>' . $year . '</span><br />';
+            }
         }
 
         // Get survey organizations
@@ -121,78 +124,83 @@ class dashboardActions extends sfActions {
         $this->survey_candidate_types = Doctrine_Core::getTable('LtSurvey')->getSurveysCandidateTypes();
        // var_dump($this->survey_candidate_types);die;
         $this->survey_candidate_types_checkboxes = "";
+        if(!empty((array) $this->survey_candidate_types))
+        {
+            foreach ((array) $this->survey_candidate_types as $candidate_type) {
+                $c_type = "- - -";
+                if (array_key_exists($candidate_type, LtSurvey::$candidate_types_array)) {
+                    $c_type = LtSurvey::$candidate_types_array[$candidate_type];
 
-        foreach ((array) $this->survey_candidate_types as $candidate_type) {
-            $c_type = "- - -";
-            if (array_key_exists($candidate_type, LtSurvey::$candidate_types_array)) {
-                $c_type = LtSurvey::$candidate_types_array[$candidate_type];
-
+                }
+                $allC_type[]=$c_type;
+                //$this->survey_candidate_types_checkboxes .= '<input checkbox_type="candidate_type" type="checkbox" class="candidate_type_checkbox" col_num="4" value="' . $c_type . '" id="' . $c_type . '" /><span>' . $c_type . '</span><br />';
             }
-            $allC_type[]=$c_type;
-            //$this->survey_candidate_types_checkboxes .= '<input checkbox_type="candidate_type" type="checkbox" class="candidate_type_checkbox" col_num="4" value="' . $c_type . '" id="' . $c_type . '" /><span>' . $c_type . '</span><br />';
-        }
-        sort($allC_type);
-        $sort_candidate_type[0] = "Individual";
-        $sort_candidate_type[1] = "Practice group";
-        $sort_candidate_type[2] = "Law firm";
-        $sort_candidate_type[3] = "Judge";
-        $sort_candidate_type[4] = "Company";
-        $sort_candidate_type[5] = "Legal Department";
-        $sort_candidate_type[6] = "Organization";
-        foreach(/*$allC_type*/$sort_candidate_type as $c_types){
-            $this->survey_candidate_types_checkboxes .= '<input checkbox_type="candidate_type" type="checkbox" class="candidate_type_checkbox" col_num="4" value="' . $c_types . '" id="' . $c_types . '" /><span>' . $c_types . '</span><br />';
-        }
-
+            sort($allC_type);
+            $sort_candidate_type[0] = "Individual";
+            $sort_candidate_type[1] = "Practice group";
+            $sort_candidate_type[2] = "Law firm";
+            $sort_candidate_type[3] = "Judge";
+            $sort_candidate_type[4] = "Company";
+            $sort_candidate_type[5] = "Legal Department";
+            $sort_candidate_type[6] = "Organization";
+            foreach(/*$allC_type*/$sort_candidate_type as $c_types){
+                $this->survey_candidate_types_checkboxes .= '<input checkbox_type="candidate_type" type="checkbox" class="candidate_type_checkbox" col_num="4" value="' . $c_types . '" id="' . $c_types . '" /><span>' . $c_types . '</span><br />';
+            }
+         }
         // Get survey practice areas
         $this->survey_practice_areas = Doctrine_Core::getTable("LtPracticeArea")->findAll();
         $this->survey_practice_areas_checkboxes = "";
-        foreach ($this->survey_practice_areas as $practice_area) {
-            $practice_area_name = $practice_area->getShortCode();
-            $allPractice_area_name[]=$practice_area_name;
-            //$this->survey_practice_areas_checkboxes .= '<input checkbox_type="practice_area" type="checkbox" class="practice_area_checkbox" col_num="5" value="' . $practice_area_name . '" id="' . $practice_area_name . '" /><span>' . $practice_area_name . '</span><br />';
-        }
-       // var_dump($allPractice_area_name);die;
-        $allPractice_area_name = array_unique($allPractice_area_name);
-        sort($allPractice_area_name);
-        $sort_prac_area[0] = "Antitrust";
-        $sort_prac_area[1] = "Arbitration & Alternative Dispute Resolution";
-        $sort_prac_area[2] = "Aviation";
-        $sort_prac_area[3] = "Banking & Finance";
-        $sort_prac_area[4] = "Bankruptcy";
-        $sort_prac_area[5] = "Civil Rights";
-        $sort_prac_area[6] = "Construction";
-        $sort_prac_area[7] = "Corporate";
-        $sort_prac_area[8] = "Corporate Crime & Investigations";
-        $sort_prac_area[9] = "Criminal Law";
-        $sort_prac_area[10] = "Education";
-        $sort_prac_area[11] = "Employment Law";
-        $sort_prac_area[12] = "Energy & Natural Resources";
-        $sort_prac_area[13] = "Environmental";
-        $sort_prac_area[14] = "Family Law";
-        $sort_prac_area[15] = "Healthcare";
-        $sort_prac_area[16] = "Immigration";
-        $sort_prac_area[17] = "Insurance";
-        $sort_prac_area[18] = "Intellectual Property";
-        $sort_prac_area[19] = "International Arbitration";
-        $sort_prac_area[20] = "International Trade";
-        $sort_prac_area[21] = "Life Sciences";
-        $sort_prac_area[22] = "Litigation";
-        $sort_prac_area[23] = "M&A";
-        $sort_prac_area[24] = "Media & Entertainment";
-        $sort_prac_area[25] = "Poverty Law";
-        $sort_prac_area[26] = "Private Equity";
-        $sort_prac_area[27] = "Public Law & Policy";
-        $sort_prac_area[28] = "Real Estate";
-        $sort_prac_area[29] = "Security & Data Privacy";
-        $sort_prac_area[30] = "Tax";
-        $sort_prac_area[31] = "Telecommunications";
-        $sort_prac_area[32] = "Transportation";
-        $sort_prac_area[33] = "Trusts & Estates";
-        $sort_prac_area[34] = "Venture Capital";
+        //var_dump($this->survey_practice_areas);die;
+        if(!empty((array)$this->survey_practice_areas))
+        {
+            foreach ($this->survey_practice_areas as $practice_area) {
+                $practice_area_name = $practice_area->getShortCode();
+                $allPractice_area_name[]=$practice_area_name;
+                //$this->survey_practice_areas_checkboxes .= '<input checkbox_type="practice_area" type="checkbox" class="practice_area_checkbox" col_num="5" value="' . $practice_area_name . '" id="' . $practice_area_name . '" /><span>' . $practice_area_name . '</span><br />';
+            }
+           // var_dump($allPractice_area_name);die;
+            $allPractice_area_name = @array_unique($allPractice_area_name);
+            @sort($allPractice_area_name);
+            $sort_prac_area[0] = "Antitrust";
+            $sort_prac_area[1] = "Arbitration & Alternative Dispute Resolution";
+            $sort_prac_area[2] = "Aviation";
+            $sort_prac_area[3] = "Banking & Finance";
+            $sort_prac_area[4] = "Bankruptcy";
+            $sort_prac_area[5] = "Civil Rights";
+            $sort_prac_area[6] = "Construction";
+            $sort_prac_area[7] = "Corporate";
+            $sort_prac_area[8] = "Corporate Crime & Investigations";
+            $sort_prac_area[9] = "Criminal Law";
+            $sort_prac_area[10] = "Education";
+            $sort_prac_area[11] = "Employment Law";
+            $sort_prac_area[12] = "Energy & Natural Resources";
+            $sort_prac_area[13] = "Environmental";
+            $sort_prac_area[14] = "Family Law";
+            $sort_prac_area[15] = "Healthcare";
+            $sort_prac_area[16] = "Immigration";
+            $sort_prac_area[17] = "Insurance";
+            $sort_prac_area[18] = "Intellectual Property";
+            $sort_prac_area[19] = "International Arbitration";
+            $sort_prac_area[20] = "International Trade";
+            $sort_prac_area[21] = "Life Sciences";
+            $sort_prac_area[22] = "Litigation";
+            $sort_prac_area[23] = "M&A";
+            $sort_prac_area[24] = "Media & Entertainment";
+            $sort_prac_area[25] = "Poverty Law";
+            $sort_prac_area[26] = "Private Equity";
+            $sort_prac_area[27] = "Public Law & Policy";
+            $sort_prac_area[28] = "Real Estate";
+            $sort_prac_area[29] = "Security & Data Privacy";
+            $sort_prac_area[30] = "Tax";
+            $sort_prac_area[31] = "Telecommunications";
+            $sort_prac_area[32] = "Transportation";
+            $sort_prac_area[33] = "Trusts & Estates";
+            $sort_prac_area[34] = "Venture Capital";
 
-        foreach(/*$allPractice_area_name*/$sort_prac_area as $practice_area_names){
-            $this->survey_practice_areas_checkboxes .= '<input checkbox_type="practice_area" type="checkbox" class="practice_area_checkbox" col_num="5" value="' . $practice_area_names . '" id="' . $practice_area_names . '" /><span>' . $practice_area_names . '</span><br />';
+            foreach(/*$allPractice_area_name*/$sort_prac_area as $practice_area_names){
+                $this->survey_practice_areas_checkboxes .= '<input checkbox_type="practice_area" type="checkbox" class="practice_area_checkbox" col_num="5" value="' . $practice_area_names . '" id="' . $practice_area_names . '" /><span>' . $practice_area_names . '</span><br />';
 
+            }
         }
         // Get survey regions
         $this->survey_regions = Doctrine_Core::getTable('LtSurvey')->getSurveyRegions();
@@ -203,7 +211,7 @@ class dashboardActions extends sfActions {
             $allRegion_name[]=$region_name;
             //$this->survey_regions_checkboxes .= '<input checkbox_type="region" type="checkbox" class="region_checkbox" col_num="7" value="' . $region_name . '" id="' . $region_name . '" /><span>' . $region_name . '</span><br />';
         }
-        sort($allRegion_name);
+        @sort($allRegion_name);
 
         $sorted_names[0] = "US Mid-Atlantic";
         $sorted_names[1] = "US Midwest";
@@ -272,7 +280,7 @@ class dashboardActions extends sfActions {
             // Get all surveys
             $t1 = microtime();
             //$surveys = Doctrine_Core::getTable("LtSurvey")->getAllSurveys();
-            $query = "SELECT surveys.year, surveys.keywords, surveys.id AS id, surveys.submission_deadline, surveys.selection_methodology, surveys.survey_description, surveys.eligibility_criteria, surveys.candidate_type, surveys.is_list, surveys.is_legal, surveys.organization_id, surveys.survey_name, organizations.name AS organization_name, regions.name AS region_name, surveys.survey_region_id,
+            $query = "SELECT surveys.year, surveys.keywords, surveys.id AS id, surveys.submission_deadline, surveys.survey_description, surveys.candidate_type, surveys.is_list, surveys.is_legal, surveys.organization_id, surveys.survey_name, organizations.name AS organization_name, regions.name AS region_name, surveys.survey_region_id,
                     (SELECT GROUP_CONCAT( cities.name ) AS
                     NAMES
                     FROM cities
@@ -384,18 +392,18 @@ class dashboardActions extends sfActions {
                     {
                         $keywords =  $survey['keywords'];
                     }
-                    
+
                     // Set submission deadline
-                    $submission_deadline = (!is_null($survey['submission_deadline']) && $survey['submission_deadline'] != "") ? $this->CheckStringLength($survey['submission_deadline'], 50) : "- - -";
+                    $submission_deadline = (!is_null($survey['submission_deadline']) && $survey['submission_deadline'] != "") ? date("d-M-Y", strtotime($this->CheckStringLength($survey['submission_deadline'], 50))) : "- - -";
 
                     // Set eligibility
-                    $eligibility = (!is_null($survey['eligibility_criteria']) && $survey['eligibility_criteria'] != "") ? $this->CheckStringLength($survey['eligibility_criteria'], 50) : "- - -";
+                    //$eligibility = (!is_null($survey['eligibility_criteria']) && $survey['eligibility_criteria'] != "") ? $this->CheckStringLength($survey['eligibility_criteria'], 50) : "- - -";
                     
                     // Set description
                     $description = (!is_null($survey['survey_description']) && $survey['survey_description'] != "") ? $this->CheckStringLength($survey['survey_description'], 50) : "- - -";
 
                     // Set methodology
-                    $methodology = (!is_null($survey['selection_methodology']) && $survey['selection_methodology'] != "") ? $this->CheckStringLength($survey['selection_methodology'], 50) : "- - -";
+                    //$methodology = (!is_null($survey['selection_methodology']) && $survey['selection_methodology'] != "") ? $this->CheckStringLength($survey['selection_methodology'], 50) : "- - -";
 
                     // Set email
                     $email_link = null;//"<a href='#' class='custom_link email_link' s_id='" . $survey->getId() . "'><span class='genericon genericon-mail'></span></a>";
@@ -413,9 +421,7 @@ class dashboardActions extends sfActions {
                         $states,
                         $countries,
                         $submission_deadline,
-                        $eligibility,
                         $description,
-                        $methodology,
                         $keywords,
                         $isList,
                         $isLegal

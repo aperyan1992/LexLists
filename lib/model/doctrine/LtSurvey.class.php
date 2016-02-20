@@ -134,13 +134,13 @@ class LtSurvey extends BaseLtSurvey {
      * 
      * @return string
      */
-    public function getShortEligibilityCriteria() {
+    /*public function getShortEligibilityCriteria() {
         if(strlen($this->_get('eligibility_criteria')) > 70) {
             return substr($this->_get('eligibility_criteria'), 0, 70) . " ...";
         } else {
             return $this->_get('eligibility_criteria');
         }
-    }
+    }*/
     
     /**
      * Get short survey description
@@ -160,12 +160,12 @@ class LtSurvey extends BaseLtSurvey {
      * 
      * @return string
      */
-    public function getShortSelectionMethodology() {
+    /*public function getShortSelectionMethodology() {
         if(strlen($this->_get('selection_methodology')) > 70) {
             return substr($this->_get('selection_methodology'), 0, 70) . " ...";
         } else {
             return $this->_get('selection_methodology');
         }
-    }
+    }*/
 
 }

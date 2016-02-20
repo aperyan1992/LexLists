@@ -50,380 +50,179 @@ class dataloadActions extends sfActions
                 {
                     $csvdata[] = $data;
                 }
+                //var_dump(count($csvdata));die;
                 foreach($csvdata[0] as $key=>$value)
                 {
                     $arrKeys[strtolower(str_replace(' ', '_', $value))] = $key;
+                    if(is_int(strpos(strtolower($value),'list')))
+                    {
+                        $arrKeys['is_list'] = $key;
+                        unset($arrKeys[strtolower(str_replace(' ', '_', $value))]);
+                    }
+                    if(is_int(strpos(strtolower($value),'legal')))
+                    {
+                        $arrKeys['is_legal'] = $key;
+                        unset($arrKeys[strtolower(str_replace(' ', '_', $value))]);
+                    }                   
                 }
+                /*$strcreate = 'CREATE TABLE Persons
+                        (
+                        id int,';
+                        $arrMap = array("organization", "award_name", "year", "description", "submission_deadline", "is_list", "is_legal", "city", "state", "country", "region", "practice_areas", "key_words", "frequency", "award_contact_name", "award_contact_email", "award_contact_phone_number", "candidate_type", "special_criteria", "year_of_last_known_award", "award_url", "organization_url", "notes");
+
+                foreach($arrMap as $key)
+                {
+                    $strcreate .= $key.' varchar(255), ';
+                }
+                $strcreate = rtrim($strcreate,', ');
+                $strcreate .= ')';*/
+                //echo $strcreate ;die;
+                
+                //echo '<pre>';
+                //var_dump($arrKeys);die;
                 unset($csvdata[0], $csvdata[1]);
                 //var_dump($arrKeys);die;
+                $insert_csv = "INSERT INTO `surveys_temp`(`organization`, `award_name`, `year`, `description`, `submission_deadline`, `is_list`, `is_legal`, `city`, `state`, `country`, `region`, `practice_area`, `key_words`, `frequency`, `award_contact_name`, `award_contact_email`, `award_contact_phone_number`, `candidate_type`, `special_criteria`, `year_of_last_known_award`, `award_url`, `organization_url`, `notes`) 
+                        VALUES ";
+                        $arrMap = array("organization", "award_name", "year", "description", "submission_deadline", "is_list", "is_legal", "city", "state", "country", "region", "practice_area", "key_words", "frequency", "award_contact_name", "award_contact_email", "award_contact_phone_number", "candidate_type", "special_criteria", "year_of_last_known_award", "award_url", "organization_url", "notes");
+                        var_dump(count($csvdata));
                 foreach($csvdata as $key=>$data)
                 {
-                    $arrStates = array();
-                    $arrPracticeAreas = array();
-                    $arrCities = array();
-                    $all_states = 'SELECT* FROM states';
-                    $states_query = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($all_states)->fetchAll();
-                    foreach($states_query as $state){
-                        $arrStates[$state['short_code']] =$state['id'];
-                    }
-                    $all_practiceareas = 'SELECT* FROM practice_areas where id="555"';
-                    $practiceareas_query = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($all_practiceareas)->fetchAll();
-                    foreach($practiceareas_query as $practicearea){
-                        $arrPracticeAreas[$practicearea['name']] =$practicearea['id'];
-                    }
-
-                    $all_cities = 'SELECT* FROM cities';
-                    $cities_query = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($all_cities)->fetchAll();
-                    foreach($cities_query as $city){
-                        $arrCities[$city['name']] =$city['id'];
-                    }
-
-                   // var_dump($data);die;
-                    $data = $this->escape_character($data);
-                    $query = 'Select `id`, `name` FROM `regions`';
-                    $regoins = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
-                    foreach($regoins as $regoin)
-                    {
-                        $newregoins[$regoin['name']] = $regoin['id'];
-                    }
-
-                    $query = 'Select `id`, `name` FROM `organizations`';
-                    $organizationarray = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
-                    foreach($organizationarray as $organization)
-                    {
-                        $neworganizationarray[$organization['name']] = $organization['id'];
-                    }
-
-                    $query = 'Select `id`, `name` FROM `countries`';
-                    $countries = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
-                    foreach($countries as $countrie)
-                    {
-                        $newcountries[$countrie['name']] = $countrie['id'];
-                    }
-
-                    if(!empty($data[$arrKeys['region']]) && isset($newregoins[$data[$arrKeys['region']]]))
-                    {
-                        $fianlresult[$key]['survey_region_id'] = $newregoins[$data[$arrKeys['region']]];
-                    }
-                    else{
-                        $fianlresult[$key]['survey_region_id'] = 13;
-                    }
-
-                    if(isset($data[$arrKeys['organization_url']]))
-                    {
-                        $fianlresult[$key]['organization_url'] = $data[$arrKeys['organization_url']];
-                    }
-                    else{
-                        $fianlresult[$key]['organization_url'] = null;
-                    }
-
-                    if(isset($data[$arrKeys['award_name']]))
-                    {
-
-                        $fianlresult[$key]['survey_name'] = $data[$arrKeys['award_name']];
-                        $contact['name'] = ($data[$arrKeys['award_contact_name']]?$data[$arrKeys['award_contact_name']]:null);
-                    }
-                    else{
-                        $fianlresult[$key]['survey_name'] = null;
-                        $contact['name'] = null;
-                    }
-
-                    if(isset($data[$arrKeys['year']]))
-                    {
-                        $fianlresult[$key]['year'] = (int)preg_replace('/\D/', '', $data[$arrKeys['year']]);
-                    }
-                    else{
-                        $fianlresult[$key]['year'] = null;
-                    }
-
-                    if(isset($data[$arrKeys['award_url']]))
-                    {
-                        $fianlresult[$key]['survey_url'] = $data[$arrKeys['award_url']];
-                    }
-                    else{
-                        $fianlresult[$key]['survey_url'] = null;
-                    }
-
-                    if(isset($data[$arrKeys['frequency']]))
-                    {
-                        $fianlresult[$key]['frequency'] = $data[$arrKeys['frequency']];
-                    }
-                    else{
-                        $fianlresult[$key]['frequency'] = null;
-                    }
-
-                    if(!empty($data[$arrKeys['submission_deadline']]))
-                    {
-                        $fianlresult[$key]['submission_deadline'] = date('Y-m-d',strtotime($data[$arrKeys['submission_deadline']]));
-                    }
-                    else{
-                        $fianlresult[$key]['submission_deadline'] = null;
-                    }
-
-                    if(isset($data[$arrKeys['description']]))
-                    {
-                        $fianlresult[$key]['survey_description'] = $data[$arrKeys['description']];
-                    }
-                    else{
-                        $fianlresult[$key]['survey_description'] = null;
-                    }
-
-                    if(isset($data[$arrKeys['candidate_type']]))
-                    {
-                        $fianlresult[$key]['candidate_type'] = $data[$arrKeys['candidate_type']];
-                    }
-                    else{
-                        $fianlresult[$key]['candidate_type'] = null;
-                    }
-
-                    if(isset($data[$arrKeys['special_criteria']]))
-                    {
-                        $fianlresult[$key]['eligibility_criteria'] = $data[$arrKeys['special_criteria']];
-                    }
-                    else{
-                        $fianlresult[$key]['eligibility_criteria'] = null;
-                    }
-
-                    if(isset($data[$arrKeys['city']]))
-                    {
-                        $fianlresult[$key]['city'] = $data[$arrKeys['city']];
-                    }
-                    else{
-                        $fianlresult[$key]['city'] = null;
-                    }
-
-                    if(isset($data[$arrKeys['state']]))
-                    {
-                        $fianlresult[$key]['state'] = $data[$arrKeys['state']];
-                    }
-                    else{
-                        $fianlresult[$key]['state'] = null;
-                    } 
-
-                    if(isset($data[$arrKeys['practice_areas']]))
-                    {
-                        $fianlresult[$key]['practice_areas'] = $data[$arrKeys['practice_areas']];
-                    }
-                    else{
-                        $fianlresult[$key]['practice_areas'] = null;
-                    }
-
-                    if(isset($data[$arrKeys['is_list']]) && strpos(strtolower($data[$arrKeys['is_list']]),'yes') !== false)
-                    {
-                        $fianlresult[$key]['is_list'] = 1;
-                    }
-                    else{
-                        $fianlresult[$key]['is_list'] = 0;
-                    }
-
-                    if(isset($data[$arrKeys['is_legal']]) && strpos(strtolower($data[$arrKeys['is_legal']]),'yes') !== false)
-                    {
-                        $fianlresult[$key]['is_legal'] = 1;
-                    }
-                    else{
-                        $fianlresult[$key]['is_legal'] = 0;
-                    }
-
-                    if(isset($data[$arrKeys['status']]) )
-                    {
-                        $fianlresult[$key]['status'] = $data[$arrKeys['status']];
-                    }
-                    else{
-                        $fianlresult[$key]['status'] = null;
-                    }
-
-                    if(isset($data[$arrKeys['notes']]))
-                    {
-                        $fianlresult[$key]['survey_notes'] = $data[$arrKeys['notes']];
-                    }
-                    else{
-                        $fianlresult[$key]['survey_notes'] = null;
-                    }
-                    $fianlresult[$key]['id'] = '';
-
-                    if(isset($data[$arrKeys['award_contact_email']]))
-                    {
-                        $contact['email'] = $data[$arrKeys['award_contact_email']];
-                    }
-                    else{
-                        $contact['email'] = null;
-                    }
-
-                    if(isset($data[$arrKeys['award_contact_phone_number']]))
-                    {
-                        $contact['phone'] = $data[$arrKeys['award_contact_phone_number']];
-                    }
-                    else{
-                        $contact['phone'] = null;
-                    }
-
-                    if(isset($data[$arrKeys['organization']]) && !empty($neworganizationarray[$data[$arrKeys['organization']]]))
-                    {
-                        $checkingquery = 'SELECT * FROM `surveys` WHERE survey_name="'.$data[$arrKeys['award_name']].'" AND organization_id="'.$neworganizationarray[$data[$arrKeys['organization']]].'"';
-                        $resultupdate = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($checkingquery)->fetch();
-                           // var_dump($checkingquery);die;
-                        if($resultupdate)
+                    //var_dump($data);die();
+                     $insert_csv .= '(';
+                        foreach($arrMap as $key)
                         {
-                            $update = true;
-                            $updated = true;
-                        }
-                        else{
-                            $update = false;
-                        }
-                    }
-                    else
-                    {
-                        $update = false;
-                    }
-
-                    $now = new DateTime();
-
-                    if($update)
-                    {
-
-
-                        $query = 'UPDATE `survey_contacts` SET `first_name`="'.$contact['name'].'",`email_address`="'.$contact['email'].'", `phone_number`="'.$contact['phone'].'" ,`updated_at`="'.$now->format('Y-m-d H:i:s').'"   ';
-                        $query .= ' WHERE id="'.$resultupdate['survey_contact_id'].'"';
-
-                        $result = Doctrine_Manager::getInstance()->getCurrentConnection();
-
-                        if($result->execute($query))
-                        {
-                            $fianlresult[$key]['survey_contact_id'] = $resultupdate['survey_contact_id'];
-                        }
-                    }
-                    else{
-                        $query = 'INSERT INTO `survey_contacts` (`first_name`,`email_address`, `phone_number`,`created_at`,`updated_at`) VALUES';
-                        $query .= ' ("'.$contact['name'].'","'.$contact['email'].'","'.$contact['phone'].'","'.$now->format('Y-m-d H:i:s').'","'.$now->format('Y-m-d H:i:s').' ")';
-
-                        $result = Doctrine_Manager::getInstance()->getCurrentConnection();
-
-                        if($result->execute($query))
-                        {
-                            $lastid = $result->lastInsertId();
-                            $fianlresult[$key]['survey_contact_id'] = $lastid;
-                        }
-                    }
-
-
-                    if(isset($data[$arrKeys['organization']]))
-                    {
-                        if(!$update)
-                        {
-                            if(!empty($neworganizationarray[$data[$arrKeys['organization']]]))
+                            if(isset($data[$arrKeys[$key]]))
                             {
-                                $fianlresult[$key]['organization_id'] = $neworganizationarray[$data[$arrKeys['organization']]];
+                                $insert_csv .= '"'.str_replace('"',"'",$data[$arrKeys[$key]]).'",';
                             }
                             else
                             {
-                                $query = 'INSERT INTO `organizations` (`name`) VALUES';
-                                $query .= " ('".$data[$arrKeys['organization']]."')";
-                                $result = Doctrine_Manager::getInstance()->getCurrentConnection();
-                                if($result->execute($query))
-                                {
-                                    $lastid = $result->lastInsertId();
-                                    $fianlresult[$key]['organization_id'] = $lastid;
-                                }
+                                $insert_csv .= '"",';
                             }
                         }
-                    }
-
-                    if(isset($data[$arrKeys['city']]))
+                        $insert_csv = rtrim($insert_csv,',');
+                        $insert_csv .= '),';                    
+                }
+                $insert_csv = rtrim($insert_csv,',');
+               // echo( $insert_csv );die();
+                Doctrine_Manager::getInstance()->getCurrentConnection()->execute('truncate surveys_temp');
+                Doctrine_Manager::getInstance()->getCurrentConnection()->execute($insert_csv);//die;
+                $tempSurveys = Doctrine_Manager::getInstance()->getCurrentConnection()->execute('Select * from surveys_temp')->fetchAll();
+                //var_dump($tempSurveys);die;
+                if(!empty($tempSurveys))
+                {
+                    foreach($tempSurveys as $survey)
                     {
-                        if(!$update)
+                        $arrSurvey = array(
+                            'organization_url'=> $survey['organization_url'],
+                            'survey_name'=> $survey['award_name'],
+                            'year'=> $survey['year'],
+                            'survey_url'=> $survey['award_url'],
+                            'submission_deadline'=> date('Y-m-d',strtotime($survey['submission_deadline'])),
+                            'survey_description'=> $survey['description'],
+                            'frequency'=> $survey['frequency'],
+                            'keywords'=> $survey['key_words'],
+                            'is_list'=> $survey['is_list'],
+                            'is_legal'=> $survey['is_legal'],
+                            'survey_notes'=> $survey['notes'],
+                            );
+                        $arrSurvey['organization_id']='1';
+                        if(!empty($survey['organization']))
                         {
-                            if(!empty($newcitiesarray[$data[$arrKeys['city']]]))
+                            $organization = Doctrine_Manager::getInstance()->getCurrentConnection()->execute('Select * from  organizations where name="'.$survey['organization'].'"')->fetch();
+                            if(!empty($organization))
                             {
-                                $fianlresult[$key]['city_id'] = $newcitiesarray[$data[$arrKeys['city']]];
+                                $arrSurvey['organization_id'] = $organization['id'];
                             }
                             else
                             {
-                                $query = 'INSERT INTO `cities` (`name`) VALUES';
-
-
-                                $exist_cities = 'SELECT* FROM `cities` where name = "'.$data[$arrKeys['city']].'"';
-                                $cities = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($exist_cities)->fetchAll();
-                                if(empty($cities) || $cities == '')
-                                {
-                                    $query .= " ('".$data[$arrKeys['city']]."')";
-                                    $result = Doctrine_Manager::getInstance()->getCurrentConnection();
-                                    if($result->execute($query))
+                               Doctrine_Manager::getInstance()->getCurrentConnection()->execute('Insert into organizations (`name`,`created_at`,`updated_at`) VALUES ("'.$survey['organization'].'",NOW(),NOW())');
+                                $arrSurvey['organization_id'] = Doctrine_Manager::getInstance()->getCurrentConnection()->lastInsertId();
+                            }
+                        }
+                        else
+                        {
+                            $arrValod[]= $survey['id'];
+                        }
+                        $arrSurvey['region_id']='';
+                        if(!empty($survey['region']))
+                        {
+                            $region = Doctrine_Manager::getInstance()->getCurrentConnection()->execute('Select * from  regions where name="'.$survey['region'].'"')->fetch();
+                            if(!empty($region))
+                            {
+                                $arrSurvey['region_id'] = $region['id'];
+                            }
+                            else
+                            {
+                                Doctrine_Manager::getInstance()->getCurrentConnection()->execute('Insert into regions (`name`,`created_at`,`updated_at`) VALUES ("'.$survey['organization'].'",NOW(),NOW())');
+                                $arrSurvey['region_id'] = Doctrine_Manager::getInstance()->getCurrentConnection()->lastInsertId();
+                            }
+                        }
+                        $arrSurvey['survey_contact_id']='';
+                        if(!empty($survey['award_contact_email']) OR !empty($survey['award_contact_name']) OR !empty($survey['award_contact_phone_number']))
+                        {
+                            
+                            Doctrine_Manager::getInstance()->getCurrentConnection()->execute('Insert into survey_contacts (`first_name`,`email_address`,`phone_number`,`created_at`,`updated_at`) VALUES ("'.$survey['award_contact_name'].'","'.$survey['award_contact_email'].'","'.$survey['award_contact_phone_number'].'",NOW(),NOW())');
+                            $arrSurvey['survey_contact_id'] = Doctrine_Manager::getInstance()->getCurrentConnection()->lastInsertId();
+                        }
+                        $strInsertSurvey = 'INSERT INTO surveys (`organization_url`,
+                            `survey_name`,
+                            `year`,
+                            `survey_url`,
+                            `submission_deadline`,
+                            `survey_description`,
+                            `frequency`,
+                            `keywords`,
+                            `is_list`,
+                            `is_legal`,
+                            `survey_notes`,
+                            `organization_id`,
+                            `survey_region_id`,
+                            `survey_contact_id`
+                            ) VALUES (';
+                        foreach($arrSurvey as $field)
+                        {
+                            $strInsertSurvey .= '"'.$field.'",';
+                        }
+                        $strInsertSurvey = rtrim($strInsertSurvey, ',');
+                        $strInsertSurvey .= ')';
+                        Doctrine_Manager::getInstance()->getCurrentConnection()->execute( $strInsertSurvey );
+                        $survey_id = Doctrine_Manager::getInstance()->getCurrentConnection()->lastInsertId();
+                        $arrMapRelations = array(
+                            'city'=>'cities',
+                            'country'=>'countries',
+                            'practice_area'=>'practice_areas',
+                            'special_criteria'=>'special_criterias',
+                            'state'=>'states',
+                            );
+                        //var_dump($survey);
+                        foreach($arrMapRelations as $key=>$value)
+                        {
+                            if(!empty($survey[$key]))
+                            {
+                                $arrDatas = explode('; ',$survey[$key]);                               
+                                foreach($arrDatas as $data)
+                                {                                    
+                                    $query = Doctrine_Manager::getInstance()->getCurrentConnection()->execute('Select * from  '.$value.' where name="'.$data.'"')->fetch();
+                                    if(!empty($query))
                                     {
-                                        $lastid = $result->lastInsertId();
-                                        $fianlresult[$key]['city'] = $lastid;
+                                        $id = $query['id'];
                                     }
-                                }
-                            }
-                        }
-                    }
-
-                    if(isset($data[$arrKeys['practice_areas']]))
-                    {
-                        $pracarea_query_str = 'INSERT INTO practice_areas (`main_practice_area_id`,`name`,`short_code`) VALUES ';
-
-                        $pracareas1 = $data[$arrKeys['practice_areas']];
-                        if (strpos($pracareas1,';') !== false) {
-                                $arrPrac = explode(';', $pracareas1); 
-                                foreach ($arrPrac as $value) {
-                                    
-                                    if($value!=' ' && strlen($value)>=2 )
+                                    else
                                     {
-                                        $exist_prac = 'SELECT* FROM `practice_areas` where name LIKE "'.preg_replace('/\s\s+/', ' ', $value).'" and main_practice_area_id="555"';
-                                        $pracss = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($exist_prac)->fetchAll();
-                                        $pracarea_query_str = 'INSERT INTO practice_areas (`main_practice_area_id`,`name`,`short_code`) VALUES ';
-
-                                        if(empty($pracss) || $pracss == '')
-                                        {
-                                            $pracarea_query_str .= '("555", "'.preg_replace('/\s\s+/', ' ', $value).'","'.preg_replace('/\s\s+/', ' ', $value).'")';   
-                                            $result = Doctrine_Manager::getInstance()->getCurrentConnection();
-                                            $result->execute($pracarea_query_str); 
-                                            $pracarea_query_str="";                                   
-                                        } 
+                                        Doctrine_Manager::getInstance()->getCurrentConnection()->execute('Insert into '.$value.' (`name`,`created_at`,`updated_at`) VALUES ("'.$data.'",NOW(),NOW())');
+                                        $id = Doctrine_Manager::getInstance()->getCurrentConnection()->lastInsertId();
                                     }
-                                }                                                          
-                            }  
-                            else
-                            {
-                                $exist_prac = 'SELECT* FROM `practice_areas` where name LIKE "'.$data[$arrKeys['practice_areas']].'" and main_practice_area_id="555"';
-                                $pracss = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($exist_prac)->fetchAll();
-                                if(empty($pracss) || $pracss == '')
-                                {
-                                    $pracarea_query_str .= '("555", "'.preg_replace('/\s\s+/', ' ', $data[$arrKeys['practice_areas']]).'","'.preg_replace('/\s\s+/', ' ', $data[$arrKeys['practice_areas']]).'")';   
-                                    $result = Doctrine_Manager::getInstance()->getCurrentConnection();
-                                    $result->execute($pracarea_query_str);                                    
+                                    $strAdd = 'INSERT INTO survey_'.$value.' (`survey_id`,`'.$key.'_id`,`created_at`,`updated_at`) VALUES ("'.$survey_id.'","'.$id.'",NOW(),NOW())';
+                                    Doctrine_Manager::getInstance()->getCurrentConnection()->execute($strAdd);
+                                   
                                 }
                             }
-                                     
-                    }
-
-
-                    if($update)
-                    {
-                        $now = new DateTime();
-
-                        $query = 'UPDATE `surveys` SET ';
-                        $details = '';
-                        foreach($fianlresult[$key] as $k=>$value)
-                        {
-                            if($k != "state" && $k != "city" && $k!='practice_areas' && $k!= 'id')
-                            {
-                                $details .=  '`'.$k.'`="'.$value.'", ';
-                            }
                         }
-                        if($details!='')
-                        {
-                            $query.=$details;
-                            $query.='`updated_at`="'.$now->format('Y-m-d H:i:s').'"';
-                            //$query = rtrim($query, ", ");
-                            $query .= ' WHERE id="'.$resultupdate['id'].'"';
-                            $result = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query);
-                            if($result)
-                            {
-                                unset($fianlresult[$key]);
-                            }
-                         }
                     }
                 }
+die;
                 if(!empty($fianlresult))
                 {
                     $arrStates = array();
@@ -468,8 +267,14 @@ class dataloadActions extends sfActions
 
                     $finalquerystring.=') VALUES (';
                     $valuepracticeareas = false;
+                    //var_dump($finalquerystring);
                     foreach($fianlresult as $final)
                     {
+                        if(count($final)==19)
+                        {
+                            var_dump($final);die;
+                            continue;
+                        }
                         if($final['state']!='' && isset($arrStates[$final['state']]))
                         {
                             $final_states_string .= '"'. $i .'","'. $arrStates[$final['state']] .'"),(';
@@ -517,12 +322,12 @@ class dataloadActions extends sfActions
                         $finalquerystring.='),(';
 
                     }
-
                     $finalquerystring = rtrim($finalquerystring, ",(");
+                        //var_dump($finalquerystring);die;
                     $final_states_string = rtrim($final_states_string, ",(");
                     $final_cities_string = rtrim($final_cities_string, ",(");
                     $final_practice_areas_string = rtrim($final_practice_areas_string, ",(");
-                                               // var_dump($final_practice_areas_string);die;
+                                                var_dump($final_practice_areas_string);die;
 
                     if(Doctrine_Manager::getInstance()->getCurrentConnection()->execute($finalquerystring))
                     {

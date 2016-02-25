@@ -1978,7 +1978,7 @@ class dashboardActions extends sfActions {
 
                 // Get geographic area
                 $geographic_area = "- - -";
-                if ($survey->getRegion()->getName() || $survey->getLtSurveyCity()->getFirst() || $survey->getLtSurveyState()->getFirst() || $survey->getLtSurveyCountry()->getFirst()) {
+                if ($survey->getRegion()->getFirst() || $survey->getLtSurveyCity()->getFirst() || $survey->getLtSurveyState()->getFirst() || $survey->getLtSurveyCountry()->getFirst()) {
                     // Get region
                     $region = "";
                     if ($survey->getRegion()->getFirst()) {

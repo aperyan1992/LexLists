@@ -114,6 +114,17 @@ class dataloadActions extends sfActions
                 {
                     foreach($tempSurveys as $survey)
                     {
+                        //$organization_id = $survey['organization_id'];
+                        /*$survey_name = $survey['award_name'];
+                        $check = "SELECT * FROM surveys WHERE survey_name='".$survey_name."'";
+                        $res = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($check)->fetchAll();
+                        foreach($res as $value)
+                        {
+                            $organization_id = $value['organization_id'];
+                            $query = "SELECT name FROM organizations WHERE id='".$organization_id."'";
+                            $result = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+                            var_dump($result);die;
+                        }*/
                         $arrSurvey = array(
                             'organization_url'=> $survey['organization_url'],
                             'survey_name'=> $survey['award_name'],

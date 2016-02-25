@@ -83,9 +83,9 @@ class dashboardActions extends sfActions {
         // Get surveys years
         $this->surveys_years = Doctrine_Core::getTable('LtSurvey')->getSurveysYears();
         $this->survey_year_checkboxes = "";
-        if(!empty((array) $this->surveys_years))
+        if(!empty($this->surveys_years))
         {
-            foreach ((array) $this->surveys_years as $year) {
+            foreach ($this->surveys_years as $year) {
                 $allYears[]=$year;
     //            $this->survey_year_checkboxes .= '<input checkbox_type="year" type="checkbox" class="year_checkbox" col_num="1" value="' . $year . '" id="' . $year . '" /><span>' . $year . '</span><br />';
             }

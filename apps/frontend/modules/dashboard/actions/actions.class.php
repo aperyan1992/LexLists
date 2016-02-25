@@ -124,10 +124,10 @@ class dashboardActions extends sfActions {
         $this->survey_candidate_types = Doctrine_Core::getTable('LtSurvey')->getSurveysCandidateTypes();
        // var_dump($this->survey_candidate_types);die;
         $this->survey_candidate_types_checkboxes = "";
-        if(!empty((array) $this->survey_candidate_types))
+        if(!empty($this->survey_candidate_types))
         {
             $allC_type = array();
-            foreach ((array) $this->survey_candidate_types as $candidate_type) {
+            foreach ($this->survey_candidate_types as $candidate_type) {
                 $c_type = "- - -";
                 if (array_key_exists($candidate_type, LtSurvey::$candidate_types_array)) {
                     $c_type = LtSurvey::$candidate_types_array[$candidate_type];
@@ -152,7 +152,7 @@ class dashboardActions extends sfActions {
         $this->survey_practice_areas = Doctrine_Core::getTable("LtPracticeArea")->findAll();
         $this->survey_practice_areas_checkboxes = "";
         //var_dump($this->survey_practice_areas);die;
-        if(!empty((array)$this->survey_practice_areas))
+        if(!empty($this->survey_practice_areas))
         {
             foreach ($this->survey_practice_areas as $practice_area) {
                 $practice_area_name = $practice_area->getShortCode();

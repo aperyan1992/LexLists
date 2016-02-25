@@ -126,6 +126,7 @@ class dashboardActions extends sfActions {
         $this->survey_candidate_types_checkboxes = "";
         if(!empty((array) $this->survey_candidate_types))
         {
+            $allC_type = array();
             foreach ((array) $this->survey_candidate_types as $candidate_type) {
                 $c_type = "- - -";
                 if (array_key_exists($candidate_type, LtSurvey::$candidate_types_array)) {
@@ -1980,7 +1981,7 @@ class dashboardActions extends sfActions {
                 if ($survey->getRegion()->getName() || $survey->getLtSurveyCity()->getFirst() || $survey->getLtSurveyState()->getFirst() || $survey->getLtSurveyCountry()->getFirst()) {
                     // Get region
                     $region = "";
-                    if ($survey->getRegion()) {
+                    if ($survey->getRegion()->getFirst()) {
                         $region = $survey->getRegion()->getName();
                         if($region == '')
                         {

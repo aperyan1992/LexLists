@@ -1973,7 +1973,6 @@ class dashboardActions extends sfActions {
 
                 // Get practice areas
                 $practice_areas = "- - -";
-                var_dump($survey->getLtSurveyPracticeArea());die;
                 if ($survey->getLtSurveyPracticeArea()->getFirst()) {
                     $practice_area_array = array();
                     foreach ($survey->getLtSurveyPracticeArea() as $practice_area) {

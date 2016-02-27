@@ -286,7 +286,7 @@ class dashboardActions extends sfActions {
                     NAMES
                     FROM cities
                     LEFT JOIN survey_cities ON cities.id = survey_cities.city_id
-                    WHERE survey_cities.survey_id = id
+                    WHERE survey_cities.survey_id = surveys.id
                     GROUP BY survey_cities.survey_id
                     ) AS city_name,
 
@@ -294,7 +294,7 @@ class dashboardActions extends sfActions {
                     NAMES
                     FROM countries
                     LEFT JOIN survey_countries ON countries.id = survey_countries.country_id
-                    WHERE survey_countries.survey_id = id
+                    WHERE survey_countries.survey_id = surveys.id
                     GROUP BY survey_countries.survey_id
                     ) AS country_name,
 
@@ -302,7 +302,7 @@ class dashboardActions extends sfActions {
                     NAMES
                     FROM practice_areas
                     LEFT JOIN survey_practice_areas ON practice_areas.id = survey_practice_areas.practice_area_id
-                    WHERE survey_practice_areas.survey_id = id
+                    WHERE survey_practice_areas.survey_id = surveys.id
                     GROUP BY survey_practice_areas.survey_id
                     ) AS practice_area_name,
 
@@ -310,7 +310,7 @@ class dashboardActions extends sfActions {
                     NAMES
                     FROM special_criterias
                     LEFT JOIN survey_special_criterias ON special_criterias.id = survey_special_criterias.special_criteria_id
-                    WHERE survey_special_criterias.survey_id = id
+                    WHERE survey_special_criterias.survey_id = surveys.id
                     GROUP BY survey_special_criterias.survey_id
                     ) AS special_criteria_name,
 
@@ -318,7 +318,7 @@ class dashboardActions extends sfActions {
                     NAMES
                     FROM states
                     LEFT JOIN survey_states ON states.id = survey_states.state_id
-                    WHERE survey_states.survey_id = id
+                    WHERE survey_states.survey_id = surveys.id
                     GROUP BY survey_states.survey_id
                     ) AS state_name
 
@@ -351,8 +351,14 @@ class dashboardActions extends sfActions {
                     $isLegal = (!is_null($survey['is_legal']) && $survey['is_legal'] == "1") ? 'Legal' : "Business";
 
                     // Set candidate type
-                    $candidate_type = (isset(LtSurvey::$candidate_types_array[$survey['candidate_type']]) && !is_null($survey['candidate_type']) && $survey['candidate_type'] != "" && $survey['candidate_type'] != "0") ? $this->CheckStringLength(LtSurvey::$candidate_types_array[$survey['candidate_type']], 50) : "- - -";
-
+                    if($survey['candidate_type'] != "")
+                    {
+                        $candidate_type = $survey['candidate_type'];
+                    }
+                    else
+                    {
+                        $candidate_type = "- - -";
+                    }
                     // Set practice area
                     $practice_areas = "- - -";
                     if ($survey['practice_area_name']) {
@@ -1970,18 +1976,24 @@ class dashboardActions extends sfActions {
                 if ($survey->getLtSurveyPracticeArea()->getFirst()) {
                     $practice_area_array = array();
                     foreach ($survey->getLtSurveyPracticeArea() as $practice_area) {
-                        $practice_area_array[] = $practice_area->getPracticeArea()->getShortCode();
+                        if($practice_area->getPracticeArea()->getShortCode() != "")
+                        {
+                            $practice_area_array[] = $practice_area->getPracticeArea()->getShortCode();
+                        }
                     }
 
                     $practice_areas = implode(", ", $practice_area_array);
                 }
+                if($practice_areas == "")
+                {
+                    $practice_areas = "- - -";
+                }
 
                 // Get geographic area
                 $geographic_area = "- - -";
-                if ($survey->getRegion()->getFirst() || $survey->getLtSurveyCity()->getFirst() || $survey->getLtSurveyState()->getFirst() || $survey->getLtSurveyCountry()->getFirst()) {
                     // Get region
                     $region = "";
-                    if ($survey->getRegion()->getFirst()) {
+                    if ($survey->getRegion()) {
                         $region = $survey->getRegion()->getName();
                         if($region == '')
                         {
@@ -1997,7 +2009,7 @@ class dashboardActions extends sfActions {
                     // Get cities
                     $cities = "";
 
-                    if ($survey->getLtSurveyCity()->getFirst()) {
+                    if ($survey->getLtSurveyCity()) {
                         $cities_array = array();
                         foreach ($survey->getLtSurveyCity() as $city) {
                             $cities_array[] = $city->getCity()->getName();
@@ -2006,10 +2018,11 @@ class dashboardActions extends sfActions {
                         $cities = implode(", ", $cities_array);
                         $cities .= "; ";
                     }
+                    if($cities == "; ") $cities = "";
 
                     // Get countries
                     $countries = "";
-                    if ($survey->getLtSurveyCountry()->getFirst()) {
+                    if ($survey->getLtSurveyCountry()) {
                         $countries_array = array();
                         foreach ($survey->getLtSurveyCountry() as $country) {
                             $countries_array[] = $country->getCountry()->getName();
@@ -2018,10 +2031,11 @@ class dashboardActions extends sfActions {
                         $countries = implode(", ", $countries_array);
                         $countries .= "; ";
                     }
+                    if($countries == "; ") $countries = "";
 
                     // Get states
                     $states = "";
-                    if ($survey->getLtSurveyState()->getFirst()) {
+                    if ($survey->getLtSurveyState()) {
                         $states_array = array();
                         foreach ($survey->getLtSurveyState() as $state) {
                             $states_array[] = $state->getState()->getName();
@@ -2030,11 +2044,12 @@ class dashboardActions extends sfActions {
                         $states = implode(", ", $states_array);
                         $states .= "; ";
                     }
+                    if($states == "; ") $states = "";
 
                     $geographic_area = $region . "" . $cities . "" . $states . "" . $countries . "";
                     $geographic_area = rtrim($geographic_area, "; ");
-                }
-
+                
+                if($geographic_area == "") $geographic_area = "- - -";
                 // Get description
                 $description = (!is_null($survey->getSurveyDescription()) && $survey->getSurveyDescription() != "") ? $survey->getSurveyDescription() : "- - -";
                 //$description = $this->CheckURLLength($description, 320);

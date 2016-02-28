@@ -1976,7 +1976,7 @@ class dashboardActions extends sfActions {
                 if ($survey->getLtSurveyPracticeArea()->getFirst()) {
                     $practice_area_array = array();
                     foreach ($survey->getLtSurveyPracticeArea() as $practice_area) {
-                        if($practice_area->getPracticeArea()->getShortCode() != "")
+                        if($practice_area->getPracticeArea()->getShortCode() != "") 
                         {
                             $practice_area_array[] = $practice_area->getPracticeArea()->getShortCode();
                         }

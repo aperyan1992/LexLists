@@ -722,13 +722,13 @@ class mySurveyActions extends sfActions {
                     }
 
                     // Set eligibility
-                    $eligibility = (!is_null($survey->getSurvey()->getEligibilityCriteria()) && $survey->getSurvey()->getEligibilityCriteria() != "") ? $this->CheckStringLength($survey->getSurvey()->getShortEligibilityCriteria()) : "- - -";
+                    //$eligibility = (!is_null($survey->getSurvey()->getEligibilityCriteria()) && $survey->getSurvey()->getEligibilityCriteria() != "") ? $this->CheckStringLength($survey->getSurvey()->getShortEligibilityCriteria()) : "- - -";
 
                     // Set description
                     $description = (!is_null($survey->getSurvey()->getSurveyDescription()) && $survey->getSurvey()->getSurveyDescription() != "") ? $this->CheckStringLength($survey->getSurvey()->getShortSurveyDescription()) : "- - -";
 
                     // Set methodology
-                    $methodology = (!is_null($survey->getSurvey()->getSelectionMethodology()) && $survey->getSurvey()->getSelectionMethodology() != "") ? $this->CheckStringLength($survey->getSurvey()->getShortSelectionMethodology()) : "- - -";
+                    //$methodology = (!is_null($survey->getSurvey()->getSelectionMethodology()) && $survey->getSurvey()->getSelectionMethodology() != "") ? $this->CheckStringLength($survey->getSurvey()->getShortSelectionMethodology()) : "- - -";
 
                     // Set email
                     /*$email_link = '<div class="menu-drop-wrapper">
@@ -759,9 +759,9 @@ class mySurveyActions extends sfActions {
                         $submission_deadline,
                         $my_status,
                         $owner,
-                        $eligibility,
+                        //$eligibility,
                         $description,
-                        $methodology,
+                        //$methodology,
                         $keywords
                         //$email_link
                     );

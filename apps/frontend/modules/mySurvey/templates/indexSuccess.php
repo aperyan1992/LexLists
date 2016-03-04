@@ -122,15 +122,11 @@
                             <span title="Country covered by the survey.">Country</span><br />
                         </div>
                         
-                        <div class="fourth-column">                            
-                            <input title="Eligibility." name="display[eligibility]" display_name="eligibility" type="checkbox" class="not_default_display_checkbox" col_num="14" value="1" />
-                            <span title="Eligibility.">Eligibility</span><br />
+                        <div class="fourth-column">
                             
                             <input title="Description." name="display[description]" display_name="description" type="checkbox" class="not_default_display_checkbox" col_num="15" value="1" />
                             <span title="Description.">Description</span><br />
-                            
-                            <input title="Methodology." name="display[methodology]" display_name="methodology" type="checkbox" class="not_default_display_checkbox" col_num="16" value="1" />
-                            <span title="Methodology.">Methodology</span><br />
+
                         </div>
 
                         <div class="fifth-column">                            

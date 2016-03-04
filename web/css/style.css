@@ -5343,10 +5343,12 @@ fieldset.disp-block{
     min-width: 100px !important;
 }
 .dataTable thead tr th:first-child + th{
-    width: 100px !important;
     min-width: 100px !important;
 }
 .borderbottomcity{
     border-bottom: 1px dashed gray;
     width: 95%;
+}
+#report_surveys tbody tr td:first-child{
+
 }

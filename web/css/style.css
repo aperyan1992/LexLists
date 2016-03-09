@@ -5345,6 +5345,10 @@ fieldset.disp-block{
 .dataTable thead tr th:first-child + th{
     min-width: 100px !important;
 }
+/*.datatable_td_align_center
+{
+	width: 100px !important;
+}*/
 .borderbottomcity{
     border-bottom: 1px dashed gray;
     width: 95%;

@@ -11,7 +11,8 @@ $(document).ajaxStop(function() {
 });
 $(document).ready(function() {
 
-    $('#report_surveys').on( 'init.dt', function () {
+    $('#report_surveys').on( 'ini' +
+        't.dt', function () {
 
         oTable = $('#report_surveys').dataTable();
 
@@ -1882,8 +1883,8 @@ $(document).ready(function() {
         ]
     });*/
     var report_data_table = $("#report_surveys").dataTable({
-        responsive: true,
-        "autoWidth": false,
+/*        responsive: true,
+*/        "bAutoWidth": false,
         "sDom": '<"H"flr>t<"F"ip>',
         "bDestroy":true,
         "bJQueryUI": true,

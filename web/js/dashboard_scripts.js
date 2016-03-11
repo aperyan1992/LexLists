@@ -20,9 +20,8 @@ $(document).ready(function() {
 
         /* Filter immediately */
         var year = new Date().getFullYear();
-        console.log(year);
         oTable.fnFilter( year, 1 );
-        oTable.fnFilter( 'Legal', 17 );
+        oTable.fnFilter( 'Legal', 15 );
         $("#"+year).prop( "checked", true );
         $(".is_legal_checkbox:first-child").prop( "checked", true );
     });
@@ -1884,7 +1883,7 @@ $(document).ready(function() {
     });*/
     var report_data_table = $("#report_surveys").dataTable({
 /*        responsive: true,
-*/        "bAutoWidth": false,
+*/      "bAutoWidth": false,
         "sDom": '<"H"flr>t<"F"ip>',
         "bDestroy":true,
         "bJQueryUI": true,

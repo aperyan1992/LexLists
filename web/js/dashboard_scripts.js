@@ -10,6 +10,22 @@ $(document).ajaxStop(function() {
     $(".left-sidebar input:checkbox").prop("disabled", false);
 });
 $(document).ready(function() {
+    $(document).on('click','input[value="US (All States)"]',function(){
+        var arrUS = ['US Mid-Atlantic','US Midwest','US Northeast','US South','US West'];
+        if($(this).is(':checked'))
+        {
+            $(arrUS).each(function(key, value){
+                console.log($('input[value="'+value+'"]'));
+                $('input[value="'+value+'"]').prop("checked", true) ;
+            });
+        }
+        else
+        {
+            $(arrUS).each(function(key, value){
+                $('input[value="'+value+'"]').prop("checked", false) ;
+            });
+        }
+    })
 
     $('#report_surveys').on( 'ini' +
         't.dt', function () {
@@ -1950,7 +1966,7 @@ $(document).ready(function() {
         //filterByOtherParameters(report_data_table_years, $(this));
         filterByOtherParameters(report_data_table, $(this));
     });
-
+    
     $("#region_selected").click(function() {
         //$('#clear_filters').click();
         // Clear filter checkboxes

@@ -137,9 +137,10 @@ $(document).ready(function() {
             },
             dataType: "json",
             success: function(data) {
+
                 $("#dialog_form_survey_details").data(data).dialog("open");
             },
-            error: function() {
+            error: function(data) {
                 openErrorPopupWindow('dialog_error_alert', 'Error !!!');
             }
         });

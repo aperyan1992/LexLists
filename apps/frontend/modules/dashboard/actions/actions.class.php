@@ -1974,12 +1974,10 @@ class dashboardActions extends sfActions {
                 // Get practice areas
                 $practice_areas = "- - -";
                 if ($survey->getLtSurveyPracticeArea()->getFirst()) {
+
                     $practice_area_array = array();
                     foreach ($survey->getLtSurveyPracticeArea() as $practice_area) {
-                        if($practice_area->getPracticeArea()->getShortCode() != "") 
-                        {
-                            $practice_area_array[] = $practice_area->getPracticeArea()->getShortCode();
-                        }
+                        $practice_area_array[] = $practice_area->getPracticeArea()->getName();                        
                     }
 
                     $practice_areas = implode(", ", $practice_area_array);

@@ -38,10 +38,6 @@
             </td>
         </tr>
         <tr>
-            <th align="left">Eligibility:</th>
-            <td><?php echo (!is_null($survey->getEligibilityCriteria()) && $survey->getEligibilityCriteria() != "") ? $survey->getEligibilityCriteria() : "- - -"; ?></td>
-        </tr>
-        <tr>
             <th align="left">Practice Area(s):</th>
             <td>
                 <?php
@@ -120,10 +116,6 @@
         <tr>
             <th align="left" valign="top">Description:</th>
             <td><?php echo (!is_null($survey->getSurveyDescription()) && $survey->getSurveyDescription() != "") ? $survey->getSurveyDescription() : "- - -"; ?></td>
-        </tr>
-        <tr>
-            <th align="left" valign="top">Methodology:</th>
-            <td><?php echo (!is_null($survey->getSelectionMethodology()) && $survey->getSelectionMethodology() != "") ? $survey->getSelectionMethodology() : "- - -"; ?></td>
         </tr>
         <tr>
             <th align="left" valign="top">How to Apply:</th>

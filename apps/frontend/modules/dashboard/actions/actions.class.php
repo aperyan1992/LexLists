@@ -727,7 +727,7 @@ class dashboardActions extends sfActions {
                     if ($email_address !== false && !empty($email_address)) {
                         $recipient_email_address = $email_address;
                     }
-
+var_dump($surveys);die;
                     // Send email message
                     $message = Swift_Message::newInstance();
                     $message->setFrom($user->getEmailAddress())

@@ -716,7 +716,7 @@ class dashboardActions extends sfActions {
             if ($survey_ids) {
                 // Check if surveys exists
                 $ids = join(',',$survey_ids);
-                $query = "SELECT surveys.year, surveys.keywords, surveys.id AS id, surveys.submission_deadline, surveys.survey_description, surveys.candidate_type, surveys.is_list, surveys.is_legal, surveys.organization_id, surveys.survey_name, organizations.name AS organization_name, regions.name AS region_name, surveys.survey_region_id,
+                $query = "SELECT surveys.year, survey_contacts.first_name, survey_contacts.last_name, survey_contacts.email_address, surveys.nomination, surveys.frequency, surveys.keywords, surveys.id AS id, surveys.submission_deadline, surveys.survey_description, surveys.candidate_type, surveys.is_list, surveys.is_legal, surveys.organization_id, surveys.survey_name, organizations.name AS organization_name, regions.name AS region_name, surveys.survey_region_id,
                     (SELECT GROUP_CONCAT( cities.name ) AS
                     NAMES
                     FROM cities
@@ -759,6 +759,7 @@ class dashboardActions extends sfActions {
 
                     FROM surveys
                     LEFT JOIN organizations ON surveys.organization_id = organizations.id
+                    LEFT JOIN survey_contacts ON surveys.survey_contact_id = survey_contacts.id
                     LEFT JOIN regions ON surveys.survey_region_id = regions.id WHERE surveys.id IN (".$ids.")";
                 $surveys = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
 

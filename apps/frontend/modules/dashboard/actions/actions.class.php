@@ -676,7 +676,7 @@ class dashboardActions extends sfActions {
 
             $cc_for_log = implode(", ", $cc_for_log);
             if(count($survey_ids)>1)
-            {die("A");
+            {
                 //save info in log file
                 $final_filename = $this->getUser()->getAttribute('log_file_name');
                 $logPath = sfConfig::get('sf_log_dir').'/'.$final_filename;
@@ -715,7 +715,7 @@ class dashboardActions extends sfActions {
 
             if ($survey_ids) {
                 // Check if surveys exists
-                $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds($survey_ids);
+                $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds($survey_ids);die("A");
 
                 
                 if ($surveys->getFirst()) {

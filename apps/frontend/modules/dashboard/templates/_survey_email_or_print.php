@@ -128,7 +128,7 @@
         <tr>
             <th align="left">Contact Person:</th>
             <td>
-                <?php var_dump($survey->id);die;
+                <?php
                 echo $survey->getContact()->getLastName() .
                 ", " .
                 $survey->getContact()->getFirstName() .

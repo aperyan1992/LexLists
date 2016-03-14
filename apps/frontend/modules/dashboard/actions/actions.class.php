@@ -650,7 +650,7 @@ class dashboardActions extends sfActions {
      * 
      * @return array                    JSON array with response message
      */
-    public function executeSendEmail() {
+    public function executeSendEmail(sfWebRequest $request) {
         if ($request->isXmlHttpRequest() && $this->getUser()->isAuthenticated()) {die("A");
             // Get request parameters
             $survey_ids         = $request->getParameter("survey_ids", FALSE);

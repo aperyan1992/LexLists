@@ -734,7 +734,7 @@ class dashboardActions extends sfActions {
                             ->setTo($recipient_email_address)
                             ->setCc($cc)
                             ->setSubject("LexLists E-mail")
-                            ->setBody($this->getPartial("dashboard/survey_email_or_print", array( "additional_message" => $additional_message)))
+                            ->setBody($this->getPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => $additional_message)))
                             ->setContentType("text/html");
 
                     $send_status = $this->getMailer()->send($message);

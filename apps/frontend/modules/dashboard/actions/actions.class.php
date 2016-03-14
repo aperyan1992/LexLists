@@ -727,7 +727,7 @@ class dashboardActions extends sfActions {
                     if ($email_address !== false && !empty($email_address)) {
                         $recipient_email_address = $email_address;
                     }
-
+die("A");
                     // Send email message
                     $message = Swift_Message::newInstance();
                     $message->setFrom($user->getEmailAddress())
@@ -745,7 +745,7 @@ class dashboardActions extends sfActions {
                         $status = true;
                     }
 
-die("A");
+
                     return $this->renderText(
                         json_encode(
                             array(

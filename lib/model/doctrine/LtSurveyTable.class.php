@@ -242,7 +242,7 @@ class LtSurveyTable extends Doctrine_Table {
                 ->leftJoin('spa.PracticeArea pa')
                 ->leftJoin('pa.MainPracticeArea mpa')
                 ->whereIn('s.id', $survey_ids);
-        
+
         return $q->execute();
     }
     

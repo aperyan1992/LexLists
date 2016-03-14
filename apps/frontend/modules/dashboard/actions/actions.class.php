@@ -763,7 +763,7 @@ class dashboardActions extends sfActions {
                 $surveys = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
 
                 
-                if ($surveys->getFirst()) {
+                if (!empty($surveys)) {
                     // Get user
                     $user = $this->getUser()->getGuardUser();
                     // Get recipient email address

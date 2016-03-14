@@ -3,9 +3,9 @@
     <?php echo $additional_message; ?>
     <br/><br/>
 <?php endif; ?>
-
+<?php  ?>
 <h3>Lex<span style="color: #ff6801 !important;">Lists</span></h3>
-<?php foreach ($surveys as $survey) : ?>
+<?php var_dump($surveys);die; foreach ($surveys as $survey) : ?>
     <table>
         <tr>
             <th align="left">Award:</th>

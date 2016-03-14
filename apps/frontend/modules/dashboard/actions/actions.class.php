@@ -715,7 +715,52 @@ class dashboardActions extends sfActions {
 
             if ($survey_ids) {
                 // Check if surveys exists
-                $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds($survey_ids);
+                $ids = join(',',$survey_ids);
+                $query = "SELECT surveys.year, surveys.keywords, surveys.id AS id, surveys.submission_deadline, surveys.survey_description, surveys.candidate_type, surveys.is_list, surveys.is_legal, surveys.organization_id, surveys.survey_name, organizations.name AS organization_name, regions.name AS region_name, surveys.survey_region_id,
+                    (SELECT GROUP_CONCAT( cities.name ) AS
+                    NAMES
+                    FROM cities
+                    LEFT JOIN survey_cities ON cities.id = survey_cities.city_id
+                    WHERE survey_cities.survey_id = surveys.id
+                    GROUP BY survey_cities.survey_id
+                    ) AS city_name,
+
+                    (SELECT GROUP_CONCAT( countries.name ) AS
+                    NAMES
+                    FROM countries
+                    LEFT JOIN survey_countries ON countries.id = survey_countries.country_id
+                    WHERE survey_countries.survey_id = surveys.id
+                    GROUP BY survey_countries.survey_id
+                    ) AS country_name,
+
+                    (SELECT GROUP_CONCAT( practice_areas.name ) AS
+                    NAMES
+                    FROM practice_areas
+                    LEFT JOIN survey_practice_areas ON practice_areas.id = survey_practice_areas.practice_area_id
+                    WHERE survey_practice_areas.survey_id = surveys.id
+                    GROUP BY survey_practice_areas.survey_id
+                    ) AS practice_area_name,
+
+                    (SELECT GROUP_CONCAT( special_criterias.name ) AS
+                    NAMES
+                    FROM special_criterias
+                    LEFT JOIN survey_special_criterias ON special_criterias.id = survey_special_criterias.special_criteria_id
+                    WHERE survey_special_criterias.survey_id = surveys.id
+                    GROUP BY survey_special_criterias.survey_id
+                    ) AS special_criteria_name,
+
+                    (SELECT GROUP_CONCAT( states.name ) AS
+                    NAMES
+                    FROM states
+                    LEFT JOIN survey_states ON states.id = survey_states.state_id
+                    WHERE survey_states.survey_id = surveys.id
+                    GROUP BY survey_states.survey_id
+                    ) AS state_name
+
+                    FROM surveys
+                    LEFT JOIN organizations ON surveys.organization_id = organizations.id
+                    LEFT JOIN regions ON surveys.survey_region_id = regions.id WHERE surveys.id IN (".$ids.")";
+                $surveys = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
 
                 
                 if ($surveys->getFirst()) {

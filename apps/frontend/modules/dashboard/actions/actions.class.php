@@ -715,7 +715,7 @@ class dashboardActions extends sfActions {
 
             if ($survey_ids) {
                 // Check if surveys exists
-                $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds($survey_ids);die("A");
+                $surveys = Doctrine_Core::getTable("LtSurvey")->getSurveysByIds($survey_ids);
 
                 
                 if ($surveys->getFirst()) {
@@ -745,7 +745,7 @@ class dashboardActions extends sfActions {
                         $status = true;
                     }
 
-
+die("A");
                     return $this->renderText(
                         json_encode(
                             array(

@@ -727,7 +727,7 @@ class dashboardActions extends sfActions {
                     if ($email_address !== false && !empty($email_address)) {
                         $recipient_email_address = $email_address;
                     }
-die("A");
+
                     // Send email message
                     $message = Swift_Message::newInstance();
                     $message->setFrom($user->getEmailAddress())
@@ -736,7 +736,7 @@ die("A");
                             ->setSubject("LexLists E-mail")
                             ->setBody($this->getPartial("dashboard/survey_email_or_print", array("surveys" => $surveys, "additional_message" => $additional_message)))
                             ->setContentType("text/html");
-
+die("A");
                     $send_status = $this->getMailer()->send($message);
 
                     // Check sending status//

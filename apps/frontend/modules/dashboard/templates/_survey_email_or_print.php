@@ -51,7 +51,7 @@
                 $geographic_area = "- - -";
                 if($survey['region_name'] || $survey['city_name'] || $survey['state_name'] || $survey['country_name']) {
                     // Get region
-                    $region = (!is_null($survey['survey_region_id']) && $survey['survey_region_id'] != "") ? $this->CheckStringLength($survey['region_name'], 50) : "- - -";
+                    $region = (!is_null($survey['survey_region_id']) && $survey['survey_region_id'] != "") ? $survey['region_name'] : "- - -";
 
                     // Get cities
                     $cities = "- - -";

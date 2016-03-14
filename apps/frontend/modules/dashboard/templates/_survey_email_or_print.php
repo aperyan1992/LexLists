@@ -129,7 +129,7 @@
             <th align="left">Contact Person:</th>
             <td>
                 <?php
-                echo
+                echo $survey->getContact()->getLastName() .
                 ", " .
                 $survey->getContact()->getFirstName() .
                 " (" .

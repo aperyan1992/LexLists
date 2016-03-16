@@ -43,7 +43,7 @@ abstract class BasesfGuardForgotPasswordActions extends sfActions
           ->setBody($this->getPartial('sfGuardForgotPassword/send_request', array('user' => $this->form->user, 'forgot_password' => $forgotPassword)))
           ->setContentType('text/html')
         ;
-
+die("A");
         $this->getMailer()->send($message, $fails);
         var_dump($fails);die;
 

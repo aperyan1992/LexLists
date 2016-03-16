@@ -25,8 +25,7 @@ abstract class BasesfGuardForgotPasswordActions extends sfActions
     if ($request->isMethod('post'))
     {
       $this->form->bind($request->getParameter($this->form->getName()));
-      if ($this->form->isValid())
-      {die("A");
+      
         $this->user = $this->form->user;
         $this->_deleteOldUserForgotPasswordRecords();
 
@@ -49,9 +48,7 @@ abstract class BasesfGuardForgotPasswordActions extends sfActions
 
         $this->getUser()->setFlash('notice', 'Check your e-mail! You should receive something shortly!');
         $this->redirect('@sf_guard_signin');
-      } else {
-        $this->getUser()->setFlash('error', 'Invalid e-mail address!');
-      }
+
     }
   }
 

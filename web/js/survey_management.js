@@ -112,6 +112,13 @@ $(document).ready(function() {
    /* $('#lt_survey_keywords').select2({
       tags: true,
     })*/
+    $('.select2-container').each(function(){
+        if($(this).find('ul li div').text() == "" || $(this).find('ul li div').text() == " ")
+        {
+            $(this).find('ul li').remove();
+        }
+    });
+
 $("#add_keywords_link").click(function() {
         $("#dialog_form_keyword").dialog("open");
 

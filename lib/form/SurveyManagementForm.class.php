@@ -22,15 +22,23 @@ class SurveyManagementForm extends LtSurveyForm {
         $years_range_array[$year] = $year;
     }
       $statuses_array = array(
-          'Gone' => 'Gone',
-          'Done' => 'Done' ,
-          'Stale' => 'Stale',
-          'Not Updated' => 'Not Updated' ,
-          'New' =>'New'
+          'Gone' => 'Gone (no longer exists? Archived?)',
+          'Done' => 'Done (completed, updated)' ,
+          'Stale' => 'Stale (outdated, info unavail or unknown?)'
+          /*'Not Updated' => 'Not Updated' ,
+          'New' =>'New'*/
       );
 
     // Get choices
-    $practice_area_choices = Doctrine_Core::getTable("LtMainPracticeArea")->getPracticeAreasWithMainPracticeAreas();
+    //$practice_area_choices = Doctrine_Core::getTable("LtMainPracticeArea")->getPracticeAreasWithMainPracticeAreas();
+    $q = 'SELECT name, id FROM `practice_areas`';
+    $r = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($q)->fetchAll();
+    $practice_area_choices = array();
+    foreach($r as $practice)
+    {
+        $practice_area_choices[$practice['id']] = $practice['name'];
+    }
+
     $contact_choices       = Doctrine_Core::getTable("LtSurveyContact")->getSurveyContacts();
 
     $query = 'SELECT keywords FROM surveys';
@@ -38,6 +46,7 @@ class SurveyManagementForm extends LtSurveyForm {
     $keyword = array();
     foreach($resquery as $value)
     {
+
         if(isset($value['keywords']) && !empty($value['keywords']) && $value['keywords']!='')
         {
             $keys = explode(";", $value['keywords']);
@@ -50,12 +59,13 @@ class SurveyManagementForm extends LtSurveyForm {
             }
         }
     }
-
+    $contact_choices = array_unique($contact_choices);
     sort(LtSurvey::$frequency_types_array);
     sort(LtSurvey::$candidate_types_array);
     sort($contact_choices);
     sort($statuses_array);
     sort($keyword);
+    //sort($practice_area_choices);
     // Set widgets
     $this->widgetSchema['organization_id']        = new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Organization'), 'add_empty' => true), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
     $this->widgetSchema['organization_url']       = new sfWidgetFormInputText(array(), array("class" => "admin_survey_management_input_text set_padding"));

@@ -207,7 +207,6 @@ class dataloadActions extends sfActions
                             'country'=>'countries',
                             'practice_area'=>'practice_areas',
                             'special_criteria'=>'special_criterias',
-                            'state'=>'states',
                             );
                         //var_dump($survey);
                         foreach($arrMapRelations as $key=>$value)
@@ -231,6 +230,27 @@ class dataloadActions extends sfActions
                                     Doctrine_Manager::getInstance()->getCurrentConnection()->execute($strAdd);
                                    
                                 }
+                            }
+                        }
+
+                        if(!empty($survey['state']))
+                        {
+                            $arrDatas = explode('; ',$survey['state']);
+                            foreach($arrDatas as $data)
+                            {
+                                $query = Doctrine_Manager::getInstance()->getCurrentConnection()->execute('Select * from  states where name="'.$data.'" OR short_code="'.$data.'"')->fetch();
+                                if(!empty($query))
+                                {
+                                    $id = $query['id'];
+                                }
+                                else
+                                {
+                                    Doctrine_Manager::getInstance()->getCurrentConnection()->execute('Insert into states (`name`, `short_code`,`created_at`,`updated_at`) VALUES ("'.$data.'", "'.$data.'",NOW(),NOW())');
+                                    $id = Doctrine_Manager::getInstance()->getCurrentConnection()->lastInsertId();
+                                }
+                                $strAdd = 'INSERT INTO survey_states (`survey_id`,`state_id`,`created_at`,`updated_at`) VALUES ("'.$survey_id.'","'.$id.'",NOW(),NOW())';
+                                Doctrine_Manager::getInstance()->getCurrentConnection()->execute($strAdd);
+
                             }
                         }
                     }

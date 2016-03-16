@@ -19,12 +19,12 @@ abstract class BasesfGuardForgotPasswordActions extends sfActions
   }
 
   public function executeIndex($request)
-  {die("A");
+  {
     $this->form = new sfGuardRequestForgotPasswordForm();
 
     if ($request->isMethod('post'))
     {
-      $this->form->bind($request->getParameter($this->form->getName()));
+      $this->form->bind($request->getParameter($this->form->getName()));die("A");
       if ($this->form->isValid())
       {
         $this->user = $this->form->user;

@@ -35,7 +35,7 @@ abstract class BasesfGuardForgotPasswordActions extends sfActions
         $forgotPassword->unique_key = md5(rand() + time());
         $forgotPassword->expires_at = new Doctrine_Expression('NOW()');
         $forgotPassword->save();
-
+var_dump($this->form->user->email_address);die;
         $message = Swift_Message::newInstance()
           ->setFrom(sfConfig::get('app_sf_guard_plugin_default_from_email', 'from@noreply.com'))
           ->setTo($this->form->user->email_address)

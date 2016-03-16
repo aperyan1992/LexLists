@@ -25,7 +25,8 @@ abstract class BasesfGuardForgotPasswordActions extends sfActions
     if ($request->isMethod('post'))
     {
       $this->form->bind($request->getParameter($this->form->getName()));
-
+      if ($this->form->isValid())
+      {
         $this->user = $this->form->user;
         $this->_deleteOldUserForgotPasswordRecords();
 
@@ -34,7 +35,7 @@ abstract class BasesfGuardForgotPasswordActions extends sfActions
         $forgotPassword->unique_key = md5(rand() + time());
         $forgotPassword->expires_at = new Doctrine_Expression('NOW()');
         $forgotPassword->save();
-      die("A");
+
         $message = Swift_Message::newInstance()
           ->setFrom(sfConfig::get('app_sf_guard_plugin_default_from_email', 'from@noreply.com'))
           ->setTo($this->form->user->email_address)
@@ -43,12 +44,13 @@ abstract class BasesfGuardForgotPasswordActions extends sfActions
           ->setContentType('text/html')
         ;
 
-        $this->getMailer()->send($message, $fails);
-        var_dump($fails);die;
+        $this->getMailer()->send($message);
 
         $this->getUser()->setFlash('notice', 'Check your e-mail! You should receive something shortly!');
         $this->redirect('@sf_guard_signin');
-
+      } else {
+        $this->getUser()->setFlash('error', 'Invalid e-mail address!');
+      }
     }
   }
 

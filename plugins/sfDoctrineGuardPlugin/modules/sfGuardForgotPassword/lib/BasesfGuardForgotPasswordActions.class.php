@@ -44,7 +44,8 @@ abstract class BasesfGuardForgotPasswordActions extends sfActions
           ->setContentType('text/html')
         ;
 
-        $status = $this->getMailer()->send($message);
+        $status = $this->getMailer()->send($message, $failures);
+        var_dump($failures);die;
         $this->getUser()->setFlash('notice', 'Check your e-mail! You should receive something shortly!');
         $this->redirect('@sf_guard_signin');
       } else {

@@ -25,7 +25,7 @@ abstract class BasesfGuardForgotPasswordActions extends sfActions
     if ($request->isMethod('post'))
     {
       $this->form->bind($request->getParameter($this->form->getName()));
-      
+      die("A");
         $this->user = $this->form->user;
         $this->_deleteOldUserForgotPasswordRecords();
 

@@ -36,7 +36,7 @@ abstract class BasesfGuardForgotPasswordActions extends sfActions
         $forgotPassword->expires_at = new Doctrine_Expression('NOW()');
         $forgotPassword->save();
 
-        $message = Swift_Message::newInstance()
+        $message = Swift_Message::newInstance(null)
           ->setFrom(sfConfig::get('app_sf_guard_plugin_default_from_email', 'from@noreply.com'))
           ->setTo($this->form->user->email_address)
           ->setSubject('Forgot Password Request for '.$this->form->user->username)
@@ -45,7 +45,6 @@ abstract class BasesfGuardForgotPasswordActions extends sfActions
         ;
 
         $status = $this->getMailer()->send($message);
-        var_dump($status);die;
         $this->getUser()->setFlash('notice', 'Check your e-mail! You should receive something shortly!');
         $this->redirect('@sf_guard_signin');
       } else {
@@ -69,7 +68,7 @@ abstract class BasesfGuardForgotPasswordActions extends sfActions
 
         $this->_deleteOldUserForgotPasswordRecords();
 
-        $message = Swift_Message::newInstance()
+        $message = Swift_Message::newInstance(null)
           ->setFrom(sfConfig::get('app_sf_guard_plugin_default_from_email', 'from@noreply.com'))
           ->setTo($this->user->email_address)
           ->setSubject('New Password for '.$this->user->username)

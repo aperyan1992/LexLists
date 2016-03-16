@@ -113,9 +113,9 @@ $(document).ready(function() {
       tags: true,
     })*/
     $('.select2-container').each(function(){
-        if($(this).find('ul li div').text() == "" || $(this).find('ul li div').text() == " ")
+        if($(this).find('ul li.select2-search-choice div').text() == "" || $(this).find('ul li div').text() == " ")
         {
-            $(this).find('ul li').remove();
+            $(this).find('ul li.select2-search-choice').remove();
         }
     });
 

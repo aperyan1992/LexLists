@@ -44,8 +44,19 @@ abstract class BasesfGuardForgotPasswordActions extends sfActions
           ->setContentType('text/html')
         ;
 
-        $status = $this->getMailer()->send($message, $failures);
-        var_dump($failures);die;
+
+        try
+        {
+          $status = $this->getMailer()->send($message, $failures);
+        }
+        catch (Swift_RfcComplianceException $e)
+        {
+          print('Email address not valid:' . $e->getMessage());
+          echo 'FAILURES:<BR><PRE>';
+          print_r($failures);
+          echo '</PRE>';
+        }
+        //var_dump($failures);die;
         $this->getUser()->setFlash('notice', 'Check your e-mail! You should receive something shortly!');
         $this->redirect('@sf_guard_signin');
       } else {

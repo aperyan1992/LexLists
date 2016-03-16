@@ -22,11 +22,11 @@ class SurveyManagementForm extends LtSurveyForm {
         $years_range_array[$year] = $year;
     }
       $statuses_array = array(
-          'Gone' => 'Gone (no longer exists? Archived?)',
-          'Done' => 'Done (completed, updated)' ,
-          'Stale' => 'Stale (outdated, info unavail or unknown?)'
-          /*'Not Updated' => 'Not Updated' ,
-          'New' =>'New'*/
+          'Gone' => 'Gone',
+          'Done' => 'Done' ,
+          'Stale' => 'Stale',
+          'Not Updated' => 'Not Updated' ,
+          'New' =>'New'
       );
 
     // Get choices

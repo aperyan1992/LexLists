@@ -354,6 +354,7 @@ class dashboardActions extends sfActions {
                     if($survey['candidate_type'] != "")
                     {
                         $candidate_type = $survey['candidate_type'];
+                        $candidate_type = ($survey['candidate_type'] != 0 && isset(LtSurvey::$candidate_types_array[$survey['candidate_type']])) ? LtSurvey::$candidate_types_array[$survey['candidate_type']] : "- - -";
                     }
                     else
                     {

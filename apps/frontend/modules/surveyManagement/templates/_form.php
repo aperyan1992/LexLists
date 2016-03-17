@@ -2,7 +2,7 @@
 <?php use_javascripts_for_form($form) ?>
 
 <div class="sf_admin_form" id="survey_form">
-    <?php echo form_tag_for($form, '@lt_survey') ?>
+    <?php  echo form_tag_for($form, '@lt_survey') ?>
         <div class="new_edit_table">
 
 

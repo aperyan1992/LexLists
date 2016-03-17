@@ -60,8 +60,8 @@ class SurveyManagementForm extends LtSurveyForm {
         }
     }
     $contact_choices = array_unique($contact_choices);
-    sort(LtSurvey::$frequency_types_array);
-    sort(LtSurvey::$candidate_types_array);
+    //sort(LtSurvey::$frequency_types_array);
+    //sort(LtSurvey::$candidate_types_array);
     sort($contact_choices);
     sort($statuses_array);
     sort($keyword);

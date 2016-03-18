@@ -1929,9 +1929,9 @@ $(document).ready(function() {
         ]
     });
     window.table = report_data_table;
-    $(document).on('change', '#report_surveys', function() {
+    /*$(document).on('change', '#report_surveys', function() {
         alert('something changed inside #myDiv div');
-    });
+    });*/
 
 
  var update_size = function() {

@@ -60,12 +60,14 @@ class SurveyManagementForm extends LtSurveyForm {
         }
     }
     $contact_choices = array_unique($contact_choices);
-    /*array_multisort(LtSurvey::$frequency_types_array);
-    array_multisort(LtSurvey::$candidate_types_array);
-    array_multisort($contact_choices);
-    array_multisort($statuses_array);
-    array_multisort($keyword);
-    array_multisort($practice_area_choices);*/
+    asort(LtSurvey::$frequency_types_array);
+    asort(LtSurvey::$candidate_types_array);
+    asort($contact_choices);
+    asort($statuses_array);
+    asort($keyword);
+    asort($practice_area_choices);
+    
+
     // Set widgets
     $this->widgetSchema['organization_id']        = new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Organization'), 'add_empty' => true), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
     $this->widgetSchema['organization_url']       = new sfWidgetFormInputText(array(), array("class" => "admin_survey_management_input_text set_padding"));

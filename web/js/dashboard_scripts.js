@@ -1910,6 +1910,7 @@ $(document).ready(function() {
         "sAjaxSource": "/dashboard/getSurveys",
         "bDeferRender": true,
         "iDisplayLength": 25,
+        "dom": 'Zlfrtip',
         "aLengthMenu": [
             [10, 25, 50, 100, -1],
             [10, 25, 50, 100, "All"]

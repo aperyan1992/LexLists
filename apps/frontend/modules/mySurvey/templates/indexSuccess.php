@@ -182,10 +182,7 @@
                                     <th>Deadline</th>
                                     <th>My Status</th>
                                     <th>Owner</th>
-                                    
-                                    <th>Eligibility</th>
                                     <th>Description</th>
-                                    <th>Methodology</th>
                                     <th>Keywords</th>                                    
 
                                 </tr>

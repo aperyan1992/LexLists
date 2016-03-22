@@ -37,7 +37,7 @@ abstract class BasesfGuardForgotPasswordActions extends sfActions
         $forgotPassword->save();
 
         $message = Swift_Message::newInstance()
-          ->setFrom(sfConfig::get('app_sf_guard_plugin_default_from_email', 'from@noreply.com'))
+          ->setFrom(sfConfig::get('app_sf_guard_plugin_default_from_email', 'noreply@from.com'))
           ->setTo($this->form->user->email_address)
           ->setSubject('Forgot Password Request for '.$this->form->user->username)
           ->setBody($this->getPartial('sfGuardForgotPassword/send_request', array('user' => $this->form->user, 'forgot_password' => $forgotPassword)))
@@ -46,7 +46,7 @@ abstract class BasesfGuardForgotPasswordActions extends sfActions
 
         $status = $this->getMailer()->send($message);
 
-        $this->getUser()->setFlash('notice', 'aaaaCheck your e-mail! You should receive something shortly!');
+        $this->getUser()->setFlash('notice', 'Check your e-mail! You should receive something shortly!');
         $this->redirect('@sf_guard_signin');
       } else {
         $this->getUser()->setFlash('error', 'Invalid e-mail address!');

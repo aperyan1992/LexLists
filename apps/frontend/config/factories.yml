@@ -33,11 +33,16 @@ dev:
       transport:
         class: Swift_SmtpTransport
         param:
-          host:       localhost
-          port:       25
+          # host:       localhost
+          # port:       25
+          # encryption: ~
+          # username:   ~
+          # password:   ~  
+          host:       smtp.sendgrid.net
+          port:       587
           encryption: ~
-          username:   ~
-          password:   ~          
+          username:   lexlists
+          password:   zxcv1234        
           
 all:
   routing:
@@ -61,17 +66,17 @@ all:
       transport:
         class: Swift_SmtpTransport
         param:
-          host:       localhost
-          port:       25
-          encryption: ~
-          username:   ~
-          password:   ~
+          # host:       localhost
+          # port:       25
+          # encryption: ~
+          # username:   ~
+          # password:   ~
           
-#          host:       smtp.gmail.com
-#          port:       465
-#          encryption: ssl
-#          username: 
-#          password: 
+          host:       smtp.sendgrid.net
+          port:       587
+          encryption: ssl
+          username:   lexlists
+          password:   zxcv1234
           
   user:
     class: myUser

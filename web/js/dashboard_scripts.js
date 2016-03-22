@@ -1898,9 +1898,8 @@ $(document).ready(function() {
         ]
     });*/
     var report_data_table = $("#report_surveys").dataTable({
-/*        responsive: true,
-*/      "bAutoWidth": false,
-        "sDom": '<"H"flr>t<"F"ip>',
+        "bAutoWidth": false,
+        "sDom": 'C<"clear">RZlfrtip',
         "bDestroy":true,
         "bJQueryUI": true,
         "bRetrieve": true,
@@ -1910,7 +1909,6 @@ $(document).ready(function() {
         "sAjaxSource": "/dashboard/getSurveys",
         "bDeferRender": true,
         "iDisplayLength": 25,
-        "dom": 'Zlfrtip',
         "aLengthMenu": [
             [10, 25, 50, 100, -1],
             [10, 25, 50, 100, "All"]
@@ -1927,7 +1925,7 @@ $(document).ready(function() {
             { "bVisible": false, "aTargets": [ 4,5,6,8,9,10,12,13,14,15 ] },
             { "bVisible": true, "aTargets": [ 0,1,2,3,7,11 ] },
             { "bSortable": false, "aTargets": [ 0 ] }
-        ]
+        ],        
     });
     window.table = report_data_table;
     /*$(document).on('change', '#report_surveys', function() {
@@ -2463,7 +2461,7 @@ function showAndHideColumns(column_number, show_status, report_data_table) {
         report_data_table.fnSetColumnVis(column_number, show_status);
     }
    // $('#report_surveys_years thead tr th:first-child').css('width', '42px');
-    $('.dataTable thead tr th:first-child').css('width', '42px');
+   $('.dataTable thead tr th:first-child').css('width', '42px');
 }
 
 /**

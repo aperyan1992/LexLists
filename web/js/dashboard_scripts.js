@@ -1899,7 +1899,7 @@ $(document).ready(function() {
     });*/
     var report_data_table = $("#report_surveys").dataTable({
         "bAutoWidth": false,
-        "sDom": 'C<"clear">RZlfrtip',
+        "sDom": '<"H"flr>t<"F"ip>',
         "bDestroy":true,
         "bJQueryUI": true,
         "bRetrieve": true,

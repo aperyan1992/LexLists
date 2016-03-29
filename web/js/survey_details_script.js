@@ -165,7 +165,10 @@ $(document).ready(function() {
                 
                 $.getJSON("/mySurvey/getMySurveyNotes?s_id=" + s_id, null, function (json) {
                     notes_table.fnClearTable();
-                    notes_table.fnAddData(json.aaData);
+                    if(json.aaData.length != 0)
+                    {
+                        notes_table.fnAddData(json.aaData);
+                    }
                     notes_table.fnDraw();
                 });
                 

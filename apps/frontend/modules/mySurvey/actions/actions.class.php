@@ -1268,9 +1268,14 @@ class mySurveyActions extends sfActions {
 
                         $practice_areas = implode(", ", $practice_area_array);
                     }
+                    if($practice_areas == "")
+                    {
+                        $practice_areas = "- - -";
+                    }
 
                     // Get geographic area
                     $geographic_area = "- - -";
+                    if($survey->getSurvey()->getRegion()){
                     if ($survey->getSurvey()->getRegion()->getName() || $survey->getSurvey()->getLtSurveyCity()->getFirst() || $survey->getSurvey()->getLtSurveyState()->getFirst() || $survey->getSurvey()->getLtSurveyCountry()->getFirst()) {
                         // Get region
                         $region = "";
@@ -1324,7 +1329,7 @@ class mySurveyActions extends sfActions {
 
                         $geographic_area = $region . "" . $cities . "" . $states . "" . $countries . "";
                         $geographic_area = rtrim($geographic_area, "; ");
-                    }
+                    }}
 
                     // Get description
                     $description = (!is_null($survey->getSurvey()->getSurveyDescription()) && $survey->getSurvey()->getSurveyDescription() != "") ? $survey->getSurvey()->getSurveyDescription() : "- - -";

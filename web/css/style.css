@@ -12,6 +12,10 @@
     font-weight: normal;
     font-style: normal;
 }
+#report_surveys_filter label input {
+    text-align: right;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 .sf_admin_text label, .sf_admin_list_th_survey_name a{
     text-transform: capitalize;
 }

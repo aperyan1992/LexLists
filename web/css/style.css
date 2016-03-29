@@ -13,7 +13,7 @@
     font-style: normal;
 }
 #report_surveys_filter label input {
-    text-align: right;
+    padding-left: 8px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .sf_admin_text label, .sf_admin_list_th_survey_name a{

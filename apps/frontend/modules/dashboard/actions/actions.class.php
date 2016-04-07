@@ -219,6 +219,7 @@ class dashboardActions extends sfActions {
         $sorted_names[2] = "US Northeast";
         $sorted_names[3] = "US South";
         $sorted_names[4] = "US West";
+        $sorted_names[13] = "US Nationwide";
         $sorted_names[5] = "Africa";
         $sorted_names[6] = "Australia";
         $sorted_names[7] = "AsiaAustralia";

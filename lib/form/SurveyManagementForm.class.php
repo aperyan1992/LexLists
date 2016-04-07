@@ -8,7 +8,6 @@
  * @author        Sergey Kuprianov <sergey.kuprianov@sibers.com>
  */
 class SurveyManagementForm extends LtSurveyForm {
-
     /**
      *
      */
@@ -59,14 +58,32 @@ class SurveyManagementForm extends LtSurveyForm {
             }
         }
     }
+
+    $query = 'SELECT candidate_type FROM surveys';
+    $resquery = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
+    $candidate_types = array();
+    foreach($resquery as $value)
+    {
+
+        if(isset($value['candidate_type']) && !empty($value['candidate_type']) && $value['candidate_type']!='')
+        {
+            $keys = explode(";", $value['candidate_type']);
+            foreach($keys as $v)
+            {
+                if(!in_array($v, $candidate_types))
+                {
+                    $candidate_types[] =  $v;
+                }
+            }
+        }
+    }
+
     $contact_choices = array_unique($contact_choices);
-    asort(LtSurvey::$frequency_types_array);
-    asort(LtSurvey::$candidate_types_array);
+    asort($candidate_types);
     asort($contact_choices);
     asort($statuses_array);
     asort($keyword);
     asort($practice_area_choices);
-    
 
     // Set widgets
     $this->widgetSchema['organization_id']        = new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Organization'), 'add_empty' => true), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
@@ -84,7 +101,7 @@ class SurveyManagementForm extends LtSurveyForm {
     $this->widgetSchema['is_legal']               = new sfWidgetFormInputCheckbox();
     $this->widgetSchema['is_list']                = new sfWidgetFormInputCheckbox();
 
-    $this->widgetSchema['candidate_type']         = new sfCustomWidgetFormChoice(array("add_empty" => "", "choices" => LtSurvey::$candidate_types_array), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
+    $this->widgetSchema['candidate_type']         = new sfCustomWidgetFormChoice(array("add_empty" => "", "choices" => $candidate_types), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
     //$this->widgetSchema['eligibility_criteria']   = new sfWidgetFormTextarea(array(), array("class" => "admin_survey_management_textarea"));
     $this->widgetSchema['special_criterias_list'] = new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'LtSpecialCriteria'), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));
     $this->widgetSchema['practice_areas_list']    = new sfCustomWidgetFormChoice(array("choices" => $practice_area_choices, "multiple" => true), array("style" => "width: 281px; height: 16px; margin-bottom: 0 !important;"));

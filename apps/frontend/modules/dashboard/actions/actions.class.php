@@ -1463,13 +1463,19 @@ class dashboardActions extends sfActions {
                     }else{
                         $survey_frequency = "- - -";
                     }
-
-                    $survey_contact_person = ltrim(ltrim($survey->getContact()->getLastName() .
+                    if($survey->getContact())
+                    {
+                        $survey_contact_person = ltrim(ltrim($survey->getContact()->getLastName() .
                         ", " .
                         $survey->getContact()->getFirstName() .
                         " (" .
                         $survey->getContact()->getEmailAddress() .
                         ")", ','), ' ');
+                    }
+                    else
+                    {
+                        $survey_contact_person = "";
+                    }
                 }
 
                 //            if ($surveys->getFirst()) {

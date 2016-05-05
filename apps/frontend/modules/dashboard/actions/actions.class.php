@@ -1286,7 +1286,6 @@ class dashboardActions extends sfActions {
         $survey_first_name = $name['first_name'];
         $survey_last_name = $name['last_name'];
 
-        $this->getContext()->getConfiguration()->loadHelpers('tcpdf_include','tcpdf');
 
         // Get request parameters
         $survey_ids = $request->getParameter("surveys_for_print", FALSE);

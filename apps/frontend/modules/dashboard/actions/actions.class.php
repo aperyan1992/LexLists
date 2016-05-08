@@ -1360,7 +1360,7 @@ class dashboardActions extends sfActions {
                     }
 
                     $special_criterias = "- - -";
-                    if (isset($survey->getLtSurveySpecialCriteria()->getFirst())) {
+                    if ($survey->getLtSurveySpecialCriteria()->getFirst()) {
                         $special_criteria_array = array();
                         foreach ($survey->getLtSurveySpecialCriteria() as $special_criteria) {
                             $special_criteria_array[] = $special_criteria->getSpecialCriteria()->getName();
@@ -1376,7 +1376,7 @@ class dashboardActions extends sfActions {
                     // }
 
                     $practice_areas = "- - -";
-                    if (isset($survey->getLtSurveyPracticeArea()->getFirst())) {
+                    if ($survey->getLtSurveyPracticeArea()->getFirst()) {
                         $practice_area_array = array();
                         foreach ($survey->getLtSurveyPracticeArea() as $practice_area) {
                             $practice_area_array[] = $practice_area->getPracticeArea()->getShortCode();
@@ -1385,7 +1385,9 @@ class dashboardActions extends sfActions {
                     }
 
                     $geographic_area = "- - -";
-                    if(isset($survey->getRegion()->getName()) || isset($survey->getLtSurveyCity()->getFirst()) || isset($survey->getLtSurveyState()->getFirst()) || isset($survey->getLtSurveyCountry()->getFirst())) {
+                    if($survey->getRegion())
+                    {
+                        if($survey->getRegion()->getName() || $survey->getLtSurveyCity()->getFirst() || $survey->getLtSurveyState()->getFirst() || $survey->getLtSurveyCountry()->getFirst()) {
                         // Get region
                         $region = "";
                         if($survey->getRegion()) {
@@ -1399,11 +1401,13 @@ class dashboardActions extends sfActions {
                                 $region .= "; ";
                             }
                         }
+                    }
+                    
 
                         // Get cities
                         $cities = "";
 
-                        if (isset($survey->getLtSurveyCity()->getFirst())) {
+                        if ($survey->getLtSurveyCity()->getFirst()) {
 
                             $cities_array = array();
                             foreach ($survey->getLtSurveyCity() as $city) {
@@ -1415,7 +1419,7 @@ class dashboardActions extends sfActions {
 
                         // Get countries
                         $countries = "";
-                        if(isset($survey->getLtSurveyCountry()->getFirst())) {
+                        if($survey->getLtSurveyCountry()->getFirst()) {
                         }
                             $countries_array = array();
                             foreach ($survey->getLtSurveyCountry() as $country) {
@@ -1426,7 +1430,7 @@ class dashboardActions extends sfActions {
 
                         // Get states
                         $states = "";
-                        if(isset($survey->getLtSurveyState()->getFirst())) {
+                        if($survey->getLtSurveyState()->getFirst()) {
                             $states_array = array();
                             foreach ($survey->getLtSurveyState() as $state) {
                                 $states_array[] = $state->getState()->getName();

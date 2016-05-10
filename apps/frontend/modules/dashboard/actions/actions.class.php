@@ -1286,7 +1286,6 @@ class dashboardActions extends sfActions {
         $survey_first_name = $name['first_name'];
         $survey_last_name = $name['last_name'];
 
-        $this->getContext()->getConfiguration()->loadHelpers('tcpdf_include','tcpdf');
 
         // Get request parameters
         $survey_ids = $request->getParameter("surveys_for_print", FALSE);
@@ -1386,7 +1385,9 @@ class dashboardActions extends sfActions {
                     }
 
                     $geographic_area = "- - -";
-                    if($survey->getRegion()->getName() || $survey->getLtSurveyCity()->getFirst() || $survey->getLtSurveyState()->getFirst() || $survey->getLtSurveyCountry()->getFirst()) {
+                    if($survey->getRegion())
+                    {
+                        if($survey->getRegion()->getName() || $survey->getLtSurveyCity()->getFirst() || $survey->getLtSurveyState()->getFirst() || $survey->getLtSurveyCountry()->getFirst()) {
                         // Get region
                         $region = "";
                         if($survey->getRegion()) {
@@ -1400,6 +1401,8 @@ class dashboardActions extends sfActions {
                                 $region .= "; ";
                             }
                         }
+                    }
+                    
 
                         // Get cities
                         $cities = "";
@@ -1464,13 +1467,19 @@ class dashboardActions extends sfActions {
                     }else{
                         $survey_frequency = "- - -";
                     }
-
-                    $survey_contact_person = ltrim(ltrim($survey->getContact()->getLastName() .
+                    if($survey->getContact())
+                    {
+                        $survey_contact_person = ltrim(ltrim($survey->getContact()->getLastName() .
                         ", " .
                         $survey->getContact()->getFirstName() .
                         " (" .
                         $survey->getContact()->getEmailAddress() .
                         ")", ','), ' ');
+                    }
+                    else
+                    {
+                        $survey_contact_person = "";
+                    }
                 }
 
                 //            if ($surveys->getFirst()) {

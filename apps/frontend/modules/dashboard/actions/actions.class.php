@@ -990,7 +990,7 @@ class dashboardActions extends sfActions {
         $survey_first_name = $name['first_name'];
         $survey_last_name = $name['last_name'];
 
-        $this->getContext()->getConfiguration()->loadHelpers('tcpdf_include','tcpdf');
+        //$this->getContext()->getConfiguration()->loadHelpers('tcpdf_include','tcpdf');
 
         $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
         $pdf->SetPrintHeader(false);

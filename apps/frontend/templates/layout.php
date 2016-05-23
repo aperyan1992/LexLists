@@ -43,12 +43,12 @@
 
             <!-- Logo -->
             <?php switch($_SERVER['HTTP_HOST']) {
-                case "23.254.166.198": $logo = "LexListsLogoDev.jpg";break;
-                case "http://demo.mylexlists.com/": $logo = "LexListsLogoDemo.jpg";break;
+                case "23.254.166.198": $logo = "LexListsLogoDemo.jpg";break;
+                case "demo.mylexlists.com": $logo = "LexListsLogoDemo.jpg";break;
                 case "104.168.162.106": $logo = "LexListsLogoNew.jpg";break;
-                case "http://mylexlists.com/": $logo = "LexListsLogoNew.jpg";break;
-                case "23.254.209.251": $logo = "LexListsLogoDemo.jpg";break;
-                case "http://dev.mylexlists.com/": $logo = "LexListsLogoDev.jpg";break;
+                case "mylexlists.com": $logo = "LexListsLogoNew.jpg";break;
+                case "23.254.209.251": $logo = "LexListsLogoDev.jpg";break;
+                case "dev.mylexlists.com": $logo = "LexListsLogoDev.jpg";break;
                 default: $logo = "LexListsLogoNew.jpg";
             } ?>
             <div id="logo" class="span3 logo_margin_left">
@@ -215,7 +215,7 @@
     <div id="copyright">
         <div class="container">
             <div class="row">
-                <div class="span8">Copyright 2012-2014 LexLists by LexSource. All Rights Reserved.</div>
+                <div class="span8">Copyright 2014-2016 LexLists by LexSource. All Rights Reserved.</div>
             </div>
         </div>
     </div><!-- #copyright -->

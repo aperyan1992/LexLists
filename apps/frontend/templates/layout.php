@@ -44,8 +44,12 @@
             <!-- Logo -->
             <?php switch($_SERVER['HTTP_HOST']) {
                 case "23.254.166.198": $logo = "LexListsLogoDev.jpg";break;
+                case "http://demo.mylexlists.com/": $logo = "LexListsLogoDemo.jpg";break;
                 case "104.168.162.106": $logo = "LexListsLogoNew.jpg";break;
-                default: $logo = "LexListsLogoDev.jpg";
+                case "http://mylexlists.com/": $logo = "LexListsLogoNew.jpg";break;
+                case "23.254.209.251": $logo = "LexListsLogoDemo.jpg";break;
+                case "http://dev.mylexlists.com/": $logo = "LexListsLogoDev.jpg";break;
+                default: $logo = "LexListsLogoNew.jpg";
             } ?>
             <div id="logo" class="span3 logo_margin_left">
                 <a href="<?php echo url_for("@homepage"); ?>"><img src="/images/<?php echo $logo; ?>" alt="LexLists"></a>

@@ -2012,7 +2012,7 @@ class dashboardActions extends sfActions {
                 $submission_deadline = (!is_null($survey->getSubmissionDeadline()) && $survey->getSubmissionDeadline() != "") ? $survey->getSubmissionDeadline() : "- - -";
 
                 // Get candidate type
-                $candidate_type = ($survey->getCandidateType() != 0 && isset(LtSurvey::$candidate_types_array[$survey->getCandidateType()])) ? LtSurvey::$candidate_types_array[$survey->getCandidateType()] : "- - -";
+                $candidate_type = ($survey->getCandidateType() != "" && $survey->getCandidateType()) ? $survey->getCandidateType() : "- - -";
 
                 // Get special criterias
                 $special_criterias = "- - -";

@@ -2128,7 +2128,8 @@ class dashboardActions extends sfActions {
                     $keywords =  $resquery[0]['keywords'];
                 }              
                 // Get frequency
-                $frequency = ($survey->getFrequency() != 0 && isset(LtSurvey::$frequency_types_array[$survey->getFrequency()])) ? LtSurvey::$frequency_types_array[$survey->getFrequency()] : "- - -";
+                
+                $frequency = ($survey->getFrequency() != "" && $survey->getFrequency()) ? $survey->getFrequency() : "- - -";
 
                 // Get contac person
                 $contact_person = "- - -";

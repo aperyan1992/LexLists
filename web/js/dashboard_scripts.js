@@ -1910,8 +1910,8 @@ $(document).ready(function() {
         "bDeferRender": true,
         "iDisplayLength": 25,
         "aLengthMenu": [
-            [10, 25, 50, 100, -1],
-            [10, 25, 50, 100, "All"]
+            [10, 25, 50, 100],
+            [10, 25, 50, 100]
         ],
         "sScrollX": "100%",
         "bScrollCollapse": true,

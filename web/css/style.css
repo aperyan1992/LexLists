@@ -3965,6 +3965,15 @@ input[readonly] {
     /*border: 1px solid #d4ccb0 !important;*/
 }
 
+#report_surveys_paginate a {
+	color: #ff6801 !important;
+	padding: 2px;
+}
+
+#report_surveys_paginate a:hover {
+	color: black !important;
+}
+
 #report_surveys_table .ui-state-default {
     border: none;
     background: none;

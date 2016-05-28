@@ -355,7 +355,7 @@ class dashboardActions extends sfActions {
                     if($survey['candidate_type'] != "")
                     {
                         $candidate_type = $survey['candidate_type'];
-                        $candidate_type = ($survey['candidate_type'] != 0 && isset(LtSurvey::$candidate_types_array[$survey['candidate_type']])) ? LtSurvey::$candidate_types_array[$survey['candidate_type']] : "- - -";
+                        //$candidate_type = ($survey['candidate_type'] != 0 && isset(LtSurvey::$candidate_types_array[$survey['candidate_type']])) ? LtSurvey::$candidate_types_array[$survey['candidate_type']] : "- - -";
                     }
                     else
                     {
@@ -401,9 +401,8 @@ class dashboardActions extends sfActions {
                     {
                         $keywords =  $survey['keywords'];
                     }
-
                     // Set submission deadline
-                    $submission_deadline = (!is_null($survey['submission_deadline']) && $survey['submission_deadline'] != "") ? date("d-M-Y", strtotime($this->CheckStringLength($survey['submission_deadline'], 50))) : "- - -";
+                    $submission_deadline = (!is_null($survey['submission_deadline']) && $survey['submission_deadline'] != "" && $survey['submission_deadline'] != "1970-01-01") ? date("d-M-Y", strtotime($this->CheckStringLength($survey['submission_deadline'], 50))) : "- - -";
 
                     // Set eligibility
                     //$eligibility = (!is_null($survey['eligibility_criteria']) && $survey['eligibility_criteria'] != "") ? $this->CheckStringLength($survey['eligibility_criteria'], 50) : "- - -";

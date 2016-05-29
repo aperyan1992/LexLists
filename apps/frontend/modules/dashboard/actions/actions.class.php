@@ -369,7 +369,7 @@ class dashboardActions extends sfActions {
 
                     // Set special criteria
                     $special_criterias = "- - -";
-                    if ($survey['special_criteria_name']) {
+                    if ($survey['special_criteria_name'] && $survey['special_criteria_name'] != "") {
                         $special_criterias = $survey['special_criteria_name'];
                     }
 

@@ -3968,6 +3968,7 @@ input[readonly] {
 #report_surveys_paginate a {
 	color: #ff6801 !important;
 	padding: 2px;
+	font-size: 85%;
 }
 
 #report_surveys_paginate a:hover {

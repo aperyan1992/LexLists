@@ -1242,7 +1242,7 @@ class mySurveyActions extends sfActions {
                     $submission_deadline = (!is_null($survey->getSurvey()->getSubmissionDeadline()) && $survey->getSurvey()->getSubmissionDeadline() != "") ? $survey->getSurvey()->getSubmissionDeadline() : "- - -";
 
                     // Get candidate type
-                    $candidate_type = ($survey->getSurvey()->getCandidateType() != 0 && isset(LtSurvey::$candidate_types_array[$survey->getSurvey()->getCandidateType()])) ? LtSurvey::$candidate_types_array[$survey->getSurvey()->getCandidateType()] : "- - -";
+                    $candidate_type = ($survey->getSurvey()->getCandidateType() != "" && $survey->getSurvey()->getCandidateType() != null) ? $survey->getSurvey()->getCandidateType() : "- - -";
 
                     // Get special criterias
                     $special_criterias = "- - -";
@@ -1263,7 +1263,7 @@ class mySurveyActions extends sfActions {
                     if ($survey->getSurvey()->getLtSurveyPracticeArea()->getFirst()) {
                         $practice_area_array = array();
                         foreach ($survey->getSurvey()->getLtSurveyPracticeArea() as $practice_area) {
-                            $practice_area_array[] = $practice_area->getPracticeArea()->getShortCode();
+                            $practice_area_array[] = $practice_area->getPracticeArea();
                         }
 
                         $practice_areas = implode(", ", $practice_area_array);
@@ -1351,7 +1351,7 @@ class mySurveyActions extends sfActions {
                         $keywords =  $resquery[0]['keywords'];
                     }
                     // Get frequency
-                    $frequency = ($survey->getSurvey()->getFrequency() != 0) ? LtSurvey::$frequency_types_array[$survey->getSurvey()->getFrequency()] : "- - -";
+                    $frequency = ($survey->getSurvey()->getFrequency() != "") ? $survey->getSurvey()->getFrequency() : "- - -";
 
                     // Get contac person
                     $contact_person = "- - -";

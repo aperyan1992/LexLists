@@ -193,14 +193,14 @@
                 </div>
             </div>
             
-            <div class="multiple_actions_block" style="display: none;">
+            <div class="multiple_actions_block" style="">
                 <form id="print_form" target="_blank" method="POST" action="<?php echo url_for("@print_survey"); ?>" style="display: none;">
                     <select name="surveys_for_print[]" multiple="multiple" id="surveys_for_print"></select>
                     <input type="hidden" name="hidden_section_name_for_log" value="mylist">
                 </form>
                 <input type="button" id="multiple_print" class="btn btn-success" value="Print" />
-                <input type="button" id="multiple_email" class="btn btn-success" value="E-mail" />
-                <input type="button" id="multiple_save" class="btn btn-success" value="Save" />
+                <input type="button" id="multiple_email" class="btn btn-success" value="E-mail" style="display:none;"/>
+                <input type="button" id="multiple_save" class="btn btn-success" value="Save" style="display:none;"/>
             </div>
 
         </div>

@@ -195,21 +195,21 @@
                     <tr>
                         <th style="width:45px !important;"><input type="checkbox" style="float:left;margin-left:0px" id="table_checkbox_select_all" class="main_table_checkbox" />  <span style="margin-left:5px;border-left: 1px solid #d4ccb0;width:19px;height:34px;position:absolute;">&nbsp;</span></th>
 
-                        <th style="width: 60px !important">Year</th>
+                        <th>Year</th>
 
-                        <th style="width: 60px !important">Organization</th>
-                        <th style="width: 60px !important">Award</th>
-                        <th style="width: 60px !important">Candidate Type</th>
-                        <th style="width: 60px !important">Practice Area/Industry</th>
-                        <th style="width: 60px !important">Special Criteria</th>
-                        <th style="width: 60px !important">Region</th>
-                        <th style="width: 60px !important">City</th>
-                        <th style="width: 60px !important">State</th>
-                        <th style="width: 60px !important">Country</th>
-                        <th style="width: 60px !important">Deadline</th>
+                        <th>Organization</th>
+                        <th>Award</th>
+                        <th>Candidate Type</th>
+                        <th>Practice Area/Industry</th>
+                        <th>Special Criteria</th>
+                        <th>Region</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Country</th>
+                        <th>Deadline</th>
 
-                        <th style="width: 60px !important">Description</th>
-                        <th style="width: 60px !important">Keywords</th>
+                        <th>Description</th>
+                        <th>Keywords</th>
                     </tr>
                     </thead>
                     <tbody></tbody>
@@ -220,7 +220,7 @@
                     <tr>
                         <th style="width:45px !important;"><input type="checkbox" style="float:left;margin-left:0px" id="table_checkbox_select_all" class="main_table_checkbox" />  <span style="margin-left:5px;border-left: 1px solid #d4ccb0;width:19px;height:34px;position:absolute;">&nbsp;</span></th>
 
-                        <th style="width: 60px !important">Year</th>
+                        <th>Year</th>
 
                         <th>Organization</th>
                         <th>Award</th>

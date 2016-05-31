@@ -1600,7 +1600,7 @@ class dashboardActions extends sfActions {
                     <p style="font-size: 3.6mm;font-weight: bold;">LexLists.com: Discover Awards!</p>
 
                     <p style="font-size: 2.7mm;">Sharing or using this output in any way outside its intended use is a violation of the License Terms & Agreement.
-                    Copyright 2012-2015 LexLists by LexSource. All Rights Reserved.</p>
+                    Copyright 2016 LexLists by LexSource. All Rights Reserved.</p>
                     ';
 
                     $pdf->writeHTML($html5, true, false, true, false, '');
@@ -1625,7 +1625,7 @@ class dashboardActions extends sfActions {
                    <p style="font-size: 3.6mm;font-weight: bold;">LexLists.com: Discover Awards!</p>
 
                    <p style="font-size: 2.7mm;">Sharing or using this output in any way outside its intended use is a violation of the License Terms & Agreement.
-                       Copyright 2012-2015 LexLists by LexSource. All Rights Reserved.</p>
+                       Copyright 2016 LexLists by LexSource. All Rights Reserved.</p>
                    ';
 
                 $pdf->writeHTML($html5, true, false, true, false, '');
@@ -1897,7 +1897,7 @@ class dashboardActions extends sfActions {
                     <p style="font-size: 3.6mm;font-weight: bold;">LexLists.com: Discover Awards!</p>
 
                     <p style="font-size: 2.7mm;">Sharing or using this output in any way outside its intended use is a violation of the License Terms & Agreement.
-                    Copyright 2012-2015 LexLists by LexSource. All Rights Reserved.</p>
+                    Copyright 2016 LexLists by LexSource. All Rights Reserved.</p>
                     ';
 
                     $pdf->writeHTML($html, true, false, true, false, '');

@@ -610,7 +610,7 @@ class mySurveyActions extends sfActions {
                     }
                     $past_due_bubble = "";
                     $is_past_due     = 0;
-                    $survey_checkbox = '<input type="checkbox" style="float:left" class="table_checkbox" /><div style="float:right" class="menu-drop-wrapper">
+                    $survey_checkbox = '<input type="checkbox" style="float:left" class="table_checkbox" s_id="'.$survey->getSurvey()->getId().'"/><div style="float:right" class="menu-drop-wrapper">
                                         <a href="#" class="menu_link">
                     <span class="genericon genericon-menu"></span>
                                         </a>

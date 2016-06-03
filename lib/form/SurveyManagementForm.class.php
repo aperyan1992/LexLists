@@ -74,6 +74,10 @@ class SurveyManagementForm extends LtSurveyForm {
                 {
                     $v = substr($v, 1);
                 }
+                if(substr($v, -1, 1) == " ")
+                {
+                    $v = substr($v, 0, -1);
+                }
                 $v = ucfirst($v);
                 if(!in_array($v, $candidate_types))
                 {

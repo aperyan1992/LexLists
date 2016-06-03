@@ -12,7 +12,7 @@ class SurveyManagementForm extends LtSurveyForm {
      *
      */
     public function configure() {
-    // Remove fields
+    // Remove fields01101
     $this->removeFields();
     
     // Get years range
@@ -38,7 +38,7 @@ class SurveyManagementForm extends LtSurveyForm {
         $practice_area_choices[$practice['id']] = $practice['name'];
     }
 
-    $contact_choices       = Doctrine_Core::getTable("LtSurveyContact")->getSurveyContacts();
+    $contact_choices = Doctrine_Core::getTable("LtSurveyContact")->getSurveyContacts();
 
     $query = 'SELECT keywords FROM surveys';
     $resquery = Doctrine_Manager::getInstance()->getCurrentConnection()->execute($query)->fetchAll();
@@ -70,6 +70,11 @@ class SurveyManagementForm extends LtSurveyForm {
             $keys = explode(";", $value['candidate_type']);
             foreach($keys as $v)
             {
+                if(substr($v, 0, 1) == " ")
+                {
+                    $v = substr($v, 1);
+                }
+                $v = ucfirst($v);
                 if(!in_array($v, $candidate_types))
                 {
                     $candidate_types[] =  $v;
@@ -79,6 +84,7 @@ class SurveyManagementForm extends LtSurveyForm {
     }
 
     $contact_choices = array_unique($contact_choices);
+        var_dump($candidate_types);die;
     asort($candidate_types);
     asort($contact_choices);
     asort($statuses_array);

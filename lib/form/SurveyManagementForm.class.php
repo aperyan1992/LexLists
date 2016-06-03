@@ -84,7 +84,6 @@ class SurveyManagementForm extends LtSurveyForm {
     }
 
     $contact_choices = array_unique($contact_choices);
-        var_dump($candidate_types);die;
     asort($candidate_types);
     asort($contact_choices);
     asort($statuses_array);
